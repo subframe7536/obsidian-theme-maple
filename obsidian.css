@@ -1,0 +1,503 @@
+/*Fonts*/
+:root {
+    /*
+    If the font isn't installed in the system, 
+    it will go down the list until it finds on that is.
+    */
+
+    --default-font: "Inter", sans-serif; /*Note and Settings Text*/
+    --font-monospace: "Source Code Pro", monospace; /*Code block text*/
+
+    /*
+    var(--variableName); is a variable,
+    so you can use what you set over and over without having
+    to rewrite it multiple times.
+    */
+}
+
+/*Dark Theme Variables*/
+.theme-dark {
+    --background-modifier-cover: rgba(0, 0, 0, 0.8); /*Obsidian Title Bar Bg*/
+    --background-primary: #202020; /*Note background*/
+    --background-primary-alt: #1a1a1a; /*Note Title background active*/
+    --background-secondary: #161616; /*Sidebar background*/
+    --background-secondary-alt: #000000; /*Sidebar Title background*/
+    
+    --background-modifier-border: #333; /*Border outline of quotes, tables, line breaks*/
+    
+    --text-normal: #dcddde; /*Text body of note*/
+    --text-muted: ; /*Text darker for sidebar, toggles, inactive, tags, etc*/
+    --text-accent: #7f6df2; /*Links*/
+    --text-accent-hover: #8875ff; /*Links hover*/
+    --text-faint: #666; /*Link brackets color & Gutter Numbers*/
+
+    --text-highlight-bg: rgba(255, 255, 0, 0.4); /*Search Matches*/
+    --text-highlight-bg-active: rgba(255, 128, 0, 0.4); /*Active Search Match (Preview Mode)*/
+    --text-selection: rgba(23, 48, 77, 0.99); /*Text Selections*/
+
+    --interactive-normal: #2a2a2a; /*Button Color*/
+    --interactive-hover: #303030; /*Button Hovered Color*/
+    --interactive-accent: #483699; /*Workspace Note Title Underline*/
+    --interactive-accent-hover: #4d3ca6; /*Menu Button Hover*/
+    
+    --scrollbar-bg: rgba(255, 255, 255, 0.05); /*Scrollbar Gutter Background*/
+    --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1); /*Scrollbar Color*/
+    --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2); /*Scrollbar Dragged Color*/
+}
+
+.theme-light {
+    --background-primary: #ffffff; /*Note background*/
+    --background-primary-alt: #f5f6f8; /*Note Title background active*/
+    --background-secondary: #f2f3f5; /*Sidebar background*/
+    --background-secondary-alt: #e3e5e8; /*Sidebar Title background*/
+    
+    --background-modifier-border: #ddd; /*Border outline of quotes, tables, line breaks*/
+
+    --text-normal: #2e3338; /*Text body of note*/
+    --text-muted: #888888; /*Text darker for sidebar, toggles, inactive, tags, etc*/
+    --text-accent: #705dcf; /*Links*/
+    --text-accent-hover: #7a6ae6; /*Links hover*/
+    --text-faint: #999999; /*Link brackets color*/
+
+    --text-highlight-bg: rgba(255, 255, 0, 0.4); /*Search Matches*/
+    --text-highlight-bg-active:rgba(255, 128, 0, 0.4); /*Active Search Match (Preview Mode)*/
+    --text-selection: rgba(23, 48, 77, 0.99); /*Text Selections*/
+    
+    --interactive-normal: #f2f3f5; /*Button background Color*/
+    --interactive-hover:#e9e9e9; /*Button Hovered Color*/
+    --interactive-accent: #7b6cd9; /*Workspace Note Title Underline*/
+    --interactive-accent-hover: #8273e6; /*Menu Button Hover*/
+    
+    --scrollbar-bg: rgba(0, 0, 0, 0.05); /*Scrollbar Gutter Background*/
+    --scrollbar-thumb-bg: rgba(0, 0, 0, 0.1); /*Scrollbar Color*/
+    --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.2); /*Scrollbar Dragged Color*/
+}
+
+/*Box Sizing Reset - this makes it easier to set any ::before and ::after pseudo-elements' dimensions,
+since it includes any border and padding into the height and width values you set.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}*/
+
+/*----Startup Progress Bar Screen----*/
+/*Startup Progress Bar Window*/
+.progress-bar {}
+
+/*Startup Text*/
+.progress-bar .progress-bar-message {}
+
+/*Startup Progress Bar Background*/
+.progress-bar-indicator .progress-bar-line {}
+
+/*Startup Progress Bar Moving Line*/
+.progress-bar-indicator .progress-bar-subline {}
+
+
+/*----Settings----*/
+/*All Popup Windows: Settings*/
+.modal {}
+
+/*Command Palette & Quick Switcher*/
+.prompt {}
+
+/*The notifications in the top right*/
+.notice {}
+
+/*Context Menu (Right CLick sth)*/
+.menu {}
+
+/*Setting Dropdown*/
+.dropdown {}
+
+/*Community Themes Browser*/
+.community-theme {}
+
+/*Community Plugins Browser*/
+.community-plugin {}
+
+
+/*--Extras--*/
+
+/*Tooltip Popup*/
+.tooltip {}
+
+
+
+/*----Workspace----*/
+/* ribbons, the thin vertical bars to the far left/right */
+.workspace-ribbon {}
+
+/*Side Panels*/
+.workspace-tabs {}
+
+/*Side Panel: Icons*/
+.workspace-tab-header-inner-icon {}
+
+
+
+
+/*--File Explorer--*/
+
+/*Nav Top: Create Note, Sort, Create Folder*/
+.nav-header {}
+
+/*Folder*/
+.nav-folder {}
+.nav-folder-title {}
+
+/*Files*/
+.nav-file {}
+.nav-file-title {}
+/* (also applies to many plugins displaying file lists in the side bar) */
+
+
+/*Status Bar*/
+.status-bar {}
+
+/*--Title Bar--*/
+
+/*Title Bar*/
+.titlebar {}
+
+/*Navigation Button - Back */
+.mod-back {}
+
+/*Navigation Button - Forward*/
+.mod-forward {}
+
+/*Window Control- Minimize*/
+.mod-minimize {}
+
+/*Window Control- Minimize*/
+.mod-maximize {}
+
+/*Window Control- Close*/
+.mod-close {}
+
+
+
+/*Buttons*/
+/*Default Buttons*/
+button {}
+/*Settings Buttons*/
+button.mod-cta {}
+/*Warning Buttons*/
+button.mod-warning{}
+
+
+
+/*--Workspace: Notes--*/
+/*Note Title Bar*/
+.workspace-leaf .view-header {}
+
+/*Inactive Note Titlebar*/
+/*Note Title Bar: Text*/
+.view-header-title {}
+
+/*Note Title Bar: Note Icon*/
+.view-header-icon {}
+
+/*Note Title Bar: Settings Icons*/
+.view-action {}
+
+/*Active Note Titlebar*/
+/*Note Title Bar: Text*/
+.workspace-leaf.mod-active .view-header-title {}
+
+/*Note Title Bar: Note Icon*/
+.workspace-leaf.mod-active .view-header-icon {}
+
+/*Note Title Bar: Settings Icons*/
+.workspace-leaf.mod-active .view-action {}
+
+
+
+
+
+
+
+/*----Notes----*/
+.cm-s-obsidian:not(.is-live-preview) {} /*Source Mode*/
+.markdown-source-view {} /*Source Mode*/
+
+.cm-s-obsidian.is-live-preview {} /*Live Preview Mode*/
+
+.markdown-preview-view {} /*Reading Mode*/
+
+/*--Emphasis--*/
+
+/*Bold*/
+strong {} /*Reading View*/
+.cm-s-obsidian .cm-strong {} /*Editing View*/
+
+/*Italic/Emphasis*/
+em {} /*Reading View*/
+.cm-em {} /*Editing View*/
+
+/*Highlight*/
+.markdown-preview-view mark {} /*Reading View*/
+.cm-s-obsidian .cm-highlight {} /*Editing View*/
+.cm-s-obsidian .cm-formatting-highlight {} /*Editing View highlight symbols/syntax*/
+
+/*Strikethrough*/
+.cm-strikethrough {} /*Editing View*/
+del {} /*Reading View*/
+
+/*--Headers/Headings--*/
+h1 {} /*Reading Mode*/
+h2 {} /*Reading Mode*/
+h3 {} /*Reading Mode*/
+h4 {} /*Reading Mode*/
+h5 {} /*Reading Mode*/
+h6 {} /*Reading Mode*/
+.cm-header-1 {} /*Source Mode*/
+.cm-header-2 {} /*Source Mode*/
+.cm-header-3 {} /*Source Mode*/
+.cm-header-4 {} /*Source Mode*/
+.cm-header-5 {} /*Source Mode*/
+.cm-header-6 {} /*Source Mode*/
+
+.cm-header {} /* applies to all source mode headings */
+
+
+
+/*--Horizontal Line--*/
+hr {} /*Reading Mode*/
+.hr.cm-line {} /*Source Mode*/
+.HyperMD-hr-bg {} /*Source Mode*/
+
+/*HR Line Text*/
+.cm-s-obsidian pre.HyperMD-hr {} /*Source Mode*/
+
+
+
+
+/*--Comments--*/
+/* html comments and obsidian style comments */
+.cm-comment {}
+
+
+
+
+/*--Code--*/
+code {}
+
+/*Inline Code*/
+.cm-s-obsidian span.cm-inline-code {} /*Source Mode*/
+.markdown-preview-view code {} /*Reading Mode*/
+
+/*Codeblock (no language specified) */
+.markdown-preview-view pre {} /*Reading Mode*/
+.cm-s-obsidian pre.HyperMD-codeblock {} /*Source Mode*/
+
+/*Codeblock: Language Specified: ```js*/
+.markdown-preview-view pre[class*=language-] {} /*Reading Mode*/
+.markdown-preview-view code[class*=language-] {} /*Reading Mode*/
+
+
+
+
+/*--Links--*/
+.cm-s-obsidian span.cm-hmd-internal-link {} /*Source Mode*/
+
+/*Wiki Links*/
+a.internal-link {} /*Reading Mode*/
+
+/*Markdown Links*/
+a.external-link {} /*Reading Mode*/
+
+/*Link to No Page*/
+a.internal-link.is-unresolved {} /*Reading Mode*/
+
+
+
+
+/*--Lists--*/
+.cm-s-obsidian .HyperMD-list-line {} /*Source Mode*/
+
+/*List Bullet/Number/Formatting*/
+li::marker {} /*Reading Mode*/
+span.cm-formatting-list-ul {} /*Source Mode*/
+span.cm-formatting-list-ol {} /*Source Mode*/
+
+/*Bullet Lists*/
+ul {} /*Reading Mode*/
+
+/*Bullet List Text*/
+ul li {} /*Reading Mode*/
+
+/*Bullet List Symbol*/
+ul li::marker {} /*Reading Mode*/
+
+/*Numbered Lists*/
+ol {} /*Reading Mode*/
+
+/*Numbered List Text*/
+ol li {} /*Reading Mode*/
+
+/*Numbered List Number*/
+ol li::marker {} /*Reading Mode*/
+
+/*Checkbox List*/
+li.task-list-item {} /*Reading Mode*/
+input[type=checkbox i] {} /*Reading Mode*/
+
+/*Checked Checkbox*/
+.markdown-preview-view .task-list-item-checkbox:checked {} /*Reading Mode*/
+input[type=checkbox]:checked {} /*Reading Mode*/
+
+
+
+
+
+/*--Blockquotes--*/
+.markdown-preview-view blockquote {}
+
+
+
+
+
+/*--Tables--*/
+table {} /*Reading Mode*/
+
+/*Table Headers*/
+table th {} /*Reading Mode*/
+
+/*Table Column*/
+table td {} /*Reading Mode*/
+
+/*Table Row*/
+table tr {} /*Reading Mode*/
+.cm-s-obsidian .HyperMD-table-row {} /*Source Mode*/
+
+
+
+
+/*--Tags--*/
+a.tag {} /*Reading Mode*/
+.cm-s-obsidian span.cm-hashtag {} /*Source Mode*/
+
+
+
+
+
+/*--Frontmatter/Metadata/Yaml--*/
+.frontmatter-container {} /*Reading Mode*/
+.CodeMirror-line .cm-s-obsidian .cm-hmd-frontmatter {} /*Source Mode*/
+
+/*Frontmatter Tag*/
+.frontmatter-container .frontmatter-alias {} /*Reading Mode*/
+
+
+
+
+
+/*--Embeds--*/
+.markdown-preview-view .markdown-embed {} /*Reading Mode*/
+.internal-embed.is-loaded:not(.image-embed) {} /*Reading Mode*/
+
+.markdown-source-view.mod-cm6 .cm-embed-block {} /*Live Preview Mode*/
+.markdown-source-view .markdown-embed:not(.mod-empty) {} /*Live Preview Mode*/
+
+/*File Embed*/
+.markdown-preview-view .file-embed {} /*Reading Mode*/
+.markdown-source-view .file-embed:not(.mod-empty) {} /*Live Preview Mode*/
+
+/*Empty/No Embed Found*/
+.markdown-source-view .markdown-embed.mod-empty {} /*Live Preview Mode*/
+.markdown-source-view .file-embed.mod-empty {} /*Live Preview Mode*/
+
+/*Embed Titles*/
+.markdown-embed-title {} /*Reading Mode*/
+.file-embed-title {} /*Reading Mode*/
+
+/*Embed Link*/
+.markdown-embed-link {}
+.file-embed-link {}
+
+
+/*--Footnotes--*/
+
+/*Footnote link in note*/
+.markdown-preview-view a.footnote-link {} /*Reading View*/
+
+/*Reference Number in text*/
+.cm-s-obsidian span.cm-footref {} /*Editing View*/
+
+/*Footnotes section at the bottom of the note*/
+.markdown-preview-view .footnotes {} /*Reading View*/
+
+/*Footnote back ref (arrow) at the bottom of the note*/
+.footnote-backref {} /*Reading View*/
+
+
+/*--Graph--*/
+
+.graph-view.color-fill {
+	color: var(--text-muted); /*color of nodes*/
+}
+.graph-view.color-fill-focused { /*color of focused node/note*/
+	color: #ffdd00;
+}
+.theme-dark .graph-view.color-fill-tag { /*dark mode tag color*/
+	color: #704214;
+}
+.theme-light .graph-view.color-fill-tag { /*light mode tag color*/
+	color: #E0D3AF;
+}
+.theme-dark .graph-view.color-fill-attachment { /*dark mode attachment color*/
+	color: #1a356b;
+}
+.theme-light .graph-view.color-fill-attachment { /*light mode attachment color*/
+	color: #83D4F4;
+}
+.graph-view.color-fill-unresolved { /*unresolved(not created yet) notes*/
+	color: var(--text-muted);
+	opacity: 0.4;
+}
+.graph-view.color-arrow { /*arrow color*/
+	color: var(--text-normal);
+	opacity: 0.5;
+}
+.graph-view.color-circle { /*focused node border color*/
+	color: var(--text-normal);
+}
+.graph-view.color-line { /*link color*/
+	color: var(--background-modifier-border);
+}
+.graph-view.color-text { /*text color*/
+	color: var(--text-normal);
+}
+.graph-view.color-fill-highlight { /*focused node color*/
+	color: var(--interactive-accent);
+}
+.graph-view.color-line-highlight { /*focused node connections*/
+	color: var(--interactive-accent);
+}
+
+.graph-controls {} /*Graph Menu*/
+
+/* Cursor */
+.cm-cursorLayer .cm-cursor {
+	/* border-left: ... */
+}
+
+/* animation of the blinking */
+.cm-cursorLayer {
+	/* deactivate built-in animation from CodeMirror */
+	animation-name: none !important; /* important needed */
+}
+
+@keyframes phase-blink {
+	15% { opacity: 1 }
+	50% { opacity: 0 }
+	85% { opacity: 1 }
+}
+
+.cm-cursorLayer .cm-cursor {
+	animation-duration: 2200ms;
+	animation-name: phase-blink;
+}
