@@ -1043,8 +1043,6 @@ kbd {
 }
 .cm-line span.cm-hashtag {
   --tag-padding-y: 0.1rem;
-  // margin-top: -4px;
-  // display: inline-block;
   font-size: var(--font-text-size);
   line-height: calc(var(--line-height-normal) - 0.2) !important;
   caret-color: var(--text-on-accent);
