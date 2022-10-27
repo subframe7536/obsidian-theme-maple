@@ -1,0 +1,162 @@
+// 日历
+#calendar-container {
+  .nav {
+    padding-left: var(--size-4-1);
+    .title {
+      display: flex;
+      flex-direction: row-reverse;
+      font-weight: normal;
+      font-size: 1.2rem;
+
+      .year {
+        color: var(--text-normal);
+        letter-spacing: 1px;
+        height: 26px;
+        line-height: 26px;
+
+        &::after {
+          content: '年';
+          margin-right: var(--size-2-1);
+          margin-left: var(--size-2-1);
+        }
+      }
+      .month {
+        height: 26px;
+        line-height: 26px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        color: var(--accent-active);
+      }
+    }
+  }
+  thead {
+    border-bottom: 2px solid var(--accent-active);
+  }
+}
+.excalidraw {
+  .popover {
+    border-radius: var(--radius-m) !important;
+    border: 1px solid var(--background-modifier-border-hover) !important;
+    box-shadow: var(--shadow-s) !important;
+  }
+  .context-menu {
+    border-radius: var(--radius-m) !important;
+    border: none !important;
+    padding: 5px 0 !important;
+    background-color: var(--background-secondary) !important;
+    margin: 0 !important;
+    li {
+      padding: 4px !important;
+      button {
+        border-radius: 6px;
+        padding: 4px;
+        padding-left: 24px;
+        & > div {
+          margin-inline-end: 4px !important;
+        }
+        kbd {
+          border: 0;
+          box-shadow: none;
+        }
+      }
+    }
+    .context-menu-option-separator {
+      border: 1px solid var(--background-modifier-border);
+      margin: 4px 0 !important;
+    }
+    .context-menu-option:hover {
+      background-color: var(--nav-item-background-hover);
+      color: var(--text-normal);
+
+      kbd {
+        background-color: var(--background-primary) !important;
+      }
+    }
+  }
+
+  h3 {
+    font-weight: bold !important;
+    color: inherit !important;
+    &::before {
+      content: none;
+    }
+  }
+  .panelColumn {
+    :is(h3, legend, .control-label) {
+      font-size: 0.9rem !important;
+    }
+  }
+}
+.better-command-palette {
+  p.better-command-palette-title {
+    margin: 12px 24px;
+  }
+}
+/*style setting*/
+.style-settings-heading + .style-settings-container {
+  padding: var(--size-4-1) 0 var(--size-4-1) var(--size-4-6);
+  border-left: var(--nav-indentation-guide-width) solid
+    var(--nav-indentation-guide-color);
+  transition: var(--animation);
+  &:hover {
+    border-color: var(--accent-active);
+  }
+  // .setting-item {
+  //   padding: var(--size-4-2) 0;
+  // }
+}
+.style-settings-container {
+  .setting-item:first-child {
+    padding-top: inherit;
+  }
+  .setting-item:is([data-id^='accent-hue']) {
+    input.slider {
+      height: 0.8em;
+      --hue-slider-sat: 70%;
+      --hue-slider-br: 50%;
+      background: linear-gradient(
+        to right,
+        hsl(0 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(30 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(60 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(90 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(120 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(150 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(180 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(210 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(240 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(270 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(300 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(330 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(360 var(--hue-slider-sat) var(--hue-slider-br))
+      );
+      border-radius: 2px;
+      &::-webkit-slider-thumb {
+        height: 1.6em;
+        width: 4px;
+        background-color: var(--text-muted);
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: var(--radius-m);
+        &:hover {
+          box-shadow: none;
+          background-color: var(--text-normal);
+        }
+      }
+    }
+    .setting-item-control::before {
+      content: ' ';
+      font-size: 0.7em;
+      text-align: center;
+      white-space: pre-wrap;
+      height: 1.6em;
+      width: 1.6em;
+      color: var(--text-normal);
+      background-color: hsl(var(--accent-hue-light, 116), 32%, 58%);
+      position: relative;
+      right: 1em;
+      border-radius: var(--radius-s);
+    }
+  }
+}

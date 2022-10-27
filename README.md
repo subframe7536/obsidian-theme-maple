@@ -1,12 +1,11 @@
-# Obsidian Template Theme
+## Maple
 
-Press `Use this template` to use this template for your Obsidian theme!
+an Obsidian theme still in dev, using `Style Setting` to custom preference
 
-## Get started
-- [Guides for Obsidian Theme Designers](https://publish.obsidian.md/hub/04+-+Guides%2C+Workflows%2C+%26+Courses/for+Theme+Designers)
-- [Theme Design Utilities Plugin](https://github.com/chrisgrieser/obsidian-theme-design-utilities)
-- [Example vault with a huge collection of test notes](https://github.com/obsidian-community/theme-dev-vault)
+### outline
 
-## Theme Ready?
-- Replace the `promo_screenshot.png` with a screenshot of your theme.
-- [How to add your theme to the community theme store](https://publish.obsidian.md/hub/04+-+Guides%2C+Workflows%2C+%26+Courses/Guides/How+to+add+your+theme+to+the+community+theme+store)
+![](./img/%E5%A4%A7%E7%BA%B2.gif)
+
+### usage
+
+put `obsidian.css` to `your-vault/.obsidian/snippets` and turn on

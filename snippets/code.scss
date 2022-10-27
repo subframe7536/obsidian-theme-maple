@@ -1,0 +1,204 @@
+body {
+  --inline-code: var(--color-red);
+  --code-background: var(--md-container-bg);
+  --code-function: var(--color-orange);
+  --code-important: var(--color-purple);
+  --code-keyword: var(--color-purple);
+  --code-property: var(--color-orange);
+  --code-punctuation: var(--color-blue);
+  --code-string: var(--color-green);
+  --code-tag: var(--color-red);
+  --code-value: var(--color-orange);
+  --code-comment: var(--text-faint);
+  --code-normal: var(--text-normal);
+}
+//行内代码
+
+.cm-hmd-codeblock.cm-formatting,
+.markdown-rendered code {
+  color: var(--inline-code);
+}
+.markdown-preview-view pre code {
+  color: var(--text-normal);
+}
+
+.cm-inline-code {
+  color: var(--inline-code) !important;
+
+  &.cm-header {
+    color: var(--inline-code) !important;
+  }
+}
+.cm-s-obsidian .cm-line {
+  --code-bg-radius: var(--radius-l);
+  --code-bg-border: 2px solid var(--nav-item-background-hover);
+  &.HyperMD-codeblock {
+    line-height: var(--line-height-normal);
+    color: var(--color-blue) !important;
+    border-left: var(--code-bg-border);
+    border-right: var(--code-bg-border);
+    border-radius: 0 !important;
+
+    &.HyperMD-codeblock-begin-bg {
+      border-top: var(--code-bg-border);
+      border-top-left-radius: var(--code-bg-radius) !important;
+      border-top-right-radius: var(--code-bg-radius) !important;
+    }
+    &.HyperMD-codeblock-end-bg {
+      border-bottom: var(--code-bg-border);
+      border-bottom-left-radius: var(--code-bg-radius) !important;
+      border-bottom-right-radius: var(--code-bg-radius) !important;
+    }
+  }
+}
+pre[class*='language-'] {
+  line-height: 1.8;
+  border-radius: var(--radius-l);
+  border: 2px solid var(--frame-outline-color);
+  transition: var(--animation);
+  &:hover {
+    border-color: var(--accent-active);
+    button.copy-code-button {
+      opacity: 1;
+    }
+  }
+  .copy-code-button {
+    letter-spacing: var(--size-4-1);
+    padding: 0 10px;
+    border-radius: 6px;
+    width: 50px;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    text-align: center;
+    opacity: 0;
+    background-color: transparent;
+    display: block !important;
+    transition: var(--animation);
+    font-size: 0.8rem;
+    margin: 0;
+    top: var(--size-4-1);
+    right: var(--size-4-1);
+
+    &:hover {
+      opacity: 1;
+      background-color: var(--nav-item-background-hover);
+    }
+  }
+}
+body.code-heading {
+  pre[class*='language-'] {
+    padding: 1.8rem 1rem;
+    position: relative;
+    &::before {
+      content: '未知语言';
+      font-family: var(--font-text);
+      color: var(--inline-code);
+      font-weight: bold;
+      font-size: 0.8rem;
+      position: absolute;
+      letter-spacing: 2px;
+      text-align: right;
+      right: 56px;
+      top: var(--size-4-1);
+      line-height: 1.6rem;
+    }
+  }
+  $language: c, properties, python, nginx, css, javascript, js, typescript, ts,
+    jsp, php, lua, shell, powershell, flow, sequence, sql, yaml, yml, ini, xml,
+    cs, cpp, java, html, txt, md, bat, json, groovy, scss, bash, cmd, latex, zig,
+    ssml, jsx, tsx, tsconfig, git, csharp, csv, cue, nginx, toml, kt, go, rust,
+    vue, regex;
+
+  @each $lan in $language {
+    pre[class~='language-#{$lan}']::before {
+      $t: to-upper-case(
+        $string: $lan
+      );
+      content: quote($t);
+    }
+  }
+}
+body.code-copy-button-english .app-container pre .copy-code-button {
+  letter-spacing: 0;
+  padding: 0 8px;
+}
+.markdown-source-view.mod-cm6 .code-block-flair {
+  padding-top: 0;
+  padding-bottom: 0;
+  color: var(--color-red);
+  transition: var(--animation);
+  &:hover {
+    background-color: var(--nav-item-background-hover);
+  }
+}
+body .app-container {
+  :is(.token.comment, .token.prolog, .token.doctype, .token.cdata, .cm-comment, .cm-meta) {
+    color: var(--code-comment);
+  }
+  .token.namespace {
+    opacity: 0.7;
+  }
+  :is(.token.tag, .token.constant, .token.symbol, .token.deleted, .cm-tag) {
+    color: var(--code-tag);
+  }
+  :is(.token.punctuation, .cm-punctuation, .cm-bracket, .cm-hr) {
+    color: var(--code-punctuation);
+  }
+  :is(.token.boolean, .token.number, .cm-number) {
+    color: var(--code-value);
+  }
+  :is(.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted, .cm-qualifier, .cm-string, .cm-string-2) {
+    color: var(--code-string);
+  }
+  :is(.token.entity, .token.parameter, .token.property, .token.property-access, .token.operator, .token.url, .language-css
+      .token.string, .style
+      .token.string, .token.variable, .cm-operator, .cm-link, .cm-variable, .cm-variable-2, .cm-variable-3) {
+    color: var(--code-property);
+  }
+  :is(.token.atrule, .token.attr-value, .token.function, .token.class-name, .cm-property, .cm-attribute, .cm-type) {
+    color: var(--code-function);
+  }
+  :is(.token.keyword, .cm-keyword, .cm-builtin) {
+    color: var(--code-keyword);
+  }
+  :is(.token.regex, .token.important) {
+    color: var(--code-important);
+  }
+  .token {
+    :is(&.attr-name, &.punctuation.annotation) {
+      color: var(--color-green);
+    }
+    :is(&.class-name, &.maybe-class-name) {
+      color: var(--color-red);
+    }
+    &.operator {
+      color: var(--color-blue);
+    }
+    :is(&.constant, &.unit, &.builtin) {
+      color: var(--color-purple);
+    }
+  }
+  .cm {
+    &-def {
+      color: var(--color-orange) !important;
+    }
+    :is(&-property, &-operator) {
+      color: var(--color-blue) !important;
+    }
+    //  {
+    //   color: var(--text-normal);
+    // }
+    :is(&-variable, &-variable-2, &-variable-3) {
+      color: var(--color-cyan) !important;
+    }
+    &-number + &-variable {
+      color: var(--color-orange) !important;
+    }
+    :is(&-type, &-atom) {
+      color: var(--color-purple) !important;
+    }
+    &-meta {
+      color: var(--color-green) !important;
+    }
+  }
+}
