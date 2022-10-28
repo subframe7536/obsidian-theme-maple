@@ -14,11 +14,6 @@ body {
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
 }
-body.font-maple {
-  --font-monospace: var(--monospace-custom, 'maplemono'),
-    var(--font-monospace-override), var(--font-monospace-theme),
-    var(--font-monospace-default);
-}
 html body.obsidian-app.fixed-theme-color {
   --accent-s: 32% !important;
   --accent-l: 58% !important;

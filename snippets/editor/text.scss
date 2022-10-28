@@ -11,6 +11,12 @@ body.font-fix-latex mjx-container {
     font-family: MJXZERO, EMBED-TEX-I;
   }
 }
+/* ====== 等宽字体 ====== */
+body.font-maple {
+  --font-monospace: var(--monospace-custom, 'maplemono'),
+    var(--font-monospace-override), var(--font-monospace-theme),
+    var(--font-monospace-default);
+}
 /* ====== 文本 ======= */
 .theme-light {
   --active-line: hsl(

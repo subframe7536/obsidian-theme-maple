@@ -59,8 +59,15 @@ settings:
     -
         id: scrollbar-hover-animation
         title: add scrollbar move in animation
-        description: maybe cause text color turn to --text-normal when no color specificate
-        description.zh: 为滚动条添加鼠标移入动画效果，如果容器内字体颜色没有设定会导致颜色全部变为编辑器文字颜色
+        description: ❗maybe cause text color turn to --text-normal when no color specificate
+        description.zh: 为滚动条添加鼠标移入动画效果❗如果容器内字体颜色没有设定，会导致颜色全部变为编辑器文字颜色
+        type: class-toggle
+        default: true
+    -
+        id: scrollbar-float
+        title: float scrollbar
+        description: The scroll bar appears without squeezing the parent container
+        description.zh: 悬浮滚动条，滚动条出现时不会对父容器产生挤压
         type: class-toggle
     -
         id: loading

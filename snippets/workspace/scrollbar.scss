@@ -1,5 +1,12 @@
 /* ======== 滚动条 ========== */
 
+body.scrollbar-float
+  :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type='outline']
+    .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type='markdown']
+    .cm-scroller, .markdown-preview-view, .suggestion-container
+    .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board) {
+  overflow-y: overlay; /* deprecated */
+}
 body.scrollbar-hover-animation
   :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type='outline']
     .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type='markdown']
@@ -7,7 +14,6 @@ body.scrollbar-hover-animation
     .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items) {
   color: transparent;
   transition: color var(--animation);
-  overflow-y: overlay; /* deprecated */
   /* scroll-behavior: smooth; */
   &:hover {
     color: hsla(var(--color-accent-hsl), 24%);
@@ -47,21 +53,18 @@ body.scrollbar-hover-animation
     color: hsla(var(--color-accent-hsl), 24%) !important;
   }
 }
-// todo style setting
-body:not(.scrollbar-hover-animation) *,
-textarea {
-  &::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-    background-color: transparent;
-
-    &-thumb {
-      border-radius: 6px;
-      background-color: transparent !important;
-      border: 3.6px solid var(--background-modifier-form-field) !important;
-    }
+:is(body:not(.scrollbar-hover-animation) *, textarea) {
+  &::-webkit-scrollbar-thumb {
+    border-width: 3.2px;
+    // border-radius: 6px;
+    background-color: transparent !important;
+    // border: 3.6px solid var(--background-modifier-form-field) !important;
+    // background-color: hsla(var(--color-accent-hsl), 30%) !important;
   }
   &:hover::-webkit-scrollbar-thumb {
-    background-color: hsla(var(--color-accent-hsl), 64%) !important;
+    background-color: hsla(var(--color-accent-hsl), 30%) !important;
+    &:active {
+      background-color: hsla(var(--color-accent-hsl), 64%) !important;
+    }
   }
 }
