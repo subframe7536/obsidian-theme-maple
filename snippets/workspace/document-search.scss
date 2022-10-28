@@ -1,0 +1,44 @@
+/* ====== 文档内搜索框 ======== */
+.obsidian-search-match-highlight {
+  background-color: var(--background-secondary);
+}
+.document-search-container {
+  position: absolute;
+  top: calc(var(--header-height) + var(--size-4-4));
+  right: var(--size-4-4);
+  border-radius: var(--size-4-2);
+  padding: var(--size-2-3) var(--size-4-1) var(--size-2-3) 0;
+  height: fit-content;
+  border: 2px solid var(--frame-outline-color);
+  box-shadow: var(--shadow-s);
+  margin: 0;
+
+  :is(.document-search, .document-replace) {
+    align-items: center;
+    padding: 0;
+    button:nth-child(3) {
+      display: none;
+    }
+  }
+  :is(.document-search-input, .document-replace-input) {
+    margin-left: 6px;
+  }
+  .document-search-close-button {
+    position: relative;
+    top: 0;
+  }
+}
+
+body.expand-on-focus-search-input {
+  :is(.document-search-input, .document-replace-input) {
+    margin-left: 6px;
+    width: 100px;
+    transition: var(--animation);
+  }
+  .document-search-input:focus {
+    width: 180px;
+  }
+  .document-replace-input:focus {
+    width: 220px;
+  }
+}

@@ -1,0 +1,61 @@
+/* ========== 分隔符 ============ */
+// reference from blue topaz
+// wrong number, maybe caused by node destroy ?
+// .markdown-preview-view {
+//   counter-reset: hr-source;
+//   hr {
+//     counter-increment: hr-source;
+//     &::after {
+//       content: counter(hr-source);
+//     }
+//   }
+// }
+// .markdown-source-view.mod-cm6 {
+//   counter-reset: hr-preview;
+//   hr {
+//     counter-increment: hr-preview;
+//     &::after {
+//       content: counter(hr-preview);
+//     }
+//   }
+// }
+.markdown-rendered hr {
+  margin-block-start: 2.4rem !important;
+  margin-block-end: 2.4rem !important;
+}
+:is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
+  overflow: initial;
+  margin-block-start: 1.6rem;
+  margin-block-end: 1.6rem;
+  border: none;
+  position: relative;
+  height: var(--size-4-1);
+  background-image: linear-gradient(
+    to right,
+    transparent 0%,
+    hsla(var(--color-accent-hsl), 40%) 16%,
+    hsla(var(--color-accent-hsl), 90%) 44%,
+    transparent 44%,
+    transparent 56%,
+    hsla(var(--color-accent-hsl), 90%) 56%,
+    hsla(var(--color-accent-hsl), 40%) 84%,
+    transparent 100%
+  );
+  &::after {
+    content: var(--hr-icon, '⭐');
+    display: inline-block;
+    font-family: var(--font-monospace);
+    font-size: var(--font-ui-small);
+    position: absolute;
+    text-align: center;
+    width: var(--input-height);
+    height: var(--input-height);
+    line-height: var(--input-height);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--accent-active);
+    background: var(--md-container-bg);
+    border-radius: 50%;
+  }
+}

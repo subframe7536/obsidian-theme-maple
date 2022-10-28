@@ -1,0 +1,30 @@
+/*====== tab栏 ======*/
+body.tab-float {
+  .workspace-tab-header-container {
+    --tab-outline-width: 0px !important;
+  }
+  .mod-root .workspace-tab-header-container-inner {
+    margin-top: 4px;
+    padding-bottom: 4px;
+  }
+  .mod-root .workspace-tab-header {
+    padding-bottom: 0 !important;
+    &.is-active {
+      --tab-radius-active: 6px;
+      box-shadow: var(--shadow-s);
+      border: 1px solid var(--color-base-30);
+    }
+    .workspace-tab-header-inner-close-button {
+      padding: 2px;
+    }
+  }
+  .workspace-split.mod-root .workspace-tab-header.is-active {
+    &::before,
+    &::after {
+      box-shadow: none;
+    }
+  }
+  .workspace-tab-header-new-tab {
+    padding-top: var(--size-4-1);
+  }
+}

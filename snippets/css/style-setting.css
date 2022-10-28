@@ -1,0 +1,333 @@
+/* @settings
+
+name: Maple
+id: Maple
+settings:
+    -
+        id: workspace
+        title: workspace
+        title.zh: 工作区
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: animation
+        title: animation
+        title.zh: 动画
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: expand-on-focus-search-input
+        title: search/replace input expand
+        description: expand search/replace input on focus
+        description.zh: 文档内搜索框获得焦点时扩大宽度
+        type: class-toggle
+    -
+        id: tab
+        title: tab
+        title.zh: tab栏
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: tab-float
+        title: float tabs
+        description: tab style like firefox / Microsoft Edge
+        description.zh: 仿 Firefox / Microsoft Edge tab栏
+        type: class-toggle
+    -
+        id: modal
+        title: modal
+        title.zh: 弹出面板
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-header
+        title: add header for setting panel
+        description: better with plugin “setting search”
+        description.zh: 为设置面板添加顶部框（配合 setting search 插件使用更佳）
+        type: class-toggle
+    -
+        id: scrollbar
+        title: scrollbar
+        title.zh: 滚动条
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: scrollbar-hover-animation
+        title: add scrollbar move in animation
+        description: maybe cause text color turn to --text-normal when no color specificate
+        description.zh: 为滚动条添加鼠标移入动画效果，如果容器内字体颜色没有设定会导致颜色全部变为编辑器文字颜色
+        type: class-toggle
+    -
+        id: loading
+        title: loading
+        title.zh: 加载图
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: loading-theme
+        title: loading theme
+        description.zh: 加载图样式
+        type: class-select
+        allowEmpty: false
+        default: loading-default
+        options:
+            - loading-default
+          #  - loading-img
+            - loading-text
+    #-
+    #    id: loading-img-url
+    #    title: loading image url
+    #    description: should be wrapped with url()
+    #    description.zh: 加载页面图片url，需要用url()包裹
+    #    type: variable-text
+    #    default: url(https://)
+    -
+        id: loading-text-content
+        title: loading typing style text
+        description: should not be to long
+        description.zh: 加载页面打字机效果文字，最好不要太多字
+        type: variable-text
+        default: "'快乐摸鱼中...............'"
+    -
+        id: editor
+        title: editor
+        title.zh: 编辑器
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: colors
+        title: accent colors
+        title.zh: 高亮颜色
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: fixed-theme-color
+        title: format accent color
+        description: normalize accent color for better compability to theme. after opening, only the hue will be adjust, saturation/lightness will be fixed
+        description.zh: 规范颜色，使颜色更适合主题。开启后主题色只调整 hue，固定 saturation/lightness
+        type: class-toggle
+    -
+        id: use-custom-color
+        title: use custom accent color
+        description: use style setting accent color instead of Obsidian's accent color
+        description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
+        type: class-toggle
+    -
+        id: accent-hue-light
+        title: light accent color (Hue)
+        type: variable-number-slider
+        default: 116
+        min: 0
+        max: 360
+        step: 5
+    -
+        id: accent-hue-dark
+        title: dark accent color (Hue)
+        type: variable-number-slider
+        default: 207
+        min: 0
+        max: 360
+        step: 5
+    -
+        id: links
+        title: link
+        title.zh: 链接
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: click-to-edit-link-in-live-preview
+        title: click to edit link in live preview
+        description: will disable hover animation
+        description.zh: live preview 模式时点击链接进行编辑而不是跳转（鼠标经过动画会消失）
+        type: class-toggle
+    -
+        id: heading
+        title: heading
+        title.zh: 标题
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: heading-style
+        title: heading style
+        title.zh: 标题样式
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: heading-h2-underline
+        title: add underline for h2
+        description: with line-gredient
+        description.zh: 添加 h2 下划线
+        type: class-toggle
+        default: true
+    -
+        id: heading-h6-variant
+        title: set font small-caps for h6
+        description: always capital style
+        description.zh: 添加 h6 small-caps（全大写）
+        type: class-toggle
+        default: true
+    -
+        id: heading-icon
+        title: heading icon
+        title.zh: 标题图标
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: heading-fix
+        title: always show heading icon
+        description: add border on hover
+        description.zh: 总是显示标题前置标志（鼠标经过时添加边框）
+        type: class-toggle
+    -
+        id: heading-only-text
+        title: don't show icon border or background
+        description: only show header level
+        description.zh: 只显示标题等级，没有边框或者背景色
+        type: class-toggle
+    -
+        id: heading-color
+        title: heading color
+        title.zh: 标题颜色
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: heading-h1-color
+        title: h1 color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: heading-h2-color
+        title: h2 color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: heading-h3-color
+        title: h3 color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: heading-h4-color
+        title: h4 color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: heading-h5-color
+        title: h5 color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: heading-h6-color
+        title: h6 color
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: font
+        title: font
+        title.zh: 字体
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: font-maple
+        title: use “Maple Mono” as monospace
+        description: https://github.com/subframe7536/Maple-font
+        description.zh: 使用 Maple Mono (https://github.com/subframe7536/Maple-font) 作为等宽字体
+        type: class-toggle
+        default: true
+    -
+        id: font-fix-latex
+        title: fix latex italic absent
+        description: latex in my vault always wrong rendered, so i make this setting
+        description.zh: 修复 latex 斜体问题（在我的仓库里经常渲染失败，只能自己打包一份woff进css了）
+        type: class-toggle
+    -
+        id: hr
+        title: hr
+        title.zh: 分隔行
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: hr-icon
+        title: icon
+        description: in the center of hr
+        description.zh: 分割行中部图标
+        type: variable-text
+        default: "'⭐'"
+    -
+        id: embed
+        title: embed
+        title.zh: 内嵌
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: embed-title-right-top
+        title: move embed title to right top
+        description: visiable on hover
+        description.zh: 内嵌文档标题移至右上角，鼠标经过时显示
+        type: class-toggle
+        default: true
+    -
+        id: code
+        title: code
+        title.zh: 代码
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: code-heading
+        title: add code block heading
+        description: with language
+        description.zh: 为代码块添加语言和间隔
+        type: class-toggle
+        default: true
+    -
+        id: code-copy-button-english
+        title: fix letter space of code copy button
+        type: class-toggle
+    -
+        id: tag
+        title: tag
+        title.zh: 标签
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: tag-click-to-edit
+        title: click to edit tags in Live-Preview mode
+        description: click '#' to jump
+        description.zh: 点击标签进行编辑，点击'#'跳转
+        type: class-toggle
+*/

@@ -1,0 +1,107 @@
+/* ========= 大纲 ========== */
+
+body {
+  /* 引导线粗细 */
+  --outline-guideline-width: 2px;
+  /* 引导线颜色 */
+  --outline-guideline-color: var(--accent-active);
+  /* 一行高度 */
+  --outline-item-height: calc(var(--nav-item-size) * 1.8);
+}
+.workspace-leaf-content[data-type='outline'] .view-content .outline {
+  .tree-item {
+    position: relative;
+    &-self {
+      position: relative;
+      margin-bottom: 0;
+      white-space: nowrap;
+      margin-top: -1px; /* fix item gap */
+      .tree-item-inner {
+        padding-left: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: var(--outline-item-height);
+        line-height: var(--outline-item-height);
+        &::before {
+          content: '';
+          width: var(--size-4-1);
+          height: var(--size-4-1);
+          border: 2px solid var(--outline-guideline-color);
+          border-radius: 50%;
+          position: absolute;
+          left: 7px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .tree-item-icon ~ .tree-item-inner {
+        padding-left: 4px;
+        &::before {
+          content: none;
+        }
+      }
+    }
+    &.is-collapsed .tree-item-icon::before {
+      box-shadow: 0 0 0 4px var(--background-modifier-hover);
+    }
+    &::after {
+      content: '';
+      width: var(--outline-guideline-width);
+      position: absolute;
+      background-color: transparent;
+      top: calc(var(--outline-item-height) / 2 * -1);
+      left: -10px;
+      height: calc(100% - var(--outline-item-height) + var(--size-4-8));
+    }
+    &-icon {
+      cursor: pointer;
+      &::before {
+        width: var(--size-4-2);
+        height: var(--size-4-2);
+        background-color: var(--outline-guideline-color);
+        border-radius: 50%;
+        position: absolute;
+        left: 7px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      svg path {
+        display: none;
+      }
+    }
+  }
+  .tree-item:hover {
+    > .tree-item-children > .tree-item::after {
+      background-color: var(--outline-guideline-color);
+    }
+    > .tree-item-self:hover + .tree-item-children .tree-item::after {
+      background-color: transparent;
+    }
+    > .tree-item-children > .tree-item:hover {
+      &::after,
+      & ~ .tree-item::after {
+        background-color: transparent;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: calc(var(--outline-item-height) / 2 * -1);
+        left: -10px;
+        bottom: calc(
+          100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px
+        );
+        width: 16px;
+        border-bottom-left-radius: var(--radius-m);
+        border-bottom: var(--outline-guideline-width) solid
+          var(--outline-guideline-color);
+        border-left: var(--outline-guideline-width) solid
+          var(--outline-guideline-color);
+      }
+    }
+  }
+  :is(.tree-item-children, .tree-item-self .tree-item-self) {
+    padding-left: 0;
+    margin-left: var(--size-4-5);
+    border-left: none;
+  }
+}

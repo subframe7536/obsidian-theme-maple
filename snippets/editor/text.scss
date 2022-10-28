@@ -1,0 +1,70 @@
+/* =========== 段落 =========== */
+.markdown-rendered p {
+  margin: var(--size-4-1) 0;
+}
+/* ====== latex 修复 ====== */
+body.font-fix-latex mjx-container {
+  mjx-utext {
+    font-family: var(--font-text) !important;
+  }
+  .TEX-I {
+    font-family: MJXZERO, EMBED-TEX-I;
+  }
+}
+/* ====== 文本 ======= */
+.theme-light {
+  --active-line: hsl(
+    calc(var(--accent-h) - 4),
+    calc(var(--accent-s) - 12%),
+    calc(100% - (100% - var(--accent-l)) / 6)
+  );
+}
+.theme-dark {
+  --active-line: hsla(
+    calc(var(--accent-h) - 24),
+    18%,
+    calc(var(--accent-l) / 4),
+    95%
+  );
+}
+body .app-container .markdown-source-view .cm-scroller {
+  .cm-line {
+    padding: {
+      left: var(--size-4-1);
+      right: var(--size-4-1);
+    }
+    &.cm-active {
+      background-color: var(--active-line);
+      border-radius: var(--radius-s);
+    }
+  }
+}
+
+/* ========== 键盘 =========== */
+kbd {
+  user-select: none;
+  border: 2px solid var(--frame-outline-color);
+  box-shadow: var(--shadow-s);
+  // font-family: var(--font-monospace);
+}
+::selection {
+  text-decoration-line: none !important;
+}
+body {
+  --bold-color: rgba(var(--color-red-rgb), 80%);
+  --italic-color: rgba(var(--color-red-rgb), 80%);
+}
+em,
+.cm-em,
+strong,
+.cm-strong {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: var(--size-4-1);
+}
+.workspace-leaf-content[data-type='markdown'] .view-header {
+  margin: 0;
+  padding: 0 var(--size-4-3);
+  border-bottom: 2px solid var(--frame-outline-color);
+  --file-header-font-size: calc(var(--font-ui-smaller) - 2px);
+}

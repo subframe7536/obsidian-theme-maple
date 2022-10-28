@@ -1,0 +1,22 @@
+@for $i from 1 through 6 {
+  $index-start: $i * 2 - 1;
+  $index-end: $i * 2;
+  .cm-line
+    :is(span.cm-hashtag:nth-child(12n
+        + #{$index-start}), span.cm-hashtag:nth-child(12n + #{$index-end})) {
+    background-color: var(
+      --tag-#{$i},
+      hsl(calc(var(--accent-h) + ($i - 1) * 60), 50%, 60%)
+    );
+    color: var(--text-on-accent) !important;
+  }
+}
+.cm-line span.cm-hashtag {
+  --tag-padding-y: 0.1rem;
+  font-size: var(--font-text-size);
+  line-height: calc(var(--line-height-normal) - 0.2) !important;
+  caret-color: var(--text-on-accent);
+}
+body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
+  pointer-events: none;
+}

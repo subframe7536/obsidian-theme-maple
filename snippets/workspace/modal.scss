@@ -1,0 +1,138 @@
+/* ========== 弹出面板 ============ */
+body {
+  --modal-width: min(90vw, var(--modal-max-width));
+  --modal-height: min(85vh, var(--modal-max-height));
+}
+:is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
+  background-color: var(--nav-item-background-active) !important;
+}
+:is(.document-search-close-button, .modal-close-button) {
+  height: var(--input-height);
+  width: var(--input-height);
+  &::before {
+    content: '';
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30"><g transform="matrix(0.7071067094802856,-0.7071067094802856,0.7071067094802856,0.7071067094802856,-3.5424977926304564,6.277729735826142)"><rect x="5.806640625" y="7.4150390625" width="2" height="24" rx="1" fill="currentColor"/></g><g style="mix-blend-mode:passthrough" transform="matrix(0.7071067094802856,0.7071067094802856,-0.7071067094802856,0.7071067094802856,10.914602712669875,-14.349200366239529)"><rect x="22.7783203125" y="6.00048828125" width="2" height="24" rx="1" fill="currentColor"/></g></svg>');
+    position: absolute;
+    background-color: var(--accent-active);
+    width: calc(var(--input-height) * 2 / 3);
+    height: calc(var(--input-height) * 2 / 3);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &:hover {
+    background-color: var(--accent-active);
+    &::before {
+      background-color: var(--text-on-accent);
+    }
+  }
+}
+body.setting-header .modal-container {
+  .mod-settings .modal-content {
+    background-color: var(--frame-background-color);
+    .vertical-tab-header {
+      border-top: 1px solid var(--divider-color);
+      margin-top: var(--size-4-12);
+      padding-top: 0;
+    }
+    .vertical-tab-content-container {
+      padding-top: var(--size-4-12);
+      .vertical-tab-content {
+        border-top: 1px solid var(--divider-color);
+        padding-top: var(--size-4-6);
+        padding-right: var(--size-4-8);
+        h2 {
+          font-size: var(--h2-size);
+          font-weight: var(--h2-weight);
+        }
+      }
+    }
+    .settings-search-container {
+      padding: 0;
+      .settings-search-input {
+        position: fixed;
+        top: calc(50vh - var(--modal-height) / 2 - var(--size-4-3) + 18px);
+        left: calc(50vw - var(--modal-width) / 2 + var(--size-4-3) - 6px);
+        width: calc(
+          clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-3) * 1
+        );
+      }
+    }
+    .hotkey-search-container {
+      top: calc(50vh - var(--modal-height) / 2 - var(--size-4-3) + 22px);
+      right: calc(50vw - var(--modal-width) / 2 + var(--size-4-12));
+      position: fixed;
+    }
+    .setting-hotkey {
+      font-family: var(--font-interface);
+    }
+    .plugin-list-plugins {
+      & > .setting-item {
+        padding: 0;
+        .setting-item-info {
+          display: none;
+        }
+        .setting-item-control {
+          display: block;
+          position: fixed;
+          top: calc(50vh - var(--modal-height) / 2 - var(--size-4-3) + 22px);
+          right: calc(50vw - var(--modal-width) / 2 + var(--size-4-12));
+        }
+      }
+    }
+  }
+}
+.modal-container {
+  .modal-bg {
+    backdrop-filter: blur(10px);
+  }
+  .modal-close-button {
+    top: 9px;
+    right: 9px !important;
+  }
+  :is(.mod-community-plugin, .mod-community-theme)
+    .community-modal-sidebar
+    .setting-item:first-child {
+    max-width: var(--modal-community-sidebar-width);
+  }
+  .mod-settings .modal-content {
+    .vertical-tab-header-group {
+      padding-bottom: 0;
+      &-title {
+        color: var(--text-accent);
+        font-size: var(--font-text-size);
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+          height: calc(100% - var(--size-4-3));
+          width: var(--size-4-1);
+          top: var(--size-2-3);
+          left: calc(var(--size-4-1) * -1);
+          background-color: var(--accent-active);
+          border-radius: var(--size-2-1);
+        }
+      }
+    }
+    .setting-hotkey {
+      box-shadow: var(--shadow-s);
+      border: 2px solid var(--frame-outline-color);
+      background-color: var(--code-background);
+      border-radius: var(--radius-s);
+      font-size: var(--font-ui-smaller);
+      padding: 0.1em 0.25em;
+    }
+    .setting-item-heading .setting-item-name {
+      font-weight: bold;
+      font-size: var(--font-ui-medium);
+    }
+  }
+}
+
+body
+  .modal-container
+  .style-settings-container
+  .setting-item[data-id='accent-hue-dark']
+  .setting-item-control::before {
+  background-color: hsl(var(--accent-hue-dark, 207), 32%, 58%);
+}

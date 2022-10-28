@@ -1,0 +1,35 @@
+/* ====== 日历 ====== */
+#calendar-container {
+  .nav {
+    padding-left: var(--size-4-1);
+    .title {
+      display: flex;
+      flex-direction: row-reverse;
+      font-weight: normal;
+      font-size: 1.2rem;
+
+      .year {
+        color: var(--text-normal);
+        letter-spacing: 1px;
+        height: 26px;
+        line-height: 26px;
+
+        &::after {
+          content: '年';
+          margin-right: var(--size-2-1);
+          margin-left: var(--size-2-1);
+        }
+      }
+      .month {
+        height: 26px;
+        line-height: 26px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        color: var(--accent-active);
+      }
+    }
+  }
+  thead {
+    border-bottom: 2px solid var(--accent-active);
+  }
+}

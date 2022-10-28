@@ -1,0 +1,40 @@
+/* ======== 标题栏 ========== */
+.titlebar-button.mod-close:hover {
+  color: var(--text-on-accent);
+}
+.workspace-tab-header-new-tab {
+  padding-bottom: var(--size-2-1);
+}
+/* minimal theme 片段 frame-color */
+:is(body, body.is-focused) {
+  :is(.mod-top
+      .workspace-tab-header-container, .sidebar-toggle-button.mod-left, .titlebar),
+  .workspace-ribbon.mod-left:before {
+    --titlebar-container: var(--frame-outline-color);
+    --frame-divider-color: var(--frame-outline-color);
+    --titlebar-background: var(--frame-background-color);
+    --titlebar-background-focused: var(--frame-background-color);
+    --tab-container-background: var(--frame-background-color);
+    --titlebar-text-color: var(--frame-muted-color);
+    --tab-outline-color: var(--frame-outline-color);
+    --tab-divider-color: var(--frame-outline-color);
+    --background-modifier-hover: var(--frame-outline-color);
+    --icon-color: var(--frame-muted-color);
+    --icon-color-hover: var(--frame-muted-color);
+    --icon-color-focus: var(--text-on-accent);
+    --tab-text-color: var(--frame-muted-color);
+    --tab-text-color-hover: var(--frame-muted-color);
+    --tab-text-color-focused: var(--frame-muted-color);
+  }
+  .clickable-icon:active {
+    color: var(--text-normal);
+  }
+}
+.workspace.is-left-sidedock-open
+  .sidebar-toggle-button.mod-left
+  .clickable-icon,
+.workspace.is-right-sidedock-open
+  .sidebar-toggle-button.mod-right
+  .clickable-icon {
+  color: hsl(var(--color-accent-hsl));
+}

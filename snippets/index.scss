@@ -1,7 +1,7 @@
+@use './css/style-setting.css';
 @use './css/variable.css';
 @use './css/fonts.css';
 @use './css/icons.css';
-@use './code.scss';
-@use './markdown.scss';
-@use './panel.scss';
-@use './plugin.scss';
+@use './editor/editor';
+@use './plugins/plugin';
+@use './workspace/workspace';

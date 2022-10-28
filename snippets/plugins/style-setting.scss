@@ -1,0 +1,65 @@
+/* ====== style setting ====== */
+.style-settings-heading + .style-settings-container {
+  padding: var(--size-4-1) 0 var(--size-4-1) var(--size-4-6);
+  border-left: var(--nav-indentation-guide-width) solid
+    var(--nav-indentation-guide-color);
+  transition: var(--animation);
+  &:hover {
+    border-color: var(--accent-active);
+  }
+}
+.style-settings-container {
+  .setting-item:first-child {
+    padding-top: inherit;
+  }
+  .setting-item:is([data-id^='accent-hue']) {
+    input.slider {
+      height: 0.8em;
+      --hue-slider-sat: 70%;
+      --hue-slider-br: 50%;
+      background: linear-gradient(
+        to right,
+        hsl(0 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(30 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(60 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(90 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(120 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(150 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(180 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(210 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(240 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(270 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(300 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(330 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(360 var(--hue-slider-sat) var(--hue-slider-br))
+      );
+      border-radius: 2px;
+      &::-webkit-slider-thumb {
+        height: 1.6em;
+        width: 4px;
+        background-color: var(--text-muted);
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: var(--radius-m);
+        &:hover {
+          box-shadow: none;
+          background-color: var(--text-normal);
+        }
+      }
+    }
+    .setting-item-control::before {
+      content: ' ';
+      font-size: 0.7em;
+      text-align: center;
+      white-space: pre-wrap;
+      height: 1.6em;
+      width: 1.6em;
+      color: var(--text-normal);
+      background-color: hsl(var(--accent-hue-light, 116), 32%, 58%);
+      position: relative;
+      right: 1em;
+      border-radius: var(--radius-s);
+    }
+  }
+}

@@ -12,7 +12,7 @@ body {
   --code-comment: var(--text-faint);
   --code-normal: var(--text-normal);
 }
-//行内代码
+/* ====== 行内代码 ====== */
 
 .cm-hmd-codeblock.cm-formatting,
 .markdown-rendered code {
@@ -48,6 +48,29 @@ body {
       border-bottom: var(--code-bg-border);
       border-bottom-left-radius: var(--code-bg-radius) !important;
       border-bottom-right-radius: var(--code-bg-radius) !important;
+    }
+  }
+}
+body {
+  --block-outline-width: 3px;
+}
+.cm-embed-block {
+  box-shadow: none !important;
+  border: var(--block-outline-width) solid transparent;
+  border-radius: var(--radius-l) !important;
+  transition: var(--animation);
+  &:hover {
+    border-color: var(--accent-active);
+  }
+  .edit-block-button {
+    border-radius: calc(var(--radius-l) / 2) !important;
+    transition: var(--animation);
+  }
+  &.cm-table-widget {
+    border: none;
+    .edit-block-button {
+      top: 14px;
+      right: 6px;
     }
   }
 }
