@@ -1,17 +1,24 @@
 /* ======== 滚动条 ========== */
 
-body.scrollbar-float
+/* ! overflow: overlay is deprecated */
+body.scrollbar-float {
   :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type='outline']
-    .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type='markdown']
-    .cm-scroller, .markdown-preview-view, .suggestion-container
-    .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board) {
-  overflow-y: overlay; /* property deprecated */
+      .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type='markdown']
+      .cm-scroller, .markdown-preview-view, .suggestion-container
+      .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board) {
+    overflow-y: overlay;
+  }
+  .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container {
+    overflow-x: overlay;
+  }
 }
+
 body.scrollbar-hover-animation
   :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type='outline']
     .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type='markdown']
     .cm-scroller, .markdown-preview-view, .suggestion-container
-    .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results) {
+    .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .mod-stacked
+    .workspace-tab-container) {
   color: transparent;
   transition: color var(--animation);
   /* scroll-behavior: smooth; */
@@ -25,19 +32,16 @@ body.scrollbar-hover-animation
     width: 12px !important;
     height: 12px !important;
     background-color: transparent !important;
-
     &-track {
       background-color: transparent !important;
       box-shadow: none !important;
     }
-
     &-thumb {
       box-shadow: inset 0 0 0 10px !important;
       border-radius: 6px !important;
       background-clip: content-box;
       background-color: transparent !important;
       border: 3.6px solid transparent !important;
-
       &:active {
         background-color: hsla(var(--color-accent-hsl), 64%) !important;
       }
@@ -56,10 +60,7 @@ body.scrollbar-hover-animation
 :is(body:not(.scrollbar-hover-animation) *, textarea) {
   &::-webkit-scrollbar-thumb {
     border-width: 3.2px;
-    // border-radius: 6px;
     background-color: transparent !important;
-    // border: 3.6px solid var(--background-modifier-form-field) !important;
-    // background-color: hsla(var(--color-accent-hsl), 30%) !important;
   }
   &:hover::-webkit-scrollbar-thumb {
     background-color: hsla(var(--color-accent-hsl), 30%) !important;
