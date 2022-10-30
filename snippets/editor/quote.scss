@@ -64,7 +64,8 @@ body {
       height: calc(100% - var(--quote-guide-line-width) * 2);
     }
   }
-  .cm-line:not(.HyperMD-quote) + .HyperMD-quote:not(.callout) {
+  :is(.internal-embed, .cm-line:not(.HyperMD-quote))
+    + .HyperMD-quote:not(.callout) {
     &::before {
       top: var(--quote-guide-line-width);
       height: calc(100% - var(--quote-guide-line-width) * 2);

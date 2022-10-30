@@ -77,7 +77,7 @@ body.use-custom-color.theme-dark.css-settings-manager {
   );
   --background-modifier-cover: var(--color-base-70) !important;
 
-  --md-container-bg: hsl(calc(var(--accent-h) - 8), 30%, 96%);
+  --md-container-bg: hsl(calc(var(--accent-h) - 8), 30%, 95%);
 }
 .theme-dark {
   --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 8));

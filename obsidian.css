@@ -495,7 +495,7 @@ body.use-custom-color.theme-dark.css-settings-manager {
     calc(var(--accent-l) - 10%)
   );
   --background-modifier-cover: var(--color-base-70) !important;
-  --md-container-bg: hsl(calc(var(--accent-h) - 8), 30%, 96%);
+  --md-container-bg: hsl(calc(var(--accent-h) - 8), 30%, 95%);
 }
 
 .theme-dark {
@@ -2228,11 +2228,11 @@ body {
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout)::before {
   height: calc(100% - var(--quote-guide-line-width) * 2);
 }
-.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.HyperMD-quote) + .HyperMD-quote:not(.callout)::before {
+.markdown-source-view.mod-cm6.is-live-preview :is(.internal-embed, .cm-line:not(.HyperMD-quote)) + .HyperMD-quote:not(.callout)::before {
   top: var(--quote-guide-line-width);
   height: calc(100% - var(--quote-guide-line-width) * 2);
 }
-.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.HyperMD-quote) + .HyperMD-quote:not(.callout)::after {
+.markdown-source-view.mod-cm6.is-live-preview :is(.internal-embed, .cm-line:not(.HyperMD-quote)) + .HyperMD-quote:not(.callout)::after {
   content: none;
 }
 .markdown-source-view.mod-cm6.is-live-preview .cm-content :first-child:is(.HyperMD-quote)::after {
@@ -2515,12 +2515,17 @@ body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
   margin: var(--size-4-1) 0;
 }
 
-/* ====== latex 修复 ====== */
-body.font-fix-latex mjx-container mjx-utext {
+body mjx-container mjx-utext {
   font-family: var(--font-text) !important;
 }
+
+/* ====== latex 修复 ====== */
 body.font-fix-latex mjx-container .TEX-I {
   font-family: MJXZERO, EMBED-TEX-I;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scaleX(450) !important;
 }
 
 /* ====== 等宽字体 ====== */
@@ -3417,17 +3422,21 @@ body {
 }
 
 /* ======== 滚动条 ========== */
+/* ! overflow: overlay is deprecated */
 body.scrollbar-float :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content,
 .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller,
 .markdown-preview-view, .suggestion-container .suggestion,
 .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board) {
-  overflow-y: overlay; /* property deprecated */
+  overflow-y: overlay;
+}
+body.scrollbar-float .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container {
+  overflow-x: overlay;
 }
 
 body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content,
 .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller,
 .markdown-preview-view, .suggestion-container .suggestion,
-.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results) {
+.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .mod-stacked .workspace-tab-container) {
   color: transparent;
   transition: color var(--animation);
   /* scroll-behavior: smooth; */
@@ -3435,19 +3444,19 @@ body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, 
 body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content,
 .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller,
 .markdown-preview-view, .suggestion-container .suggestion,
-.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results):hover {
+.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .mod-stacked .workspace-tab-container):hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
 body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content,
 .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller,
 .markdown-preview-view, .suggestion-container .suggestion,
-.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results) > :not(h1, h2, h3, h4, h5, h6) {
+.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .mod-stacked .workspace-tab-container) > :not(h1, h2, h3, h4, h5, h6) {
   color: var(--text-normal);
 }
 body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content,
 .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller,
 .markdown-preview-view, .suggestion-container .suggestion,
-.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results)::-webkit-scrollbar {
+.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .mod-stacked .workspace-tab-container)::-webkit-scrollbar {
   width: 12px !important;
   height: 12px !important;
   background-color: transparent !important;
@@ -3455,14 +3464,14 @@ body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, 
 body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content,
 .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller,
 .markdown-preview-view, .suggestion-container .suggestion,
-.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results)::-webkit-scrollbar-track {
+.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .mod-stacked .workspace-tab-container)::-webkit-scrollbar-track {
   background-color: transparent !important;
   box-shadow: none !important;
 }
 body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content,
 .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller,
 .markdown-preview-view, .suggestion-container .suggestion,
-.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results)::-webkit-scrollbar-thumb {
+.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .mod-stacked .workspace-tab-container)::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 0 10px !important;
   border-radius: 6px !important;
   background-clip: content-box;
@@ -3472,7 +3481,7 @@ body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, 
 body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content,
 .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller,
 .markdown-preview-view, .suggestion-container .suggestion,
-.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results)::-webkit-scrollbar-thumb:active {
+.prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .mod-stacked .workspace-tab-container)::-webkit-scrollbar-thumb:active {
   background-color: hsla(var(--color-accent-hsl), 64%) !important;
 }
 
