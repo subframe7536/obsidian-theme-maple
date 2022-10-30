@@ -1,8 +1,23 @@
 /* ====== tag ====== */
+
 body.tag-colorful {
   @for $i from 1 through 6 {
     $index-start: $i * 2 - 1;
     $index-end: $i * 2;
+    &.theme-light {
+      --tag-#{$i}-default: hsl(
+        calc(var(--accent-h) + (#{$i} - 1) * 60),
+        50%,
+        60%
+      );
+    }
+    &.theme-dark {
+      --tag-#{$i}-default: hsl(
+        calc(var(--accent-h) + (#{$i} - 1) * 60),
+        30%,
+        40%
+      );
+    }
     :is(.markdown-preview-section
         > div
         a.tag:nth-of-type(6n + #{$i}), .HyperMD-list-line
@@ -12,10 +27,7 @@ body.tag-colorful {
         > :is(span.cm-hashtag-begin:nth-of-type(12n
             + #{$index-start}), span.cm-hashtag-end:nth-of-type(12n
             + #{$index-end}))) {
-      background-color: var(
-        --tag-#{$i},
-        hsl(calc(var(--accent-h) + ($i - 1) * 60), 50%, 60%)
-      );
+      background-color: var(--tag-#{$i}, var(--tag-#{$i}-default));
       color: var(--text-on-accent) !important;
     }
   }
