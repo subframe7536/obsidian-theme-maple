@@ -96,24 +96,6 @@ body.setting-header .modal-container {
     max-width: var(--modal-community-sidebar-width);
   }
   .mod-settings .modal-content {
-    .vertical-tab-header-group {
-      padding-bottom: 0;
-      &-title {
-        color: var(--text-accent);
-        font-size: var(--font-text-size);
-        position: relative;
-        &::before {
-          content: '';
-          position: absolute;
-          height: calc(100% - var(--size-4-3));
-          width: var(--size-4-1);
-          top: var(--size-2-3);
-          left: calc(var(--size-4-1) * -1);
-          background-color: var(--accent-active);
-          border-radius: var(--size-2-1);
-        }
-      }
-    }
     .setting-hotkey {
       box-shadow: var(--shadow-s);
       border: 2px solid var(--frame-outline-color);
@@ -129,10 +111,25 @@ body.setting-header .modal-container {
   }
 }
 
-body
+body.setting-group-title
   .modal-container
-  .style-settings-container
-  .setting-item[data-id='accent-hue-dark']
-  .setting-item-control::before {
-  background-color: hsl(var(--accent-hue-dark, 207), 32%, 58%);
+  .mod-settings
+  .modal-content
+  .vertical-tab-header-group {
+  padding-bottom: 0;
+  &-title {
+    color: var(--text-accent);
+    font-size: var(--font-text-size);
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      height: calc(100% - var(--size-4-3));
+      width: var(--size-4-1);
+      top: var(--size-2-3);
+      left: calc(var(--size-4-1) * -1);
+      background-color: var(--accent-active);
+      border-radius: var(--size-2-1);
+    }
+  }
 }

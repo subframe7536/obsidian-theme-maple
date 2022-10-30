@@ -50,6 +50,13 @@ settings:
         description.zh: 为设置面板添加顶部框（配合 setting search 插件使用更佳）
         type: class-toggle
     -
+        id: setting-group-title
+        title: add style for left navigation group title
+        description: left guide line
+        description.zh: 为左侧选项组标题添加样式
+        type: class-toggle
+        default: true
+    -
         id: scrollbar
         title: scrollbar
         title.zh: 滚动条
@@ -192,13 +199,13 @@ settings:
         collapsed: true
         level: 4
     -
-        id: heading-fix
+        id: heading-icon-fix
         title: always show heading icon
         description: add border on hover
         description.zh: 总是显示标题前置标志（鼠标经过时添加边框）
         type: class-toggle
     -
-        id: heading-only-text
+        id: heading-icon-only-text
         title: don't show icon border or background
         description: only show header level
         description.zh: 只显示标题等级，没有边框或者背景色
@@ -337,4 +344,71 @@ settings:
         description: click '#' to jump
         description.zh: 点击标签进行编辑，点击'#'跳转
         type: class-toggle
+    -
+        id: tag-colorful
+        title: colorful tag
+        description: ❗maybe different style between edit mode and preview mode
+        description.zh: 多彩标签❗编辑模式和预览模式颜色会不一样
+        type: class-toggle
+    -
+        id: tag-colorful-setting
+        title: tag color
+        title.zh: 标签颜色
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: tag-1
+        title: colorful tag 1
+        description.zh: 多彩标签 颜色1
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: tag-2
+        title: colorful tag 2
+        description.zh: 多彩标签 颜色2
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: tag-3
+        title: colorful tag 3
+        description.zh: 多彩标签 颜色3
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: tag-4
+        title: colorful tag 4
+        description.zh: 多彩标签 颜色4
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: tag-5
+        title: colorful tag 5
+        description.zh: 多彩标签 颜色5
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: tag-6
+        title: colorful tag 6
+        description.zh: 多彩标签 颜色6
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
 */

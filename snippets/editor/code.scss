@@ -16,6 +16,8 @@ body {
 
 .cm-hmd-codeblock.cm-formatting,
 .markdown-rendered code {
+  --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
+  // --code-size: var(--font-text-size);
   color: var(--inline-code);
 }
 .markdown-preview-view pre code {
@@ -24,6 +26,8 @@ body {
 
 .cm-inline-code {
   color: var(--inline-code) !important;
+  --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
+  border-radius: var(--size-4-1);
 
   &.cm-header {
     color: var(--inline-code) !important;
@@ -33,7 +37,7 @@ body {
   --code-bg-radius: var(--radius-l);
   --code-bg-border: 2px solid var(--nav-item-background-hover);
   &.HyperMD-codeblock {
-    line-height: var(--line-height-normal);
+    line-height: calc(var(--line-height-normal) - 0.2);
     color: var(--color-blue) !important;
     border-left: var(--code-bg-border);
     border-right: var(--code-bg-border);
@@ -74,8 +78,11 @@ body {
     }
   }
 }
+code[class*='language-'],
 pre[class*='language-'] {
-  line-height: 1.8;
+  line-height: calc(var(--line-height-normal) - 0.2);
+}
+body .app-container pre {
   border-radius: var(--radius-l);
   border: 2px solid var(--frame-outline-color);
   transition: var(--animation);

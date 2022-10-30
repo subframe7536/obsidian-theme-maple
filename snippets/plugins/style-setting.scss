@@ -62,4 +62,12 @@
       border-radius: var(--radius-s);
     }
   }
+  .setting-item[data-id='accent-hue-dark'] .setting-item-control::before {
+    background-color: hsl(var(--accent-hue-dark, 207), 32%, 58%);
+  }
+}
+body:not(.loading-text) .setting-item[data-id='loading-text-content'],
+body:not(.use-custom-color) .setting-item[data-id^='accent-hue'],
+body:not(.tag-colorful) .setting-item[data-id='tag-colorful-setting'] {
+  display: none;
 }

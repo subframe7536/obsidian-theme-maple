@@ -58,9 +58,17 @@
 //     }
 //   }
 // }
-input[type='checkbox'] {
+.cm-s-obsidian.mod-cm6 input[type='checkbox'] {
   margin: 3px 4px;
   border-width: 2px;
+  &:checked:after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.markdown-preview-view .task-list-item-checkbox {
+  transform: translateY(20%);
 }
 .HyperMD-task-line .cm-indent::before {
   transform: translateX(0.4em) !important;

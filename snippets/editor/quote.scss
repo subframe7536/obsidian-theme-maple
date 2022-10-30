@@ -4,7 +4,7 @@ body {
   --quote-guide-line-width: var(--size-2-3);
 }
 .markdown-rendered blockquote {
-  background-color: var(--background-secondary);
+  background-color: var(--md-container-bg);
   border: none !important;
   border-radius: var(--radius-s);
   box-shadow: var(--shadow-s);

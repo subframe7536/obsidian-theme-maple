@@ -51,6 +51,13 @@ settings:
         description.zh: 为设置面板添加顶部框（配合 setting search 插件使用更佳）
         type: class-toggle
     -
+        id: setting-group-title
+        title: add style for left navigation group title
+        description: left guide line
+        description.zh: 为左侧选项组标题添加样式
+        type: class-toggle
+        default: true
+    -
         id: scrollbar
         title: scrollbar
         title.zh: 滚动条
@@ -193,13 +200,13 @@ settings:
         collapsed: true
         level: 4
     -
-        id: heading-fix
+        id: heading-icon-fix
         title: always show heading icon
         description: add border on hover
         description.zh: 总是显示标题前置标志（鼠标经过时添加边框）
         type: class-toggle
     -
-        id: heading-only-text
+        id: heading-icon-only-text
         title: don't show icon border or background
         description: only show header level
         description.zh: 只显示标题等级，没有边框或者背景色
@@ -1317,6 +1324,7 @@ body svg.changelog {
 
 body {
   --inline-code: var(--color-red);
+  --code-size: var(--font-text-size);
   --code-background: var(--md-container-bg);
   --code-function: var(--color-orange);
   --code-important: var(--color-purple);
@@ -1334,6 +1342,7 @@ body {
 .cm-hmd-codeblock.cm-formatting,
 .markdown-rendered code {
   color: var(--inline-code);
+  --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
 }
 
 .markdown-preview-view pre code {
@@ -1342,6 +1351,8 @@ body {
 
 .cm-inline-code {
   color: var(--inline-code) !important;
+  --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
+  border-radius: var(--size-4-1);
 }
 .cm-inline-code.cm-header {
   color: var(--inline-code) !important;
@@ -1394,19 +1405,19 @@ body {
   right: 6px;
 }
 
-pre[class*=language-] {
+body .app-container pre {
   line-height: 1.8;
   border-radius: var(--radius-l);
   border: 2px solid var(--frame-outline-color);
   transition: var(--animation);
 }
-pre[class*=language-]:hover {
+body .app-container pre:hover {
   border-color: var(--accent-active);
 }
-pre[class*=language-]:hover button.copy-code-button {
+body .app-container pre:hover button.copy-code-button {
   opacity: 1;
 }
-pre[class*=language-] .copy-code-button {
+body .app-container pre .copy-code-button {
   letter-spacing: var(--size-4-1);
   padding: 0 10px;
   border-radius: 6px;
@@ -1423,7 +1434,7 @@ pre[class*=language-] .copy-code-button {
   top: var(--size-4-1);
   right: var(--size-4-1);
 }
-pre[class*=language-] .copy-code-button:hover {
+body .app-container pre .copy-code-button:hover {
   opacity: 1;
   background-color: var(--nav-item-background-hover);
 }
@@ -1787,8 +1798,6 @@ body.embed-title-right-top .internal-embed.is-loaded:hover :is(.markdown-embed-t
 
 :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
   overflow: initial;
-  margin-block-start: 1.6rem;
-  margin-block-end: 1.6rem;
   border: none;
   position: relative;
   height: var(--size-4-1);
@@ -1938,6 +1947,11 @@ body.click-to-edit-link-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-inte
 input[type=checkbox] {
   margin: 3px 4px;
   border-width: 2px;
+}
+input[type=checkbox]:checked:after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .HyperMD-task-line .cm-indent::before {
@@ -2436,10 +2450,10 @@ body {
   position: absolute;
   border-radius: var(--radius-s);
   z-index: 1;
-  padding: 2px;
+  padding: 2px 1px 2px 2px;
   width: fit-content;
   font-size: 0.6rem;
-  line-height: 1.1;
+  line-height: 1;
   letter-spacing: 1px;
   font-family: var(--font-text);
   opacity: 0;
@@ -2454,7 +2468,7 @@ body {
   opacity: 0.8;
 }
 
-body.heading-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-icon-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   opacity: 0.6;
   filter: grayscale(1);
@@ -2462,7 +2476,7 @@ body.heading-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h
   background-color: transparent;
 }
 
-body.heading-only-text :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-icon-only-text :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   border-color: var(--background-primary) !important;
   background-color: var(--background-primary) !important;
@@ -2470,7 +2484,7 @@ body.heading-only-text :is(div.markdown-reading-view > div > div > div > :is(h1,
 }
 
 div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
-  left: -24px !important;
+  left: -28px !important;
 }
 
 :not(.popup) :is(h1, h2, h3, h4, h5, h6) {
@@ -2772,6 +2786,9 @@ body.heading-h6-variant :is(h6, .cm-header-6) {
   right: 1em;
   border-radius: var(--radius-s);
 }
+.style-settings-container .setting-item[data-id=accent-hue-dark] .setting-item-control::before {
+  background-color: hsl(var(--accent-hue-dark, 207), 32%, 58%);
+}
 
 /* ====== 文档内搜索框 ======== */
 .obsidian-search-match-highlight {
@@ -3055,24 +3072,6 @@ body.setting-header .modal-container .mod-settings .modal-content .plugin-list-p
 .modal-container :is(.mod-community-plugin, .mod-community-theme) .community-modal-sidebar .setting-item:first-child {
   max-width: var(--modal-community-sidebar-width);
 }
-.modal-container .mod-settings .modal-content .vertical-tab-header-group {
-  padding-bottom: 0;
-}
-.modal-container .mod-settings .modal-content .vertical-tab-header-group-title {
-  color: var(--text-accent);
-  font-size: var(--font-text-size);
-  position: relative;
-}
-.modal-container .mod-settings .modal-content .vertical-tab-header-group-title::before {
-  content: "";
-  position: absolute;
-  height: calc(100% - var(--size-4-3));
-  width: var(--size-4-1);
-  top: var(--size-2-3);
-  left: calc(var(--size-4-1) * -1);
-  background-color: var(--accent-active);
-  border-radius: var(--size-2-1);
-}
 .modal-container .mod-settings .modal-content .setting-hotkey {
   box-shadow: var(--shadow-s);
   border: 2px solid var(--frame-outline-color);
@@ -3086,8 +3085,23 @@ body.setting-header .modal-container .mod-settings .modal-content .plugin-list-p
   font-size: var(--font-ui-medium);
 }
 
-body .modal-container .style-settings-container .setting-item[data-id=accent-hue-dark] .setting-item-control::before {
-  background-color: hsl(var(--accent-hue-dark, 207), 32%, 58%);
+body.setting-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group {
+  padding-bottom: 0;
+}
+body.setting-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group-title {
+  color: var(--text-accent);
+  font-size: var(--font-text-size);
+  position: relative;
+}
+body.setting-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group-title::before {
+  content: "";
+  position: absolute;
+  height: calc(100% - var(--size-4-3));
+  width: var(--size-4-1);
+  top: var(--size-2-3);
+  left: calc(var(--size-4-1) * -1);
+  background-color: var(--accent-active);
+  border-radius: var(--size-2-1);
 }
 
 /* ========= 大纲 ========== */

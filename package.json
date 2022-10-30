@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "sass --watch snippets:D:/test/.obsidian/snippets --no-source-map --update",
-    "prod": "sass snippets/index.scss obsidian.css --no-source-map"
+    "prod": "sass snippets/index.scss obsidian.css --no-source-map && node move.mjs"
   },
   "keywords": [
     "Obsidian"
@@ -14,5 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "sass": "^1.55.0"
-  }
+  },
+  "type": "module"
 }
