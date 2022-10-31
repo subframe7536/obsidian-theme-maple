@@ -82,10 +82,12 @@ body.setting-header .modal-container {
     }
   }
 }
+body.back-blur .modal-bg {
+  backdrop-filter: blur(8px);
+  opacity: initial !important;
+  background-color: hsla(var(--accent-h), 20%, 8%, 30%);
+}
 .modal-container {
-  .modal-bg {
-    backdrop-filter: blur(10px);
-  }
   .modal-close-button {
     top: 9px;
     right: 9px !important;

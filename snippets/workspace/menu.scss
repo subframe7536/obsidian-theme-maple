@@ -1,0 +1,4 @@
+body.back-blur .menu {
+  background-color: hsla(var(--background-secondary-hsl), 0.2);
+  backdrop-filter: blur(40px);
+}

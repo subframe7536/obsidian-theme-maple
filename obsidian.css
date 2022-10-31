@@ -38,6 +38,20 @@ settings:
         description.zh: 仿 Firefox / Microsoft Edge tab栏
         type: class-toggle
     -
+        id: blur
+        title: blur
+        title.zh: 模糊
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: back-blur
+        title: blur background
+        description: menu / modal background
+        description.zh: 开启模糊，目前【菜单 / 弹出框背景】有效
+        type: class-toggle
+        default: true
+    -
         id: modal
         title: modal
         title.zh: 弹出面板
@@ -453,11 +467,15 @@ body.use-custom-color.theme-dark.css-settings-manager {
     calc(var(--accent-s) - 12%),
     calc(100% - (100% - var(--accent-l)) / 18)
   );
+  --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%),
+    calc(100% - (100% - var(--accent-l)) / 18);
   --background-secondary: hsl(
     calc(var(--accent-h) - 18),
     calc(var(--accent-s) - 4%),
     calc(100% - (100% - var(--accent-l)) / 8)
   );
+  --background-secondary-hsl: calc(var(--accent-h) - 18),
+    calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
   --background-modifier-hover: hsl(
     var(--accent-h),
     var(--accent-s),
@@ -500,11 +518,14 @@ body.use-custom-color.theme-dark.css-settings-manager {
 
 .theme-dark {
   --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 8));
+  --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 8);
   --background-secondary: hsl(
     calc(var(--accent-h) + 8),
     calc(var(--accent-s) / 6),
     calc(var(--accent-l) / 4)
   );
+  --background-secondary-hsl: calc(var(--accent-h) + 8),
+    calc(var(--accent-s) / 6), calc(var(--accent-l) / 4);
   --background-modifier-hover: hsl(
     var(--accent-h),
     var(--accent-s),
@@ -3282,9 +3303,12 @@ body.setting-header .modal-container .mod-settings .modal-content .plugin-list-p
   right: calc(50vw - var(--modal-width) / 2 + var(--size-4-12));
 }
 
-.modal-container .modal-bg {
-  backdrop-filter: blur(10px);
+body.back-blur .modal-bg {
+  backdrop-filter: blur(8px);
+  opacity: initial !important;
+  background-color: hsla(var(--accent-h), 20%, 8%, 30%);
 }
+
 .modal-container .modal-close-button {
   top: 9px;
   right: 9px !important;
@@ -3565,4 +3589,9 @@ body.tab-float .workspace-tab-header-new-tab {
 .workspace.is-left-sidedock-open .sidebar-toggle-button.mod-left .clickable-icon,
 .workspace.is-right-sidedock-open .sidebar-toggle-button.mod-right .clickable-icon {
   color: hsl(var(--color-accent-hsl));
+}
+
+body.back-blur .menu {
+  background-color: hsla(var(--background-secondary-hsl), 0.2);
+  backdrop-filter: blur(40px);
 }

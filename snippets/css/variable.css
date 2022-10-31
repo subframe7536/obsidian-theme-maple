@@ -34,11 +34,15 @@ body.use-custom-color.theme-dark.css-settings-manager {
     calc(var(--accent-s) - 12%),
     calc(100% - (100% - var(--accent-l)) / 18)
   );
+  --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%),
+    calc(100% - (100% - var(--accent-l)) / 18);
   --background-secondary: hsl(
     calc(var(--accent-h) - 18),
     calc(var(--accent-s) - 4%),
     calc(100% - (100% - var(--accent-l)) / 8)
   );
+  --background-secondary-hsl: calc(var(--accent-h) - 18),
+    calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
   --background-modifier-hover: hsl(
     var(--accent-h),
     var(--accent-s),
@@ -81,11 +85,14 @@ body.use-custom-color.theme-dark.css-settings-manager {
 }
 .theme-dark {
   --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 8));
+  --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 8);
   --background-secondary: hsl(
     calc(var(--accent-h) + 8),
     calc(var(--accent-s) / 6),
     calc(var(--accent-l) / 4)
   );
+  --background-secondary-hsl: calc(var(--accent-h) + 8),
+    calc(var(--accent-s) / 6), calc(var(--accent-l) / 4);
   --background-modifier-hover: hsl(
     var(--accent-h),
     var(--accent-s),

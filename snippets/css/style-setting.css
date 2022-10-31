@@ -37,6 +37,20 @@ settings:
         description.zh: 仿 Firefox / Microsoft Edge tab栏
         type: class-toggle
     -
+        id: blur
+        title: blur
+        title.zh: 模糊
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: back-blur
+        title: blur background
+        description: menu / modal background
+        description.zh: 开启模糊，目前【菜单 / 弹出框背景】有效
+        type: class-toggle
+        default: true
+    -
         id: modal
         title: modal
         title.zh: 弹出面板
