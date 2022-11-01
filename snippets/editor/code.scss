@@ -1,3 +1,5 @@
+/* ====== 代码 ====== */
+
 body {
   --inline-code: var(--color-red);
   --code-background: var(--md-container-bg);
@@ -12,12 +14,10 @@ body {
   --code-comment: var(--text-faint);
   --code-normal: var(--text-normal);
 }
-/* ====== 行内代码 ====== */
 
 .cm-hmd-codeblock.cm-formatting,
 .markdown-rendered code {
   --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
-  // --code-size: var(--font-text-size);
   color: var(--inline-code);
 }
 .markdown-preview-view pre code {
@@ -215,9 +215,6 @@ body .app-container {
     :is(&-property, &-operator) {
       color: var(--color-blue) !important;
     }
-    //  {
-    //   color: var(--text-normal);
-    // }
     :is(&-variable, &-variable-2, &-variable-3) {
       color: var(--color-cyan) !important;
     }
