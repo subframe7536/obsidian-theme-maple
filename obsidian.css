@@ -497,7 +497,11 @@ body.use-custom-color.theme-dark.css-settings-manager {
     var(--accent-s),
     calc(var(--accent-l) + 4%)
   );
-  --accent-inactive: hsl(var(--accent-h), 80%, calc(var(--accent-l) - 20%));
+  --accent-inactive: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) - 4%),
+    calc(var(--accent-l) + 24%)
+  );
   --frame-background-color: hsl(
     var(--accent-h),
     var(--accent-s),
@@ -545,12 +549,12 @@ body.use-custom-color.theme-dark.css-settings-manager {
   --accent-active: hsl(
     var(--accent-h),
     var(--accent-s),
-    calc(var(--accent-l) - 4%)
+    calc(var(--accent-l) - 16%)
   );
   --accent-inactive: hsl(
     var(--accent-h),
     calc(var(--accent-s) + 24%),
-    calc(var(--accent-l) + 16%)
+    calc(var(--accent-l) - 32%)
   );
   --frame-background-color: hsl(var(--accent-h), 12%, 20%);
   --frame-outline-color: hsl(
@@ -1425,6 +1429,7 @@ body svg.changelog {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10s10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8s8 3.589 8 8s-3.589 8-8 8z" fill="currentColor"/><path d="M11 11h2v6h-2zm0-4h2v2h-2z" fill="currentColor"/></svg>');
 }
 
+/* ====== 代码 ====== */
 body {
   --inline-code: var(--color-red);
   --code-background: var(--md-container-bg);
@@ -1440,7 +1445,6 @@ body {
   --code-normal: var(--text-normal);
 }
 
-/* ====== 行内代码 ====== */
 .cm-hmd-codeblock.cm-formatting,
 .markdown-rendered code {
   --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
@@ -1514,7 +1518,7 @@ pre[class*=language-] {
 
 body .app-container pre {
   border-radius: var(--radius-l);
-  border: 2px solid var(--frame-outline-color);
+  border: 2px solid var(--accent-inactive);
   transition: var(--animation);
 }
 body .app-container pre:hover {
@@ -1791,12 +1795,12 @@ body .app-container .cm-meta {
   color: var(--color-green) !important;
 }
 
-/* ========= 光标 ========== */
+/* ====== 光标 ====== */
 :is(.markdown-source-view.mod-cm6 .cm-content, .mod-cm6 .cm-line, .fancy-cursor input.prompt-input) {
   caret-color: var(--text-accent);
 }
 
-/* =========== 内嵌文档 ============ */
+/* ====== 内嵌文档 ====== */
 .internal-embed.is-loaded {
   transition: var(--animation);
   padding: 4px 2px !important;
@@ -1812,7 +1816,7 @@ body .app-container .cm-meta {
   background-color: var(--nav-item-background-hover);
 }
 .internal-embed.is-loaded.mod-empty {
-  border: 2px dotted var(--frame-outline-color);
+  border: 2px dotted var(--accent-inactive);
 }
 .internal-embed.is-loaded .markdown-embed-title {
   text-align: center;
@@ -1831,7 +1835,7 @@ body .app-container .cm-meta {
   min-height: fit-content !important;
 }
 .internal-embed.is-loaded :is(.markdown-embed, .file-embed) {
-  border: var(--block-outline-width) solid var(--frame-outline-color);
+  border: var(--block-outline-width) solid var(--accent-inactive);
 }
 .internal-embed.is-loaded :is(.markdown-embed, .file-embed):hover {
   border-color: var(--accent-active);
@@ -1896,7 +1900,7 @@ body.embed-title-right-top .internal-embed.is-loaded:hover :is(.markdown-embed-t
   color: var(--text-normal);
 }
 
-/* ========== 分隔符 ============ */
+/* ======= 分隔符 ====== */
 .markdown-rendered hr {
   margin-block-start: 2.4rem !important;
   margin-block-end: 2.4rem !important;
@@ -1927,7 +1931,7 @@ body.embed-title-right-top .internal-embed.is-loaded:hover :is(.markdown-embed-t
   border-radius: 50%;
 }
 
-/* ========= img ========== */
+/* ====== 图片 ====== */
 .theme-dark img {
   opacity: 0.7;
   transition: var(--animation);
@@ -1940,7 +1944,7 @@ img {
   border-radius: var(--radius-l);
 }
 
-/* ========= 链接 ========== */
+/* ====== 链接 ====== */
 body {
   --link-decoration-hover: none;
   --link-external-decoration-hover: none;
@@ -2049,7 +2053,7 @@ body.click-to-edit-link-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-inte
   pointer-events: none;
 }
 
-/* ============= 列表 ============= */
+/* ====== 列表 ======= */
 .cm-s-obsidian.mod-cm6 input[type=checkbox] {
   margin: 3px 4px;
   border-width: 2px;
@@ -2189,7 +2193,7 @@ body {
   transform: rotate(45deg);
 }
 
-/* ========== 引用 ========== */
+/* ====== 引用 ====== */
 body {
   --quote-guide-line-width: var(--size-2-3);
 }
@@ -2209,8 +2213,8 @@ body {
   padding-left: 56px;
 }
 .markdown-rendered blockquote::before {
-  left: -16px;
-  top: 24px;
+  left: calc(var(--size-4-5) * -1);
+  top: var(--size-4-6);
 }
 .markdown-rendered blockquote::after {
   content: "";
@@ -2220,7 +2224,7 @@ body {
   border-radius: calc(var(--quote-guide-line-width) / 2);
   height: calc(100% - var(--quote-guide-line-width) * 2);
   width: var(--quote-guide-line-width);
-  background-color: var(--text-accent);
+  background-color: var(--accent-active);
 }
 .markdown-rendered blockquote blockquote {
   box-shadow: none;
@@ -2229,10 +2233,10 @@ body {
 
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) {
   background-color: var(--md-container-bg);
-  text-indent: 40px !important;
+  text-indent: 12px !important;
 }
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-1 {
-  text-indent: 40px !important;
+  text-indent: 28px !important;
 }
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout)::before, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout)::after {
   border-left: none !important;
@@ -2243,7 +2247,7 @@ body {
   bottom: var(--quote-guide-line-width);
   height: calc(100% + var(--quote-guide-line-width));
   width: var(--quote-guide-line-width);
-  border-radius: calc(var(--quote-guide-line-width) / 2);
+  border-radius: var(--quote-guide-line-width);
   background-color: var(--accent-active);
   color: var(--accent-active);
 }
@@ -2260,7 +2264,9 @@ body {
 .markdown-source-view.mod-cm6.is-live-preview .cm-content :first-child:is(.HyperMD-quote)::after {
   content: none;
 }
-blockquote::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote:not(.cm-active), .cm-content :first-child:is(.HyperMD-quote):not(.cm-active)) > .cm-formatting.cm-formatting-quote.cm-quote::before {
+blockquote::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote:not(.cm-active),
+.HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1:not(.cm-active),
+.cm-content :first-child:is(.HyperMD-quote):not(.cm-active)) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
   position: absolute;
   font: 14px/20px italic Times, serif;
   content: "“";
@@ -2268,32 +2274,138 @@ blockquote::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.H
   color: var(--text-muted);
 }
 
-.markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote:not(.cm-active), .cm-content :first-child:is(.HyperMD-quote):not(.cm-active)) > .cm-formatting.cm-formatting-quote.cm-quote::before {
-  left: calc(var(--size-4-4) * -1);
+.markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote:not(.cm-active),
+.HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1:not(.cm-active),
+.cm-content :first-child:is(.HyperMD-quote):not(.cm-active)) > .cm-formatting.cm-formatting-quote.cm-quote::before {
+  left: calc(var(--size-4-6) * -1);
   top: var(--size-4-6);
 }
-.markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote:not(.cm-active), .cm-content :first-child:is(.HyperMD-quote):not(.cm-active)):is(.HyperMD-quote-2) > .cm-formatting.cm-formatting-quote.cm-quote::before {
+.markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote:not(.cm-active),
+.HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1:not(.cm-active),
+.cm-content :first-child:is(.HyperMD-quote):not(.cm-active)):is(.HyperMD-quote-2) > .cm-formatting.cm-formatting-quote.cm-quote::before {
   left: calc(var(--size-4-4) * -1.5);
 }
-.markdown-source-view.mod-cm6.is-live-preview div:not(.HyperMD-quote-2) + .HyperMD-quote-2:not(.callout)::before,
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2 + .HyperMD-quote-2:not(.callout)::after {
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
   box-shadow: 20px 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div:not(.HyperMD-quote-3) + .HyperMD-quote-3:not(.callout)::before,
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3 + .HyperMD-quote-3:not(.callout)::after {
-  box-shadow: 30px 0;
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
+  box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div:not(.HyperMD-quote-4) + .HyperMD-quote-4:not(.callout)::before,
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4 + .HyperMD-quote-4:not(.callout)::after {
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
   box-shadow: 40px 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div:not(.HyperMD-quote-5) + .HyperMD-quote-5:not(.callout)::before,
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5 + .HyperMD-quote-5:not(.callout)::after {
-  box-shadow: 50px 0;
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
+  box-shadow: 20px 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview .cm-blockquote-border::before {
-  content: none;
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+  box-shadow: none;
 }
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+  box-shadow: 20px 0, 40px 0, 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+  box-shadow: 40px 0, 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+  box-shadow: 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+  box-shadow: 40px 0, 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+  box-shadow: 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+  box-shadow: 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-blockquote-border::before,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-callout .cm-quote::before {
   content: none !important;
 }
@@ -2302,7 +2414,7 @@ body {
   --callout-radius: var(--radius-l);
 }
 
-/* ========== 表格 ========== */
+/* ====== 表格 ====== */
 body {
   --table-radius: var(--radius-l);
 }
@@ -2323,7 +2435,7 @@ body {
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) table thead th {
   --table-white-space: nowrap;
-  border-top: var(--block-outline-width) solid var(--frame-outline-color);
+  border-top: var(--block-outline-width) solid var(--table-header-border-color);
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) table:hover :is(td, th):first-child {
   border-left-color: var(--accent-active);
@@ -2341,10 +2453,10 @@ body {
 :is(.markdown-rendered, .cm-embed-block) table {
   border-collapse: initial !important;
   border-spacing: 0;
-  --table-border-color: var(--frame-outline-color);
+  --table-border-color: var(--accent-inactive);
   --table-header-background: var(--background-secondary);
   --table-header-background-hover: var(--background-secondary);
-  --table-header-border-color: var(--frame-outline-color);
+  --table-header-border-color: var(--accent-inactive);
   --table-header-weight: var(--font-bold);
   --table-column-max-width: 70%;
 }
@@ -2365,7 +2477,7 @@ body {
   border-bottom-right-radius: var(--table-radius);
 }
 
-/* ====== tag ====== */
+/* ====== 标签 ====== */
 body.tag-colorful.theme-light {
   --tag-1-default: hsl(
     calc(var(--accent-h) + (1 - 1) * 60),
@@ -2532,7 +2644,7 @@ body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
   pointer-events: none;
 }
 
-/* =========== 段落 =========== */
+/* ====== 段落 ====== */
 .markdown-rendered p {
   margin: var(--size-4-1) 0;
 }
@@ -2584,10 +2696,10 @@ body .app-container .markdown-source-view .cm-scroller .cm-line.cm-active {
   border-radius: var(--radius-s);
 }
 
-/* ========== 键盘 =========== */
+/* ======= 键盘 ====== */
 kbd {
   user-select: none;
-  border: 2px solid var(--frame-outline-color);
+  border: 2px solid var(--accent-inactive);
   box-shadow: var(--shadow-s);
 }
 
@@ -2612,11 +2724,11 @@ strong,
 .workspace-leaf-content[data-type=markdown] .view-header {
   margin: 0;
   padding: 0 var(--size-4-3);
-  border-bottom: 2px solid var(--frame-outline-color);
+  border-bottom: 2px solid var(--accent-inactive);
   --file-header-font-size: calc(var(--font-ui-smaller) - 2px);
 }
 
-/* ======= 标题 ========= */
+/* ======= 标题 ====== */
 body {
   --font-bold: bold;
   --h1-color: var(--heading-h1-color, var(--color-red));
@@ -2890,6 +3002,7 @@ body.heading-h6-variant :is(h6, .cm-header-6) {
   font-variant: small-caps;
 }
 
+/* ====== better command palette ======*/
 .better-command-palette p.better-command-palette-title {
   margin: 12px 24px;
 }
@@ -3032,7 +3145,7 @@ body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
   display: none;
 }
 
-/* ====== 文档内搜索框 ======== */
+/* ====== 文档内搜索框 ====== */
 .obsidian-search-match-highlight {
   background-color: var(--background-secondary);
 }
@@ -3076,7 +3189,7 @@ body.expand-on-focus-search-input .document-replace-input:focus {
   width: 220px;
 }
 
-/* ========= 文件管理器 =========== */
+/* ====== 文件管理器 ====== */
 body {
   --folder-color: #f4b300;
   --folder-hover-color: #f4b30030;
@@ -3177,7 +3290,7 @@ body {
   margin-left: 6px;
 }
 
-/* ========== loading加载图 ============ */
+/* ====== 加载图 ====== */
 body .progress-bar-line, body .progress-bar-subline {
   display: none;
 }
@@ -3223,7 +3336,7 @@ body.loading-text .progress-bar-message::before {
     width: 20ch;
   }
 }
-/* ========== 弹出面板 ============ */
+/* ====== 弹出面板 ====== */
 body {
   --modal-width: min(90vw, var(--modal-max-width));
   --modal-height: min(85vh, var(--modal-max-height));
@@ -3320,7 +3433,7 @@ body.back-blur .modal-bg {
 }
 .modal-container .mod-settings .modal-content .setting-hotkey {
   box-shadow: var(--shadow-s);
-  border: 2px solid var(--frame-outline-color);
+  border: 2px solid var(--accent-inactive);
   background-color: var(--code-background);
   border-radius: var(--radius-s);
   font-size: var(--font-ui-smaller);
@@ -3350,7 +3463,7 @@ body.setting-group-title .modal-container .mod-settings .modal-content .vertical
   border-radius: var(--size-2-1);
 }
 
-/* ========= 大纲 ========== */
+/* ====== 大纲 ====== */
 body {
   /* 引导线粗细 */
   --outline-guideline-width: 2px;
@@ -3447,7 +3560,7 @@ body {
   border-left: none;
 }
 
-/* ======== 滚动条 ========== */
+/* ====== 滚动条 ====== */
 /* ! overflow: overlay is deprecated */
 body.scrollbar-float :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content,
 .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller,
@@ -3529,7 +3642,7 @@ body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, 
   background-color: hsla(var(--color-accent-hsl), 64%) !important;
 }
 
-/*====== tab栏 ======*/
+/* ====== tab栏 ====== */
 body.tab-float .workspace-tab-header-container {
   --tab-outline-width: 0px !important;
 }
@@ -3555,7 +3668,7 @@ body.tab-float .workspace-tab-header-new-tab {
   padding-top: var(--size-4-1);
 }
 
-/* ======== 标题栏 ========== */
+/* ====== 标题栏 ====== */
 .titlebar-button.mod-close:hover {
   color: var(--text-on-accent);
 }
@@ -3593,6 +3706,7 @@ body.tab-float .workspace-tab-header-new-tab {
   color: hsl(var(--color-accent-hsl));
 }
 
+/* ====== 右键菜单 ======*/
 body.back-blur :is(.menu, .suggestion-container) {
   background-color: hsla(var(--background-secondary-hsl), 0.6);
   backdrop-filter: blur(var(--blur)) hue-rotate(-30deg);
