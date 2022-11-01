@@ -84,7 +84,7 @@ pre[class*='language-'] {
 }
 body .app-container pre {
   border-radius: var(--radius-l);
-  border: 2px solid var(--frame-outline-color);
+  border: 2px solid var(--accent-inactive);
   transition: var(--animation);
   &:hover {
     border-color: var(--accent-active);

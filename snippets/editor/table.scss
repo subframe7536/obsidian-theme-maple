@@ -17,7 +17,8 @@ body {
   --table-row-last-border-width: var(--block-outline-width);
   thead th {
     --table-white-space: nowrap;
-    border-top: var(--block-outline-width) solid var(--frame-outline-color);
+    border-top: var(--block-outline-width) solid
+      var(--table-header-border-color);
   }
   &:hover {
     :is(td, th) {
@@ -39,10 +40,10 @@ body {
 :is(.markdown-rendered, .cm-embed-block) table {
   border-collapse: initial !important;
   border-spacing: 0;
-  --table-border-color: var(--frame-outline-color);
+  --table-border-color: var(--accent-inactive);
   --table-header-background: var(--background-secondary);
   --table-header-background-hover: var(--background-secondary);
-  --table-header-border-color: var(--frame-outline-color);
+  --table-header-border-color: var(--accent-inactive);
   --table-header-weight: var(--font-bold);
   --table-column-max-width: 70%;
   :is(th, td) {

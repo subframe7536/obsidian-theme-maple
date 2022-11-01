@@ -54,7 +54,7 @@ body .app-container .markdown-source-view .cm-scroller {
 /* ========== 键盘 =========== */
 kbd {
   user-select: none;
-  border: 2px solid var(--frame-outline-color);
+  border: 2px solid var(--accent-inactive);
   box-shadow: var(--shadow-s);
   // font-family: var(--font-monospace);
 }
@@ -76,6 +76,6 @@ strong,
 .workspace-leaf-content[data-type='markdown'] .view-header {
   margin: 0;
   padding: 0 var(--size-4-3);
-  border-bottom: 2px solid var(--frame-outline-color);
+  border-bottom: 2px solid var(--accent-inactive);
   --file-header-font-size: calc(var(--font-ui-smaller) - 2px);
 }

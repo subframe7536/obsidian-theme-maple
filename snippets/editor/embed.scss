@@ -14,7 +14,7 @@
     }
   }
   &.mod-empty {
-    border: 2px dotted var(--frame-outline-color);
+    border: 2px dotted var(--accent-inactive);
   }
   .markdown-embed-title {
     text-align: center;
@@ -35,7 +35,7 @@
     }
   }
   :is(.markdown-embed, .file-embed) {
-    border: var(--block-outline-width) solid var(--frame-outline-color);
+    border: var(--block-outline-width) solid var(--accent-inactive);
     &:hover {
       border-color: var(--accent-active);
     }

@@ -64,7 +64,11 @@ body.use-custom-color.theme-dark.css-settings-manager {
     var(--accent-s),
     calc(var(--accent-l) + 4%)
   );
-  --accent-inactive: hsl(var(--accent-h), 80%, calc(var(--accent-l) - 20%));
+  --accent-inactive: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) - 4%),
+    calc(var(--accent-l) + 24%)
+  );
   --frame-background-color: hsl(
     var(--accent-h),
     var(--accent-s),
@@ -112,12 +116,12 @@ body.use-custom-color.theme-dark.css-settings-manager {
   --accent-active: hsl(
     var(--accent-h),
     var(--accent-s),
-    calc(var(--accent-l) - 4%)
+    calc(var(--accent-l) - 16%)
   );
   --accent-inactive: hsl(
     var(--accent-h),
     calc(var(--accent-s) + 24%),
-    calc(var(--accent-l) + 16%)
+    calc(var(--accent-l) - 32%)
   );
   --frame-background-color: hsl(var(--accent-h), 12%, 20%);
   --frame-outline-color: hsl(

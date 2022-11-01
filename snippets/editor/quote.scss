@@ -21,8 +21,8 @@ body {
     left: 56px;
   }
   &::before {
-    left: -16px;
-    top: 24px;
+    left: calc(var(--size-4-5) * -1);
+    top: var(--size-4-6);
   }
   &::after {
     content: '';
@@ -32,7 +32,7 @@ body {
     border-radius: calc(var(--quote-guide-line-width) / 2);
     height: calc(100% - var(--quote-guide-line-width) * 2);
     width: var(--quote-guide-line-width);
-    background-color: var(--text-accent);
+    background-color: var(--accent-active);
   }
   blockquote {
     box-shadow: none;
@@ -42,9 +42,9 @@ body {
 .markdown-source-view.mod-cm6.is-live-preview {
   .HyperMD-quote:not(.callout) {
     background-color: var(--md-container-bg);
-    text-indent: 40px !important;
+    text-indent: 12px !important;
     &.HyperMD-quote-1 {
-      text-indent: 40px !important;
+      text-indent: 28px !important;
     }
     &::before,
     &::after {
@@ -56,7 +56,7 @@ body {
       bottom: var(--quote-guide-line-width);
       height: calc(100% + var(--quote-guide-line-width));
       width: var(--quote-guide-line-width);
-      border-radius: calc(var(--quote-guide-line-width) / 2);
+      border-radius: var(--quote-guide-line-width);
       background-color: var(--accent-active);
       color: var(--accent-active);
     }
@@ -77,18 +77,21 @@ body {
   .cm-content :first-child:is(.HyperMD-quote)::after {
     content: none;
   }
-  :is(div:not(.HyperMD-quote) + .HyperMD-quote:not(.cm-active), .cm-content
+  :is(div:not(.HyperMD-quote)
+      + .HyperMD-quote:not(.cm-active), .HyperMD-quote:not(.HyperMD-quote-1)
+      + .HyperMD-quote-1:not(.cm-active), .cm-content
       :first-child:is(.HyperMD-quote):not(.cm-active)) {
     @at-root blockquote::before,
-      & > .cm-formatting.cm-formatting-quote.cm-quote::before {
+      & > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
       position: absolute;
       font: 14px/20px italic Times, serif;
       content: '“';
       font-size: 4em;
       color: var(--text-muted);
+      // visibility: visible;
     }
     & > .cm-formatting.cm-formatting-quote.cm-quote::before {
-      left: calc(var(--size-4-4) * -1);
+      left: calc(var(--size-4-6) * -1);
       top: var(--size-4-6);
     }
     &:is(.HyperMD-quote-2)
@@ -97,51 +100,62 @@ body {
     }
   }
   // guide line todo
-  @for $i from 2 through 5 {
-    $gap: 10px;
+  $num: 5;
+  @for $i from 2 through $num {
+    $gap: 20px;
     $shadow: '';
-    // @for $j from 1 through $i {
-    // $before: ();
-    // $after: ();
-    // @for $index from 1 through $i - 1 {
-    //   $temp: unquote($gap * $index + ' 0');
-    //   @if $index > $j - 1 {
-    //     $after: append(
-    //       $list: $after,
-    //       $val: $temp,
-    //       $separator: comma
-    //     );
-    //   } @else {
-    //     $before: append(
-    //       $list: $before,
-    //       $val: $temp,
-    //       $separator: comma
-    //     );
-    //   }
-    // }
-    // @if $before == () {
-    //   $before: none;
-    // }
-    // @if $after == () {
-    //   $after: none;
-    // }
-    // div:not(.HyperMD-quote-#{$j})
-    //   + .HyperMD-quote-#{$i}:not(.callout)::before {
-    //   box-shadow: $before;
-    // }
-    // div:not(.HyperMD-quote-#{$j})
-    //   + .HyperMD-quote-#{$i}:not(.callout)::after {
-    //   box-shadow: $after;
-    // }
-    // }
-    div:not(.HyperMD-quote-#{$i}) + .HyperMD-quote-#{$i}:not(.callout)::before,
-    div.HyperMD-quote-#{$i} + .HyperMD-quote-#{$i}:not(.callout)::after {
-      box-shadow: unquote($gap * $i + ' 0');
+    @for $j from 1 through $num {
+      $before: ();
+      $after: ();
+      @if $j < $i {
+        @for $index from 1 through $i - 1 {
+          $temp: unquote($gap * $index + ' 0');
+          @if $index <= $j - 1 {
+            $after: append(
+              $list: $after,
+              $val: $temp,
+              $separator: comma
+            );
+          } @else {
+            $before: append(
+              $list: $before,
+              $val: $temp,
+              $separator: comma
+            );
+          }
+        }
+        @if $before == () {
+          $before: none;
+        }
+        @if $after == () {
+          $after: none;
+        }
+      } @else {
+        $before: none;
+        @for $index from 1 through $i - 1 {
+          $temp: unquote($gap * $index + ' 0');
+          $after: append(
+            $list: $after,
+            $val: $temp,
+            $separator: comma
+          );
+        }
+      }
+      div.HyperMD-quote-#{$j}:not(.callout)
+        + .HyperMD-quote-#{$i}:not(.callout)::before {
+        box-shadow: $before;
+      }
+      div.HyperMD-quote-#{$j}:not(.callout)
+        + .HyperMD-quote-#{$i}:not(.callout)::after {
+        box-shadow: $after;
+      }
     }
+    // div:not(.HyperMD-quote-#{$i}) + .HyperMD-quote-#{$i}:not(.callout)::before,
+    // div.HyperMD-quote-#{$i} + .HyperMD-quote-#{$i}:not(.callout)::after {
+    //   box-shadow: unquote($gap * $i + ' 0');
+    // }
   }
-  .cm-blockquote-border::before {
-    content: none;
-  }
+  .cm-blockquote-border::before,
   .HyperMD-callout .cm-quote::before {
     content: none !important;
   }
