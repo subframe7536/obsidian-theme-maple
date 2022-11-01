@@ -1,4 +1,4 @@
 body.back-blur :is(.menu, .suggestion-container) {
-  background-color: hsla(var(--background-secondary-hsl), 0.2);
-  backdrop-filter: blur(20px);
+  background-color: hsla(var(--background-secondary-hsl), 0.1);
+  backdrop-filter: blur(var(--blur)) hue-rotate(-30deg);
 }

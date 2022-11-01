@@ -13,6 +13,7 @@ body {
 
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
+  --blur: 100px;
 }
 html body.obsidian-app.fixed-theme-color {
   --accent-s: 32% !important;

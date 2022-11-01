@@ -441,6 +441,7 @@ body {
   --color-purple: #9084e9 !important;
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
+  --blur: 100px;
 }
 
 html body.obsidian-app.fixed-theme-color {
@@ -3304,7 +3305,7 @@ body.setting-header .modal-container .mod-settings .modal-content .plugin-list-p
 }
 
 body.back-blur .modal-bg {
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(calc(var(--blur) / 15));
   opacity: initial !important;
   background-color: hsla(var(--accent-h), 20%, 8%, 30%);
 }
@@ -3591,7 +3592,7 @@ body.tab-float .workspace-tab-header-new-tab {
   color: hsl(var(--color-accent-hsl));
 }
 
-body.back-blur .menu {
-  background-color: hsla(var(--background-secondary-hsl), 0.2);
-  backdrop-filter: blur(40px);
+body.back-blur :is(.menu, .suggestion-container) {
+  background-color: hsla(var(--background-secondary-hsl), 0.1);
+  backdrop-filter: blur(var(--blur)) hue-rotate(-30deg);
 }
