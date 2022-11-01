@@ -55,14 +55,14 @@ body.use-custom-color.theme-dark.css-settings-manager {
     calc(var(--accent-l) + 4%)
   );
   --background-modifier-message: hsl(
-    calc(var(--accent-h) - 30),
+    calc(var(--accent-h) - 24),
     var(--accent-s),
-    var(--accent-l)
+    calc(var(--accent-l) - 4%)
   );
   --accent-active: hsl(
     var(--accent-h),
     var(--accent-s),
-    calc(var(--accent-l) - 4%)
+    calc(var(--accent-l) + 4%)
   );
   --accent-inactive: hsl(var(--accent-h), 80%, calc(var(--accent-l) - 20%));
   --frame-background-color: hsl(

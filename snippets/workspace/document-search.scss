@@ -3,6 +3,7 @@
   background-color: var(--background-secondary);
 }
 .document-search-container {
+  background-color: var(--background-primary);
   position: absolute;
   top: calc(var(--header-height) + var(--size-4-4));
   right: var(--size-4-4);
