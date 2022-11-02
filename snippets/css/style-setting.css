@@ -323,7 +323,7 @@ settings:
     -
         id: embed-title-right-top
         title: move embed title to right top
-        description: visiable on hover, disabled when alias is '#', Example: ![[FileName|#]]
+        description: visiable on hover, disabled when alias is '#', Example ![[FileName|#]]
         description.zh: 内嵌文档标题移至右上角，鼠标经过时显示；别名为'#'时禁用，例：![[文件名|#]]
         type: class-toggle
         default: true
