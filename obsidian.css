@@ -324,8 +324,8 @@ settings:
     -
         id: embed-title-right-top
         title: move embed title to right top
-        description: visiable on hover
-        description.zh: 内嵌文档标题移至右上角，鼠标经过时显示
+        description: visiable on hover, disabled when alias is '#', Example: ![[FileName|#]]
+        description.zh: 内嵌文档标题移至右上角，鼠标经过时显示；别名为'#'时禁用，例：![[文件名|#]]
         type: class-toggle
         default: true
     -
@@ -1829,7 +1829,7 @@ body .app-container .cm-meta {
   padding: 0;
 }
 .internal-embed.is-loaded :is(img, .markdown-embed, .file-embed) .markdown-preview-view {
-  padding: calc(var(--font-text-size) * 2) calc(var(--font-text-size) * 1.5) calc(var(--font-text-size) * 1.4);
+  padding: calc(var(--font-text-size) * 0.8) calc(var(--font-text-size) * 1.5);
 }
 .internal-embed.is-loaded :is(img, .markdown-embed, .file-embed) .markdown-preview-view .markdown-preview-section {
   min-height: fit-content !important;
@@ -1860,7 +1860,7 @@ body .app-container .cm-meta {
   transform: none !important;
 }
 
-body.embed-title-right-top .internal-embed.is-loaded .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
   position: absolute;
   right: 36px;
   top: var(--size-2-1);
@@ -1868,15 +1868,15 @@ body.embed-title-right-top .internal-embed.is-loaded .markdown-embed-heading .ma
   opacity: 0;
   transition: var(--animation);
 }
-body.embed-title-right-top .internal-embed.is-loaded .markdown-embed-heading .markdown-preview-section > div:nth-child(2) * {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) * {
   font-size: 1rem !important;
   margin: 0;
   cursor: pointer;
 }
-body.embed-title-right-top .internal-embed.is-loaded .markdown-embed-heading .markdown-preview-section > div:nth-child(2) *::after {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) *::after {
   content: none;
 }
-body.embed-title-right-top .internal-embed.is-loaded .markdown-embed-title {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-title {
   opacity: 0;
   position: absolute;
   z-index: 999;
@@ -1892,12 +1892,15 @@ body.embed-title-right-top .internal-embed.is-loaded .markdown-embed-title {
   transition: var(--animation);
   cursor: pointer;
 }
-body.embed-title-right-top .internal-embed.is-loaded:hover > div > .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover > div > .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
   opacity: 1;
 }
-body.embed-title-right-top .internal-embed.is-loaded:hover :is(.markdown-embed-title, .markdown-embed-link, .file-embed-link:hover svg) {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover :is(.markdown-embed-title, .markdown-embed-link, .file-embed-link:hover svg) {
   opacity: 1;
   color: var(--text-normal);
+}
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) :is(.markdown-embed, .file-embed) .markdown-preview-view {
+  padding: calc(var(--font-text-size) * 2) calc(var(--font-text-size) * 1.5) calc(var(--font-text-size) * 1.4);
 }
 
 /* ======= 分隔符 ====== */
