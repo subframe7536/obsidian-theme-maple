@@ -76,8 +76,16 @@
 body {
   --list-bullet-base: 12px;
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-  --list-marker-color: var(--accent-active);
-  --list-marker-color-alt: var(--accent-active);
+  --list-marker-color: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) - 8%)
+  );
+  --list-marker-color-alt: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) - 8%)
+  );
   --list-spacing: 0;
 }
 .markdown-rendered {
