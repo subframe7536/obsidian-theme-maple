@@ -475,10 +475,10 @@ body.use-custom-color.theme-dark.css-settings-manager {
   --background-primary: hsl(
     var(--accent-h),
     calc(var(--accent-s) - 12%),
-    calc(100% - (100% - var(--accent-l)) / 18)
+    calc(100% - (100% - var(--accent-l)) / 12)
   );
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%),
-    calc(100% - (100% - var(--accent-l)) / 18);
+    calc(100% - (100% - var(--accent-l)) / 12);
   --background-secondary: hsl(
     calc(var(--accent-h) - 18),
     calc(var(--accent-s) - 4%),
@@ -3708,6 +3708,7 @@ body.tab-float .mod-root .workspace-tab-header-container-inner {
 }
 body.tab-float .mod-root .workspace-tab-header {
   padding-bottom: 0 !important;
+  padding-top: 0 !important;
 }
 body.tab-float .mod-root .workspace-tab-header.is-active {
   --tab-radius-active: 6px;
@@ -3716,6 +3717,9 @@ body.tab-float .mod-root .workspace-tab-header.is-active {
 }
 body.tab-float .mod-root .workspace-tab-header .workspace-tab-header-inner-close-button {
   padding: 2px;
+}
+body.tab-float.theme-dark .mod-root .workspace-tab-header.is-active {
+  box-shadow: none;
 }
 body.tab-float .workspace-split.mod-root .workspace-tab-header.is-active::before, body.tab-float .workspace-split.mod-root .workspace-tab-header.is-active::after {
   box-shadow: none;

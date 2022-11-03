@@ -10,6 +10,7 @@ body.tab-float {
   }
   .mod-root .workspace-tab-header {
     padding-bottom: 0 !important;
+    padding-top: 0 !important;
     &.is-active {
       --tab-radius-active: 6px;
       box-shadow: var(--shadow-s);
@@ -18,6 +19,9 @@ body.tab-float {
     .workspace-tab-header-inner-close-button {
       padding: 2px;
     }
+  }
+  &.theme-dark .mod-root .workspace-tab-header.is-active {
+    box-shadow: none;
   }
   .workspace-split.mod-root .workspace-tab-header.is-active {
     &::before,
