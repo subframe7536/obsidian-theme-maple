@@ -1,7 +1,7 @@
 /* ====== 滚动条 ====== */
 
 /* ! overflow: overlay is deprecated */
-body.scrollbar-float {
+body.scrollbar-gutter-overlay {
   :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type='outline']
       .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type='markdown']
       .cm-scroller, .markdown-preview-view, .suggestion-container
@@ -11,6 +11,16 @@ body.scrollbar-float {
   .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container {
     overflow-x: overlay;
   }
+}
+body.scrollbar-gutter-reserve
+  :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type='outline']
+    .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type='markdown']
+    .cm-scroller, .markdown-preview-view, .suggestion-container
+    .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .kanban-plugin__board, .kanban-plugin__lane-items, .workspace
+    .mod-root
+    .workspace-tabs.mod-stacked
+    .workspace-tab-container) {
+  scrollbar-gutter: stable;
 }
 
 body.scrollbar-hover-animation

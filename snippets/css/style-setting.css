@@ -85,11 +85,20 @@ settings:
         type: class-toggle
         default: true
     -
-        id: scrollbar-float
-        title: float scrollbar
-        description: The scroll bar appears without squeezing the parent container
-        description.zh: 悬浮滚动条，滚动条出现时不会对父容器产生挤压
-        type: class-toggle
+        id: scrollbar-gutter
+        title: scrollbar gutter
+        description: scroll bar appears without squeezing the parent container
+        description.zh: 控制滚动条槽，使滚动条出现时不会对父容器产生挤压。选项：默认(default) / 悬浮滚动条(overlay) / 预留滚动条位置(reserve)❗overlay可能在后续的版本不支持
+        type: class-select
+        allowEmpty: false
+        default: scrollbar-gutter-overlay
+        options:
+            -   label: default
+                value: scrollbar-gutter-default
+            -   label: overlay
+                value: scrollbar-gutter-overlay
+            -   label: reserve
+                value: scrollbar-gutter-reserve
     -
         id: loading
         title: loading
