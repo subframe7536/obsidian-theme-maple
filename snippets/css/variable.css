@@ -13,7 +13,7 @@ body {
 
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
-  --blur: 60px;
+  --blur: 12px;
 }
 html body.obsidian-app.fixed-theme-color {
   --accent-s: 32% !important;
@@ -44,11 +44,7 @@ body.use-custom-color.theme-dark.css-settings-manager {
   );
   --background-secondary-hsl: calc(var(--accent-h) - 18),
     calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
-  --background-modifier-hover: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(100% - (100% - var(--accent-l)) / 3.5)
-  );
+  --background-modifier-hover: hsla(var(--color-accent-hsl), 16%);
   --background-modifier-border-focus: hsl(
     var(--accent-h),
     calc(var(--accent-s) - 4%),
