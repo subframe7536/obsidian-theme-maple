@@ -471,4 +471,30 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: plugin
+        title: plugin
+        title.zh: 插件
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: calendar
+        title: calendar
+        title.zh: 日历
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: calendar-swap-year-month
+        title: swap year & month
+        description.zh: 交换年和月的位置
+        type: class-toggle
+        default: true
+    -
+        id: calendar-year-suffix
+        title: year suffix
+        description.zh: 年份后缀
+        type: variable-text
+        default: "'年'"
 */

@@ -1,6 +1,5 @@
 /* ====== 日历 ====== */
-
-#calendar-container {
+body.calendar-swap-year-month #calendar-container {
   .nav {
     padding-left: var(--size-4-1);
     .title {
@@ -12,11 +11,8 @@
       .year {
         color: var(--text-normal);
         letter-spacing: 1px;
-        height: 26px;
-        line-height: 26px;
-
         &::after {
-          content: '年';
+          content: var(--calendar-year-suffix, '年');
           margin-right: var(--size-2-1);
           margin-left: var(--size-2-1);
         }
@@ -30,7 +26,16 @@
       }
     }
   }
+}
+#calendar-container {
   thead {
     border-bottom: 2px solid var(--accent-active);
+  }
+  .title {
+    line-height: 100%;
+    .year {
+      height: 26px;
+      line-height: 26px;
+    }
   }
 }

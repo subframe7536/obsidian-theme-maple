@@ -70,6 +70,8 @@
     background-color: hsl(var(--accent-hue-dark, 207), 32%, 58%);
   }
 }
+body:not(.calendar-swap-year-month)
+  .setting-item[data-id='calendar-year-suffix'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
 body:not(.use-custom-color) .setting-item[data-id^='accent-hue'],
 body:not(.tag-colorful) .setting-item[data-id='tag-colorful-setting'] {
