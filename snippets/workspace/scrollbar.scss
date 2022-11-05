@@ -5,9 +5,13 @@ $base-panel: '.vertical-tab-header', '.vertical-tab-content',
   ".workspace-leaf-content[data-type='outline'] .view-content",
   '.search-result-container', '.git-view-body',
   ".workspace-leaf-content[data-type='markdown'] .cm-scroller",
-  '.markdown-preview-view', '.suggestion-container .suggestion, .prompt-results',
+  '.markdown-preview-view', '.suggestion-container .suggestion',
+  '.prompt-results',
   '.markdown-embed-content, .community-modal-search-results-wrapper',
-  '.community-modal-info', '.modal';
+  '.community-modal-info',
+  '.modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin)',
+  '.tag-container', '.backlink-pane';
+
 $stack: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container';
 
 $kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items';
