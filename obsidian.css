@@ -472,6 +472,32 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: plugin
+        title: plugin
+        title.zh: 插件
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: calendar
+        title: calendar
+        title.zh: 日历
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: calendar-swap-year-month
+        title: swap year & month
+        description.zh: 交换年和月的位置
+        type: class-toggle
+        default: true
+    -
+        id: calendar-year-suffix
+        title: year suffix
+        description.zh: 年份后缀
+        type: variable-text
+        default: "'年'"
 */
 body {
   --font-ui-smaller: 13px;
@@ -2477,21 +2503,21 @@ body {
 /* ====== 表格 ====== */
 body {
   --table-radius: var(--radius-l);
+  --table-outline-width: var(--size-2-1);
 }
 
 .markdown-preview-view table {
   overflow: hidden;
   resize: both !important;
   margin: 12px 0 !important;
-  --block-outline-width: var(--size-2-1);
 }
 
 :is(.markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) table {
   width: 100% !important;
   margin: var(--size-4-2) 0 !important;
-  --table-column-first-border-width: var(--block-outline-width);
-  --table-column-last-border-width: var(--block-outline-width);
-  --table-row-last-border-width: var(--block-outline-width);
+  --table-column-first-border-width: var(--table-outline-width);
+  --table-column-last-border-width: var(--table-outline-width);
+  --table-row-last-border-width: var(--table-outline-width);
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) table thead th {
   --table-white-space: nowrap;
@@ -3096,35 +3122,41 @@ body.heading-h6-variant :is(h6, .cm-header-6) {
 }
 
 /* ====== 日历 ====== */
-#calendar-container .nav {
+body.calendar-swap-year-month #calendar-container .nav {
   padding-left: var(--size-4-1);
 }
-#calendar-container .nav .title {
+body.calendar-swap-year-month #calendar-container .nav .title {
   display: flex;
   flex-direction: row-reverse;
   font-weight: normal;
   font-size: 1.2rem;
 }
-#calendar-container .nav .title .year {
+body.calendar-swap-year-month #calendar-container .nav .title .year {
   color: var(--text-normal);
   letter-spacing: 1px;
-  height: 26px;
-  line-height: 26px;
 }
-#calendar-container .nav .title .year::after {
-  content: "年";
+body.calendar-swap-year-month #calendar-container .nav .title .year::after {
+  content: var(--calendar-year-suffix, "年");
   margin-right: var(--size-2-1);
   margin-left: var(--size-2-1);
 }
-#calendar-container .nav .title .month {
+body.calendar-swap-year-month #calendar-container .nav .title .month {
   height: 26px;
   line-height: 26px;
   letter-spacing: 1px;
   font-weight: bold;
   color: var(--accent-active);
 }
+
 #calendar-container thead {
   border-bottom: 2px solid var(--accent-active);
+}
+#calendar-container .title {
+  line-height: 100%;
+}
+#calendar-container .title .year {
+  height: 26px;
+  line-height: 26px;
 }
 
 /* ====== excalidraw ====== */
@@ -3230,6 +3262,7 @@ body.heading-h6-variant :is(h6, .cm-header-6) {
   background-color: hsl(var(--accent-hue-dark, 207), 32%, 58%);
 }
 
+body:not(.calendar-swap-year-month) .setting-item[data-id=calendar-year-suffix],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.use-custom-color) .setting-item[data-id^=accent-hue],
 body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
@@ -3678,6 +3711,9 @@ body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical
 }
 body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) > :not(h1, h2, h3, h4, h5, h6) {
   color: var(--text-normal);
+}
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) > .search-empty-state {
+  color: var(--text-faint);
 }
 body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar {
   width: 12px !important;

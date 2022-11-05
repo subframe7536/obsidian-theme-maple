@@ -45,6 +45,9 @@ body:not(.scrollbar-hover-animation-disable)
   & > :not(h1, h2, h3, h4, h5, h6) {
     color: var(--text-normal);
   }
+  & > .search-empty-state {
+    color: var(--text-faint);
+  }
   &::-webkit-scrollbar {
     width: 12px !important;
     height: 12px !important;
