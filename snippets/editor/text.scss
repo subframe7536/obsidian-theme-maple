@@ -64,15 +64,18 @@ kbd {
   user-select: none;
   border: 2px solid var(--accent-inactive);
   box-shadow: var(--shadow-s);
-  // font-family: var(--font-monospace);
+  transition: var(--animation);
+  &:hover {
+    border-color: var(--accent-active);
+  }
 }
 
 ::selection {
   text-decoration-line: none !important;
 }
 body {
-  --bold-color: rgba(var(--color-red-rgb), 80%);
-  --italic-color: rgba(var(--color-red-rgb), 80%);
+  --bold-color: var(--text-bold-color, rgba(var(--color-red-rgb), 80%));
+  --italic-color: var(--text-italic-color, rgba(var(--color-red-rgb), 80%));
 }
 em,
 .cm-em,

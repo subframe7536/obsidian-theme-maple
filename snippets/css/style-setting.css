@@ -289,6 +289,31 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
+        id: text
+        title: text
+        title.zh: 文字
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: text-bold-color
+        title: bold text color
+        description.zh: 粗体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: text-italic-color
+        title: italic text color
+        description.zh: 斜体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
         id: font
         title: font
         title.zh: 字体
@@ -322,6 +347,20 @@ settings:
         description.zh: 分割行中部图标
         type: variable-text
         default: "'⭐'"
+    -
+        id: table
+        title: table
+        title.zh: 表格
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: table-colorful
+        title: colorful table
+        description: accent header and line color
+        description.zh: 多彩表格，添加表头和行的颜色
+        type: class-toggle
+        default: true
     -
         id: embed
         title: embed

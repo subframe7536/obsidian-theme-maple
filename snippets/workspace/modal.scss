@@ -64,9 +64,6 @@ body.setting-header .modal-container {
       right: calc(50vw - var(--modal-width) / 2 + var(--size-4-12));
       position: fixed;
     }
-    .setting-hotkey {
-      font-family: var(--font-interface);
-    }
     .plugin-list-plugins {
       & > .setting-item {
         padding: 0;
@@ -105,7 +102,14 @@ body.back-blur .modal-bg {
       background-color: var(--code-background);
       border-radius: var(--radius-s);
       font-size: var(--font-ui-smaller);
-      padding: 0.1em 0.25em;
+      padding: 0.05rem 0.5rem;
+      transition: var(--animation);
+      .setting-hotkey-icon {
+        margin-right: -0.25rem;
+      }
+      &:hover {
+        border-color: var(--accent-active);
+      }
     }
     .setting-item-heading .setting-item-name {
       font-weight: bold;
