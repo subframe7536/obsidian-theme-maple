@@ -46,7 +46,7 @@ body.font-maple {
   );
 }
 body .app-container .markdown-source-view .cm-scroller {
-  .cm-line {
+  .cm-line:not(.HyperMD-codeblock) {
     padding: {
       left: var(--size-4-1);
       right: var(--size-4-1);

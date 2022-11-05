@@ -2,6 +2,11 @@
 
 body {
   --inline-code: var(--color-red);
+  --code-base: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) - 30%)
+  );
   --code-background: var(--md-container-bg);
   --code-function: var(--color-orange);
   --code-important: var(--color-purple);
@@ -12,7 +17,7 @@ body {
   --code-tag: var(--color-red);
   --code-value: var(--color-orange);
   --code-comment: var(--text-faint);
-  --code-normal: var(--text-normal);
+  --code-normal: var(--code-base);
 }
 
 .cm-hmd-codeblock.cm-formatting,
@@ -21,7 +26,7 @@ body {
   color: var(--inline-code);
 }
 .markdown-preview-view pre code {
-  color: var(--text-normal);
+  color: var(--code-base);
 }
 
 .cm-inline-code {
@@ -155,70 +160,51 @@ body.code-copy-button-english .app-container pre .copy-code-button {
   }
 }
 body .app-container {
-  :is(.token.comment, .token.prolog, .token.doctype, .token.cdata, .cm-comment, .cm-meta) {
+  :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
     color: var(--code-comment);
   }
-  .token.namespace {
-    opacity: 0.7;
-  }
-  :is(.token.tag, .token.constant, .token.symbol, .token.deleted, .cm-tag) {
+  :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
     color: var(--code-tag);
   }
-  :is(.token.punctuation, .cm-punctuation, .cm-bracket, .cm-hr) {
+  :is(.token:is(.punctuation, .operator), .cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
     color: var(--code-punctuation);
   }
-  :is(.token.boolean, .token.number, .cm-number) {
+  :is(.token:is(.boolean, .number), .cm-number) {
     color: var(--code-value);
   }
-  :is(.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted, .cm-qualifier, .cm-string, .cm-string-2) {
+  :is(.token:is(.selector, .attr-name, .punctuation.annotation, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
     color: var(--code-string);
   }
-  :is(.token.entity, .token.parameter, .token.property, .token.property-access, .token.operator, .token.url, .language-css
-      .token.string, .style
-      .token.string, .token.variable, .cm-operator, .cm-link, .cm-variable, .cm-variable-2, .cm-variable-3) {
+  :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style)
+      .token.string, .cm-link, .cm-def, .cm-number + .cm-variable) {
     color: var(--code-property);
   }
-  :is(.token.atrule, .token.attr-value, .token.function, .token.class-name, .cm-property, .cm-attribute, .cm-type) {
+  :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
     color: var(--code-function);
   }
-  :is(.token.keyword, .cm-keyword, .cm-builtin) {
+  :is(.token:is(.keyword, .constant, .unit, .builtin, .atrule), .cm-keyword, .cm-builtin, .cm-type, .cm-atom) {
     color: var(--code-keyword);
   }
-  :is(.token.regex, .token.important) {
+  :is(.token:is(.regex, .important)) {
     color: var(--code-important);
   }
-  .token {
-    :is(&.attr-name, &.punctuation.annotation) {
-      color: var(--color-green);
-    }
-    :is(&.class-name, &.maybe-class-name) {
-      color: var(--color-red);
-    }
-    &.operator {
-      color: var(--color-blue);
-    }
-    :is(&.constant, &.unit, &.builtin) {
-      color: var(--color-purple);
-    }
+  // .cm-def {
+  //   color: var(--color-orange);
+  // }
+  // :is(.cm-property, .cm-operator) {
+  //   color: var(--color-blue);
+  // }
+  :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
+    color: var(--code-base);
   }
-  .cm {
-    &-def {
-      color: var(--color-orange) !important;
-    }
-    :is(&-property, &-operator) {
-      color: var(--color-blue) !important;
-    }
-    :is(&-variable, &-variable-2, &-variable-3) {
-      color: var(--color-cyan) !important;
-    }
-    &-number + &-variable {
-      color: var(--color-orange) !important;
-    }
-    :is(&-type, &-atom) {
-      color: var(--color-purple) !important;
-    }
-    &-meta {
-      color: var(--color-green) !important;
-    }
+  :is(.cm-variable-2, .cm-variable-3) {
+    opacity: 0.7;
+  }
+  .HyperMD-codeblock
+    span[class='cm-hmd-codeblock']:nth-child(n + 2)
+    + :is(.cm-variable, .cm-variable-2, .cm-variable-3)
+    ~ span[class='cm-hmd-codeblock']
+    + :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
+    color: var(--color-orange) !important;
   }
 }

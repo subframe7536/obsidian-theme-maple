@@ -34,7 +34,7 @@ body.scrollbar-gutter-reserve
   scrollbar-gutter: stable;
 }
 
-body.scrollbar-hover-animation
+body:not(.scrollbar-hover-animation-disable)
   :is(#{$base-panel}, #{$stack}, #{$kanban}, #{$janitor}, #{$excalidraw}) {
   color: transparent;
   transition: color var(--animation);

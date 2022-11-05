@@ -45,9 +45,9 @@ settings:
         level: 3
     -
         id: back-blur
-        title: blur background
-        description: menu / modal background
-        description.zh: 开启模糊，目前【菜单 / 弹出框背景】有效
+        title: Acrylic style background
+        description: currently valid on menu / modal background
+        description.zh: 亚克力风格，目前【菜单 / 弹出框背景】有效
         type: class-toggle
         default: true
     -
@@ -78,12 +78,10 @@ settings:
         collapsed: true
         level: 3
     -
-        id: scrollbar-hover-animation
-        title: add scrollbar move in animation
-        description: ❗maybe cause text color turn to --text-normal when no color specificate
-        description.zh: 为滚动条添加鼠标移入动画效果❗如果容器内字体颜色没有设定，会导致颜色全部变为编辑器文字颜色
+        id: scrollbar-hover-animation-disable
+        title: disable scrollbar movein animation
+        description.zh: 禁用滚动条添加鼠标移入动画效果
         type: class-toggle
-        default: true
     -
         id: scrollbar-gutter
         title: scrollbar gutter
@@ -91,7 +89,7 @@ settings:
         description.zh: 控制滚动条槽，使滚动条出现时不会对父容器产生挤压。选项：默认(default) / 悬浮滚动条(overlay) / 预留滚动条位置(reserve)❗overlay可能在后续的版本不支持
         type: class-select
         allowEmpty: false
-        default: scrollbar-gutter-overlay
+        default: scrollbar-gutter-default
         options:
             -   label: default
                 value: scrollbar-gutter-default
