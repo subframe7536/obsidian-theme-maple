@@ -290,6 +290,31 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
+        id: text
+        title: text
+        title.zh: 文字
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: text-bold-color
+        title: bold text color
+        description.zh: 粗体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: text-italic-color
+        title: italic text color
+        description.zh: 斜体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
         id: font
         title: font
         title.zh: 字体
@@ -323,6 +348,20 @@ settings:
         description.zh: 分割行中部图标
         type: variable-text
         default: "'⭐'"
+    -
+        id: table
+        title: table
+        title.zh: 表格
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: table-colorful
+        title: colorful table
+        description: accent header and line color
+        description.zh: 多彩表格，添加表头和行的颜色
+        type: class-toggle
+        default: true
     -
         id: embed
         title: embed
@@ -523,7 +562,7 @@ body.use-custom-color.theme-dark.css-settings-manager {
     calc(var(--accent-l) - 10%)
   );
   --background-modifier-cover: var(--color-base-70) !important;
-  --md-container-bg: hsl(calc(var(--accent-h) - 8), 30%, 95%);
+  --md-container-bg: var(--background-secondary);
 }
 
 .theme-dark {
@@ -1508,13 +1547,6 @@ body {
   border-radius: calc(var(--radius-l) / 2) !important;
   transition: var(--animation);
 }
-.cm-embed-block.cm-table-widget {
-  border: none;
-}
-.cm-embed-block.cm-table-widget .edit-block-button {
-  top: 14px;
-  right: 6px;
-}
 
 code[class*=language-],
 pre[class*=language-] {
@@ -2003,7 +2035,8 @@ body:not(.click-to-edit-link-in-live-preview) :is(:is(.markdown-source-view, .ma
   transform: translateY(var(--size-2-1));
   width: calc(var(--font-text-size) - var(--size-4-1));
   height: calc(var(--font-text-size) - var(--size-4-1));
-  margin-right: var(--size-4-1);
+  margin-left: var(--size-2-1);
+  margin-right: var(--size-2-1);
   background-color: var(--link-external-color);
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>');
 }
@@ -2031,7 +2064,7 @@ body:not(.click-to-edit-link-in-live-preview) :is(:is(.markdown-source-view, .ma
   transform: translateY(var(--size-2-1));
   width: calc(var(--font-text-size) - var(--size-2-1));
   height: calc(var(--font-text-size) - var(--size-2-1));
-  margin-right: var(--size-2-1);
+  margin-left: var(--size-2-1);
   background-color: var(--link-color);
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
 }
@@ -2503,8 +2536,8 @@ body {
   border-collapse: initial !important;
   border-spacing: 0;
   --table-border-color: var(--accent-inactive);
-  --table-header-background: var(--background-secondary);
-  --table-header-background-hover: var(--background-secondary);
+  --table-header-background: var(--md-container-bg);
+  --table-header-background-hover: var(--md-container-bg);
   --table-header-border-color: var(--accent-inactive);
   --table-header-weight: var(--font-bold);
   --table-column-max-width: 70%;
@@ -2524,6 +2557,30 @@ body {
 }
 :is(.markdown-rendered, .cm-embed-block) table tr:last-child td:last-child {
   border-bottom-right-radius: var(--table-radius);
+}
+
+.cm-embed-block.cm-table-widget {
+  border: none;
+}
+.cm-embed-block.cm-table-widget .edit-block-button {
+  top: 14px;
+  right: 6px;
+}
+
+body.table-colorful .markdown-source-view table + .edit-block-button {
+  color: var(--text-on-accent);
+  --background-modifier-hover: var(--accent-inactive);
+}
+body.table-colorful .markdown-source-view table + .edit-block-button:hover {
+  color: var(--accent-active);
+}
+body.table-colorful table {
+  --table-header-color: var(--text-on-accent);
+  --table-header-background: var(--accent-active);
+  --table-header-background-hover: var(--accent-active);
+}
+body.table-colorful table tbody tr:nth-of-type(2n) {
+  background-color: var(--md-container-bg);
 }
 
 /* ====== 标签 ====== */
@@ -2750,6 +2807,10 @@ kbd {
   user-select: none;
   border: 2px solid var(--accent-inactive);
   box-shadow: var(--shadow-s);
+  transition: var(--animation);
+}
+kbd:hover {
+  border-color: var(--accent-active);
 }
 
 ::selection {
@@ -2757,8 +2818,8 @@ kbd {
 }
 
 body {
-  --bold-color: rgba(var(--color-red-rgb), 80%);
-  --italic-color: rgba(var(--color-red-rgb), 80%);
+  --bold-color: var(--text-bold-color, rgba(var(--color-red-rgb), 80%));
+  --italic-color: var(--text-italic-color, rgba(var(--color-red-rgb), 80%));
 }
 
 em,
@@ -3148,6 +3209,9 @@ body.heading-h6-variant :is(h6, .cm-header-6) {
   border-color: var(--accent-active);
 }
 
+.style-settings-container .themed-color-wrapper .pickr-reset > button {
+  padding: var(--size-2-3);
+}
 .style-settings-container .setting-item:first-child {
   padding-top: inherit;
 }
@@ -3451,9 +3515,6 @@ body.setting-header .modal-container .mod-settings .modal-content .hotkey-search
   right: calc(50vw - var(--modal-width) / 2 + var(--size-4-12));
   position: fixed;
 }
-body.setting-header .modal-container .mod-settings .modal-content .setting-hotkey {
-  font-family: var(--font-interface);
-}
 body.setting-header .modal-container .mod-settings .modal-content .plugin-list-plugins > .setting-item {
   padding: 0;
 }
@@ -3486,7 +3547,14 @@ body.back-blur .modal-bg {
   background-color: var(--code-background);
   border-radius: var(--radius-s);
   font-size: var(--font-ui-smaller);
-  padding: 0.1em 0.25em;
+  padding: 0.05rem 0.5rem;
+  transition: var(--animation);
+}
+.modal-container .mod-settings .modal-content .setting-hotkey .setting-hotkey-icon {
+  margin-right: -0.25rem;
+}
+.modal-container .mod-settings .modal-content .setting-hotkey:hover {
+  border-color: var(--accent-active);
 }
 .modal-container .mod-settings .modal-content .setting-item-heading .setting-item-name {
   font-weight: bold;
@@ -3611,45 +3679,45 @@ body {
 
 /* ====== 滚动条 ====== */
 /* ! overflow: overlay is deprecated */
-body.scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) {
+body.scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) {
   overflow-y: overlay;
 }
 body.scrollbar-gutter-overlay .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container {
   overflow-x: overlay;
 }
 
-body.scrollbar-gutter-reserve :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) {
+body.scrollbar-gutter-reserve :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) {
   scrollbar-gutter: stable;
 }
 
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) {
   color: transparent;
   transition: color var(--animation);
   /* scroll-behavior: smooth; */
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)):hover {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)):hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) > :not(h1, h2, h3, h4, h5, h6) {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) > :not(h1, h2, h3, h4, h5, h6) {
   color: var(--text-normal);
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar {
   width: 12px !important;
   height: 12px !important;
   background-color: transparent !important;
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar-track {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar-track {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar-thumb {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 0 10px !important;
   border-radius: 6px !important;
   background-clip: content-box;
   background-color: transparent !important;
   border: 3.6px solid transparent !important;
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar-thumb:active {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar-thumb:active {
   background-color: hsla(var(--color-accent-hsl), 64%) !important;
 }
 

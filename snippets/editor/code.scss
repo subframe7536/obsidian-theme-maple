@@ -70,13 +70,6 @@ body {
     border-radius: calc(var(--radius-l) / 2) !important;
     transition: var(--animation);
   }
-  &.cm-table-widget {
-    border: none;
-    .edit-block-button {
-      top: 14px;
-      right: 6px;
-    }
-  }
 }
 code[class*='language-'],
 pre[class*='language-'] {

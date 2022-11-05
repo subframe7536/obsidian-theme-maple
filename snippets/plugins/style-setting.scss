@@ -10,6 +10,9 @@
   }
 }
 .style-settings-container {
+  .themed-color-wrapper .pickr-reset > button {
+    padding: var(--size-2-3);
+  }
   .setting-item:first-child {
     padding-top: inherit;
   }
