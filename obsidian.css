@@ -1901,6 +1901,10 @@ body .app-container .HyperMD-codeblock span[class=cm-hmd-codeblock]:nth-child(n+
   transform: none !important;
 }
 
+body.scrollbar-gutter-reserve.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
+  right: 12px;
+}
+
 body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
   position: absolute;
   right: 36px;
@@ -1910,7 +1914,7 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-em
   transition: var(--animation);
 }
 body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) * {
-  font-size: 1rem !important;
+  font-size: 1rem;
   margin: 0;
   cursor: pointer;
 }

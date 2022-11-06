@@ -61,6 +61,13 @@
   box-shadow: none !important;
   transform: none !important;
 }
+body.scrollbar-gutter-reserve.embed-title-right-top
+  .internal-embed.is-loaded:not([alt='#'])
+  .markdown-embed-heading
+  .markdown-preview-section
+  > div:nth-child(2) {
+  right: 12px;
+}
 body.embed-title-right-top .internal-embed.is-loaded:not([alt='#']) {
   .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
     position: absolute;
@@ -70,7 +77,7 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt='#']) {
     opacity: 0;
     transition: var(--animation);
     * {
-      font-size: 1rem !important;
+      font-size: 1rem;
       margin: 0;
       cursor: pointer;
       &::after {
