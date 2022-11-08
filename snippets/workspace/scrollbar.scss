@@ -3,14 +3,14 @@
 $base-panel: '.vertical-tab-header', '.vertical-tab-content',
   '.nav-files-container',
   ".workspace-leaf-content[data-type='outline'] .view-content",
-  '.search-result-container', '.git-view-body',
-  ".workspace-leaf-content[data-type='markdown'] .cm-scroller",
-  '.markdown-preview-view', '.suggestion-container .suggestion',
-  '.prompt-results',
+  '.search-result-container', '.git-view-body', '.markdown-preview-view',
+  '.suggestion-container .suggestion', '.prompt-results',
   '.markdown-embed-content, .community-modal-search-results-wrapper',
   '.community-modal-info',
   '.modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin)',
   '.tag-container', '.backlink-pane';
+
+$editor: ".workspace-leaf-content[data-type='markdown'] .cm-scroller";
 
 $stack: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container';
 
@@ -20,9 +20,13 @@ $excalidraw: '.excalidraw-wrapper :is(.App-mobile-menu,.App-menu .Stack .Island.
 
 $janitor: '.janitor-scan-results';
 
+$calendar: ".workspace-leaf-content[data-type='calendar'] .view-content";
+
+$plugins: $calendar, $janitor, $excalidraw, $kanban;
+
 /* ! overflow: overlay is deprecated */
 body.scrollbar-gutter-overlay {
-  :is(#{$base-panel}, #{$kanban}, #{$janitor}, #{$excalidraw}) {
+  :is(#{$base-panel}, #{$editor}, #{$plugins}) {
     overflow-y: overlay;
   }
   #{$stack} {
@@ -30,15 +34,14 @@ body.scrollbar-gutter-overlay {
   }
 }
 body.scrollbar-gutter-reserve
-  :is(#{$base-panel}, #{$stack}, #{$kanban}, #{$janitor}, #{$excalidraw}) {
+  :is(#{$base-panel}, #{$editor}, #{$stack}, #{$plugins}) {
   scrollbar-gutter: stable;
 }
 
 body:not(.scrollbar-hover-animation-disable)
-  :is(#{$base-panel}, #{$stack}, #{$kanban}, #{$janitor}, #{$excalidraw}) {
+  :is(#{$base-panel}, #{$editor}, #{$stack}, #{$plugins}) {
   color: transparent;
   transition: color var(--animation);
-  /* scroll-behavior: smooth; */
   &:hover {
     color: hsla(var(--color-accent-hsl), 24%);
   }
@@ -88,4 +91,8 @@ body:not(.scrollbar-hover-animation-disable)
       background-color: hsla(var(--color-accent-hsl), 64%) !important;
     }
   }
+}
+body.scrollbar-smooth.scrollbar-smooth-editor #{$editor},
+body.scrollbar-smooth :is(#{$base-panel}, #{$stack}, #{$plugins}) {
+  scroll-behavior: smooth;
 }

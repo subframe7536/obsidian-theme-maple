@@ -9,6 +9,28 @@
     border-color: var(--accent-active);
   }
 }
+:is(.style-settings-import, .style-settings-export) {
+  transition: var(--animation);
+  text-decoration: none;
+  height: var(--input-height);
+  font-size: var(--font-ui-small);
+  font-family: inherit;
+  font-weight: var(--input-font-weight);
+  color: var(--text-normal) !important;
+  line-height: var(--line-height-normal);
+  padding: 0 0.8em;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  box-shadow: var(--input-shadow);
+  border-radius: var(--input-radius);
+  background-color: var(--interactive-normal);
+  &:hover {
+    box-shadow: var(--input-shadow-hover);
+    background-color: var(--interactive-hover);
+  }
+}
 .style-settings-container {
   .themed-color-wrapper .pickr-reset > button {
     padding: var(--size-2-3);
@@ -72,6 +94,7 @@
 }
 body:not(.calendar-swap-year-month)
   .setting-item[data-id='calendar-year-suffix'],
+body:not(.scrollbar-smooth) .setting-item[data-id='scrollbar-smooth-editor'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
 body:not(.use-custom-color) .setting-item[data-id^='accent-hue'],
 body:not(.tag-colorful) .setting-item[data-id='tag-colorful-setting'] {

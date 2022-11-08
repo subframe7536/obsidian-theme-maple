@@ -73,8 +73,8 @@ settings:
         default: true
     -
         id: scrollbar
-        title: scrollbar
-        title.zh: 滚动条
+        title: scrollbar & scroll behavior
+        title.zh: 滚动条 & 滚动样式
         type: heading
         collapsed: true
         level: 3
@@ -98,6 +98,17 @@ settings:
                 value: scrollbar-gutter-overlay
             -   label: reserve
                 value: scrollbar-gutter-reserve
+    -
+        id: scrollbar-smooth
+        title: smooth scroll
+        description.zh: 开启顺滑滚动
+        type: class-toggle
+    -
+        id: scrollbar-smooth-editor
+        title: smooth scroll for editor
+        description: may cause bad animation
+        description.zh: 编辑器开启顺滑滚动，但是跳转动画可能不太好
+        type: class-toggle
     -
         id: loading
         title: loading
@@ -1548,6 +1559,11 @@ body {
   border-right: var(--code-bg-border);
   border-radius: 0 !important;
 }
+.cm-s-obsidian .cm-line.HyperMD-codeblock .cm-fold-indicator .collapse-indicator {
+  padding-right: var(--size-4-3) !important;
+  right: calc(var(--size-4-2) * -1) !important;
+  cursor: pointer;
+}
 .cm-s-obsidian .cm-line.HyperMD-codeblock.HyperMD-codeblock-begin-bg {
   border-top: var(--code-bg-border);
   border-top-left-radius: var(--code-bg-radius) !important;
@@ -2209,10 +2225,6 @@ body {
 .markdown-source-view.mod-cm6 .cm-fold-indicator .collapse-indicator {
   padding-right: var(--size-4-2);
 }
-.markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-header):not(.HyperMD-task-line):not(.HyperMD-codeblock) .cm-fold-indicator .collapse-indicator {
-  padding-right: 18px;
-  right: -10px;
-}
 .markdown-source-view.mod-cm6 .cm-formatting-list {
   font-family: var(--font-monospace);
 }
@@ -2270,10 +2282,6 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 56px;
-}
-.markdown-rendered blockquote::before {
-  left: calc(var(--size-4-5) * -1);
-  top: var(--size-4-6);
 }
 .markdown-rendered blockquote::after {
   content: "";
@@ -2357,19 +2365,26 @@ blockquote::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.H
 .HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
 .cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
   position: absolute;
-  font: 14px/20px italic Times, serif;
+  font-size: 2.4rem;
+  font-weight: bold;
+  font-family: italic Times, serif;
+  line-height: 1;
   content: "“" !important;
   background-color: transparent;
-  font-size: 4em;
   color: var(--text-muted);
 }
 
 .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote,
 .HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
 .cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote::before {
-  left: calc(var(--size-4-6) * -1);
-  top: var(--size-4-6);
+  left: var(--size-4-1);
+  top: var(--size-2-3);
 }
+blockquote::before {
+  left: var(--size-4-2);
+  top: var(--size-2-3);
+}
+
 .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote,
 .HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
 .cm-content :first-child:is(.HyperMD-quote)):not(.cm-active):is(.HyperMD-quote-2) > .cm-formatting.cm-formatting-quote.cm-quote::before {
@@ -2405,6 +2420,24 @@ blockquote::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.H
 .markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
   box-shadow: 20px 0;
 }
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
+  box-shadow: 20px 0;
+}
 .markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
   box-shadow: 20px 0, 40px 0;
 }
@@ -2433,6 +2466,24 @@ blockquote::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.H
   box-shadow: none;
 }
 .markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
   box-shadow: 20px 0, 40px 0;
 }
 .markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
@@ -2465,6 +2516,24 @@ blockquote::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.H
 .markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
   box-shadow: 20px 0, 40px 0, 60px 0;
 }
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0;
+}
 .markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
   box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
 }
@@ -2494,6 +2563,168 @@ blockquote::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.H
 }
 .markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
   box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+  box-shadow: 40px 0, 60px 0, 80px 0, 100px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+  box-shadow: 60px 0, 80px 0, 100px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+  box-shadow: 80px 0, 100px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+  box-shadow: 100px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
+  box-shadow: 40px 0, 60px 0, 80px 0, 100px 0, 120px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
+  box-shadow: 60px 0, 80px 0, 100px 0, 120px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
+  box-shadow: 80px 0, 100px 0, 120px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
+  box-shadow: 100px 0, 120px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
+  box-shadow: 120px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0, 140px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
+  box-shadow: 40px 0, 60px 0, 80px 0, 100px 0, 120px 0, 140px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
+  box-shadow: 20px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
+  box-shadow: 60px 0, 80px 0, 100px 0, 120px 0, 140px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
+  box-shadow: 80px 0, 100px 0, 120px 0, 140px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
+  box-shadow: 100px 0, 120px 0, 140px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
+  box-shadow: 120px 0, 140px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
+  box-shadow: 140px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
+  box-shadow: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
+  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0, 140px 0;
 }
 .markdown-source-view.mod-cm6.is-live-preview .cm-blockquote-border::before,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-callout .cm-quote::before {
@@ -3223,6 +3454,29 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   border-color: var(--accent-active);
 }
 
+:is(.style-settings-import, .style-settings-export) {
+  transition: var(--animation);
+  text-decoration: none;
+  height: var(--input-height);
+  font-size: var(--font-ui-small);
+  font-family: inherit;
+  font-weight: var(--input-font-weight);
+  color: var(--text-normal) !important;
+  line-height: var(--line-height-normal);
+  padding: 0 0.8em;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  box-shadow: var(--input-shadow);
+  border-radius: var(--input-radius);
+  background-color: var(--interactive-normal);
+}
+:is(.style-settings-import, .style-settings-export):hover {
+  box-shadow: var(--input-shadow-hover);
+  background-color: var(--interactive-hover);
+}
+
 .style-settings-container .themed-color-wrapper .pickr-reset > button {
   padding: var(--size-2-3);
 }
@@ -3267,6 +3521,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 }
 
 body:not(.calendar-swap-year-month) .setting-item[data-id=calendar-year-suffix],
+body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.use-custom-color) .setting-item[data-id^=accent-hue],
 body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
@@ -3549,6 +3804,12 @@ body.back-blur .modal-bg {
   background-color: hsla(var(--accent-h), 20%, 8%, 30%);
 }
 
+select,
+.dropdown,
+button {
+  transition: var(--animation);
+}
+
 .modal-container .modal-close-button {
   top: 9px;
   right: 9px !important;
@@ -3694,48 +3955,47 @@ body {
 
 /* ====== 滚动条 ====== */
 /* ! overflow: overlay is deprecated */
-body.scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) {
+body.scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   overflow-y: overlay;
 }
 body.scrollbar-gutter-overlay .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container {
   overflow-x: overlay;
 }
 
-body.scrollbar-gutter-reserve :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) {
+body.scrollbar-gutter-reserve :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   scrollbar-gutter: stable;
 }
 
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   color: transparent;
   transition: color var(--animation);
-  /* scroll-behavior: smooth; */
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)):hover {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items):hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) > :not(h1, h2, h3, h4, h5, h6) {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > :not(h1, h2, h3, h4, h5, h6) {
   color: var(--text-normal);
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar)) > .search-empty-state {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > .search-empty-state {
   color: var(--text-faint);
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar {
   width: 12px !important;
   height: 12px !important;
   background-color: transparent !important;
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar-track {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-track {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar-thumb {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 0 10px !important;
   border-radius: 6px !important;
   background-clip: content-box;
   background-color: transparent !important;
   border: 3.6px solid transparent !important;
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .kanban-plugin__board, .kanban-plugin__lane-items, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar))::-webkit-scrollbar-thumb:active {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb:active {
   background-color: hsla(var(--color-accent-hsl), 64%) !important;
 }
 
@@ -3755,6 +4015,11 @@ body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical
 }
 :is(body:not(.scrollbar-hover-animation) *, textarea):hover::-webkit-scrollbar-thumb:active {
   background-color: hsla(var(--color-accent-hsl), 64%) !important;
+}
+
+body.scrollbar-smooth.scrollbar-smooth-editor .workspace-leaf-content[data-type=markdown] .cm-scroller,
+body.scrollbar-smooth :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+  scroll-behavior: smooth;
 }
 
 /* ====== tab栏 ====== */

@@ -72,8 +72,8 @@ settings:
         default: true
     -
         id: scrollbar
-        title: scrollbar
-        title.zh: 滚动条
+        title: scrollbar & scroll behavior
+        title.zh: 滚动条 & 滚动样式
         type: heading
         collapsed: true
         level: 3
@@ -97,6 +97,17 @@ settings:
                 value: scrollbar-gutter-overlay
             -   label: reserve
                 value: scrollbar-gutter-reserve
+    -
+        id: scrollbar-smooth
+        title: smooth scroll
+        description.zh: 开启顺滑滚动
+        type: class-toggle
+    -
+        id: scrollbar-smooth-editor
+        title: smooth scroll for editor
+        description: may cause bad animation
+        description.zh: 编辑器开启顺滑滚动，但是跳转动画可能不太好
+        type: class-toggle
     -
         id: loading
         title: loading

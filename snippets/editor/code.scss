@@ -47,7 +47,11 @@ body {
     border-left: var(--code-bg-border);
     border-right: var(--code-bg-border);
     border-radius: 0 !important;
-
+    .cm-fold-indicator .collapse-indicator {
+      padding-right: var(--size-4-3) !important;
+      right: calc(var(--size-4-2) * -1) !important;
+      cursor: pointer;
+    }
     &.HyperMD-codeblock-begin-bg {
       border-top: var(--code-bg-border);
       border-top-left-radius: var(--code-bg-radius) !important;

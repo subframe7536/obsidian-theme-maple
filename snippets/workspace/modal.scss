@@ -85,6 +85,11 @@ body.back-blur .modal-bg {
   opacity: initial !important;
   background-color: hsla(var(--accent-h), 20%, 8%, 30%);
 }
+select,
+.dropdown,
+button {
+  transition: var(--animation);
+}
 .modal-container {
   .modal-close-button {
     top: 9px;

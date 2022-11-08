@@ -22,10 +22,6 @@ body {
     bottom: 0;
     left: 56px;
   }
-  &::before {
-    left: calc(var(--size-4-5) * -1);
-    top: var(--size-4-6);
-  }
   &::after {
     content: '';
     position: absolute;
@@ -128,17 +124,21 @@ body {
       @at-root blockquote::before,
         & > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
         position: absolute;
-        font: 14px/20px italic Times, serif;
+        font-size: 2.4rem;
+        font-weight: bold;
+        font-family: italic Times, serif;
+        line-height: 1;
         content: '“' !important;
         background-color: transparent;
-        font-size: 4em;
         color: var(--text-muted);
       }
-      & > .cm-formatting.cm-formatting-quote.cm-quote {
-        &::before {
-          left: calc(var(--size-4-6) * -1);
-          top: var(--size-4-6);
-        }
+      & > .cm-formatting.cm-formatting-quote.cm-quote::before {
+        left: var(--size-4-1);
+        top: var(--size-2-3);
+      }
+      @at-root blockquote::before {
+        left: var(--size-4-2);
+        top: var(--size-2-3);
       }
       &:is(.HyperMD-quote-2)
         > .cm-formatting.cm-formatting-quote.cm-quote::before {
@@ -147,7 +147,7 @@ body {
     }
   }
   // guide line todo
-  $num: 5;
+  $num: 8;
   @for $i from 2 through $num {
     $gap: 20px;
     $shadow: '';

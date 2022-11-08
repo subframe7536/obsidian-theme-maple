@@ -170,12 +170,6 @@ body {
   .cm-fold-indicator .collapse-indicator {
     padding-right: var(--size-4-2);
   }
-  .cm-line:not(.HyperMD-header):not(.HyperMD-task-line):not(.HyperMD-codeblock)
-    .cm-fold-indicator
-    .collapse-indicator {
-    padding-right: 18px;
-    right: -10px;
-  }
   .cm-formatting-list {
     font-family: var(--font-monospace);
   }
