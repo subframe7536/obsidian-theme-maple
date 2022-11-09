@@ -3,14 +3,15 @@
 $base-panel: '.vertical-tab-header', '.vertical-tab-content',
   '.nav-files-container',
   ".workspace-leaf-content[data-type='outline'] .view-content",
-  '.search-result-container', '.git-view-body', '.markdown-preview-view',
+  '.search-result-container', '.git-view-body',
   '.suggestion-container .suggestion', '.prompt-results',
   '.markdown-embed-content, .community-modal-search-results-wrapper',
   '.community-modal-info',
   '.modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin)',
   '.tag-container', '.backlink-pane';
 
-$editor: ".workspace-leaf-content[data-type='markdown'] .cm-scroller";
+$editor: ".workspace-leaf-content[data-type='markdown'] .cm-scroller",
+  '.markdown-preview-view';
 
 $stack: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container';
 

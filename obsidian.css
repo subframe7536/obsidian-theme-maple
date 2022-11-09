@@ -386,6 +386,20 @@ settings:
         type: class-toggle
         default: true
     -
+        id: quote
+        title: quote
+        title.zh: 引用
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: quote-mark
+        title: add front quote mark
+        description: level-1 will has same indent as level-2
+        description.zh: 引用块（quote）添加前置引号
+        type: class-toggle
+        default: true
+    -
         id: code
         title: code
         title.zh: 代码
@@ -2337,7 +2351,11 @@ body {
   margin-bottom: 10px;
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: 56px;
+  padding-left: 1.6rem;
+}
+.markdown-rendered blockquote p {
+  padding-left: var(--quote-guide-line-width);
+  padding-right: var(--size-4-1);
 }
 .markdown-rendered blockquote::after {
   content: "";
@@ -2355,32 +2373,63 @@ body {
 }
 
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) {
-  text-indent: 12px !important;
+  text-indent: 0 !important;
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
   border-bottom-left-radius: var(--quote-radius);
   border-bottom-right-radius: var(--quote-radius);
+  display: flex;
   /* === fix gap === */
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout) .cm-formatting.cm-formatting-quote.cm-quote::before, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout) .cm-formatting.cm-formatting-quote.cm-quote::after {
-  background-color: var(--active-line);
-}
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-1 {
-  text-indent: 28px !important;
+  padding-inline-start: 1.4rem !important;
+  text-indent: -0.55rem !important;
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-formatting.cm-formatting-quote.cm-quote::before, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-formatting.cm-formatting-quote.cm-quote::after {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-2 {
+  padding-inline-start: 2.4rem !important;
+  text-indent: -1.1rem !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-3 {
+  padding-inline-start: 3.4rem !important;
+  text-indent: -1.65rem !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-4 {
+  padding-inline-start: 4.4rem !important;
+  text-indent: -2.2rem !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-5 {
+  padding-inline-start: 5.4rem !important;
+  text-indent: -2.75rem !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-6 {
+  padding-inline-start: 6.4rem !important;
+  text-indent: -3.3rem !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-7 {
+  padding-inline-start: 7.4rem !important;
+  text-indent: -3.85rem !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-8 {
+  padding-inline-start: 8.4rem !important;
+  text-indent: -4.4rem !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-quote:not(.cm-formatting)::before, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-quote:not(.cm-formatting)::after {
   content: "";
   position: absolute;
+  z-index: 9;
   height: var(--quote-radius);
   width: var(--quote-radius);
+  bottom: 0;
   background-color: var(--md-container-bg);
-  top: calc(var(--quote-radius) * -1);
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-formatting.cm-formatting-quote.cm-quote::before {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-quote:not(.cm-formatting)::before {
   left: 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-formatting.cm-formatting-quote.cm-quote::after {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-quote:not(.cm-formatting)::after {
   right: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).cm-active .cm-quote:not(.cm-formatting)::before, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).cm-active .cm-quote:not(.cm-formatting)::after {
+  background-color: var(--active-line);
 }
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout)::before, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout)::after {
   border-left: none !important;
@@ -2408,383 +2457,546 @@ body {
 .markdown-source-view.mod-cm6.is-live-preview .cm-content :first-child:is(.HyperMD-quote)::after {
   content: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) .cm-formatting.cm-formatting-quote.cm-quote::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) .cm-formatting.cm-formatting-quote.cm-quote::after {
-  content: none !important;
-}
-.markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote,
-.HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
+.markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-line:not(.HyperMD-quote) + .HyperMD-quote-1,
 .cm-content :first-child:is(.HyperMD-quote)) {
   border-top-left-radius: var(--quote-radius) !important;
   border-top-right-radius: var(--quote-radius) !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
-blockquote::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote,
+.markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-line:not(.HyperMD-quote) + .HyperMD-quote-1,
+.cm-content :first-child:is(.HyperMD-quote)) .cm-quote:not(.cm-formatting)::before, .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-line:not(.HyperMD-quote) + .HyperMD-quote-1,
+.cm-content :first-child:is(.HyperMD-quote)) .cm-quote:not(.cm-formatting)::after {
+  content: none !important;
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-blockquote-border::before,
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-callout .cm-quote::before {
+  content: none !important;
+}
+
+body.quote-mark .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-quote-1 {
+  text-indent: -0.5rem !important;
+  padding-inline-start: 3rem !important;
+}
+body.quote-mark blockquote::before, body.quote-mark :is(div:not(.HyperMD-quote) + .HyperMD-quote,
 .HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
 .cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
   position: absolute;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: bold;
-  font-family: italic Times, serif;
+  font-family: Source Code Pro;
   line-height: 1;
   content: "“" !important;
   background-color: transparent;
   color: var(--text-muted);
 }
 
-.markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote,
+body.quote-mark blockquote::before, body.quote-mark :is(div:not(.HyperMD-quote) + .HyperMD-quote,
 .HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
 .cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote::before {
-  left: var(--size-4-1);
-  top: var(--size-2-3);
-}
-blockquote::before {
-  left: var(--size-4-2);
-  top: var(--size-2-3);
+  left: 1.6rem;
+  top: calc(var(--font-text-size) * var(--line-height-normal) / 10);
 }
 
-.markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote,
-.HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
-.cm-content :first-child:is(.HyperMD-quote)):not(.cm-active):is(.HyperMD-quote-2) > .cm-formatting.cm-formatting-quote.cm-quote::before {
-  left: calc(var(--size-4-4) * -1.5);
+body.quote-mark .markdown-rendered blockquote {
+  padding-left: 3.2rem;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
+  box-shadow: 1.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-2:not(.callout)::before {
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-2:not(.callout)::after {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
-  box-shadow: 20px 0, 40px 0;
+
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-2:not(.callout)::before {
+  box-shadow: 1.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-2:not(.callout)::after {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
-  box-shadow: 40px 0;
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
-  box-shadow: 20px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
+  box-shadow: 3.2rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
+}
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-3:not(.callout)::before {
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-3:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
-  box-shadow: 20px 0, 40px 0, 60px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
-  box-shadow: 40px 0, 60px 0;
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-3:not(.callout)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
-  box-shadow: 60px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-3:not(.callout)::after {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0;
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0;
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
+  box-shadow: 3.2rem 0, 4.8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
+}
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
+  box-shadow: 4.8rem 0;
+}
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
+}
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0;
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0;
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-4:not(.callout)::before {
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-4:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0;
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
-  box-shadow: 40px 0, 60px 0, 80px 0;
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
-  box-shadow: 20px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
-  box-shadow: 60px 0, 80px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
-  box-shadow: 80px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-4:not(.callout)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
+}
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-4:not(.callout)::after {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
+  box-shadow: 3.2rem 0, 4.8rem 0, 6.4rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-5:not(.callout)::before {
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
+}
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
+  box-shadow: 4.8rem 0, 6.4rem 0;
+}
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
+}
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
+  box-shadow: 6.4rem 0;
+}
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
+}
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-5:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
-  box-shadow: 40px 0, 60px 0, 80px 0, 100px 0;
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
-  box-shadow: 20px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
-  box-shadow: 60px 0, 80px 0, 100px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
-  box-shadow: 80px 0, 100px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
-  box-shadow: 100px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-6:not(.callout)::before {
+
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-5:not(.callout)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
+}
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-5:not(.callout)::after {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-6:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
-  box-shadow: 40px 0, 60px 0, 80px 0, 100px 0, 120px 0;
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
+  box-shadow: 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
-  box-shadow: 60px 0, 80px 0, 100px 0, 120px 0;
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
+  box-shadow: 4.8rem 0, 6.4rem 0, 8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
-  box-shadow: 80px 0, 100px 0, 120px 0;
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
+  box-shadow: 6.4rem 0, 8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0;
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
-  box-shadow: 100px 0, 120px 0;
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
+  box-shadow: 8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
-  box-shadow: 120px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0;
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-7:not(.callout)::before {
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-7:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0;
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0, 140px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
-  box-shadow: 40px 0, 60px 0, 80px 0, 100px 0, 120px 0, 140px 0;
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
-  box-shadow: 20px 0;
+
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-6:not(.callout)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
-  box-shadow: 60px 0, 80px 0, 100px 0, 120px 0, 140px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
-  box-shadow: 80px 0, 100px 0, 120px 0, 140px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
-  box-shadow: 100px 0, 120px 0, 140px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
-  box-shadow: 120px 0, 140px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
-  box-shadow: 140px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-8:not(.callout)::before {
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-6:not(.callout)::after {
   box-shadow: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-8:not(.callout)::after {
-  box-shadow: 20px 0, 40px 0, 60px 0, 80px 0, 100px 0, 120px 0, 140px 0;
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview .cm-blockquote-border::before,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-callout .cm-quote::before {
-  content: none !important;
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
+  box-shadow: none;
+}
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
+  box-shadow: 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
+}
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
+}
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
+  box-shadow: 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
+}
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
+}
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
+  box-shadow: 6.4rem 0, 8rem 0, 9.6rem 0;
+}
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
+}
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
+  box-shadow: 8rem 0, 9.6rem 0;
+}
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
+}
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
+  box-shadow: 9.6rem 0;
+}
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
+}
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
+  box-shadow: none;
+}
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
+}
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
+  box-shadow: none;
+}
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
+}
+
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-7:not(.callout)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
+}
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-7:not(.callout)::after {
+  box-shadow: none;
+}
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
+}
+
+div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
+  box-shadow: none;
+}
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
+  box-shadow: 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
+}
+
+div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0;
+}
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
+  box-shadow: 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
+}
+
+div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0;
+}
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
+  box-shadow: 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
+}
+
+div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
+}
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
+  box-shadow: 8rem 0, 9.6rem 0, 11.2rem 0;
+}
+
+div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
+}
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
+  box-shadow: 9.6rem 0, 11.2rem 0;
+}
+
+div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
+}
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
+  box-shadow: 11.2rem 0;
+}
+
+div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
+}
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
+  box-shadow: none;
+}
+
+div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
+}
+
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-8:not(.callout)::before {
+  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
+}
+div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-8:not(.callout)::after {
+  box-shadow: none;
 }
 
 body {
@@ -4011,47 +4223,47 @@ body {
 
 /* ====== 滚动条 ====== */
 /* ! overflow: overlay is deprecated */
-body.scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body.scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   overflow-y: overlay;
 }
 body.scrollbar-gutter-overlay .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container {
   overflow-x: overlay;
 }
 
-body.scrollbar-gutter-reserve :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body.scrollbar-gutter-reserve :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   scrollbar-gutter: stable;
 }
 
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   color: transparent;
   transition: color var(--animation);
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items):hover {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items):hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > :not(h1, h2, h3, h4, h5, h6) {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > :not(h1, h2, h3, h4, h5, h6) {
   color: var(--text-normal);
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > .search-empty-state {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > .search-empty-state {
   color: var(--text-faint);
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar {
   width: 12px !important;
   height: 12px !important;
   background-color: transparent !important;
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-track {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-track {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 0 10px !important;
   border-radius: 6px !important;
   background-clip: content-box;
   background-color: transparent !important;
   border: 3.6px solid transparent !important;
 }
-body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb:active {
+body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb:active {
   background-color: hsla(var(--color-accent-hsl), 64%) !important;
 }
 
@@ -4073,8 +4285,8 @@ body:not(.scrollbar-hover-animation-disable) :is(.vertical-tab-header, .vertical
   background-color: hsla(var(--color-accent-hsl), 64%) !important;
 }
 
-body.scrollbar-smooth.scrollbar-smooth-editor .workspace-leaf-content[data-type=markdown] .cm-scroller,
-body.scrollbar-smooth :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .markdown-preview-view, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body.scrollbar-smooth.scrollbar-smooth-editor .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view,
+body.scrollbar-smooth :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   scroll-behavior: smooth;
 }
 

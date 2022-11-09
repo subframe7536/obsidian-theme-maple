@@ -385,6 +385,20 @@ settings:
         type: class-toggle
         default: true
     -
+        id: quote
+        title: quote
+        title.zh: 引用
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: quote-mark
+        title: add front quote mark
+        description: level-1 will has same indent as level-2
+        description.zh: 引用块（quote）添加前置引号
+        type: class-toggle
+        default: true
+    -
         id: code
         title: code
         title.zh: 代码
