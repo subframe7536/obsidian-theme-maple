@@ -2,11 +2,6 @@
 
 body {
   --inline-code: var(--color-red);
-  --code-base: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 30%)
-  );
   --code-background: var(--md-container-bg);
   --code-function: var(--color-orange);
   --code-important: var(--color-purple);
@@ -20,9 +15,33 @@ body {
   --code-normal: var(--code-base);
 }
 
+.theme-light {
+  --code-base: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) - 30%)
+  );
+
+  :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered
+      code) {
+    --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
+  }
+}
+.theme-dark {
+  --code-base: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 10%)
+  );
+
+  :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered
+      code) {
+    --code-background: hsl(calc(var(--accent-h) - 8), 20%, 16%);
+  }
+}
+
 .cm-hmd-codeblock.cm-formatting,
 .markdown-rendered code {
-  --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
   color: var(--inline-code);
 }
 .markdown-preview-view pre code {
@@ -31,7 +50,6 @@ body {
 
 .cm-inline-code {
   color: var(--inline-code) !important;
-  --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
   border-radius: var(--size-4-1);
 
   &.cm-header {
@@ -219,27 +237,27 @@ body.code-header-mac .markdown-preview-view pre[class*='language-'] {
     content: '';
     width: 100%;
     height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
-    background-color: #333333;
+    background-color: #333;
     top: 0;
     left: 0;
     position: absolute;
   }
   .copy-code-button {
-    color: white;
+    color: #eee;
     right: var(--size-4-1);
     &:hover {
       background-color: var(--accent-active);
     }
   }
+  $light-size: calc(var(--code-size) - var(--size-2-1));
   code::before {
     content: '';
-    width: var(--code-size);
-    height: var(--code-size);
+    width: $light-size;
+    height: $light-size;
     position: absolute;
     left: var(--size-4-4);
     top: calc(
-      var(--code-size) * var(--line-height-normal) * 1.1 / 2 - var(--code-size) /
-        3
+      $light-size * var(--line-height-normal) * 0.7 - var(--code-size) / 3
     );
     border-radius: 50%;
     z-index: 9;

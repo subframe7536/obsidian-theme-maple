@@ -624,10 +624,11 @@ body.use-custom-color.theme-dark.css-settings-manager {
     calc(var(--accent-l) - 10%)
   );
   --background-modifier-cover: var(--color-base-70) !important;
-  --md-container-bg: hsl(
-    var(--accent-h),
+  --md-container-bg: hsla(
+    calc(var(--accent-h) + 8),
     calc(var(--accent-s) / 1.2),
-    calc(100% - (100% - var(--accent-l)) / 6)
+    calc(100% - (100% - var(--accent-l)) / 6),
+    70%
   );
 }
 
@@ -1542,11 +1543,6 @@ body svg.changelog {
 /* ====== 代码 ====== */
 body {
   --inline-code: var(--color-red);
-  --code-base: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 30%)
-  );
   --code-background: var(--md-container-bg);
   --code-function: var(--color-orange);
   --code-important: var(--color-purple);
@@ -1560,9 +1556,30 @@ body {
   --code-normal: var(--code-base);
 }
 
+.theme-light {
+  --code-base: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) - 30%)
+  );
+}
+.theme-light :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
+  --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
+}
+
+.theme-dark {
+  --code-base: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 10%)
+  );
+}
+.theme-dark :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
+  --code-background: hsl(calc(var(--accent-h) - 8), 20%, 16%);
+}
+
 .cm-hmd-codeblock.cm-formatting,
 .markdown-rendered code {
-  --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
   color: var(--inline-code);
 }
 
@@ -1572,7 +1589,6 @@ body {
 
 .cm-inline-code {
   color: var(--inline-code) !important;
-  --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
   border-radius: var(--size-4-1);
 }
 .cm-inline-code.cm-header {
@@ -1897,13 +1913,13 @@ body.code-header-mac .markdown-preview-view pre[class*=language-]::after {
   content: "";
   width: 100%;
   height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
-  background-color: #333333;
+  background-color: #333;
   top: 0;
   left: 0;
   position: absolute;
 }
 body.code-header-mac .markdown-preview-view pre[class*=language-] .copy-code-button {
-  color: white;
+  color: #eee;
   right: var(--size-4-1);
 }
 body.code-header-mac .markdown-preview-view pre[class*=language-] .copy-code-button:hover {
@@ -1911,11 +1927,11 @@ body.code-header-mac .markdown-preview-view pre[class*=language-] .copy-code-but
 }
 body.code-header-mac .markdown-preview-view pre[class*=language-] code::before {
   content: "";
-  width: var(--code-size);
-  height: var(--code-size);
+  width: calc(var(--code-size) - var(--size-2-1));
+  height: calc(var(--code-size) - var(--size-2-1));
   position: absolute;
   left: var(--size-4-4);
-  top: calc(var(--code-size) * var(--line-height-normal) * 1.1 / 2 - var(--code-size) / 3);
+  top: calc((var(--code-size) - var(--size-2-1)) * var(--line-height-normal) * 0.7 - var(--code-size) / 3);
   border-radius: 50%;
   z-index: 9;
   background-color: var(--color-red);
@@ -3287,7 +3303,7 @@ body.font-maple {
   --active-line: hsl(
     calc(var(--accent-h) - 4),
     calc(var(--accent-s) - 12%),
-    calc(100% - (100% - var(--accent-l)) / 4)
+    calc(100% - (100% - var(--accent-l)) / 5)
   );
 }
 
@@ -3714,12 +3730,19 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 
 /* ====== style setting ====== */
 .style-settings-heading + .style-settings-container {
-  padding: var(--size-4-1) 0 var(--size-4-1) var(--size-4-6);
+  padding: var(--size-4-1) 0 var(--size-4-1) var(--size-4-8);
   border-left: var(--nav-indentation-guide-width) solid var(--nav-indentation-guide-color);
   transition: var(--animation);
 }
 .style-settings-heading + .style-settings-container:hover {
   border-color: var(--accent-active);
+}
+
+.style-settings-heading[data-level="0"] {
+  margin-bottom: 18px;
+}
+.style-settings-heading[data-level="0"] + .style-settings-container {
+  padding-left: var(--size-4-8);
 }
 
 :is(.style-settings-import, .style-settings-export) {

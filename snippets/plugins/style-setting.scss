@@ -1,12 +1,18 @@
 /* ====== style setting ====== */
 
 .style-settings-heading + .style-settings-container {
-  padding: var(--size-4-1) 0 var(--size-4-1) var(--size-4-6);
+  padding: var(--size-4-1) 0 var(--size-4-1) var(--size-4-8);
   border-left: var(--nav-indentation-guide-width) solid
     var(--nav-indentation-guide-color);
   transition: var(--animation);
   &:hover {
     border-color: var(--accent-active);
+  }
+}
+.style-settings-heading[data-level='0'] {
+  margin-bottom: 18px;
+  & + .style-settings-container {
+    padding-left: var(--size-4-8);
   }
 }
 :is(.style-settings-import, .style-settings-export) {

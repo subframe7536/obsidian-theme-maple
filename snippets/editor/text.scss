@@ -34,7 +34,7 @@ body.font-maple {
   --active-line: hsl(
     calc(var(--accent-h) - 4),
     calc(var(--accent-s) - 12%),
-    calc(100% - (100% - var(--accent-l)) / 4)
+    calc(100% - (100% - var(--accent-l)) / 5)
   );
 }
 .theme-dark {
