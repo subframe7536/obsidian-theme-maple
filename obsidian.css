@@ -12,18 +12,25 @@ settings:
         collapsed: true
         level: 2
     -
-        id: animation
-        title: animation
-        title.zh: 动画
+        id: search-internal
+        title: document search panel
+        title.zh: 文档内搜索框
         type: heading
         collapsed: true
         level: 3
     -
-        id: expand-on-focus-search-input
+        id: search-internal-expand-on-focus
         title: search/replace input expand
         description: expand search/replace input on focus
         description.zh: 文档内搜索框获得焦点时扩大宽度
         type: class-toggle
+    -
+        id: search-internal-disable-select-all
+        title: hide select all button
+        description: display it maybe seems to be too long
+        description.zh: 文档内搜索框隐藏选择全部按钮（显示会过长）
+        type: class-toggle
+        default: true
     -
         id: tab
         title: tab
@@ -415,8 +422,8 @@ settings:
     -
         id: code-header-mac
         title: add mac style code block header
-        description: no hover animation
-        description.zh: 为预览模式代码块添加mac的标题栏
+        description: no code block border
+        description.zh: 为预览模式代码块添加mac的标题栏，没有代码块边框
         type: class-toggle
     -
         id: code-theme
@@ -3840,9 +3847,6 @@ body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
   align-items: center;
   padding: 0;
 }
-.document-search-container :is(.document-search, .document-replace) button:nth-child(3) {
-  display: none;
-}
 .document-search-container :is(.document-search-input, .document-replace-input) {
   margin-left: 6px;
 }
@@ -3851,15 +3855,19 @@ body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
   top: 0;
 }
 
-body.expand-on-focus-search-input :is(.document-search-input, .document-replace-input) {
+body.search-internal-disable-select-all .document-search-container .document-search-buttons button:nth-child(3) {
+  display: none;
+}
+
+body.search-internal-expand-on-focus :is(.document-search-input, .document-replace-input) {
   margin-left: 6px;
   width: 100px;
   transition: var(--animation);
 }
-body.expand-on-focus-search-input .document-search-input:focus {
+body.search-internal-expand-on-focus .document-search-input:focus {
   width: 180px;
 }
-body.expand-on-focus-search-input .document-replace-input:focus {
+body.search-internal-expand-on-focus .document-replace-input:focus {
   width: 220px;
 }
 

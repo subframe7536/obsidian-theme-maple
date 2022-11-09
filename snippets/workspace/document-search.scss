@@ -18,9 +18,6 @@
   :is(.document-search, .document-replace) {
     align-items: center;
     padding: 0;
-    button:nth-child(3) {
-      display: none;
-    }
   }
   :is(.document-search-input, .document-replace-input) {
     margin-left: 6px;
@@ -30,8 +27,14 @@
     top: 0;
   }
 }
+body.search-internal-disable-select-all
+  .document-search-container
+  .document-search-buttons
+  button:nth-child(3) {
+  display: none;
+}
 
-body.expand-on-focus-search-input {
+body.search-internal-expand-on-focus {
   :is(.document-search-input, .document-replace-input) {
     margin-left: 6px;
     width: 100px;
