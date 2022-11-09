@@ -39,7 +39,7 @@ body.scrollbar-gutter-reserve
   scrollbar-gutter: stable;
 }
 
-body:not(.scrollbar-hover-animation-disable)
+body.scrollbar-hover-animation
   :is(#{$base-panel}, #{$editor}, #{$stack}, #{$plugins}) {
   color: transparent;
   transition: color var(--animation);

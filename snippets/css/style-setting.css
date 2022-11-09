@@ -85,10 +85,11 @@ settings:
         collapsed: true
         level: 3
     -
-        id: scrollbar-hover-animation-disable
-        title: disable scrollbar movein animation
-        description.zh: 禁用滚动条添加鼠标移入动画效果
+        id: scrollbar-hover-animation
+        title: enable scrollbar movein animation
+        description.zh: 启用滚动条添加鼠标移入动画效果
         type: class-toggle
+        default: true
     -
         id: scrollbar-gutter
         title: scrollbar gutter
@@ -399,10 +400,17 @@ settings:
         collapsed: true
         level: 3
     -
+        id: quote-theme
+        title: enable quote theme
+        description: with width guide line and expanded gap
+        description.zh: 使用引用块主题
+        type: class-toggle
+        default: true
+    -
         id: quote-mark
         title: add front quote mark
         description: level-1 will has same indent as level-2
-        description.zh: 引用块（quote）添加前置引号
+        description.zh: 引用块添加前置引号
         type: class-toggle
         default: true
     -
