@@ -393,10 +393,21 @@ settings:
         collapsed: true
         level: 3
     -
-        id: code-heading
-        title: add code block heading
-        description: with language
-        description.zh: 为代码块添加语言和间隔
+        id: code-header-language
+        title: add code block language indicator
+        description.zh: 为预览模式代码块添加语言标识
+        type: class-toggle
+        default: true
+    -
+        id: code-header-mac
+        title: add mac style code block header
+        description: no hover animation
+        description.zh: 为预览模式代码块添加mac的标题栏
+        type: class-toggle
+    -
+        id: code-theme
+        title: use theme's color schema
+        description.zh: 使用主题的代码高亮
         type: class-toggle
         default: true
     -
@@ -519,12 +530,14 @@ body {
   --color-red: #f03f28 !important;
   --color-green-rgb: 81, 188, 0 !important;
   --color-green: #51bc00 !important;
+  --color-yellow: #ffbb4e !important;
   --color-orange: #e4980c !important;
   --color-blue: #0993d3 !important;
   --color-purple: #9084e9 !important;
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
   --blur: 12px;
+  --size-4-10: 40px;
 }
 
 html body.obsidian-app.fixed-theme-color {
@@ -597,7 +610,11 @@ body.use-custom-color.theme-dark.css-settings-manager {
     calc(var(--accent-l) - 10%)
   );
   --background-modifier-cover: var(--color-base-70) !important;
-  --md-container-bg: var(--background-secondary);
+  --md-container-bg: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) / 1.2),
+    calc(100% - (100% - var(--accent-l)) / 6)
+  );
 }
 
 .theme-dark {
@@ -1624,18 +1641,19 @@ body .app-container pre .copy-code-button {
   font-size: 0.8rem;
   margin: 0;
   top: var(--size-4-1);
-  right: var(--size-4-1);
+  right: var(--size-2-1);
+  z-index: 99;
 }
 body .app-container pre .copy-code-button:hover {
   opacity: 1;
   background-color: var(--nav-item-background-hover);
 }
 
-body.code-heading pre[class*=language-] {
+body.code-header-language pre[class*=language-] {
   padding: 1.8rem 1rem;
   position: relative;
 }
-body.code-heading pre[class*=language-]::before {
+body.code-header-language pre[class*=language-]::before {
   content: "未知语言";
   font-family: var(--font-text);
   color: var(--inline-code);
@@ -1645,157 +1663,158 @@ body.code-heading pre[class*=language-]::before {
   letter-spacing: 2px;
   text-align: right;
   right: 56px;
-  top: var(--size-4-1);
-  line-height: 1.6rem;
+  top: 0.2rem;
+  line-height: var(--line-height-normal);
+  z-index: 9;
 }
-body.code-heading pre[class~=language-c]::before {
+body.code-header-language pre[class~=language-c]::before {
   content: "C";
 }
-body.code-heading pre[class~=language-properties]::before {
+body.code-header-language pre[class~=language-properties]::before {
   content: "PROPERTIES";
 }
-body.code-heading pre[class~=language-python]::before {
+body.code-header-language pre[class~=language-python]::before {
   content: "PYTHON";
 }
-body.code-heading pre[class~=language-nginx]::before {
+body.code-header-language pre[class~=language-nginx]::before {
   content: "NGINX";
 }
-body.code-heading pre[class~=language-css]::before {
+body.code-header-language pre[class~=language-css]::before {
   content: "CSS";
 }
-body.code-heading pre[class~=language-javascript]::before {
+body.code-header-language pre[class~=language-javascript]::before {
   content: "JAVASCRIPT";
 }
-body.code-heading pre[class~=language-js]::before {
+body.code-header-language pre[class~=language-js]::before {
   content: "JS";
 }
-body.code-heading pre[class~=language-typescript]::before {
+body.code-header-language pre[class~=language-typescript]::before {
   content: "TYPESCRIPT";
 }
-body.code-heading pre[class~=language-ts]::before {
+body.code-header-language pre[class~=language-ts]::before {
   content: "TS";
 }
-body.code-heading pre[class~=language-jsp]::before {
+body.code-header-language pre[class~=language-jsp]::before {
   content: "JSP";
 }
-body.code-heading pre[class~=language-php]::before {
+body.code-header-language pre[class~=language-php]::before {
   content: "PHP";
 }
-body.code-heading pre[class~=language-lua]::before {
+body.code-header-language pre[class~=language-lua]::before {
   content: "LUA";
 }
-body.code-heading pre[class~=language-shell]::before {
+body.code-header-language pre[class~=language-shell]::before {
   content: "SHELL";
 }
-body.code-heading pre[class~=language-powershell]::before {
+body.code-header-language pre[class~=language-powershell]::before {
   content: "POWERSHELL";
 }
-body.code-heading pre[class~=language-flow]::before {
+body.code-header-language pre[class~=language-flow]::before {
   content: "FLOW";
 }
-body.code-heading pre[class~=language-sequence]::before {
+body.code-header-language pre[class~=language-sequence]::before {
   content: "SEQUENCE";
 }
-body.code-heading pre[class~=language-sql]::before {
+body.code-header-language pre[class~=language-sql]::before {
   content: "SQL";
 }
-body.code-heading pre[class~=language-yaml]::before {
+body.code-header-language pre[class~=language-yaml]::before {
   content: "YAML";
 }
-body.code-heading pre[class~=language-yml]::before {
+body.code-header-language pre[class~=language-yml]::before {
   content: "YML";
 }
-body.code-heading pre[class~=language-ini]::before {
+body.code-header-language pre[class~=language-ini]::before {
   content: "INI";
 }
-body.code-heading pre[class~=language-xml]::before {
+body.code-header-language pre[class~=language-xml]::before {
   content: "XML";
 }
-body.code-heading pre[class~=language-cs]::before {
+body.code-header-language pre[class~=language-cs]::before {
   content: "CS";
 }
-body.code-heading pre[class~=language-cpp]::before {
+body.code-header-language pre[class~=language-cpp]::before {
   content: "CPP";
 }
-body.code-heading pre[class~=language-java]::before {
+body.code-header-language pre[class~=language-java]::before {
   content: "JAVA";
 }
-body.code-heading pre[class~=language-html]::before {
+body.code-header-language pre[class~=language-html]::before {
   content: "HTML";
 }
-body.code-heading pre[class~=language-txt]::before {
+body.code-header-language pre[class~=language-txt]::before {
   content: "TXT";
 }
-body.code-heading pre[class~=language-md]::before {
+body.code-header-language pre[class~=language-md]::before {
   content: "MD";
 }
-body.code-heading pre[class~=language-bat]::before {
+body.code-header-language pre[class~=language-bat]::before {
   content: "BAT";
 }
-body.code-heading pre[class~=language-json]::before {
+body.code-header-language pre[class~=language-json]::before {
   content: "JSON";
 }
-body.code-heading pre[class~=language-groovy]::before {
+body.code-header-language pre[class~=language-groovy]::before {
   content: "GROOVY";
 }
-body.code-heading pre[class~=language-scss]::before {
+body.code-header-language pre[class~=language-scss]::before {
   content: "SCSS";
 }
-body.code-heading pre[class~=language-bash]::before {
+body.code-header-language pre[class~=language-bash]::before {
   content: "BASH";
 }
-body.code-heading pre[class~=language-cmd]::before {
+body.code-header-language pre[class~=language-cmd]::before {
   content: "CMD";
 }
-body.code-heading pre[class~=language-latex]::before {
+body.code-header-language pre[class~=language-latex]::before {
   content: "LATEX";
 }
-body.code-heading pre[class~=language-zig]::before {
+body.code-header-language pre[class~=language-zig]::before {
   content: "ZIG";
 }
-body.code-heading pre[class~=language-ssml]::before {
+body.code-header-language pre[class~=language-ssml]::before {
   content: "SSML";
 }
-body.code-heading pre[class~=language-jsx]::before {
+body.code-header-language pre[class~=language-jsx]::before {
   content: "JSX";
 }
-body.code-heading pre[class~=language-tsx]::before {
+body.code-header-language pre[class~=language-tsx]::before {
   content: "TSX";
 }
-body.code-heading pre[class~=language-tsconfig]::before {
+body.code-header-language pre[class~=language-tsconfig]::before {
   content: "TSCONFIG";
 }
-body.code-heading pre[class~=language-git]::before {
+body.code-header-language pre[class~=language-git]::before {
   content: "GIT";
 }
-body.code-heading pre[class~=language-csharp]::before {
+body.code-header-language pre[class~=language-csharp]::before {
   content: "CSHARP";
 }
-body.code-heading pre[class~=language-csv]::before {
+body.code-header-language pre[class~=language-csv]::before {
   content: "CSV";
 }
-body.code-heading pre[class~=language-cue]::before {
+body.code-header-language pre[class~=language-cue]::before {
   content: "CUE";
 }
-body.code-heading pre[class~=language-nginx]::before {
+body.code-header-language pre[class~=language-nginx]::before {
   content: "NGINX";
 }
-body.code-heading pre[class~=language-toml]::before {
+body.code-header-language pre[class~=language-toml]::before {
   content: "TOML";
 }
-body.code-heading pre[class~=language-kt]::before {
+body.code-header-language pre[class~=language-kt]::before {
   content: "KT";
 }
-body.code-heading pre[class~=language-go]::before {
+body.code-header-language pre[class~=language-go]::before {
   content: "GO";
 }
-body.code-heading pre[class~=language-rust]::before {
+body.code-header-language pre[class~=language-rust]::before {
   content: "RUST";
 }
-body.code-heading pre[class~=language-vue]::before {
+body.code-header-language pre[class~=language-vue]::before {
   content: "VUE";
 }
-body.code-heading pre[class~=language-regex]::before {
+body.code-header-language pre[class~=language-regex]::before {
   content: "REGEX";
 }
 
@@ -1814,42 +1833,79 @@ body.code-copy-button-english .app-container pre .copy-code-button {
   background-color: var(--nav-item-background-hover);
 }
 
-body .app-container :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
+body.code-theme .app-container :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
   color: var(--code-comment);
 }
-body .app-container :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
+body.code-theme .app-container :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
   color: var(--code-tag);
 }
-body .app-container :is(.token:is(.punctuation, .operator), .cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
+body.code-theme .app-container :is(.token:is(.punctuation, .operator), .cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
   color: var(--code-punctuation);
 }
-body .app-container :is(.token:is(.boolean, .number), .cm-number) {
+body.code-theme .app-container :is(.token:is(.boolean, .number), .cm-number) {
   color: var(--code-value);
 }
-body .app-container :is(.token:is(.selector, .attr-name, .punctuation.annotation, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
+body.code-theme .app-container :is(.token:is(.selector, .attr-name, .punctuation.annotation, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
   color: var(--code-string);
 }
-body .app-container :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string,
+body.code-theme .app-container :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string,
 .cm-link, .cm-def, .cm-number + .cm-variable) {
   color: var(--code-property);
 }
-body .app-container :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
+body.code-theme .app-container :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
   color: var(--code-function);
 }
-body .app-container :is(.token:is(.keyword, .constant, .unit, .builtin, .atrule), .cm-keyword, .cm-builtin, .cm-type, .cm-atom) {
+body.code-theme .app-container :is(.token:is(.keyword, .constant, .unit, .builtin, .atrule), .cm-keyword, .cm-builtin, .cm-type, .cm-atom) {
   color: var(--code-keyword);
 }
-body .app-container :is(.token:is(.regex, .important)) {
+body.code-theme .app-container :is(.token:is(.regex, .important)) {
   color: var(--code-important);
 }
-body .app-container :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
+body.code-theme .app-container :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
   color: var(--code-base);
 }
-body .app-container :is(.cm-variable-2, .cm-variable-3) {
+body.code-theme .app-container :is(.cm-variable-2, .cm-variable-3) {
   opacity: 0.7;
 }
-body .app-container .HyperMD-codeblock span[class=cm-hmd-codeblock]:nth-child(n+2) + :is(.cm-variable, .cm-variable-2, .cm-variable-3) ~ span[class=cm-hmd-codeblock] + :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
+body.code-theme .app-container .HyperMD-codeblock span[class=cm-hmd-codeblock]:nth-child(n+2) + :is(.cm-variable, .cm-variable-2, .cm-variable-3) ~ span[class=cm-hmd-codeblock] + :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
   color: var(--color-orange) !important;
+}
+
+body.code-header-mac .markdown-preview-view pre[class*=language-] {
+  border: none;
+  padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
+  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
+}
+body.code-header-mac .markdown-preview-view pre[class*=language-]::before {
+  color: var(--accent-active);
+}
+body.code-header-mac .markdown-preview-view pre[class*=language-]::after {
+  content: "";
+  width: 100%;
+  height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
+  background-color: #333333;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+body.code-header-mac .markdown-preview-view pre[class*=language-] .copy-code-button {
+  color: white;
+  right: var(--size-4-1);
+}
+body.code-header-mac .markdown-preview-view pre[class*=language-] .copy-code-button:hover {
+  background-color: var(--accent-active);
+}
+body.code-header-mac .markdown-preview-view pre[class*=language-] code::before {
+  content: "";
+  width: var(--code-size);
+  height: var(--code-size);
+  position: absolute;
+  left: var(--size-4-4);
+  top: calc(var(--code-size) * var(--line-height-normal) * 1.1 / 2 - var(--code-size) / 3);
+  border-radius: 50%;
+  z-index: 9;
+  background-color: var(--color-red);
+  box-shadow: var(--size-4-5) 0 0 0 var(--color-yellow), var(--size-4-10) 0 0 0 var(--color-green);
 }
 
 /* ====== 光标 ====== */
@@ -3019,7 +3075,7 @@ body.font-maple {
   --active-line: hsl(
     calc(var(--accent-h) - 4),
     calc(var(--accent-s) - 12%),
-    calc(100% - (100% - var(--accent-l)) / 6)
+    calc(100% - (100% - var(--accent-l)) / 4)
   );
 }
 
@@ -3036,7 +3092,7 @@ body .app-container .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-cod
   padding-left: var(--size-4-1);
   padding-right: var(--size-4-1);
 }
-body .app-container .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock).cm-active {
+body .app-container .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: var(--active-line);
   border-radius: var(--radius-s);
 }

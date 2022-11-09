@@ -109,7 +109,8 @@ body .app-container pre {
     font-size: 0.8rem;
     margin: 0;
     top: var(--size-4-1);
-    right: var(--size-4-1);
+    right: var(--size-2-1);
+    z-index: 99;
 
     &:hover {
       opacity: 1;
@@ -117,7 +118,7 @@ body .app-container pre {
     }
   }
 }
-body.code-heading {
+body.code-header-language {
   pre[class*='language-'] {
     padding: 1.8rem 1rem;
     position: relative;
@@ -131,8 +132,9 @@ body.code-heading {
       letter-spacing: 2px;
       text-align: right;
       right: 56px;
-      top: var(--size-4-1);
-      line-height: 1.6rem;
+      top: calc(1.8rem - 0.8rem * 2);
+      line-height: var(--line-height-normal);
+      z-index: 9;
     }
   }
   $language: c, properties, python, nginx, css, javascript, js, typescript, ts,
@@ -163,7 +165,7 @@ body.code-copy-button-english .app-container pre .copy-code-button {
     background-color: var(--nav-item-background-hover);
   }
 }
-body .app-container {
+body.code-theme .app-container {
   :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
     color: var(--code-comment);
   }
@@ -192,12 +194,6 @@ body .app-container {
   :is(.token:is(.regex, .important)) {
     color: var(--code-important);
   }
-  // .cm-def {
-  //   color: var(--color-orange);
-  // }
-  // :is(.cm-property, .cm-operator) {
-  //   color: var(--color-blue);
-  // }
   :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
     color: var(--code-base);
   }
@@ -210,5 +206,45 @@ body .app-container {
     ~ span[class='cm-hmd-codeblock']
     + :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
     color: var(--color-orange) !important;
+  }
+}
+body.code-header-mac .markdown-preview-view pre[class*='language-'] {
+  border: none;
+  padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
+  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
+  &::before {
+    color: var(--accent-active);
+  }
+  &::after {
+    content: '';
+    width: 100%;
+    height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
+    background-color: #333333;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+  .copy-code-button {
+    color: white;
+    right: var(--size-4-1);
+    &:hover {
+      background-color: var(--accent-active);
+    }
+  }
+  code::before {
+    content: '';
+    width: var(--code-size);
+    height: var(--code-size);
+    position: absolute;
+    left: var(--size-4-4);
+    top: calc(
+      var(--code-size) * var(--line-height-normal) * 1.1 / 2 - var(--code-size) /
+        3
+    );
+    border-radius: 50%;
+    z-index: 9;
+    background-color: var(--color-red);
+    box-shadow: var(--size-4-5) 0 0 0 var(--color-yellow),
+      var(--size-4-10) 0 0 0 var(--color-green);
   }
 }

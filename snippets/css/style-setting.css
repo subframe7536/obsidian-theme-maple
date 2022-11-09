@@ -392,10 +392,21 @@ settings:
         collapsed: true
         level: 3
     -
-        id: code-heading
-        title: add code block heading
-        description: with language
-        description.zh: 为代码块添加语言和间隔
+        id: code-header-language
+        title: add code block language indicator
+        description.zh: 为预览模式代码块添加语言标识
+        type: class-toggle
+        default: true
+    -
+        id: code-header-mac
+        title: add mac style code block header
+        description: no hover animation
+        description.zh: 为预览模式代码块添加mac的标题栏
+        type: class-toggle
+    -
+        id: code-theme
+        title: use theme's color schema
+        description.zh: 使用主题的代码高亮
         type: class-toggle
         default: true
     -

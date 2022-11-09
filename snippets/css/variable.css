@@ -7,6 +7,7 @@ body {
   --color-red: #f03f28 !important;
   --color-green-rgb: 81, 188, 0 !important;
   --color-green: #51bc00 !important;
+  --color-yellow: #ffbb4e !important;
   --color-orange: #e4980c !important;
   --color-blue: #0993d3 !important;
   --color-purple: #9084e9 !important;
@@ -14,6 +15,7 @@ body {
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
   --blur: 12px;
+  --size-4-10: 40px;
 }
 html body.obsidian-app.fixed-theme-color {
   --accent-s: 32% !important;
@@ -82,7 +84,11 @@ body.use-custom-color.theme-dark.css-settings-manager {
   );
   --background-modifier-cover: var(--color-base-70) !important;
 
-  --md-container-bg: var(--background-secondary);
+  --md-container-bg: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) / 1.2),
+    calc(100% - (100% - var(--accent-l)) / 6)
+  );
 }
 .theme-dark {
   --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 8));
