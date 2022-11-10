@@ -265,3 +265,22 @@ body.code-header-mac .markdown-preview-view pre[class*='language-'] {
     box-shadow: var(--size-4-5) 0 0 0 #ffbb4e, var(--size-4-10) 0 0 0 #51bc00;
   }
 }
+body.code-line-number .markdown-source-view.mod-cm6 {
+  counter-reset: code-line;
+  .cm-line.HyperMD-codeblock {
+    padding-left: var(--size-4-12);
+    &:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
+      counter-increment: code-line;
+      content: counter(code-line);
+      position: absolute;
+      text-align: right;
+      width: var(--size-4-8);
+      left: 0;
+      color: var(--accent-active);
+      opacity: var(--code-line-number-opacity, 0.6);
+    }
+    &-end {
+      counter-reset: code-line;
+    }
+  }
+}

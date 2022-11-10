@@ -422,15 +422,32 @@ settings:
         collapsed: true
         level: 3
     -
+        id: code-line-number
+        title: add code block line number
+        description: only in live preview mode
+        description.zh: 为实时预览模式代码块添加行号
+        type: class-toggle
+        default: true
+    -
+        id: code-line-number-opacity
+        title: code block line number opacity
+        description.zh: 为代码块行号不透明度
+        type: variable-number-slider
+        min: 0
+        max: 1
+        step: 0.05
+        default: 0.6
+    -
         id: code-header-language
         title: add code block language indicator
+        description: only in preview mode
         description.zh: 为预览模式代码块添加语言标识
         type: class-toggle
         default: true
     -
         id: code-header-mac
         title: add mac style code block header
-        description: no code block border
+        description: only in preview mode and no code block border
         description.zh: 为预览模式代码块添加mac的标题栏，没有代码块边框
         type: class-toggle
     -
@@ -1950,6 +1967,26 @@ body.code-header-mac .markdown-preview-view pre[class*=language-] code::before {
   z-index: 9;
   background-color: var(--color-red);
   box-shadow: var(--size-4-5) 0 0 0 #ffbb4e, var(--size-4-10) 0 0 0 #51bc00;
+}
+
+body.code-line-number .markdown-source-view.mod-cm6 {
+  counter-reset: code-line;
+}
+body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
+  padding-left: var(--size-4-12);
+}
+body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
+  counter-increment: code-line;
+  content: counter(code-line);
+  position: absolute;
+  text-align: right;
+  width: var(--size-4-8);
+  left: 0;
+  color: var(--accent-active);
+  opacity: var(--code-line-number-opacity, 0.6);
+}
+body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
+  counter-reset: code-line;
 }
 
 /* ====== 光标 ====== */
@@ -3830,6 +3867,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 
 body:not(.calendar-swap-year-month) .setting-item[data-id=calendar-year-suffix],
 body:not(.quote-theme) .setting-item[data-id=quote-mark],
+body:not(.code-line-number) .setting-item[data-id=code-line-number-opacity],
 body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.use-custom-color) .setting-item[data-id^=accent-hue],
