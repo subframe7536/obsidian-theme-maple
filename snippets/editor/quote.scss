@@ -2,12 +2,16 @@
 @use 'sass:math';
 $num: 8;
 $indent: 1.6rem;
+$mark-size: 3rem;
 body {
-  --quote-guide-line-width: var(--size-2-3);
-  --quote-radius: var(--radius-s);
   --blockquote-background-color: var(--md-container-bg);
 }
 body.quote-theme {
+  --blockquote-border-thickness: var(--size-2-3);
+  --quote-radius: max(
+    calc(var(--blockquote-border-thickness) / 2),
+    var(--radius-s)
+  );
   .markdown-rendered blockquote {
     background-color: var(--md-container-bg);
     border: none !important;
@@ -26,17 +30,17 @@ body.quote-theme {
       left: $indent;
     }
     p {
-      padding-left: var(--quote-guide-line-width);
+      padding-left: var(--blockquote-border-thickness);
       padding-right: var(--size-4-1);
     }
     &::after {
       content: '';
       position: absolute;
-      left: var(--quote-guide-line-width);
-      top: var(--quote-guide-line-width);
-      border-radius: calc(var(--quote-guide-line-width) / 2);
-      height: calc(100% - var(--quote-guide-line-width) * 2);
-      width: var(--quote-guide-line-width);
+      left: var(--blockquote-border-thickness);
+      top: var(--blockquote-border-thickness);
+      border-radius: calc(var(--blockquote-border-thickness) / 2);
+      height: calc(100% - var(--blockquote-border-thickness) * 2);
+      width: var(--blockquote-border-thickness);
       background-color: var(--accent-active);
     }
     blockquote {
@@ -90,24 +94,24 @@ body.quote-theme {
         border-left: none !important;
         content: '';
         position: absolute;
-        left: var(--quote-guide-line-width);
+        left: var(--blockquote-border-thickness);
         top: unset;
-        bottom: var(--quote-guide-line-width);
-        height: calc(100% + var(--quote-guide-line-width));
-        width: var(--quote-guide-line-width);
-        border-radius: var(--quote-guide-line-width);
+        bottom: var(--blockquote-border-thickness);
+        height: calc(100% + var(--blockquote-border-thickness));
+        width: var(--blockquote-border-thickness);
+        border-radius: var(--blockquote-border-thickness);
         background-color: var(--accent-active);
         color: var(--accent-active);
       }
       &::before {
-        height: calc(100% - var(--quote-guide-line-width) * 2);
+        height: calc(100% - var(--blockquote-border-thickness) * 2);
       }
     }
     :is(.internal-embed, .cm-line:not(.HyperMD-quote))
       + .HyperMD-quote:not(.callout) {
       &::before {
-        top: var(--quote-guide-line-width);
-        height: calc(100% - var(--quote-guide-line-width) * 2);
+        top: var(--blockquote-border-thickness);
+        height: calc(100% - var(--blockquote-border-thickness) * 2);
       }
       &::after {
         content: none;
@@ -141,6 +145,7 @@ body.quote-mark.quote-theme {
     text-indent: -0.5rem !important;
     padding-inline-start: $indent * 2 - 0.2rem !important;
   }
+
   :is(div:not(.HyperMD-quote)
       + .HyperMD-quote, .HyperMD-quote:not(.HyperMD-quote-1)
       + .HyperMD-quote-1, .cm-content
@@ -148,8 +153,7 @@ body.quote-mark.quote-theme {
     @at-root body.quote-mark blockquote::before,
       & > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
       position: absolute;
-      font-size: 2rem;
-      font-weight: bold;
+      font-size: $mark-size;
       font-family: Source Code Pro;
       line-height: 1;
       content: '“' !important;
@@ -159,8 +163,11 @@ body.quote-mark.quote-theme {
 
     @at-root body.quote-mark blockquote::before,
       & > .cm-formatting.cm-formatting-quote.cm-quote::before {
-      left: $indent;
-      top: calc(var(--font-text-size) * var(--line-height-normal) / 10);
+      left: math.div($indent * 4, 5);
+      top: calc(
+        var(--font-text-size) * var(--line-height-normal) -
+          math.div($mark-size, 1.3)
+      );
     }
   }
   .markdown-rendered blockquote {
