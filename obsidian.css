@@ -563,6 +563,8 @@ body {
   --color-orange: #e4980c !important;
   --color-blue: #0993d3 !important;
   --color-purple: #9084e9 !important;
+  --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
+  --file-folding-offset: 28px;
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
   --blur: 12px;
@@ -1912,9 +1914,6 @@ body.code-theme .app-container :is(.cm-variable, .cm-variable-2, .cm-variable-3)
 body.code-theme .app-container :is(.cm-variable-2, .cm-variable-3) {
   opacity: 0.7;
 }
-body.code-theme .app-container .HyperMD-codeblock span[class=cm-hmd-codeblock]:nth-child(n+2) + :is(.cm-variable, .cm-variable-2, .cm-variable-3) ~ span[class=cm-hmd-codeblock] + :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
-  color: var(--color-orange) !important;
-}
 
 body.code-header-mac .markdown-preview-view pre[class*=language-] {
   border: none;
@@ -1950,7 +1949,7 @@ body.code-header-mac .markdown-preview-view pre[class*=language-] code::before {
   border-radius: 50%;
   z-index: 9;
   background-color: var(--color-red);
-  box-shadow: var(--size-4-5) 0 0 0 var(--color-yellow), var(--size-4-10) 0 0 0 var(--color-green);
+  box-shadow: var(--size-4-5) 0 0 0 #ffbb4e, var(--size-4-10) 0 0 0 #51bc00;
 }
 
 /* ====== 光标 ====== */
@@ -2189,7 +2188,6 @@ body:not(.click-to-edit-link-in-live-preview) :is(:is(.markdown-source-view, .ma
   transform: translateY(var(--size-2-1));
   width: calc(var(--font-text-size) - var(--size-2-1));
   height: calc(var(--font-text-size) - var(--size-2-1));
-  margin-left: var(--size-2-1);
   background-color: var(--link-color);
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
 }
@@ -3636,6 +3634,7 @@ body.heading-h2-underline .HyperMD-header-2::after {
   height: var(--size-4-1);
   width: 100%;
   bottom: 8px;
+  border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h2-color) 30%, transparent 70%);
 }
 body.heading-h2-underline h2::after {
@@ -4131,7 +4130,6 @@ button {
 .modal-container .mod-settings .modal-content .setting-hotkey {
   box-shadow: var(--shadow-s);
   border: 2px solid var(--accent-inactive);
-  background-color: var(--code-background);
   border-radius: var(--radius-s);
   font-size: var(--font-ui-smaller);
   padding: 0.05rem 0.5rem;
@@ -4142,6 +4140,13 @@ button {
 }
 .modal-container .mod-settings .modal-content .setting-hotkey:hover {
   border-color: var(--accent-active);
+}
+.modal-container .mod-settings .modal-content .setting-hotkey.mod-active {
+  color: var(--text-faint);
+  background-color: var(--frame-background-color);
+}
+.modal-container .mod-settings .modal-content .setting-hotkey:not(.has-conflict):not(.mod-active) {
+  background-color: var(--code-background);
 }
 .modal-container .mod-settings .modal-content .setting-item-heading .setting-item-name {
   font-weight: bold;
@@ -4405,4 +4410,11 @@ body.tab-float .workspace-tab-header-new-tab {
 body.back-blur :is(.menu, .suggestion-container) {
   background-color: hsla(var(--background-secondary-hsl), 0.7);
   backdrop-filter: blur(var(--blur));
+}
+
+.print pre[class*=language-] {
+  border-radius: var(--radius-l);
+}
+.print pre[class*=language-]::before {
+  right: var(--size-4-2) !important;
 }

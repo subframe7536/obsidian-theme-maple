@@ -11,6 +11,8 @@ body {
   --color-orange: #e4980c !important;
   --color-blue: #0993d3 !important;
   --color-purple: #9084e9 !important;
+  --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
+  --file-folding-offset: 28px;
 
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);

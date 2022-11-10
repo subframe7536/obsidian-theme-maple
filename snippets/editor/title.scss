@@ -171,7 +171,6 @@ h1 {
 body.heading-h2-underline {
   h2,
   .HyperMD-header-2 {
-    // border-bottom: 3px solid var(--h2-color);
     position: relative;
 
     &::after {
@@ -180,6 +179,7 @@ body.heading-h2-underline {
       height: var(--size-4-1);
       width: 100%;
       bottom: 8px;
+      border-radius: var(--size-2-1);
       background-image: linear-gradient(
         to right,
         var(--h2-color) 30%,

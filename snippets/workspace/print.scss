@@ -1,0 +1,8 @@
+.print {
+  pre[class*='language-'] {
+    border-radius: var(--radius-l);
+    &::before {
+      right: var(--size-4-2) !important;
+    }
+  }
+}

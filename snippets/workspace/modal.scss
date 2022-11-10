@@ -104,7 +104,6 @@ button {
     .setting-hotkey {
       box-shadow: var(--shadow-s);
       border: 2px solid var(--accent-inactive);
-      background-color: var(--code-background);
       border-radius: var(--radius-s);
       font-size: var(--font-ui-smaller);
       padding: 0.05rem 0.5rem;
@@ -114,6 +113,13 @@ button {
       }
       &:hover {
         border-color: var(--accent-active);
+      }
+      &.mod-active {
+        color: var(--text-faint);
+        background-color: var(--frame-background-color);
+      }
+      &:not(.has-conflict):not(.mod-active) {
+        background-color: var(--code-background);
       }
     }
     .setting-item-heading .setting-item-name {
