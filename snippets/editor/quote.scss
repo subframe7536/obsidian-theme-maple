@@ -150,7 +150,7 @@ body.quote-mark.quote-theme {
           var(--font-text-size) * var(--line-height-normal) -
             math.div($mark-size, 1.4)
         );
-        left: $indent;
+        transform: translateX($indent * -2.2);
       }
     }
   }

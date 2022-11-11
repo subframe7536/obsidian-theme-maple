@@ -1649,7 +1649,7 @@ body.quote-mark.quote-theme blockquote::before, body.quote-mark.quote-theme :is(
   background-color: transparent;
   color: var(--text-muted);
   top: calc(var(--font-text-size) * var(--line-height-normal) - 2.1428571429rem);
-  left: 0.6rem;
+  transform: translateX(-1.32rem);
 }
 
 body.quote-mark.quote-theme .markdown-rendered blockquote {
