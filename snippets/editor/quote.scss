@@ -156,6 +156,9 @@ body.quote-mark.quote-theme {
   }
   .markdown-rendered blockquote {
     padding-left: $indent * 3.8;
+    &::before {
+      transform: translateX($indent * -2.7);
+    }
   }
 }
 // body.quote-theme {

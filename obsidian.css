@@ -1655,6 +1655,9 @@ body.quote-mark.quote-theme blockquote::before, body.quote-mark.quote-theme :is(
 body.quote-mark.quote-theme .markdown-rendered blockquote {
   padding-left: 2.28rem;
 }
+body.quote-mark.quote-theme .markdown-rendered blockquote::before {
+  transform: translateX(-1.62rem);
+}
 
 body {
   --callout-radius: var(--radius-l);
