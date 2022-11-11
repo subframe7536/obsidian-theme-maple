@@ -58,23 +58,23 @@
 //     }
 //   }
 // }
-.cm-s-obsidian.mod-cm6 input[type='checkbox'] {
-  margin: 3px 4px;
-  border-width: 2px;
+.markdown-source-view.mod-cm6 .task-list-label {
+  margin-left: calc(var(--size-2-1) * -1);
+}
+input[type='checkbox'] {
+  transition: var(--animation);
+  border-width: var(--size-2-1);
   &:checked:after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 }
-.markdown-preview-view .task-list-item-checkbox {
-  transform: translateY(20%);
-}
 .HyperMD-task-line .cm-indent::before {
   transform: translateX(0.25em) !important;
 }
 body {
-  --list-bullet-base: 12px;
+  --list-bullet-base: var(--size-4-3);
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
   --list-marker-color: hsl(
     var(--accent-h),
@@ -91,7 +91,7 @@ body {
 .markdown-rendered {
   :is(ul, ol) {
     padding-inline-start: 2.1rem;
-    margin: 2px 0;
+    margin: var(--size-2-1) 0;
     :is(ul, ol) {
       padding-inline-start: 2.1rem;
     }
@@ -137,8 +137,12 @@ body {
             var(--font-text-size) - var(--list-bullet-base) - 1px
           );
           --list-marker-color: transparent;
-          --list-bullet-border: 2px solid var(--list-marker-color-alt);
-          --list-bullet-radius: max(2px, calc(var(--list-bullet-size) / 3));
+          --list-bullet-border: var(--size-2-1) solid
+            var(--list-marker-color-alt);
+          --list-bullet-radius: max(
+            var(--size-2-1),
+            calc(var(--list-bullet-size) / 3)
+          );
         }
       }
     }

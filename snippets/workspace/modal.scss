@@ -52,8 +52,8 @@ body.setting-header .modal-container {
       padding: 0;
       .settings-search-input {
         position: fixed;
-        top: calc(50vh - var(--modal-height) / 2 - var(--size-4-3) + 18px);
-        left: calc(50vw - var(--modal-width) / 2 + var(--size-4-3) - 6px);
+        top: calc(50vh - var(--modal-height) / 2 + var(--size-2-3));
+        left: calc(50vw - var(--modal-width) / 2 + var(--size-2-3));
         width: calc(
           clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-3) * 1
         );
@@ -104,7 +104,7 @@ button {
     .setting-hotkey {
       box-shadow: var(--shadow-s);
       border: 2px solid var(--accent-inactive);
-      border-radius: var(--radius-s);
+      border-radius: var(--size-2-3);
       font-size: var(--font-ui-smaller);
       padding: 0.05rem 0.5rem;
       transition: var(--animation);

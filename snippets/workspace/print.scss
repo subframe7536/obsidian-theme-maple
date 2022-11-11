@@ -4,5 +4,11 @@
     &::before {
       right: var(--size-4-2) !important;
     }
+    code {
+      tab-size: 4;
+    }
+  }
+  .markdown-preview-view table {
+    resize: initial;
   }
 }

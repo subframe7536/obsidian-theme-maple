@@ -21,10 +21,11 @@ body {
     var(--accent-s),
     calc(var(--accent-l) - 30%)
   );
+  --code-mac-style-header-bg: #333;
 
   :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered
       code) {
-    --code-background: hsl(calc(var(--accent-h) - 8), 30%, 94%);
+    --code-background: hsl(calc(var(--accent-h) - 8), 10%, 94%);
   }
 }
 .theme-dark {
@@ -33,6 +34,7 @@ body {
     var(--accent-s),
     calc(var(--accent-l) + 10%)
   );
+  --code-mac-style-header-bg: #000;
 
   :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered
       code) {
@@ -58,7 +60,7 @@ body {
 }
 .cm-s-obsidian .cm-line {
   --code-bg-radius: var(--radius-l);
-  --code-bg-border: 2px solid var(--nav-item-background-hover);
+  --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
   &.HyperMD-codeblock {
     line-height: calc(var(--line-height-normal) - 0.2);
     color: var(--color-blue) !important;
@@ -104,7 +106,7 @@ pre[class*='language-'] {
 }
 body .app-container pre {
   border-radius: var(--radius-l);
-  border: 2px solid var(--accent-inactive);
+  border: var(--size-2-1) solid var(--accent-inactive);
   transition: var(--animation);
   &:hover {
     border-color: var(--accent-active);
@@ -113,30 +115,27 @@ body .app-container pre {
     }
   }
   .copy-code-button {
-    letter-spacing: var(--size-4-1);
-    padding: 0 10px;
-    border-radius: 6px;
-    width: 50px;
-    height: 1.6rem;
-    line-height: 1.6rem;
-    text-align: center;
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></g></svg>');
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
     opacity: 0;
-    background-color: transparent;
-    display: block !important;
+    color: transparent;
+    background-color: var(--accent-active);
     transition: var(--animation);
-    font-size: 0.8rem;
     margin: 0;
+    display: block !important;
     top: var(--size-4-1);
-    right: var(--size-2-1);
+    right: var(--size-4-1);
     z-index: 99;
 
     &:hover {
       opacity: 1;
-      background-color: var(--nav-item-background-hover);
+      background-color: var(--accent-inactive);
     }
   }
 }
-body.code-header-language {
+body.code-language {
   pre[class*='language-'] {
     padding: 1.8rem 1rem;
     position: relative;
@@ -147,9 +146,9 @@ body.code-header-language {
       font-weight: bold;
       font-size: 0.8rem;
       position: absolute;
-      letter-spacing: 2px;
+      letter-spacing: var(--size-2-1);
       text-align: right;
-      right: 56px;
+      right: calc(1.5rem + 2 * var(--size-4-1));
       top: calc(1.8rem - 0.8rem * 2);
       line-height: var(--line-height-normal);
       z-index: 9;
@@ -170,10 +169,6 @@ body.code-header-language {
     }
   }
 }
-body.code-copy-button-english .app-container pre .copy-code-button {
-  letter-spacing: 0;
-  padding: 0 8px;
-}
 .markdown-source-view.mod-cm6 .code-block-flair {
   padding-top: 0;
   padding-bottom: 0;
@@ -190,13 +185,13 @@ body.code-theme .app-container {
   :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
     color: var(--code-tag);
   }
-  :is(.token:is(.punctuation, .operator), .cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
+  :is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
     color: var(--code-punctuation);
   }
   :is(.token:is(.boolean, .number), .cm-number) {
     color: var(--code-value);
   }
-  :is(.token:is(.selector, .attr-name, .punctuation.annotation, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
+  :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
     color: var(--code-string);
   }
   :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style)
@@ -226,7 +221,7 @@ body.code-theme .app-container {
   //   color: var(--color-orange) !important;
   // }
 }
-body.code-header-mac .markdown-preview-view pre[class*='language-'] {
+body.code-mac-style-header .markdown-preview-view pre[class*='language-'] {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
@@ -237,17 +232,10 @@ body.code-header-mac .markdown-preview-view pre[class*='language-'] {
     content: '';
     width: 100%;
     height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
-    background-color: #333;
+    background-color: var(--code-mac-style-header-bg);
     top: 0;
     left: 0;
     position: absolute;
-  }
-  .copy-code-button {
-    color: #eee;
-    right: var(--size-4-1);
-    &:hover {
-      background-color: var(--accent-active);
-    }
   }
   $light-size: calc(var(--code-size) - var(--size-2-1));
   code::before {
@@ -262,22 +250,27 @@ body.code-header-mac .markdown-preview-view pre[class*='language-'] {
     border-radius: 50%;
     z-index: 9;
     background-color: var(--color-red);
-    box-shadow: var(--size-4-5) 0 0 0 #ffbb4e, var(--size-4-10) 0 0 0 #51bc00;
+    box-shadow: var(--size-4-5) 0 0 0 #ffbb4e,
+      calc(var(--size-4-5) * 2) 0 0 0 #51bc00;
   }
 }
 body.code-line-number .markdown-source-view.mod-cm6 {
   counter-reset: code-line;
   .cm-line.HyperMD-codeblock {
     padding-left: var(--size-4-12);
-    &:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
-      counter-increment: code-line;
-      content: counter(code-line);
-      position: absolute;
-      text-align: right;
-      width: var(--size-4-8);
-      left: 0;
-      color: var(--accent-active);
-      opacity: var(--code-line-number-opacity, 0.6);
+    &:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
+      &::before {
+        counter-increment: code-line;
+        content: counter(code-line);
+        position: absolute;
+        text-align: right;
+        width: var(--size-4-8);
+        left: 0;
+        color: var(--accent-inactive);
+      }
+      &.cm-active::before {
+        color: var(--accent-active);
+      }
     }
     &-end {
       counter-reset: code-line;

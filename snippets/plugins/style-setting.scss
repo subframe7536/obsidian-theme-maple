@@ -65,10 +65,10 @@
         hsl(330 var(--hue-slider-sat) var(--hue-slider-br)),
         hsl(360 var(--hue-slider-sat) var(--hue-slider-br))
       );
-      border-radius: 2px;
+      border-radius: var(--size-2-1);
       &::-webkit-slider-thumb {
         height: 1.6em;
-        width: 4px;
+        width: var(--size-4-1);
         background-color: var(--text-muted);
         position: relative;
         top: 50%;
@@ -101,7 +101,6 @@
 body:not(.calendar-swap-year-month)
   .setting-item[data-id='calendar-year-suffix'],
 body:not(.quote-theme) .setting-item[data-id='quote-mark'],
-body:not(.code-line-number) .setting-item[data-id='code-line-number-opacity'],
 body:not(.scrollbar-smooth) .setting-item[data-id='scrollbar-smooth-editor'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
 body:not(.use-custom-color) .setting-item[data-id^='accent-hue'],

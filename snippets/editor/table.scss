@@ -6,12 +6,11 @@ body {
 }
 .markdown-preview-view table {
   overflow: hidden;
-  resize: both !important;
-  margin: 12px 0 !important;
+  resize: both;
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) table {
   width: 100% !important;
-  margin: var(--size-4-2) 0 !important;
+  margin: 1rem 0 !important;
   --table-column-first-border-width: var(--table-outline-width);
   --table-column-last-border-width: var(--table-outline-width);
   --table-row-last-border-width: var(--table-outline-width);
@@ -66,8 +65,8 @@ body {
 .cm-embed-block.cm-table-widget {
   border: none;
   .edit-block-button {
-    top: 14px;
-    right: 6px;
+    top: calc(var(--size-4-2) + 1rem);
+    right: var(--size-2-3);
   }
 }
 body.table-colorful {
@@ -78,12 +77,22 @@ body.table-colorful {
       color: var(--accent-active);
     }
   }
-  table {
+  .workspace-leaf-content[data-type='markdown'] table {
     --table-header-color: var(--text-on-accent);
     --table-header-background: var(--accent-active);
     --table-header-background-hover: var(--accent-active);
     tbody tr:nth-of-type(2n) {
       background-color: var(--md-container-bg);
+    }
+    th {
+      border-top: var(--block-outline-width) solid var(--accent-active) !important;
+      border-bottom: var(--block-outline-width) solid var(--accent-active);
+      &:first-child {
+        border-left-color: var(--accent-active);
+      }
+      &:last-child {
+        border-right-color: var(--accent-active);
+      }
     }
   }
 }

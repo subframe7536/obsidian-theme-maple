@@ -18,13 +18,13 @@ body {
 .workspace-leaf-content[data-type='file-explorer']
   .nav-files-container
   .mod-root {
-  padding-top: 8px;
+  padding-top: var(--size-4-2);
   & > .nav-folder-title {
     display: none;
   }
   .nav-folder {
     &-title {
-      padding-left: 4px;
+      padding-left: var(--size-4-1);
       &:hover {
         background-color: var(--folder-hover-color);
       }
@@ -36,7 +36,7 @@ body {
       }
     }
     &-collapse-indicator {
-      margin-right: 8px;
+      margin-right: var(--size-4-2);
       cursor: pointer;
       svg {
         line-height: var(--line-height-tight);
@@ -44,7 +44,7 @@ body {
         height: 1rem;
         background-color: var(--folder-color);
         display: inline-block;
-        margin-bottom: 4px;
+        margin-bottom: var(--size-4-1);
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 42 42"><g fill="none"><path d="M24.833 12.5H40.25a3.75 3.75 0 0 1 3.745 3.55l.005.2v19a3.75 3.75 0 0 1-3.55 3.745l-.2.005H7.75a3.75 3.75 0 0 1-3.745-3.55L4 35.25V18.999L17.804 19l.226-.007a3.75 3.75 0 0 0 2.547-1.219l.147-.172l4.109-5.102zM17.061 9c.832 0 1.639.277 2.294.784l.175.144l2.444 2.138l-3.197 3.968l-.094.105c-.2.197-.46.322-.739.353l-.14.008L4 16.499V12.75a3.75 3.75 0 0 1 3.55-3.745L7.75 9h9.31z" fill="currentColor"></path></g></svg>');
         path {
@@ -60,15 +60,15 @@ body {
   }
   .nav-file {
     &-title {
-      padding-left: 4px;
+      padding-left: var(--size-4-1);
       &-content:first-child::before {
         content: ' ';
         display: inline-block;
         width: 1rem;
         opacity: 0.8;
         height: 1rem;
-        left: 4px;
-        margin-right: 4px;
+        left: var(--size-4-1);
+        margin-right: var(--size-4-1);
         transform: translateY(20%);
         background-size: contain;
         background-repeat: no-repeat;
@@ -84,10 +84,10 @@ body {
       }
     }
     &-tag {
-      font-size: 10px;
+      font-size: 0.6rem;
       margin-left: 0;
-      margin-right: 8px;
-      line-height: 1.6;
+      margin-right: var(--size-4-2);
+      line-height: 2;
     }
     &-title .nav-file-tag {
       background-color: var(--nav-item-background-active);
@@ -98,7 +98,7 @@ body {
       color: var(--accent-active);
     }
     &-title-content + .nav-file-tag {
-      margin-left: 6px;
+      margin-left: var(--size-2-3);
     }
   }
 }

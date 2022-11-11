@@ -11,7 +11,7 @@
   border-radius: var(--size-4-2);
   padding: var(--size-2-3) var(--size-4-1) var(--size-2-3) 0;
   height: fit-content;
-  border: 2px solid var(--frame-outline-color);
+  border: var(--size-2-1) solid var(--frame-outline-color);
   box-shadow: var(--shadow-s);
   margin: 0;
 
@@ -20,7 +20,7 @@
     padding: 0;
   }
   :is(.document-search-input, .document-replace-input) {
-    margin-left: 6px;
+    margin-left: var(--size-2-3);
   }
   .document-search-close-button {
     position: relative;
@@ -36,7 +36,7 @@ body.search-internal-disable-select-all
 
 body.search-internal-expand-on-focus {
   :is(.document-search-input, .document-replace-input) {
-    margin-left: 6px;
+    margin-left: var(--size-2-3);
     width: 100px;
     transition: var(--animation);
   }

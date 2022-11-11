@@ -13,13 +13,13 @@
     background-color: var(--background-secondary) !important;
     margin: 0 !important;
     li {
-      padding: 4px !important;
+      padding: var(--size-4-1) !important;
       button {
-        border-radius: 6px;
-        padding: 4px;
-        padding-left: 24px;
+        border-radius: var(--size-2-3);
+        padding: var(--size-4-1);
+        padding-left: var(--size-4-6);
         & > div {
-          margin-inline-end: 4px !important;
+          margin-inline-end: var(--size-4-1) !important;
         }
         kbd {
           border: 0;
@@ -29,7 +29,7 @@
     }
     .context-menu-option-separator {
       border: 1px solid var(--background-modifier-border);
-      margin: 4px 0 !important;
+      margin: var(--size-4-1) 0 !important;
     }
     .context-menu-option:hover {
       background-color: var(--nav-item-background-hover);

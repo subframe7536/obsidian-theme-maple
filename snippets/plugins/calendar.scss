@@ -1,4 +1,6 @@
 /* ====== 日历 ====== */
+$height: var(--size-4-6);
+
 body.calendar-swap-year-month #calendar-container {
   .nav {
     padding-left: var(--size-4-1);
@@ -10,7 +12,7 @@ body.calendar-swap-year-month #calendar-container {
 
       .year {
         color: var(--text-normal);
-        letter-spacing: 1px;
+        letter-spacing: 0.1rem;
         &::after {
           content: var(--calendar-year-suffix, '年');
           margin-right: var(--size-2-1);
@@ -18,9 +20,9 @@ body.calendar-swap-year-month #calendar-container {
         }
       }
       .month {
-        height: 26px;
-        line-height: 26px;
-        letter-spacing: 1px;
+        height: $height;
+        line-height: $height;
+        letter-spacing: 0.1rem;
         font-weight: bold;
         color: var(--accent-active);
       }
@@ -29,13 +31,13 @@ body.calendar-swap-year-month #calendar-container {
 }
 #calendar-container {
   thead {
-    border-bottom: 2px solid var(--accent-active);
+    border-bottom: var(--size-2-1) solid var(--accent-active);
   }
   .title {
     line-height: 100%;
     .year {
-      height: 26px;
-      line-height: 26px;
+      height: $height;
+      line-height: $height;
     }
   }
 }

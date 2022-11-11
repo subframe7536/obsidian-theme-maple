@@ -428,23 +428,14 @@ settings:
         type: class-toggle
         default: true
     -
-        id: code-line-number-opacity
-        title: code block line number opacity
-        description.zh: 为代码块行号不透明度
-        type: variable-number-slider
-        min: 0
-        max: 1
-        step: 0.05
-        default: 0.6
-    -
-        id: code-header-language
+        id: code-language
         title: add code block language indicator
         description: only in preview mode
         description.zh: 为预览模式代码块添加语言标识
         type: class-toggle
         default: true
     -
-        id: code-header-mac
+        id: code-mac-style-header
         title: add mac style code block header
         description: only in preview mode and no code block border
         description.zh: 为预览模式代码块添加mac的标题栏，没有代码块边框
@@ -455,10 +446,6 @@ settings:
         description.zh: 使用主题的代码高亮
         type: class-toggle
         default: true
-    -
-        id: code-copy-button-english
-        title: fix letter space of code copy button
-        type: class-toggle
     -
         id: tag
         title: tag

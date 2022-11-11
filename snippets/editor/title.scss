@@ -51,15 +51,15 @@ body {
     position: absolute;
     border-radius: var(--radius-s);
     z-index: 1;
-    padding: 2px;
+    padding: 0.1rem;
     width: fit-content;
     font-size: 0.6rem;
     line-height: 1;
     vertical-align: middle;
-    letter-spacing: 1px;
+    letter-spacing: 0.05rem;
     font-family: var(--font-text);
     opacity: 0;
-    cursor: pointer;
+    // cursor: pointer;
     transition: var(--animation);
     top: 50%;
     transform: translateY(-50%);
@@ -98,7 +98,7 @@ div.markdown-reading-view
   > div
   > div
   > :is(h1, h2, h3, h4, h5, h6)::before {
-  left: -28px !important;
+  left: calc(var(--size-4-6) * -1) !important;
 }
 :not(.popup) :is(h1, h2, h3, h4, h5, h6) {
   margin: calc(var(--font-text-size) / 4) 0;
@@ -117,7 +117,7 @@ div.markdown-reading-view
       > div
       > h#{$i}, .markdown-source-view.mod-cm6.is-live-preview
       .HyperMD-header-#{$i})::before {
-    border: 2px solid var(--h#{$i}-color);
+    border: var(--size-2-1) solid var(--h#{$i}-color);
     content: 'H#{$i}';
     color: var(--header-indicator-color-h#{$i});
     background-color: var(--header-indicator-bg-h#{$i});
@@ -136,13 +136,13 @@ div.markdown-reading-view
 .heading-collapse-indicator {
   position: absolute;
   z-index: 99;
-  height: 16px;
-  width: 18px;
-  top: 46%;
+  height: var(--size-4-4);
+  width: var(--size-4-5);
+  top: 50%;
   transform: translateY(-50%);
-  left: -2px;
+  left: calc(var(--size-2-1) * -1);
   padding: 0 !important;
-  cursor: pointer;
+  --cursor: pointer;
   svg {
     display: none;
   }
@@ -150,11 +150,13 @@ div.markdown-reading-view
 .HyperMD-header {
   position: relative;
   .cm-fold-indicator .collapse-indicator {
+    --cursor: pointer;
     z-index: 99;
     opacity: 0 !important;
-    width: 24px;
-    height: 14px !important;
-    padding-right: 6px !important;
+    width: var(--size-4-6);
+    height: var(--size-4-4) !important;
+    // padding-right: var(--size-4-2) !important;
+    left: calc(var(--size-2-1) - var(--size-4-8));
     top: 50% !important;
     transform: translateY(-50%) !important;
   }
@@ -178,7 +180,7 @@ body.heading-h2-underline {
       position: absolute;
       height: var(--size-4-1);
       width: 100%;
-      bottom: 8px;
+      bottom: var(--size-4-2);
       border-radius: var(--size-2-1);
       background-image: linear-gradient(
         to right,
@@ -191,7 +193,7 @@ body.heading-h2-underline {
     left: 0;
   }
   .HyperMD-header-2::after {
-    left: 4px;
+    left: var(--size-4-1);
   }
   .vertical-tab-content h2 {
     font-size: var(--h2-size);

@@ -2,7 +2,7 @@
 
 body {
   /* 引导线粗细 */
-  --outline-guideline-width: 2px;
+  --outline-guideline-width: var(--size-2-1);
   /* 引导线颜色 */
   --outline-guideline-color: var(--accent-active);
   /* 一行高度 */
@@ -17,7 +17,7 @@ body {
       white-space: nowrap;
       margin-top: -1px; /* fix item gap */
       .tree-item-inner {
-        padding-left: 16px;
+        padding-left: var(--size-4-4);
         overflow: hidden;
         text-overflow: ellipsis;
         height: var(--outline-item-height);
@@ -26,7 +26,7 @@ body {
           content: '';
           width: var(--size-4-1);
           height: var(--size-4-1);
-          border: 2px solid var(--outline-guideline-color);
+          border: var(--size-2-1) solid var(--outline-guideline-color);
           border-radius: 50%;
           position: absolute;
           left: 7px;
@@ -35,14 +35,14 @@ body {
         }
       }
       .tree-item-icon ~ .tree-item-inner {
-        padding-left: 4px;
+        padding-left: var(--size-4-1);
         &::before {
           content: none;
         }
       }
     }
     &.is-collapsed .tree-item-icon::before {
-      box-shadow: 0 0 0 4px var(--background-modifier-hover);
+      box-shadow: 0 0 0 var(--size-4-1) var(--background-modifier-hover);
     }
     &::after {
       content: '';
@@ -90,7 +90,7 @@ body {
         bottom: calc(
           100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px
         );
-        width: 16px;
+        width: var(--size-4-4);
         border-bottom-left-radius: var(--radius-m);
         border-bottom: var(--outline-guideline-width) solid
           var(--outline-guideline-color);
