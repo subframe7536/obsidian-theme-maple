@@ -1,10 +1,9 @@
 /* ====== 内嵌文档 ====== */
 
-.internal-embed.is-loaded {
+.internal-embed.is-loaded:not(.image-embed) {
   transition: var(--animation);
-  padding: 4px 2px !important;
+  padding: var(--size-4-1) var(--size-2-1) !important;
   :is(.markdown-embed-link, .file-embed-link) {
-    // opacity: 0;
     top: 5px;
     padding: var(--size-2-3);
     border-radius: var(--radius-m);
@@ -15,18 +14,19 @@
     }
   }
   &.mod-empty {
-    border: 2px dotted var(--accent-inactive);
+    border: var(--size-2-1) dotted var(--accent-inactive);
   }
   .markdown-embed-title {
     text-align: center;
     line-height: 2.8;
   }
 
-  :is(img, .markdown-embed, .file-embed) {
+  :is(.markdown-embed, .file-embed) {
     border-radius: var(--radius-xl);
     transition: var(--animation);
     margin: 0;
     padding: 0;
+    border: var(--block-outline-width) solid var(--accent-inactive);
     .markdown-preview-view {
       padding: calc(var(--font-text-size) * 0.8)
         calc(var(--font-text-size) * 1.5);
@@ -34,9 +34,6 @@
         min-height: fit-content !important;
       }
     }
-  }
-  :is(.markdown-embed, .file-embed) {
-    border: var(--block-outline-width) solid var(--accent-inactive);
     &:hover {
       border-color: var(--accent-active);
     }
@@ -47,31 +44,21 @@
   .markdown-embed-content {
     max-height: unset;
   }
-  &.image-embed {
-    text-align: center;
-    display: inline-block;
-    width: 100%;
-  }
-
   svg.link {
     transform: rotate(90deg);
   }
-}
-.markdown-embed img:hover {
-  box-shadow: none !important;
-  transform: none !important;
 }
 body.scrollbar-gutter-reserve.embed-title-right-top
   .internal-embed.is-loaded:not([alt='#'])
   .markdown-embed-heading
   .markdown-preview-section
   > div:nth-child(2) {
-  right: 12px;
+  right: var(--size-4-3);
 }
 body.embed-title-right-top .internal-embed.is-loaded:not([alt='#']) {
   .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
     position: absolute;
-    right: 36px;
+    right: var(--size-4-9);
     top: var(--size-2-1);
     z-index: 99;
     opacity: 0;
@@ -96,8 +83,8 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt='#']) {
     top: var(--size-2-3);
     line-height: 28px;
     height: 28px;
-    padding: 0 8px;
-    border-radius: 8px;
+    padding: 0 var(--size-4-2);
+    border-radius: var(--radius-m);
     transition: var(--animation);
     cursor: pointer;
   }
