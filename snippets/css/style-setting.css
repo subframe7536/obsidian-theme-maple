@@ -407,6 +407,11 @@ settings:
         type: class-toggle
         default: true
     -
+        id: quote-break-all
+        title: break word in the quote line
+        description: recommand to open it when the whole line needs fill with letters without word
+        type: class-toggle
+    -
         id: quote-mark
         title: add front quote mark
         description: level-1 will has same indent as level-2

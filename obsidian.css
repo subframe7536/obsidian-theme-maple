@@ -408,6 +408,11 @@ settings:
         type: class-toggle
         default: true
     -
+        id: quote-break-all
+        title: break word in the quote line
+        description: recommand to open it when the whole line needs fill with letters without word
+        type: class-toggle
+    -
         id: quote-mark
         title: add front quote mark
         description: level-1 will has same indent as level-2
@@ -1526,14 +1531,72 @@ body {
   --blockquote-background-color: var(--md-container-bg);
 }
 
-body.quote-theme {
-  --blockquote-border-thickness: var(--size-2-3);
+body.quote-theme .app-container {
+  --blockquote-border-thickness: var(--size-4-1);
   --quote-radius: max(
     calc(var(--blockquote-border-thickness) / 2),
     var(--radius-s)
   );
 }
-body.quote-theme .markdown-rendered blockquote {
+body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(.HyperMD-quote:not(.callout), .cm-blockquote-border)::before {
+  width: var(--blockquote-border-thickness);
+  border-left: none;
+  background-color: var(--blockquote-border-color);
+  border-radius: var(--blockquote-border-thickness);
+  top: var(--blockquote-border-thickness);
+  bottom: var(--blockquote-border-thickness);
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(.HyperMD-quote:not(.callout).cm-active, .HyperMD-quote:not(.callout).cm-active .cm-blockquote-border)::before {
+  background-color: transparent;
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: var(--quote-radius);
+  border-bottom-right-radius: var(--quote-radius);
+  /* fill active line corner */
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active:not(:active)::before {
+  background-color: transparent;
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::before {
+  left: calc(var(--blockquote-border-thickness));
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout):not(.cm-active) + .HyperMD-quote:not(.callout)::before {
+  top: calc(var(--blockquote-border-thickness) * -3);
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after,
+body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  z-index: 9;
+  height: var(--quote-radius);
+  width: var(--quote-radius);
+  top: calc(var(--blockquote-border-thickness) * -1);
+  background-color: var(--md-container-bg);
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after {
+  left: 0;
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+  right: 0;
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout)::after, body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+  background-color: var(--active-line);
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) {
+  border-top-left-radius: var(--quote-radius) !important;
+  border-top-right-radius: var(--quote-radius) !important;
+}
+body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote))::after,
+body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) .cm-quote.cm-formatting::after {
+  content: none !important;
+}
+body.quote-theme .app-container :is(.HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8))::before {
+  top: calc(var(--blockquote-border-thickness) * -2);
+}
+body.quote-theme .app-container .markdown-rendered blockquote {
   background-color: var(--md-container-bg);
   border: none !important;
   border-radius: var(--radius-s);
@@ -1545,13 +1608,12 @@ body.quote-theme .markdown-rendered blockquote {
   margin-bottom: var(--size-4-2);
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: 1.6rem;
 }
-body.quote-theme .markdown-rendered blockquote p {
+body.quote-theme .app-container .markdown-rendered blockquote p {
   padding-left: var(--blockquote-border-thickness);
   padding-right: var(--size-4-1);
 }
-body.quote-theme .markdown-rendered blockquote::after {
+body.quote-theme .app-container .markdown-rendered blockquote::after {
   content: "";
   position: absolute;
   left: var(--blockquote-border-thickness);
@@ -1561,117 +1623,22 @@ body.quote-theme .markdown-rendered blockquote::after {
   width: var(--blockquote-border-thickness);
   background-color: var(--accent-active);
 }
-body.quote-theme .markdown-rendered blockquote blockquote {
+body.quote-theme .app-container .markdown-rendered blockquote blockquote {
   box-shadow: none;
   margin: 0;
 }
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) {
-  text-indent: 0 !important;
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
-  border-bottom-left-radius: var(--quote-radius);
-  border-bottom-right-radius: var(--quote-radius);
-  display: flex;
-  /* === fix gap === */
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-1 {
-  padding-inline-start: 1.4rem !important;
-  text-indent: -0.55rem !important;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-2 {
-  padding-inline-start: 2.4rem !important;
-  text-indent: -1.1rem !important;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-3 {
-  padding-inline-start: 3.4rem !important;
-  text-indent: -1.65rem !important;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-4 {
-  padding-inline-start: 4.4rem !important;
-  text-indent: -2.2rem !important;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-5 {
-  padding-inline-start: 5.4rem !important;
-  text-indent: -2.75rem !important;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-6 {
-  padding-inline-start: 6.4rem !important;
-  text-indent: -3.3rem !important;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-7 {
-  padding-inline-start: 7.4rem !important;
-  text-indent: -3.85rem !important;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).HyperMD-quote-8 {
-  padding-inline-start: 8.4rem !important;
-  text-indent: -4.4rem !important;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-quote:not(.cm-formatting)::before, body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-quote:not(.cm-formatting)::after {
-  content: "";
-  position: absolute;
-  z-index: 9;
-  height: var(--quote-radius);
-  width: var(--quote-radius);
-  bottom: 0;
-  background-color: var(--md-container-bg);
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-quote:not(.cm-formatting)::before {
-  left: 0;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout) .cm-quote:not(.cm-formatting)::after {
-  right: 0;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).cm-active .cm-quote:not(.cm-formatting)::before, body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout).cm-active .cm-quote:not(.cm-formatting)::after {
-  background-color: var(--active-line);
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout)::before, body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout)::after {
-  border-left: none !important;
-  content: "";
-  position: absolute;
-  left: var(--blockquote-border-thickness);
-  top: unset;
-  bottom: var(--blockquote-border-thickness);
-  height: calc(100% + var(--blockquote-border-thickness));
-  width: var(--blockquote-border-thickness);
-  border-radius: var(--blockquote-border-thickness);
-  background-color: var(--accent-active);
-  color: var(--accent-active);
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.callout)::before {
-  height: calc(100% - var(--blockquote-border-thickness) * 2);
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview :is(.internal-embed, .cm-line:not(.HyperMD-quote)) + .HyperMD-quote:not(.callout)::before {
-  top: var(--blockquote-border-thickness);
-  height: calc(100% - var(--blockquote-border-thickness) * 2);
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview :is(.internal-embed, .cm-line:not(.HyperMD-quote)) + .HyperMD-quote:not(.callout)::after {
-  content: none;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .cm-content :first-child:is(.HyperMD-quote)::after {
-  content: none;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-line:not(.HyperMD-quote) + .HyperMD-quote-1,
-.cm-content :first-child:is(.HyperMD-quote)) {
-  border-top-left-radius: var(--quote-radius) !important;
-  border-top-right-radius: var(--quote-radius) !important;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-line:not(.HyperMD-quote) + .HyperMD-quote-1,
-.cm-content :first-child:is(.HyperMD-quote)) .cm-quote:not(.cm-formatting)::before, body.quote-theme .markdown-source-view.mod-cm6.is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-line:not(.HyperMD-quote) + .HyperMD-quote-1,
-.cm-content :first-child:is(.HyperMD-quote)) .cm-quote:not(.cm-formatting)::after {
-  content: none !important;
-}
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .cm-blockquote-border::before,
-body.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-callout .cm-quote::before {
-  content: none !important;
+
+/* fix bugs, corner fill cause wrap */
+body.quote-theme.quote-break-all .HyperMD-quote:not(.callout) .cm-quote:not(.cm-formatting) {
+  word-break: break-all;
 }
 
-body.quote-mark.quote-theme .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-quote-1 {
-  text-indent: -0.5rem !important;
-  padding-inline-start: 3rem !important;
+body.quote-mark.quote-theme :is(div:not(.HyperMD-quote) + .HyperMD-quote,
+.HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
+.cm-content :first-child:is(.HyperMD-quote)) {
+  text-indent: 1.2rem !important;
 }
-body.quote-mark blockquote::before, body.quote-mark.quote-theme :is(div:not(.HyperMD-quote) + .HyperMD-quote,
+body.quote-mark.quote-theme blockquote::before, body.quote-mark.quote-theme :is(div:not(.HyperMD-quote) + .HyperMD-quote,
 .HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
 .cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
   position: absolute;
@@ -1681,514 +1648,12 @@ body.quote-mark blockquote::before, body.quote-mark.quote-theme :is(div:not(.Hyp
   content: "“" !important;
   background-color: transparent;
   color: var(--text-muted);
-}
-
-body.quote-mark blockquote::before, body.quote-mark.quote-theme :is(div:not(.HyperMD-quote) + .HyperMD-quote,
-.HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
-.cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote::before {
-  left: 1.28rem;
-  top: calc(var(--font-text-size) * var(--line-height-normal) - 2.3076923077rem);
+  top: calc(var(--font-text-size) * var(--line-height-normal) - 2.1428571429rem);
+  left: 0.6rem;
 }
 
 body.quote-mark.quote-theme .markdown-rendered blockquote {
-  padding-left: 3.2rem;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-2:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-2:not(.callout)::before {
-  box-shadow: 1.6rem 0;
-}
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-2:not(.callout)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
-  box-shadow: 3.2rem 0;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-3:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-3:not(.callout)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-3:not(.callout)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
-  box-shadow: 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
-  box-shadow: 4.8rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-4:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-4:not(.callout)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-4:not(.callout)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
-  box-shadow: 3.2rem 0, 4.8rem 0, 6.4rem 0;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
-  box-shadow: 4.8rem 0, 6.4rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
-  box-shadow: 6.4rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-5:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
-}
-
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-5:not(.callout)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
-}
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-5:not(.callout)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
-  box-shadow: 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
-  box-shadow: 4.8rem 0, 6.4rem 0, 8rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
-  box-shadow: 6.4rem 0, 8rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
-  box-shadow: 8rem 0;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-6:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
-}
-
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-6:not(.callout)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
-}
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-6:not(.callout)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
-  box-shadow: 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
-  box-shadow: 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
-  box-shadow: 6.4rem 0, 8rem 0, 9.6rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
-  box-shadow: 8rem 0, 9.6rem 0;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
-  box-shadow: 9.6rem 0;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-7:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
-}
-
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-7:not(.callout)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
-}
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-7:not(.callout)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
-}
-
-div.HyperMD-quote-1:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
-  box-shadow: 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
-}
-
-div.HyperMD-quote-2:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
-  box-shadow: 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
-}
-
-div.HyperMD-quote-3:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
-  box-shadow: 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
-}
-
-div.HyperMD-quote-4:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
-  box-shadow: 8rem 0, 9.6rem 0, 11.2rem 0;
-}
-
-div.HyperMD-quote-5:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
-  box-shadow: 9.6rem 0, 11.2rem 0;
-}
-
-div.HyperMD-quote-6:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
-  box-shadow: 11.2rem 0;
-}
-
-div.HyperMD-quote-7:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::before {
-  box-shadow: none;
-}
-
-div.HyperMD-quote-8:not(.callout) + .HyperMD-quote-8:not(.callout):not(.cm-active)::after {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
-}
-
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-8:not(.callout)::before {
-  box-shadow: 1.6rem 0, 3.2rem 0, 4.8rem 0, 6.4rem 0, 8rem 0, 9.6rem 0, 11.2rem 0;
-}
-div.HyperMD-quote:not(.callout):is(.cm-active) + div.HyperMD-quote-8:not(.callout)::after {
-  box-shadow: none;
+  padding-left: 2.28rem;
 }
 
 body {
@@ -2999,7 +2464,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 }
 
 body:not(.calendar-swap-year-month) .setting-item[data-id=calendar-year-suffix],
-body:not(.quote-theme) .setting-item[data-id=quote-mark],
+body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-break-all]),
 body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.use-custom-color) .setting-item[data-id^=accent-hue],
