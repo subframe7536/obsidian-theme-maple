@@ -1,6 +1,6 @@
 ## Maple
 
-an Obsidian theme still in dev, using `Style Setting` to custom preference
+an Obsidian theme still in dev, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/Maple-font)
 
 # **waiting officially update to electron 21+ for :has() selector**
 
