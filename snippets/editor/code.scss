@@ -101,13 +101,14 @@ body {
   }
 }
 code[class*='language-'],
-pre[class*='language-'] {
+pre {
   line-height: calc(var(--line-height-normal) - 0.2);
 }
 body .app-container pre {
   border-radius: var(--radius-l);
   border: var(--size-2-1) solid var(--accent-inactive);
   transition: var(--animation);
+  overflow-x: hidden;
   &:hover {
     border-color: var(--accent-active);
     button.copy-code-button {
@@ -136,10 +137,10 @@ body .app-container pre {
   }
 }
 body.code-language {
-  pre[class*='language-'] {
+  pre {
     padding: 1.8rem 1rem;
     position: relative;
-    &::before {
+    &[class*='language-']::before {
       content: '未知语言';
       font-family: var(--font-text);
       color: var(--inline-code);
@@ -221,7 +222,7 @@ body.code-theme .app-container {
   //   color: var(--color-orange) !important;
   // }
 }
-body.code-mac-style-header .markdown-preview-view pre[class*='language-'] {
+body.code-mac-style-header .markdown-preview-view pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);

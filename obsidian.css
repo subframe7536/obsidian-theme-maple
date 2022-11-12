@@ -825,7 +825,7 @@ body {
 }
 
 code[class*=language-],
-pre[class*=language-] {
+pre {
   line-height: calc(var(--line-height-normal) - 0.2);
 }
 
@@ -833,6 +833,7 @@ body .app-container pre {
   border-radius: var(--radius-l);
   border: var(--size-2-1) solid var(--accent-inactive);
   transition: var(--animation);
+  overflow-x: hidden;
 }
 body .app-container pre:hover {
   border-color: var(--accent-active);
@@ -860,7 +861,7 @@ body .app-container pre .copy-code-button:hover {
   background-color: var(--accent-inactive);
 }
 
-body.code-language pre[class*=language-] {
+body.code-language pre {
   padding: 1.8rem 1rem;
   position: relative;
 }
@@ -1074,15 +1075,15 @@ body.code-theme .app-container :is(.cm-variable-2, .cm-variable-3) {
   opacity: 0.7;
 }
 
-body.code-mac-style-header .markdown-preview-view pre[class*=language-] {
+body.code-mac-style-header .markdown-preview-view pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
 }
-body.code-mac-style-header .markdown-preview-view pre[class*=language-]::before {
+body.code-mac-style-header .markdown-preview-view pre::before {
   color: var(--accent-active);
 }
-body.code-mac-style-header .markdown-preview-view pre[class*=language-]::after {
+body.code-mac-style-header .markdown-preview-view pre::after {
   content: "";
   width: 100%;
   height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
@@ -1091,7 +1092,7 @@ body.code-mac-style-header .markdown-preview-view pre[class*=language-]::after {
   left: 0;
   position: absolute;
 }
-body.code-mac-style-header .markdown-preview-view pre[class*=language-] code::before {
+body.code-mac-style-header .markdown-preview-view pre code::before {
   content: "";
   width: calc(var(--code-size) - var(--size-2-1));
   height: calc(var(--code-size) - var(--size-2-1));
