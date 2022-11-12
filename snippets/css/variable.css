@@ -3,13 +3,14 @@ body {
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
-  --color-red-rgb: 235, 75, 27 !important;
-  --color-red: #f03f28 !important;
+  --color-red-rgb: 255, 99, 99 !important;
+  --color-red: #ff6363 !important;
   --color-green-rgb: 81, 188, 0 !important;
   --color-green: #51bc00 !important;
-  --color-yellow: #ffbb4e !important;
+  --color-yellow: #f5c891 !important;
   --color-orange: #e4980c !important;
-  --color-blue: #0993d3 !important;
+  --color-blue: #129ede !important;
+  --color-cyan: #63c9c9 !important;
   --color-purple: #9084e9 !important;
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
   --file-folding-offset: 28px;
