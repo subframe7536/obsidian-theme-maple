@@ -4,14 +4,14 @@ body.tag-colorful {
   @for $i from 1 through 6 {
     $index-start: $i * 2 - 1;
     $index-end: $i * 2;
-    &.theme-light {
+    :is(&.theme-light, &.theme-light .print) {
       --tag-#{$i}-default: hsl(
         calc(var(--accent-h) + (#{$i} - 1) * 60),
         50%,
         60%
       );
     }
-    &.theme-dark {
+    :is(&.theme-dark, &.theme-dark .print) {
       --tag-#{$i}-default: hsl(
         calc(var(--accent-h) + (#{$i} - 1) * 60),
         30%,
@@ -35,7 +35,7 @@ body.tag-colorful {
     caret-color: var(--text-on-accent);
   }
 }
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --tag-padding-y: 0.1rem;
 }
 .cm-line span.cm-hashtag {

@@ -1,4 +1,4 @@
-body {
+:is(body, body .print) {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
@@ -19,21 +19,26 @@ body {
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
   --blur: 12px;
 }
-html body.obsidian-app.fixed-theme-color {
+html
+  :is(body.obsidian-app.fixed-theme-color, body.obsidian-app.fixed-theme-color
+    .print) {
   --accent-s: 32% !important;
   --accent-l: 58% !important;
 }
-body.use-custom-color.css-settings-manager {
+:is(body.use-custom-color.css-settings-manager, body.use-custom-color.css-settings-manager
+    .print) {
   --accent-s: var(--accent-color-s, 32%) !important;
   --accent-l: var(--accent-color-l, 58%) !important;
 }
-body.use-custom-color.theme-light.css-settings-manager {
+:is(body.use-custom-color.theme-light.css-settings-manager, body.use-custom-color.theme-light.css-settings-manager
+    .print) {
   --accent-h: var(--accent-hue-light, 116) !important;
 }
-body.use-custom-color.theme-dark.css-settings-manager {
+:is(body.use-custom-color.theme-dark.css-settings-manager, body.use-custom-color.theme-dark.css-settings-manager
+    .print) {
   --accent-h: var(--accent-hue-dark, 207) !important;
 }
-.theme-light {
+:is(.theme-light, .theme-light .print) {
   --background-primary: hsl(
     var(--accent-h),
     calc(var(--accent-s) - 12%),
@@ -93,7 +98,7 @@ body.use-custom-color.theme-dark.css-settings-manager {
     70%
   );
 }
-.theme-dark {
+:is(.theme-dark, .theme-dark .print) {
   --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 8));
   --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 8);
   --background-secondary: hsl(

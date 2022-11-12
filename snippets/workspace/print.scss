@@ -1,6 +1,8 @@
 .print {
-  pre[class*='language-'] {
-    border-radius: var(--radius-l);
+  :is(.markdown-preview-view, .markdown-rendered) {
+    background-color: var(--background-primary) !important;
+  }
+  pre {
     &::before {
       right: var(--size-4-2) !important;
     }

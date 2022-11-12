@@ -3,15 +3,17 @@
 $num: 8;
 $indent: 0.6rem;
 $mark-size: 3rem;
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --blockquote-background-color: var(--md-container-bg);
 }
-body.quote-theme .app-container {
-  --blockquote-border-thickness: var(--size-4-1);
-  --quote-radius: max(
-    calc(var(--blockquote-border-thickness) / 2),
-    var(--radius-s)
-  );
+body.quote-theme {
+  :is(.markdown-source-view, .markdown-rendered) {
+    --blockquote-border-thickness: var(--size-4-1);
+    --quote-radius: max(
+      calc(var(--blockquote-border-thickness) / 2),
+      var(--radius-s)
+    );
+  }
   .markdown-source-view.mod-cm6 {
     :is(.HyperMD-quote:not(.callout), .cm-blockquote-border)::before {
       width: var(--blockquote-border-thickness);
@@ -325,6 +327,6 @@ body.quote-mark.quote-theme {
 //     }
 //   }
 // }
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --callout-radius: var(--radius-l);
 }

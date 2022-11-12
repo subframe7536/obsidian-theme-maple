@@ -73,7 +73,7 @@ input[type='checkbox'] {
 .HyperMD-task-line .cm-indent::before {
   transform: translateX(0.25em) !important;
 }
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --list-bullet-base: var(--size-4-3);
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
   --list-marker-color: hsl(

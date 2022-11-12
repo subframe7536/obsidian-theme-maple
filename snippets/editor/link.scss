@@ -1,6 +1,6 @@
 /* ====== 链接 ====== */
 
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --link-decoration-hover: none;
   --link-external-decoration-hover: none;
   --link-color: var(--color-blue);

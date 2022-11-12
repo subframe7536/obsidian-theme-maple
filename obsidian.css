@@ -559,7 +559,7 @@ settings:
         type: variable-text
         default: "'年'"
 */
-body {
+:is(body, body .print) {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
@@ -580,25 +580,25 @@ body {
   --blur: 12px;
 }
 
-html body.obsidian-app.fixed-theme-color {
+html :is(body.obsidian-app.fixed-theme-color, body.obsidian-app.fixed-theme-color .print) {
   --accent-s: 32% !important;
   --accent-l: 58% !important;
 }
 
-body.use-custom-color.css-settings-manager {
+:is(body.use-custom-color.css-settings-manager, body.use-custom-color.css-settings-manager .print) {
   --accent-s: var(--accent-color-s, 32%) !important;
   --accent-l: var(--accent-color-l, 58%) !important;
 }
 
-body.use-custom-color.theme-light.css-settings-manager {
+:is(body.use-custom-color.theme-light.css-settings-manager, body.use-custom-color.theme-light.css-settings-manager .print) {
   --accent-h: var(--accent-hue-light, 116) !important;
 }
 
-body.use-custom-color.theme-dark.css-settings-manager {
+:is(body.use-custom-color.theme-dark.css-settings-manager, body.use-custom-color.theme-dark.css-settings-manager .print) {
   --accent-h: var(--accent-hue-dark, 207) !important;
 }
 
-.theme-light {
+:is(.theme-light, .theme-light .print) {
   --background-primary: hsl(
     var(--accent-h),
     calc(var(--accent-s) - 12%),
@@ -658,7 +658,7 @@ body.use-custom-color.theme-dark.css-settings-manager {
   );
 }
 
-.theme-dark {
+:is(.theme-dark, .theme-dark .print) {
   --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 8));
   --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 8);
   --background-secondary: hsl(
@@ -723,7 +723,7 @@ body.use-custom-color.theme-dark.css-settings-manager {
   font-style: italic;
 }
 /* ====== 代码 ====== */
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --inline-code: var(--color-red);
   --code-background: var(--md-container-bg);
   --code-function: var(--color-orange);
@@ -738,7 +738,7 @@ body {
   --code-normal: var(--code-base);
 }
 
-.theme-light {
+:is(.theme-light, .theme-light .print) {
   --code-base: hsl(
     var(--accent-h),
     var(--accent-s),
@@ -746,11 +746,11 @@ body {
   );
   --code-mac-style-header-bg: #333;
 }
-.theme-light :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
+:is(.theme-light, .theme-light .print) :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
   --code-background: hsl(calc(var(--accent-h) - 8), 10%, 94%);
 }
 
-.theme-dark {
+:is(.theme-dark, .theme-dark .print) {
   --code-base: hsl(
     var(--accent-h),
     var(--accent-s),
@@ -758,7 +758,7 @@ body {
   );
   --code-mac-style-header-bg: #000;
 }
-.theme-dark :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
+:is(.theme-dark, .theme-dark .print) :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
   --code-background: hsl(calc(var(--accent-h) - 8), 20%, 16%);
 }
 
@@ -806,7 +806,7 @@ body {
   border-bottom-right-radius: var(--code-bg-radius) !important;
 }
 
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --block-outline-width: 3px;
 }
 
@@ -829,20 +829,20 @@ pre {
   line-height: calc(var(--line-height-normal) - 0.2);
 }
 
-body .app-container pre {
+body .markdown-rendered pre {
   border-radius: var(--radius-l);
   border: var(--size-2-1) solid var(--accent-inactive);
   transition: var(--animation);
   overflow-x: hidden;
 }
-body .app-container pre:hover {
+body .markdown-rendered pre:hover {
   border-color: var(--accent-active);
 }
-body .app-container pre:hover button.copy-code-button {
+body .markdown-rendered pre:hover button.copy-code-button {
   opacity: 1;
 }
-body .app-container pre .copy-code-button {
-  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></g></svg>');
+body .markdown-rendered pre .copy-code-button {
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></g></svg>');
   width: 1.5rem;
   height: 1.5rem;
   line-height: 1.5rem;
@@ -856,16 +856,16 @@ body .app-container pre .copy-code-button {
   right: var(--size-4-1);
   z-index: 99;
 }
-body .app-container pre .copy-code-button:hover {
+body .markdown-rendered pre .copy-code-button:hover {
   opacity: 1;
   background-color: var(--accent-inactive);
 }
 
-body.code-language pre {
+body.code-language .markdown-rendered pre {
   padding: 1.8rem 1rem;
   position: relative;
 }
-body.code-language pre[class*=language-]::before {
+body.code-language .markdown-rendered pre[class*=language-]::before {
   content: "未知语言";
   font-family: var(--font-text);
   color: var(--inline-code);
@@ -879,154 +879,154 @@ body.code-language pre[class*=language-]::before {
   line-height: var(--line-height-normal);
   z-index: 9;
 }
-body.code-language pre[class~=language-c]::before {
+body.code-language .markdown-rendered pre[class~=language-c]::before {
   content: "C";
 }
-body.code-language pre[class~=language-properties]::before {
+body.code-language .markdown-rendered pre[class~=language-properties]::before {
   content: "PROPERTIES";
 }
-body.code-language pre[class~=language-python]::before {
+body.code-language .markdown-rendered pre[class~=language-python]::before {
   content: "PYTHON";
 }
-body.code-language pre[class~=language-nginx]::before {
+body.code-language .markdown-rendered pre[class~=language-nginx]::before {
   content: "NGINX";
 }
-body.code-language pre[class~=language-css]::before {
+body.code-language .markdown-rendered pre[class~=language-css]::before {
   content: "CSS";
 }
-body.code-language pre[class~=language-javascript]::before {
+body.code-language .markdown-rendered pre[class~=language-javascript]::before {
   content: "JAVASCRIPT";
 }
-body.code-language pre[class~=language-js]::before {
+body.code-language .markdown-rendered pre[class~=language-js]::before {
   content: "JS";
 }
-body.code-language pre[class~=language-typescript]::before {
+body.code-language .markdown-rendered pre[class~=language-typescript]::before {
   content: "TYPESCRIPT";
 }
-body.code-language pre[class~=language-ts]::before {
+body.code-language .markdown-rendered pre[class~=language-ts]::before {
   content: "TS";
 }
-body.code-language pre[class~=language-jsp]::before {
+body.code-language .markdown-rendered pre[class~=language-jsp]::before {
   content: "JSP";
 }
-body.code-language pre[class~=language-php]::before {
+body.code-language .markdown-rendered pre[class~=language-php]::before {
   content: "PHP";
 }
-body.code-language pre[class~=language-lua]::before {
+body.code-language .markdown-rendered pre[class~=language-lua]::before {
   content: "LUA";
 }
-body.code-language pre[class~=language-shell]::before {
+body.code-language .markdown-rendered pre[class~=language-shell]::before {
   content: "SHELL";
 }
-body.code-language pre[class~=language-powershell]::before {
+body.code-language .markdown-rendered pre[class~=language-powershell]::before {
   content: "POWERSHELL";
 }
-body.code-language pre[class~=language-flow]::before {
+body.code-language .markdown-rendered pre[class~=language-flow]::before {
   content: "FLOW";
 }
-body.code-language pre[class~=language-sequence]::before {
+body.code-language .markdown-rendered pre[class~=language-sequence]::before {
   content: "SEQUENCE";
 }
-body.code-language pre[class~=language-sql]::before {
+body.code-language .markdown-rendered pre[class~=language-sql]::before {
   content: "SQL";
 }
-body.code-language pre[class~=language-yaml]::before {
+body.code-language .markdown-rendered pre[class~=language-yaml]::before {
   content: "YAML";
 }
-body.code-language pre[class~=language-yml]::before {
+body.code-language .markdown-rendered pre[class~=language-yml]::before {
   content: "YML";
 }
-body.code-language pre[class~=language-ini]::before {
+body.code-language .markdown-rendered pre[class~=language-ini]::before {
   content: "INI";
 }
-body.code-language pre[class~=language-xml]::before {
+body.code-language .markdown-rendered pre[class~=language-xml]::before {
   content: "XML";
 }
-body.code-language pre[class~=language-cs]::before {
+body.code-language .markdown-rendered pre[class~=language-cs]::before {
   content: "CS";
 }
-body.code-language pre[class~=language-cpp]::before {
+body.code-language .markdown-rendered pre[class~=language-cpp]::before {
   content: "CPP";
 }
-body.code-language pre[class~=language-java]::before {
+body.code-language .markdown-rendered pre[class~=language-java]::before {
   content: "JAVA";
 }
-body.code-language pre[class~=language-html]::before {
+body.code-language .markdown-rendered pre[class~=language-html]::before {
   content: "HTML";
 }
-body.code-language pre[class~=language-txt]::before {
+body.code-language .markdown-rendered pre[class~=language-txt]::before {
   content: "TXT";
 }
-body.code-language pre[class~=language-md]::before {
+body.code-language .markdown-rendered pre[class~=language-md]::before {
   content: "MD";
 }
-body.code-language pre[class~=language-bat]::before {
+body.code-language .markdown-rendered pre[class~=language-bat]::before {
   content: "BAT";
 }
-body.code-language pre[class~=language-json]::before {
+body.code-language .markdown-rendered pre[class~=language-json]::before {
   content: "JSON";
 }
-body.code-language pre[class~=language-groovy]::before {
+body.code-language .markdown-rendered pre[class~=language-groovy]::before {
   content: "GROOVY";
 }
-body.code-language pre[class~=language-scss]::before {
+body.code-language .markdown-rendered pre[class~=language-scss]::before {
   content: "SCSS";
 }
-body.code-language pre[class~=language-bash]::before {
+body.code-language .markdown-rendered pre[class~=language-bash]::before {
   content: "BASH";
 }
-body.code-language pre[class~=language-cmd]::before {
+body.code-language .markdown-rendered pre[class~=language-cmd]::before {
   content: "CMD";
 }
-body.code-language pre[class~=language-latex]::before {
+body.code-language .markdown-rendered pre[class~=language-latex]::before {
   content: "LATEX";
 }
-body.code-language pre[class~=language-zig]::before {
+body.code-language .markdown-rendered pre[class~=language-zig]::before {
   content: "ZIG";
 }
-body.code-language pre[class~=language-ssml]::before {
+body.code-language .markdown-rendered pre[class~=language-ssml]::before {
   content: "SSML";
 }
-body.code-language pre[class~=language-jsx]::before {
+body.code-language .markdown-rendered pre[class~=language-jsx]::before {
   content: "JSX";
 }
-body.code-language pre[class~=language-tsx]::before {
+body.code-language .markdown-rendered pre[class~=language-tsx]::before {
   content: "TSX";
 }
-body.code-language pre[class~=language-tsconfig]::before {
+body.code-language .markdown-rendered pre[class~=language-tsconfig]::before {
   content: "TSCONFIG";
 }
-body.code-language pre[class~=language-git]::before {
+body.code-language .markdown-rendered pre[class~=language-git]::before {
   content: "GIT";
 }
-body.code-language pre[class~=language-csharp]::before {
+body.code-language .markdown-rendered pre[class~=language-csharp]::before {
   content: "CSHARP";
 }
-body.code-language pre[class~=language-csv]::before {
+body.code-language .markdown-rendered pre[class~=language-csv]::before {
   content: "CSV";
 }
-body.code-language pre[class~=language-cue]::before {
+body.code-language .markdown-rendered pre[class~=language-cue]::before {
   content: "CUE";
 }
-body.code-language pre[class~=language-nginx]::before {
+body.code-language .markdown-rendered pre[class~=language-nginx]::before {
   content: "NGINX";
 }
-body.code-language pre[class~=language-toml]::before {
+body.code-language .markdown-rendered pre[class~=language-toml]::before {
   content: "TOML";
 }
-body.code-language pre[class~=language-kt]::before {
+body.code-language .markdown-rendered pre[class~=language-kt]::before {
   content: "KT";
 }
-body.code-language pre[class~=language-go]::before {
+body.code-language .markdown-rendered pre[class~=language-go]::before {
   content: "GO";
 }
-body.code-language pre[class~=language-rust]::before {
+body.code-language .markdown-rendered pre[class~=language-rust]::before {
   content: "RUST";
 }
-body.code-language pre[class~=language-vue]::before {
+body.code-language .markdown-rendered pre[class~=language-vue]::before {
   content: "VUE";
 }
-body.code-language pre[class~=language-regex]::before {
+body.code-language .markdown-rendered pre[class~=language-regex]::before {
   content: "REGEX";
 }
 
@@ -1040,50 +1040,50 @@ body.code-language pre[class~=language-regex]::before {
   background-color: var(--nav-item-background-hover);
 }
 
-body.code-theme .app-container :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
   color: var(--code-comment);
 }
-body.code-theme .app-container :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
   color: var(--code-tag);
 }
-body.code-theme .app-container :is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
   color: var(--code-punctuation);
 }
-body.code-theme .app-container :is(.token:is(.boolean, .number), .cm-number) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.boolean, .number), .cm-number) {
   color: var(--code-value);
 }
-body.code-theme .app-container :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
   color: var(--code-string);
 }
-body.code-theme .app-container :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string,
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string,
 .cm-link, .cm-def, .cm-number + .cm-variable) {
   color: var(--code-property);
 }
-body.code-theme .app-container :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
   color: var(--code-function);
 }
-body.code-theme .app-container :is(.token:is(.keyword, .constant, .unit, .builtin, .atrule), .cm-keyword, .cm-builtin, .cm-type, .cm-atom) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.keyword, .constant, .unit, .builtin, .atrule), .cm-keyword, .cm-builtin, .cm-type, .cm-atom) {
   color: var(--code-keyword);
 }
-body.code-theme .app-container :is(.token:is(.regex, .important)) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.regex, .important)) {
   color: var(--code-important);
 }
-body.code-theme .app-container :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
   color: var(--code-base);
 }
-body.code-theme .app-container :is(.cm-variable-2, .cm-variable-3) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-variable-2, .cm-variable-3) {
   opacity: 0.7;
 }
 
-body.code-mac-style-header .markdown-preview-view pre {
+body.code-mac-style-header .markdown-rendered pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
 }
-body.code-mac-style-header .markdown-preview-view pre::before {
+body.code-mac-style-header .markdown-rendered pre::before {
   color: var(--accent-active);
 }
-body.code-mac-style-header .markdown-preview-view pre::after {
+body.code-mac-style-header .markdown-rendered pre::after {
   content: "";
   width: 100%;
   height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
@@ -1092,7 +1092,7 @@ body.code-mac-style-header .markdown-preview-view pre::after {
   left: 0;
   position: absolute;
 }
-body.code-mac-style-header .markdown-preview-view pre code::before {
+body.code-mac-style-header .markdown-rendered pre code::before {
   content: "";
   width: calc(var(--code-size) - var(--size-2-1));
   height: calc(var(--code-size) - var(--size-2-1));
@@ -1272,7 +1272,7 @@ img {
 }
 
 /* ====== 链接 ====== */
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --link-decoration-hover: none;
   --link-external-decoration-hover: none;
   --link-color: var(--color-blue);
@@ -1399,7 +1399,7 @@ input[type=checkbox]:checked:after {
   transform: translateX(0.25em) !important;
 }
 
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --list-bullet-base: var(--size-4-3);
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
   --list-marker-color: hsl(
@@ -1529,18 +1529,18 @@ body {
 }
 
 /* ====== 引用 ====== */
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --blockquote-background-color: var(--md-container-bg);
 }
 
-body.quote-theme .app-container {
+body.quote-theme :is(.markdown-source-view, .markdown-rendered) {
   --blockquote-border-thickness: var(--size-4-1);
   --quote-radius: max(
     calc(var(--blockquote-border-thickness) / 2),
     var(--radius-s)
   );
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(.HyperMD-quote:not(.callout), .cm-blockquote-border)::before {
+body.quote-theme .markdown-source-view.mod-cm6 :is(.HyperMD-quote:not(.callout), .cm-blockquote-border)::before {
   width: var(--blockquote-border-thickness);
   border-left: none;
   background-color: var(--blockquote-border-color);
@@ -1548,27 +1548,27 @@ body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(.HyperMD-quote
   top: var(--blockquote-border-thickness);
   bottom: var(--blockquote-border-thickness);
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(.HyperMD-quote:not(.callout).cm-active, .HyperMD-quote:not(.callout).cm-active .cm-blockquote-border)::before {
+body.quote-theme .markdown-source-view.mod-cm6 :is(.HyperMD-quote:not(.callout).cm-active, .HyperMD-quote:not(.callout).cm-active .cm-blockquote-border)::before {
   background-color: transparent;
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
   border-bottom-left-radius: var(--quote-radius);
   border-bottom-right-radius: var(--quote-radius);
   /* fill active line corner */
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active:not(:active)::before {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active:not(:active)::before {
   background-color: transparent;
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::before {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::before {
   left: calc(var(--blockquote-border-thickness));
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout):not(.cm-active) + .HyperMD-quote:not(.callout)::before {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout):not(.cm-active) + .HyperMD-quote:not(.callout)::before {
   top: calc(var(--blockquote-border-thickness) * -3);
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after,
-body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after,
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
   content: "";
   position: absolute;
   display: inline-block;
@@ -1578,27 +1578,27 @@ body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not
   top: calc(var(--blockquote-border-thickness) * -1);
   background-color: var(--md-container-bg);
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after {
   left: 0;
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
   right: 0;
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout)::after, body.quote-theme .app-container .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout)::after, body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
   background-color: var(--active-line);
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) {
+body.quote-theme .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) {
   border-top-left-radius: var(--quote-radius) !important;
   border-top-right-radius: var(--quote-radius) !important;
 }
-body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote))::after,
-body.quote-theme .app-container .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) .cm-quote.cm-formatting::after {
+body.quote-theme .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote))::after,
+body.quote-theme .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) .cm-quote.cm-formatting::after {
   content: none !important;
 }
-body.quote-theme .app-container :is(.HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8))::before {
+body.quote-theme :is(.HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8))::before {
   top: calc(var(--blockquote-border-thickness) * -2);
 }
-body.quote-theme .app-container .markdown-rendered blockquote {
+body.quote-theme .markdown-rendered blockquote {
   background-color: var(--md-container-bg);
   border: none !important;
   border-radius: var(--radius-s);
@@ -1611,11 +1611,11 @@ body.quote-theme .app-container .markdown-rendered blockquote {
   padding-top: 0;
   padding-bottom: 0;
 }
-body.quote-theme .app-container .markdown-rendered blockquote p {
+body.quote-theme .markdown-rendered blockquote p {
   padding-left: var(--blockquote-border-thickness);
   padding-right: var(--size-4-1);
 }
-body.quote-theme .app-container .markdown-rendered blockquote::after {
+body.quote-theme .markdown-rendered blockquote::after {
   content: "";
   position: absolute;
   left: var(--blockquote-border-thickness);
@@ -1625,7 +1625,7 @@ body.quote-theme .app-container .markdown-rendered blockquote::after {
   width: var(--blockquote-border-thickness);
   background-color: var(--accent-active);
 }
-body.quote-theme .app-container .markdown-rendered blockquote blockquote {
+body.quote-theme .markdown-rendered blockquote blockquote {
   box-shadow: none;
   margin: 0;
 }
@@ -1661,12 +1661,12 @@ body.quote-mark.quote-theme .markdown-rendered blockquote::before {
   transform: translateX(-1.62rem);
 }
 
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --callout-radius: var(--radius-l);
 }
 
 /* ====== 表格 ====== */
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --table-radius: var(--radius-l);
   --table-outline-width: var(--size-2-1);
 }
@@ -1762,14 +1762,14 @@ body.table-colorful .workspace-leaf-content[data-type=markdown] table th:last-ch
 }
 
 /* ====== 标签 ====== */
-body.tag-colorful.theme-light {
+:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
   --tag-1-default: hsl(
     calc(var(--accent-h) + (1 - 1) * 60),
     50%,
     60%
   );
 }
-body.tag-colorful.theme-dark {
+:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
   --tag-1-default: hsl(
     calc(var(--accent-h) + (1 - 1) * 60),
     30%,
@@ -1787,14 +1787,14 @@ span.cm-hashtag-end:nth-of-type(12n
   background-color: var(--tag-1, var(--tag-1-default));
   color: var(--text-on-accent) !important;
 }
-body.tag-colorful.theme-light {
+:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
   --tag-2-default: hsl(
     calc(var(--accent-h) + (2 - 1) * 60),
     50%,
     60%
   );
 }
-body.tag-colorful.theme-dark {
+:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
   --tag-2-default: hsl(
     calc(var(--accent-h) + (2 - 1) * 60),
     30%,
@@ -1812,14 +1812,14 @@ span.cm-hashtag-end:nth-of-type(12n
   background-color: var(--tag-2, var(--tag-2-default));
   color: var(--text-on-accent) !important;
 }
-body.tag-colorful.theme-light {
+:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
   --tag-3-default: hsl(
     calc(var(--accent-h) + (3 - 1) * 60),
     50%,
     60%
   );
 }
-body.tag-colorful.theme-dark {
+:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
   --tag-3-default: hsl(
     calc(var(--accent-h) + (3 - 1) * 60),
     30%,
@@ -1837,14 +1837,14 @@ span.cm-hashtag-end:nth-of-type(12n
   background-color: var(--tag-3, var(--tag-3-default));
   color: var(--text-on-accent) !important;
 }
-body.tag-colorful.theme-light {
+:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
   --tag-4-default: hsl(
     calc(var(--accent-h) + (4 - 1) * 60),
     50%,
     60%
   );
 }
-body.tag-colorful.theme-dark {
+:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
   --tag-4-default: hsl(
     calc(var(--accent-h) + (4 - 1) * 60),
     30%,
@@ -1862,14 +1862,14 @@ span.cm-hashtag-end:nth-of-type(12n
   background-color: var(--tag-4, var(--tag-4-default));
   color: var(--text-on-accent) !important;
 }
-body.tag-colorful.theme-light {
+:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
   --tag-5-default: hsl(
     calc(var(--accent-h) + (5 - 1) * 60),
     50%,
     60%
   );
 }
-body.tag-colorful.theme-dark {
+:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
   --tag-5-default: hsl(
     calc(var(--accent-h) + (5 - 1) * 60),
     30%,
@@ -1887,14 +1887,14 @@ span.cm-hashtag-end:nth-of-type(12n
   background-color: var(--tag-5, var(--tag-5-default));
   color: var(--text-on-accent) !important;
 }
-body.tag-colorful.theme-light {
+:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
   --tag-6-default: hsl(
     calc(var(--accent-h) + (6 - 1) * 60),
     50%,
     60%
   );
 }
-body.tag-colorful.theme-dark {
+:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
   --tag-6-default: hsl(
     calc(var(--accent-h) + (6 - 1) * 60),
     30%,
@@ -1916,7 +1916,7 @@ body.tag-colorful .cm-line span.cm-hashtag {
   caret-color: var(--text-on-accent);
 }
 
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --tag-padding-y: 0.1rem;
 }
 
@@ -1971,11 +1971,11 @@ body.font-maple {
   );
 }
 
-body .app-container .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
+body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   padding-left: var(--size-4-1);
   padding-right: var(--size-4-1);
 }
-body .app-container .markdown-source-view .cm-scroller .cm-line.cm-active {
+body .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: var(--active-line);
   border-radius: var(--radius-s);
 }
@@ -1996,7 +1996,7 @@ kbd:hover {
   text-decoration-line: none !important;
 }
 
-body {
+body :is(.markdown-source-view, .markdown-rendered) {
   --bold-color: var(--text-bold-color, rgba(var(--color-red-rgb), 80%));
   --italic-color: var(--text-italic-color, rgba(var(--color-red-rgb), 80%));
 }
@@ -2571,7 +2571,7 @@ body {
   display: inline-block;
   margin-bottom: var(--size-4-1);
   -webkit-mask-repeat: no-repeat;
-  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 42 42"><g fill="none"><path d="M24.833 12.5H40.25a3.75 3.75 0 0 1 3.745 3.55l.005.2v19a3.75 3.75 0 0 1-3.55 3.745l-.2.005H7.75a3.75 3.75 0 0 1-3.745-3.55L4 35.25V18.999L17.804 19l.226-.007a3.75 3.75 0 0 0 2.547-1.219l.147-.172l4.109-5.102zM17.061 9c.832 0 1.639.277 2.294.784l.175.144l2.444 2.138l-3.197 3.968l-.094.105c-.2.197-.46.322-.739.353l-.14.008L4 16.499V12.75a3.75 3.75 0 0 1 3.55-3.745L7.75 9h9.31z" fill="currentColor"></path></g></svg>');
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 42 42"><g fill="none"><path d="M24.833 12.5H40.25a3.75 3.75 0 0 1 3.745 3.55l.005.2v19a3.75 3.75 0 0 1-3.55 3.745l-.2.005H7.75a3.75 3.75 0 0 1-3.745-3.55L4 35.25V18.999L17.804 19l.226-.007a3.75 3.75 0 0 0 2.547-1.219l.147-.172l4.109-5.102zM17.061 9c.832 0 1.639.277 2.294.784l.175.144l2.444 2.138l-3.197 3.968l-.094.105c-.2.197-.46.322-.739.353l-.14.008L4 16.499V12.75a3.75 3.75 0 0 1 3.55-3.745L7.75 9h9.31z" fill="currentColor"></path></g></svg>');
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-collapse-indicator svg path {
   display: none;
@@ -2597,7 +2597,7 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-color: var(--text-accent);
-  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active {
   color: var(--text-on-accent);
@@ -3052,13 +3052,13 @@ body.back-blur :is(.menu, .suggestion-container) {
   backdrop-filter: blur(var(--blur));
 }
 
-.print pre[class*=language-] {
-  border-radius: var(--radius-l);
+.print :is(.markdown-preview-view, .markdown-rendered) {
+  background-color: var(--background-primary) !important;
 }
-.print pre[class*=language-]::before {
+.print pre::before {
   right: var(--size-4-2) !important;
 }
-.print pre[class*=language-] code {
+.print pre code {
   tab-size: 4;
 }
 .print .markdown-preview-view table {
