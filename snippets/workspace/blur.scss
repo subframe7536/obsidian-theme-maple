@@ -1,0 +1,39 @@
+/* ====== 右键菜单 ======*/
+
+body.back-blur {
+  &-menu :is(.menu, .suggestion-container) {
+    background-color: hsla(var(--background-secondary-hsl), 0.7);
+    backdrop-filter: blur(var(--blur));
+  }
+  &-modal .modal-bg {
+    backdrop-filter: blur(calc(var(--blur) / 2));
+    opacity: initial !important;
+    background-color: hsla(var(--accent-h), 20%, 8%, 30%);
+  }
+  &-title-bar {
+    .workspace-leaf-content[data-type='markdown'] .view-header {
+      --background-primary: hsla(var(--background-primary-hsl), 0.9);
+      backdrop-filter: blur(var(--blur));
+      position: absolute;
+      width: calc(100% - var(--size-4-3));
+      margin-right: var(--size-4-3);
+      padding-right: 0;
+    }
+    &.tab-title-bar .workspace-leaf-content[data-type='markdown'] .view-header {
+      width: calc(100% - var(--file-margins) * 2 + var(--size-4-6));
+      --background-primary: hsla(var(--background-secondary-hsl), 0.9);
+    }
+
+    .workspace-leaf.mod-active
+      .workspace-leaf-content[data-type='markdown']
+      .view-header {
+      --background-primary: hsla(var(--background-primary-hsl), 0.6);
+    }
+    &.tab-title-bar
+      .workspace-leaf.mod-active
+      .workspace-leaf-content[data-type='markdown']
+      .view-header {
+      --background-primary: hsla(var(--background-secondary-hsl), 0.6);
+    }
+  }
+}

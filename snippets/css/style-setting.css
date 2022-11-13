@@ -44,19 +44,39 @@ settings:
         description.zh: 仿 Firefox / Microsoft Edge tab栏
         type: class-toggle
     -
+        id: tab-title-bar
+        title: float tab title bar
+        description: component style with round corner
+        description.zh: 圆角+模块化+悬浮的tab标题栏（滚动条会上移）
+        type: class-toggle
+        default: true
+    -
+        id: tab-title-bar-shadow
+        title: add shadow for active tab title bar
+        description.zh: 为当前的tab标题栏添加阴影
+        type: class-toggle
+    -
         id: blur
-        title: blur
-        title.zh: 模糊
+        title: Acrylic style background
+        title.zh: 亚克力背景
         type: heading
         collapsed: true
         level: 3
     -
-        id: back-blur
-        title: Acrylic style background
-        description: currently valid on menu / modal background
-        description.zh: 亚克力风格，目前【菜单 / 弹出框背景】有效
+        id: back-blur-menu
+        title: menu / suggestion popover
+        description.zh: 菜单 / 提示框
         type: class-toggle
-        default: true
+    -
+        id: back-blur-modal
+        title: modal mask
+        description.zh: 弹出框背景遮罩
+        type: class-toggle
+    -
+        id: back-blur-title-bar
+        title: tab title bar
+        description.zh: tab标题栏（滚动条会上移）
+        type: class-toggle
     -
         id: modal
         title: modal

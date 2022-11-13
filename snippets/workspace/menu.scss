@@ -1,6 +1,0 @@
-/* ====== 右键菜单 ======*/
-
-body.back-blur :is(.menu, .suggestion-container) {
-  background-color: hsla(var(--background-secondary-hsl), 0.7);
-  backdrop-filter: blur(var(--blur));
-}

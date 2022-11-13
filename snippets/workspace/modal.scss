@@ -80,11 +80,7 @@ body.setting-header .modal-container {
     }
   }
 }
-body.back-blur .modal-bg {
-  backdrop-filter: blur(calc(var(--blur) / 2));
-  opacity: initial !important;
-  background-color: hsla(var(--accent-h), 20%, 8%, 30%);
-}
+
 select,
 .dropdown,
 button {

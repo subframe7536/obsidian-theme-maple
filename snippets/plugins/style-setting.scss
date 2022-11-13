@@ -103,6 +103,7 @@ body:not(.calendar-swap-year-month)
 body:not(.quote-theme)
   .setting-item:is([data-id='quote-mark'], [data-id='quote-break-all']),
 body:not(.scrollbar-smooth) .setting-item[data-id='scrollbar-smooth-editor'],
+body:not(.tab-title-bar) .setting-item[data-id='tab-title-bar-shadow'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
 body:not(.use-custom-color) .setting-item[data-id^='accent-hue'],
 body:not(.tag-colorful) .setting-item[data-id='tag-colorful-setting'] {

@@ -45,19 +45,39 @@ settings:
         description.zh: 仿 Firefox / Microsoft Edge tab栏
         type: class-toggle
     -
+        id: tab-title-bar
+        title: float tab title bar
+        description: component style with round corner
+        description.zh: 圆角+模块化+悬浮的tab标题栏（滚动条会上移）
+        type: class-toggle
+        default: true
+    -
+        id: tab-title-bar-shadow
+        title: add shadow for active tab title bar
+        description.zh: 为当前的tab标题栏添加阴影
+        type: class-toggle
+    -
         id: blur
-        title: blur
-        title.zh: 模糊
+        title: Acrylic style background
+        title.zh: 亚克力背景
         type: heading
         collapsed: true
         level: 3
     -
-        id: back-blur
-        title: Acrylic style background
-        description: currently valid on menu / modal background
-        description.zh: 亚克力风格，目前【菜单 / 弹出框背景】有效
+        id: back-blur-menu
+        title: menu / suggestion popover
+        description.zh: 菜单 / 提示框
         type: class-toggle
-        default: true
+    -
+        id: back-blur-modal
+        title: modal mask
+        description.zh: 弹出框背景遮罩
+        type: class-toggle
+    -
+        id: back-blur-title-bar
+        title: tab title bar
+        description.zh: tab标题栏（滚动条会上移）
+        type: class-toggle
     -
         id: modal
         title: modal
@@ -1997,8 +2017,8 @@ kbd:hover {
 }
 
 body :is(.markdown-source-view, .markdown-rendered) {
-  --bold-color: var(--text-bold-color, rgba(var(--color-red-rgb), 80%));
-  --italic-color: var(--text-italic-color, rgba(var(--color-red-rgb), 80%));
+  --bold-color: var(--text-bold-color, #fc5656);
+  --italic-color: var(--text-italic-color, #fc5656);
 }
 
 em,
@@ -2010,11 +2030,27 @@ strong,
   text-underline-offset: var(--size-4-1);
 }
 
-.workspace-leaf-content[data-type=markdown] .view-header {
-  margin: 0;
-  padding: 0 var(--size-4-3);
-  border-bottom: var(--size-2-1) solid var(--accent-inactive);
+body.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-header {
+  margin: var(--size-4-1) calc(var(--file-margins) - var(--size-4-3)) 0;
+  padding: 0 var(--size-2-3);
+  border: var(--size-2-1) solid var(--background-modifier-hover);
+  border-radius: var(--radius-m);
   --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
+  transition: var(--animation);
+  position: absolute;
+  width: calc(100% - 2 * (var(--file-margins) - var(--size-4-3)));
+}
+body.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-header .view-header-title-container:after {
+  content: none;
+}
+body.tab-title-bar .workspace-leaf-content[data-type=markdown] :is(.view-content .cm-scroller, .markdown-reading-view > .markdown-preview-view) {
+  padding-top: calc(var(--file-margins) + var(--size-4-4));
+}
+body.tab-title-bar .workspace-leaf.mod-active .view-header {
+  --background-primary: var(--background-secondary);
+}
+body.tab-title-bar.tab-title-bar-shadow .workspace-leaf.mod-active .view-header {
+  box-shadow: 0 0 var(--size-4-1) var(--background-modifier-box-shadow);
 }
 
 /* ======= 标题 ====== */
@@ -2471,6 +2507,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 body:not(.calendar-swap-year-month) .setting-item[data-id=calendar-year-suffix],
 body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-break-all]),
 body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor],
+body:not(.tab-title-bar) .setting-item[data-id=tab-title-bar-shadow],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.use-custom-color) .setting-item[data-id^=accent-hue],
 body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
@@ -2746,12 +2783,6 @@ body.setting-header .modal-container .mod-settings .modal-content .plugin-list-p
   position: fixed;
   top: calc(50vh - var(--modal-height) / 2 - var(--size-4-3) + 22px);
   right: calc(50vw - var(--modal-width) / 2 + var(--size-4-12));
-}
-
-body.back-blur .modal-bg {
-  backdrop-filter: blur(calc(var(--blur) / 2));
-  opacity: initial !important;
-  background-color: hsla(var(--accent-h), 20%, 8%, 30%);
 }
 
 select,
@@ -3047,9 +3078,32 @@ body.tab-float .workspace-tab-header-new-tab {
 }
 
 /* ====== 右键菜单 ======*/
-body.back-blur :is(.menu, .suggestion-container) {
+body.back-blur-menu :is(.menu, .suggestion-container) {
   background-color: hsla(var(--background-secondary-hsl), 0.7);
   backdrop-filter: blur(var(--blur));
+}
+body.back-blur-modal .modal-bg {
+  backdrop-filter: blur(calc(var(--blur) / 2));
+  opacity: initial !important;
+  background-color: hsla(var(--accent-h), 20%, 8%, 30%);
+}
+body.back-blur-title-bar .workspace-leaf-content[data-type=markdown] .view-header {
+  --background-primary: hsla(var(--background-primary-hsl), 0.9);
+  backdrop-filter: blur(var(--blur));
+  position: absolute;
+  width: calc(100% - var(--size-4-3));
+  margin-right: var(--size-4-3);
+  padding-right: 0;
+}
+body.back-blur-title-bar.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-header {
+  width: calc(100% - var(--file-margins) * 2 + var(--size-4-6));
+  --background-primary: hsla(var(--background-secondary-hsl), 0.9);
+}
+body.back-blur-title-bar .workspace-leaf.mod-active .workspace-leaf-content[data-type=markdown] .view-header {
+  --background-primary: hsla(var(--background-primary-hsl), 0.6);
+}
+body.back-blur-title-bar.tab-title-bar .workspace-leaf.mod-active .workspace-leaf-content[data-type=markdown] .view-header {
+  --background-primary: hsla(var(--background-secondary-hsl), 0.6);
 }
 
 .print :is(.markdown-preview-view, .markdown-rendered) {
