@@ -1080,7 +1080,7 @@ body.code-mac-style-header .markdown-rendered pre {
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
 }
-body.code-mac-style-header .markdown-rendered pre::before {
+body.code-mac-style-header .markdown-rendered pre[class*=language-]::before {
   color: var(--accent-active);
 }
 body.code-mac-style-header .markdown-rendered pre::after {

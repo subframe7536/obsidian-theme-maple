@@ -226,7 +226,7 @@ body.code-mac-style-header .markdown-rendered pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
-  &::before {
+  &[class*='language-']::before {
     color: var(--accent-active);
   }
   &::after {
