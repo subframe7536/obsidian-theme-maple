@@ -128,11 +128,11 @@ body.quote-theme {
   }
 }
 /* fix bugs, corner fill cause wrap */
-body.quote-theme.quote-break-all
-  .HyperMD-quote:not(.callout)
-  .cm-quote:not(.cm-formatting) {
-  word-break: break-all;
-}
+// body.quote-theme.quote-break-all
+//   .HyperMD-quote:not(.callout)
+//   .cm-quote:not(.cm-formatting) {
+//   word-break: break-all;
+// }
 body.quote-mark.quote-theme {
   :is(div:not(.HyperMD-quote)
       + .HyperMD-quote, .HyperMD-quote:not(.HyperMD-quote-1)

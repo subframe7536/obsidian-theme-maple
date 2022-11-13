@@ -122,7 +122,7 @@ body .markdown-rendered pre {
     line-height: 1.5rem;
     opacity: 0;
     color: transparent;
-    background-color: var(--accent-active);
+    background-color: var(--code-language-color, var(--accent-active));
     transition: var(--animation);
     margin: 0;
     display: block !important;
@@ -143,7 +143,7 @@ body.code-language .markdown-rendered {
     &[class*='language-']::before {
       content: '未知语言';
       font-family: var(--font-text);
-      color: var(--inline-code);
+      color: var(--code-language-color, var(--inline-code));
       font-weight: bold;
       font-size: 0.8rem;
       position: absolute;
@@ -227,7 +227,7 @@ body.code-mac-style-header .markdown-rendered pre {
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
   &[class*='language-']::before {
-    color: var(--accent-active);
+    color: var(--code-language-color, var(--accent-active));
   }
   &::after {
     content: '';

@@ -98,6 +98,7 @@
     background-color: hsl(var(--accent-hue-dark, 207), 32%, 58%);
   }
 }
+/* hide option */
 body:not(.calendar-swap-year-month)
   .setting-item[data-id='calendar-year-suffix'],
 body:not(.quote-theme)
@@ -105,6 +106,7 @@ body:not(.quote-theme)
 body:not(.scrollbar-smooth) .setting-item[data-id='scrollbar-smooth-editor'],
 body:not(.tab-title-bar) .setting-item[data-id='tab-title-bar-shadow'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
+body:not(.code-language) .setting-item[data-id='code-language-color'],
 body:not(.use-custom-color) .setting-item[data-id^='accent-hue'],
 body:not(.tag-colorful) .setting-item[data-id='tag-colorful-setting'] {
   display: none;

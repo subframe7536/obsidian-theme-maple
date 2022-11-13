@@ -19,15 +19,15 @@ settings:
         level: 3
     -
         id: search-internal-expand-on-focus
-        title: search/replace input expand
-        description: expand search/replace input on focus
-        description.zh: 文档内搜索框获得焦点时扩大宽度
+        title: search/replace input expand on search/replace input focus
+        title.zh: 文档内搜索框获得焦点时扩大宽度
         type: class-toggle
     -
         id: search-internal-disable-select-all
         title: hide select all button
         description: display it maybe seems to be too long
-        description.zh: 文档内搜索框隐藏选择全部按钮（显示会过长）
+        title.zh: 文档内搜索框隐藏选择全部按钮
+        description.zh: 显示会过长
         type: class-toggle
         default: true
     -
@@ -39,21 +39,21 @@ settings:
         level: 3
     -
         id: tab-float
-        title: float tabs
-        description: tab style like firefox / Microsoft Edge
-        description.zh: 仿 Firefox / Microsoft Edge tab栏
+        title: float tabs style like firefox / Microsoft Edge
+        title.zh: 仿 Firefox / Microsoft Edge tab栏
         type: class-toggle
     -
         id: tab-title-bar
         title: float tab title bar
-        description: component style with round corner
-        description.zh: 圆角+模块化+悬浮的tab标题栏（滚动条会上移）
+        description: component style with round corner❗scrollbar will move up
+        title.zh: 悬浮的tab标题栏
+        description.zh: 圆角+模块化❗滚动条会上移
         type: class-toggle
         default: true
     -
         id: tab-title-bar-shadow
         title: add shadow for active tab title bar
-        description.zh: 为当前的tab标题栏添加阴影
+        title.zh: 为当前的tab标题栏添加阴影
         type: class-toggle
     -
         id: blur
@@ -65,17 +65,19 @@ settings:
     -
         id: back-blur-menu
         title: menu / suggestion popover
-        description.zh: 菜单 / 提示框
+        title.zh: 菜单 / 提示框
         type: class-toggle
     -
         id: back-blur-modal
         title: modal mask
-        description.zh: 弹出框背景遮罩
+        title.zh: 弹出框背景遮罩
         type: class-toggle
     -
         id: back-blur-title-bar
         title: tab title bar
-        description.zh: tab标题栏（滚动条会上移）
+        description: ❗scrollbar will move up
+        title.zh: tab标题栏
+        description.zh: ❗滚动条会上移
         type: class-toggle
     -
         id: modal
@@ -88,13 +90,13 @@ settings:
         id: setting-header
         title: add header for setting panel
         description: better with plugin “setting search”
-        description.zh: 为设置面板添加顶部框（配合 setting search 插件使用更佳）
+        title.zh: 为设置面板添加顶部框
+        description.zh: 配合 setting search 插件使用更佳
         type: class-toggle
     -
         id: setting-group-title
         title: add style for left navigation group title
-        description: left guide line
-        description.zh: 为左侧选项组标题添加样式
+        title.zh: 为左侧选项组标题添加样式
         type: class-toggle
         default: true
     -
@@ -107,14 +109,15 @@ settings:
     -
         id: scrollbar-hover-animation
         title: enable scrollbar movein animation
-        description.zh: 启用滚动条添加鼠标移入动画效果
+        title.zh: 启用滚动条添加鼠标移入动画效果
         type: class-toggle
         default: true
     -
         id: scrollbar-gutter
-        title: scrollbar gutter
-        description: scroll bar appears without squeezing the parent container
-        description.zh: 控制滚动条槽，使滚动条出现时不会对父容器产生挤压。选项：默认(default) / 悬浮滚动条(overlay) / 预留滚动条位置(reserve)❗overlay可能在后续的版本不支持
+        title: scrollbar gutter config
+        description: scroll bar appears without squeezing the parent container❗overlay property is marked as deprecated officially
+        title.zh: 控制滚动条槽
+        description.zh: 使滚动条出现时不会对父容器产生挤压，选项：默认(default) / 悬浮滚动条(overlay) / 预留滚动条位置(reserve)❗overlay可能在后续的版本不支持
         type: class-select
         allowEmpty: false
         default: scrollbar-gutter-default
@@ -128,13 +131,14 @@ settings:
     -
         id: scrollbar-smooth
         title: smooth scroll
-        description.zh: 开启顺滑滚动
+        title.zh: 开启顺滑滚动
         type: class-toggle
     -
         id: scrollbar-smooth-editor
         title: smooth scroll for editor
         description: may cause bad animation
-        description.zh: 编辑器开启顺滑滚动，但是跳转动画可能不太好
+        title.zh: 编辑器开启顺滑滚动
+        description.zh: ❗跳转动画可能不太好
         type: class-toggle
     -
         id: loading
@@ -146,7 +150,7 @@ settings:
     -
         id: loading-theme
         title: loading theme
-        description.zh: 加载图样式
+        title.zh: 加载图样式
         type: class-select
         allowEmpty: false
         default: loading-default
@@ -164,8 +168,9 @@ settings:
     -
         id: loading-text-content
         title: loading typing style text
-        description: should not be to long
-        description.zh: 加载页面打字机效果文字，最好不要太多字
+        description: better not be to long
+        title.zh: 加载页面打字机效果文字
+        description.zh: 最好不要太多字
         type: variable-text
         default: "'快乐摸鱼中...............'"
     -
@@ -186,17 +191,20 @@ settings:
         id: fixed-theme-color
         title: format accent color
         description: normalize accent color for better compability to theme. after opening, only the hue will be adjust, saturation/lightness will be fixed
-        description.zh: 规范颜色，使颜色更适合主题。开启后主题色只调整 hue，固定 saturation/lightness
+        title.zh: 规范颜色
+        description.zh: 固定主题色的 saturation / lightness 使颜色更适合主题，开启后主题色只调整 hue
         type: class-toggle
     -
         id: use-custom-color
         title: use custom accent color
         description: use style setting accent color instead of Obsidian's accent color
+        title.zh: 自定义 accent color
         description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
         type: class-toggle
     -
         id: accent-hue-light
         title: light accent color (Hue)
+        title.zh: 亮色模式
         type: variable-number-slider
         default: 116
         min: 0
@@ -204,6 +212,7 @@ settings:
         step: 5
     -
         id: accent-hue-dark
+        title.zh: 暗色模式
         title: dark accent color (Hue)
         type: variable-number-slider
         default: 207
@@ -218,10 +227,37 @@ settings:
         collapsed: true
         level: 3
     -
-        id: click-to-edit-link-in-live-preview
+        id: setting-link-internal-color
+        title: internal link color
+        title.zh: 内部链接颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-link-external-color
+        title: external link color
+        title.zh: 外部链接颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: link-icon
+        title: add icon before link
+        description: ❗only in editor
+        title.zh: live preview 链接前添加图标
+        description.zh: ❗只在编辑器内生效
+        type: class-toggle
+        default: true
+    -
+        id: link-click-to-edit-in-live-preview
         title: click to edit link in live preview
-        description: will disable hover animation
-        description.zh: live preview 模式时点击链接进行编辑而不是跳转（鼠标经过动画会消失）
+        description: ❗will disable hover animation
+        title.zh: live preview 模式时点击链接进行编辑而不是跳转
+        description.zh: ❗鼠标经过动画会消失
         type: class-toggle
     -
         id: heading
@@ -241,14 +277,16 @@ settings:
         id: heading-h2-underline
         title: add underline for h2
         description: with line-gredient
-        description.zh: 添加 h2 下划线
+        title.zh: 添加 h2 下划线
+        description.zh: 有渐变色
         type: class-toggle
         default: true
     -
         id: heading-h6-variant
         title: set font small-caps for h6
         description: always capital style
-        description.zh: 添加 h6 small-caps（全大写）
+        title.zh: 添加 h6 small-caps
+        description.zh: 全大写
         type: class-toggle
         default: true
     -
@@ -262,13 +300,15 @@ settings:
         id: heading-icon-fix
         title: always show heading icon
         description: add border on hover
-        description.zh: 总是显示标题前置标志（鼠标经过时添加边框）
+        title.zh: 总是显示标题前置标志
+        description.zh: 鼠标经过时添加边框
         type: class-toggle
     -
         id: heading-icon-only-text
         title: don't show icon border or background
         description: only show header level
-        description.zh: 只显示标题等级，没有边框或者背景色
+        title.zh: 不添加边框或者背景色
+        description.zh: 只显示标题等级
         type: class-toggle
     -
         id: heading-color
@@ -280,14 +320,17 @@ settings:
     -
         id: heading-h1-color
         title: h1 color
+        title.zh: 标题1颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
+
     -
         id: heading-h2-color
         title: h2 color
+
         type: variable-themed-color
         format: hex
         opacity: false
@@ -296,6 +339,7 @@ settings:
     -
         id: heading-h3-color
         title: h3 color
+
         type: variable-themed-color
         format: hex
         opacity: false
@@ -304,6 +348,7 @@ settings:
     -
         id: heading-h4-color
         title: h4 color
+
         type: variable-themed-color
         format: hex
         opacity: false
@@ -312,6 +357,7 @@ settings:
     -
         id: heading-h5-color
         title: h5 color
+
         type: variable-themed-color
         format: hex
         opacity: false
@@ -320,6 +366,7 @@ settings:
     -
         id: heading-h6-color
         title: h6 color
+        title.zh: 标题6颜色
         type: variable-themed-color
         format: hex
         opacity: false
@@ -335,7 +382,7 @@ settings:
     -
         id: text-bold-color
         title: bold text color
-        description.zh: 粗体颜色
+        title.zh: 粗体颜色
         type: variable-themed-color
         format: hex
         opacity: true
@@ -344,7 +391,7 @@ settings:
     -
         id: text-italic-color
         title: italic text color
-        description.zh: 斜体颜色
+        title.zh: 斜体颜色
         type: variable-themed-color
         format: hex
         opacity: true
@@ -361,14 +408,16 @@ settings:
         id: font-maple
         title: use “Maple Mono” as monospace
         description: https://github.com/subframe7536/Maple-font
-        description.zh: 使用 Maple Mono (https://github.com/subframe7536/Maple-font) 作为等宽字体
+        title.zh: 使用 Maple Mono 作为等宽字体
+        description.zh: https://github.com/subframe7536/Maple-font
         type: class-toggle
         default: true
     -
         id: font-fix-latex
         title: fix latex italic absent
-        description: latex in my vault always wrong rendered, so i make this setting
-        description.zh: 修复 latex 斜体问题（在我的仓库里经常渲染失败，只能自己打包一份woff进css了）
+        description: latex in my vault often wrong rendered, so i make this setting
+        title.zh: 修复 latex 斜体问题
+        description.zh: 在我的仓库里经常渲染失败，只能自己打包一份字体进主题了
         type: class-toggle
     -
         id: hr
@@ -379,9 +428,8 @@ settings:
         level: 3
     -
         id: hr-icon
-        title: icon
-        description: in the center of hr
-        description.zh: 分割行中部图标
+        title: set icon in the center of hr
+        title.zh: 分割行中部图标
         type: variable-text
         default: "'⭐'"
     -
@@ -395,7 +443,8 @@ settings:
         id: table-colorful
         title: colorful table
         description: accent header and line color
-        description.zh: 多彩表格，添加表头和行的颜色
+        title.zh: 多彩表格
+        description.zh: 添加表头和行的颜色
         type: class-toggle
         default: true
     -
@@ -409,7 +458,8 @@ settings:
         id: embed-title-right-top
         title: move embed title to right top
         description: visiable on hover, disabled when alias is '#', Example ![[FileName|#]]
-        description.zh: 内嵌文档标题移至右上角，鼠标经过时显示；别名为'#'时禁用，例：![[文件名|#]]
+        title.zh: 内嵌文档标题移至右上角
+        description.zh: 鼠标经过时显示 | 别名为'#'时禁用，例：![[文件名|#]]
         type: class-toggle
         default: true
     -
@@ -422,20 +472,20 @@ settings:
     -
         id: quote-theme
         title: enable quote theme
-        description: with width guide line and expanded gap
-        description.zh: 使用引用块主题
+        description: with width guide line
+        title.zh: 使用引用块主题
+        description.zh: 宽引导线
         type: class-toggle
         default: true
-    -
-        id: quote-break-all
-        title: break word in the quote line
-        description: recommand to open it when the whole line needs fill with letters without word
-        type: class-toggle
+#    -
+#        id: quote-break-all
+#        title: break word in the quote line
+#        description: recommand to open it when the whole line needs fill with letters without word
+#        type: class-toggle
     -
         id: quote-mark
         title: add front quote mark
-        description: level-1 will has same indent as level-2
-        description.zh: 引用块添加前置引号
+        title.zh: 引用块添加前置引号
         type: class-toggle
         default: true
     -
@@ -447,28 +497,36 @@ settings:
         level: 3
     -
         id: code-line-number
-        title: add code block line number
-        description: only in live preview mode
-        description.zh: 为实时预览模式代码块添加行号
+        title: add code block line number in live preview mode
+        title.zh: 为 实时预览模式 代码块添加行号
         type: class-toggle
         default: true
     -
         id: code-language
-        title: add code block language indicator
-        description: only in preview mode
-        description.zh: 为预览模式代码块添加语言标识
+        title: add code block language indicator in preview mode
+        title.zh: 为 预览模式 代码块添加语言标识
         type: class-toggle
         default: true
     -
+        id: code-language-color
+        title: language indicator color
+        title.zh: 语言标识颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
         id: code-mac-style-header
-        title: add mac style code block header
-        description: only in preview mode and no code block border
-        description.zh: 为预览模式代码块添加mac的标题栏，没有代码块边框
+        title: add mac style code block header in preview mode
+        description: no code block border
+        title.zh: 为 预览模式 代码块添加mac的标题栏
+        description.zh: 没有代码块边框
         type: class-toggle
     -
         id: code-theme
         title: use theme's color schema
-        description.zh: 使用主题的代码高亮
+        title.zh: 使用主题的代码高亮
         type: class-toggle
         default: true
     -
@@ -482,13 +540,15 @@ settings:
         id: tag-click-to-edit
         title: click to edit tags in Live-Preview mode
         description: click '#' to jump
-        description.zh: 点击标签进行编辑，点击'#'跳转
+        title.zh: 点击标签进行编辑
+        description.zh: 点击'#'跳转
         type: class-toggle
     -
         id: tag-colorful
-        title: colorful tag
+        title: enable colorful tag
         description: ❗maybe different style between edit mode and preview mode
-        description.zh: 多彩标签❗编辑模式和预览模式颜色会不一样
+        title.zh: 开启多彩标签
+        description.zh: ❗编辑模式和预览模式颜色会不一样
         type: class-toggle
     -
         id: tag-colorful-setting
@@ -500,7 +560,7 @@ settings:
     -
         id: tag-1
         title: colorful tag 1
-        description.zh: 多彩标签 颜色1
+        title.zh: 多彩标签 颜色1
         type: variable-themed-color
         format: hex
         opacity: true
@@ -509,7 +569,7 @@ settings:
     -
         id: tag-2
         title: colorful tag 2
-        description.zh: 多彩标签 颜色2
+        title.zh: 多彩标签 颜色2
         type: variable-themed-color
         format: hex
         opacity: true
@@ -518,7 +578,7 @@ settings:
     -
         id: tag-3
         title: colorful tag 3
-        description.zh: 多彩标签 颜色3
+        title.zh: 多彩标签 颜色3
         type: variable-themed-color
         format: hex
         opacity: true
@@ -527,7 +587,7 @@ settings:
     -
         id: tag-4
         title: colorful tag 4
-        description.zh: 多彩标签 颜色4
+        title.zh: 多彩标签 颜色4
         type: variable-themed-color
         format: hex
         opacity: true
@@ -536,7 +596,7 @@ settings:
     -
         id: tag-5
         title: colorful tag 5
-        description.zh: 多彩标签 颜色5
+        title.zh: 多彩标签 颜色5
         type: variable-themed-color
         format: hex
         opacity: true
@@ -545,7 +605,7 @@ settings:
     -
         id: tag-6
         title: colorful tag 6
-        description.zh: 多彩标签 颜色6
+        title.zh: 多彩标签 颜色6
         type: variable-themed-color
         format: hex
         opacity: true
@@ -568,13 +628,13 @@ settings:
     -
         id: calendar-swap-year-month
         title: swap year & month
-        description.zh: 交换年和月的位置
+        title.zh: 交换年和月的位置
         type: class-toggle
         default: true
     -
         id: calendar-year-suffix
         title: year suffix
-        description.zh: 年份后缀
+        title.zh: 年份后缀
         type: variable-text
         default: "'年'"
 */

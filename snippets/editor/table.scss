@@ -77,7 +77,7 @@ body.table-colorful {
       color: var(--accent-active);
     }
   }
-  .workspace-leaf-content[data-type='markdown'] table {
+  table {
     --table-header-color: var(--text-on-accent);
     --table-header-background: var(--accent-active);
     --table-header-background-hover: var(--accent-active);

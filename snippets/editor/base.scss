@@ -89,14 +89,14 @@ strong,
 body.tab-title-bar {
   .workspace-leaf-content[data-type='markdown'] {
     .view-header {
-      margin: var(--size-4-1) calc(var(--file-margins) - var(--size-4-3)) 0;
+      margin: var(--size-4-1) calc(var(--file-margins) - var(--size-4-4)) 0;
       padding: 0 var(--size-2-3);
       border: var(--size-2-1) solid var(--background-modifier-hover);
       border-radius: var(--radius-m);
       --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
       transition: var(--animation);
       position: absolute;
-      width: calc(100% - 2 * (var(--file-margins) - var(--size-4-3)));
+      width: calc(100% - 2 * (var(--file-margins) - var(--size-4-4)));
       .view-header-title-container:after {
         content: none;
       }

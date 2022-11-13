@@ -20,7 +20,7 @@ body.back-blur {
       padding-right: 0;
     }
     &.tab-title-bar .workspace-leaf-content[data-type='markdown'] .view-header {
-      width: calc(100% - var(--file-margins) * 2 + var(--size-4-6));
+      width: calc(100% - var(--file-margins) * 2 + var(--size-4-8));
       --background-primary: hsla(var(--background-secondary-hsl), 0.9);
     }
 
