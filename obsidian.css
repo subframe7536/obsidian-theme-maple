@@ -46,9 +46,9 @@ settings:
     -
         id: tab-title-bar
         title: float tab title bar
-        description: component style with round corner❗scrollbar will move up
+        description: component style with round corner
         title.zh: 悬浮的tab标题栏
-        description.zh: 圆角+模块化❗滚动条会上移
+        description.zh: 圆角+模块化
         type: class-toggle
         default: true
     -
@@ -803,7 +803,7 @@ html :is(body.obsidian-app.fixed-theme-color, body.obsidian-app.fixed-theme-colo
   font-style: italic;
 }
 /* ====== 代码 ====== */
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --inline-code: var(--color-red);
   --code-background: var(--md-container-bg);
   --code-function: var(--color-orange);
@@ -1352,7 +1352,7 @@ img {
 }
 
 /* ====== 链接 ====== */
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --link-decoration-hover: none;
   --link-external-decoration-hover: none;
   --link-color: var(--setting-link-internal-color, var(--color-blue));
@@ -1478,7 +1478,7 @@ input[type=checkbox]:checked:after {
   transform: translateX(0.25em) !important;
 }
 
-body :is(.markdown-source-view, .markdown-rendered) {
+body :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered) {
   --list-bullet-base: var(--size-4-3);
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
   --list-marker-color: hsl(
@@ -1493,52 +1493,53 @@ body :is(.markdown-source-view, .markdown-rendered) {
   );
   --list-spacing: 0;
 }
-
-.markdown-rendered :is(ul, ol) {
+body :is(.markdown-rendered, .print .markdown-rendered) :is(ul, ol) {
   padding-inline-start: 2.1rem;
   margin: var(--size-2-1) 0;
 }
-.markdown-rendered :is(ul, ol) :is(ul, ol) {
+body :is(.markdown-rendered, .print .markdown-rendered) :is(ul, ol) :is(ul, ol) {
   padding-inline-start: 2.1rem;
 }
-.markdown-rendered :is(ul, ol) li {
+body :is(.markdown-rendered, .print .markdown-rendered) :is(ul, ol) li {
   margin: var(--size-4-2) auto;
   line-height: 1.8rem;
 }
-.markdown-rendered ul {
+body :is(.markdown-rendered, .print .markdown-rendered) ul {
   padding-inline-start: 1.2rem;
 }
-.markdown-rendered ul.contains-task-list {
+body :is(.markdown-rendered, .print .markdown-rendered) ul.contains-task-list {
   padding-inline-start: 1.4rem;
   margin-inline-start: 0 !important;
 }
-.markdown-rendered ol li::marker {
+body :is(.markdown-rendered, .print .markdown-rendered) ol li::marker {
   font-family: var(--font-monospace);
 }
-.markdown-rendered ol li .list-collapse-indicator {
+body :is(.markdown-rendered, .print .markdown-rendered) ol li .list-collapse-indicator {
   margin-left: -54px !important;
 }
-.markdown-rendered ul > li {
+body :is(.markdown-rendered, .print .markdown-rendered) ul > li {
   --list-bullet-size: calc(
     var(--font-text-size) - var(--list-bullet-base) + 3px
   );
 }
-.markdown-rendered ul > li ul > li {
+body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li {
   --list-marker-color: transparent;
-  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
+  --list-bullet-size: calc(
+    var(--font-text-size) - var(--list-bullet-base)
+  );
   --list-bullet-border: 2px solid var(--list-marker-color-alt);
 }
-.markdown-rendered ul > li ul > li ul > li {
+body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li ul > li {
   --list-marker-color: var(--list-marker-color-alt);
   --list-bullet-size: calc(
     var(--font-text-size) - var(--list-bullet-base) - 1px
   );
   --list-bullet-radius: max(2px, calc(var(--list-bullet-size) / 3));
 }
-.markdown-rendered ul > li ul > li ul > li .list-bullet:after {
+body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li ul > li .list-bullet:after {
   transform: rotate(45deg);
 }
-.markdown-rendered ul > li ul > li ul > li ul > li {
+body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li ul > li ul > li {
   --list-bullet-size: calc(
     var(--font-text-size) - var(--list-bullet-base) - 1px
   );
@@ -1550,52 +1551,50 @@ body :is(.markdown-source-view, .markdown-rendered) {
     calc(var(--list-bullet-size) / 3)
   );
 }
-
-.markdown-rendered.show-indentation-guide .contains-task-list .task-list-item-checkbox {
+body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide .contains-task-list .task-list-item-checkbox {
   margin-right: var(--size-4-2);
 }
-.markdown-rendered.show-indentation-guide .contains-task-list .contains-task-list {
+body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide .contains-task-list .contains-task-list {
   margin-inline-start: 0.1rem !important;
 }
-.markdown-rendered.show-indentation-guide .contains-task-list .contains-task-list::before {
+body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide .contains-task-list .contains-task-list::before {
   left: -1rem;
 }
-.markdown-rendered.show-indentation-guide li > ul::before {
+body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide li > ul::before {
   left: -0.8rem;
 }
-.markdown-rendered.show-indentation-guide li > ol::before {
+body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide li > ol::before {
   left: -1.55rem;
 }
-
-.markdown-source-view.mod-cm6 .cm-fold-indicator .collapse-indicator {
+body .markdown-source-view.mod-cm6 .cm-fold-indicator .collapse-indicator {
   padding-right: var(--size-4-2);
 }
-.markdown-source-view.mod-cm6 .cm-formatting-list {
+body .markdown-source-view.mod-cm6 .cm-formatting-list {
   font-family: var(--font-monospace);
 }
-.markdown-source-view.mod-cm6 .HyperMD-list-line > .list-bullet:after {
+body .markdown-source-view.mod-cm6 .HyperMD-list-line > .list-bullet:after {
   content: none;
 }
-.markdown-source-view.mod-cm6 .HyperMD-list-line-1 .list-bullet {
+body .markdown-source-view.mod-cm6 .HyperMD-list-line-1 .list-bullet {
   --list-bullet-size: calc(
     var(--font-text-size) - var(--list-bullet-base) + 3px
   );
 }
-.markdown-source-view.mod-cm6 .HyperMD-list-line-2 .list-bullet {
+body .markdown-source-view.mod-cm6 .HyperMD-list-line-2 .list-bullet {
   --list-marker-color: transparent;
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
   --list-bullet-border: 2px solid var(--list-marker-color-alt);
 }
-.markdown-source-view.mod-cm6 .HyperMD-list-line-3 .list-bullet {
+body .markdown-source-view.mod-cm6 .HyperMD-list-line-3 .list-bullet {
   --list-bullet-size: calc(
     var(--font-text-size) - var(--list-bullet-base) + 3px
   );
   --list-bullet-radius: max(2px, calc(var(--list-bullet-size) / 3));
 }
-.markdown-source-view.mod-cm6 .HyperMD-list-line-3 .list-bullet::after {
+body .markdown-source-view.mod-cm6 .HyperMD-list-line-3 .list-bullet::after {
   transform: rotate(45deg);
 }
-.markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet {
+body .markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet {
   --list-bullet-size: calc(
     var(--font-text-size) - var(--list-bullet-base) - 1px
   );
@@ -1603,12 +1602,12 @@ body :is(.markdown-source-view, .markdown-rendered) {
   --list-bullet-border: 2px solid var(--list-marker-color-alt);
   --list-bullet-radius: max(3px, calc(var(--list-bullet-size) / 3));
 }
-.markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet::after {
+body .markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet::after {
   transform: rotate(45deg);
 }
 
 /* ====== 引用 ====== */
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --blockquote-background-color: var(--md-container-bg);
 }
 
@@ -1736,12 +1735,12 @@ body.quote-mark.quote-theme .markdown-rendered blockquote::before {
   transform: translateX(-1.62rem);
 }
 
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --callout-radius: var(--radius-l);
 }
 
 /* ====== 表格 ====== */
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --table-radius: var(--radius-l);
   --table-outline-width: var(--size-2-1);
 }
@@ -1991,7 +1990,7 @@ body.tag-colorful .cm-line span.cm-hashtag {
   caret-color: var(--text-on-accent);
 }
 
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --tag-padding-y: 0.1rem;
 }
 
@@ -2023,27 +2022,16 @@ mjx-stretchy-h > mjx-ext > mjx-c::before {
 
 /* ====== 等宽字体 ====== */
 body.font-maple {
-  --font-monospace: var(--monospace-custom, "maplemono"),
-    var(--font-monospace-override), var(--font-monospace-theme),
-    var(--font-monospace-default);
+  --font-monospace: var(--monospace-custom, "maplemono"), var(--font-monospace-override), var(--font-monospace-theme), var(--font-monospace-default);
 }
 
 /* ====== 文本 ======= */
 .theme-light {
-  --active-line: hsl(
-    calc(var(--accent-h) - 4),
-    calc(var(--accent-s) - 12%),
-    calc(100% - (100% - var(--accent-l)) / 5)
-  );
+  --active-line: hsl( calc(var(--accent-h) - 4), calc(var(--accent-s) - 12%), calc(100% - (100% - var(--accent-l)) / 5));
 }
 
 .theme-dark {
-  --active-line: hsla(
-    calc(var(--accent-h) - 24),
-    18%,
-    calc(var(--accent-l) / 4),
-    95%
-  );
+  --active-line: hsla( calc(var(--accent-h) - 24), 18%, calc(var(--accent-l) / 4), 95%);
 }
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
@@ -2085,21 +2073,21 @@ strong,
   text-underline-offset: var(--size-4-1);
 }
 
+.workspace-leaf-content[data-type=markdown] .view-header .clickable-icon:hover {
+  background-color: var(--background-modifier-hover);
+}
+
 body.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-header {
-  margin: var(--size-4-1) calc(var(--file-margins) - var(--size-4-4)) 0;
-  padding: 0 var(--size-2-3);
+  margin: var(--size-4-1);
+  padding: 0 var(--size-2-3) !important;
   border: var(--size-2-1) solid var(--background-modifier-hover);
   border-radius: var(--radius-m);
   --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
   transition: var(--animation);
-  position: absolute;
-  width: calc(100% - 2 * (var(--file-margins) - var(--size-4-4)));
+  width: calc(100% - var(--size-4-2));
 }
 body.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-header .view-header-title-container:after {
   content: none;
-}
-body.tab-title-bar .workspace-leaf-content[data-type=markdown] :is(.view-content .cm-scroller, .markdown-reading-view > .markdown-preview-view) {
-  padding-top: calc(var(--file-margins) + var(--size-4-4));
 }
 body.tab-title-bar .workspace-leaf.mod-active .view-header {
   --background-primary: var(--background-secondary);
@@ -3153,7 +3141,8 @@ body.back-blur-title-bar .workspace-leaf-content[data-type=markdown] .view-heade
   padding-right: 0;
 }
 body.back-blur-title-bar.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-header {
-  width: calc(100% - var(--file-margins) * 2 + var(--size-4-8));
+  margin: var(--size-4-1) calc(var(--size-4-4) - var(--size-2-1)) 0;
+  width: calc(100% - 2 * (var(--size-4-4) - var(--size-2-1)));
   --background-primary: hsla(var(--background-secondary-hsl), 0.9);
 }
 body.back-blur-title-bar .workspace-leaf.mod-active .workspace-leaf-content[data-type=markdown] .view-header {

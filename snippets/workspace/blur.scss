@@ -20,10 +20,10 @@ body.back-blur {
       padding-right: 0;
     }
     &.tab-title-bar .workspace-leaf-content[data-type='markdown'] .view-header {
-      width: calc(100% - var(--file-margins) * 2 + var(--size-4-8));
+      margin: var(--size-4-1) calc(var(--size-4-4) - var(--size-2-1)) 0;
+      width: calc(100% - 2 * calc(var(--size-4-4) - var(--size-2-1)));
       --background-primary: hsla(var(--background-secondary-hsl), 0.9);
     }
-
     .workspace-leaf.mod-active
       .workspace-leaf-content[data-type='markdown']
       .view-header {

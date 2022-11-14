@@ -3,6 +3,7 @@
 .markdown-rendered p {
   margin: var(--size-4-1) 0;
 }
+
 body mjx-container {
   mjx-utext {
     font-family: var(--font-text) !important;
@@ -16,6 +17,7 @@ body.font-fix-latex mjx-container {
     font-family: MJXZERO, EMBED-TEX-I;
   }
 }
+
 mjx-stretchy-h > mjx-ext > mjx-c::before {
   transform: scaleX(450) !important;
 }
@@ -37,6 +39,7 @@ body.font-maple {
     calc(100% - (100% - var(--accent-l)) / 5)
   );
 }
+
 .theme-dark {
   --active-line: hsla(
     calc(var(--accent-h) - 24),
@@ -45,6 +48,7 @@ body.font-maple {
     95%
   );
 }
+
 body .markdown-source-view .cm-scroller {
   .cm-line:not(.HyperMD-codeblock) {
     padding: {
@@ -74,10 +78,12 @@ kbd {
 ::selection {
   text-decoration-line: none !important;
 }
+
 body :is(.markdown-source-view, .markdown-rendered) {
   --bold-color: var(--text-bold-color, #fc5656);
   --italic-color: var(--text-italic-color, #fc5656);
 }
+
 em,
 .cm-em,
 strong,
@@ -86,25 +92,31 @@ strong,
   text-decoration-style: dotted;
   text-underline-offset: var(--size-4-1);
 }
+
+.workspace-leaf-content[data-type='markdown']
+  .view-header
+  .clickable-icon:hover {
+  background-color: var(--background-modifier-hover);
+}
+
 body.tab-title-bar {
   .workspace-leaf-content[data-type='markdown'] {
     .view-header {
-      margin: var(--size-4-1) calc(var(--file-margins) - var(--size-4-4)) 0;
-      padding: 0 var(--size-2-3);
+      margin: var(--size-4-1);
+      padding: 0 var(--size-2-3) !important;
       border: var(--size-2-1) solid var(--background-modifier-hover);
       border-radius: var(--radius-m);
       --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
       transition: var(--animation);
-      position: absolute;
-      width: calc(100% - 2 * (var(--file-margins) - var(--size-4-4)));
+      // position: absolute;
+      width: calc(100% - var(--size-4-2));
       .view-header-title-container:after {
         content: none;
       }
     }
-    :is(.view-content .cm-scroller, .markdown-reading-view
-        > .markdown-preview-view) {
-      padding-top: calc(var(--file-margins) + var(--size-4-4));
-    }
+    //  :is(.view-content .cm-scroller, .markdown-reading-view > .markdown-preview-view) {
+    //     padding-top: calc(var(--file-margins) + var(--size-4-4));
+    // }
   }
   .workspace-leaf.mod-active .view-header {
     --background-primary: var(--background-secondary);

@@ -3,7 +3,7 @@
 $num: 8;
 $indent: 0.6rem;
 $mark-size: 3rem;
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --blockquote-background-color: var(--md-container-bg);
 }
 body.quote-theme {
@@ -327,6 +327,6 @@ body.quote-mark.quote-theme {
 //     }
 //   }
 // }
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --callout-radius: var(--radius-l);
 }

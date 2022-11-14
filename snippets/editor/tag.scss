@@ -35,7 +35,7 @@ body.tag-colorful {
     caret-color: var(--text-on-accent);
   }
 }
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --tag-padding-y: 0.1rem;
 }
 .cm-line span.cm-hashtag {

@@ -1,6 +1,6 @@
 /* ====== 代码 ====== */
 
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --inline-code: var(--color-red);
   --code-background: var(--md-container-bg);
   --code-function: var(--color-orange);

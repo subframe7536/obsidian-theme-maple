@@ -1,6 +1,6 @@
 /* ====== 表格 ====== */
 
-body :is(.markdown-source-view, .markdown-rendered) {
+:is(body, .print .markdown-rendered) {
   --table-radius: var(--radius-l);
   --table-outline-width: var(--size-2-1);
 }

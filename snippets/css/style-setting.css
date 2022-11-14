@@ -45,9 +45,9 @@ settings:
     -
         id: tab-title-bar
         title: float tab title bar
-        description: component style with round corner❗scrollbar will move up
+        description: component style with round corner
         title.zh: 悬浮的tab标题栏
-        description.zh: 圆角+模块化❗滚动条会上移
+        description.zh: 圆角+模块化
         type: class-toggle
         default: true
     -
