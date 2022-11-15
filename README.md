@@ -11,6 +11,11 @@ an Obsidian theme still in dev, using `Style Setting` to custom preference, embe
 
 ![](./img/%E5%A4%A7%E7%BA%B2.gif)
 
+### code block
+
+![](img/code_line.png)
+![](img/code_header.png)
+
 ### usage
 
 put `obsidian.css` to `your-vault/.obsidian/snippets` and turn on
