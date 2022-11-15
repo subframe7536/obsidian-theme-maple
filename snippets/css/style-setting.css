@@ -95,21 +95,35 @@ settings:
     -
         id: tab-float
         title: float tabs style like firefox / Microsoft Edge
-        title.zh: 仿 Firefox / Microsoft Edge 的 tab 栏
+        title.zh: 仿 Firefox / Microsoft Edge 的标签栏
         type: class-toggle
+    -
+        id: tab-show-close-on-hover
+        title: only show close button on hovered tab
+        title.zh: 只在鼠标经过标签时显示关闭按钮
+        type: class-toggle
+        default: true
+    -
+        id: tab-title
+        title: tab title bar
+        title.zh: 标签标题栏
+        type: heading
+        collapsed: true
+        level: 3
     -
         id: tab-title-bar
         title: float tab title bar
         description: component style with round corner
-        title.zh: 悬浮的 tab 标题栏
+        title.zh: 悬浮的标签标题栏
         description.zh: 圆角 + 模块化
         type: class-toggle
         default: true
     -
         id: tab-title-bar-shadow
         title: add shadow for active tab title bar
-        title.zh: 为当前的 tab 标题栏添加阴影
+        title.zh: 为当前的标签标题栏添加阴影
         type: class-toggle
+
     -
         id: blur
         title: Acrylic style background

@@ -18,6 +18,9 @@ body.tab-float {
     }
     .workspace-tab-header-inner-close-button {
       padding: var(--size-2-1);
+      &:hover {
+        background-color: var(--frame-background-color);
+      }
     }
   }
   &.theme-dark .mod-root .workspace-tab-header.is-active {
@@ -31,5 +34,13 @@ body.tab-float {
   }
   .workspace-tab-header-new-tab {
     padding-top: var(--size-4-1);
+  }
+}
+body.tab-show-close-on-hover .mod-root .workspace-tab-header {
+  .workspace-tab-header-inner-close-button {
+    display: none;
+  }
+  &:hover .workspace-tab-header-inner-close-button {
+    display: inherit;
   }
 }
