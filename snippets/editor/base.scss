@@ -49,19 +49,20 @@ body.font-maple {
   );
 }
 
-body .markdown-source-view .cm-scroller {
-  .cm-line:not(.HyperMD-codeblock) {
-    padding: {
-      left: var(--size-4-1);
-      right: var(--size-4-1);
-    }
-  }
-  .cm-line.cm-active {
-    background-color: var(--active-line);
-    border-radius: var(--radius-s);
+body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
+  padding: {
+    left: var(--size-4-1);
+    right: var(--size-4-1);
   }
 }
 
+body:not(.line-active-disable)
+  .markdown-source-view
+  .cm-scroller
+  .cm-line.cm-active {
+  background-color: var(--active-line);
+  border-radius: var(--radius-s);
+}
 /* ======= 键盘 ====== */
 
 kbd {
@@ -80,8 +81,8 @@ kbd {
 }
 
 body :is(.markdown-source-view, .markdown-rendered) {
-  --bold-color: var(--text-bold-color, #fc5656);
-  --italic-color: var(--text-italic-color, #fc5656);
+  --bold-color: var(--setting-text-bold-color, #fc5656);
+  --italic-color: var(--setting-text-italic-color, #fc5656);
 }
 
 em,

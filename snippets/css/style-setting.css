@@ -11,6 +11,61 @@ settings:
         collapsed: true
         level: 2
     -
+        id: colors
+        title: colors
+        title.zh: 颜色
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-color-dirs
+        title: dir color in file explorer
+        title.zh: 文件夹颜色
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        default-light: rgb(245, 180, 0)
+        default-dark: rgb(245, 180, 0)
+    -
+        id: accent-colors
+        title: accent colors
+        title.zh: 高亮颜色
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: color-fix-theme-color
+        title: format accent color
+        description: normalize accent color for better compability to theme. after opening, only the hue will be adjust, saturation/lightness will be fixed
+        title.zh: 规范颜色
+        description.zh: 固定主题色的 saturation / lightness 使颜色更适合主题，开启后主题色只调整 hue
+        type: class-toggle
+    -
+        id: color-use-custom-color
+        title: use custom accent color
+        description: use style setting accent color instead of Obsidian's accent color
+        title.zh: 自定义 accent color
+        description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
+        type: class-toggle
+    -
+        id: setting-accent-hue-light
+        title: light accent color (Hue)
+        title.zh: 亮色模式
+        type: variable-number-slider
+        default: 116
+        min: 0
+        max: 360
+        step: 5
+    -
+        id: setting-accent-hue-dark
+        title.zh: 暗色模式
+        title: dark accent color (Hue)
+        type: variable-number-slider
+        default: 207
+        min: 0
+        max: 360
+        step: 5
+    -
         id: search-internal
         title: document search panel
         title.zh: 文档内搜索框
@@ -33,27 +88,27 @@ settings:
     -
         id: tab
         title: tab
-        title.zh: tab栏
+        title.zh: tab 栏
         type: heading
         collapsed: true
         level: 3
     -
         id: tab-float
         title: float tabs style like firefox / Microsoft Edge
-        title.zh: 仿 Firefox / Microsoft Edge tab栏
+        title.zh: 仿 Firefox / Microsoft Edge 的 tab 栏
         type: class-toggle
     -
         id: tab-title-bar
         title: float tab title bar
         description: component style with round corner
-        title.zh: 悬浮的tab标题栏
-        description.zh: 圆角+模块化
+        title.zh: 悬浮的 tab 标题栏
+        description.zh: 圆角 + 模块化
         type: class-toggle
         default: true
     -
         id: tab-title-bar-shadow
         title: add shadow for active tab title bar
-        title.zh: 为当前的tab标题栏添加阴影
+        title.zh: 为当前的 tab 标题栏添加阴影
         type: class-toggle
     -
         id: blur
@@ -76,7 +131,7 @@ settings:
         id: back-blur-title-bar
         title: tab title bar
         description: ❗scrollbar will move up
-        title.zh: tab标题栏
+        title.zh: tab 标题栏
         description.zh: ❗滚动条会上移
         type: class-toggle
     -
@@ -181,44 +236,59 @@ settings:
         collapsed: true
         level: 2
     -
-        id: colors
-        title: accent colors
-        title.zh: 高亮颜色
+        id: text-line-height
+        title: text & font & line
+        title.zh: 文字 & 字体 & 行
         type: heading
         collapsed: true
         level: 3
     -
-        id: fixed-theme-color
-        title: format accent color
-        description: normalize accent color for better compability to theme. after opening, only the hue will be adjust, saturation/lightness will be fixed
-        title.zh: 规范颜色
-        description.zh: 固定主题色的 saturation / lightness 使颜色更适合主题，开启后主题色只调整 hue
+        id: setting-text-bold-color
+        title: bold text color
+        title.zh: 粗体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-text-italic-color
+        title: italic text color
+        title.zh: 斜体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: font-maple
+        title: use “Maple Mono” as monospace
+        description: https://github.com/subframe7536/Maple-font
+        title.zh: 使用 Maple Mono 作为等宽字体
+        description.zh: https://github.com/subframe7536/Maple-font
+        type: class-toggle
+        default: true
+    -
+        id: font-fix-latex
+        title: fix latex italic absent
+        description: latex in my vault often wrong rendered, so i make this setting
+        title.zh: 修复 latex 斜体问题
+        description.zh: 在我的仓库里经常渲染失败，只能自己打包一份字体进主题了
         type: class-toggle
     -
-        id: use-custom-color
-        title: use custom accent color
-        description: use style setting accent color instead of Obsidian's accent color
-        title.zh: 自定义 accent color
-        description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
+        id: setting-line-height
+        title: editor line height
+        title.zh: 编辑器行高
+        type: variable-number-slider
+        default: 2.1
+        min: 1.8
+        max: 2.4
+        step: 0.1
+    -
+        id: line-active-disable
+        title: disable active line hightlight
+        title.zh: 当前行不高亮
         type: class-toggle
-    -
-        id: accent-hue-light
-        title: light accent color (Hue)
-        title.zh: 亮色模式
-        type: variable-number-slider
-        default: 116
-        min: 0
-        max: 360
-        step: 5
-    -
-        id: accent-hue-dark
-        title.zh: 暗色模式
-        title: dark accent color (Hue)
-        type: variable-number-slider
-        default: 207
-        min: 0
-        max: 360
-        step: 5
     -
         id: links
         title: link
@@ -318,107 +388,59 @@ settings:
         collapsed: true
         level: 4
     -
-        id: heading-h1-color
+        id: setting-h1-color
         title: h1 color
-        title.zh: 标题1颜色
+        title.zh: 标题 1 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
-
     -
-        id: heading-h2-color
+        id: setting-h2-color
         title: h2 color
-
+        title.zh: 标题 2 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
     -
-        id: heading-h3-color
+        id: setting-h3-color
         title: h3 color
-
+        title.zh: 标题 3 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
     -
-        id: heading-h4-color
+        id: setting-h4-color
         title: h4 color
-
+        title.zh: 标题 4 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
     -
-        id: heading-h5-color
+        id: setting-h5-color
         title: h5 color
-
+        title.zh: 标题 5 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
     -
-        id: heading-h6-color
+        id: setting-h6-color
         title: h6 color
-        title.zh: 标题6颜色
+        title.zh: 标题 6 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
-    -
-        id: text
-        title: text
-        title.zh: 文字
-        type: heading
-        collapsed: true
-        level: 3
-    -
-        id: text-bold-color
-        title: bold text color
-        title.zh: 粗体颜色
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: text-italic-color
-        title: italic text color
-        title.zh: 斜体颜色
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: font
-        title: font
-        title.zh: 字体
-        type: heading
-        collapsed: true
-        level: 3
-    -
-        id: font-maple
-        title: use “Maple Mono” as monospace
-        description: https://github.com/subframe7536/Maple-font
-        title.zh: 使用 Maple Mono 作为等宽字体
-        description.zh: https://github.com/subframe7536/Maple-font
-        type: class-toggle
-        default: true
-    -
-        id: font-fix-latex
-        title: fix latex italic absent
-        description: latex in my vault often wrong rendered, so i make this setting
-        title.zh: 修复 latex 斜体问题
-        description.zh: 在我的仓库里经常渲染失败，只能自己打包一份字体进主题了
-        type: class-toggle
     -
         id: hr
         title: hr
@@ -508,7 +530,7 @@ settings:
         type: class-toggle
         default: true
     -
-        id: code-language-color
+        id: setting-code-language-color
         title: language indicator color
         title.zh: 语言标识颜色
         type: variable-themed-color
@@ -558,54 +580,54 @@ settings:
         collapsed: true
         level: 4
     -
-        id: tag-1
+        id: setting-tag-1
         title: colorful tag 1
-        title.zh: 多彩标签 颜色1
+        title.zh: 多彩标签 颜色 1
         type: variable-themed-color
         format: hex
         opacity: true
         default-light: '#'
         default-dark: '#'
     -
-        id: tag-2
+        id: setting-tag-2
         title: colorful tag 2
-        title.zh: 多彩标签 颜色2
+        title.zh: 多彩标签 颜色 2
         type: variable-themed-color
         format: hex
         opacity: true
         default-light: '#'
         default-dark: '#'
     -
-        id: tag-3
+        id: setting-tag-3
         title: colorful tag 3
-        title.zh: 多彩标签 颜色3
+        title.zh: 多彩标签 颜色 3
         type: variable-themed-color
         format: hex
         opacity: true
         default-light: '#'
         default-dark: '#'
     -
-        id: tag-4
+        id: setting-tag-4
         title: colorful tag 4
-        title.zh: 多彩标签 颜色4
+        title.zh: 多彩标签 颜色 4
         type: variable-themed-color
         format: hex
         opacity: true
         default-light: '#'
         default-dark: '#'
     -
-        id: tag-5
+        id: setting-tag-5
         title: colorful tag 5
-        title.zh: 多彩标签 颜色5
+        title.zh: 多彩标签 颜色 5
         type: variable-themed-color
         format: hex
         opacity: true
         default-light: '#'
         default-dark: '#'
     -
-        id: tag-6
+        id: setting-tag-6
         title: colorful tag 6
-        title.zh: 多彩标签 颜色6
+        title.zh: 多彩标签 颜色 6
         type: variable-themed-color
         format: hex
         opacity: true

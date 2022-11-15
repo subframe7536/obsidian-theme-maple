@@ -2,12 +2,12 @@
 
 body {
   --font-bold: bold;
-  --h1-color: var(--heading-h1-color, var(--color-red));
-  --h2-color: var(--heading-h2-color, var(--color-orange));
-  --h3-color: var(--heading-h3-color, var(--color-green));
-  --h4-color: var(--heading-h4-color, var(--color-blue));
-  --h5-color: var(--heading-h5-color, var(--color-purple));
-  --h6-color: var(--heading-h6-color, var(--color-cyan));
+  --h1-color: var(--setting-h1-color, var(--color-red));
+  --h2-color: var(--setting-h2-color, var(--color-orange));
+  --h3-color: var(--setting-h3-color, var(--color-green));
+  --h4-color: var(--setting-h4-color, var(--color-blue));
+  --h5-color: var(--setting-h5-color, var(--color-purple));
+  --h6-color: var(--setting-h6-color, var(--color-cyan));
   --h1-size: calc(var(--font-text-size) * 1.6);
   --h2-size: calc(var(--font-text-size) * 1.5);
   --h3-size: calc(var(--font-text-size) * 1.4);
@@ -180,7 +180,10 @@ body.heading-h2-underline {
       position: absolute;
       height: var(--size-4-1);
       width: 100%;
-      bottom: var(--size-4-2);
+      bottom: calc(
+        var(--font-text-size) * var(--line-height-normal) * 0.2 -
+          var(--size-2-1)
+      );
       border-radius: var(--size-2-1);
       background-image: linear-gradient(
         to right,

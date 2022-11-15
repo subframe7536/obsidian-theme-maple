@@ -1,8 +1,12 @@
 /* ====== 文件管理器 ====== */
 
 body {
-  --folder-color: #f4b300;
-  --folder-hover-color: #f4b30030;
+  --folder-color-rgb: 245, 180, 0;
+  --folder-color: rgb(var(--setting-color-dirs, var(--folder-color-rgb)));
+  --folder-hover-color: rgba(
+    var(--setting-color-dirs, var(--folder-color-rgb)),
+    0.24
+  );
   --nav-item-size: 14px;
   --line-height-tight: 1.6;
   --nav-indentation-guide-width: 1.8px;

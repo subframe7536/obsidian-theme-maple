@@ -1,10 +1,8 @@
 /* ====== 滚动条 ====== */
 
 $base-panel: '.vertical-tab-header', '.vertical-tab-content',
-  '.nav-files-container',
-  ".workspace-leaf-content[data-type='outline'] .view-content",
-  '.search-result-container', '.git-view-body',
-  '.suggestion-container .suggestion', '.prompt-results',
+  '.nav-files-container', '.view-content', '.search-result-container',
+  '.git-view-body', '.suggestion-container .suggestion', '.prompt-results',
   '.markdown-embed-content, .community-modal-search-results-wrapper',
   '.community-modal-info',
   '.modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin)',

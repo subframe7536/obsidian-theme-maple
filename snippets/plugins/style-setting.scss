@@ -15,7 +15,7 @@
     padding-left: var(--size-4-8);
   }
 }
-:is(.style-settings-import, .style-settings-export) {
+:is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download) {
   transition: var(--animation);
   text-decoration: none;
   height: var(--input-height);
@@ -37,6 +37,20 @@
     background-color: var(--interactive-hover);
   }
 }
+.modal-style-settings {
+  padding-bottom: var(--size-4-6);
+  .modal-content {
+    padding-bottom: var(--size-4-6);
+    .setting-item-control {
+      position: absolute;
+      bottom: var(--size-4-3);
+      right: var(--size-4-5);
+    }
+    textarea {
+      resize: none;
+    }
+  }
+}
 .style-settings-container {
   .themed-color-wrapper .pickr-reset > button {
     padding: var(--size-2-3);
@@ -44,7 +58,7 @@
   .setting-item:first-child {
     padding-top: inherit;
   }
-  .setting-item:is([data-id^='accent-hue']) {
+  .setting-item:is([data-id^='setting-accent-hue']) {
     input.slider {
       height: 0.8em;
       --hue-slider-sat: 70%;
@@ -88,14 +102,15 @@
       height: 1.6em;
       width: 1.6em;
       color: var(--text-normal);
-      background-color: hsl(var(--accent-hue-light, 116), 32%, 58%);
+      background-color: hsl(var(--setting-accent-hue-light, 116), 32%, 58%);
       position: relative;
       right: 1em;
       border-radius: var(--radius-s);
     }
   }
-  .setting-item[data-id='accent-hue-dark'] .setting-item-control::before {
-    background-color: hsl(var(--accent-hue-dark, 207), 32%, 58%);
+  .setting-item[data-id='setting-accent-hue-dark']
+    .setting-item-control::before {
+    background-color: hsl(var(--setting-accent-hue-dark, 207), 32%, 58%);
   }
 }
 /* hide option */
@@ -106,8 +121,8 @@ body:not(.quote-theme)
 body:not(.scrollbar-smooth) .setting-item[data-id='scrollbar-smooth-editor'],
 body:not(.tab-title-bar) .setting-item[data-id='tab-title-bar-shadow'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
-body:not(.code-language) .setting-item[data-id='code-language-color'],
-body:not(.use-custom-color) .setting-item[data-id^='accent-hue'],
+body:not(.code-language) .setting-item[data-id='setting-code-language-color'],
+body:not(.color-use-custom-color) .setting-item[data-id^='accent-hue'],
 body:not(.tag-colorful) .setting-item[data-id='tag-colorful-setting'] {
   display: none;
 }

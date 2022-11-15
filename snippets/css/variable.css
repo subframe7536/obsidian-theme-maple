@@ -4,7 +4,7 @@
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
   --color-red-rgb: 255, 99, 99 !important;
-  --color-red: #ff6363 !important;
+  --color-red: #fc5050 !important;
   --color-green-rgb: 81, 188, 0 !important;
   --color-green: #51bc00 !important;
   --color-yellow: #f5c891 !important;
@@ -20,23 +20,23 @@
   --blur: 12px;
 }
 html
-  :is(body.obsidian-app.fixed-theme-color, body.obsidian-app.fixed-theme-color
+  :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-theme-color
     .print) {
   --accent-s: 32% !important;
   --accent-l: 58% !important;
 }
-:is(body.use-custom-color.css-settings-manager, body.use-custom-color.css-settings-manager
+:is(body.color-use-custom-color.css-settings-manager, body.color-use-custom-color.css-settings-manager
     .print) {
   --accent-s: var(--accent-color-s, 32%) !important;
   --accent-l: var(--accent-color-l, 58%) !important;
 }
-:is(body.use-custom-color.theme-light.css-settings-manager, body.use-custom-color.theme-light.css-settings-manager
+:is(body.color-use-custom-color.theme-light.css-settings-manager, body.color-use-custom-color.theme-light.css-settings-manager
     .print) {
-  --accent-h: var(--accent-hue-light, 116) !important;
+  --accent-h: var(--setting-accent-hue-light, 116) !important;
 }
-:is(body.use-custom-color.theme-dark.css-settings-manager, body.use-custom-color.theme-dark.css-settings-manager
+:is(body.color-use-custom-color.theme-dark.css-settings-manager, body.color-use-custom-color.theme-dark.css-settings-manager
     .print) {
-  --accent-h: var(--accent-hue-dark, 207) !important;
+  --accent-h: var(--setting-accent-hue-dark, 207) !important;
 }
 :is(.theme-light, .theme-light .print) {
   --background-primary: hsl(

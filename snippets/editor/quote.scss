@@ -41,31 +41,6 @@ body.quote-theme {
       &:not(.cm-active) + .HyperMD-quote:not(.callout)::before {
         top: calc(var(--blockquote-border-thickness) * -3);
       }
-      /* fill active line corner */
-      &::after,
-      .cm-quote.cm-formatting::after {
-        content: '';
-        position: absolute;
-        display: inline-block;
-        z-index: 9;
-        height: var(--quote-radius);
-        width: var(--quote-radius);
-        top: calc(var(--blockquote-border-thickness) * -1);
-        background-color: var(--md-container-bg);
-      }
-      &::after {
-        left: 0;
-      }
-      .cm-quote.cm-formatting::after {
-        right: 0;
-      }
-
-      &.cm-active + .HyperMD-quote:not(.callout)::after,
-      &.cm-active
-        + .HyperMD-quote:not(.callout)
-        .cm-quote.cm-formatting::after {
-        background-color: var(--active-line);
-      }
     }
     :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content
         :first-child:is(.HyperMD-quote)) {
@@ -127,6 +102,33 @@ body.quote-theme {
     }
   }
 }
+/* fill active line corner */
+body:not(.line-active-disable)
+  .markdown-source-view.mod-cm6
+  .HyperMD-quote:not(.callout) {
+  &::after,
+  .cm-quote.cm-formatting::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    z-index: 9;
+    height: var(--quote-radius);
+    width: var(--quote-radius);
+    top: calc(var(--blockquote-border-thickness) * -1);
+    background-color: var(--md-container-bg);
+  }
+  &::after {
+    left: 0;
+  }
+  .cm-quote.cm-formatting::after {
+    right: 0;
+  }
+
+  &.cm-active + .HyperMD-quote:not(.callout)::after,
+  &.cm-active + .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+    background-color: var(--active-line);
+  }
+}
 /* fix bugs, corner fill cause wrap */
 // body.quote-theme.quote-break-all
 //   .HyperMD-quote:not(.callout)
@@ -134,9 +136,8 @@ body.quote-theme {
 //   word-break: break-all;
 // }
 body.quote-mark.quote-theme {
-  :is(div:not(.HyperMD-quote)
-      + .HyperMD-quote, .HyperMD-quote:not(.HyperMD-quote-1)
-      + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)) {
+  :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content
+      :first-child:is(.HyperMD-quote)) {
     text-indent: $indent * 2 !important;
     &:not(.cm-active) {
       @at-root body.quote-mark.quote-theme blockquote::before,

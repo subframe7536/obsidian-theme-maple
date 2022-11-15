@@ -12,6 +12,61 @@ settings:
         collapsed: true
         level: 2
     -
+        id: colors
+        title: colors
+        title.zh: 颜色
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-color-dirs
+        title: dir color in file explorer
+        title.zh: 文件夹颜色
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        default-light: rgb(245, 180, 0)
+        default-dark: rgb(245, 180, 0)
+    -
+        id: accent-colors
+        title: accent colors
+        title.zh: 高亮颜色
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: color-fix-theme-color
+        title: format accent color
+        description: normalize accent color for better compability to theme. after opening, only the hue will be adjust, saturation/lightness will be fixed
+        title.zh: 规范颜色
+        description.zh: 固定主题色的 saturation / lightness 使颜色更适合主题，开启后主题色只调整 hue
+        type: class-toggle
+    -
+        id: color-use-custom-color
+        title: use custom accent color
+        description: use style setting accent color instead of Obsidian's accent color
+        title.zh: 自定义 accent color
+        description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
+        type: class-toggle
+    -
+        id: setting-accent-hue-light
+        title: light accent color (Hue)
+        title.zh: 亮色模式
+        type: variable-number-slider
+        default: 116
+        min: 0
+        max: 360
+        step: 5
+    -
+        id: setting-accent-hue-dark
+        title.zh: 暗色模式
+        title: dark accent color (Hue)
+        type: variable-number-slider
+        default: 207
+        min: 0
+        max: 360
+        step: 5
+    -
         id: search-internal
         title: document search panel
         title.zh: 文档内搜索框
@@ -34,27 +89,27 @@ settings:
     -
         id: tab
         title: tab
-        title.zh: tab栏
+        title.zh: tab 栏
         type: heading
         collapsed: true
         level: 3
     -
         id: tab-float
         title: float tabs style like firefox / Microsoft Edge
-        title.zh: 仿 Firefox / Microsoft Edge tab栏
+        title.zh: 仿 Firefox / Microsoft Edge 的 tab 栏
         type: class-toggle
     -
         id: tab-title-bar
         title: float tab title bar
         description: component style with round corner
-        title.zh: 悬浮的tab标题栏
-        description.zh: 圆角+模块化
+        title.zh: 悬浮的 tab 标题栏
+        description.zh: 圆角 + 模块化
         type: class-toggle
         default: true
     -
         id: tab-title-bar-shadow
         title: add shadow for active tab title bar
-        title.zh: 为当前的tab标题栏添加阴影
+        title.zh: 为当前的 tab 标题栏添加阴影
         type: class-toggle
     -
         id: blur
@@ -77,7 +132,7 @@ settings:
         id: back-blur-title-bar
         title: tab title bar
         description: ❗scrollbar will move up
-        title.zh: tab标题栏
+        title.zh: tab 标题栏
         description.zh: ❗滚动条会上移
         type: class-toggle
     -
@@ -182,44 +237,59 @@ settings:
         collapsed: true
         level: 2
     -
-        id: colors
-        title: accent colors
-        title.zh: 高亮颜色
+        id: text-line-height
+        title: text & font & line
+        title.zh: 文字 & 字体 & 行
         type: heading
         collapsed: true
         level: 3
     -
-        id: fixed-theme-color
-        title: format accent color
-        description: normalize accent color for better compability to theme. after opening, only the hue will be adjust, saturation/lightness will be fixed
-        title.zh: 规范颜色
-        description.zh: 固定主题色的 saturation / lightness 使颜色更适合主题，开启后主题色只调整 hue
+        id: setting-text-bold-color
+        title: bold text color
+        title.zh: 粗体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-text-italic-color
+        title: italic text color
+        title.zh: 斜体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: font-maple
+        title: use “Maple Mono” as monospace
+        description: https://github.com/subframe7536/Maple-font
+        title.zh: 使用 Maple Mono 作为等宽字体
+        description.zh: https://github.com/subframe7536/Maple-font
+        type: class-toggle
+        default: true
+    -
+        id: font-fix-latex
+        title: fix latex italic absent
+        description: latex in my vault often wrong rendered, so i make this setting
+        title.zh: 修复 latex 斜体问题
+        description.zh: 在我的仓库里经常渲染失败，只能自己打包一份字体进主题了
         type: class-toggle
     -
-        id: use-custom-color
-        title: use custom accent color
-        description: use style setting accent color instead of Obsidian's accent color
-        title.zh: 自定义 accent color
-        description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
+        id: setting-line-height
+        title: editor line height
+        title.zh: 编辑器行高
+        type: variable-number-slider
+        default: 2.1
+        min: 1.8
+        max: 2.4
+        step: 0.1
+    -
+        id: line-active-disable
+        title: disable active line hightlight
+        title.zh: 当前行不高亮
         type: class-toggle
-    -
-        id: accent-hue-light
-        title: light accent color (Hue)
-        title.zh: 亮色模式
-        type: variable-number-slider
-        default: 116
-        min: 0
-        max: 360
-        step: 5
-    -
-        id: accent-hue-dark
-        title.zh: 暗色模式
-        title: dark accent color (Hue)
-        type: variable-number-slider
-        default: 207
-        min: 0
-        max: 360
-        step: 5
     -
         id: links
         title: link
@@ -319,107 +389,59 @@ settings:
         collapsed: true
         level: 4
     -
-        id: heading-h1-color
+        id: setting-h1-color
         title: h1 color
-        title.zh: 标题1颜色
+        title.zh: 标题 1 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
-
     -
-        id: heading-h2-color
+        id: setting-h2-color
         title: h2 color
-
+        title.zh: 标题 2 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
     -
-        id: heading-h3-color
+        id: setting-h3-color
         title: h3 color
-
+        title.zh: 标题 3 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
     -
-        id: heading-h4-color
+        id: setting-h4-color
         title: h4 color
-
+        title.zh: 标题 4 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
     -
-        id: heading-h5-color
+        id: setting-h5-color
         title: h5 color
-
+        title.zh: 标题 5 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
     -
-        id: heading-h6-color
+        id: setting-h6-color
         title: h6 color
-        title.zh: 标题6颜色
+        title.zh: 标题 6 颜色
         type: variable-themed-color
         format: hex
         opacity: false
         default-light: '#'
         default-dark: '#'
-    -
-        id: text
-        title: text
-        title.zh: 文字
-        type: heading
-        collapsed: true
-        level: 3
-    -
-        id: text-bold-color
-        title: bold text color
-        title.zh: 粗体颜色
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: text-italic-color
-        title: italic text color
-        title.zh: 斜体颜色
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: font
-        title: font
-        title.zh: 字体
-        type: heading
-        collapsed: true
-        level: 3
-    -
-        id: font-maple
-        title: use “Maple Mono” as monospace
-        description: https://github.com/subframe7536/Maple-font
-        title.zh: 使用 Maple Mono 作为等宽字体
-        description.zh: https://github.com/subframe7536/Maple-font
-        type: class-toggle
-        default: true
-    -
-        id: font-fix-latex
-        title: fix latex italic absent
-        description: latex in my vault often wrong rendered, so i make this setting
-        title.zh: 修复 latex 斜体问题
-        description.zh: 在我的仓库里经常渲染失败，只能自己打包一份字体进主题了
-        type: class-toggle
     -
         id: hr
         title: hr
@@ -509,7 +531,7 @@ settings:
         type: class-toggle
         default: true
     -
-        id: code-language-color
+        id: setting-code-language-color
         title: language indicator color
         title.zh: 语言标识颜色
         type: variable-themed-color
@@ -559,54 +581,54 @@ settings:
         collapsed: true
         level: 4
     -
-        id: tag-1
+        id: setting-tag-1
         title: colorful tag 1
-        title.zh: 多彩标签 颜色1
+        title.zh: 多彩标签 颜色 1
         type: variable-themed-color
         format: hex
         opacity: true
         default-light: '#'
         default-dark: '#'
     -
-        id: tag-2
+        id: setting-tag-2
         title: colorful tag 2
-        title.zh: 多彩标签 颜色2
+        title.zh: 多彩标签 颜色 2
         type: variable-themed-color
         format: hex
         opacity: true
         default-light: '#'
         default-dark: '#'
     -
-        id: tag-3
+        id: setting-tag-3
         title: colorful tag 3
-        title.zh: 多彩标签 颜色3
+        title.zh: 多彩标签 颜色 3
         type: variable-themed-color
         format: hex
         opacity: true
         default-light: '#'
         default-dark: '#'
     -
-        id: tag-4
+        id: setting-tag-4
         title: colorful tag 4
-        title.zh: 多彩标签 颜色4
+        title.zh: 多彩标签 颜色 4
         type: variable-themed-color
         format: hex
         opacity: true
         default-light: '#'
         default-dark: '#'
     -
-        id: tag-5
+        id: setting-tag-5
         title: colorful tag 5
-        title.zh: 多彩标签 颜色5
+        title.zh: 多彩标签 颜色 5
         type: variable-themed-color
         format: hex
         opacity: true
         default-light: '#'
         default-dark: '#'
     -
-        id: tag-6
+        id: setting-tag-6
         title: colorful tag 6
-        title.zh: 多彩标签 颜色6
+        title.zh: 多彩标签 颜色 6
         type: variable-themed-color
         format: hex
         opacity: true
@@ -645,7 +667,7 @@ settings:
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
   --color-red-rgb: 255, 99, 99 !important;
-  --color-red: #ff6363 !important;
+  --color-red: #fc5050 !important;
   --color-green-rgb: 81, 188, 0 !important;
   --color-green: #51bc00 !important;
   --color-yellow: #f5c891 !important;
@@ -660,22 +682,22 @@ settings:
   --blur: 12px;
 }
 
-html :is(body.obsidian-app.fixed-theme-color, body.obsidian-app.fixed-theme-color .print) {
+html :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-theme-color .print) {
   --accent-s: 32% !important;
   --accent-l: 58% !important;
 }
 
-:is(body.use-custom-color.css-settings-manager, body.use-custom-color.css-settings-manager .print) {
+:is(body.color-use-custom-color.css-settings-manager, body.color-use-custom-color.css-settings-manager .print) {
   --accent-s: var(--accent-color-s, 32%) !important;
   --accent-l: var(--accent-color-l, 58%) !important;
 }
 
-:is(body.use-custom-color.theme-light.css-settings-manager, body.use-custom-color.theme-light.css-settings-manager .print) {
-  --accent-h: var(--accent-hue-light, 116) !important;
+:is(body.color-use-custom-color.theme-light.css-settings-manager, body.color-use-custom-color.theme-light.css-settings-manager .print) {
+  --accent-h: var(--setting-accent-hue-light, 116) !important;
 }
 
-:is(body.use-custom-color.theme-dark.css-settings-manager, body.use-custom-color.theme-dark.css-settings-manager .print) {
-  --accent-h: var(--accent-hue-dark, 207) !important;
+:is(body.color-use-custom-color.theme-dark.css-settings-manager, body.color-use-custom-color.theme-dark.css-settings-manager .print) {
+  --accent-h: var(--setting-accent-hue-dark, 207) !important;
 }
 
 :is(.theme-light, .theme-light .print) {
@@ -928,7 +950,7 @@ body .markdown-rendered pre .copy-code-button {
   line-height: 1.5rem;
   opacity: 0;
   color: transparent;
-  background-color: var(--code-language-color, var(--accent-active));
+  background-color: var(--setting-code-language-color, var(--accent-active));
   transition: var(--animation);
   margin: 0;
   display: block !important;
@@ -948,7 +970,7 @@ body.code-language .markdown-rendered pre {
 body.code-language .markdown-rendered pre[class*=language-]::before {
   content: "未知语言";
   font-family: var(--font-text);
-  color: var(--code-language-color, var(--inline-code));
+  color: var(--setting-code-language-color, var(--inline-code));
   font-weight: bold;
   font-size: 0.8rem;
   position: absolute;
@@ -1161,7 +1183,7 @@ body.code-mac-style-header .markdown-rendered pre {
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
 }
 body.code-mac-style-header .markdown-rendered pre[class*=language-]::before {
-  color: var(--code-language-color, var(--accent-active));
+  color: var(--setting-code-language-color, var(--accent-active));
 }
 body.code-mac-style-header .markdown-rendered pre::after {
   content: "";
@@ -1634,7 +1656,6 @@ body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) {
   border-top-right-radius: 0 !important;
   border-bottom-left-radius: var(--quote-radius);
   border-bottom-right-radius: var(--quote-radius);
-  /* fill active line corner */
 }
 body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active:not(:active)::before {
   background-color: transparent;
@@ -1644,26 +1665,6 @@ body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::bef
 }
 body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout):not(.cm-active) + .HyperMD-quote:not(.callout)::before {
   top: calc(var(--blockquote-border-thickness) * -3);
-}
-body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after,
-body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  z-index: 9;
-  height: var(--quote-radius);
-  width: var(--quote-radius);
-  top: calc(var(--blockquote-border-thickness) * -1);
-  background-color: var(--md-container-bg);
-}
-body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after {
-  left: 0;
-}
-body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
-  right: 0;
-}
-body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout)::after, body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
-  background-color: var(--active-line);
 }
 body.quote-theme .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) {
   border-top-left-radius: var(--quote-radius) !important;
@@ -1708,15 +1709,33 @@ body.quote-theme .markdown-rendered blockquote blockquote {
   margin: 0;
 }
 
+/* fill active line corner */
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after,
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  z-index: 9;
+  height: var(--quote-radius);
+  width: var(--quote-radius);
+  top: calc(var(--blockquote-border-thickness) * -1);
+  background-color: var(--md-container-bg);
+}
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after {
+  left: 0;
+}
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+  right: 0;
+}
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout)::after, body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+  background-color: var(--active-line);
+}
+
 /* fix bugs, corner fill cause wrap */
-body.quote-mark.quote-theme :is(div:not(.HyperMD-quote) + .HyperMD-quote,
-.HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
-.cm-content :first-child:is(.HyperMD-quote)) {
+body.quote-mark.quote-theme :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)) {
   text-indent: 1.2rem !important;
 }
-body.quote-mark.quote-theme blockquote::before, body.quote-mark.quote-theme :is(div:not(.HyperMD-quote) + .HyperMD-quote,
-.HyperMD-quote:not(.HyperMD-quote-1) + .HyperMD-quote-1,
-.cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
+body.quote-mark.quote-theme blockquote::before, body.quote-mark.quote-theme :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
   position: absolute;
   font-size: 3rem;
   font-family: Source Code Pro;
@@ -2022,23 +2041,35 @@ mjx-stretchy-h > mjx-ext > mjx-c::before {
 
 /* ====== 等宽字体 ====== */
 body.font-maple {
-  --font-monospace: var(--monospace-custom, "maplemono"), var(--font-monospace-override), var(--font-monospace-theme), var(--font-monospace-default);
+  --font-monospace: var(--monospace-custom, "maplemono"),
+    var(--font-monospace-override), var(--font-monospace-theme),
+    var(--font-monospace-default);
 }
 
 /* ====== 文本 ======= */
 .theme-light {
-  --active-line: hsl( calc(var(--accent-h) - 4), calc(var(--accent-s) - 12%), calc(100% - (100% - var(--accent-l)) / 5));
+  --active-line: hsl(
+    calc(var(--accent-h) - 4),
+    calc(var(--accent-s) - 12%),
+    calc(100% - (100% - var(--accent-l)) / 5)
+  );
 }
 
 .theme-dark {
-  --active-line: hsla( calc(var(--accent-h) - 24), 18%, calc(var(--accent-l) / 4), 95%);
+  --active-line: hsla(
+    calc(var(--accent-h) - 24),
+    18%,
+    calc(var(--accent-l) / 4),
+    95%
+  );
 }
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   padding-left: var(--size-4-1);
   padding-right: var(--size-4-1);
 }
-body .markdown-source-view .cm-scroller .cm-line.cm-active {
+
+body:not(.line-active-disable) .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: var(--active-line);
   border-radius: var(--radius-s);
 }
@@ -2060,8 +2091,8 @@ kbd:hover {
 }
 
 body :is(.markdown-source-view, .markdown-rendered) {
-  --bold-color: var(--text-bold-color, #fc5656);
-  --italic-color: var(--text-italic-color, #fc5656);
+  --bold-color: var(--setting-text-bold-color, #fc5656);
+  --italic-color: var(--setting-text-italic-color, #fc5656);
 }
 
 em,
@@ -2099,12 +2130,12 @@ body.tab-title-bar.tab-title-bar-shadow .workspace-leaf.mod-active .view-header 
 /* ======= 标题 ====== */
 body {
   --font-bold: bold;
-  --h1-color: var(--heading-h1-color, var(--color-red));
-  --h2-color: var(--heading-h2-color, var(--color-orange));
-  --h3-color: var(--heading-h3-color, var(--color-green));
-  --h4-color: var(--heading-h4-color, var(--color-blue));
-  --h5-color: var(--heading-h5-color, var(--color-purple));
-  --h6-color: var(--heading-h6-color, var(--color-cyan));
+  --h1-color: var(--setting-h1-color, var(--color-red));
+  --h2-color: var(--setting-h2-color, var(--color-orange));
+  --h3-color: var(--setting-h3-color, var(--color-green));
+  --h4-color: var(--setting-h4-color, var(--color-blue));
+  --h5-color: var(--setting-h5-color, var(--color-purple));
+  --h6-color: var(--setting-h6-color, var(--color-cyan));
   --h1-size: calc(var(--font-text-size) * 1.6);
   --h2-size: calc(var(--font-text-size) * 1.5);
   --h3-size: calc(var(--font-text-size) * 1.4);
@@ -2352,7 +2383,7 @@ body.heading-h2-underline .HyperMD-header-2::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: var(--size-4-2);
+  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h2-color) 30%, transparent 70%);
 }
@@ -2481,7 +2512,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   padding-left: var(--size-4-8);
 }
 
-:is(.style-settings-import, .style-settings-export) {
+:is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download) {
   transition: var(--animation);
   text-decoration: none;
   height: var(--input-height);
@@ -2499,9 +2530,24 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   border-radius: var(--input-radius);
   background-color: var(--interactive-normal);
 }
-:is(.style-settings-import, .style-settings-export):hover {
+:is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download):hover {
   box-shadow: var(--input-shadow-hover);
   background-color: var(--interactive-hover);
+}
+
+.modal-style-settings {
+  padding-bottom: var(--size-4-6);
+}
+.modal-style-settings .modal-content {
+  padding-bottom: var(--size-4-6);
+}
+.modal-style-settings .modal-content .setting-item-control {
+  position: absolute;
+  bottom: var(--size-4-3);
+  right: var(--size-4-5);
+}
+.modal-style-settings .modal-content textarea {
+  resize: none;
 }
 
 .style-settings-container .themed-color-wrapper .pickr-reset > button {
@@ -2510,14 +2556,14 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 .style-settings-container .setting-item:first-child {
   padding-top: inherit;
 }
-.style-settings-container .setting-item:is([data-id^=accent-hue]) input.slider {
+.style-settings-container .setting-item:is([data-id^=setting-accent-hue]) input.slider {
   height: 0.8em;
   --hue-slider-sat: 70%;
   --hue-slider-br: 50%;
   background: linear-gradient(to right, hsl(0, var(--hue-slider-sat), var(--hue-slider-br)), hsl(30, var(--hue-slider-sat), var(--hue-slider-br)), hsl(60, var(--hue-slider-sat), var(--hue-slider-br)), hsl(90, var(--hue-slider-sat), var(--hue-slider-br)), hsl(120, var(--hue-slider-sat), var(--hue-slider-br)), hsl(150, var(--hue-slider-sat), var(--hue-slider-br)), hsl(180, var(--hue-slider-sat), var(--hue-slider-br)), hsl(210, var(--hue-slider-sat), var(--hue-slider-br)), hsl(240, var(--hue-slider-sat), var(--hue-slider-br)), hsl(270, var(--hue-slider-sat), var(--hue-slider-br)), hsl(300, var(--hue-slider-sat), var(--hue-slider-br)), hsl(330, var(--hue-slider-sat), var(--hue-slider-br)), hsl(360, var(--hue-slider-sat), var(--hue-slider-br)));
   border-radius: var(--size-2-1);
 }
-.style-settings-container .setting-item:is([data-id^=accent-hue]) input.slider::-webkit-slider-thumb {
+.style-settings-container .setting-item:is([data-id^=setting-accent-hue]) input.slider::-webkit-slider-thumb {
   height: 1.6em;
   width: var(--size-4-1);
   background-color: var(--text-muted);
@@ -2526,11 +2572,11 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   transform: translateY(-50%);
   border-radius: var(--radius-m);
 }
-.style-settings-container .setting-item:is([data-id^=accent-hue]) input.slider::-webkit-slider-thumb:hover {
+.style-settings-container .setting-item:is([data-id^=setting-accent-hue]) input.slider::-webkit-slider-thumb:hover {
   box-shadow: none;
   background-color: var(--text-normal);
 }
-.style-settings-container .setting-item:is([data-id^=accent-hue]) .setting-item-control::before {
+.style-settings-container .setting-item:is([data-id^=setting-accent-hue]) .setting-item-control::before {
   content: " ";
   font-size: 0.7em;
   text-align: center;
@@ -2538,13 +2584,13 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   height: 1.6em;
   width: 1.6em;
   color: var(--text-normal);
-  background-color: hsl(var(--accent-hue-light, 116), 32%, 58%);
+  background-color: hsl(var(--setting-accent-hue-light, 116), 32%, 58%);
   position: relative;
   right: 1em;
   border-radius: var(--radius-s);
 }
-.style-settings-container .setting-item[data-id=accent-hue-dark] .setting-item-control::before {
-  background-color: hsl(var(--accent-hue-dark, 207), 32%, 58%);
+.style-settings-container .setting-item[data-id=setting-accent-hue-dark] .setting-item-control::before {
+  background-color: hsl(var(--setting-accent-hue-dark, 207), 32%, 58%);
 }
 
 /* hide option */
@@ -2553,8 +2599,8 @@ body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-bre
 body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor],
 body:not(.tab-title-bar) .setting-item[data-id=tab-title-bar-shadow],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
-body:not(.code-language) .setting-item[data-id=code-language-color],
-body:not(.use-custom-color) .setting-item[data-id^=accent-hue],
+body:not(.code-language) .setting-item[data-id=setting-code-language-color],
+body:not(.color-use-custom-color) .setting-item[data-id^=accent-hue],
 body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
   display: none;
 }
@@ -2606,8 +2652,12 @@ body.search-internal-expand-on-focus .document-replace-input:focus {
 
 /* ====== 文件管理器 ====== */
 body {
-  --folder-color: #f4b300;
-  --folder-hover-color: #f4b30030;
+  --folder-color-rgb: 245, 180, 0;
+  --folder-color: rgb(var(--setting-color-dirs, var(--folder-color-rgb)));
+  --folder-hover-color: rgba(
+    var(--setting-color-dirs, var(--folder-color-rgb)),
+    0.24
+  );
   --nav-item-size: 14px;
   --line-height-tight: 1.6;
   --nav-indentation-guide-width: 1.8px;
@@ -2987,47 +3037,47 @@ body {
 
 /* ====== 滚动条 ====== */
 /* ! overflow: overlay is deprecated */
-body.scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body.scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   overflow-y: overlay;
 }
 body.scrollbar-gutter-overlay .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container {
   overflow-x: overlay;
 }
 
-body.scrollbar-gutter-reserve :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body.scrollbar-gutter-reserve :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   scrollbar-gutter: stable;
 }
 
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   color: transparent;
   transition: color var(--animation);
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items):hover {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items):hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > :not(h1, h2, h3, h4, h5, h6) {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > :not(h1, h2, h3, h4, h5, h6) {
   color: var(--text-normal);
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > .search-empty-state {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > .search-empty-state {
   color: var(--text-faint);
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar {
   width: var(--size-4-3) !important;
   height: var(--size-4-3) !important;
   background-color: transparent !important;
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-track {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-track {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 0 10px !important;
   border-radius: var(--size-2-3) !important;
   background-clip: content-box;
   background-color: transparent !important;
   border: 3.6px solid transparent !important;
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb:active {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb:active {
   background-color: hsla(var(--color-accent-hsl), 64%) !important;
 }
 
@@ -3050,7 +3100,7 @@ body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, 
 }
 
 body.scrollbar-smooth.scrollbar-smooth-editor .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view,
-body.scrollbar-smooth :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content[data-type=outline] .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body.scrollbar-smooth :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .markdown-embed-content, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
   scroll-behavior: smooth;
 }
 
