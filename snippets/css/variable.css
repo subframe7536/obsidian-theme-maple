@@ -4,7 +4,7 @@
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
   --color-red-rgb: 255, 99, 99 !important;
-  --color-red: #fc5050 !important;
+  --color-red: #e43434 !important;
   --color-green-rgb: 81, 188, 0 !important;
   --color-green: #51bc00 !important;
   --color-yellow: #f5c891 !important;
@@ -17,7 +17,7 @@
 
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
-  --blur: 12px;
+  --blur: 8px;
 }
 html
   :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-theme-color

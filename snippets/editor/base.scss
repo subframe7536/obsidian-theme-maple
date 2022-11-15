@@ -81,8 +81,8 @@ kbd {
 }
 
 body :is(.markdown-source-view, .markdown-rendered) {
-  --bold-color: var(--setting-text-bold-color, #fc5656);
-  --italic-color: var(--setting-text-italic-color, #fc5656);
+  --bold-color: var(--setting-text-bold-color, var(--color-red));
+  --italic-color: var(--setting-text-italic-color, var(--color-red));
 }
 
 em,
@@ -109,7 +109,6 @@ body.tab-title-bar {
       border-radius: var(--radius-m);
       --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
       transition: var(--animation);
-      // position: absolute;
       width: calc(100% - var(--size-4-2));
       .view-header-title-container:after {
         content: none;

@@ -19,6 +19,12 @@ body.back-blur {
       margin-right: var(--size-4-3);
       padding-right: 0;
     }
+    &.tab-title-bar
+      .workspace-leaf-content[data-type='markdown']
+      .view-content
+      .cm-scroller {
+      padding-top: calc(var(--file-margins) + var(--size-4-4));
+    }
     &.tab-title-bar .workspace-leaf-content[data-type='markdown'] .view-header {
       margin: var(--size-4-1) calc(var(--size-4-4) - var(--size-2-1)) 0;
       width: calc(100% - 2 * calc(var(--size-4-4) - var(--size-2-1)));

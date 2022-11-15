@@ -133,7 +133,7 @@ settings:
         title: tab title bar
         description: ❗scrollbar will move up
         title.zh: tab 标题栏
-        description.zh: ❗滚动条会上移
+        description.zh: ❗滚动条会上移，ctrl + home返回顶部时第一行会被遮盖
         type: class-toggle
     -
         id: modal
@@ -667,7 +667,7 @@ settings:
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
   --color-red-rgb: 255, 99, 99 !important;
-  --color-red: #fc5050 !important;
+  --color-red: #e43434 !important;
   --color-green-rgb: 81, 188, 0 !important;
   --color-green: #51bc00 !important;
   --color-yellow: #f5c891 !important;
@@ -679,7 +679,7 @@ settings:
   --file-folding-offset: 28px;
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
-  --blur: 12px;
+  --blur: 8px;
 }
 
 html :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-theme-color .print) {
@@ -2091,8 +2091,8 @@ kbd:hover {
 }
 
 body :is(.markdown-source-view, .markdown-rendered) {
-  --bold-color: var(--setting-text-bold-color, #fc5656);
-  --italic-color: var(--setting-text-italic-color, #fc5656);
+  --bold-color: var(--setting-text-bold-color, var(--color-red));
+  --italic-color: var(--setting-text-italic-color, var(--color-red));
 }
 
 em,
@@ -3189,6 +3189,9 @@ body.back-blur-title-bar .workspace-leaf-content[data-type=markdown] .view-heade
   width: calc(100% - var(--size-4-3));
   margin-right: var(--size-4-3);
   padding-right: 0;
+}
+body.back-blur-title-bar.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-content .cm-scroller {
+  padding-top: calc(var(--file-margins) + var(--size-4-4));
 }
 body.back-blur-title-bar.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-header {
   margin: var(--size-4-1) calc(var(--size-4-4) - var(--size-2-1)) 0;

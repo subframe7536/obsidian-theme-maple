@@ -132,7 +132,7 @@ settings:
         title: tab title bar
         description: ❗scrollbar will move up
         title.zh: tab 标题栏
-        description.zh: ❗滚动条会上移
+        description.zh: ❗滚动条会上移，ctrl + home返回顶部时第一行会被遮盖
         type: class-toggle
     -
         id: modal
