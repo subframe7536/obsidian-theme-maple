@@ -6,7 +6,6 @@ an Obsidian theme still in dev, using `Style Setting` to custom preference, embe
 
 - codeblock style like [codesnap](https://github.com/kufii/CodeSnap)
 - outline style for list
-- serial number prefix for markdown heading
 
 ### outline
 
