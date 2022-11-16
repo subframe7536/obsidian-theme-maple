@@ -43,7 +43,7 @@ body.back-blur {
     }
   }
   &-status-bar .status-bar {
-    --stauts-bar-background-opacity: 0.3;
+    --stauts-bar-background-opacity: 0.4;
     backdrop-filter: blur(var(--blur));
   }
 }

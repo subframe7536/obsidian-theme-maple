@@ -79,6 +79,20 @@ settings:
         type: class-toggle
         default: true
     -
+        id: status-bar-animation
+        title: status bar animation
+        title.zh: 状态栏动画
+        type: class-select
+        allowEmpty: false
+        default: status-bar-default
+        options:
+            -   label: default
+                value: status-bar-default
+            -   label: show on hover
+                value: status-bar-hidden
+            -   label: scroll out on hover
+                value: status-bar-scroll
+    -
         id: search-internal
         title: document search panel
         title.zh: 文档内搜索框

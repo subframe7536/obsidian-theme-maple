@@ -2,6 +2,8 @@
 body {
   --stauts-bar-background-opacity: 1;
   .status-bar {
+    padding: var(--size-2-3) var(--size-4-1);
+    width: fit-content;
     --status-bar-background: hsla(
       var(--accent-h),
       var(--accent-s),
@@ -10,9 +12,25 @@ body {
     );
   }
 }
-body.status-bar-float .status-bar {
-  --status-bar-radius: var(--radius-m);
-  --status-bar-border-width: 1px;
-  bottom: var(--size-4-1);
-  right: var(--size-4-1);
+body.status-bar-float {
+  .status-bar {
+    --status-bar-radius: var(--radius-m);
+    --status-bar-border-width: 1px;
+    bottom: var(--size-4-1);
+    right: var(--size-4-1);
+    transition: var(--animation);
+  }
+  &.status-bar-hidden .status-bar {
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &.status-bar-scroll .status-bar {
+    transform: translateX(calc(100% - var(--size-4-2)));
+    right: 0;
+    &:hover {
+      transform: translateX(0);
+    }
+  }
 }

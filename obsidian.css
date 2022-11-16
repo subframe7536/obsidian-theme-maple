@@ -80,6 +80,20 @@ settings:
         type: class-toggle
         default: true
     -
+        id: status-bar-animation
+        title: status bar animation
+        title.zh: 状态栏动画
+        type: class-select
+        allowEmpty: false
+        default: status-bar-default
+        options:
+            -   label: default
+                value: status-bar-default
+            -   label: show on hover
+                value: status-bar-hidden
+            -   label: scroll out on hover
+                value: status-bar-scroll
+    -
         id: search-internal
         title: document search panel
         title.zh: 文档内搜索框
@@ -3246,7 +3260,7 @@ body.back-blur-title-bar.tab-title-bar .workspace-leaf.mod-active .workspace-lea
   --background-primary: hsla(var(--background-secondary-hsl), 0.6);
 }
 body.back-blur-status-bar .status-bar {
-  --stauts-bar-background-opacity: 0.3;
+  --stauts-bar-background-opacity: 0.4;
   backdrop-filter: blur(var(--blur));
 }
 
@@ -3269,6 +3283,8 @@ body {
   --stauts-bar-background-opacity: 1;
 }
 body .status-bar {
+  padding: var(--size-2-3) var(--size-4-1);
+  width: fit-content;
   --status-bar-background: hsla(
     var(--accent-h),
     var(--accent-s),
@@ -3282,4 +3298,18 @@ body.status-bar-float .status-bar {
   --status-bar-border-width: 1px;
   bottom: var(--size-4-1);
   right: var(--size-4-1);
+  transition: var(--animation);
+}
+body.status-bar-float.status-bar-hidden .status-bar {
+  opacity: 0;
+}
+body.status-bar-float.status-bar-hidden .status-bar:hover {
+  opacity: 1;
+}
+body.status-bar-float.status-bar-scroll .status-bar {
+  transform: translateX(calc(100% - var(--size-4-2)));
+  right: 0;
+}
+body.status-bar-float.status-bar-scroll .status-bar:hover {
+  transform: translateX(0);
 }
