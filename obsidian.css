@@ -82,13 +82,17 @@ settings:
     -
         id: status-bar-animation
         title: status bar animation
-        title.zh: 状态栏动画
+        description: ❗last 2 style only valid when turn on “float status bar”
+        title.zh: 状态栏样式
+        description.zh: ❗后两种样式只在开启“状态栏浮动”才生效
         type: class-select
         allowEmpty: false
         default: status-bar-default
         options:
             -   label: default
                 value: status-bar-default
+            -   label: fill the width
+                value: status-bar-full
             -   label: show on hover
                 value: status-bar-hidden
             -   label: scroll out on hover
@@ -116,40 +120,46 @@ settings:
     -
         id: tab
         title: tab
-        title.zh: tab 栏
+        title.zh: Tab 栏
         type: heading
         collapsed: true
         level: 3
     -
         id: tab-float
         title: float tabs style like firefox / Microsoft Edge
-        title.zh: 仿 Firefox / Microsoft Edge 的标签栏
+        title.zh: 仿 Firefox / Microsoft Edge 的 Tab 栏
         type: class-toggle
     -
-        id: tab-show-close-on-hover
+        id: tab-show-close
         title: only show close button on hovered tab
-        title.zh: 只在鼠标经过标签时显示关闭按钮
-        type: class-toggle
-        default: true
+        title.zh: 只在鼠标经过 Tab 时显示关闭按钮
+        type: class-select
+        allowEmpty: false
+        default: tab-show-close-default
+        options:
+            -   label: default
+                value: tab-show-close-default
+            -   label: only show on hover
+                value: tab-show-close-all
+            -   label: only show on hover except active tab
+                value: tab-show-close-part
     -
         id: tab-title
         title: tab title bar
-        title.zh: 标签标题栏
+        title.zh: 标题栏
         type: heading
         collapsed: true
-        level: 3
+        level: 4
     -
         id: tab-title-bar
-        title: float tab title bar
-        description: component style with round corner
-        title.zh: 悬浮的标签标题栏
-        description.zh: 圆角 + 模块化
+        title: component style tab title bar
+        title.zh: 组件风格的标题栏
         type: class-toggle
         default: true
     -
         id: tab-title-bar-shadow
         title: add shadow for active tab title bar
-        title.zh: 为当前的标签标题栏添加阴影
+        title.zh: 为当前 Tab 的标题栏添加阴影
         type: class-toggle
     -
         id: blur
@@ -172,7 +182,7 @@ settings:
         id: back-blur-title-bar
         title: tab title bar
         description: ❗scrollbar will move up
-        title.zh: 标签标题栏
+        title.zh: tab 标题栏
         description.zh: ❗滚动条会上移，ctrl + home返回顶部时第一行会被遮盖
         type: class-toggle
     -
@@ -386,29 +396,22 @@ settings:
         id: heading-style
         title: heading style
         title.zh: 标题样式
-        type: heading
-        collapsed: true
-        level: 4
-    -
-        id: heading-h2-underline
-        title: add underline for h2
-        description: with line-gredient
-        title.zh: 添加 h2 下划线
-        description.zh: 有渐变色
-        type: class-toggle
-        default: true
-    -
-        id: heading-h6-variant
-        title: set font small-caps for h6
-        description: always capital style
-        title.zh: 添加 h6 small-caps
-        description.zh: 全大写
-        type: class-toggle
-        default: true
+        type: class-select
+        allowEmpty: false
+        default: heading-style-default
+        options:
+            -   label: default
+                value: heading-style-default
+            -   label: prefix icon
+                value: heading-style-icon
+            -   label: serial number style (WIP)
+                value: heading-style-num
     -
         id: heading-icon
-        title: heading icon
-        title.zh: 标题图标
+        title: prefix icon style heading
+        description: click to collapse title if you open setting “Fold heading”
+        title.zh: 前置标志样式的标题
+        description.zh: 如果你开启了“折叠图标”选项，点击图标可以收起标题
         type: heading
         collapsed: true
         level: 4
@@ -416,7 +419,7 @@ settings:
         id: heading-icon-fix
         title: always show heading icon
         description: add border on hover
-        title.zh: 总是显示标题前置标志
+        title.zh: 总是显示前置标志
         description.zh: 鼠标经过时添加边框
         type: class-toggle
     -
@@ -426,6 +429,49 @@ settings:
         title.zh: 不添加边框或者背景色
         description.zh: 只显示标题等级
         type: class-toggle
+    -
+        id: heading-num
+        title: doc style heading
+        description: WIP, wait for electron 21+
+        title.zh: 文档样式的标题
+        description.zh: 等待官方electron版本升级
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: heading-style
+        title: heading style preference
+        title.zh: 标题样式设置
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: heading-h1-center
+        title: center h1
+        title.zh: h1 居中
+        type: class-toggle
+        default: true
+    -
+        id: heading-h2-underline
+        title: add underline for h2
+        description: with line-gredient
+        title.zh: 添加 h2 下划线
+        description.zh: 有渐变色
+        type: class-toggle
+        default: true
+    -
+        id: heading-h2-underline-thin
+        title: thinner h2 underline
+        title.zh: h2 下划线变细
+        type: class-toggle
+    -
+        id: heading-h6-variant
+        title: set font small-caps for h6
+        description: always capital style
+        title.zh: 添加 h6 small-caps
+        description.zh: 全大写
+        type: class-toggle
+        default: true
     -
         id: heading-color
         title: heading color
@@ -2200,8 +2246,11 @@ body {
   --h5-line-height: var(--line-height-normal);
   --h6-line-height: var(--line-height-normal);
 }
+body :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0 !important;
+}
 
-.theme-light {
+body.heading-style-icon.theme-light {
   --header-indicator-color-h1: var(--h1-color);
   --header-indicator-bg-h1: transparent;
   --header-indicator-color-h2: var(--h2-color);
@@ -2215,8 +2264,7 @@ body {
   --header-indicator-color-h6: var(--h6-color);
   --header-indicator-bg-h6: transparent;
 }
-
-.theme-dark {
+body.heading-style-icon.theme-dark {
   --header-indicator-color-h1: white;
   --header-indicator-bg-h1: var(--h1-color);
   --header-indicator-color-h2: white;
@@ -2230,13 +2278,11 @@ body {
   --header-indicator-color-h6: white;
   --header-indicator-bg-h6: var(--h6-color);
 }
-
-:is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-style-icon :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)) {
   position: relative;
-  margin: 0;
 }
-:is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-style-icon :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   position: absolute;
   border-radius: var(--radius-s);
@@ -2254,37 +2300,32 @@ body {
   transform: translateY(-50%);
   left: calc(var(--size-4-6) * -1);
 }
-:is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-style-icon :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)):hover::before {
   opacity: 0.8;
 }
-
-body.heading-icon-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   opacity: 0.6;
   filter: grayscale(1);
   border-color: transparent;
   background-color: transparent;
 }
-
-body.heading-icon-only-text :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-style-icon.heading-icon-only-text :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   border-color: var(--background-primary) !important;
   background-color: var(--background-primary) !important;
   color: var(--text-muted);
 }
-
-div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
+body.heading-style-icon div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
   left: calc(var(--size-4-6) * -1) !important;
 }
-
-:not(.popup) :is(h1, h2, h3, h4, h5, h6) {
+body.heading-style-icon :not(.popup) :is(h1, h2, h3, h4, h5, h6) {
   margin: calc(var(--font-text-size) / 4) 0;
 }
-
-body.heading-fix :is(div.markdown-reading-view > div > div > div > h1,
+body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h1,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1):hover::before,
-:is(div.markdown-reading-view > div > div > div > h1,
+body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h1,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1)::before {
   border: var(--size-2-1) solid var(--h1-color);
   content: "H1";
@@ -2292,15 +2333,13 @@ body.heading-fix :is(div.markdown-reading-view > div > div > div > h1,
   background-color: var(--header-indicator-bg-h1);
   filter: none;
 }
-
-body.heading-fix.heading-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h1,
+body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h1,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1):hover::before {
   color: var(--header-indicator-bg-h1);
 }
-
-body.heading-fix :is(div.markdown-reading-view > div > div > div > h2,
+body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h2,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2):hover::before,
-:is(div.markdown-reading-view > div > div > div > h2,
+body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h2,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2)::before {
   border: var(--size-2-1) solid var(--h2-color);
   content: "H2";
@@ -2308,15 +2347,13 @@ body.heading-fix :is(div.markdown-reading-view > div > div > div > h2,
   background-color: var(--header-indicator-bg-h2);
   filter: none;
 }
-
-body.heading-fix.heading-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h2,
+body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h2,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2):hover::before {
   color: var(--header-indicator-bg-h2);
 }
-
-body.heading-fix :is(div.markdown-reading-view > div > div > div > h3,
+body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h3,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3):hover::before,
-:is(div.markdown-reading-view > div > div > div > h3,
+body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h3,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3)::before {
   border: var(--size-2-1) solid var(--h3-color);
   content: "H3";
@@ -2324,15 +2361,13 @@ body.heading-fix :is(div.markdown-reading-view > div > div > div > h3,
   background-color: var(--header-indicator-bg-h3);
   filter: none;
 }
-
-body.heading-fix.heading-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h3,
+body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h3,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3):hover::before {
   color: var(--header-indicator-bg-h3);
 }
-
-body.heading-fix :is(div.markdown-reading-view > div > div > div > h4,
+body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h4,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4):hover::before,
-:is(div.markdown-reading-view > div > div > div > h4,
+body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h4,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4)::before {
   border: var(--size-2-1) solid var(--h4-color);
   content: "H4";
@@ -2340,15 +2375,13 @@ body.heading-fix :is(div.markdown-reading-view > div > div > div > h4,
   background-color: var(--header-indicator-bg-h4);
   filter: none;
 }
-
-body.heading-fix.heading-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h4,
+body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h4,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4):hover::before {
   color: var(--header-indicator-bg-h4);
 }
-
-body.heading-fix :is(div.markdown-reading-view > div > div > div > h5,
+body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h5,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5):hover::before,
-:is(div.markdown-reading-view > div > div > div > h5,
+body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h5,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5)::before {
   border: var(--size-2-1) solid var(--h5-color);
   content: "H5";
@@ -2356,15 +2389,13 @@ body.heading-fix :is(div.markdown-reading-view > div > div > div > h5,
   background-color: var(--header-indicator-bg-h5);
   filter: none;
 }
-
-body.heading-fix.heading-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h5,
+body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h5,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5):hover::before {
   color: var(--header-indicator-bg-h5);
 }
-
-body.heading-fix :is(div.markdown-reading-view > div > div > div > h6,
+body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h6,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6):hover::before,
-:is(div.markdown-reading-view > div > div > div > h6,
+body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h6,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6)::before {
   border: var(--size-2-1) solid var(--h6-color);
   content: "H6";
@@ -2372,13 +2403,11 @@ body.heading-fix :is(div.markdown-reading-view > div > div > div > h6,
   background-color: var(--header-indicator-bg-h6);
   filter: none;
 }
-
-body.heading-fix.heading-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h6,
+body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h6,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6):hover::before {
   color: var(--header-indicator-bg-h6);
 }
-
-.heading-collapse-indicator {
+body.heading-style-icon .heading-collapse-indicator {
   position: absolute;
   z-index: 99;
   height: var(--size-4-4);
@@ -2389,14 +2418,13 @@ body.heading-fix.heading-only-text.theme-dark :is(div.markdown-reading-view > di
   padding: 0 !important;
   --cursor: pointer;
 }
-.heading-collapse-indicator svg {
+body.heading-style-icon .heading-collapse-indicator svg {
   display: none;
 }
-
-.HyperMD-header {
+body.heading-style-icon .HyperMD-header {
   position: relative;
 }
-.HyperMD-header .cm-fold-indicator .collapse-indicator {
+body.heading-style-icon .HyperMD-header .cm-fold-indicator .collapse-indicator {
   --cursor: pointer;
   z-index: 99;
   opacity: 0 !important;
@@ -2406,24 +2434,21 @@ body.heading-fix.heading-only-text.theme-dark :is(div.markdown-reading-view > di
   top: 50% !important;
   transform: translateY(-50%) !important;
 }
-
-.cm-formatting.cm-formatting-header {
+body.heading-style-icon .cm-formatting.cm-formatting-header {
   filter: grayscale(70%);
   font-size: 1rem !important;
   font-weight: 400 !important;
   line-height: 1.2rem;
 }
 
-h1 {
+body.heading-h1-center h1 {
   text-align: center;
 }
 
-body.heading-h2-underline h2,
-body.heading-h2-underline .HyperMD-header-2 {
+body.heading-h2-underline :is(h2, .HyperMD-header-2) {
   position: relative;
 }
-body.heading-h2-underline h2::after,
-body.heading-h2-underline .HyperMD-header-2::after {
+body.heading-h2-underline :is(h2, .HyperMD-header-2)::after {
   content: "";
   position: absolute;
   height: var(--size-4-1);
@@ -2441,6 +2466,9 @@ body.heading-h2-underline .HyperMD-header-2::after {
 body.heading-h2-underline .vertical-tab-content h2 {
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
+}
+body.heading-h2-underline.heading-h2-underline-thin :is(h2, .HyperMD-header-2)::after {
+  height: var(--size-2-1);
 }
 
 body.heading-h6-variant :is(h6, .cm-header-6) {
@@ -2595,6 +2623,9 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   resize: none;
 }
 
+.style-settings-container .setting-item + .setting-item-heading {
+  margin-top: 0;
+}
 .style-settings-container .themed-color-wrapper .pickr-reset > button {
   padding: var(--size-2-3);
 }
@@ -2646,6 +2677,9 @@ body:not(.tab-title-bar) .setting-item[data-id=tab-title-bar-shadow],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.code-language) .setting-item[data-id=setting-code-language-color],
 body:not(.color-use-custom-color) .setting-item[data-id^=accent-hue],
+body:not(.heading-style-icon) .setting-item[data-id^=heading-icon],
+body:not(.heading-style-num) .setting-item[data-id^=heading-num],
+body:not(.heading-h2-underline) .setting-item[data-id^=heading-h2-underline-thin],
 body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
   display: none;
 }
@@ -3182,10 +3216,12 @@ body.tab-float .workspace-tab-header-new-tab {
   padding-top: var(--size-4-1);
 }
 
-body.tab-show-close-on-hover .mod-root .workspace-tab-header .workspace-tab-header-inner-close-button {
+body.tab-show-close-all .mod-root .workspace-tab-header .workspace-tab-header-inner-close-button,
+body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active) .workspace-tab-header-inner-close-button {
   display: none;
 }
-body.tab-show-close-on-hover .mod-root .workspace-tab-header:hover .workspace-tab-header-inner-close-button {
+body.tab-show-close-all .mod-root .workspace-tab-header:hover .workspace-tab-header-inner-close-button,
+body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-close-button {
   display: inherit;
 }
 
@@ -3292,6 +3328,10 @@ body .status-bar {
     var(--stauts-bar-background-opacity)
   );
 }
+body.status-bar-full .status-bar {
+  width: calc(100% - var(--ribbon-width) + 1px);
+  --status-bar-radius: 0;
+}
 
 body.status-bar-float .status-bar {
   --status-bar-radius: var(--radius-m);
@@ -3299,6 +3339,10 @@ body.status-bar-float .status-bar {
   bottom: var(--size-4-1);
   right: var(--size-4-1);
   transition: var(--animation);
+}
+body.status-bar-float.status-bar-full .status-bar {
+  left: calc(var(--ribbon-width) + var(--size-4-1));
+  width: unset;
 }
 body.status-bar-float.status-bar-hidden .status-bar {
   opacity: 0;

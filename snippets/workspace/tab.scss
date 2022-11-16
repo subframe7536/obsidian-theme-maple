@@ -36,7 +36,9 @@ body.tab-float {
     padding-top: var(--size-4-1);
   }
 }
-body.tab-show-close-on-hover .mod-root .workspace-tab-header {
+
+body.tab-show-close-all .mod-root .workspace-tab-header,
+body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active) {
   .workspace-tab-header-inner-close-button {
     display: none;
   }

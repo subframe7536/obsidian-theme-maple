@@ -11,6 +11,10 @@ body {
       var(--stauts-bar-background-opacity)
     );
   }
+  &.status-bar-full .status-bar {
+    width: calc(100% - var(--ribbon-width) + 1px);
+    --status-bar-radius: 0;
+  }
 }
 body.status-bar-float {
   .status-bar {
@@ -19,6 +23,10 @@ body.status-bar-float {
     bottom: var(--size-4-1);
     right: var(--size-4-1);
     transition: var(--animation);
+  }
+  &.status-bar-full .status-bar {
+    left: calc(var(--ribbon-width) + var(--size-4-1));
+    width: unset;
   }
   &.status-bar-hidden .status-bar {
     opacity: 0;

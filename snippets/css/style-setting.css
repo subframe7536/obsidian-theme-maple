@@ -81,13 +81,17 @@ settings:
     -
         id: status-bar-animation
         title: status bar animation
-        title.zh: 状态栏动画
+        description: ❗last 2 style only valid when turn on “float status bar”
+        title.zh: 状态栏样式
+        description.zh: ❗后两种样式只在开启“状态栏浮动”才生效
         type: class-select
         allowEmpty: false
         default: status-bar-default
         options:
             -   label: default
                 value: status-bar-default
+            -   label: fill the width
+                value: status-bar-full
             -   label: show on hover
                 value: status-bar-hidden
             -   label: scroll out on hover
@@ -115,40 +119,46 @@ settings:
     -
         id: tab
         title: tab
-        title.zh: tab 栏
+        title.zh: Tab 栏
         type: heading
         collapsed: true
         level: 3
     -
         id: tab-float
         title: float tabs style like firefox / Microsoft Edge
-        title.zh: 仿 Firefox / Microsoft Edge 的标签栏
+        title.zh: 仿 Firefox / Microsoft Edge 的 Tab 栏
         type: class-toggle
     -
-        id: tab-show-close-on-hover
+        id: tab-show-close
         title: only show close button on hovered tab
-        title.zh: 只在鼠标经过标签时显示关闭按钮
-        type: class-toggle
-        default: true
+        title.zh: 只在鼠标经过 Tab 时显示关闭按钮
+        type: class-select
+        allowEmpty: false
+        default: tab-show-close-default
+        options:
+            -   label: default
+                value: tab-show-close-default
+            -   label: only show on hover
+                value: tab-show-close-all
+            -   label: only show on hover except active tab
+                value: tab-show-close-part
     -
         id: tab-title
         title: tab title bar
-        title.zh: 标签标题栏
+        title.zh: 标题栏
         type: heading
         collapsed: true
-        level: 3
+        level: 4
     -
         id: tab-title-bar
-        title: float tab title bar
-        description: component style with round corner
-        title.zh: 悬浮的标签标题栏
-        description.zh: 圆角 + 模块化
+        title: component style tab title bar
+        title.zh: 组件风格的标题栏
         type: class-toggle
         default: true
     -
         id: tab-title-bar-shadow
         title: add shadow for active tab title bar
-        title.zh: 为当前的标签标题栏添加阴影
+        title.zh: 为当前 Tab 的标题栏添加阴影
         type: class-toggle
     -
         id: blur
@@ -171,7 +181,7 @@ settings:
         id: back-blur-title-bar
         title: tab title bar
         description: ❗scrollbar will move up
-        title.zh: 标签标题栏
+        title.zh: tab 标题栏
         description.zh: ❗滚动条会上移，ctrl + home返回顶部时第一行会被遮盖
         type: class-toggle
     -
@@ -385,29 +395,22 @@ settings:
         id: heading-style
         title: heading style
         title.zh: 标题样式
-        type: heading
-        collapsed: true
-        level: 4
-    -
-        id: heading-h2-underline
-        title: add underline for h2
-        description: with line-gredient
-        title.zh: 添加 h2 下划线
-        description.zh: 有渐变色
-        type: class-toggle
-        default: true
-    -
-        id: heading-h6-variant
-        title: set font small-caps for h6
-        description: always capital style
-        title.zh: 添加 h6 small-caps
-        description.zh: 全大写
-        type: class-toggle
-        default: true
+        type: class-select
+        allowEmpty: false
+        default: heading-style-default
+        options:
+            -   label: default
+                value: heading-style-default
+            -   label: prefix icon
+                value: heading-style-icon
+            -   label: serial number style (WIP)
+                value: heading-style-num
     -
         id: heading-icon
-        title: heading icon
-        title.zh: 标题图标
+        title: prefix icon style heading
+        description: click to collapse title if you open setting “Fold heading”
+        title.zh: 前置标志样式的标题
+        description.zh: 如果你开启了“折叠图标”选项，点击图标可以收起标题
         type: heading
         collapsed: true
         level: 4
@@ -415,7 +418,7 @@ settings:
         id: heading-icon-fix
         title: always show heading icon
         description: add border on hover
-        title.zh: 总是显示标题前置标志
+        title.zh: 总是显示前置标志
         description.zh: 鼠标经过时添加边框
         type: class-toggle
     -
@@ -425,6 +428,49 @@ settings:
         title.zh: 不添加边框或者背景色
         description.zh: 只显示标题等级
         type: class-toggle
+    -
+        id: heading-num
+        title: doc style heading
+        description: WIP, wait for electron 21+
+        title.zh: 文档样式的标题
+        description.zh: 等待官方electron版本升级
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: heading-style
+        title: heading style preference
+        title.zh: 标题样式设置
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: heading-h1-center
+        title: center h1
+        title.zh: h1 居中
+        type: class-toggle
+        default: true
+    -
+        id: heading-h2-underline
+        title: add underline for h2
+        description: with line-gredient
+        title.zh: 添加 h2 下划线
+        description.zh: 有渐变色
+        type: class-toggle
+        default: true
+    -
+        id: heading-h2-underline-thin
+        title: thinner h2 underline
+        title.zh: h2 下划线变细
+        type: class-toggle
+    -
+        id: heading-h6-variant
+        title: set font small-caps for h6
+        description: always capital style
+        title.zh: 添加 h6 small-caps
+        description.zh: 全大写
+        type: class-toggle
+        default: true
     -
         id: heading-color
         title: heading color

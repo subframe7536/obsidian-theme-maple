@@ -1,0 +1,210 @@
+/* ======= 标题 ====== */
+$headings: h1, h2, h3, h4, h5, h6;
+body {
+  --font-bold: bold;
+  --h1-color: var(--setting-h1-color, var(--color-red));
+  --h2-color: var(--setting-h2-color, var(--color-orange));
+  --h3-color: var(--setting-h3-color, var(--color-green));
+  --h4-color: var(--setting-h4-color, var(--color-blue));
+  --h5-color: var(--setting-h5-color, var(--color-purple));
+  --h6-color: var(--setting-h6-color, var(--color-cyan));
+  --h1-size: calc(var(--font-text-size) * 1.6);
+  --h2-size: calc(var(--font-text-size) * 1.5);
+  --h3-size: calc(var(--font-text-size) * 1.4);
+  --h4-size: calc(var(--font-text-size) * 1.3);
+  --h5-size: calc(var(--font-text-size) * 1.2);
+  --h6-size: calc(var(--font-text-size) * 1.1);
+  --h1-weight: var(--font-bold);
+  --h2-weight: var(--font-bold);
+  --h3-weight: var(--font-bold);
+  --h4-weight: var(--font-bold);
+  --h5-weight: var(--font-bold);
+  --h6-weight: var(--font-bold);
+  --h1-line-height: var(--line-height-normal);
+  --h2-line-height: var(--line-height-normal);
+  --h3-line-height: var(--line-height-normal);
+  --h4-line-height: var(--line-height-normal);
+  --h5-line-height: var(--line-height-normal);
+  --h6-line-height: var(--line-height-normal);
+  :is(#{$headings}) {
+    margin: 0 !important;
+  }
+}
+body.heading-style-icon {
+  &.theme-light {
+    @for $i from 1 through 6 {
+      --header-indicator-color-h#{$i}: var(--h#{$i}-color);
+      --header-indicator-bg-h#{$i}: transparent;
+    }
+  }
+  &.theme-dark {
+    @for $i from 1 through 6 {
+      --header-indicator-color-h#{$i}: white;
+      --header-indicator-bg-h#{$i}: var(--h#{$i}-color);
+    }
+  }
+  :is(div.markdown-reading-view
+      > div
+      > div
+      > div
+      > :is(#{$headings}), .markdown-source-view.mod-cm6.is-live-preview
+      :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)) {
+    position: relative;
+    &::before {
+      position: absolute;
+      border-radius: var(--radius-s);
+      z-index: 1;
+      padding: 0.1rem;
+      width: fit-content;
+      font-size: 0.6rem;
+      line-height: 1;
+      vertical-align: middle;
+      letter-spacing: 0.05rem;
+      font-family: var(--font-text);
+      opacity: 0;
+      transition: var(--animation);
+      top: 50%;
+      transform: translateY(-50%);
+      left: calc(var(--size-4-6) * -1);
+    }
+    &:hover::before {
+      opacity: 0.8;
+    }
+  }
+  &.heading-icon-fix
+    :is(div.markdown-reading-view
+      > div
+      > div
+      > div
+      > :is(#{$headings}), .markdown-source-view.mod-cm6.is-live-preview
+      :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
+    opacity: 0.6;
+    filter: grayscale(1);
+    border-color: transparent;
+    background-color: transparent;
+  }
+  &.heading-icon-only-text
+    :is(div.markdown-reading-view
+      > div
+      > div
+      > div
+      > :is(#{$headings}), .markdown-source-view.mod-cm6.is-live-preview
+      :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
+    border-color: var(--background-primary) !important;
+    background-color: var(--background-primary) !important;
+    color: var(--text-muted);
+  }
+
+  div.markdown-reading-view > div > div > div > :is(#{$headings})::before {
+    left: calc(var(--size-4-6) * -1) !important;
+  }
+  :not(.popup) :is(#{$headings}) {
+    margin: calc(var(--font-text-size) / 4) 0;
+  }
+  @for $i from 1 through 6 {
+    &.heading-icon-fix
+      :is(div.markdown-reading-view
+        > div
+        > div
+        > div
+        > h#{$i}, .markdown-source-view.mod-cm6.is-live-preview
+        .HyperMD-header-#{$i}):hover::before,
+    :is(div.markdown-reading-view
+        > div
+        > div
+        > div
+        > h#{$i}, .markdown-source-view.mod-cm6.is-live-preview
+        .HyperMD-header-#{$i})::before {
+      border: var(--size-2-1) solid var(--h#{$i}-color);
+      content: 'H#{$i}';
+      color: var(--header-indicator-color-h#{$i});
+      background-color: var(--header-indicator-bg-h#{$i});
+      filter: none;
+    }
+    &.heading-icon-fix.heading-icon-only-text.theme-dark
+      :is(div.markdown-reading-view
+        > div
+        > div
+        > div
+        > h#{$i}, .markdown-source-view.mod-cm6.is-live-preview
+        .HyperMD-header-#{$i}):hover::before {
+      color: var(--header-indicator-bg-h#{$i});
+    }
+  }
+  .heading-collapse-indicator {
+    position: absolute;
+    z-index: 99;
+    height: var(--size-4-4);
+    width: var(--size-4-5);
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(var(--size-2-1) * -1);
+    padding: 0 !important;
+    --cursor: pointer;
+    svg {
+      display: none;
+    }
+  }
+  .HyperMD-header {
+    position: relative;
+    .cm-fold-indicator .collapse-indicator {
+      --cursor: pointer;
+      z-index: 99;
+      opacity: 0 !important;
+      width: var(--size-4-6);
+      height: var(--size-4-4) !important;
+      // padding-right: var(--size-4-2) !important;
+      left: calc(var(--size-2-1) - var(--size-4-8));
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+  }
+  .cm-formatting.cm-formatting-header {
+    filter: grayscale(70%);
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.2rem;
+  }
+}
+body.heading-style-num {
+}
+body.heading-h1-center h1 {
+  text-align: center;
+}
+body.heading-h2-underline {
+  :is(h2, .HyperMD-header-2) {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      height: var(--size-4-1);
+      width: 100%;
+      bottom: calc(
+        var(--font-text-size) * var(--line-height-normal) * 0.2 -
+          var(--size-2-1)
+      );
+      border-radius: var(--size-2-1);
+      background-image: linear-gradient(
+        to right,
+        var(--h2-color) 30%,
+        transparent 70%
+      );
+    }
+  }
+  h2::after {
+    left: 0;
+  }
+  .HyperMD-header-2::after {
+    left: var(--size-4-1);
+  }
+  .vertical-tab-content h2 {
+    font-size: var(--h2-size);
+    font-weight: var(--h2-weight);
+  }
+  &.heading-h2-underline-thin :is(h2, .HyperMD-header-2)::after {
+    height: var(--size-2-1);
+  }
+}
+body.heading-h6-variant :is(h6, .cm-header-6) {
+  font-variant: small-caps;
+}
