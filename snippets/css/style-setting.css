@@ -66,6 +66,19 @@ settings:
         max: 360
         step: 5
     -
+        id: status-bar
+        title: status bar
+        title.zh: 状态栏
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: status-bar-float
+        title: float status bar
+        title.zh: 状态栏浮动
+        type: class-toggle
+        default: true
+    -
         id: search-internal
         title: document search panel
         title.zh: 文档内搜索框
@@ -123,7 +136,6 @@ settings:
         title: add shadow for active tab title bar
         title.zh: 为当前的标签标题栏添加阴影
         type: class-toggle
-
     -
         id: blur
         title: Acrylic style background
@@ -145,8 +157,13 @@ settings:
         id: back-blur-title-bar
         title: tab title bar
         description: ❗scrollbar will move up
-        title.zh: tab 标题栏
+        title.zh: 标签标题栏
         description.zh: ❗滚动条会上移，ctrl + home返回顶部时第一行会被遮盖
+        type: class-toggle
+    -
+        id: back-blur-status-bar
+        title: status bar
+        title.zh: 状态栏
         type: class-toggle
     -
         id: modal

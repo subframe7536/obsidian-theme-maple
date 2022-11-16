@@ -3,8 +3,7 @@
 $base-panel: '.vertical-tab-header', '.vertical-tab-content',
   '.nav-files-container', '.view-content', '.search-result-container',
   '.git-view-body', '.suggestion-container .suggestion', '.prompt-results',
-  '.markdown-embed-content, .community-modal-search-results-wrapper',
-  '.community-modal-info',
+  '.community-modal-search-results-wrapper', '.community-modal-info',
   '.modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin)',
   '.tag-container', '.backlink-pane';
 
@@ -12,7 +11,7 @@ $editor: ".workspace-leaf-content[data-type='markdown'] .cm-scroller",
   '.markdown-preview-view';
 
 $horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
-  'mjx-container';
+  'mjx-container', '.markdown-embed-content .markdown-rendered';
 
 $kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items';
 

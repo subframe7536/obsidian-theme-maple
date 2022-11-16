@@ -1,4 +1,4 @@
-/* ====== 右键菜单 ======*/
+/* ====== 亚克力效果 ======*/
 
 body.back-blur {
   &-menu :is(.menu, .suggestion-container) {
@@ -41,5 +41,9 @@ body.back-blur {
       .view-header {
       --background-primary: hsla(var(--background-secondary-hsl), 0.6);
     }
+  }
+  &-status-bar .status-bar {
+    --stauts-bar-background-opacity: 0.3;
+    backdrop-filter: blur(var(--blur));
   }
 }

@@ -1,0 +1,18 @@
+/* ====== 状态栏 ====== */
+body {
+  --stauts-bar-background-opacity: 1;
+  .status-bar {
+    --status-bar-background: hsla(
+      var(--accent-h),
+      var(--accent-s),
+      calc(100% - (100% - var(--accent-l)) / 8),
+      var(--stauts-bar-background-opacity)
+    );
+  }
+}
+body.status-bar-float .status-bar {
+  --status-bar-radius: var(--radius-m);
+  --status-bar-border-width: 1px;
+  bottom: var(--size-4-1);
+  right: var(--size-4-1);
+}
