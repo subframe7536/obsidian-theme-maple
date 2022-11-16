@@ -5,7 +5,8 @@ an Obsidian theme still in dev, using `Style Setting` to custom preference, embe
 # **waiting officially update to electron 21+ for :has() selector**
 
 - codeblock style like [codesnap](https://github.com/kufii/CodeSnap)
-- outline style for list style
+- outline style for list
+- serial number prefix for markdown heading
 
 ### outline
 
