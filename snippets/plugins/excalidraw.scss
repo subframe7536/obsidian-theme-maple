@@ -1,6 +1,7 @@
 /* ====== excalidraw ====== */
 
 .excalidraw {
+  --excalidraw-ctx-opacity: 1;
   .popover {
     border-radius: var(--radius-m) !important;
     border: 1px solid var(--background-modifier-border-hover) !important;
@@ -9,15 +10,15 @@
   .context-menu {
     border-radius: var(--radius-m) !important;
     border: none !important;
-    padding: 5px 0 !important;
-    background-color: var(--background-secondary) !important;
+    padding: var(--size-2-3) !important;
+    background-color: var(--background-secondary);
     margin: 0 !important;
     li {
-      padding: var(--size-4-1) !important;
+      padding: var(--size-2-1) var(--size-4-1);
       button {
-        border-radius: var(--size-2-3);
-        padding: var(--size-4-1);
-        padding-left: var(--size-4-6);
+        border-radius: var(--radius-s);
+        padding: var(--size-2-1);
+        padding-left: var(--size-4-2);
         & > div {
           margin-inline-end: var(--size-4-1) !important;
         }
@@ -28,8 +29,8 @@
       }
     }
     .context-menu-option-separator {
-      border: 1px solid var(--background-modifier-border);
-      margin: var(--size-4-1) 0 !important;
+      border-top: 1px solid var(--background-modifier-border);
+      margin: var(--size-4-1) calc(var(--size-4-1) * -1) !important;
     }
     .context-menu-option:hover {
       background-color: var(--nav-item-background-hover);
@@ -52,5 +53,8 @@
     :is(h3, legend, .control-label) {
       font-size: 0.9rem !important;
     }
+  }
+  .color-picker-input {
+    font-family: var(--font-text-ui);
   }
 }

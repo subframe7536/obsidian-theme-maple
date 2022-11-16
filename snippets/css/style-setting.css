@@ -392,51 +392,34 @@ settings:
         collapsed: true
         level: 3
     -
-        id: heading-style
-        title: heading style
-        title.zh: 标题样式
-        type: class-select
-        allowEmpty: false
-        default: heading-style-default
-        options:
-            -   label: default
-                value: heading-style-default
-            -   label: prefix icon
-                value: heading-style-icon
-            -   label: serial number style (WIP)
-                value: heading-style-num
+        id: heading-style-level
+        title: enable prefix level heading style
+        title.zh: 启用前置等级标题样式
+        type: class-toggle
+        default: true
     -
-        id: heading-icon
-        title: prefix icon style heading
+        id: heading-level
+        title: prefix level preference
         description: click to collapse title if you open setting “Fold heading”
-        title.zh: 前置标志样式的标题
+        title.zh: 前置标志设置
         description.zh: 如果你开启了“折叠图标”选项，点击图标可以收起标题
         type: heading
         collapsed: true
         level: 4
     -
-        id: heading-icon-fix
+        id: heading-level-fix
         title: always show heading icon
         description: add border on hover
         title.zh: 总是显示前置标志
         description.zh: 鼠标经过时添加边框
         type: class-toggle
     -
-        id: heading-icon-only-text
+        id: heading-level-only-text
         title: don't show icon border or background
         description: only show header level
         title.zh: 不添加边框或者背景色
         description.zh: 只显示标题等级
         type: class-toggle
-    -
-        id: heading-num
-        title: doc style heading
-        description: WIP, wait for electron 21+
-        title.zh: 文档样式的标题
-        description.zh: 等待官方electron版本升级
-        type: heading
-        collapsed: true
-        level: 4
     -
         id: heading-style
         title: heading style preference

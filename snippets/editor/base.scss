@@ -101,19 +101,18 @@ strong,
 }
 
 body.tab-title-bar {
-  .workspace-leaf-content[data-type='markdown'] {
-    .view-header {
-      margin: var(--size-4-1);
-      padding: 0 var(--size-2-3) !important;
-      border: var(--size-2-1) solid var(--background-modifier-hover);
-      border-radius: var(--radius-m);
-      --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
-      transition: var(--animation);
-      width: calc(100% - var(--size-4-2));
-      .view-header-title-container:after {
-        content: none;
-      }
+  .workspace-leaf-content[data-type='markdown'] .view-header {
+    margin: var(--size-4-1);
+    padding: 0 var(--size-2-3) !important;
+    border: var(--size-2-1) solid var(--background-modifier-hover);
+    border-radius: var(--radius-m);
+    --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
+    transition: var(--animation);
+    width: calc(100% - var(--size-4-2));
+    .view-header-title-container:after {
+      content: none;
     }
+
     //  :is(.view-content .cm-scroller, .markdown-reading-view > .markdown-preview-view) {
     //     padding-top: calc(var(--file-margins) + var(--size-4-4));
     // }

@@ -15,7 +15,8 @@ $horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-conta
 
 $kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items';
 
-$excalidraw: '.excalidraw-wrapper :is(.App-mobile-menu,.App-menu .Stack .Island.App-menu__left,.scrollbar)';
+$excalidraw: '.excalidraw-wrapper :is(.App-mobile-menu,.App-menu .Stack .Island.App-menu__left,.scrollbar)',
+  '.excalidraw-contextMenuContainer .popover';
 
 $janitor: '.janitor-scan-results';
 
@@ -26,10 +27,10 @@ $plugins: $calendar, $janitor, $excalidraw, $kanban;
 /* ! overflow: overlay is deprecated */
 body.scrollbar-gutter-overlay {
   :is(#{$base-panel}, #{$editor}, #{$plugins}) {
-    overflow-y: overlay;
+    overflow-y: overlay !important;
   }
   #{$horizon} {
-    overflow-x: overlay;
+    overflow-x: overlay !important;
   }
 }
 body.scrollbar-gutter-reserve

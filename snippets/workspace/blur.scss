@@ -1,7 +1,7 @@
 /* ====== 亚克力效果 ======*/
 
 body.back-blur {
-  &-menu :is(.menu, .suggestion-container) {
+  &-menu :is(.menu, .suggestion-container, .excalidraw .context-menu) {
     background-color: hsla(var(--background-secondary-hsl), 0.7);
     backdrop-filter: blur(var(--blur));
   }
@@ -15,6 +15,7 @@ body.back-blur {
       --background-primary: hsla(var(--background-primary-hsl), 0.9);
       backdrop-filter: blur(var(--blur));
       position: absolute;
+      z-index: 100;
       width: calc(100% - var(--size-4-3));
       margin-right: var(--size-4-3);
       padding-right: 0;
@@ -22,7 +23,7 @@ body.back-blur {
     &.tab-title-bar
       .workspace-leaf-content[data-type='markdown']
       .view-content
-      .cm-scroller {
+      :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
       padding-top: calc(var(--file-margins) + var(--size-4-4));
     }
     &.tab-title-bar .workspace-leaf-content[data-type='markdown'] .view-header {

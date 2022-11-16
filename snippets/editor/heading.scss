@@ -1,5 +1,7 @@
 /* ======= 标题 ====== */
 $headings: h1, h2, h3, h4, h5, h6;
+$cm-headings: '.HyperMD-header-1', '.HyperMD-header-2', '.HyperMD-header-3',
+  '.HyperMD-header-4', '.HyperMD-header-5', '.HyperMD-header-6';
 body {
   --font-bold: bold;
   --h1-color: var(--setting-h1-color, var(--color-red));
@@ -30,7 +32,7 @@ body {
     margin: 0 !important;
   }
 }
-body.heading-style-icon {
+body.heading-style-level {
   &.theme-light {
     @for $i from 1 through 6 {
       --header-indicator-color-h#{$i}: var(--h#{$i}-color);
@@ -48,7 +50,7 @@ body.heading-style-icon {
       > div
       > div
       > :is(#{$headings}), .markdown-source-view.mod-cm6.is-live-preview
-      :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)) {
+      :is(#{$cm-headings})) {
     position: relative;
     &::before {
       position: absolute;
@@ -71,25 +73,25 @@ body.heading-style-icon {
       opacity: 0.8;
     }
   }
-  &.heading-icon-fix
+  &.heading-level-fix
     :is(div.markdown-reading-view
       > div
       > div
       > div
       > :is(#{$headings}), .markdown-source-view.mod-cm6.is-live-preview
-      :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
+      :is(#{$cm-headings}))::before {
     opacity: 0.6;
     filter: grayscale(1);
     border-color: transparent;
     background-color: transparent;
   }
-  &.heading-icon-only-text
+  &.heading-level-only-text
     :is(div.markdown-reading-view
       > div
       > div
       > div
       > :is(#{$headings}), .markdown-source-view.mod-cm6.is-live-preview
-      :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
+      :is(#{$cm-headings}))::before {
     border-color: var(--background-primary) !important;
     background-color: var(--background-primary) !important;
     color: var(--text-muted);
@@ -102,7 +104,7 @@ body.heading-style-icon {
     margin: calc(var(--font-text-size) / 4) 0;
   }
   @for $i from 1 through 6 {
-    &.heading-icon-fix
+    &.heading-level-fix
       :is(div.markdown-reading-view
         > div
         > div
@@ -121,7 +123,7 @@ body.heading-style-icon {
       background-color: var(--header-indicator-bg-h#{$i});
       filter: none;
     }
-    &.heading-icon-fix.heading-icon-only-text.theme-dark
+    &.heading-level-fix.heading-level-only-text.theme-dark
       :is(div.markdown-reading-view
         > div
         > div
@@ -166,8 +168,25 @@ body.heading-style-icon {
     line-height: 1.2rem;
   }
 }
-body.heading-style-num {
-}
+// body.heading-style-icon {
+//   :is(.markdown-source-view, .markdown-preview-view) {
+//     @for $i from 1 through 6 {
+//       :is(h#{$i}, .HyperMD-header-#{$i}:not(.cm-active))::before {
+//         content: var(--setting-h#{$i}-icon-content, '#');
+//         color: var(--setting-h#{$i}-icon-color, var(--setting-h#{$i}-color));
+//         margin-right: var(--size-4-1);
+//       }
+//     }
+//   }
+//   &:not(.heading-icon-inline)
+//     :is(.markdown-source-view, .markdown-preview-view)
+//     :is(#{$headings}, #{$cm-headings})::before {
+//     position: absolute;
+//     transform: translateX(calc(-100% - var(--size-4-1)));
+//   }
+// }
+// body.heading-style-num {
+// }
 body.heading-h1-center h1 {
   text-align: center;
 }

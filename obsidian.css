@@ -393,51 +393,34 @@ settings:
         collapsed: true
         level: 3
     -
-        id: heading-style
-        title: heading style
-        title.zh: 标题样式
-        type: class-select
-        allowEmpty: false
-        default: heading-style-default
-        options:
-            -   label: default
-                value: heading-style-default
-            -   label: prefix icon
-                value: heading-style-icon
-            -   label: serial number style (WIP)
-                value: heading-style-num
+        id: heading-style-level
+        title: enable prefix level heading style
+        title.zh: 启用前置等级标题样式
+        type: class-toggle
+        default: true
     -
-        id: heading-icon
-        title: prefix icon style heading
+        id: heading-level
+        title: prefix level preference
         description: click to collapse title if you open setting “Fold heading”
-        title.zh: 前置标志样式的标题
+        title.zh: 前置标志设置
         description.zh: 如果你开启了“折叠图标”选项，点击图标可以收起标题
         type: heading
         collapsed: true
         level: 4
     -
-        id: heading-icon-fix
+        id: heading-level-fix
         title: always show heading icon
         description: add border on hover
         title.zh: 总是显示前置标志
         description.zh: 鼠标经过时添加边框
         type: class-toggle
     -
-        id: heading-icon-only-text
+        id: heading-level-only-text
         title: don't show icon border or background
         description: only show header level
         title.zh: 不添加边框或者背景色
         description.zh: 只显示标题等级
         type: class-toggle
-    -
-        id: heading-num
-        title: doc style heading
-        description: WIP, wait for electron 21+
-        title.zh: 文档样式的标题
-        description.zh: 等待官方electron版本升级
-        type: heading
-        collapsed: true
-        level: 4
     -
         id: heading-style
         title: heading style preference
@@ -1396,7 +1379,7 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-em
 body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-title {
   opacity: 0;
   position: absolute;
-  z-index: 999;
+  z-index: 99;
   width: fit-content;
   right: 28px;
   left: unset;
@@ -1492,7 +1475,7 @@ img {
   inherits: false;
   initial-value: 2px;
 }
-body.link-icon :is(a.external-link, .cm-link .cm-underline) {
+:is(a.external-link, .cm-link .cm-underline) {
   font-size: var(--font-text-size);
   text-underline-offset: var(--link-offset);
   color: var(--link-external-color) !important;
@@ -1502,18 +1485,32 @@ body.link-icon :is(a.external-link, .cm-link .cm-underline) {
   text-decoration-thickness: var(--link-thickness) !important;
   transition: --link-offset var(--animation), --link-thickness var(--animation), color var(--animation);
 }
-body.link-icon :is(a.external-link, .cm-link .cm-underline):hover, body.link-icon :is(a.external-link, .cm-link .cm-underline):focus {
+:is(a.external-link, .cm-link .cm-underline):hover, :is(a.external-link, .cm-link .cm-underline):focus {
   color: var(--text-on-accent) !important;
   --link-offset: calc(var(--font-text-size) * -1 - var(--size-4-4));
   --link-thickness: calc(var(--font-text-size) + 10px);
 }
-body.link-icon .cm-hmd-footnote .cm-underline {
+
+.cm-hmd-footnote .cm-underline {
   color: var(--link-footnote) !important;
   font-size: var(--footnote-size);
   text-decoration-color: var(--link-footnote) !important;
   pointer-events: none;
 }
-body.link-icon :is(a.internal-link, .cm-hmd-internal-link .cm-underline) {
+
+:is(.cm-hmd-internal-link, .cm-link) {
+  transition: color var(--animation);
+}
+
+.cm-url {
+  color: var(--link-color) !important;
+}
+
+span.cm-formatting-link {
+  color: var(--accent-active) !important;
+}
+
+:is(a.internal-link, .cm-hmd-internal-link .cm-underline) {
   font-size: var(--font-text-size);
   text-underline-offset: var(--link-offset);
   color: var(--link-color) !important;
@@ -1523,11 +1520,21 @@ body.link-icon :is(a.internal-link, .cm-hmd-internal-link .cm-underline) {
   text-decoration-thickness: var(--link-thickness) !important;
   transition: --link-offset var(--animation), --link-thickness var(--animation), color var(--animation);
 }
-body.link-icon :is(a.internal-link, .cm-hmd-internal-link .cm-underline):hover, body.link-icon :is(a.internal-link, .cm-hmd-internal-link .cm-underline):focus {
+:is(a.internal-link, .cm-hmd-internal-link .cm-underline):hover, :is(a.internal-link, .cm-hmd-internal-link .cm-underline):focus {
   color: var(--text-on-accent) !important;
   --link-offset: calc(var(--font-text-size) * -1 - var(--size-4-4));
   --link-thickness: calc(var(--font-text-size) + 10px);
 }
+
+body:not(.link-click-to-edit-in-live-preview) a.external-link {
+  background-image: none;
+  background-size: unset;
+  padding-right: 0;
+}
+body:not(.link-click-to-edit-in-live-preview) span.external-link {
+  display: none;
+}
+
 body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link,
 .cm-hmd-internal-link .cm-underline)::before {
   content: "";
@@ -1537,23 +1544,6 @@ body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal
   height: calc(var(--font-text-size) - var(--size-2-1));
   background-color: var(--link-color);
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
-}
-body.link-icon :is(.cm-hmd-internal-link, .cm-link) {
-  transition: color var(--animation);
-}
-body.link-icon .cm-url {
-  color: var(--link-color) !important;
-}
-body.link-icon span.cm-formatting-link {
-  color: var(--accent-active) !important;
-}
-body.link-icon:not(.link-click-to-edit-in-live-preview) a.external-link {
-  background-image: none;
-  background-size: unset;
-  padding-right: 0;
-}
-body.link-icon:not(.link-click-to-edit-in-live-preview) span.external-link {
-  display: none;
 }
 body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link,
 .cm-link:not(.cm-hmd-footnote) .cm-underline)::before {
@@ -2250,7 +2240,7 @@ body :is(h1, h2, h3, h4, h5, h6) {
   margin: 0 !important;
 }
 
-body.heading-style-icon.theme-light {
+body.heading-style-level.theme-light {
   --header-indicator-color-h1: var(--h1-color);
   --header-indicator-bg-h1: transparent;
   --header-indicator-color-h2: var(--h2-color);
@@ -2264,7 +2254,7 @@ body.heading-style-icon.theme-light {
   --header-indicator-color-h6: var(--h6-color);
   --header-indicator-bg-h6: transparent;
 }
-body.heading-style-icon.theme-dark {
+body.heading-style-level.theme-dark {
   --header-indicator-color-h1: white;
   --header-indicator-bg-h1: var(--h1-color);
   --header-indicator-color-h2: white;
@@ -2278,11 +2268,11 @@ body.heading-style-icon.theme-dark {
   --header-indicator-color-h6: white;
   --header-indicator-bg-h6: var(--h6-color);
 }
-body.heading-style-icon :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)) {
   position: relative;
 }
-body.heading-style-icon :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   position: absolute;
   border-radius: var(--radius-s);
@@ -2300,32 +2290,32 @@ body.heading-style-icon :is(div.markdown-reading-view > div > div > div > :is(h1
   transform: translateY(-50%);
   left: calc(var(--size-4-6) * -1);
 }
-body.heading-style-icon :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)):hover::before {
   opacity: 0.8;
 }
-body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   opacity: 0.6;
   filter: grayscale(1);
   border-color: transparent;
   background-color: transparent;
 }
-body.heading-style-icon.heading-icon-only-text :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body.heading-style-level.heading-level-only-text :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   border-color: var(--background-primary) !important;
   background-color: var(--background-primary) !important;
   color: var(--text-muted);
 }
-body.heading-style-icon div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
+body.heading-style-level div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
   left: calc(var(--size-4-6) * -1) !important;
 }
-body.heading-style-icon :not(.popup) :is(h1, h2, h3, h4, h5, h6) {
+body.heading-style-level :not(.popup) :is(h1, h2, h3, h4, h5, h6) {
   margin: calc(var(--font-text-size) / 4) 0;
 }
-body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h1,
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h1,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1):hover::before,
-body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h1,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h1,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1)::before {
   border: var(--size-2-1) solid var(--h1-color);
   content: "H1";
@@ -2333,13 +2323,13 @@ body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h1,
   background-color: var(--header-indicator-bg-h1);
   filter: none;
 }
-body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h1,
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h1,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1):hover::before {
   color: var(--header-indicator-bg-h1);
 }
-body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h2,
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h2,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2):hover::before,
-body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h2,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h2,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2)::before {
   border: var(--size-2-1) solid var(--h2-color);
   content: "H2";
@@ -2347,13 +2337,13 @@ body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h2,
   background-color: var(--header-indicator-bg-h2);
   filter: none;
 }
-body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h2,
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h2,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2):hover::before {
   color: var(--header-indicator-bg-h2);
 }
-body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h3,
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h3,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3):hover::before,
-body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h3,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h3,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3)::before {
   border: var(--size-2-1) solid var(--h3-color);
   content: "H3";
@@ -2361,13 +2351,13 @@ body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h3,
   background-color: var(--header-indicator-bg-h3);
   filter: none;
 }
-body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h3,
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h3,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3):hover::before {
   color: var(--header-indicator-bg-h3);
 }
-body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h4,
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h4,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4):hover::before,
-body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h4,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h4,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4)::before {
   border: var(--size-2-1) solid var(--h4-color);
   content: "H4";
@@ -2375,13 +2365,13 @@ body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h4,
   background-color: var(--header-indicator-bg-h4);
   filter: none;
 }
-body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h4,
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h4,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4):hover::before {
   color: var(--header-indicator-bg-h4);
 }
-body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h5,
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h5,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5):hover::before,
-body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h5,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h5,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5)::before {
   border: var(--size-2-1) solid var(--h5-color);
   content: "H5";
@@ -2389,13 +2379,13 @@ body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h5,
   background-color: var(--header-indicator-bg-h5);
   filter: none;
 }
-body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h5,
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h5,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5):hover::before {
   color: var(--header-indicator-bg-h5);
 }
-body.heading-style-icon.heading-icon-fix :is(div.markdown-reading-view > div > div > div > h6,
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h6,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6):hover::before,
-body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h6,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h6,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6)::before {
   border: var(--size-2-1) solid var(--h6-color);
   content: "H6";
@@ -2403,11 +2393,11 @@ body.heading-style-icon :is(div.markdown-reading-view > div > div > div > h6,
   background-color: var(--header-indicator-bg-h6);
   filter: none;
 }
-body.heading-style-icon.heading-icon-fix.heading-icon-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h6,
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h6,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6):hover::before {
   color: var(--header-indicator-bg-h6);
 }
-body.heading-style-icon .heading-collapse-indicator {
+body.heading-style-level .heading-collapse-indicator {
   position: absolute;
   z-index: 99;
   height: var(--size-4-4);
@@ -2418,13 +2408,13 @@ body.heading-style-icon .heading-collapse-indicator {
   padding: 0 !important;
   --cursor: pointer;
 }
-body.heading-style-icon .heading-collapse-indicator svg {
+body.heading-style-level .heading-collapse-indicator svg {
   display: none;
 }
-body.heading-style-icon .HyperMD-header {
+body.heading-style-level .HyperMD-header {
   position: relative;
 }
-body.heading-style-icon .HyperMD-header .cm-fold-indicator .collapse-indicator {
+body.heading-style-level .HyperMD-header .cm-fold-indicator .collapse-indicator {
   --cursor: pointer;
   z-index: 99;
   opacity: 0 !important;
@@ -2434,7 +2424,7 @@ body.heading-style-icon .HyperMD-header .cm-fold-indicator .collapse-indicator {
   top: 50% !important;
   transform: translateY(-50%) !important;
 }
-body.heading-style-icon .cm-formatting.cm-formatting-header {
+body.heading-style-level .cm-formatting.cm-formatting-header {
   filter: grayscale(70%);
   font-size: 1rem !important;
   font-weight: 400 !important;
@@ -2519,6 +2509,9 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 }
 
 /* ====== excalidraw ====== */
+.excalidraw {
+  --excalidraw-ctx-opacity: 1;
+}
 .excalidraw .popover {
   border-radius: var(--radius-m) !important;
   border: 1px solid var(--background-modifier-border-hover) !important;
@@ -2527,17 +2520,17 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 .excalidraw .context-menu {
   border-radius: var(--radius-m) !important;
   border: none !important;
-  padding: 5px 0 !important;
-  background-color: var(--background-secondary) !important;
+  padding: var(--size-2-3) !important;
+  background-color: var(--background-secondary);
   margin: 0 !important;
 }
 .excalidraw .context-menu li {
-  padding: var(--size-4-1) !important;
+  padding: var(--size-2-1) var(--size-4-1);
 }
 .excalidraw .context-menu li button {
-  border-radius: var(--size-2-3);
-  padding: var(--size-4-1);
-  padding-left: var(--size-4-6);
+  border-radius: var(--radius-s);
+  padding: var(--size-2-1);
+  padding-left: var(--size-4-2);
 }
 .excalidraw .context-menu li button > div {
   margin-inline-end: var(--size-4-1) !important;
@@ -2547,8 +2540,8 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   box-shadow: none;
 }
 .excalidraw .context-menu .context-menu-option-separator {
-  border: 1px solid var(--background-modifier-border);
-  margin: var(--size-4-1) 0 !important;
+  border-top: 1px solid var(--background-modifier-border);
+  margin: var(--size-4-1) calc(var(--size-4-1) * -1) !important;
 }
 .excalidraw .context-menu .context-menu-option:hover {
   background-color: var(--nav-item-background-hover);
@@ -2566,6 +2559,9 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 }
 .excalidraw .panelColumn :is(h3, legend, .control-label) {
   font-size: 0.9rem !important;
+}
+.excalidraw .color-picker-input {
+  font-family: var(--font-text-ui);
 }
 
 /* ====== style setting ====== */
@@ -2677,7 +2673,7 @@ body:not(.tab-title-bar) .setting-item[data-id=tab-title-bar-shadow],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.code-language) .setting-item[data-id=setting-code-language-color],
 body:not(.color-use-custom-color) .setting-item[data-id^=accent-hue],
-body:not(.heading-style-icon) .setting-item[data-id^=heading-icon],
+body:not(.heading-style-level) .setting-item[data-id^=heading-level],
 body:not(.heading-style-num) .setting-item[data-id^=heading-num],
 body:not(.heading-h2-underline) .setting-item[data-id^=heading-h2-underline-thin],
 body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
@@ -3116,47 +3112,47 @@ body {
 
 /* ====== 滚动条 ====== */
 /* ! overflow: overlay is deprecated */
-body.scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
-  overflow-y: overlay;
+body.scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {
+  overflow-y: overlay !important;
 }
 body.scrollbar-gutter-overlay .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, body.scrollbar-gutter-overlay mjx-container, body.scrollbar-gutter-overlay .markdown-embed-content .markdown-rendered {
-  overflow-x: overlay;
+  overflow-x: overlay !important;
 }
 
-body.scrollbar-gutter-reserve :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body.scrollbar-gutter-reserve :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {
   scrollbar-gutter: stable;
 }
 
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {
   color: transparent;
   transition: color var(--animation);
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items):hover {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items):hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > :not(h1, h2, h3, h4, h5, h6) {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) > :not(h1, h2, h3, h4, h5, h6) {
   color: var(--text-normal);
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) > .search-empty-state {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) > .search-empty-state {
   color: var(--text-faint);
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar {
   width: var(--size-4-3) !important;
   height: var(--size-4-3) !important;
   background-color: transparent !important;
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-track {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-track {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 0 10px !important;
   border-radius: var(--size-2-3) !important;
   background-clip: content-box;
   background-color: transparent !important;
   border: 3.6px solid transparent !important;
 }
-body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb:active {
+body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb:active {
   background-color: hsla(var(--color-accent-hsl), 64%) !important;
 }
 
@@ -3179,7 +3175,7 @@ body.scrollbar-hover-animation :is(.vertical-tab-header, .vertical-tab-content, 
 }
 
 body.scrollbar-smooth.scrollbar-smooth-editor .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view,
-body.scrollbar-smooth :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .kanban-plugin__board, .kanban-plugin__lane-items) {
+body.scrollbar-smooth :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {
   scroll-behavior: smooth;
 }
 
@@ -3264,7 +3260,7 @@ body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active):hover .
 }
 
 /* ====== 亚克力效果 ======*/
-body.back-blur-menu :is(.menu, .suggestion-container) {
+body.back-blur-menu :is(.menu, .suggestion-container, .excalidraw .context-menu) {
   background-color: hsla(var(--background-secondary-hsl), 0.7);
   backdrop-filter: blur(var(--blur));
 }
@@ -3277,11 +3273,12 @@ body.back-blur-title-bar .workspace-leaf-content[data-type=markdown] .view-heade
   --background-primary: hsla(var(--background-primary-hsl), 0.9);
   backdrop-filter: blur(var(--blur));
   position: absolute;
+  z-index: 100;
   width: calc(100% - var(--size-4-3));
   margin-right: var(--size-4-3);
   padding-right: 0;
 }
-body.back-blur-title-bar.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-content .cm-scroller {
+body.back-blur-title-bar.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
   padding-top: calc(var(--file-margins) + var(--size-4-4));
 }
 body.back-blur-title-bar.tab-title-bar .workspace-leaf-content[data-type=markdown] .view-header {
