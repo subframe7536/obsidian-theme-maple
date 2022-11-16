@@ -11,7 +11,8 @@ $base-panel: '.vertical-tab-header', '.vertical-tab-content',
 $editor: ".workspace-leaf-content[data-type='markdown'] .cm-scroller",
   '.markdown-preview-view';
 
-$stack: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container';
+$horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
+  'mjx-container';
 
 $kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items';
 
@@ -28,17 +29,17 @@ body.scrollbar-gutter-overlay {
   :is(#{$base-panel}, #{$editor}, #{$plugins}) {
     overflow-y: overlay;
   }
-  #{$stack} {
+  #{$horizon} {
     overflow-x: overlay;
   }
 }
 body.scrollbar-gutter-reserve
-  :is(#{$base-panel}, #{$editor}, #{$stack}, #{$plugins}) {
+  :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
   scrollbar-gutter: stable;
 }
 
 body.scrollbar-hover-animation
-  :is(#{$base-panel}, #{$editor}, #{$stack}, #{$plugins}) {
+  :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
   color: transparent;
   transition: color var(--animation);
   &:hover {
@@ -92,6 +93,6 @@ body.scrollbar-hover-animation
   }
 }
 body.scrollbar-smooth.scrollbar-smooth-editor #{$editor},
-body.scrollbar-smooth :is(#{$base-panel}, #{$stack}, #{$plugins}) {
+body.scrollbar-smooth :is(#{$base-panel}, #{$horizon}, #{$plugins}) {
   scroll-behavior: smooth;
 }
