@@ -19,13 +19,22 @@ body {
 .theme-dark {
   --folder-inactive: 70%;
 }
-.workspace-leaf-content[data-type='file-explorer']
+.nav-file-title.is-active {
+  color: var(--text-on-accent);
+}
+body.explorer-hide-name
+  .workspace-leaf-content[data-type='file-explorer']
   .nav-files-container
   .mod-root {
   padding-top: var(--size-4-2);
   & > .nav-folder-title {
     display: none;
   }
+}
+body.explorer-icon
+  .workspace-leaf-content[data-type='file-explorer']
+  .nav-files-container
+  .mod-root {
   .nav-folder {
     &-title {
       padding-left: var(--size-4-1);
@@ -80,11 +89,8 @@ body {
         background-color: var(--text-accent);
         -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
       }
-      &.is-active {
-        color: var(--text-on-accent);
-        .nav-file-title-content:first-child::before {
-          background-color: var(--text-on-accent);
-        }
+      &.is-active .nav-file-title-content:first-child::before {
+        background-color: var(--text-on-accent);
       }
     }
     &-tag {

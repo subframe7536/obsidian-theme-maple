@@ -2,15 +2,13 @@
 
 :is(body, .print .markdown-rendered) {
   --table-radius: var(--radius-l);
-  --table-outline-width: var(--size-2-1);
+  --table-outline-width: var(--block-outline-width);
 }
 .markdown-preview-view table {
-  overflow: hidden;
-  resize: both;
+  margin: 1rem 0;
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) table {
   width: 100% !important;
-  margin: 1rem 0 !important;
   --table-column-first-border-width: var(--table-outline-width);
   --table-column-last-border-width: var(--table-outline-width);
   --table-row-last-border-width: var(--table-outline-width);
@@ -19,23 +17,27 @@
     border-top: var(--block-outline-width) solid
       var(--table-header-border-color);
   }
-  &:hover {
-    :is(td, th) {
-      &:first-child {
-        border-left-color: var(--accent-active);
-      }
-      &:last-child {
-        border-right-color: var(--accent-active);
-      }
+}
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-embed-block.cm-table-widget:hover
+  table,
+.markdown-rendered table:hover {
+  :is(td, th) {
+    &:first-child {
+      border-left-color: var(--accent-active);
     }
-    thead th {
-      border-top-color: var(--accent-active);
-    }
-    tbody tr:last-child > td {
-      border-bottom-color: var(--accent-active);
+    &:last-child {
+      border-right-color: var(--accent-active);
     }
   }
+  thead th {
+    border-top-color: var(--accent-active);
+  }
+  tbody tr:last-child > td {
+    border-bottom-color: var(--accent-active);
+  }
 }
+
 :is(.markdown-rendered, .cm-embed-block) table {
   border-collapse: initial !important;
   border-spacing: 0;
@@ -62,12 +64,15 @@
     border-bottom-right-radius: var(--table-radius);
   }
 }
-.cm-embed-block.cm-table-widget {
+.markdown-source-view.mod-cm6 .cm-embed-block.cm-table-widget {
   border: none;
+}
+body:not(.table-colorful)
+  .markdown-source-view.mod-cm6
+  .cm-embed-block.cm-table-widget
   .edit-block-button {
-    top: calc(var(--size-4-2) + 1rem);
-    right: var(--size-2-3);
-  }
+  top: calc(var(--block-outline-width) + 0.7rem);
+  right: calc(var(--block-outline-width) + 0.2rem);
 }
 body.table-colorful {
   .markdown-source-view table + .edit-block-button {

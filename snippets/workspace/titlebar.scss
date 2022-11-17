@@ -37,5 +37,48 @@
 .workspace.is-right-sidedock-open
   .sidebar-toggle-button.mod-right
   .clickable-icon {
-  color: hsl(var(--color-accent-hsl));
+  color: var(--color-accent);
+}
+body.titlebar-colorful {
+  &.theme-light {
+    --frame-background-color: hsl(
+      var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 8%)
+    );
+    --frame-outline-color: hsl(
+      var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 23.5%)
+    );
+    --frame-muted-color: hsl(
+      var(--accent-h),
+      calc(var(--accent-s) - 20%),
+      ar(--accent-l)
+    );
+  }
+  &.theme-dark {
+    --frame-background-color: hsl(var(--accent-h), 12%, 38%);
+    --frame-outline-color: hsl(
+      calc(var(--accent-h) - 6),
+      calc(var(--accent-s) + 12%),
+      40%
+    );
+    --frame-muted-color: hsl(
+      var(--accent-h),
+      calc(var(--accent-s) - 20%),
+      calc(var(--accent-l) + 20%)
+    );
+  }
+  .workspace.is-left-sidedock-open
+    .sidebar-toggle-button.mod-left
+    .clickable-icon,
+  .workspace.is-right-sidedock-open
+    .sidebar-toggle-button.mod-right
+    .clickable-icon {
+    color: var(--text-on-accent);
+  }
+  :is(.document-search-close-button, .modal-close-button)::before {
+    background-color: var(--text-on-accent);
+  }
 }

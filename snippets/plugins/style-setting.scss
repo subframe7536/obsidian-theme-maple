@@ -15,7 +15,7 @@
     padding-left: var(--size-4-8);
   }
 }
-:is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download) {
+:is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download, .style-settings-import-label) {
   transition: var(--animation);
   text-decoration: none;
   height: var(--input-height);
@@ -44,12 +44,23 @@
     .setting-item-control {
       position: absolute;
       bottom: var(--size-4-3);
-      right: var(--size-4-5);
+      right: 1rem;
     }
     textarea {
       resize: none;
     }
   }
+  button {
+    width: fit-content;
+    position: absolute;
+    bottom: var(--size-4-3);
+    right: 9.5rem;
+  }
+}
+.workspace-leaf-content[data-type='style-settings']
+  .view-content
+  > :first-child {
+  padding-bottom: 0;
 }
 .style-settings-container {
   .setting-item + .setting-item-heading {
@@ -60,6 +71,9 @@
   }
   .setting-item:first-child {
     padding-top: inherit;
+  }
+  .setting-item:not(.setting-item-heading) {
+    flex-direction: row;
   }
   .setting-item:is([data-id^='setting-accent-hue']) {
     input.slider {

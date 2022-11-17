@@ -87,17 +87,20 @@
 body :is(.markdown-source-view, .markdown-rendered) {
   --block-outline-width: 3px;
 }
-.cm-embed-block {
+.markdown-source-view.mod-cm6 .cm-embed-block {
   box-shadow: none !important;
   border: var(--block-outline-width) solid transparent;
   border-radius: var(--radius-l) !important;
+  padding: 0.5rem 0 !important;
   transition: var(--animation);
   &:hover {
     border-color: var(--accent-active);
   }
   .edit-block-button {
-    border-radius: calc(var(--radius-l) / 2) !important;
+    border-radius: calc(var(--size-2-3)) !important;
     transition: var(--animation);
+    top: 0.7rem;
+    right: 0.2rem;
   }
 }
 code[class*='language-'],

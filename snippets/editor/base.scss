@@ -86,11 +86,18 @@ body :is(.markdown-source-view, .markdown-rendered) {
 }
 
 em,
+.cm-em {
+  text-decoration-style: dotted;
+}
+strong,
+.cm-strong {
+  text-decoration-style: double;
+}
+em,
 .cm-em,
 strong,
 .cm-strong {
   text-decoration-line: underline;
-  text-decoration-style: dotted;
   text-underline-offset: var(--size-4-1);
 }
 
@@ -101,7 +108,7 @@ strong,
 }
 
 body.tab-title-bar {
-  .workspace-leaf-content[data-type='markdown'] .view-header {
+  .view-header {
     margin: var(--size-4-1);
     padding: 0 var(--size-2-3) !important;
     border: var(--size-2-1) solid var(--background-modifier-hover);

@@ -1,6 +1,7 @@
 /* ====== tab栏 ====== */
 
 body.tab-float {
+  --tab-radius: var(--size-2-3);
   .workspace-tab-header-container {
     --tab-outline-width: 0 !important;
   }
