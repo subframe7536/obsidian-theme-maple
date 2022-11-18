@@ -3,17 +3,18 @@
 $num: 8;
 $indent: 0.6rem;
 $mark-size: 3rem;
+
 :is(body, .print .markdown-rendered) {
   --blockquote-background-color: var(--md-container-bg);
 }
+
 body.quote-theme {
   :is(.markdown-source-view, .markdown-rendered) {
     --blockquote-border-thickness: var(--size-4-1);
-    --quote-radius: max(
-      calc(var(--blockquote-border-thickness) / 2),
-      var(--radius-s)
-    );
+    --quote-radius: max(calc(var(--blockquote-border-thickness) / 2),
+        var(--radius-s));
   }
+
   .markdown-source-view.mod-cm6 {
     :is(.HyperMD-quote:not(.callout), .cm-blockquote-border)::before {
       width: var(--blockquote-border-thickness);
@@ -23,89 +24,101 @@ body.quote-theme {
       top: var(--blockquote-border-thickness);
       bottom: var(--blockquote-border-thickness);
     }
-    :is(.HyperMD-quote:not(.callout).cm-active, .HyperMD-quote:not(.callout).cm-active
-        .cm-blockquote-border)::before {
+
+    :is(.HyperMD-quote:not(.callout).cm-active, .HyperMD-quote:not(.callout).cm-active .cm-blockquote-border)::before {
       background-color: transparent;
     }
+
     .HyperMD-quote:not(.callout) {
       border-top-left-radius: 0 !important;
       border-top-right-radius: 0 !important;
       border-bottom-left-radius: var(--quote-radius);
       border-bottom-right-radius: var(--quote-radius);
+
       &.cm-active:not(:active)::before {
         background-color: transparent;
       }
+
       &::before {
         left: calc(var(--blockquote-border-thickness));
       }
-      &:not(.cm-active) + .HyperMD-quote:not(.callout)::before {
+
+      &:not(.cm-active)+.HyperMD-quote:not(.callout)::before {
         top: calc(var(--blockquote-border-thickness) * -3);
       }
     }
-    :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content
-        :first-child:is(.HyperMD-quote)) {
+
+    :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) {
       border-top-left-radius: var(--quote-radius) !important;
       border-top-right-radius: var(--quote-radius) !important;
+
       &::after,
       .cm-quote.cm-formatting::after {
         content: none !important;
       }
     }
   }
-  $items: ();
-  @for $i from 2 through $num {
-    @for $j from 2 through $num {
-      $items: append(
-        $list: $items,
-        $val:
-          '.HyperMD-quote-#{$j}:not(.callout):not(.cm-active) + .HyperMD-quote-#{$i}:not(.callout) .cm-blockquote-border:nth-of-type(-n + #{$j})',
-        $separator: comma
-      );
-    }
-  }
-  :is(#{$items})::before {
-    top: calc(var(--blockquote-border-thickness) * -2);
-  }
-  .markdown-rendered blockquote {
-    background-color: var(--md-container-bg);
-    border: none !important;
-    border-radius: var(--radius-s);
-    box-shadow: var(--shadow-s);
-    margin-inline-end: 0;
-    position: relative;
-    margin: {
-      left: 0;
-      top: var(--size-4-2);
-      bottom: var(--size-4-2);
-    }
-    padding: {
-      top: 0;
-      bottom: 0;
-    }
-    p {
-      padding-left: var(--blockquote-border-thickness);
-      padding-right: var(--size-4-1);
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      left: var(--blockquote-border-thickness);
-      top: var(--blockquote-border-thickness);
-      border-radius: calc(var(--blockquote-border-thickness) / 2);
-      height: calc(100% - var(--blockquote-border-thickness) * 2);
-      width: var(--blockquote-border-thickness);
-      background-color: var(--accent-active);
-    }
-    blockquote {
-      box-shadow: none;
-      margin: 0;
-    }
+
+  $items: (
+  );
+
+@for $i from 2 through $num {
+  @for $j from 2 through $num {
+    $items: append($list: $items,
+      $val: '.HyperMD-quote-#{$j}:not(.callout):not(.cm-active) + .HyperMD-quote-#{$i}:not(.callout) .cm-blockquote-border:nth-of-type(-n + #{$j})',
+      $separator: comma);
   }
 }
+
+:is(#{$items})::before {
+  top: calc(var(--blockquote-border-thickness) * -2);
+}
+
+.markdown-rendered blockquote {
+  background-color: var(--md-container-bg);
+  border: none !important;
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-s);
+  margin-inline-end: 0;
+  position: relative;
+
+  margin: {
+    left: 0;
+    top: var(--size-4-2);
+    bottom: var(--size-4-2);
+  }
+
+  padding: {
+    top: 0;
+    bottom: 0;
+  }
+
+  p {
+    padding-left: var(--blockquote-border-thickness);
+    padding-right: var(--size-4-1);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: var(--blockquote-border-thickness);
+    top: var(--blockquote-border-thickness);
+    border-radius: calc(var(--blockquote-border-thickness) / 2);
+    height: calc(100% - var(--blockquote-border-thickness) * 2);
+    width: var(--blockquote-border-thickness);
+    background-color: var(--accent-active);
+  }
+
+  blockquote {
+    box-shadow: none;
+    margin: 0;
+  }
+}
+}
+
 /* fill active line corner */
-body:not(.line-active-disable)
-  .markdown-source-view.mod-cm6
-  .HyperMD-quote:not(.callout) {
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) {
+
   &::after,
   .cm-quote.cm-formatting::after {
     content: '';
@@ -117,18 +130,21 @@ body:not(.line-active-disable)
     top: calc(var(--blockquote-border-thickness) * -1);
     background-color: var(--md-container-bg);
   }
+
   &::after {
     left: 0;
   }
+
   .cm-quote.cm-formatting::after {
     right: 0;
   }
 
-  &.cm-active + .HyperMD-quote:not(.callout)::after,
-  &.cm-active + .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+  &.cm-active+.HyperMD-quote:not(.callout)::after,
+  &.cm-active+.HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
     background-color: var(--active-line);
   }
 }
+
 /* fix bugs, corner fill cause wrap */
 // body.quote-theme.quote-break-all
 //   .HyperMD-quote:not(.callout)
@@ -136,12 +152,13 @@ body:not(.line-active-disable)
 //   word-break: break-all;
 // }
 body.quote-mark.quote-theme {
-  :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content
-      :first-child:is(.HyperMD-quote)) {
+  :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)) {
     text-indent: $indent * 2 !important;
+
     &:not(.cm-active) {
+
       @at-root body.quote-mark.quote-theme blockquote::before,
-        & > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
+      &>.cm-formatting.cm-formatting-quote.cm-quote-1::before {
         position: absolute;
         font-size: $mark-size;
         font-family: Source Code Pro;
@@ -149,21 +166,21 @@ body.quote-mark.quote-theme {
         content: '“' !important;
         background-color: transparent;
         color: var(--text-muted);
-        top: calc(
-          var(--font-text-size) * var(--line-height-normal) -
-            math.div($mark-size, 1.4)
-        );
+        top: calc(var(--font-text-size) * var(--line-height-normal) - math.div($mark-size, 1.4));
         transform: translateX($indent * -2.2);
       }
     }
   }
+
   .markdown-rendered blockquote {
     padding-left: $indent * 3.8;
+
     &::before {
       transform: translateX($indent * -2.7);
     }
   }
 }
+
 // body.quote-theme {
 //   --blockquote-border-thickness: var(--size-2-3);
 //   --quote-radius: max(

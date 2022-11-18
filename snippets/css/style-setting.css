@@ -162,14 +162,14 @@ settings:
         options:
             -   label: default
                 value: tab-show-close-default
-            -   label: only show on hover
+            -   label: on hover all tabs
                 value: tab-show-close-all
-            -   label: only show on hover except active tab
+            -   label: on hover except active tab
                 value: tab-show-close-part
     -
         id: tab-title
         title: tab title bar
-        title.zh: 标题栏
+        title.zh: Tab 标题栏
         type: heading
         collapsed: true
         level: 4
@@ -191,6 +191,15 @@ settings:
         type: heading
         collapsed: true
         level: 3
+    -
+        id: setting-blur
+        title: blur dimension
+        title.zh: 模糊半径
+        type: variable-number-slider
+        default: 8
+        min: 4
+        max: 12
+        step: 1
     -
         id: back-blur-menu
         title: menu / suggestion popover
@@ -282,28 +291,17 @@ settings:
         collapsed: true
         level: 3
     -
-        id: loading-theme
-        title: loading theme
-        title.zh: 加载图样式
-        type: class-select
-        allowEmpty: false
-        default: loading-default
-        options:
-            - loading-default
-          #  - loading-img
-            - loading-text
-    #-
-    #    id: loading-img-url
-    #    title: loading image url
-    #    description: should be wrapped with url()
-    #    description.zh: 加载页面图片url，需要用url()包裹
-    #    type: variable-text
-    #    default: url(https://)
+        id: loading-text
+        title: enable loading theme
+        description: typing style text
+        title.zh: 启用加载图样式
+        description.zh: 打字机样式文字
+        type: class-toggle
     -
         id: loading-text-content
-        title: loading typing style text
+        title: loading text
         description: better not be to long
-        title.zh: 加载页面打字机效果文字
+        title.zh: 加载页面文字
         description.zh: 最好不要太多字
         type: variable-text
         default: "'快乐摸鱼中...............'"
@@ -579,7 +577,7 @@ settings:
         title: move embed title to right top
         description: visiable on hover, disabled when alias is '#', Example ![[FileName|#]]
         title.zh: 内嵌文档标题移至右上角
-        description.zh: 鼠标经过时显示 | 别名为'#'时禁用，例：![[文件名|#]]
+        description.zh: 鼠标经过时显示；别名为'#'时禁用，例：![[文件名|#]]
         type: class-toggle
         default: true
     -

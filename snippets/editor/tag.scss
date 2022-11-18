@@ -4,43 +4,38 @@ body.tag-colorful {
   @for $i from 1 through 6 {
     $index-start: $i * 2 - 1;
     $index-end: $i * 2;
+
     :is(&.theme-light, &.theme-light .print) {
-      --tag-#{$i}-default: hsl(
-        calc(var(--accent-h) + (#{$i} - 1) * 60),
+      --tag-#{$i}-default: hsl(calc(var(--accent-h) + (#{$i} - 1) * 60),
         50%,
-        60%
-      );
+        60%);
     }
+
     :is(&.theme-dark, &.theme-dark .print) {
-      --tag-#{$i}-default: hsl(
-        calc(var(--accent-h) + (#{$i} - 1) * 60),
+      --tag-#{$i}-default: hsl(calc(var(--accent-h) + (#{$i} - 1) * 60),
         30%,
-        40%
-      );
+        40%);
     }
-    :is(.markdown-preview-section
-        > div
-        a.tag:nth-of-type(6n + #{$i}), .HyperMD-list-line
-        > :is(span.cm-hashtag:nth-of-type(12n
-            + #{$index-end}), span.cm-hashtag:nth-of-type(12n + #{$index-end})
-          + .cm-hashtag), .cm-line
-        > :is(span.cm-hashtag-begin:nth-of-type(12n
-            + #{$index-start}), span.cm-hashtag-end:nth-of-type(12n
-            + #{$index-end}))) {
+
+    :is(.markdown-preview-section > div a.tag:nth-of-type(6n + #{$i}), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + #{$index-end}), span.cm-hashtag:nth-of-type(12n + #{$index-end}) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + #{$index-start}), span.cm-hashtag-end:nth-of-type(12n + #{$index-end}))) {
       background-color: var(--tag-#{$i}, var(--tag-#{$i}-default));
       color: var(--text-on-accent) !important;
     }
   }
+
   .cm-line span.cm-hashtag {
     caret-color: var(--text-on-accent);
   }
 }
+
 :is(body, .print .markdown-rendered) {
   --tag-padding-y: 0.1rem;
 }
+
 .cm-line span.cm-hashtag {
   vertical-align: baseline;
 }
+
 body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
   pointer-events: none;
 }

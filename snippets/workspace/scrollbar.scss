@@ -29,69 +29,79 @@ body.scrollbar-gutter-overlay {
   :is(#{$base-panel}, #{$editor}, #{$plugins}) {
     overflow-y: overlay !important;
   }
+
   #{$horizon} {
     overflow-x: overlay !important;
   }
 }
-body.scrollbar-gutter-reserve
-  :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
+
+body.scrollbar-gutter-reserve :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
   scrollbar-gutter: stable;
 }
 
-body.scrollbar-hover-animation
-  :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
+body.scrollbar-hover-animation :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
   color: transparent;
   transition: color var(--animation);
+
   &:hover {
     color: hsla(var(--color-accent-hsl), 24%);
   }
-  & > :not(h1, h2, h3, h4, h5, h6) {
+
+  &> :not(h1, h2, h3, h4, h5, h6) {
     color: var(--text-normal);
   }
-  & > .search-empty-state {
+
+  &>.search-empty-state {
     color: var(--text-faint);
   }
+
   &::-webkit-scrollbar {
     width: var(--size-4-3) !important;
     height: var(--size-4-3) !important;
     background-color: transparent !important;
+
     &-track {
       background-color: transparent !important;
       box-shadow: none !important;
     }
+
     &-thumb {
       box-shadow: inset 0 0 0 10px !important;
       border-radius: var(--size-2-3) !important;
       background-clip: content-box;
       background-color: transparent !important;
       border: 3.6px solid transparent !important;
+
       &:active {
         background-color: hsla(var(--color-accent-hsl), 64%) !important;
       }
     }
   }
 }
-.popover.hover-popover
-  > .markdown-embed
-  > .markdown-embed-content
-  > .markdown-preview-view {
+
+.popover.hover-popover>.markdown-embed>.markdown-embed-content>.markdown-preview-view {
   color: transparent !important;
+
   &:hover {
     color: hsla(var(--color-accent-hsl), 24%) !important;
   }
 }
+
 :is(body:not(.scrollbar-hover-animation) *, textarea) {
   &::-webkit-scrollbar-thumb {
     border-width: 3.2px;
     background-color: transparent !important;
   }
+
   &:hover::-webkit-scrollbar-thumb {
     background-color: hsla(var(--color-accent-hsl), 30%) !important;
+
     &:active {
       background-color: hsla(var(--color-accent-hsl), 64%) !important;
     }
   }
 }
+
 body.scrollbar-smooth.scrollbar-smooth-editor #{$editor},
 body.scrollbar-smooth :is(#{$base-panel}, #{$horizon}, #{$plugins}) {
   scroll-behavior: smooth;

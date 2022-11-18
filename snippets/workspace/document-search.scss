@@ -3,6 +3,7 @@
 .obsidian-search-match-highlight {
   background-color: var(--background-secondary);
 }
+
 .document-search-container {
   background-color: var(--background-primary);
   position: absolute;
@@ -19,18 +20,18 @@
     align-items: center;
     padding: 0;
   }
+
   :is(.document-search-input, .document-replace-input) {
     margin-left: var(--size-2-3);
   }
+
   .document-search-close-button {
     position: relative;
     top: 0;
   }
 }
-body.search-internal-disable-select-all
-  .document-search-container
-  .document-search-buttons
-  button:nth-child(3) {
+
+body.search-internal-disable-select-all .document-search-container .document-search-buttons button:nth-child(3) {
   display: none;
 }
 
@@ -40,9 +41,11 @@ body.search-internal-expand-on-focus {
     width: 100px;
     transition: var(--animation);
   }
+
   .document-search-input:focus {
     width: 180px;
   }
+
   .document-replace-input:focus {
     width: 220px;
   }

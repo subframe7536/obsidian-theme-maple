@@ -163,14 +163,14 @@ settings:
         options:
             -   label: default
                 value: tab-show-close-default
-            -   label: only show on hover
+            -   label: on hover all tabs
                 value: tab-show-close-all
-            -   label: only show on hover except active tab
+            -   label: on hover except active tab
                 value: tab-show-close-part
     -
         id: tab-title
         title: tab title bar
-        title.zh: 标题栏
+        title.zh: Tab 标题栏
         type: heading
         collapsed: true
         level: 4
@@ -192,6 +192,15 @@ settings:
         type: heading
         collapsed: true
         level: 3
+    -
+        id: setting-blur
+        title: blur dimension
+        title.zh: 模糊半径
+        type: variable-number-slider
+        default: 8
+        min: 4
+        max: 12
+        step: 1
     -
         id: back-blur-menu
         title: menu / suggestion popover
@@ -283,28 +292,17 @@ settings:
         collapsed: true
         level: 3
     -
-        id: loading-theme
-        title: loading theme
-        title.zh: 加载图样式
-        type: class-select
-        allowEmpty: false
-        default: loading-default
-        options:
-            - loading-default
-          #  - loading-img
-            - loading-text
-    #-
-    #    id: loading-img-url
-    #    title: loading image url
-    #    description: should be wrapped with url()
-    #    description.zh: 加载页面图片url，需要用url()包裹
-    #    type: variable-text
-    #    default: url(https://)
+        id: loading-text
+        title: enable loading theme
+        description: typing style text
+        title.zh: 启用加载图样式
+        description.zh: 打字机样式文字
+        type: class-toggle
     -
         id: loading-text-content
-        title: loading typing style text
+        title: loading text
         description: better not be to long
-        title.zh: 加载页面打字机效果文字
+        title.zh: 加载页面文字
         description.zh: 最好不要太多字
         type: variable-text
         default: "'快乐摸鱼中...............'"
@@ -580,7 +578,7 @@ settings:
         title: move embed title to right top
         description: visiable on hover, disabled when alias is '#', Example ![[FileName|#]]
         title.zh: 内嵌文档标题移至右上角
-        description.zh: 鼠标经过时显示 | 别名为'#'时禁用，例：![[文件名|#]]
+        description.zh: 鼠标经过时显示；别名为'#'时禁用，例：![[文件名|#]]
         type: class-toggle
         default: true
     -
@@ -764,21 +762,20 @@ settings:
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
-  /* --base-opacity: 1; */
   --color-red-rgb: 228, 52, 52 !important;
-  --color-red: rgba(228, 52, 52, var(--base-opacity)) !important;
+  --color-red: rgba(228, 52, 52, var(--color-opacity)) !important;
   --color-green-rgb: 81, 188, 0 !important;
-  --color-green: rgba(81, 188, 0, var(--base-opacity)) !important;
-  --color-yellow: rgba(245, 200, 145, var(--base-opacity)) !important;
-  --color-orange: rgba(228, 152, 12, var(--base-opacity)) !important;
-  --color-blue: rgba(18, 158, 222, var(--base-opacity)) !important;
-  --color-cyan: rgba(99, 201, 201, var(--base-opacity)) !important;
-  --color-purple: rgba(144, 132, 233, var(--base-opacity)) !important;
+  --color-green: rgba(81, 188, 0, var(--color-opacity)) !important;
+  --color-yellow: rgba(245, 200, 145, var(--color-opacity)) !important;
+  --color-orange: rgba(228, 152, 12, var(--color-opacity)) !important;
+  --color-blue: rgba(18, 158, 222, var(--color-opacity)) !important;
+  --color-cyan: rgba(99, 201, 201, var(--color-opacity)) !important;
+  --color-purple: rgba(144, 132, 233, var(--color-opacity)) !important;
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
   --file-folding-offset: 28px;
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
-  --blur: 8px;
+  --blur: var(--setting-blur, 8);
 }
 
 html :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-theme-color .print) {
@@ -857,7 +854,7 @@ html :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-th
     calc(100% - (100% - var(--accent-l)) / 6),
     70%
   );
-  --base-opacity: 1;
+  --color-opacity: 1;
 }
 
 :is(.theme-dark, .theme-dark .print) {
@@ -909,7 +906,7 @@ html :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-th
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eee;
   --md-container-bg: hsl(calc(var(--accent-h) - 4), 20%, 10%);
-  --base-opacity: 0.85;
+  --color-opacity: 0.85;
 }
 
 @font-face {
@@ -943,11 +940,9 @@ html :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-th
 }
 
 :is(.theme-light, .theme-light .print) {
-  --code-base: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 30%)
-  );
+  --code-base: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) - 30%));
   --code-mac-style-header-bg: #333;
 }
 :is(.theme-light, .theme-light .print) :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
@@ -955,11 +950,9 @@ html :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-th
 }
 
 :is(.theme-dark, .theme-dark .print) {
-  --code-base: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 10%)
-  );
+  --code-base: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 10%));
   --code-mac-style-header-bg: #000;
 }
 :is(.theme-dark, .theme-dark .print) :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
@@ -1262,8 +1255,7 @@ body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.toke
 body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
   color: var(--code-string);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string,
-.cm-link, .cm-def, .cm-number + .cm-variable) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string, .cm-link, .cm-def, .cm-number + .cm-variable) {
   color: var(--code-property);
 }
 body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
@@ -1345,7 +1337,6 @@ body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-e
   padding: var(--size-4-1) var(--size-2-1) !important;
 }
 .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link) {
-  top: 5px;
   padding: var(--size-2-3);
   border-radius: var(--radius-m);
   transition: var(--animation);
@@ -1394,7 +1385,7 @@ body.scrollbar-gutter-reserve.embed-title-right-top .internal-embed.is-loaded:no
 body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
   position: absolute;
   right: var(--size-4-9);
-  top: var(--size-2-1);
+  top: 0;
   z-index: 99;
   opacity: 0;
   transition: var(--animation);
@@ -1415,7 +1406,7 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-em
   right: 28px;
   left: unset;
   font-size: 1rem;
-  top: var(--size-2-3);
+  top: var(--size-4-1);
   line-height: 28px;
   height: 28px;
   padding: 0 var(--size-4-2);
@@ -1484,15 +1475,11 @@ img {
   --link-external-decoration-hover: none;
   --link-color: var(--setting-link-internal-color, var(--color-blue));
   --link-color-hover: var(--text-accent);
-  --link-external-color: var(
-    --setting-link-external-color,
-    var(--color-orange)
-  );
+  --link-external-color: var(--setting-link-external-color,
+      var(--color-orange));
   --link-external-color-hover: var(--text-accent);
-  --link-unresolved-color: var(
-    --setting-link-external-color,
-    var(--color-orange)
-  );
+  --link-unresolved-color: var(--setting-link-external-color,
+      var(--color-orange));
   --link-footnote: var(--color-purple);
 }
 
@@ -1566,8 +1553,7 @@ body:not(.link-click-to-edit-in-live-preview) span.external-link {
   display: none;
 }
 
-body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link,
-.cm-hmd-internal-link .cm-underline)::before {
+body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link, .cm-hmd-internal-link .cm-underline)::before {
   content: "";
   display: inline-block;
   transform: translateY(var(--size-2-1));
@@ -1576,8 +1562,7 @@ body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal
   background-color: var(--link-color);
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
 }
-body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link,
-.cm-link:not(.cm-hmd-footnote) .cm-underline)::before {
+body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, .cm-link:not(.cm-hmd-footnote) .cm-underline)::before {
   content: "";
   display: inline-block;
   transform: translateY(var(--size-2-1));
@@ -1615,16 +1600,12 @@ input[type=checkbox]:checked:after {
 body :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered) {
   --list-bullet-base: var(--size-4-3);
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-  --list-marker-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 8%)
-  );
-  --list-marker-color-alt: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 8%)
-  );
+  --list-marker-color: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) - 8%));
+  --list-marker-color-alt: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) - 8%));
   --list-spacing: 0;
 }
 body :is(.markdown-rendered, .print .markdown-rendered) :is(ul, ol) {
@@ -1652,38 +1633,27 @@ body :is(.markdown-rendered, .print .markdown-rendered) ol li .list-collapse-ind
   margin-left: -54px !important;
 }
 body :is(.markdown-rendered, .print .markdown-rendered) ul > li {
-  --list-bullet-size: calc(
-    var(--font-text-size) - var(--list-bullet-base) + 3px
-  );
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
 }
 body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li {
   --list-marker-color: transparent;
-  --list-bullet-size: calc(
-    var(--font-text-size) - var(--list-bullet-base)
-  );
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
   --list-bullet-border: 2px solid var(--list-marker-color-alt);
 }
 body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li ul > li {
   --list-marker-color: var(--list-marker-color-alt);
-  --list-bullet-size: calc(
-    var(--font-text-size) - var(--list-bullet-base) - 1px
-  );
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
   --list-bullet-radius: max(2px, calc(var(--list-bullet-size) / 3));
 }
 body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li ul > li .list-bullet:after {
   transform: rotate(45deg);
 }
 body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li ul > li ul > li {
-  --list-bullet-size: calc(
-    var(--font-text-size) - var(--list-bullet-base) - 1px
-  );
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
   --list-marker-color: transparent;
-  --list-bullet-border: var(--size-2-1) solid
-    var(--list-marker-color-alt);
-  --list-bullet-radius: max(
-    var(--size-2-1),
-    calc(var(--list-bullet-size) / 3)
-  );
+  --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
+  --list-bullet-radius: max(var(--size-2-1),
+      calc(var(--list-bullet-size) / 3));
 }
 body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide .contains-task-list .task-list-item-checkbox {
   margin-right: var(--size-4-2);
@@ -1710,9 +1680,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-list-line > .list-bullet:after {
   content: none;
 }
 body .markdown-source-view.mod-cm6 .HyperMD-list-line-1 .list-bullet {
-  --list-bullet-size: calc(
-    var(--font-text-size) - var(--list-bullet-base) + 3px
-  );
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
 }
 body .markdown-source-view.mod-cm6 .HyperMD-list-line-2 .list-bullet {
   --list-marker-color: transparent;
@@ -1720,18 +1688,14 @@ body .markdown-source-view.mod-cm6 .HyperMD-list-line-2 .list-bullet {
   --list-bullet-border: 2px solid var(--list-marker-color-alt);
 }
 body .markdown-source-view.mod-cm6 .HyperMD-list-line-3 .list-bullet {
-  --list-bullet-size: calc(
-    var(--font-text-size) - var(--list-bullet-base) + 3px
-  );
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
   --list-bullet-radius: max(2px, calc(var(--list-bullet-size) / 3));
 }
 body .markdown-source-view.mod-cm6 .HyperMD-list-line-3 .list-bullet::after {
   transform: rotate(45deg);
 }
 body .markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet {
-  --list-bullet-size: calc(
-    var(--font-text-size) - var(--list-bullet-base) - 1px
-  );
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
   --list-marker-color: transparent;
   --list-bullet-border: 2px solid var(--list-marker-color-alt);
   --list-bullet-radius: max(3px, calc(var(--list-bullet-size) / 3));
@@ -1747,10 +1711,8 @@ body .markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-list-line-1, 
 
 body.quote-theme :is(.markdown-source-view, .markdown-rendered) {
   --blockquote-border-thickness: var(--size-4-1);
-  --quote-radius: max(
-    calc(var(--blockquote-border-thickness) / 2),
-    var(--radius-s)
-  );
+  --quote-radius: max(calc(var(--blockquote-border-thickness) / 2),
+      var(--radius-s));
 }
 body.quote-theme .markdown-source-view.mod-cm6 :is(.HyperMD-quote:not(.callout), .cm-blockquote-border)::before {
   width: var(--blockquote-border-thickness);
@@ -1972,152 +1934,86 @@ body.table-colorful table th:last-child {
 
 /* ====== 标签 ====== */
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-1-default: hsl(
-    calc(var(--accent-h) + (1 - 1) * 60),
+  --tag-1-default: hsl(calc(var(--accent-h) + (1 - 1) * 60),
     50%,
-    60%
-  );
+    60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-1-default: hsl(
-    calc(var(--accent-h) + (1 - 1) * 60),
+  --tag-1-default: hsl(calc(var(--accent-h) + (1 - 1) * 60),
     30%,
-    40%
-  );
+    40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 1),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n
-            + 2),
-span.cm-hashtag:nth-of-type(12n + 2) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n
-            + 1),
-span.cm-hashtag-end:nth-of-type(12n
-            + 2))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 1), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 2), span.cm-hashtag:nth-of-type(12n + 2) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 1), span.cm-hashtag-end:nth-of-type(12n + 2))) {
   background-color: var(--tag-1, var(--tag-1-default));
   color: var(--text-on-accent) !important;
 }
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-2-default: hsl(
-    calc(var(--accent-h) + (2 - 1) * 60),
+  --tag-2-default: hsl(calc(var(--accent-h) + (2 - 1) * 60),
     50%,
-    60%
-  );
+    60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-2-default: hsl(
-    calc(var(--accent-h) + (2 - 1) * 60),
+  --tag-2-default: hsl(calc(var(--accent-h) + (2 - 1) * 60),
     30%,
-    40%
-  );
+    40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 2),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n
-            + 4),
-span.cm-hashtag:nth-of-type(12n + 4) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n
-            + 3),
-span.cm-hashtag-end:nth-of-type(12n
-            + 4))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 2), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 4), span.cm-hashtag:nth-of-type(12n + 4) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 3), span.cm-hashtag-end:nth-of-type(12n + 4))) {
   background-color: var(--tag-2, var(--tag-2-default));
   color: var(--text-on-accent) !important;
 }
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-3-default: hsl(
-    calc(var(--accent-h) + (3 - 1) * 60),
+  --tag-3-default: hsl(calc(var(--accent-h) + (3 - 1) * 60),
     50%,
-    60%
-  );
+    60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-3-default: hsl(
-    calc(var(--accent-h) + (3 - 1) * 60),
+  --tag-3-default: hsl(calc(var(--accent-h) + (3 - 1) * 60),
     30%,
-    40%
-  );
+    40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 3),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n
-            + 6),
-span.cm-hashtag:nth-of-type(12n + 6) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n
-            + 5),
-span.cm-hashtag-end:nth-of-type(12n
-            + 6))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 3), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 6), span.cm-hashtag:nth-of-type(12n + 6) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 5), span.cm-hashtag-end:nth-of-type(12n + 6))) {
   background-color: var(--tag-3, var(--tag-3-default));
   color: var(--text-on-accent) !important;
 }
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-4-default: hsl(
-    calc(var(--accent-h) + (4 - 1) * 60),
+  --tag-4-default: hsl(calc(var(--accent-h) + (4 - 1) * 60),
     50%,
-    60%
-  );
+    60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-4-default: hsl(
-    calc(var(--accent-h) + (4 - 1) * 60),
+  --tag-4-default: hsl(calc(var(--accent-h) + (4 - 1) * 60),
     30%,
-    40%
-  );
+    40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 4),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n
-            + 8),
-span.cm-hashtag:nth-of-type(12n + 8) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n
-            + 7),
-span.cm-hashtag-end:nth-of-type(12n
-            + 8))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 4), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 8), span.cm-hashtag:nth-of-type(12n + 8) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 7), span.cm-hashtag-end:nth-of-type(12n + 8))) {
   background-color: var(--tag-4, var(--tag-4-default));
   color: var(--text-on-accent) !important;
 }
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-5-default: hsl(
-    calc(var(--accent-h) + (5 - 1) * 60),
+  --tag-5-default: hsl(calc(var(--accent-h) + (5 - 1) * 60),
     50%,
-    60%
-  );
+    60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-5-default: hsl(
-    calc(var(--accent-h) + (5 - 1) * 60),
+  --tag-5-default: hsl(calc(var(--accent-h) + (5 - 1) * 60),
     30%,
-    40%
-  );
+    40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 5),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n
-            + 10),
-span.cm-hashtag:nth-of-type(12n + 10) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n
-            + 9),
-span.cm-hashtag-end:nth-of-type(12n
-            + 10))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 5), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 10), span.cm-hashtag:nth-of-type(12n + 10) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 9), span.cm-hashtag-end:nth-of-type(12n + 10))) {
   background-color: var(--tag-5, var(--tag-5-default));
   color: var(--text-on-accent) !important;
 }
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-6-default: hsl(
-    calc(var(--accent-h) + (6 - 1) * 60),
+  --tag-6-default: hsl(calc(var(--accent-h) + (6 - 1) * 60),
     50%,
-    60%
-  );
+    60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-6-default: hsl(
-    calc(var(--accent-h) + (6 - 1) * 60),
+  --tag-6-default: hsl(calc(var(--accent-h) + (6 - 1) * 60),
     30%,
-    40%
-  );
+    40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 6),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n
-            + 12),
-span.cm-hashtag:nth-of-type(12n + 12) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n
-            + 11),
-span.cm-hashtag-end:nth-of-type(12n
-            + 12))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 6), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 12), span.cm-hashtag:nth-of-type(12n + 12) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 11), span.cm-hashtag-end:nth-of-type(12n + 12))) {
   background-color: var(--tag-6, var(--tag-6-default));
   color: var(--text-on-accent) !important;
 }
@@ -2164,20 +2060,16 @@ body.font-maple {
 
 /* ====== 文本 ======= */
 .theme-light {
-  --active-line: hsl(
-    calc(var(--accent-h) - 4),
-    calc(var(--accent-s) - 12%),
-    calc(100% - (100% - var(--accent-l)) / 5)
-  );
+  --active-line: hsl(calc(var(--accent-h) - 4),
+      calc(var(--accent-s) - 12%),
+      calc(100% - (100% - var(--accent-l)) / 5));
 }
 
 .theme-dark {
-  --active-line: hsla(
-    calc(var(--accent-h) - 24),
-    18%,
-    calc(var(--accent-l) / 4),
-    95%
-  );
+  --active-line: hsla(calc(var(--accent-h) - 24),
+      18%,
+      calc(var(--accent-l) / 4),
+      95%);
 }
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
@@ -2312,12 +2204,10 @@ body.heading-style-level.theme-dark {
   --header-indicator-color-h6: white;
   --header-indicator-bg-h6: var(--h6-color);
 }
-body.heading-style-level :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)) {
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)) {
   position: relative;
 }
-body.heading-style-level :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   position: absolute;
   border-radius: var(--radius-s);
   z-index: 1;
@@ -2334,19 +2224,16 @@ body.heading-style-level :is(div.markdown-reading-view > div > div > div > :is(h
   transform: translateY(-50%);
   left: calc(var(--size-4-6) * -1);
 }
-body.heading-style-level :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)):hover::before {
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6)):hover::before {
   opacity: 0.8;
 }
-body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   opacity: 0.6;
   filter: grayscale(1);
   border-color: transparent;
   background-color: transparent;
 }
-body.heading-style-level.heading-level-only-text :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
+body.heading-style-level.heading-level-only-text :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview :is(.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6))::before {
   border-color: var(--background-primary) !important;
   background-color: var(--background-primary) !important;
   color: var(--text-muted);
@@ -2357,88 +2244,70 @@ body.heading-style-level div.markdown-reading-view > div > div > div > :is(h1, h
 body.heading-style-level :not(.popup) :is(h1, h2, h3, h4, h5, h6) {
   margin: calc(var(--font-text-size) / 4) 0;
 }
-body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h1,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1):hover::before,
-body.heading-style-level :is(div.markdown-reading-view > div > div > div > h1,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1)::before {
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1):hover::before,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1)::before {
   border: var(--size-2-1) solid var(--h1-color);
   content: "H1";
   color: var(--header-indicator-color-h1);
   background-color: var(--header-indicator-bg-h1);
   filter: none;
 }
-body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h1,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1):hover::before {
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1):hover::before {
   color: var(--header-indicator-bg-h1);
 }
-body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h2,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2):hover::before,
-body.heading-style-level :is(div.markdown-reading-view > div > div > div > h2,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2)::before {
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2):hover::before,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2)::before {
   border: var(--size-2-1) solid var(--h2-color);
   content: "H2";
   color: var(--header-indicator-color-h2);
   background-color: var(--header-indicator-bg-h2);
   filter: none;
 }
-body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h2,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2):hover::before {
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2):hover::before {
   color: var(--header-indicator-bg-h2);
 }
-body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h3,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3):hover::before,
-body.heading-style-level :is(div.markdown-reading-view > div > div > div > h3,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3)::before {
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3):hover::before,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3)::before {
   border: var(--size-2-1) solid var(--h3-color);
   content: "H3";
   color: var(--header-indicator-color-h3);
   background-color: var(--header-indicator-bg-h3);
   filter: none;
 }
-body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h3,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3):hover::before {
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3):hover::before {
   color: var(--header-indicator-bg-h3);
 }
-body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h4,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4):hover::before,
-body.heading-style-level :is(div.markdown-reading-view > div > div > div > h4,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4)::before {
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4):hover::before,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4)::before {
   border: var(--size-2-1) solid var(--h4-color);
   content: "H4";
   color: var(--header-indicator-color-h4);
   background-color: var(--header-indicator-bg-h4);
   filter: none;
 }
-body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h4,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4):hover::before {
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4):hover::before {
   color: var(--header-indicator-bg-h4);
 }
-body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h5,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5):hover::before,
-body.heading-style-level :is(div.markdown-reading-view > div > div > div > h5,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5)::before {
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5):hover::before,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5)::before {
   border: var(--size-2-1) solid var(--h5-color);
   content: "H5";
   color: var(--header-indicator-color-h5);
   background-color: var(--header-indicator-bg-h5);
   filter: none;
 }
-body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h5,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5):hover::before {
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5):hover::before {
   color: var(--header-indicator-bg-h5);
 }
-body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h6,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6):hover::before,
-body.heading-style-level :is(div.markdown-reading-view > div > div > div > h6,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6)::before {
+body.heading-style-level.heading-level-fix :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6):hover::before,
+body.heading-style-level :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6)::before {
   border: var(--size-2-1) solid var(--h6-color);
   content: "H6";
   color: var(--header-indicator-color-h6);
   background-color: var(--header-indicator-bg-h6);
   filter: none;
 }
-body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h6,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6):hover::before {
+body.heading-style-level.heading-level-fix.heading-level-only-text.theme-dark :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6):hover::before {
   color: var(--header-indicator-bg-h6);
 }
 body.heading-style-level .heading-collapse-indicator {
@@ -2675,6 +2544,9 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 .workspace-leaf-content[data-type=style-settings] .view-content > :first-child {
   padding-bottom: 0;
 }
+.workspace-leaf-content[data-type=style-settings] .view-content .setting-item {
+  flex-direction: row;
+}
 
 .style-settings-container .setting-item + .setting-item-heading {
   margin-top: 0;
@@ -2789,11 +2661,9 @@ body.search-internal-expand-on-focus .document-replace-input:focus {
 body {
   --folder-color-rgb: 245, 180, 0;
   --folder-color: rgb(var(--setting-color-dirs, var(--folder-color-rgb)));
-  --folder-hover-color: rgba(
-    var(--setting-color-dirs, var(--folder-color-rgb)),
-    0.24
-  );
-  --nav-item-size: 14px;
+  --folder-hover-color: rgba(var(--setting-color-dirs, var(--folder-color-rgb)),
+      0.24);
+  --nav-item-size: 0.9rem;
   --line-height-tight: 1.6;
   --nav-indentation-guide-width: 1.8px;
   --nav-item-background-hover: var(--background-modifier-hover);
@@ -3092,7 +2962,8 @@ body {
   position: relative;
   margin-bottom: 0;
   white-space: nowrap;
-  margin-top: -1px; /* fix item gap */
+  margin-top: -1px;
+  /* fix item gap */
 }
 .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self .tree-item-inner {
   padding-left: var(--size-4-4);
@@ -3275,6 +3146,7 @@ body.tab-float .workspace-split.mod-root .workspace-tab-header.is-active::before
 }
 body.tab-float .workspace-tab-header-new-tab {
   padding-top: var(--size-4-1);
+  margin-left: calc(var(--size-4-3) * -1);
 }
 
 body.tab-show-close-all .mod-root .workspace-tab-header .workspace-tab-header-inner-close-button,
@@ -3296,8 +3168,7 @@ body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active):hover .
 }
 
 /* minimal theme 片段 frame-color */
-:is(body, body.is-focused) :is(.mod-top .workspace-tab-header-container,
-.sidebar-toggle-button.mod-left, .titlebar),
+:is(body, body.is-focused) :is(.mod-top .workspace-tab-header-container, .sidebar-toggle-button.mod-left, .titlebar),
 :is(body, body.is-focused) .workspace-ribbon.mod-left:before {
   --titlebar-container: var(--frame-outline-color);
   --frame-divider-color: var(--frame-outline-color);
@@ -3325,34 +3196,24 @@ body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active):hover .
 }
 
 body.titlebar-colorful.theme-light {
-  --frame-background-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 8%)
-  );
-  --frame-outline-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 23.5%)
-  );
-  --frame-muted-color: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 20%),
-    ar(--accent-l)
-  );
+  --frame-background-color: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 8%));
+  --frame-outline-color: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 23.5%));
+  --frame-muted-color: hsl(var(--accent-h),
+      calc(var(--accent-s) - 20%),
+      ar(--accent-l));
 }
 body.titlebar-colorful.theme-dark {
   --frame-background-color: hsl(var(--accent-h), 12%, 38%);
-  --frame-outline-color: hsl(
-    calc(var(--accent-h) - 6),
-    calc(var(--accent-s) + 12%),
-    40%
-  );
-  --frame-muted-color: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 20%),
-    calc(var(--accent-l) + 20%)
-  );
+  --frame-outline-color: hsl(calc(var(--accent-h) - 6),
+      calc(var(--accent-s) + 12%),
+      40%);
+  --frame-muted-color: hsl(var(--accent-h),
+      calc(var(--accent-s) - 20%),
+      calc(var(--accent-l) + 20%));
 }
 body.titlebar-colorful .workspace.is-left-sidedock-open .sidebar-toggle-button.mod-left .clickable-icon,
 body.titlebar-colorful .workspace.is-right-sidedock-open .sidebar-toggle-button.mod-right .clickable-icon {
@@ -3365,19 +3226,19 @@ body.titlebar-colorful :is(.document-search-close-button, .modal-close-button)::
 /* ====== 亚克力效果 ======*/
 body.back-blur-menu :is(.menu, .suggestion-container, .excalidraw .context-menu) {
   background-color: hsla(var(--background-secondary-hsl), 0.7);
-  backdrop-filter: blur(var(--blur));
+  backdrop-filter: blur(calc(var(--blur) * 1px));
 }
 body.back-blur-menu .mod-search-suggestion .suggestion {
   background-color: transparent;
 }
 body.back-blur-modal .modal-bg {
-  backdrop-filter: blur(calc(var(--blur) / 2));
+  backdrop-filter: blur(calc(var(--blur) * 1px / 2));
   opacity: initial !important;
   background-color: hsla(var(--accent-h), 20%, 8%, 30%);
 }
 body.back-blur-title-bar .view-header {
   --background-primary: hsla(var(--background-primary-hsl), 0.9);
-  backdrop-filter: blur(var(--blur));
+  backdrop-filter: blur(calc(var(--blur) * 1px));
   position: absolute;
   z-index: 100;
   width: calc(100% - var(--size-4-3));
@@ -3403,7 +3264,7 @@ body.back-blur-title-bar.tab-title-bar .workspace-leaf.mod-active .view-header {
 }
 body.back-blur-status-bar .status-bar {
   --stauts-bar-background-opacity: 0.4;
-  backdrop-filter: blur(var(--blur));
+  backdrop-filter: blur(calc(var(--blur) * 1px));
 }
 
 /* ====== 打印 ====== */
@@ -3429,20 +3290,16 @@ body .status-bar {
   width: fit-content;
 }
 body.theme-light .status-bar {
-  --status-bar-background: hsla(
-    var(--accent-h),
-    var(--accent-s),
-    calc(100% - (100% - var(--accent-l)) / 8),
-    var(--stauts-bar-background-opacity)
-  );
+  --status-bar-background: hsla(var(--accent-h),
+      var(--accent-s),
+      calc(100% - (100% - var(--accent-l)) / 8),
+      var(--stauts-bar-background-opacity));
 }
 body.theme-dark .status-bar {
-  --status-bar-background: hsla(
-    var(--accent-h),
-    var(--accent-s),
-    calc(100% - (100% - var(--accent-l)) / 0.8),
-    var(--stauts-bar-background-opacity)
-  );
+  --status-bar-background: hsla(var(--accent-h),
+      var(--accent-s),
+      calc(100% - (100% - var(--accent-l)) / 0.8),
+      var(--stauts-bar-background-opacity));
 }
 body.status-bar-full .status-bar {
   width: calc(100% - var(--ribbon-width) + 1px);
@@ -3472,4 +3329,20 @@ body.status-bar-float.status-bar-scroll .status-bar {
 }
 body.status-bar-float.status-bar-scroll .status-bar:hover {
   transform: translateX(0);
+}
+
+svg:is(.excalidraw-icon, .spreadsheet) {
+  background-color: currentColor;
+  -webkit-mask-size: 100% 100%;
+}
+svg:is(.excalidraw-icon, .spreadsheet) path {
+  display: none;
+}
+
+svg.excalidraw-icon {
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7l3 3l-7 7l-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></g></svg>');
+}
+
+svg.spreadsheet {
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><path d="M3 9h18M3 15h18M12 3v18"/></g></svg>');
 }

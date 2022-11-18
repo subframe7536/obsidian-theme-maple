@@ -18,7 +18,7 @@ body.font-fix-latex mjx-container {
   }
 }
 
-mjx-stretchy-h > mjx-ext > mjx-c::before {
+mjx-stretchy-h>mjx-ext>mjx-c::before {
   transform: scaleX(450) !important;
 }
 
@@ -33,20 +33,16 @@ body.font-maple {
 /* ====== 文本 ======= */
 
 .theme-light {
-  --active-line: hsl(
-    calc(var(--accent-h) - 4),
-    calc(var(--accent-s) - 12%),
-    calc(100% - (100% - var(--accent-l)) / 5)
-  );
+  --active-line: hsl(calc(var(--accent-h) - 4),
+      calc(var(--accent-s) - 12%),
+      calc(100% - (100% - var(--accent-l)) / 5));
 }
 
 .theme-dark {
-  --active-line: hsla(
-    calc(var(--accent-h) - 24),
-    18%,
-    calc(var(--accent-l) / 4),
-    95%
-  );
+  --active-line: hsla(calc(var(--accent-h) - 24),
+      18%,
+      calc(var(--accent-l) / 4),
+      95%);
 }
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
@@ -56,13 +52,11 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   }
 }
 
-body:not(.line-active-disable)
-  .markdown-source-view
-  .cm-scroller
-  .cm-line.cm-active {
+body:not(.line-active-disable) .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: var(--active-line);
   border-radius: var(--radius-s);
 }
+
 /* ======= 键盘 ====== */
 
 kbd {
@@ -71,6 +65,7 @@ kbd {
   box-shadow: var(--shadow-s);
   border-radius: var(--size-2-3);
   transition: var(--animation);
+
   &:hover {
     border-color: var(--accent-active);
   }
@@ -89,10 +84,12 @@ em,
 .cm-em {
   text-decoration-style: dotted;
 }
+
 strong,
 .cm-strong {
   text-decoration-style: double;
 }
+
 em,
 .cm-em,
 strong,
@@ -101,9 +98,7 @@ strong,
   text-underline-offset: var(--size-4-1);
 }
 
-.workspace-leaf-content[data-type='markdown']
-  .view-header
-  .clickable-icon:hover {
+.workspace-leaf-content[data-type='markdown'] .view-header .clickable-icon:hover {
   background-color: var(--background-modifier-hover);
 }
 
@@ -116,6 +111,7 @@ body.tab-title-bar {
     --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
     transition: var(--animation);
     width: calc(100% - var(--size-4-2));
+
     .view-header-title-container:after {
       content: none;
     }
@@ -124,9 +120,11 @@ body.tab-title-bar {
     //     padding-top: calc(var(--file-margins) + var(--size-4-4));
     // }
   }
+
   .workspace-leaf.mod-active .view-header {
     --background-primary: var(--background-secondary);
   }
+
   &.tab-title-bar-shadow .workspace-leaf.mod-active .view-header {
     box-shadow: 0 0 var(--size-4-1) var(--background-modifier-box-shadow);
   }

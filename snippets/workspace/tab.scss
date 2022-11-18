@@ -2,39 +2,50 @@
 
 body.tab-float {
   --tab-radius: var(--size-2-3);
+
   .workspace-tab-header-container {
     --tab-outline-width: 0 !important;
   }
+
   .mod-root .workspace-tab-header-container-inner {
     margin-top: var(--size-4-1);
     padding-bottom: var(--size-4-1);
   }
+
   .mod-root .workspace-tab-header {
     padding-bottom: 0 !important;
     padding-top: 0 !important;
+
     &.is-active {
       --tab-radius-active: var(--size-2-3);
       box-shadow: var(--shadow-s);
       border: 1px solid var(--color-base-30);
     }
+
     .workspace-tab-header-inner-close-button {
       padding: var(--size-2-1);
+
       &:hover {
         background-color: var(--frame-background-color);
       }
     }
   }
+
   &.theme-dark .mod-root .workspace-tab-header.is-active {
     box-shadow: none;
   }
+
   .workspace-split.mod-root .workspace-tab-header.is-active {
+
     &::before,
     &::after {
       box-shadow: none;
     }
   }
+
   .workspace-tab-header-new-tab {
     padding-top: var(--size-4-1);
+    margin-left: calc(var(--size-4-3) * -1);
   }
 }
 
@@ -43,6 +54,7 @@ body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active) {
   .workspace-tab-header-inner-close-button {
     display: none;
   }
+
   &:hover .workspace-tab-header-inner-close-button {
     display: inherit;
   }

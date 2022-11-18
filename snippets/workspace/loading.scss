@@ -24,26 +24,33 @@
 // }
 
 body .progress-bar {
+
   &-line,
   &-subline {
     display: none;
   }
+
   &-message {
     visibility: hidden;
   }
 }
+
 // body:is(.loading-default, .loading-img) .progress-bar {
 body.loading-default .progress-bar {
+
   &-line,
   &-subline {
     display: inherit;
   }
+
   &-message {
     visibility: visible;
   }
 }
+
 body.loading-text .progress-bar-message {
   visibility: hidden;
+
   &::before {
     all: initial;
     font-family: var(--font-interface);
@@ -71,6 +78,7 @@ body.loading-text .progress-bar-message {
   0% {
     width: 0;
   }
+
   100% {
     width: 20ch;
   }

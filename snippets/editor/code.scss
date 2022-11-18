@@ -16,28 +16,23 @@
 }
 
 :is(.theme-light, .theme-light .print) {
-  --code-base: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 30%)
-  );
+  --code-base: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) - 30%));
   --code-mac-style-header-bg: #333;
 
-  :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered
-      code) {
+  :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
     --code-background: hsl(calc(var(--accent-h) - 8), 10%, 94%);
   }
 }
+
 :is(.theme-dark, .theme-dark .print) {
-  --code-base: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 10%)
-  );
+  --code-base: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 10%));
   --code-mac-style-header-bg: #000;
 
-  :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered
-      code) {
+  :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
     --code-background: hsl(calc(var(--accent-h) - 8), 20%, 16%);
   }
 }
@@ -46,6 +41,7 @@
 .markdown-rendered code {
   color: var(--inline-code);
 }
+
 .markdown-preview-view pre code {
   color: var(--code-base);
 }
@@ -58,25 +54,30 @@
     color: var(--inline-code) !important;
   }
 }
+
 .cm-s-obsidian .cm-line {
   --code-bg-radius: var(--radius-l);
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
+
   &.HyperMD-codeblock {
     line-height: calc(var(--line-height-normal) - 0.2);
     color: var(--color-blue) !important;
     border-left: var(--code-bg-border);
     border-right: var(--code-bg-border);
     border-radius: 0 !important;
+
     .cm-fold-indicator .collapse-indicator {
       padding-right: var(--size-4-3) !important;
       right: calc(var(--size-4-2) * -1) !important;
       cursor: pointer;
     }
+
     &.HyperMD-codeblock-begin-bg {
       border-top: var(--code-bg-border);
       border-top-left-radius: var(--code-bg-radius) !important;
       border-top-right-radius: var(--code-bg-radius) !important;
     }
+
     &.HyperMD-codeblock-end-bg {
       border-bottom: var(--code-bg-border);
       border-bottom-left-radius: var(--code-bg-radius) !important;
@@ -84,18 +85,22 @@
     }
   }
 }
+
 body :is(.markdown-source-view, .markdown-rendered) {
   --block-outline-width: 3px;
 }
+
 .markdown-source-view.mod-cm6 .cm-embed-block {
   box-shadow: none !important;
   border: var(--block-outline-width) solid transparent;
   border-radius: var(--radius-l) !important;
   padding: 0.5rem 0 !important;
   transition: var(--animation);
+
   &:hover {
     border-color: var(--accent-active);
   }
+
   .edit-block-button {
     border-radius: calc(var(--size-2-3)) !important;
     transition: var(--animation);
@@ -103,21 +108,26 @@ body :is(.markdown-source-view, .markdown-rendered) {
     right: 0.2rem;
   }
 }
+
 code[class*='language-'],
 pre {
   line-height: calc(var(--line-height-normal) - 0.2);
 }
+
 body .markdown-rendered pre {
   border-radius: var(--radius-l);
   border: var(--size-2-1) solid var(--accent-inactive);
   transition: var(--animation);
   overflow-x: hidden;
+
   &:hover {
     border-color: var(--accent-active);
+
     button.copy-code-button {
       opacity: 1;
     }
   }
+
   .copy-code-button {
     -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></g></svg>');
     width: 1.5rem;
@@ -139,10 +149,12 @@ body .markdown-rendered pre {
     }
   }
 }
+
 body.code-language .markdown-rendered {
   pre {
     padding: 1.8rem 1rem;
     position: relative;
+
     &[class*='language-']::before {
       content: '未知语言';
       font-family: var(--font-text);
@@ -158,6 +170,7 @@ body.code-language .markdown-rendered {
       z-index: 9;
     }
   }
+
   $language: c, properties, python, nginx, css, javascript, js, typescript, ts,
     jsp, php, lua, shell, powershell, flow, sequence, sql, yaml, yml, ini, xml,
     cs, cpp, java, html, txt, md, bat, json, groovy, scss, bash, cmd, latex, zig,
@@ -166,57 +179,68 @@ body.code-language .markdown-rendered {
 
   @each $lan in $language {
     pre[class~='language-#{$lan}']::before {
-      $t: to-upper-case(
-        $string: $lan
-      );
+      $t: to-upper-case($string: $lan);
       content: quote($t);
     }
   }
 }
+
 .markdown-source-view.mod-cm6 .code-block-flair {
   padding-top: 0;
   padding-bottom: 0;
   color: var(--color-red);
   transition: var(--animation);
+
   &:hover {
     background-color: var(--nav-item-background-hover);
   }
 }
+
 body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) {
   :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
     color: var(--code-comment);
   }
+
   :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
     color: var(--code-tag);
   }
+
   :is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
     color: var(--code-punctuation);
   }
+
   :is(.token:is(.boolean, .number), .cm-number) {
     color: var(--code-value);
   }
+
   :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
     color: var(--code-string);
   }
-  :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style)
-      .token.string, .cm-link, .cm-def, .cm-number + .cm-variable) {
+
+  :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string, .cm-link, .cm-def, .cm-number + .cm-variable) {
     color: var(--code-property);
   }
+
   :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
     color: var(--code-function);
   }
+
   :is(.token:is(.keyword, .constant, .unit, .builtin, .atrule), .cm-keyword, .cm-builtin, .cm-type, .cm-atom) {
     color: var(--code-keyword);
   }
+
   :is(.token:is(.regex, .important)) {
     color: var(--code-important);
   }
+
   :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
     color: var(--code-base);
   }
+
   :is(.cm-variable-2, .cm-variable-3) {
     opacity: 0.7;
   }
+
   // .HyperMD-codeblock
   //   span[class='cm-hmd-codeblock']:nth-child(n + 2)
   //   + :is(.cm-variable, .cm-variable-2, .cm-variable-3)
@@ -225,13 +249,16 @@ body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) {
   //   color: var(--color-orange) !important;
   // }
 }
+
 body.code-mac-style-header .markdown-rendered pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
+
   &[class*='language-']::before {
     color: var(--setting-code-language-color, var(--accent-active));
   }
+
   &::after {
     content: '';
     width: 100%;
@@ -241,16 +268,16 @@ body.code-mac-style-header .markdown-rendered pre {
     left: 0;
     position: absolute;
   }
+
   $light-size: calc(var(--code-size) - var(--size-2-1));
+
   code::before {
     content: '';
     width: $light-size;
     height: $light-size;
     position: absolute;
     left: var(--size-4-4);
-    top: calc(
-      $light-size * var(--line-height-normal) * 0.7 - var(--code-size) / 3
-    );
+    top: calc($light-size * var(--line-height-normal) * 0.7 - var(--code-size) / 3);
     border-radius: 50%;
     z-index: 9;
     background-color: var(--color-red);
@@ -258,10 +285,13 @@ body.code-mac-style-header .markdown-rendered pre {
       calc(var(--size-4-5) * 2) 0 0 0 #51bc00;
   }
 }
+
 body.code-line-number .markdown-source-view.mod-cm6 {
   counter-reset: code-line;
+
   .cm-line.HyperMD-codeblock {
     padding-left: var(--size-4-12);
+
     &:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
       &::before {
         counter-increment: code-line;
@@ -272,10 +302,12 @@ body.code-line-number .markdown-source-view.mod-cm6 {
         left: 0;
         color: var(--accent-inactive);
       }
+
       &.cm-active::before {
         color: var(--accent-active);
       }
     }
+
     &-end {
       counter-reset: code-line;
     }

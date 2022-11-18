@@ -1,0 +1,37 @@
+$selector: '.excalidraw-icon', '.spreadsheet';
+$icons: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7l3 3l-7 7l-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></g></svg>',
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><path d="M3 9h18M3 15h18M12 3v18"/></g></svg>';
+
+svg:is(#{$selector}) {
+  background-color: currentColor;
+  -webkit-mask-size: 100% 100%;
+
+  path {
+    display: none;
+  }
+}
+
+@for $i from 1 through length($selector) {
+  svg#{nth($selector,$i)} {
+    -webkit-mask-image: url('data:image/svg+xml;utf8,#{nth($icons,$i)}');
+  }
+}
+
+// @mixin icon($item, $icon) {
+//   svg.#{$item} {
+//     background-color: currentColor;
+//     -webkit-mask-image: url('data:image/svg+xml;utf8,#{$icon}');
+//     -webkit-mask-size: 100% 100%;
+//     path {
+//       display: none;
+//     }
+//   }
+// }
+// @include icon(
+//   'excalidraw-icon',
+//   '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><g  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7l3 3l-7 7l-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></g></svg>'
+// );
+// @include icon(
+//   'spreadsheet',
+//   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><path d="M3 9h18M3 15h18M12 3v18"/></g></svg>'
+// );

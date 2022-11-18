@@ -2,36 +2,44 @@
 
 .excalidraw {
   --excalidraw-ctx-opacity: 1;
+
   .popover {
     border-radius: var(--radius-m) !important;
     border: 1px solid var(--background-modifier-border-hover) !important;
     box-shadow: var(--shadow-s) !important;
   }
+
   .context-menu {
     border-radius: var(--radius-m) !important;
     border: none !important;
     padding: var(--size-2-3) !important;
     background-color: var(--background-secondary);
     margin: 0 !important;
+
     li {
       padding: var(--size-2-1) var(--size-4-1);
+
       button {
         border-radius: var(--radius-s);
         padding: var(--size-2-1);
         padding-left: var(--size-4-2);
-        & > div {
+
+        &>div {
           margin-inline-end: var(--size-4-1) !important;
         }
+
         kbd {
           border: 0;
           box-shadow: none;
         }
       }
     }
+
     .context-menu-option-separator {
       border-top: 1px solid var(--background-modifier-border);
       margin: var(--size-4-1) calc(var(--size-4-1) * -1) !important;
     }
+
     .context-menu-option:hover {
       background-color: var(--nav-item-background-hover);
       color: var(--text-normal);
@@ -45,15 +53,18 @@
   h3 {
     font-weight: bold !important;
     color: inherit !important;
+
     &::before {
       content: none;
     }
   }
+
   .panelColumn {
     :is(h3, legend, .control-label) {
       font-size: 0.9rem !important;
     }
   }
+
   .color-picker-input {
     font-family: var(--font-text-ui);
   }

@@ -1,31 +1,32 @@
 /* ====== 状态栏 ====== */
 body {
   --stauts-bar-background-opacity: 1;
+
   .status-bar {
     padding: var(--size-2-3) var(--size-4-1);
     width: fit-content;
   }
+
   &.theme-light .status-bar {
-    --status-bar-background: hsla(
-      var(--accent-h),
-      var(--accent-s),
-      calc(100% - (100% - var(--accent-l)) / 8),
-      var(--stauts-bar-background-opacity)
-    );
+    --status-bar-background: hsla(var(--accent-h),
+        var(--accent-s),
+        calc(100% - (100% - var(--accent-l)) / 8),
+        var(--stauts-bar-background-opacity));
   }
+
   &.theme-dark .status-bar {
-    --status-bar-background: hsla(
-      var(--accent-h),
-      var(--accent-s),
-      calc(100% - (100% - var(--accent-l)) / 0.8),
-      var(--stauts-bar-background-opacity)
-    );
+    --status-bar-background: hsla(var(--accent-h),
+        var(--accent-s),
+        calc(100% - (100% - var(--accent-l)) / 0.8),
+        var(--stauts-bar-background-opacity));
   }
+
   &.status-bar-full .status-bar {
     width: calc(100% - var(--ribbon-width) + 1px);
     --status-bar-radius: 0;
   }
 }
+
 body.status-bar-float {
   .status-bar {
     --status-bar-radius: var(--radius-m);
@@ -34,19 +35,24 @@ body.status-bar-float {
     right: var(--size-4-1);
     transition: var(--animation);
   }
+
   &.status-bar-full .status-bar {
     left: calc(var(--ribbon-width) + var(--size-4-1));
     width: unset;
   }
+
   &.status-bar-hidden .status-bar {
     opacity: 0;
+
     &:hover {
       opacity: 1;
     }
   }
+
   &.status-bar-scroll .status-bar {
     transform: translateX(calc(100% - var(--size-4-2)));
     right: 0;
+
     &:hover {
       transform: translateX(0);
     }

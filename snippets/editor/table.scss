@@ -4,36 +4,40 @@
   --table-radius: var(--radius-l);
   --table-outline-width: var(--block-outline-width);
 }
+
 .markdown-preview-view table {
   margin: 1rem 0;
 }
+
 :is(.markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) table {
   width: 100% !important;
   --table-column-first-border-width: var(--table-outline-width);
   --table-column-last-border-width: var(--table-outline-width);
   --table-row-last-border-width: var(--table-outline-width);
+
   thead th {
     --table-white-space: nowrap;
-    border-top: var(--block-outline-width) solid
-      var(--table-header-border-color);
+    border-top: var(--block-outline-width) solid var(--table-header-border-color);
   }
 }
-.markdown-source-view.mod-cm6.is-live-preview
-  .cm-embed-block.cm-table-widget:hover
-  table,
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-embed-block.cm-table-widget:hover table,
 .markdown-rendered table:hover {
   :is(td, th) {
     &:first-child {
       border-left-color: var(--accent-active);
     }
+
     &:last-child {
       border-right-color: var(--accent-active);
     }
   }
+
   thead th {
     border-top-color: var(--accent-active);
   }
-  tbody tr:last-child > td {
+
+  tbody tr:last-child>td {
     border-bottom-color: var(--accent-active);
   }
 }
@@ -47,54 +51,65 @@
   --table-header-border-color: var(--accent-inactive);
   --table-header-weight: var(--font-bold);
   --table-column-max-width: 70%;
+
   :is(th, td) {
     min-width: fit-content;
     transition: border-color var(--animation);
   }
+
   tr:first-child th:first-child {
     border-top-left-radius: var(--table-radius);
   }
+
   tr:first-child th:last-child {
     border-top-right-radius: var(--table-radius);
   }
+
   tr:last-child td:first-child {
     border-bottom-left-radius: var(--table-radius);
   }
+
   tr:last-child td:last-child {
     border-bottom-right-radius: var(--table-radius);
   }
 }
+
 .markdown-source-view.mod-cm6 .cm-embed-block.cm-table-widget {
   border: none;
 }
-body:not(.table-colorful)
-  .markdown-source-view.mod-cm6
-  .cm-embed-block.cm-table-widget
-  .edit-block-button {
+
+body:not(.table-colorful) .markdown-source-view.mod-cm6 .cm-embed-block.cm-table-widget .edit-block-button {
   top: calc(var(--block-outline-width) + 0.7rem);
   right: calc(var(--block-outline-width) + 0.2rem);
 }
+
 body.table-colorful {
-  .markdown-source-view table + .edit-block-button {
+  .markdown-source-view table+.edit-block-button {
     color: var(--text-on-accent);
     --background-modifier-hover: var(--accent-inactive);
+
     &:hover {
       color: var(--accent-active);
     }
   }
+
   table {
     --table-header-color: var(--text-on-accent);
     --table-header-background: var(--accent-active);
     --table-header-background-hover: var(--accent-active);
+
     tbody tr:nth-of-type(2n) {
       background-color: var(--md-container-bg);
     }
+
     th {
       border-top: var(--block-outline-width) solid var(--accent-active) !important;
       border-bottom: var(--block-outline-width) solid var(--accent-active);
+
       &:first-child {
         border-left-color: var(--accent-active);
       }
+
       &:last-child {
         border-right-color: var(--accent-active);
       }

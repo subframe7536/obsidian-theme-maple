@@ -3,22 +3,21 @@
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
-  /* --base-opacity: 1; */
   --color-red-rgb: 228, 52, 52 !important;
-  --color-red: rgba(228, 52, 52, var(--base-opacity)) !important;
+  --color-red: rgba(228, 52, 52, var(--color-opacity)) !important;
   --color-green-rgb: 81, 188, 0 !important;
-  --color-green: rgba(81, 188, 0, var(--base-opacity)) !important;
-  --color-yellow: rgba(245, 200, 145, var(--base-opacity)) !important;
-  --color-orange: rgba(228, 152, 12, var(--base-opacity)) !important;
-  --color-blue: rgba(18, 158, 222, var(--base-opacity)) !important;
-  --color-cyan: rgba(99, 201, 201, var(--base-opacity)) !important;
-  --color-purple: rgba(144, 132, 233, var(--base-opacity)) !important;
+  --color-green: rgba(81, 188, 0, var(--color-opacity)) !important;
+  --color-yellow: rgba(245, 200, 145, var(--color-opacity)) !important;
+  --color-orange: rgba(228, 152, 12, var(--color-opacity)) !important;
+  --color-blue: rgba(18, 158, 222, var(--color-opacity)) !important;
+  --color-cyan: rgba(99, 201, 201, var(--color-opacity)) !important;
+  --color-purple: rgba(144, 132, 233, var(--color-opacity)) !important;
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
   --file-folding-offset: 28px;
 
   --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
-  --blur: 8px;
+  --blur: var(--setting-blur, 8);
 }
 html
   :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-theme-color
@@ -98,7 +97,7 @@ html
     calc(100% - (100% - var(--accent-l)) / 6),
     70%
   );
-  --base-opacity: 1;
+  --color-opacity: 1;
 }
 :is(.theme-dark, .theme-dark .print) {
   --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 8));
@@ -149,5 +148,5 @@ html
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eee;
   --md-container-bg: hsl(calc(var(--accent-h) - 4), 20%, 10%);
-  --base-opacity: 0.85;
+  --color-opacity: 0.85;
 }

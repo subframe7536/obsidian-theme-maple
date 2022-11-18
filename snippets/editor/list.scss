@@ -61,155 +61,164 @@
 .markdown-source-view.mod-cm6 .task-list-label {
   margin-left: calc(var(--size-2-1) * -1);
 }
+
 input[type='checkbox'] {
   transition: var(--animation);
   border-width: var(--size-2-1);
+
   &:checked:after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 }
+
 .HyperMD-task-line .cm-indent::before {
   transform: translateX(0.25em) !important;
 }
+
 body {
   :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered) {
     --list-bullet-base: var(--size-4-3);
     --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-    --list-marker-color: hsl(
-      var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) - 8%)
-    );
-    --list-marker-color-alt: hsl(
-      var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) - 8%)
-    );
+    --list-marker-color: hsl(var(--accent-h),
+        var(--accent-s),
+        calc(var(--accent-l) - 8%));
+    --list-marker-color-alt: hsl(var(--accent-h),
+        var(--accent-s),
+        calc(var(--accent-l) - 8%));
     --list-spacing: 0;
   }
+
   :is(.markdown-rendered, .print .markdown-rendered) {
     :is(ul, ol) {
       padding-inline-start: 2.1rem;
       margin: var(--size-2-1) 0;
+
       :is(ul, ol) {
         padding-inline-start: 2.1rem;
       }
+
       li {
         margin: var(--size-4-2) auto;
         line-height: 1.8rem;
       }
     }
+
     ul {
       padding-inline-start: 1.2rem;
+
       &.contains-task-list {
         padding-inline-start: 1.4rem;
         margin-inline-start: 0 !important;
       }
     }
+
     ol li {
       &::marker {
         font-family: var(--font-monospace);
       }
+
       .list-collapse-indicator {
         margin-left: -54px !important;
       }
     }
-    ul > li {
-      --list-bullet-size: calc(
-        var(--font-text-size) - var(--list-bullet-base) + 3px
-      );
-      ul > li {
+
+    ul>li {
+      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
+
+      ul>li {
         --list-marker-color: transparent;
-        --list-bullet-size: calc(
-          var(--font-text-size) - var(--list-bullet-base)
-        );
+        --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
         --list-bullet-border: 2px solid var(--list-marker-color-alt);
-        ul > li {
+
+        ul>li {
           --list-marker-color: var(--list-marker-color-alt);
-          --list-bullet-size: calc(
-            var(--font-text-size) - var(--list-bullet-base) - 1px
-          );
+          --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
           --list-bullet-radius: max(2px, calc(var(--list-bullet-size) / 3));
+
           .list-bullet:after {
             transform: rotate(45deg);
           }
-          ul > li {
-            --list-bullet-size: calc(
-              var(--font-text-size) - var(--list-bullet-base) - 1px
-            );
+
+          ul>li {
+            --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
             --list-marker-color: transparent;
-            --list-bullet-border: var(--size-2-1) solid
-              var(--list-marker-color-alt);
-            --list-bullet-radius: max(
-              var(--size-2-1),
-              calc(var(--list-bullet-size) / 3)
-            );
+            --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
+            --list-bullet-radius: max(var(--size-2-1),
+                calc(var(--list-bullet-size) / 3));
           }
         }
       }
     }
+
     &.show-indentation-guide {
       .contains-task-list {
         .task-list-item-checkbox {
           margin-right: var(--size-4-2);
         }
+
         .contains-task-list {
           margin-inline-start: 0.1rem !important;
+
           &::before {
             left: -1rem;
           }
         }
       }
+
       li {
+
         // --indentation-guide-width: 1.4px;
-        & > ul::before {
+        &>ul::before {
           left: -0.8rem;
         }
-        & > ol::before {
+
+        &>ol::before {
           left: -1.55rem;
         }
       }
     }
   }
+
   .markdown-source-view.mod-cm6 {
     .cm-fold-indicator .collapse-indicator {
       padding-right: var(--size-4-2);
     }
+
     .cm-formatting-list {
       font-family: var(--font-monospace);
     }
-    .HyperMD-list-line > .list-bullet:after {
+
+    .HyperMD-list-line>.list-bullet:after {
       content: none;
     }
+
     .HyperMD-list-line-1 .list-bullet {
-      --list-bullet-size: calc(
-        var(--font-text-size) - var(--list-bullet-base) + 3px
-      );
+      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
     }
+
     .HyperMD-list-line-2 .list-bullet {
       --list-marker-color: transparent;
       --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
       --list-bullet-border: 2px solid var(--list-marker-color-alt);
     }
+
     .HyperMD-list-line-3 .list-bullet {
-      --list-bullet-size: calc(
-        var(--font-text-size) - var(--list-bullet-base) + 3px
-      );
+      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
       --list-bullet-radius: max(2px, calc(var(--list-bullet-size) / 3));
+
       &::after {
         transform: rotate(45deg);
       }
     }
-    .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3)
-      .list-bullet {
-      --list-bullet-size: calc(
-        var(--font-text-size) - var(--list-bullet-base) - 1px
-      );
+
+    .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet {
+      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
       --list-marker-color: transparent;
       --list-bullet-border: 2px solid var(--list-marker-color-alt);
       --list-bullet-radius: max(3px, calc(var(--list-bullet-size) / 3));
+
       &::after {
         transform: rotate(45deg);
       }
