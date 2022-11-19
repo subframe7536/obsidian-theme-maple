@@ -94,8 +94,8 @@ body :is(.markdown-source-view, .markdown-rendered) {
   box-shadow: none !important;
   border: var(--block-outline-width) solid transparent;
   border-radius: var(--radius-l) !important;
-  padding: 0.5rem 0 !important;
   transition: var(--animation);
+
 
   &:hover {
     border-color: var(--accent-active);
@@ -104,8 +104,16 @@ body :is(.markdown-source-view, .markdown-rendered) {
   .edit-block-button {
     border-radius: calc(var(--size-2-3)) !important;
     transition: var(--animation);
-    top: 0.7rem;
+    top: 0.2rem;
     right: 0.2rem;
+  }
+
+  &:not(.cm-callout) {
+    padding: 0.5rem 0 !important;
+
+    .edit-block-button {
+      top: 0.7rem;
+    }
   }
 }
 

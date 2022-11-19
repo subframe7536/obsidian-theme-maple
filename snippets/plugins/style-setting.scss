@@ -75,6 +75,11 @@
   .setting-item {
     flex-direction: row;
   }
+
+  .themed-color-wrapper {
+    flex-direction: column;
+    margin-top: -0.8rem;
+  }
 }
 
 .style-settings-container {
@@ -159,6 +164,8 @@ body:not(.tab-title-bar) .setting-item[data-id='tab-title-bar-shadow'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
 body:not(.code-language) .setting-item[data-id='setting-code-language-color'],
 body:not(.color-use-custom-color) .setting-item[data-id^='accent-hue'],
+body:not(.color-active-custom) .setting-item[data-id^='setting-color-active-custom'],
+body:not(.message-modify) .setting-item[data-id^='setting-message'],
 body:not(.heading-style-level) .setting-item[data-id^='heading-level'],
 // body:not(.heading-style-icon) .setting-item[data-id^='heading-icon'],
 body:not(.heading-style-num) .setting-item[data-id^='heading-num'],

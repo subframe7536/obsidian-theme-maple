@@ -5,8 +5,8 @@ id: Maple
 settings:
     -
         id: accent-colors
-        title: accent colors
-        title.zh: 高亮颜色
+        title: theme colors
+        title.zh: 主题颜色
         type: heading
         collapsed: true
         level: 2
@@ -42,6 +42,29 @@ settings:
         min: 0
         max: 360
         step: 5
+    -
+        id: color-active
+        title: highlight color
+        title.zh: 高亮颜色
+        type: class-select
+        allowEmpty: false
+        default: color-active-default
+        options:
+            -   label: accent color
+                value: color-active-default
+            -   label: accent color alt
+                value: color-active-alt
+            -   label: custom
+                value: color-active-custom
+    -
+        id: setting-color-active-custom
+        title: custom highlight color
+        title.zh: 自定义高亮颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
     -
         id: workspace
         title: workspace
@@ -223,6 +246,43 @@ settings:
         title.zh: 状态栏
         type: class-toggle
     -
+        id: message
+        title: tooltip & notice
+        title.zh: 气泡提示框 & 通知
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: message-tooltip-hide
+        title: always hide tooltip
+        title.zh: 永久隐藏气泡提示框
+        description.zh: 鼠标经过按钮时跳出的提示框
+        type: class-toggle
+    -
+        id: message-modify
+        title: change tooltip & notice color
+        title.zh: 修改气泡提示框和消息的颜色
+        type: class-toggle
+        default: true
+    -
+        id: setting-message-bg
+        title: background color
+        title.zh: 背景色
+        type: variable-themed-color
+        format: hsl-values
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-message-fg
+        title: foreground color
+        title.zh: 前景色
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
         id: modal
         title: modal
         title.zh: 弹出面板
@@ -250,9 +310,14 @@ settings:
         collapsed: true
         level: 3
     -
-        id: scrollbar-hover-animation
+        id: scrollbar-hover-accent
+        title: enable scrollbar hover highlight
+        title.zh: 启用滚动条鼠标经过高亮
+        type: class-toggle
+    -
+        id: scrollbar-movein-animation
         title: enable scrollbar movein animation
-        title.zh: 启用滚动条添加鼠标移入动画效果
+        title.zh: 启用滚动条鼠标移入动画效果
         type: class-toggle
         default: true
     -

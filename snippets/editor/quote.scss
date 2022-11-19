@@ -8,7 +8,20 @@ $mark-size: 3rem;
   --blockquote-background-color: var(--md-container-bg);
 }
 
+$items: (
+);
+
+@for $i from 2 through $num {
+  @for $j from 2 through $num {
+    $items: append($list: $items,
+      $val: '.HyperMD-quote-#{$j}:not(.callout):not(.cm-active) + .HyperMD-quote-#{$i}:not(.callout) .cm-blockquote-border:nth-of-type(-n + #{$j})',
+      $separator: comma);
+  }
+}
+
 body.quote-theme {
+  --blockquote-border-color: var(--accent-active);
+
   :is(.markdown-source-view, .markdown-rendered) {
     --blockquote-border-thickness: var(--size-4-1);
     --quote-radius: max(calc(var(--blockquote-border-thickness) / 2),
@@ -59,61 +72,51 @@ body.quote-theme {
     }
   }
 
-  $items: (
-  );
-
-@for $i from 2 through $num {
-  @for $j from 2 through $num {
-    $items: append($list: $items,
-      $val: '.HyperMD-quote-#{$j}:not(.callout):not(.cm-active) + .HyperMD-quote-#{$i}:not(.callout) .cm-blockquote-border:nth-of-type(-n + #{$j})',
-      $separator: comma);
-  }
-}
-
-:is(#{$items})::before {
-  top: calc(var(--blockquote-border-thickness) * -2);
-}
-
-.markdown-rendered blockquote {
-  background-color: var(--md-container-bg);
-  border: none !important;
-  border-radius: var(--radius-s);
-  box-shadow: var(--shadow-s);
-  margin-inline-end: 0;
-  position: relative;
-
-  margin: {
-    left: 0;
-    top: var(--size-4-2);
-    bottom: var(--size-4-2);
+  /* 引导线高度修复 */
+  :is(#{$items})::before {
+    top: calc(var(--blockquote-border-thickness) * -2);
   }
 
-  padding: {
-    top: 0;
-    bottom: 0;
-  }
+  .markdown-rendered blockquote {
+    background-color: var(--md-container-bg);
+    border: none !important;
+    border-radius: var(--radius-s);
+    box-shadow: var(--shadow-s);
+    margin-inline-end: 0;
+    position: relative;
 
-  p {
-    padding-left: var(--blockquote-border-thickness);
-    padding-right: var(--size-4-1);
-  }
+    margin: {
+      left: 0;
+      top: var(--size-4-2);
+      bottom: var(--size-4-2);
+    }
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: var(--blockquote-border-thickness);
-    top: var(--blockquote-border-thickness);
-    border-radius: calc(var(--blockquote-border-thickness) / 2);
-    height: calc(100% - var(--blockquote-border-thickness) * 2);
-    width: var(--blockquote-border-thickness);
-    background-color: var(--accent-active);
-  }
+    padding: {
+      top: 0;
+      bottom: 0;
+    }
 
-  blockquote {
-    box-shadow: none;
-    margin: 0;
+    p {
+      padding-left: var(--blockquote-border-thickness);
+      padding-right: var(--size-4-1);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: var(--blockquote-border-thickness);
+      top: var(--blockquote-border-thickness);
+      border-radius: calc(var(--blockquote-border-thickness) / 2);
+      height: calc(100% - var(--blockquote-border-thickness) * 2);
+      width: var(--blockquote-border-thickness);
+      background-color: var(--accent-active);
+    }
+
+    blockquote {
+      box-shadow: none;
+      margin: 0;
+    }
   }
-}
 }
 
 /* fill active line corner */

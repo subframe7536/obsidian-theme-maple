@@ -35,19 +35,24 @@ body.scrollbar-gutter-overlay {
   }
 }
 
-body.scrollbar-gutter-reserve :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
-  scrollbar-gutter: stable;
+body.scrollbar-gutter-reserve {
+  --setting-scrollbar-gutter: stable;
 }
 
-body.scrollbar-hover-animation :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
+body.scrollbar-hover-accent {
+  --setting-scrollbar-hover: hsla(var(--color-accent-hsl), 30%);
+}
+
+body.scrollbar-movein-animation :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
   color: transparent;
   transition: color var(--animation);
+  scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
 
   &:hover {
     color: hsla(var(--color-accent-hsl), 24%);
   }
 
-  &> :not(h1, h2, h3, h4, h5, h6) {
+  &>:not(h1, h2, h3, h4, h5, h6) {
     color: var(--text-normal);
   }
 
@@ -72,6 +77,10 @@ body.scrollbar-hover-animation :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$p
       background-color: transparent !important;
       border: 3.6px solid transparent !important;
 
+      &:hover {
+        background-color: var(--setting-scrollbar-hover) !important;
+      }
+
       &:active {
         background-color: hsla(var(--color-accent-hsl), 64%) !important;
       }
@@ -87,7 +96,7 @@ body.scrollbar-hover-animation :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$p
   }
 }
 
-:is(body:not(.scrollbar-hover-animation) *, textarea) {
+:is(body:not(.scrollbar-movein-animation) *, textarea) {
   &::-webkit-scrollbar-thumb {
     border-width: 3.2px;
     background-color: transparent !important;

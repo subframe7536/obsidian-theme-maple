@@ -1,0 +1,12 @@
+body.message-tooltip-hide .tooltip {
+  display: none;
+}
+
+body.message-modify {
+  --background-modifier-message: hsl(var(--setting-message-bg,
+        calc(var(--accent-h) - 30) var(--accent-s) calc(var(--accent-l) - 20%)));
+
+  :is(.tooltip, .notice) {
+    color: var(--setting-message-fg, var(--text-on-accent));
+  }
+}
