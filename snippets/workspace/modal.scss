@@ -12,12 +12,13 @@ body {
 :is(.document-search-close-button, .modal-close-button) {
   height: var(--input-height);
   width: var(--input-height);
+  transition: var(--animation);
 
   &::before {
     content: '';
     -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30"><g transform="matrix(0.7071067094802856,-0.7071067094802856,0.7071067094802856,0.7071067094802856,-3.5424977926304564,6.277729735826142)"><rect x="5.806640625" y="7.4150390625" width="2" height="24" rx="1" fill="currentColor"/></g><g style="mix-blend-mode:passthrough" transform="matrix(0.7071067094802856,0.7071067094802856,-0.7071067094802856,0.7071067094802856,10.914602712669875,-14.349200366239529)"><rect x="22.7783203125" y="6.00048828125" width="2" height="24" rx="1" fill="currentColor"/></g></svg>');
     position: absolute;
-    background-color: var(--accent-active);
+    background-color: var(--text-normal);
     width: calc(var(--input-height) * 2 / 3);
     height: calc(var(--input-height) * 2 / 3);
     top: 50%;
@@ -26,11 +27,7 @@ body {
   }
 
   &:hover {
-    background-color: var(--accent-active);
-
-    &::before {
-      background-color: var(--text-on-accent);
-    }
+    background-color: var(--frame-outline-color);
   }
 }
 
@@ -145,11 +142,15 @@ button {
   }
 }
 
+body.setting-group-title.theme-dark .modal-container .mod-settings .modal-content .vertical-tab-header-group-title {
+  filter: brightness(1.4);
+}
+
 body.setting-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group {
   padding-bottom: 0;
 
   &-title {
-    color: var(--text-accent);
+    color: var(--accent-active);
     font-size: var(--font-text-size);
     position: relative;
 

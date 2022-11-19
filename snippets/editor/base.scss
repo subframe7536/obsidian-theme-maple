@@ -58,6 +58,11 @@ body:not(.line-active-disable) .markdown-source-view .cm-scroller .cm-line.cm-ac
 }
 
 /* ======= 键盘 ====== */
+.cm-hmd-html-begin,
+.cm-hmd-html-begin~.cm-tag,
+.cm-hmd-html-end {
+  font-family: var(--font-monospace);
+}
 
 kbd {
   user-select: none;

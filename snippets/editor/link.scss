@@ -4,10 +4,10 @@
   --link-decoration-hover: none;
   --link-external-decoration-hover: none;
   --link-color: var(--setting-link-internal-color, var(--color-blue));
-  --link-color-hover: var(--text-accent);
+  --link-color-hover: var(--accent-active);
   --link-external-color: var(--setting-link-external-color,
       var(--color-orange));
-  --link-external-color-hover: var(--text-accent);
+  --link-external-color-hover: var(--accent-active);
   --link-unresolved-color: var(--setting-link-external-color,
       var(--color-orange));
   --link-footnote: var(--color-purple);
