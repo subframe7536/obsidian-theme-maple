@@ -4,12 +4,28 @@ name: Maple
 id: Maple
 settings:
     -
+        id: base
+        title: base setting
+        title.zh: 基本设置
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: setting-
+        title: animation duration (ms)
+        title.zh: 动画持续时间（毫秒）
+        type: variable-number-slider
+        default: 150
+        min: 50
+        max: 1000
+        step: 50
+    -
         id: accent-colors
         title: theme colors
         title.zh: 主题颜色
         type: heading
-        collapsed: true
-        level: 2
+        collapsed: false
+        level: 3
     -
         id: color-fix-theme-color
         title: format accent color
@@ -671,6 +687,13 @@ settings:
         title.zh: 引用块添加前置引号
         type: class-toggle
         default: true
+    -
+        id: quote-reduce-blank
+        title: reduce empty line height after block
+        description: hover highlight & click to expand
+        title.zh: 减少块后空行的高度
+        description.zh: 鼠标经过高亮 & 点击扩大高度
+        type: class-toggle
     -
         id: code
         title: code

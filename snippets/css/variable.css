@@ -13,10 +13,10 @@
   --color-cyan: rgba(99, 201, 201, var(--color-opacity)) !important;
   --color-purple: rgba(144, 132, 233, var(--color-opacity)) !important;
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
-  --file-folding-offset: 28px;
   --interactive-accent: var(--accent-active);
 
-  --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
+  --animation: calc(var(--setting-animation-time, 150) * 1ms)
+    var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
   --blur: var(--setting-blur, 8);
 }

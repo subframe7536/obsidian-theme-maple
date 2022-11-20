@@ -5,12 +5,28 @@ name: Maple
 id: Maple
 settings:
     -
+        id: base
+        title: base setting
+        title.zh: 基本设置
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: setting-
+        title: animation duration (ms)
+        title.zh: 动画持续时间（毫秒）
+        type: variable-number-slider
+        default: 150
+        min: 50
+        max: 1000
+        step: 50
+    -
         id: accent-colors
         title: theme colors
         title.zh: 主题颜色
         type: heading
-        collapsed: true
-        level: 2
+        collapsed: false
+        level: 3
     -
         id: color-fix-theme-color
         title: format accent color
@@ -673,6 +689,13 @@ settings:
         type: class-toggle
         default: true
     -
+        id: quote-reduce-blank
+        title: reduce empty line height after block
+        description: hover highlight & click to expand
+        title.zh: 减少块后空行的高度
+        description.zh: 鼠标经过高亮 & 点击扩大高度
+        type: class-toggle
+    -
         id: code
         title: code
         title.zh: 代码
@@ -839,7 +862,8 @@ settings:
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
   --file-folding-offset: 28px;
   --interactive-accent: var(--accent-active);
-  --animation: var(--anim-duration-fast) var(--anim-motion-smooth);
+  --animation: calc(var(--setting-animation-time, 150) * 1ms)
+    var(--anim-motion-smooth);
   --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
   --blur: var(--setting-blur, 8);
 }
@@ -1883,6 +1907,40 @@ body.quote-theme .markdown-rendered blockquote blockquote {
   box-shadow: none;
   margin: 0;
 }
+body.quote-theme.quote-mark :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)) {
+  text-indent: 1.2rem !important;
+}
+body.quote-mark.quote-theme blockquote::before, body.quote-theme.quote-mark :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
+  position: absolute;
+  font-size: 3rem;
+  font-family: Source Code Pro;
+  line-height: 1;
+  content: "“" !important;
+  background-color: transparent;
+  color: var(--text-muted);
+  top: calc(var(--font-text-size) * var(--line-height-normal) - 2.1428571429rem);
+  transform: translateX(-1.32rem);
+}
+
+body.quote-theme.quote-mark .markdown-rendered blockquote {
+  padding-left: 2.28rem;
+}
+body.quote-theme.quote-mark .markdown-rendered blockquote::before {
+  transform: translateX(-1.62rem);
+}
+
+/* reduce blank line height after block */
+body.quote-reduce-blank .is-live-preview :is(.HyperMD-quote, .cm-callout) + [class="cm-active cm-line"] {
+  transition: var(--animation);
+}
+body.quote-reduce-blank .is-live-preview :is(.HyperMD-quote, .cm-callout) + [class=cm-line] {
+  line-height: 0.6;
+  transition: var(--animation);
+  border-radius: var(--radius-s);
+}
+body.quote-reduce-blank .is-live-preview :is(.HyperMD-quote, .cm-callout) + [class=cm-line]:hover {
+  background-color: var(--accent-inactive);
+}
 
 /* fill active line corner */
 body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after,
@@ -1907,28 +1965,6 @@ body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(
 }
 
 /* fix bugs, corner fill cause wrap */
-body.quote-mark.quote-theme :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)) {
-  text-indent: 1.2rem !important;
-}
-body.quote-mark.quote-theme blockquote::before, body.quote-mark.quote-theme :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
-  position: absolute;
-  font-size: 3rem;
-  font-family: Source Code Pro;
-  line-height: 1;
-  content: "“" !important;
-  background-color: transparent;
-  color: var(--text-muted);
-  top: calc(var(--font-text-size) * var(--line-height-normal) - 2.1428571429rem);
-  transform: translateX(-1.32rem);
-}
-
-body.quote-mark.quote-theme .markdown-rendered blockquote {
-  padding-left: 2.28rem;
-}
-body.quote-mark.quote-theme .markdown-rendered blockquote::before {
-  transform: translateX(-1.62rem);
-}
-
 :is(body, .print .markdown-rendered) {
   --callout-radius: var(--radius-l);
 }
@@ -2772,6 +2808,7 @@ body.search-internal-expand-on-focus .document-replace-input:focus {
 
 /* ====== 文件管理器 ====== */
 body {
+  --file-folding-offset: 28px;
   --folder-color-rgb: 245, 180, 0;
   --folder-color: rgb(var(--setting-color-dirs, var(--folder-color-rgb)));
   --folder-hover-color: rgba(var(--setting-color-dirs, var(--folder-color-rgb)),

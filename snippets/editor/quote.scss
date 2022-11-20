@@ -117,6 +117,54 @@ body.quote-theme {
       margin: 0;
     }
   }
+
+  &.quote-mark {
+    :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)) {
+      text-indent: $indent * 2 !important;
+
+      &:not(.cm-active) {
+
+        @at-root body.quote-mark.quote-theme blockquote::before,
+        &>.cm-formatting.cm-formatting-quote.cm-quote-1::before {
+          position: absolute;
+          font-size: $mark-size;
+          font-family: Source Code Pro;
+          line-height: 1;
+          content: '“' !important;
+          background-color: transparent;
+          color: var(--text-muted);
+          top: calc(var(--font-text-size) * var(--line-height-normal) - math.div($mark-size, 1.4));
+          transform: translateX($indent * -2.2);
+        }
+      }
+    }
+
+    .markdown-rendered blockquote {
+      padding-left: $indent * 3.8;
+
+      &::before {
+        transform: translateX($indent * -2.7);
+      }
+    }
+  }
+
+}
+
+/* reduce blank line height after block */
+body.quote-reduce-blank .is-live-preview :is(.HyperMD-quote, .cm-callout) {
+  &+[class="cm-active cm-line"] {
+    transition: var(--animation);
+  }
+
+  &+[class="cm-line"] {
+    line-height: 0.6;
+    transition: var(--animation);
+    border-radius: var(--radius-s);
+
+    &:hover {
+      background-color: var(--accent-inactive);
+    }
+  }
 }
 
 /* fill active line corner */
@@ -154,35 +202,7 @@ body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(
 //   .cm-quote:not(.cm-formatting) {
 //   word-break: break-all;
 // }
-body.quote-mark.quote-theme {
-  :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)) {
-    text-indent: $indent * 2 !important;
 
-    &:not(.cm-active) {
-
-      @at-root body.quote-mark.quote-theme blockquote::before,
-      &>.cm-formatting.cm-formatting-quote.cm-quote-1::before {
-        position: absolute;
-        font-size: $mark-size;
-        font-family: Source Code Pro;
-        line-height: 1;
-        content: '“' !important;
-        background-color: transparent;
-        color: var(--text-muted);
-        top: calc(var(--font-text-size) * var(--line-height-normal) - math.div($mark-size, 1.4));
-        transform: translateX($indent * -2.2);
-      }
-    }
-  }
-
-  .markdown-rendered blockquote {
-    padding-left: $indent * 3.8;
-
-    &::before {
-      transform: translateX($indent * -2.7);
-    }
-  }
-}
 
 // body.quote-theme {
 //   --blockquote-border-thickness: var(--size-2-3);
