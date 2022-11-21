@@ -6,7 +6,7 @@ id: Maple
 settings:
     -
         id: base
-        title: base setting
+        title: basic setting
         title.zh: 基本设置
         type: heading
         collapsed: true
@@ -365,28 +365,6 @@ settings:
         title.zh: 编辑器开启顺滑滚动
         description.zh: ❗跳转动画可能不太好
         type: class-toggle
-    -
-        id: loading
-        title: loading
-        title.zh: 加载图
-        type: heading
-        collapsed: true
-        level: 3
-    -
-        id: loading-text
-        title: enable loading theme
-        description: typing style text
-        title.zh: 启用加载图样式
-        description.zh: 打字机样式文字
-        type: class-toggle
-    -
-        id: loading-text-content
-        title: loading text
-        description: better not be to long
-        title.zh: 加载页面文字
-        description.zh: 最好不要太多字
-        type: variable-text
-        default: "'快乐摸鱼中...............'"
     -
         id: editor
         title: editor
@@ -1457,6 +1435,8 @@ body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-e
 
 /* ====== 内嵌文档 ====== */
 .internal-embed.is-loaded:not(.image-embed) {
+  --embed-background: var(--background-primary);
+  --embed-max-height: initial;
   transition: var(--animation);
   padding: var(--size-4-1) var(--size-2-1) !important;
 }
@@ -1494,9 +1474,6 @@ body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-e
 }
 .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed, .file-embed) .frontmatter + div {
   display: none;
-}
-.internal-embed.is-loaded:not(.image-embed) .markdown-embed-content {
-  max-height: unset;
 }
 .internal-embed.is-loaded:not(.image-embed) svg.link {
   transform: rotate(90deg);
@@ -1546,7 +1523,8 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover :is(.m
   color: var(--text-normal);
 }
 body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) :is(.markdown-embed, .file-embed) .markdown-preview-view {
-  padding: calc(var(--font-text-size) * 2) calc(var(--font-text-size) * 1.5) calc(var(--font-text-size) * 1.4);
+  padding: calc(var(--font-text-size) * 1.5);
+  padding-bottom: calc(var(--font-text-size) * 1.2);
 }
 
 /* ======= 分隔符 ====== */
@@ -1715,6 +1693,10 @@ input[type=checkbox]:checked:after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.markdown-source-view.mod-cm6 .cm-indent::before {
+  transform: translateX(0.2em) !important;
 }
 
 .HyperMD-task-line .cm-indent::before {
@@ -2555,15 +2537,31 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   color: var(--accent-active);
 }
 
+#calendar-container {
+  --color-text-today: var(--text-on-accent);
+}
 #calendar-container thead {
   border-bottom: var(--size-2-1) solid var(--accent-active);
 }
+#calendar-container .nav {
+  padding: 0;
+}
+#calendar-container .today {
+  background-color: var(--accent-active);
+}
+#calendar-container .reset-button {
+  white-space: nowrap;
+}
 #calendar-container .title {
   line-height: 100%;
+  white-space: nowrap;
 }
 #calendar-container .title .year {
   height: var(--size-4-6);
   line-height: var(--size-4-6);
+}
+#calendar-container tr :nth-child(5) {
+  border-right: 2px solid var(--accent-inactive);
 }
 
 /* ====== excalidraw ====== */
@@ -2914,52 +2912,6 @@ body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-c
   margin-left: var(--size-2-3);
 }
 
-/* ====== 加载图 ====== */
-body .progress-bar-line, body .progress-bar-subline {
-  display: none;
-}
-body .progress-bar-message {
-  visibility: hidden;
-}
-
-body.loading-default .progress-bar-line, body.loading-default .progress-bar-subline {
-  display: inherit;
-}
-body.loading-default .progress-bar-message {
-  visibility: visible;
-}
-
-body.loading-text .progress-bar-message {
-  visibility: hidden;
-}
-body.loading-text .progress-bar-message::before {
-  all: initial;
-  font-family: var(--font-interface);
-  font-size: 3rem;
-  content: var(--loading-text-content, "快乐摸鱼中...............");
-  display: block;
-  visibility: visible !important;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 0.07em solid;
-  animation: typing-style 2s steps(12), cursor-blink 0.3s step-end infinite alternate;
-  transform: translateZ(0);
-  will-change: transform;
-}
-
-@keyframes cursor-blink {
-  50% {
-    border-color: transparent;
-  }
-}
-@keyframes typing-style {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 20ch;
-  }
-}
 /* ====== 弹出面板 ====== */
 body {
   --modal-width: min(90vw, var(--modal-max-width));

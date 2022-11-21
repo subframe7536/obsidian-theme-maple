@@ -1,6 +1,8 @@
 /* ====== 内嵌文档 ====== */
 
 .internal-embed.is-loaded:not(.image-embed) {
+  --embed-background: var(--background-primary);
+  --embed-max-height: initial;
   transition: var(--animation);
   padding: var(--size-4-1) var(--size-2-1) !important;
 
@@ -46,10 +48,6 @@
     .frontmatter+div {
       display: none;
     }
-  }
-
-  .markdown-embed-content {
-    max-height: unset;
   }
 
   svg.link {
@@ -110,6 +108,7 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt='#']) {
   }
 
   :is(.markdown-embed, .file-embed) .markdown-preview-view {
-    padding: calc(var(--font-text-size) * 2) calc(var(--font-text-size) * 1.5) calc(var(--font-text-size) * 1.4);
+    padding: calc(var(--font-text-size) * 1.5);
+    padding-bottom: calc(var(--font-text-size) * 1.2);
   }
 }

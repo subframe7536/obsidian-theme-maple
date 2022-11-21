@@ -5,7 +5,7 @@ id: Maple
 settings:
     -
         id: base
-        title: base setting
+        title: basic setting
         title.zh: 基本设置
         type: heading
         collapsed: true
@@ -364,28 +364,6 @@ settings:
         title.zh: 编辑器开启顺滑滚动
         description.zh: ❗跳转动画可能不太好
         type: class-toggle
-    -
-        id: loading
-        title: loading
-        title.zh: 加载图
-        type: heading
-        collapsed: true
-        level: 3
-    -
-        id: loading-text
-        title: enable loading theme
-        description: typing style text
-        title.zh: 启用加载图样式
-        description.zh: 打字机样式文字
-        type: class-toggle
-    -
-        id: loading-text-content
-        title: loading text
-        description: better not be to long
-        title.zh: 加载页面文字
-        description.zh: 最好不要太多字
-        type: variable-text
-        default: "'快乐摸鱼中...............'"
     -
         id: editor
         title: editor

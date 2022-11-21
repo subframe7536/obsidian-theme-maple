@@ -1,49 +1,67 @@
 /* ====== 日历 ====== */
 $height: var(--size-4-6);
 
-body.calendar-swap-year-month #calendar-container {
-  .nav {
-    padding-left: var(--size-4-1);
+body.calendar-swap-year-month #calendar-container .nav {
+  padding-left: var(--size-4-1);
 
-    .title {
-      display: flex;
-      flex-direction: row-reverse;
-      font-weight: normal;
-      font-size: 1.2rem;
+  .title {
+    display: flex;
+    flex-direction: row-reverse;
+    font-weight: normal;
+    font-size: 1.2rem;
 
-      .year {
-        color: var(--text-normal);
-        letter-spacing: 0.1rem;
+    .year {
+      color: var(--text-normal);
+      letter-spacing: 0.1rem;
 
-        &::after {
-          content: var(--calendar-year-suffix, '年');
-          margin-right: var(--size-2-1);
-          margin-left: var(--size-2-1);
-        }
+      &::after {
+        content: var(--calendar-year-suffix, '年');
+        margin-right: var(--size-2-1);
+        margin-left: var(--size-2-1);
       }
+    }
 
-      .month {
-        height: $height;
-        line-height: $height;
-        letter-spacing: 0.1rem;
-        font-weight: bold;
-        color: var(--accent-active);
-      }
+    .month {
+      height: $height;
+      line-height: $height;
+      letter-spacing: 0.1rem;
+      font-weight: bold;
+      color: var(--accent-active);
     }
   }
 }
 
+
 #calendar-container {
+  --color-text-today: var(--text-on-accent);
+
   thead {
     border-bottom: var(--size-2-1) solid var(--accent-active);
   }
 
+  .nav {
+    padding: 0;
+  }
+
+  .today {
+    background-color: var(--accent-active);
+  }
+
+  .reset-button {
+    white-space: nowrap;
+  }
+
   .title {
     line-height: 100%;
+    white-space: nowrap;
 
     .year {
       height: $height;
       line-height: $height;
     }
+  }
+
+  tr :nth-child(5) {
+    border-right: 2px solid var(--accent-inactive);
   }
 }

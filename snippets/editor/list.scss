@@ -73,6 +73,10 @@ input[type='checkbox'] {
   }
 }
 
+.markdown-source-view.mod-cm6 .cm-indent::before {
+  transform: translateX(0.2em) !important;
+}
+
 .HyperMD-task-line .cm-indent::before {
   transform: translateX(0.25em) !important;
 }
