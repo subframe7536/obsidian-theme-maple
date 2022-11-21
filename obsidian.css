@@ -860,7 +860,6 @@ settings:
   --color-cyan: rgba(99, 201, 201, var(--color-opacity)) !important;
   --color-purple: rgba(144, 132, 233, var(--color-opacity)) !important;
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
-  --file-folding-offset: 28px;
   --interactive-accent: var(--accent-active);
   --animation: calc(var(--setting-animation-time, 150) * 1ms)
     var(--anim-motion-smooth);
@@ -1145,7 +1144,7 @@ body :is(.markdown-source-view, .markdown-rendered) {
 .markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-callout) {
   padding: 0.5rem 0 !important;
 }
-.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-callout) .edit-block-button {
+.markdown-source-view.mod-cm6 .cm-embed-block.cm-table-widget .edit-block-button {
   top: 0.7rem;
 }
 
@@ -1839,7 +1838,7 @@ body.quote-theme :is(.markdown-source-view, .markdown-rendered) {
   --quote-radius: max(calc(var(--blockquote-border-thickness) / 2),
       var(--radius-s));
 }
-body.quote-theme .markdown-source-view.mod-cm6 :is(.HyperMD-quote:not(.callout), .cm-blockquote-border)::before {
+body.quote-theme .markdown-source-view.mod-cm6 :is(.HyperMD-quote, .cm-blockquote-border)::before {
   width: var(--blockquote-border-thickness);
   border-left: none;
   background-color: var(--blockquote-border-color);
@@ -1847,22 +1846,22 @@ body.quote-theme .markdown-source-view.mod-cm6 :is(.HyperMD-quote:not(.callout),
   top: var(--blockquote-border-thickness);
   bottom: var(--blockquote-border-thickness);
 }
-body.quote-theme .markdown-source-view.mod-cm6 :is(.HyperMD-quote:not(.callout).cm-active, .HyperMD-quote:not(.callout).cm-active .cm-blockquote-border)::before {
+body.quote-theme .markdown-source-view.mod-cm6 :is(.HyperMD-quote.cm-active, .HyperMD-quote.cm-active .cm-blockquote-border)::before {
   background-color: transparent;
 }
-body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
   border-bottom-left-radius: var(--quote-radius);
   border-bottom-right-radius: var(--quote-radius);
 }
-body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active:not(:active)::before {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote.cm-active:not(:active)::before {
   background-color: transparent;
 }
-body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::before {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote::before {
   left: calc(var(--blockquote-border-thickness));
 }
-body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout):not(.cm-active) + .HyperMD-quote:not(.callout)::before {
+body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote:not(.cm-active) + .HyperMD-quote::before {
   top: calc(var(--blockquote-border-thickness) * -3);
 }
 body.quote-theme .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) {
@@ -1873,7 +1872,7 @@ body.quote-theme .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .Hy
 body.quote-theme .markdown-source-view.mod-cm6 :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) .cm-quote.cm-formatting::after {
   content: none !important;
 }
-body.quote-theme :is(.HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-2:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-3:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-4:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-5:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-6:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-7:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.callout):not(.cm-active) + .HyperMD-quote-8:not(.callout) .cm-blockquote-border:nth-of-type(-n + 8))::before {
+body.quote-theme :is(.HyperMD-quote-2:not(.cm-active) + .HyperMD-quote-2 .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.cm-active) + .HyperMD-quote-2 .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.cm-active) + .HyperMD-quote-2 .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.cm-active) + .HyperMD-quote-2 .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.cm-active) + .HyperMD-quote-2 .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.cm-active) + .HyperMD-quote-2 .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.cm-active) + .HyperMD-quote-2 .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.cm-active) + .HyperMD-quote-3 .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.cm-active) + .HyperMD-quote-3 .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.cm-active) + .HyperMD-quote-3 .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.cm-active) + .HyperMD-quote-3 .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.cm-active) + .HyperMD-quote-3 .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.cm-active) + .HyperMD-quote-3 .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.cm-active) + .HyperMD-quote-3 .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.cm-active) + .HyperMD-quote-4 .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.cm-active) + .HyperMD-quote-4 .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.cm-active) + .HyperMD-quote-4 .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.cm-active) + .HyperMD-quote-4 .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.cm-active) + .HyperMD-quote-4 .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.cm-active) + .HyperMD-quote-4 .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.cm-active) + .HyperMD-quote-4 .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.cm-active) + .HyperMD-quote-5 .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.cm-active) + .HyperMD-quote-5 .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.cm-active) + .HyperMD-quote-5 .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.cm-active) + .HyperMD-quote-5 .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.cm-active) + .HyperMD-quote-5 .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.cm-active) + .HyperMD-quote-5 .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.cm-active) + .HyperMD-quote-5 .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.cm-active) + .HyperMD-quote-6 .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.cm-active) + .HyperMD-quote-6 .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.cm-active) + .HyperMD-quote-6 .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.cm-active) + .HyperMD-quote-6 .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.cm-active) + .HyperMD-quote-6 .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.cm-active) + .HyperMD-quote-6 .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.cm-active) + .HyperMD-quote-6 .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.cm-active) + .HyperMD-quote-7 .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.cm-active) + .HyperMD-quote-7 .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.cm-active) + .HyperMD-quote-7 .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.cm-active) + .HyperMD-quote-7 .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.cm-active) + .HyperMD-quote-7 .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.cm-active) + .HyperMD-quote-7 .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.cm-active) + .HyperMD-quote-7 .cm-blockquote-border:nth-of-type(-n + 8), .HyperMD-quote-2:not(.cm-active) + .HyperMD-quote-8 .cm-blockquote-border:nth-of-type(-n + 2), .HyperMD-quote-3:not(.cm-active) + .HyperMD-quote-8 .cm-blockquote-border:nth-of-type(-n + 3), .HyperMD-quote-4:not(.cm-active) + .HyperMD-quote-8 .cm-blockquote-border:nth-of-type(-n + 4), .HyperMD-quote-5:not(.cm-active) + .HyperMD-quote-8 .cm-blockquote-border:nth-of-type(-n + 5), .HyperMD-quote-6:not(.cm-active) + .HyperMD-quote-8 .cm-blockquote-border:nth-of-type(-n + 6), .HyperMD-quote-7:not(.cm-active) + .HyperMD-quote-8 .cm-blockquote-border:nth-of-type(-n + 7), .HyperMD-quote-8:not(.cm-active) + .HyperMD-quote-8 .cm-blockquote-border:nth-of-type(-n + 8))::before {
   top: calc(var(--blockquote-border-thickness) * -2);
 }
 body.quote-theme .markdown-rendered blockquote {
@@ -1907,10 +1906,10 @@ body.quote-theme .markdown-rendered blockquote blockquote {
   box-shadow: none;
   margin: 0;
 }
-body.quote-theme.quote-mark :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)) {
+body.quote-theme.quote-mark :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)) {
   text-indent: 1.2rem !important;
 }
-body.quote-mark.quote-theme blockquote::before, body.quote-theme.quote-mark :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
+body.quote-mark.quote-theme blockquote::before, body.quote-theme.quote-mark :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
   position: absolute;
   font-size: 3rem;
   font-family: Source Code Pro;
@@ -1943,8 +1942,8 @@ body.quote-reduce-blank .is-live-preview :is(.HyperMD-quote, .cm-callout) + [cla
 }
 
 /* fill active line corner */
-body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after,
-body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout)::after,
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout) .cm-quote.cm-formatting::after {
   content: "";
   position: absolute;
   display: inline-block;
@@ -1954,13 +1953,13 @@ body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(
   top: calc(var(--blockquote-border-thickness) * -1);
   background-color: var(--md-container-bg);
 }
-body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout)::after {
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout)::after {
   left: 0;
 }
-body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout) .cm-quote.cm-formatting::after {
   right: 0;
 }
-body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout)::after, body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout).cm-active + .HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout).cm-active + .HyperMD-quote:not(.HyperMD-callout)::after, body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout).cm-active + .HyperMD-quote:not(.HyperMD-callout) .cm-quote.cm-formatting::after {
   background-color: var(--active-line);
 }
 

@@ -110,10 +110,10 @@ body :is(.markdown-source-view, .markdown-rendered) {
 
   &:not(.cm-callout) {
     padding: 0.5rem 0 !important;
+  }
 
-    .edit-block-button {
-      top: 0.7rem;
-    }
+  &.cm-table-widget .edit-block-button {
+    top: 0.7rem;
   }
 }
 

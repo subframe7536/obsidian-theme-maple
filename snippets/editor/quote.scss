@@ -14,7 +14,7 @@ $items: (
 @for $i from 2 through $num {
   @for $j from 2 through $num {
     $items: append($list: $items,
-      $val: '.HyperMD-quote-#{$j}:not(.callout):not(.cm-active) + .HyperMD-quote-#{$i}:not(.callout) .cm-blockquote-border:nth-of-type(-n + #{$j})',
+      $val: '.HyperMD-quote-#{$j}:not(.cm-active) + .HyperMD-quote-#{$i} .cm-blockquote-border:nth-of-type(-n + #{$j})',
       $separator: comma);
   }
 }
@@ -29,7 +29,7 @@ body.quote-theme {
   }
 
   .markdown-source-view.mod-cm6 {
-    :is(.HyperMD-quote:not(.callout), .cm-blockquote-border)::before {
+    :is(.HyperMD-quote, .cm-blockquote-border)::before {
       width: var(--blockquote-border-thickness);
       border-left: none;
       background-color: var(--blockquote-border-color);
@@ -38,11 +38,11 @@ body.quote-theme {
       bottom: var(--blockquote-border-thickness);
     }
 
-    :is(.HyperMD-quote:not(.callout).cm-active, .HyperMD-quote:not(.callout).cm-active .cm-blockquote-border)::before {
+    :is(.HyperMD-quote.cm-active, .HyperMD-quote.cm-active .cm-blockquote-border)::before {
       background-color: transparent;
     }
 
-    .HyperMD-quote:not(.callout) {
+    .HyperMD-quote {
       border-top-left-radius: 0 !important;
       border-top-right-radius: 0 !important;
       border-bottom-left-radius: var(--quote-radius);
@@ -56,7 +56,7 @@ body.quote-theme {
         left: calc(var(--blockquote-border-thickness));
       }
 
-      &:not(.cm-active)+.HyperMD-quote:not(.callout)::before {
+      &:not(.cm-active)+.HyperMD-quote::before {
         top: calc(var(--blockquote-border-thickness) * -3);
       }
     }
@@ -119,7 +119,7 @@ body.quote-theme {
   }
 
   &.quote-mark {
-    :is(div:not(.HyperMD-quote-1) + .HyperMD-quote-1, .cm-content :first-child:is(.HyperMD-quote)) {
+    :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)) {
       text-indent: $indent * 2 !important;
 
       &:not(.cm-active) {
@@ -168,7 +168,7 @@ body.quote-reduce-blank .is-live-preview :is(.HyperMD-quote, .cm-callout) {
 }
 
 /* fill active line corner */
-body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.callout) {
+body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout) {
 
   &::after,
   .cm-quote.cm-formatting::after {
@@ -190,15 +190,15 @@ body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(
     right: 0;
   }
 
-  &.cm-active+.HyperMD-quote:not(.callout)::after,
-  &.cm-active+.HyperMD-quote:not(.callout) .cm-quote.cm-formatting::after {
+  &.cm-active+.HyperMD-quote:not(.HyperMD-callout)::after,
+  &.cm-active+.HyperMD-quote:not(.HyperMD-callout) .cm-quote.cm-formatting::after {
     background-color: var(--active-line);
   }
 }
 
 /* fix bugs, corner fill cause wrap */
 // body.quote-theme.quote-break-all
-//   .HyperMD-quote:not(.callout)
+//   .HyperMD-quote:not(.HyperMD-callout)
 //   .cm-quote:not(.cm-formatting) {
 //   word-break: break-all;
 // }
@@ -211,7 +211,7 @@ body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(
 //     var(--radius-s)
 //   );
 //   .markdown-source-view.mod-cm6.is-live-preview {
-//     .HyperMD-quote:not(.callout) {
+//     .HyperMD-quote:not(.HyperMD-callout) {
 //       text-indent: 0 !important;
 //       border-top-left-radius: 0 !important;
 //       border-top-right-radius: 0 !important;
@@ -270,7 +270,7 @@ body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(
 //       }
 //     }
 //     :is(.internal-embed, .cm-line:not(.HyperMD-quote))
-//       + .HyperMD-quote:not(.callout) {
+//       + .HyperMD-quote:not(.HyperMD-callout) {
 //       &::before {
 //         top: var(--blockquote-border-thickness);
 //         height: calc(100% - var(--blockquote-border-thickness) * 2);
@@ -349,17 +349,17 @@ body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(
 //         );
 //       }
 //     }
-//     div.HyperMD-quote-#{$j}:not(.callout)
-//       + .HyperMD-quote-#{$i}:not(.callout):not(.cm-active)::before {
+//     div.HyperMD-quote-#{$j}:not(.HyperMD-callout)
+//       + .HyperMD-quote-#{$i}:not(.HyperMD-callout):not(.cm-active)::before {
 //       box-shadow: $before;
 //     }
-//     div.HyperMD-quote-#{$j}:not(.callout)
-//       + .HyperMD-quote-#{$i}:not(.callout):not(.cm-active)::after {
+//     div.HyperMD-quote-#{$j}:not(.HyperMD-callout)
+//       + .HyperMD-quote-#{$i}:not(.HyperMD-callout):not(.cm-active)::after {
 //       box-shadow: $after;
 //     }
 //   }
-//   div.HyperMD-quote:not(.callout):is(.cm-active)
-//     + div.HyperMD-quote-#{$i}:not(.callout) {
+//   div.HyperMD-quote:not(.HyperMD-callout):is(.cm-active)
+//     + div.HyperMD-quote-#{$i}:not(.HyperMD-callout) {
 //     &::before {
 //       box-shadow: $active;
 //     }
