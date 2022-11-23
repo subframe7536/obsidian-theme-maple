@@ -34,6 +34,7 @@ body.calendar-swap-year-month #calendar-container .nav {
 
 #calendar-container {
   --color-text-today: var(--text-on-accent);
+  --color-text-weeknum: var(--accent-active);
 
   thead {
     border-bottom: var(--size-2-1) solid var(--accent-active);
@@ -61,7 +62,7 @@ body.calendar-swap-year-month #calendar-container .nav {
     }
   }
 
-  tr :nth-child(5) {
-    border-right: 2px solid var(--accent-inactive);
+  tr :nth-last-child(3) {
+    border-right: 1px solid var(--accent-inactive);
   }
 }

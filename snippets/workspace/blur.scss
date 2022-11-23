@@ -13,14 +13,8 @@ body.back-blur {
     }
   }
 
-  &-modal .modal-bg {
-    backdrop-filter: blur(calc(var(--blur) * 1px / 2));
-    opacity: initial !important;
-    background-color: hsla(var(--accent-h), 20%, 8%, 30%);
-  }
-
   &-title-bar {
-    .view-header {
+    .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
       --background-primary: hsla(var(--background-primary-hsl), 0.9);
       backdrop-filter: blur($blur);
       position: absolute;
@@ -40,17 +34,17 @@ body.back-blur {
       }
     }
 
-    &.tab-title-bar .view-header {
+    &.tab-title-bar .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
       margin: var(--size-4-1) calc(var(--size-4-4) - var(--size-2-1)) 0;
       width: calc(100% - 2 * calc(var(--size-4-4) - var(--size-2-1)));
       --background-primary: hsla(var(--background-secondary-hsl), 0.9);
     }
 
-    .workspace-leaf.mod-active .view-header {
+    .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
       --background-primary: hsla(var(--background-primary-hsl), 0.6);
     }
 
-    &.tab-title-bar .workspace-leaf.mod-active .view-header {
+    &.tab-title-bar .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
       --background-primary: hsla(var(--background-secondary-hsl), 0.6);
     }
   }

@@ -245,11 +245,6 @@ settings:
         title.zh: 菜单 / 提示框
         type: class-toggle
     -
-        id: back-blur-modal
-        title: modal mask
-        title.zh: 弹出框背景遮罩
-        type: class-toggle
-    -
         id: back-blur-title-bar
         title: tab title bar
         description: ❗scrollbar will move up
