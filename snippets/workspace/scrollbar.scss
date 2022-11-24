@@ -44,12 +44,12 @@ body.scrollbar-hover-accent {
 }
 
 body.scrollbar-movein-animation :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
-  color: transparent;
+  color: transparent !important;
   transition: color var(--animation);
   scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
 
   &:hover {
-    color: hsla(var(--color-accent-hsl), 24%);
+    color: hsla(var(--color-accent-hsl), 24%) !important;
   }
 
   &>:not(h1, h2, h3, h4, h5, h6) {

@@ -130,8 +130,9 @@ settings:
         title.zh: 状态栏浮动
         type: class-toggle
         default: true
+
     -
-        id: status-bar-animation
+        id: status-bar-style
         title: status bar animation
         description: ❗last 2 style only valid when turn on “float status bar”
         title.zh: 状态栏样式
@@ -148,6 +149,12 @@ settings:
                 value: status-bar-hidden
             -   label: scroll out on hover
                 value: status-bar-scroll
+    -
+        id: status-bar-style-center
+        title: center status bar
+        title.zh: 状态栏居中
+        type: class-toggle
+        default: true
     -
         id: search-internal
         title: document search panel
@@ -248,9 +255,7 @@ settings:
     -
         id: back-blur-title-bar
         title: tab title bar
-        description: ❗scrollbar will move up
         title.zh: tab 标题栏
-        description.zh: ❗滚动条会上移，ctrl + home返回顶部时第一行会被遮盖
         type: class-toggle
     -
         id: back-blur-status-bar
@@ -2238,10 +2243,27 @@ strong,
 .cm-strong {
   text-decoration-line: underline;
   text-underline-offset: var(--size-4-1);
+  transition: var(--animation);
+}
+
+a :is(em, strong) {
+  text-decoration: none;
+}
+a :is(em, strong):hover {
+  --bold-color: var(--text-on-accent);
+  --italic-color: var(--text-on-accent);
 }
 
 .workspace-leaf-content[data-type=markdown] .view-header .clickable-icon:hover {
   background-color: var(--background-modifier-hover);
+}
+
+.cm-hmd-frontmatter {
+  font-size: var(--font-small);
+}
+
+.view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
+  padding-top: 0;
 }
 
 body.tab-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
@@ -2251,7 +2273,7 @@ body.tab-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .view-hea
   border-radius: var(--radius-m);
   --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
   transition: var(--animation);
-  width: calc(100% - var(--size-4-2));
+  width: calc(100% - var(--size-4-2)) !important;
 }
 body.tab-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .view-header .view-header-title-container:after {
   content: none;
@@ -2260,7 +2282,7 @@ body.tab-title-bar .workspace-leaf.mod-active .workspace-leaf-content:not([data-
   --background-primary: var(--background-secondary);
 }
 body.tab-title-bar.tab-title-bar-shadow .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  box-shadow: 0 0 var(--size-4-1) var(--background-modifier-box-shadow);
+  box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
 }
 
 /* ======= 标题 ====== */
@@ -2556,8 +2578,9 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   height: var(--size-4-6);
   line-height: var(--size-4-6);
 }
-#calendar-container tr :nth-last-child(3) {
-  border-right: 1px solid var(--accent-inactive);
+#calendar-container tbody tr td:nth-last-child(2),
+#calendar-container tbody tr td:nth-last-child(1) {
+  background-color: var(--background-modifier-hover);
 }
 
 /* ====== excalidraw ====== */ /* ====== style setting ====== */
@@ -2685,6 +2708,8 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 body:not(.calendar-swap-year-month) .setting-item[data-id=calendar-year-suffix],
 body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-break-all]),
 body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor],
+body.status-bar-scroll .setting-item[data-id=status-bar-style-center],
+body:not(.status-bar-float) .setting-item[data-id^=status-bar-style],
 body:not(.tab-title-bar) .setting-item[data-id=tab-title-bar-shadow],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.code-language) .setting-item[data-id=setting-code-language-color],
@@ -3107,12 +3132,12 @@ body.scrollbar-hover-accent {
 }
 
 body.scrollbar-movein-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {
-  color: transparent;
+  color: transparent !important;
   transition: color var(--animation);
   scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
 }
 body.scrollbar-movein-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items):hover {
-  color: hsla(var(--color-accent-hsl), 24%);
+  color: hsla(var(--color-accent-hsl), 24%) !important;
 }
 body.scrollbar-movein-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) > :not(h1, h2, h3, h4, h5, h6) {
   color: var(--text-normal);
@@ -3290,19 +3315,25 @@ body.back-blur-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .vi
   backdrop-filter: blur(calc(var(--blur) * 1px));
   position: absolute;
   z-index: 100;
-  width: calc(100% - var(--size-4-3));
-  margin-right: var(--size-4-3);
+  width: 100%;
   padding-right: 0;
 }
-body.back-blur-title-bar.tab-title-bar .view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
+body.back-blur-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .cm-scroller::-webkit-scrollbar-track {
+  margin-top: calc(var(--file-margins) + var(--size-4-3));
+}
+body.back-blur-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .cm-content {
+  padding-top: 0;
+}
+body.back-blur-title-bar .view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
   padding-top: calc(var(--file-margins) + var(--size-4-4));
 }
-body.back-blur-title-bar.tab-title-bar .workspace-leaf-content[data-type=style-settings] .view-content {
+body.back-blur-title-bar .workspace-leaf-content[data-type=style-settings] .view-content {
   padding-top: calc(var(--file-margins) + var(--size-4-8));
 }
+body.back-blur-title-bar .workspace-leaf-content[data-type=style-settings] .view-content::-webkit-scrollbar-track {
+  margin-top: calc(var(--file-margins) + var(--size-4-3));
+}
 body.back-blur-title-bar.tab-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  margin: var(--size-4-1) calc(var(--size-4-4) - var(--size-2-1)) 0;
-  width: calc(100% - 2 * (var(--size-4-4) - var(--size-2-1)));
   --background-primary: hsla(var(--background-secondary-hsl), 0.9);
 }
 body.back-blur-title-bar .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
@@ -3361,10 +3392,18 @@ body.status-bar-float .status-bar {
   bottom: var(--size-4-1);
   right: var(--size-4-1);
   transition: var(--animation);
+  box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
+}
+body.status-bar-float.status-bar-style-center:is(.status-bar-default, .status-bar-hidden) .status-bar {
+  left: 50%;
+  transform: translateX(-50%);
 }
 body.status-bar-float.status-bar-full .status-bar {
   left: calc(var(--ribbon-width) + var(--size-4-1));
   width: unset;
+}
+body.status-bar-float.status-bar-full.status-bar-style-center .status-bar {
+  justify-content: center;
 }
 body.status-bar-float.status-bar-hidden .status-bar {
   opacity: 0;
@@ -3415,3 +3454,5 @@ body.message-modify:not(.color-active-default).theme-dark {
   --background-modifier-message: hsl(var(--setting-message-bg,
         calc(var(--accent-h) + 60) calc(var(--accent-s) - 12%) calc(var(--accent-l) - 12%)));
 }
+
+/* ====== 面板头部按钮 ====== */

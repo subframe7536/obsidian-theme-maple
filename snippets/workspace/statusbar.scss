@@ -34,11 +34,23 @@ body.status-bar-float {
     bottom: var(--size-4-1);
     right: var(--size-4-1);
     transition: var(--animation);
+    box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
   }
 
-  &.status-bar-full .status-bar {
-    left: calc(var(--ribbon-width) + var(--size-4-1));
-    width: unset;
+  &.status-bar-style-center:is(.status-bar-default, .status-bar-hidden) .status-bar {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.status-bar-full {
+    .status-bar {
+      left: calc(var(--ribbon-width) + var(--size-4-1));
+      width: unset;
+    }
+
+    &.status-bar-style-center .status-bar {
+      justify-content: center;
+    }
   }
 
   &.status-bar-hidden .status-bar {

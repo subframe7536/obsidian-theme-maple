@@ -62,7 +62,8 @@ body.calendar-swap-year-month #calendar-container .nav {
     }
   }
 
-  tr :nth-last-child(3) {
-    border-right: 1px solid var(--accent-inactive);
+  tbody tr td:nth-last-child(2),
+  tbody tr td:nth-last-child(1) {
+    background-color: var(--background-modifier-hover);
   }
 }

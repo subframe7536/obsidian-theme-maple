@@ -101,10 +101,28 @@ strong,
 .cm-strong {
   text-decoration-line: underline;
   text-underline-offset: var(--size-4-1);
+  transition: var(--animation);
+}
+
+a :is(em, strong) {
+  text-decoration: none;
+
+  &:hover {
+    --bold-color: var(--text-on-accent);
+    --italic-color: var(--text-on-accent);
+  }
 }
 
 .workspace-leaf-content[data-type='markdown'] .view-header .clickable-icon:hover {
   background-color: var(--background-modifier-hover);
+}
+
+.cm-hmd-frontmatter {
+  font-size: var(--font-small);
+}
+
+.view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
+  padding-top: 0; //calc(var(--file-margins) / 2);
 }
 
 body.tab-title-bar {
@@ -115,7 +133,7 @@ body.tab-title-bar {
     border-radius: var(--radius-m);
     --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
     transition: var(--animation);
-    width: calc(100% - var(--size-4-2));
+    width: calc(100% - var(--size-4-2)) !important;
 
     .view-header-title-container:after {
       content: none;
@@ -127,6 +145,6 @@ body.tab-title-bar {
   }
 
   &.tab-title-bar-shadow .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
-    box-shadow: 0 0 var(--size-4-1) var(--background-modifier-box-shadow);
+    box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
   }
 }
