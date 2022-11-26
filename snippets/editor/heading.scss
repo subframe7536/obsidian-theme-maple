@@ -29,6 +29,12 @@ body {
   --h4-line-height: var(--line-height-normal);
   --h5-line-height: var(--line-height-normal);
   --h6-line-height: var(--line-height-normal);
+  --h1-font: var(--setting-h1-font, var(--font-text));
+  --h2-font: var(--setting-h2-font, var(--font-text));
+  --h3-font: var(--setting-h3-font, var(--font-text));
+  --h4-font: var(--setting-h4-font, var(--font-text));
+  --h5-font: var(--setting-h5-font, var(--font-text));
+  --h6-font: var(--setting-h6-font, var(--font-text));
 
   :is(#{$headings}) {
     margin: 0 !important;

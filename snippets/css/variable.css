@@ -9,7 +9,9 @@
   --color-green: rgba(81, 188, 0, var(--color-opacity)) !important;
   --color-yellow: rgba(245, 200, 145, var(--color-opacity)) !important;
   --color-orange: rgba(228, 152, 12, var(--color-opacity)) !important;
+  --color-orange-rgb: 228, 152, 12;
   --color-blue: rgba(18, 158, 222, var(--color-opacity)) !important;
+  --color-blue-rgb: 18, 158, 222;
   --color-cyan: rgba(99, 201, 201, var(--color-opacity)) !important;
   --color-purple: rgba(144, 132, 233, var(--color-opacity)) !important;
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);

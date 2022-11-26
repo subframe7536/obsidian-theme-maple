@@ -1,5 +1,20 @@
 /* ====== 标题栏 ====== */
 
+:is(.mod-windows, .mod-linux) .titlebar-button {
+  width: 2.4rem;
+  padding: 13px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &.mod-maximize {
+    padding: 12px;
+  }
+
+}
+
 .titlebar-button.mod-close:hover {
   color: var(--text-on-accent);
 }

@@ -31,7 +31,22 @@ body {
   }
 }
 
-body.setting-header .modal-container {
+body.modal-header .modal-container {
+  .mod-settings::before {
+    content: var(--setting-header-title, 'Maple 0.2.0');
+    position: absolute;
+    left: 50%;
+    top: var(--size-4-6);
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    font-weight: bold;
+    background-image: linear-gradient(to right,
+        hsl(calc(var(--accent-h) - 15), calc(var(--accent-s) + 12%), var(--accent-l)),
+        hsl(calc(var(--accent-h) + 15), calc(var(--accent-s) + 12%), var(--accent-l)));
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
   .mod-settings .modal-content {
     background-color: var(--frame-background-color);
 
@@ -141,6 +156,7 @@ button {
     }
   }
 }
+
 
 body.setting-group-title.theme-dark .modal-container .mod-settings .modal-content .vertical-tab-header-group-title {
   filter: brightness(1.4);

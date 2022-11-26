@@ -76,12 +76,14 @@
       border-top: var(--code-bg-border);
       border-top-left-radius: var(--code-bg-radius) !important;
       border-top-right-radius: var(--code-bg-radius) !important;
+      margin-top: var(--size-2-1) !important;
     }
 
     &.HyperMD-codeblock-end-bg {
       border-bottom: var(--code-bg-border);
       border-bottom-left-radius: var(--code-bg-radius) !important;
       border-bottom-right-radius: var(--code-bg-radius) !important;
+      margin-bottom: var(--size-2-1) !important;
     }
   }
 }

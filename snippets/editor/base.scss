@@ -87,11 +87,13 @@ body :is(.markdown-source-view, .markdown-rendered) {
 
 em,
 .cm-em {
+  --blockquote-color: var(--italic-color);
   text-decoration-style: dotted;
 }
 
 strong,
 .cm-strong {
+  --blockquote-color: var(--bold-color);
   text-decoration-style: double;
 }
 
@@ -100,7 +102,7 @@ em,
 strong,
 .cm-strong {
   text-decoration-line: underline;
-  text-underline-offset: var(--size-4-1);
+  text-underline-offset: var(--size-2-1);
   transition: var(--animation);
 }
 

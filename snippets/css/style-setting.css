@@ -125,11 +125,10 @@ settings:
         level: 3
     -
         id: status-bar-float
-        title: float status bar
-        title.zh: 状态栏浮动
+        title: toast style status bar
+        title.zh: taost 风格的状态栏
         type: class-toggle
         default: true
-
     -
         id: status-bar-style
         title: status bar animation
@@ -153,7 +152,6 @@ settings:
         title: center status bar
         title.zh: 状态栏居中
         type: class-toggle
-        default: true
     -
         id: search-internal
         title: document search panel
@@ -221,8 +219,8 @@ settings:
         level: 4
     -
         id: tab-title-bar
-        title: component style tab title bar
-        title.zh: 组件风格的标题栏
+        title: toast style tab title bar
+        title.zh: toast 风格的标题栏
         type: class-toggle
         default: true
     -
@@ -306,12 +304,18 @@ settings:
         collapsed: true
         level: 3
     -
-        id: setting-header
+        id: modal-header
         title: add header for setting panel
         description: better with plugin “setting search”
         title.zh: 为设置面板添加顶部框
         description.zh: 配合 setting search 插件使用更佳
         type: class-toggle
+    -
+        id: setting-modal-header-title
+        title: set modal header title
+        title.zh: 设置面板标题
+        type: variable-text
+        default: "'Maple 0.2.0'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -437,7 +441,7 @@ settings:
         title: internal link color
         title.zh: 内部链接颜色
         type: variable-themed-color
-        format: hex
+        format: rgb-value
         opacity: false
         default-light: '#'
         default-dark: '#'
@@ -446,10 +450,15 @@ settings:
         title: external link color
         title.zh: 外部链接颜色
         type: variable-themed-color
-        format: hex
+        format: rgb-value
         opacity: false
         default-light: '#'
         default-dark: '#'
+    -
+        id: link-hover-expand
+        title: use underline animation on hover
+        title.zh: 鼠标经过时开启下划线动画
+        type: class-toggle
     -
         id: link-icon
         title: add icon before link
@@ -596,6 +605,49 @@ settings:
         opacity: false
         default-light: '#'
         default-dark: '#'
+    -
+        id: heading-font
+        title: heading font
+        title.zh: 标题字体
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-h1-font
+        title: h1 font
+        title.zh: 标题 1 字体
+        type: variable-text
+        default: ""
+    -
+        id: setting-h2-font
+        title: h2 font
+        title.zh: 标题 2 字体
+        type: variable-text
+        default: ""
+    -
+        id: setting-h3-font
+        title: h3 font
+        title.zh: 标题 3 字体
+        type: variable-text
+        default: ""
+    -
+        id: setting-h4-font
+        title: h4 font
+        title.zh: 标题 4 字体
+        type: variable-text
+        default: ""
+    -
+        id: setting-h5-font
+        title: h5 font
+        title.zh: 标题 5 字体
+        type: variable-text
+        default: ""
+    -
+        id: setting-h6-font
+        title: h6 font
+        title.zh: 标题 6 字体
+        type: variable-text
+        default: ""
     -
         id: hr
         title: hr

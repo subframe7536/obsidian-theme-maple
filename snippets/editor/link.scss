@@ -1,15 +1,15 @@
 /* ====== 链接 ====== */
 
 :is(body, .print .markdown-rendered) {
-  --link-decoration-hover: none;
-  --link-external-decoration-hover: none;
-  --link-color: var(--setting-link-internal-color, var(--color-blue));
-  --link-color-hover: var(--accent-active);
-  --link-external-color: var(--setting-link-external-color,
-      var(--color-orange));
-  --link-external-color-hover: var(--accent-active);
-  --link-unresolved-color: var(--setting-link-external-color,
-      var(--color-orange));
+  // --link-decoration-hover: none;
+  // --link-external-decoration-hover: none;
+  --link-color-rgb: var(--setting-link-internal-color, var(--color-blue-rgb));
+  --link-external-color-rgb: var(--setting-link-external-color, var(--color-orange-rgb));
+  --link-color: rgb(var(--link-color-rgb));
+  --link-color-hover: var(--link-color);
+  --link-external-color: rgb(var(--link-external-color-rgb));
+  --link-external-color-hover: var(--link-external-color);
+  --link-unresolved-color: var(--text-faint);
   --link-footnote: var(--color-purple);
 }
 
@@ -44,8 +44,19 @@
   }
 }
 
-:is(a.external-link, .cm-link .cm-underline) {
-  @include underline(var(--link-external-color));
+@mixin hover($color) {
+  transition: var(--animation);
+  color: rgb($color);
+  border-radius: var(--radius-s);
+  text-underline-offset: var(--size-2-1);
+
+  &:hover {
+    background-color: rgb($color, 0.1);
+  }
+
+  &:active {
+    background-color: rgb($color, 0.35);
+  }
 }
 
 .cm-hmd-footnote .cm-underline {
@@ -55,8 +66,8 @@
   pointer-events: none;
 }
 
-:is(.cm-hmd-internal-link, .cm-link) {
-  transition: color var(--animation);
+a.is-unresolved:hover {
+  --link-color-hover: var(--link-unresolved-color);
 }
 
 .cm-url {
@@ -67,24 +78,48 @@ span.cm-formatting-link {
   color: var(--accent-active) !important;
 }
 
-:is(a.internal-link, .cm-hmd-internal-link .cm-underline) {
-  @include underline(var(--link-color));
-}
-
-body:not(.link-click-to-edit-in-live-preview) {
-  a.external-link {
-    background-image: none;
-    background-size: unset;
-    padding-right: 0;
+body:not(.link-hover-expand) {
+  :is(a.external-link, .cm-link .cm-underline) {
+    @include hover(var(--link-external-color-rgb));
   }
 
-  span.external-link {
-    display: none;
+  :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline) {
+    @include hover(var(--link-color-rgb));
+  }
+
+  span:is(.cm-link, .cm-hmd-internal-link):hover {
+    text-decoration: none;
+  }
+}
+
+body.link-hover-expand {
+  :is(a.external-link, .cm-link .cm-underline) {
+    @include underline(var(--link-external-color));
+  }
+
+  :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline) {
+    @include underline(var(--link-color));
+  }
+
+  :is(.cm-hmd-internal-link, .cm-link) {
+    transition: color var(--animation);
+  }
+
+  &:not(.link-click-to-edit-in-live-preview) {
+    a.external-link {
+      background-image: none;
+      background-size: unset;
+      padding-right: 0;
+    }
+
+    span.external-link {
+      display: none;
+    }
   }
 }
 
 body.link-icon {
-  :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link, .cm-hmd-internal-link .cm-underline)::before {
+  :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline)::before {
     content: '';
     display: inline-block;
     transform: translateY(var(--size-2-1));
