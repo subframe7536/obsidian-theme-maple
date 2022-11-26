@@ -160,6 +160,23 @@ body .markdown-rendered pre {
   }
 }
 
+body.code-nowrap {
+  &.scrollbar-gutter-overlay {
+    code {
+      padding-bottom: var(--size-4-2);
+    }
+
+    pre {
+      padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5 - var(--size-4-2)) !important;
+    }
+  }
+
+  code,
+  pre {
+    white-space: nowrap;
+  }
+}
+
 body.code-language .markdown-rendered {
   pre {
     padding: 1.8rem 1rem;

@@ -744,6 +744,12 @@ settings:
         type: class-toggle
         default: true
     -
+        id: code-nowrap
+        title: no wrap in preview mode
+        title.zh: 预览模式 代码块不换行
+        type: class-toggle
+        default: true
+    -
         id: setting-code-language-color
         title: language indicator color
         title.zh: 语言标识颜色

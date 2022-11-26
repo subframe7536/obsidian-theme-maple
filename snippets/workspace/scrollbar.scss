@@ -11,7 +11,7 @@ $editor: ".workspace-leaf-content[data-type='markdown'] .cm-scroller",
   '.markdown-preview-view';
 
 $horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
-  'mjx-container', '.markdown-embed-content .markdown-rendered';
+  'mjx-container', '.markdown-embed-content .markdown-rendered', 'code';
 
 $kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items';
 
@@ -43,7 +43,7 @@ body.scrollbar-hover-accent {
   --setting-scrollbar-hover: hsla(var(--color-accent-hsl), 30%);
 }
 
-body.scrollbar-movein-animation :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
+body.scrollbar-movein-animation :where(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
   color: transparent !important;
   transition: color var(--animation);
   scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
