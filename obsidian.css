@@ -1231,8 +1231,12 @@ body.code-nowrap.scrollbar-gutter-overlay pre {
 body.code-nowrap.scrollbar-gutter-overlay pre code {
   padding-bottom: var(--size-4-2);
 }
-body.code-nowrap code,
-body.code-nowrap pre {
+body.code-nowrap code {
+  word-break: normal;
+  word-wrap: break-word;
+  white-space: pre;
+}
+body.code-nowrap .token {
   white-space: nowrap;
 }
 
@@ -3270,6 +3274,14 @@ body.scrollbar-gutter-reserve {
 
 body.scrollbar-hover-accent {
   --setting-scrollbar-hover: hsla(var(--color-accent-hsl), 30%);
+}
+
+/* https://stackoverflow.com/a/46304690/20058211 */
+body.scrollbar-movein-animation pre code {
+  -webkit-text-fill-color: var(--code-base);
+}
+body.scrollbar-movein-animation pre code * {
+  -webkit-text-fill-color: initial;
 }
 
 body.scrollbar-movein-animation :where(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {

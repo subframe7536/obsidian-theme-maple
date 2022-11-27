@@ -43,6 +43,15 @@ body.scrollbar-hover-accent {
   --setting-scrollbar-hover: hsla(var(--color-accent-hsl), 30%);
 }
 
+/* https://stackoverflow.com/a/46304690/20058211 */
+body.scrollbar-movein-animation pre code {
+  -webkit-text-fill-color: var(--code-base);
+
+  * {
+    -webkit-text-fill-color: initial;
+  }
+}
+
 body.scrollbar-movein-animation :where(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
   color: transparent !important;
   transition: color var(--animation);
