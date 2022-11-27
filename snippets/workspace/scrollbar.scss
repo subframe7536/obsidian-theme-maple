@@ -11,7 +11,7 @@ $editor: ".workspace-leaf-content[data-type='markdown'] .cm-scroller",
   '.markdown-preview-view';
 
 $horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
-  'mjx-container', '.markdown-embed-content .markdown-rendered', 'code';
+  'mjx-container', '.markdown-embed-content .markdown-rendered', 'pre code';
 
 $kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items';
 
