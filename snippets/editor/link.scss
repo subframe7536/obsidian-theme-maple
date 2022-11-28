@@ -51,7 +51,7 @@
   text-underline-offset: var(--size-2-1);
 
   &:hover {
-    background-color: rgb($color, 0.1);
+    background-color: rgb($color, 0.15);
   }
 
   &:active {
@@ -70,16 +70,16 @@ a.is-unresolved:hover {
   --link-color-hover: var(--link-unresolved-color);
 }
 
-.cm-url {
-  color: var(--link-color) !important;
+.cm-s-obsidian .cm-formatting-link-string+span.cm-url {
+  color: var(--link-color);
 }
 
-span.cm-formatting-link {
-  color: var(--accent-active) !important;
+span:is(.cm-formatting-link, .cm-formatting-link-string) {
+  color: var(--text-faint) !important;
 }
 
 body:not(.link-hover-expand) {
-  :is(a.external-link, .cm-link .cm-underline) {
+  :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string)) {
     @include hover(var(--link-external-color-rgb));
   }
 
@@ -93,7 +93,11 @@ body:not(.link-hover-expand) {
 }
 
 body.link-hover-expand {
-  :is(a.external-link, .cm-link .cm-underline) {
+  .cm-url {
+    --link-external-decoration: none;
+  }
+
+  :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline) {
     @include underline(var(--link-external-color));
   }
 
@@ -103,18 +107,6 @@ body.link-hover-expand {
 
   :is(.cm-hmd-internal-link, .cm-link) {
     transition: color var(--animation);
-  }
-
-  &:not(.link-click-to-edit-in-live-preview) {
-    a.external-link {
-      background-image: none;
-      background-size: unset;
-      padding-right: 0;
-    }
-
-    span.external-link {
-      display: none;
-    }
   }
 }
 
@@ -129,16 +121,28 @@ body.link-icon {
     -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
   }
 
-  &:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, .cm-link:not(.cm-hmd-footnote) .cm-underline)::before {
-    content: '';
-    display: inline-block;
-    transform: translateY(var(--size-2-1));
-    width: calc(var(--font-text-size) - var(--size-4-1));
-    height: calc(var(--font-text-size) - var(--size-4-1));
-    margin-left: var(--size-2-1);
-    margin-right: var(--size-2-1);
-    background-color: var(--link-external-color);
-    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>');
+  &:not(.link-click-to-edit-in-live-preview) {
+    :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, :is(.cm-link:not(.cm-hmd-footnote), .cm-url) .cm-underline)::before {
+      content: '';
+      display: inline-block;
+      transform: translateY(var(--size-2-1));
+      width: calc(var(--font-text-size) - var(--size-4-1));
+      height: calc(var(--font-text-size) - var(--size-4-1));
+      margin-left: var(--size-2-1);
+      margin-right: var(--size-2-1);
+      background-color: var(--link-external-color);
+      -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>');
+    }
+
+    a.external-link {
+      background-image: none;
+      background-size: unset;
+      padding-right: 0;
+    }
+
+    span.external-link {
+      display: none;
+    }
   }
 }
 

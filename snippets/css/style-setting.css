@@ -34,46 +34,83 @@ settings:
         description.zh: 固定主题色的 saturation / lightness 使颜色更适合主题，开启后主题色只调整 hue
         type: class-toggle
     -
-        id: color-use-custom-color
+        id: color-use-custom
         title: use custom accent color
         description: use style setting accent color instead of Obsidian's accent color
         title.zh: 自定义 accent color
         description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
         type: class-toggle
     -
-        id: setting-accent-hue-light
-        title: light accent color (Hue)
-        title.zh: 亮色模式
+        id: color-accent-light
+        title: light mode
+        title.zh: 浅色模式
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-color-base-light
+        title: base color
+        title.zh: 基础颜色
         type: variable-number-slider
         default: 116
         min: 0
         max: 360
         step: 5
     -
-        id: setting-accent-hue-dark
+        id: color-active-light
+        title: highlight color
+        title.zh: 高亮颜色
+        type: class-select
+        allowEmpty: false
+        default: color-active-default-light
+        options:
+            -   label: accent color
+                value: color-active-default-light
+            -   label: accent color alt
+                value: color-active-alt-light
+            -   label: custom
+                value: color-active-custom-light
+    -
+        id: setting-color-active-custom-light
+        title: custom highlight color
+        title.zh: 自定义高亮颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: color-accent-dark
+        title: dark mode
         title.zh: 暗色模式
-        title: dark accent color (Hue)
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-color-base-dark
+        title: base color
+        title.zh: 基础颜色
         type: variable-number-slider
         default: 207
         min: 0
         max: 360
         step: 5
     -
-        id: color-active
+        id: color-active-dark
         title: highlight color
         title.zh: 高亮颜色
         type: class-select
         allowEmpty: false
-        default: color-active-default
+        default: color-active-default-dark
         options:
             -   label: accent color
-                value: color-active-default
+                value: color-active-default-dark
             -   label: accent color alt
-                value: color-active-alt
+                value: color-active-alt-dark
             -   label: custom
-                value: color-active-custom
+                value: color-active-custom-dark
     -
-        id: setting-color-active-custom
+        id: setting-color-active-custom-dark
         title: custom highlight color
         title.zh: 自定义高亮颜色
         type: variable-themed-color
@@ -331,13 +368,13 @@ settings:
         level: 3
     -
         id: scrollbar-hover-accent
-        title: enable scrollbar hover highlight
-        title.zh: 启用滚动条鼠标经过高亮
+        title: scrollbar hover highlight
+        title.zh: 滚动条鼠标经过高亮
         type: class-toggle
     -
         id: scrollbar-movein-animation
-        title: enable scrollbar movein animation
-        title.zh: 启用滚动条鼠标移入动画效果
+        title: show scrollbar when mouse movein
+        title.zh: 滚动条鼠标经过时才显示
         type: class-toggle
         default: true
     -
@@ -617,37 +654,37 @@ settings:
         title: h1 font
         title.zh: 标题 1 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: setting-h2-font
         title: h2 font
         title.zh: 标题 2 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: setting-h3-font
         title: h3 font
         title.zh: 标题 3 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: setting-h4-font
         title: h4 font
         title.zh: 标题 4 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: setting-h5-font
         title: h5 font
         title.zh: 标题 5 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: setting-h6-font
         title: h6 font
         title.zh: 标题 6 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: hr
         title: hr

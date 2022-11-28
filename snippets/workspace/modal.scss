@@ -31,6 +31,10 @@ body {
   }
 }
 
+body.titlebar-colorful .modal-container .mod-settings::before {
+  --setting-color-logo: var(--text-on-accent);
+}
+
 body.modal-header .modal-container {
   .mod-settings::before {
     content: var(--setting-header-title, 'Maple 0.2.0');
@@ -40,11 +44,7 @@ body.modal-header .modal-container {
     transform: translate(-50%, -50%);
     font-size: 1.4rem;
     font-weight: bold;
-    background-image: linear-gradient(to right,
-        hsl(calc(var(--accent-h) - 15), calc(var(--accent-s) + 12%), var(--accent-l)),
-        hsl(calc(var(--accent-h) + 15), calc(var(--accent-s) + 12%), var(--accent-l)));
-    -webkit-background-clip: text;
-    color: transparent;
+    color: var(--setting-color-logo, var(--text-accent));
   }
 
   .mod-settings .modal-content {

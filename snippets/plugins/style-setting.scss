@@ -41,7 +41,7 @@ body input[type='range']::-webkit-slider-thumb {
 
 .style-settings-container {
 
-  .setting-item:is([data-id^='setting-accent-hue']) {
+  .setting-item:is([data-id^='setting-color-base']) {
     input.slider {
       height: 0.8em;
       --hue-slider-sat: 70%;
@@ -71,15 +71,15 @@ body input[type='range']::-webkit-slider-thumb {
       height: 1.6em;
       width: 1.6em;
       color: var(--text-normal);
-      background-color: hsl(var(--setting-accent-hue-light, 116), 32%, 58%);
+      background-color: hsl(var(--setting-color-base-light, 116), 32%, 58%);
       position: relative;
       right: 1em;
       border-radius: var(--radius-s);
     }
   }
 
-  .setting-item[data-id='setting-accent-hue-dark'] .setting-item-control::before {
-    background-color: hsl(var(--setting-accent-hue-dark, 207), 32%, 58%);
+  .setting-item[data-id='setting-color-base-dark'] .setting-item-control::before {
+    background-color: hsl(var(--setting-color-base-dark, 207), 32%, 58%);
   }
 }
 
@@ -91,10 +91,12 @@ body.status-bar-scroll .setting-item[data-id='status-bar-style-center'],
 body:not(.status-bar-float) .setting-item[data-id^='status-bar-style'],
 body:not(.tab-title-bar) .setting-item[data-id='tab-title-bar-shadow'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
+body:not(.color-use-custom) .setting-item[data-id*='color-accent-'],
 body:not(.code-language) .setting-item[data-id='setting-code-language-color'],
 body:not(.modal-header) .setting-item[data-id='setting-modal-header-title'],
-body:not(.color-use-custom-color) .setting-item[data-id^='accent-hue'],
-body:not(.color-active-custom) .setting-item[data-id^='setting-color-active-custom'],
+body:not(.color-use-custom) .setting-item[data-id^='accent-hue'],
+body:not(.color-active-custom-light) .setting-item[data-id='setting-color-active-custom-light'],
+body:not(.color-active-custom-dark) .setting-item[data-id='setting-color-active-custom-dark'],
 body:not(.message-modify) .setting-item[data-id^='setting-message'],
 body:not(.heading-style-level) .setting-item[data-id^='heading-level'],
 body:not(.heading-style-num) .setting-item[data-id^='heading-num'],

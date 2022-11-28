@@ -59,7 +59,7 @@ body.titlebar-colorful {
   &.theme-light {
     --frame-background-color: hsl(var(--accent-h),
         var(--accent-s),
-        calc(var(--accent-l) + 8%));
+        calc(var(--accent-l) + 18%));
     --frame-outline-color: hsl(var(--accent-h),
         var(--accent-s),
         calc(var(--accent-l) + 23.5%));

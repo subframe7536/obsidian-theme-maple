@@ -39,88 +39,89 @@ body.scrollbar-gutter-reserve {
   --setting-scrollbar-gutter: stable;
 }
 
+$base-color: hsla(var(--color-accent-hsl), 24%);
+$hover-color: hsla(var(--color-accent-hsl), 40%);
+$active-color: hsla(var(--color-accent-hsl), 64%);
+
 body.scrollbar-hover-accent {
-  --setting-scrollbar-hover: hsla(var(--color-accent-hsl), 30%);
+  --setting-scrollbar-hover: #{$hover-color};
 }
 
+/* https://stackoverflow.com/a/74050413/20058211 */
 /* https://stackoverflow.com/a/46304690/20058211 */
-body.scrollbar-movein-animation pre code {
-  -webkit-text-fill-color: var(--code-base);
-
-  * {
-    -webkit-text-fill-color: initial;
-  }
+@property --scrollbar-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0000;
 }
 
-body.scrollbar-movein-animation :where(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
-  color: transparent !important;
-  transition: color var(--animation);
-  scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
+::-webkit-scrollbar {
+  width: var(--size-4-3) !important;
+  height: var(--size-4-3) !important;
+  background-color: transparent !important;
 
-  &:hover {
-    color: hsla(var(--color-accent-hsl), 24%) !important;
-  }
-
-  &>:not(h1, h2, h3, h4, h5, h6) {
-    color: var(--text-normal);
-  }
-
-  &>.search-empty-state {
-    color: var(--text-faint);
-  }
-
-  &::-webkit-scrollbar {
-    width: var(--size-4-3) !important;
-    height: var(--size-4-3) !important;
+  &-track {
     background-color: transparent !important;
+    box-shadow: none !important;
+  }
 
-    &-track {
-      background-color: transparent !important;
-      box-shadow: none !important;
+  &-thumb {
+    border-radius: var(--size-2-3) !important;
+    border: 3.6px solid transparent !important;
+    background-color: var(--scrollbar-color) !important;
+
+    &:hover {
+      --scrollbar-color: var(--setting-scrollbar-hover);
     }
-
-    &-thumb {
-      box-shadow: inset 0 0 0 10px !important;
-      border-radius: var(--size-2-3) !important;
-      background-clip: content-box;
-      background-color: transparent !important;
-      border: 3.6px solid transparent !important;
-
-      &:hover {
-        background-color: var(--setting-scrollbar-hover) !important;
-      }
-
-      &:active {
-        background-color: hsla(var(--color-accent-hsl), 64%) !important;
-      }
-    }
-  }
-}
-
-.popover.hover-popover>.markdown-embed>.markdown-embed-content>.markdown-preview-view {
-  color: transparent !important;
-
-  &:hover {
-    color: hsla(var(--color-accent-hsl), 24%) !important;
-  }
-}
-
-:is(body:not(.scrollbar-movein-animation) *, textarea) {
-  &::-webkit-scrollbar-thumb {
-    border-width: 3.2px;
-    background-color: transparent !important;
-  }
-
-  &:hover::-webkit-scrollbar-thumb {
-    background-color: hsla(var(--color-accent-hsl), 30%) !important;
 
     &:active {
-      background-color: hsla(var(--color-accent-hsl), 64%) !important;
+      --scrollbar-color: #{$active-color};
     }
   }
 }
 
-body.scrollbar-smooth.scrollbar-smooth-editor #{$editor},
-body.scrollbar-smooth :is(#{$base-panel}, #{$horizon}, #{$plugins}) {
-  scroll-behavior: smooth;
+body:not(.scrollbar-movein-animation) {
+  --scrollbar-color: #{$base-color};
+}
+
+body.scrollbar-movein-animation {
+  :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
+    transition: --scrollbar-color var(--animation);
+    scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
+
+    &:hover {
+      --scrollbar-color: #{$base-color};
+    }
+  }
+
+
+  textarea {
+    color: transparent;
+    transition: color var(--animation);
+    -webkit-text-fill-color: var(--text-normal);
+
+    &:hover {
+      color: #{$base-color};
+    }
+
+    * {
+      -webkit-text-fill-color: initial;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      box-shadow: 0 0 0 10px inset;
+      border-width: 3.2px;
+      background-clip: content-box;
+      background-color: transparent !important;
+    }
+  }
+}
+
+
+body.scrollbar-smooth {
+
+  &.scrollbar-smooth-editor #{$editor},
+  :is(#{$base-panel}, #{$horizon}, #{$plugins}) {
+    scroll-behavior: smooth;
+  }
 }

@@ -28,18 +28,18 @@ html
   --accent-s: 32% !important;
   --accent-l: 58% !important;
 }
-:is(body.color-use-custom-color.css-settings-manager, body.color-use-custom-color.css-settings-manager
+:is(body.color-use-custom.css-settings-manager, body.color-use-custom.css-settings-manager
     .print) {
   --accent-s: var(--accent-color-s, 32%) !important;
   --accent-l: var(--accent-color-l, 58%) !important;
 }
-:is(body.color-use-custom-color.theme-light.css-settings-manager, body.color-use-custom-color.theme-light.css-settings-manager
+:is(body.color-use-custom.theme-light.css-settings-manager, body.color-use-custom.theme-light.css-settings-manager
     .print) {
-  --accent-h: var(--setting-accent-hue-light, 116) !important;
+  --accent-h: var(--setting-color-base-light, 116) !important;
 }
-:is(body.color-use-custom-color.theme-dark.css-settings-manager, body.color-use-custom-color.theme-dark.css-settings-manager
+:is(body.color-use-custom.theme-dark.css-settings-manager, body.color-use-custom.theme-dark.css-settings-manager
     .print) {
-  --accent-h: var(--setting-accent-hue-dark, 207) !important;
+  --accent-h: var(--setting-color-base-dark, 207) !important;
 }
 :is(.theme-light, .theme-light .print) {
   --background-primary: hsl(
@@ -143,10 +143,10 @@ html
   --md-container-bg: hsl(calc(var(--accent-h) - 4), 20%, 10%);
   --color-opacity: 0.85;
 }
-body.theme-light:not(.color-active-default),
-body.theme-light:not(.color-active-default) .print {
+body.theme-light.color-use-custom:not(.color-active-default-light),
+body.theme-light.color-use-custom:not(.color-active-default-light) .print {
   --accent-active: var(
-    --setting-color-active-custom,
+    --setting-color-active-custom-light,
     hsl(
       calc(var(--accent-h) + 60),
       calc(var(--accent-s) - 12%),
@@ -154,7 +154,7 @@ body.theme-light:not(.color-active-default) .print {
     )
   );
   --accent-inactive: var(
-    --setting-color-active-custom,
+    --setting-color-active-custom-dark,
     hsl(
       calc(var(--accent-h) + 60),
       calc(var(--accent-s) - 12%),
@@ -162,10 +162,10 @@ body.theme-light:not(.color-active-default) .print {
     )
   );
 }
-body.theme-dark:not(.color-active-default),
-body.theme-dark:not(.color-active-default) .print {
+body.theme-dark.color-use-custom:not(.color-active-default-dark),
+body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
   --accent-active: var(
-    --setting-color-active-custom,
+    --setting-color-active-custom-dark,
     hsl(
       calc(var(--accent-h) + 60),
       calc(var(--accent-s) - 12%),
@@ -173,7 +173,7 @@ body.theme-dark:not(.color-active-default) .print {
     )
   );
   --accent-inactive: var(
-    --setting-color-active-custom,
+    --setting-color-active-custom-dark,
     hsl(
       calc(var(--accent-h) + 60),
       calc(var(--accent-s) - 12%),

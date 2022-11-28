@@ -70,6 +70,8 @@ kbd {
   box-shadow: var(--shadow-s);
   border-radius: var(--size-2-3);
   transition: var(--animation);
+  font-family: var(--font-monospace) !important;
+  color: var(--text-normal) !important;
 
   &:hover {
     border-color: var(--accent-active);
@@ -80,9 +82,9 @@ kbd {
   text-decoration-line: none !important;
 }
 
-body :is(.markdown-source-view, .markdown-rendered) {
-  --bold-color: var(--setting-text-bold-color, var(--color-red));
-  --italic-color: var(--setting-text-italic-color, var(--color-red));
+body {
+  --bold-color: var(--setting-text-bold-color, var(--color-red)) !important;
+  --italic-color: var(--setting-text-italic-color, var(--color-red)) !important;
 }
 
 em,

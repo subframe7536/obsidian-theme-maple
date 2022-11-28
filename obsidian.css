@@ -35,46 +35,83 @@ settings:
         description.zh: 固定主题色的 saturation / lightness 使颜色更适合主题，开启后主题色只调整 hue
         type: class-toggle
     -
-        id: color-use-custom-color
+        id: color-use-custom
         title: use custom accent color
         description: use style setting accent color instead of Obsidian's accent color
         title.zh: 自定义 accent color
         description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
         type: class-toggle
     -
-        id: setting-accent-hue-light
-        title: light accent color (Hue)
-        title.zh: 亮色模式
+        id: color-accent-light
+        title: light mode
+        title.zh: 浅色模式
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-color-base-light
+        title: base color
+        title.zh: 基础颜色
         type: variable-number-slider
         default: 116
         min: 0
         max: 360
         step: 5
     -
-        id: setting-accent-hue-dark
+        id: color-active-light
+        title: highlight color
+        title.zh: 高亮颜色
+        type: class-select
+        allowEmpty: false
+        default: color-active-default-light
+        options:
+            -   label: accent color
+                value: color-active-default-light
+            -   label: accent color alt
+                value: color-active-alt-light
+            -   label: custom
+                value: color-active-custom-light
+    -
+        id: setting-color-active-custom-light
+        title: custom highlight color
+        title.zh: 自定义高亮颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: color-accent-dark
+        title: dark mode
         title.zh: 暗色模式
-        title: dark accent color (Hue)
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-color-base-dark
+        title: base color
+        title.zh: 基础颜色
         type: variable-number-slider
         default: 207
         min: 0
         max: 360
         step: 5
     -
-        id: color-active
+        id: color-active-dark
         title: highlight color
         title.zh: 高亮颜色
         type: class-select
         allowEmpty: false
-        default: color-active-default
+        default: color-active-default-dark
         options:
             -   label: accent color
-                value: color-active-default
+                value: color-active-default-dark
             -   label: accent color alt
-                value: color-active-alt
+                value: color-active-alt-dark
             -   label: custom
-                value: color-active-custom
+                value: color-active-custom-dark
     -
-        id: setting-color-active-custom
+        id: setting-color-active-custom-dark
         title: custom highlight color
         title.zh: 自定义高亮颜色
         type: variable-themed-color
@@ -332,13 +369,13 @@ settings:
         level: 3
     -
         id: scrollbar-hover-accent
-        title: enable scrollbar hover highlight
-        title.zh: 启用滚动条鼠标经过高亮
+        title: scrollbar hover highlight
+        title.zh: 滚动条鼠标经过高亮
         type: class-toggle
     -
         id: scrollbar-movein-animation
-        title: enable scrollbar movein animation
-        title.zh: 启用滚动条鼠标移入动画效果
+        title: show scrollbar when mouse movein
+        title.zh: 滚动条鼠标经过时才显示
         type: class-toggle
         default: true
     -
@@ -618,37 +655,37 @@ settings:
         title: h1 font
         title.zh: 标题 1 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: setting-h2-font
         title: h2 font
         title.zh: 标题 2 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: setting-h3-font
         title: h3 font
         title.zh: 标题 3 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: setting-h4-font
         title: h4 font
         title.zh: 标题 4 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: setting-h5-font
         title: h5 font
         title.zh: 标题 5 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: setting-h6-font
         title: h6 font
         title.zh: 标题 6 字体
         type: variable-text
-        default: ""
+        default: "''"
     -
         id: hr
         title: hr
@@ -910,17 +947,17 @@ html :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-th
   --accent-l: 58% !important;
 }
 
-:is(body.color-use-custom-color.css-settings-manager, body.color-use-custom-color.css-settings-manager .print) {
+:is(body.color-use-custom.css-settings-manager, body.color-use-custom.css-settings-manager .print) {
   --accent-s: var(--accent-color-s, 32%) !important;
   --accent-l: var(--accent-color-l, 58%) !important;
 }
 
-:is(body.color-use-custom-color.theme-light.css-settings-manager, body.color-use-custom-color.theme-light.css-settings-manager .print) {
-  --accent-h: var(--setting-accent-hue-light, 116) !important;
+:is(body.color-use-custom.theme-light.css-settings-manager, body.color-use-custom.theme-light.css-settings-manager .print) {
+  --accent-h: var(--setting-color-base-light, 116) !important;
 }
 
-:is(body.color-use-custom-color.theme-dark.css-settings-manager, body.color-use-custom-color.theme-dark.css-settings-manager .print) {
-  --accent-h: var(--setting-accent-hue-dark, 207) !important;
+:is(body.color-use-custom.theme-dark.css-settings-manager, body.color-use-custom.theme-dark.css-settings-manager .print) {
+  --accent-h: var(--setting-color-base-dark, 207) !important;
 }
 
 :is(.theme-light, .theme-light .print) {
@@ -1026,10 +1063,10 @@ html :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-th
   --color-opacity: 0.85;
 }
 
-body.theme-light:not(.color-active-default),
-body.theme-light:not(.color-active-default) .print {
+body.theme-light.color-use-custom:not(.color-active-default-light),
+body.theme-light.color-use-custom:not(.color-active-default-light) .print {
   --accent-active: var(
-    --setting-color-active-custom,
+    --setting-color-active-custom-light,
     hsl(
       calc(var(--accent-h) + 60),
       calc(var(--accent-s) - 12%),
@@ -1037,7 +1074,7 @@ body.theme-light:not(.color-active-default) .print {
     )
   );
   --accent-inactive: var(
-    --setting-color-active-custom,
+    --setting-color-active-custom-dark,
     hsl(
       calc(var(--accent-h) + 60),
       calc(var(--accent-s) - 12%),
@@ -1046,10 +1083,10 @@ body.theme-light:not(.color-active-default) .print {
   );
 }
 
-body.theme-dark:not(.color-active-default),
-body.theme-dark:not(.color-active-default) .print {
+body.theme-dark.color-use-custom:not(.color-active-default-dark),
+body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
   --accent-active: var(
-    --setting-color-active-custom,
+    --setting-color-active-custom-dark,
     hsl(
       calc(var(--accent-h) + 60),
       calc(var(--accent-s) - 12%),
@@ -1057,7 +1094,7 @@ body.theme-dark:not(.color-active-default) .print {
     )
   );
   --accent-inactive: var(
-    --setting-color-active-custom,
+    --setting-color-active-custom-dark,
     hsl(
       calc(var(--accent-h) + 60),
       calc(var(--accent-s) - 12%),
@@ -1188,6 +1225,10 @@ body :is(.markdown-source-view, .markdown-rendered) {
   top: 0.7rem;
 }
 
+.markdown-source-view.mod-cm6 .cm-hmd-codeblock .cm-indent::before {
+  transform: translateX(-0.15rem) !important;
+}
+
 code[class*=language-],
 pre {
   line-height: calc(var(--line-height-normal) - 0.2);
@@ -1231,13 +1272,10 @@ body.code-nowrap.scrollbar-gutter-overlay pre {
 body.code-nowrap.scrollbar-gutter-overlay pre code {
   padding-bottom: var(--size-4-2);
 }
-body.code-nowrap code {
+body.code-nowrap :not(.print) code {
   word-break: normal;
   word-wrap: break-word;
   white-space: pre;
-}
-body.code-nowrap .token {
-  white-space: nowrap;
 }
 
 body.code-language .markdown-rendered pre {
@@ -1431,10 +1469,10 @@ body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-p
 body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.boolean, .number), .cm-number) {
   color: var(--code-value);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta) {
   color: var(--code-string);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string, .cm-link, .cm-def, .cm-number + .cm-variable) {
+body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string, .cm-def, .cm-number + .cm-variable) {
   color: var(--code-property);
 }
 body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
@@ -1681,24 +1719,24 @@ a.is-unresolved:hover {
   --link-color-hover: var(--link-unresolved-color);
 }
 
-.cm-url {
-  color: var(--link-color) !important;
+.cm-s-obsidian .cm-formatting-link-string + span.cm-url {
+  color: var(--link-color);
 }
 
-span.cm-formatting-link {
-  color: var(--accent-active) !important;
+span:is(.cm-formatting-link, .cm-formatting-link-string) {
+  color: var(--text-faint) !important;
 }
 
-body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline) {
+body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string)) {
   transition: var(--animation);
   color: rgb(var(--link-external-color-rgb));
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
 }
-body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline):hover {
-  background-color: rgb(var(--link-external-color-rgb), 0.1);
+body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string)):hover {
+  background-color: rgb(var(--link-external-color-rgb), 0.15);
 }
-body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline):active {
+body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string)):active {
   background-color: rgb(var(--link-external-color-rgb), 0.35);
 }
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline) {
@@ -1708,7 +1746,7 @@ body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-in
   text-underline-offset: var(--size-2-1);
 }
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline):hover {
-  background-color: rgb(var(--link-color-rgb), 0.1);
+  background-color: rgb(var(--link-color-rgb), 0.15);
 }
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline):active {
   background-color: rgb(var(--link-color-rgb), 0.35);
@@ -1717,7 +1755,10 @@ body:not(.link-hover-expand) span:is(.cm-link, .cm-hmd-internal-link):hover {
   text-decoration: none;
 }
 
-body.link-hover-expand :is(a.external-link, .cm-link .cm-underline) {
+body.link-hover-expand .cm-url {
+  --link-external-decoration: none;
+}
+body.link-hover-expand :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline) {
   font-size: var(--font-text-size);
   text-underline-offset: var(--link-offset);
   color: var(--link-external-color) !important;
@@ -1727,7 +1768,7 @@ body.link-hover-expand :is(a.external-link, .cm-link .cm-underline) {
   text-decoration-thickness: var(--link-thickness) !important;
   transition: --link-offset var(--animation), --link-thickness var(--animation), color var(--animation);
 }
-body.link-hover-expand :is(a.external-link, .cm-link .cm-underline):hover, body.link-hover-expand :is(a.external-link, .cm-link .cm-underline):focus {
+body.link-hover-expand :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline):hover, body.link-hover-expand :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline):focus {
   color: var(--text-on-accent) !important;
   --link-offset: calc(var(--font-text-size) * -1 - var(--size-4-4));
   --link-thickness: calc(var(--font-text-size) + 10px);
@@ -1750,14 +1791,6 @@ body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal
 body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   transition: color var(--animation);
 }
-body.link-hover-expand:not(.link-click-to-edit-in-live-preview) a.external-link {
-  background-image: none;
-  background-size: unset;
-  padding-right: 0;
-}
-body.link-hover-expand:not(.link-click-to-edit-in-live-preview) span.external-link {
-  display: none;
-}
 
 body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline)::before {
   content: "";
@@ -1768,7 +1801,7 @@ body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal
   background-color: var(--link-color);
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
 }
-body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, .cm-link:not(.cm-hmd-footnote) .cm-underline)::before {
+body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, :is(.cm-link:not(.cm-hmd-footnote), .cm-url) .cm-underline)::before {
   content: "";
   display: inline-block;
   transform: translateY(var(--size-2-1));
@@ -1778,6 +1811,14 @@ body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source
   margin-right: var(--size-2-1);
   background-color: var(--link-external-color);
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>');
+}
+body.link-icon:not(.link-click-to-edit-in-live-preview) a.external-link {
+  background-image: none;
+  background-size: unset;
+  padding-right: 0;
+}
+body.link-icon:not(.link-click-to-edit-in-live-preview) span.external-link {
+  display: none;
 }
 
 body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-internal-link .cm-underline) {
@@ -2317,6 +2358,8 @@ kbd {
   box-shadow: var(--shadow-s);
   border-radius: var(--size-2-3);
   transition: var(--animation);
+  font-family: var(--font-monospace) !important;
+  color: var(--text-normal) !important;
 }
 kbd:hover {
   border-color: var(--accent-active);
@@ -2326,9 +2369,9 @@ kbd:hover {
   text-decoration-line: none !important;
 }
 
-body :is(.markdown-source-view, .markdown-rendered) {
-  --bold-color: var(--setting-text-bold-color, var(--color-red));
-  --italic-color: var(--setting-text-italic-color, var(--color-red));
+body {
+  --bold-color: var(--setting-text-bold-color, var(--color-red)) !important;
+  --italic-color: var(--setting-text-italic-color, var(--color-red)) !important;
 }
 
 em,
@@ -2745,14 +2788,14 @@ body input[type=range]::-webkit-slider-thumb:hover {
   background-color: var(--text-normal);
 }
 
-.style-settings-container .setting-item:is([data-id^=setting-accent-hue]) input.slider {
+.style-settings-container .setting-item:is([data-id^=setting-color-base]) input.slider {
   height: 0.8em;
   --hue-slider-sat: 70%;
   --hue-slider-br: 60%;
   background: linear-gradient(to right, hsl(0, var(--hue-slider-sat), var(--hue-slider-br)), hsl(30, var(--hue-slider-sat), var(--hue-slider-br)), hsl(60, var(--hue-slider-sat), var(--hue-slider-br)), hsl(90, var(--hue-slider-sat), var(--hue-slider-br)), hsl(120, var(--hue-slider-sat), var(--hue-slider-br)), hsl(150, var(--hue-slider-sat), var(--hue-slider-br)), hsl(180, var(--hue-slider-sat), var(--hue-slider-br)), hsl(210, var(--hue-slider-sat), var(--hue-slider-br)), hsl(240, var(--hue-slider-sat), var(--hue-slider-br)), hsl(270, var(--hue-slider-sat), var(--hue-slider-br)), hsl(300, var(--hue-slider-sat), var(--hue-slider-br)), hsl(330, var(--hue-slider-sat), var(--hue-slider-br)), hsl(360, var(--hue-slider-sat), var(--hue-slider-br)));
   border-radius: var(--size-2-1);
 }
-.style-settings-container .setting-item:is([data-id^=setting-accent-hue]) .setting-item-control::before {
+.style-settings-container .setting-item:is([data-id^=setting-color-base]) .setting-item-control::before {
   content: " ";
   font-size: 0.7em;
   text-align: center;
@@ -2760,13 +2803,13 @@ body input[type=range]::-webkit-slider-thumb:hover {
   height: 1.6em;
   width: 1.6em;
   color: var(--text-normal);
-  background-color: hsl(var(--setting-accent-hue-light, 116), 32%, 58%);
+  background-color: hsl(var(--setting-color-base-light, 116), 32%, 58%);
   position: relative;
   right: 1em;
   border-radius: var(--radius-s);
 }
-.style-settings-container .setting-item[data-id=setting-accent-hue-dark] .setting-item-control::before {
-  background-color: hsl(var(--setting-accent-hue-dark, 207), 32%, 58%);
+.style-settings-container .setting-item[data-id=setting-color-base-dark] .setting-item-control::before {
+  background-color: hsl(var(--setting-color-base-dark, 207), 32%, 58%);
 }
 
 /* hide option */
@@ -2777,10 +2820,12 @@ body.status-bar-scroll .setting-item[data-id=status-bar-style-center],
 body:not(.status-bar-float) .setting-item[data-id^=status-bar-style],
 body:not(.tab-title-bar) .setting-item[data-id=tab-title-bar-shadow],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
+body:not(.color-use-custom) .setting-item[data-id*=color-accent-],
 body:not(.code-language) .setting-item[data-id=setting-code-language-color],
 body:not(.modal-header) .setting-item[data-id=setting-modal-header-title],
-body:not(.color-use-custom-color) .setting-item[data-id^=accent-hue],
-body:not(.color-active-custom) .setting-item[data-id^=setting-color-active-custom],
+body:not(.color-use-custom) .setting-item[data-id^=accent-hue],
+body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light],
+body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-active-custom-dark],
 body:not(.message-modify) .setting-item[data-id^=setting-message],
 body:not(.heading-style-level) .setting-item[data-id^=heading-level],
 body:not(.heading-style-num) .setting-item[data-id^=heading-num],
@@ -3040,6 +3085,10 @@ body {
   background-color: var(--frame-outline-color);
 }
 
+body.titlebar-colorful .modal-container .mod-settings::before {
+  --setting-color-logo: var(--text-on-accent);
+}
+
 body.modal-header .modal-container .mod-settings::before {
   content: var(--setting-header-title, "Maple 0.2.0");
   position: absolute;
@@ -3048,9 +3097,7 @@ body.modal-header .modal-container .mod-settings::before {
   transform: translate(-50%, -50%);
   font-size: 1.4rem;
   font-weight: bold;
-  background-image: linear-gradient(to right, hsl(calc(var(--accent-h) - 15), calc(var(--accent-s) + 12%), var(--accent-l)), hsl(calc(var(--accent-h) + 15), calc(var(--accent-s) + 12%), var(--accent-l)));
-  -webkit-background-clip: text;
-  color: transparent;
+  color: var(--setting-color-logo, var(--text-accent));
 }
 body.modal-header .modal-container .mod-settings .modal-content {
   background-color: var(--frame-background-color);
@@ -3273,73 +3320,67 @@ body.scrollbar-gutter-reserve {
 }
 
 body.scrollbar-hover-accent {
-  --setting-scrollbar-hover: hsla(var(--color-accent-hsl), 30%);
+  --setting-scrollbar-hover: hsla(var(--color-accent-hsl), 40%);
 }
 
+/* https://stackoverflow.com/a/74050413/20058211 */
 /* https://stackoverflow.com/a/46304690/20058211 */
-body.scrollbar-movein-animation pre code {
-  -webkit-text-fill-color: var(--code-base);
+@property --scrollbar-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(0, 0, 0, 0);
 }
-body.scrollbar-movein-animation pre code * {
-  -webkit-text-fill-color: initial;
-}
-
-body.scrollbar-movein-animation :where(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {
-  color: transparent !important;
-  transition: color var(--animation);
-  scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
-}
-body.scrollbar-movein-animation :where(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items):hover {
-  color: hsla(var(--color-accent-hsl), 24%) !important;
-}
-body.scrollbar-movein-animation :where(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) > :not(h1, h2, h3, h4, h5, h6) {
-  color: var(--text-normal);
-}
-body.scrollbar-movein-animation :where(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) > .search-empty-state {
-  color: var(--text-faint);
-}
-body.scrollbar-movein-animation :where(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: var(--size-4-3) !important;
   height: var(--size-4-3) !important;
   background-color: transparent !important;
 }
-body.scrollbar-movein-animation :where(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-body.scrollbar-movein-animation :where(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 0 10px !important;
+::-webkit-scrollbar-thumb {
   border-radius: var(--size-2-3) !important;
+  border: 3.6px solid transparent !important;
+  background-color: var(--scrollbar-color) !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  --scrollbar-color: var(--setting-scrollbar-hover);
+}
+::-webkit-scrollbar-thumb:active {
+  --scrollbar-color: hsla(var(--color-accent-hsl), 64%);
+}
+
+body:not(.scrollbar-movein-animation) {
+  --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
+}
+
+body.scrollbar-movein-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {
+  transition: --scrollbar-color var(--animation);
+  scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
+}
+body.scrollbar-movein-animation :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items):hover {
+  --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
+}
+body.scrollbar-movein-animation textarea {
+  color: transparent;
+  transition: color var(--animation);
+  -webkit-text-fill-color: var(--text-normal);
+}
+body.scrollbar-movein-animation textarea:hover {
+  color: hsla(var(--color-accent-hsl), 24%);
+}
+body.scrollbar-movein-animation textarea * {
+  -webkit-text-fill-color: initial;
+}
+body.scrollbar-movein-animation textarea::-webkit-scrollbar-thumb {
+  box-shadow: 0 0 0 10px inset;
+  border-width: 3.2px;
   background-clip: content-box;
   background-color: transparent !important;
-  border: 3.6px solid transparent !important;
-}
-body.scrollbar-movein-animation :where(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb:hover {
-  background-color: var(--setting-scrollbar-hover) !important;
-}
-body.scrollbar-movein-animation :where(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items)::-webkit-scrollbar-thumb:active {
-  background-color: hsla(var(--color-accent-hsl), 64%) !important;
 }
 
-.popover.hover-popover > .markdown-embed > .markdown-embed-content > .markdown-preview-view {
-  color: transparent !important;
-}
-.popover.hover-popover > .markdown-embed > .markdown-embed-content > .markdown-preview-view:hover {
-  color: hsla(var(--color-accent-hsl), 24%) !important;
-}
-
-:is(body:not(.scrollbar-movein-animation) *, textarea)::-webkit-scrollbar-thumb {
-  border-width: 3.2px;
-  background-color: transparent !important;
-}
-:is(body:not(.scrollbar-movein-animation) *, textarea):hover::-webkit-scrollbar-thumb {
-  background-color: hsla(var(--color-accent-hsl), 30%) !important;
-}
-:is(body:not(.scrollbar-movein-animation) *, textarea):hover::-webkit-scrollbar-thumb:active {
-  background-color: hsla(var(--color-accent-hsl), 64%) !important;
-}
-
-body.scrollbar-smooth.scrollbar-smooth-editor .workspace-leaf-content[data-type=markdown] .cm-scroller, .markdown-preview-view,
+body.scrollbar-smooth.scrollbar-smooth-editor .workspace-leaf-content[data-type=markdown] .cm-scroller, body.scrollbar-smooth .markdown-preview-view,
 body.scrollbar-smooth :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, mjx-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {
   scroll-behavior: smooth;
 }
@@ -3442,7 +3483,7 @@ body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active):hover .
 body.titlebar-colorful.theme-light {
   --frame-background-color: hsl(var(--accent-h),
       var(--accent-s),
-      calc(var(--accent-l) + 8%));
+      calc(var(--accent-l) + 18%));
   --frame-outline-color: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) + 23.5%));
@@ -3483,7 +3524,7 @@ body.back-blur-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .vi
   width: 100%;
   padding-right: 0;
 }
-body.back-blur-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .cm-scroller::-webkit-scrollbar-track {
+body.back-blur-title-bar .workspace-leaf-content:not([data-type=excalidraw]) :is(.cm-scroller, .markdown-preview-view)::-webkit-scrollbar-track {
   margin-top: calc(var(--file-margins) + var(--size-4-3));
 }
 body.back-blur-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .cm-content {
@@ -3498,14 +3539,14 @@ body.back-blur-title-bar .workspace-leaf-content[data-type=style-settings] .view
 body.back-blur-title-bar .workspace-leaf-content[data-type=style-settings] .view-content::-webkit-scrollbar-track {
   margin-top: calc(var(--file-margins) + var(--size-4-3));
 }
+body.back-blur-title-bar .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
+  --background-primary: hsla(var(--background-primary-hsl), 0.7);
+}
 body.back-blur-title-bar.tab-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
   --background-primary: hsla(var(--background-secondary-hsl), 0.9);
 }
-body.back-blur-title-bar .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  --background-primary: hsla(var(--background-primary-hsl), 0.6);
-}
-body.back-blur-title-bar.tab-title-bar .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  --background-primary: hsla(var(--background-secondary-hsl), 0.6);
+body.back-blur-title-bar.tab-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .view-header .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
+  --background-primary: hsla(var(--background-secondary-hsl), 0.7);
 }
 body.back-blur-status-bar .status-bar {
   --stauts-bar-background-opacity: 0.4;

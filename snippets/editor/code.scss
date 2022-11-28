@@ -119,6 +119,10 @@ body :is(.markdown-source-view, .markdown-rendered) {
   }
 }
 
+.markdown-source-view.mod-cm6 .cm-hmd-codeblock .cm-indent::before {
+  transform: translateX(-0.15rem) !important;
+}
+
 code[class*='language-'],
 pre {
   line-height: calc(var(--line-height-normal) - 0.2);
@@ -169,14 +173,10 @@ body.code-nowrap {
     }
   }
 
-  code {
+  :not(.print) code {
     word-break: normal;
     word-wrap: break-word;
     white-space: pre;
-  }
-
-  .token {
-    white-space: nowrap;
   }
 }
 
@@ -243,11 +243,11 @@ body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) {
     color: var(--code-value);
   }
 
-  :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string, .cm-string-2, .cm-meta) {
+  :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta) {
     color: var(--code-string);
   }
 
-  :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string, .cm-link, .cm-def, .cm-number + .cm-variable) {
+  :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string, .cm-def, .cm-number + .cm-variable) {
     color: var(--code-property);
   }
 
@@ -270,14 +270,6 @@ body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) {
   :is(.cm-variable-2, .cm-variable-3) {
     opacity: 0.7;
   }
-
-  // .HyperMD-codeblock
-  //   span[class='cm-hmd-codeblock']:nth-child(n + 2)
-  //   + :is(.cm-variable, .cm-variable-2, .cm-variable-3)
-  //   ~ span[class='cm-hmd-codeblock']
-  //   + :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
-  //   color: var(--color-orange) !important;
-  // }
 }
 
 body.code-mac-style-header .markdown-rendered pre {
