@@ -498,18 +498,16 @@ settings:
         type: class-toggle
     -
         id: link-icon
-        title: add icon before link
-        description: ❗only in editor
-        title.zh: live preview 链接前添加图标
-        description.zh: ❗只在编辑器内生效
+        title: add icon before link in editor
+        title.zh: 编辑器内链接前添加图标
         type: class-toggle
         default: true
     -
         id: link-click-to-edit-in-live-preview
         title: click to edit link in live preview
-        description: ❗will disable hover animation
+        description: ❗will disable hover animation, external link prefix icon will be diabled
         title.zh: live preview 模式时点击链接进行编辑而不是跳转
-        description.zh: ❗鼠标经过动画会消失
+        description.zh: ❗鼠标经过动画会消失，外部链接的前置图标会消失
         type: class-toggle
     -
         id: heading

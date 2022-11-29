@@ -499,18 +499,16 @@ settings:
         type: class-toggle
     -
         id: link-icon
-        title: add icon before link
-        description: ❗only in editor
-        title.zh: live preview 链接前添加图标
-        description.zh: ❗只在编辑器内生效
+        title: add icon before link in editor
+        title.zh: 编辑器内链接前添加图标
         type: class-toggle
         default: true
     -
         id: link-click-to-edit-in-live-preview
         title: click to edit link in live preview
-        description: ❗will disable hover animation
+        description: ❗will disable hover animation, external link prefix icon will be diabled
         title.zh: live preview 模式时点击链接进行编辑而不是跳转
-        description.zh: ❗鼠标经过动画会消失
+        description.zh: ❗鼠标经过动画会消失，外部链接的前置图标会消失
         type: class-toggle
     -
         id: heading
@@ -3511,14 +3509,14 @@ body.titlebar-colorful :is(.document-search-close-button, .modal-close-button)::
 /* ====== 亚克力效果 ======*/
 body.back-blur-menu :is(.menu, .suggestion-container, .excalidraw .context-menu) {
   background-color: hsla(var(--background-secondary-hsl), 0.7);
-  backdrop-filter: blur(calc(var(--blur) * 1px));
+  backdrop-filter: blur(calc(var(--blur) * 3px));
 }
 body.back-blur-menu .mod-search-suggestion .suggestion {
   background-color: transparent;
 }
 body.back-blur-title-bar .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
   --background-primary: hsla(var(--background-primary-hsl), 0.9);
-  backdrop-filter: blur(calc(var(--blur) * 1px));
+  backdrop-filter: blur(calc(var(--blur) * 3px));
   position: absolute;
   z-index: 100;
   width: 100%;
@@ -3549,8 +3547,8 @@ body.back-blur-title-bar.tab-title-bar .workspace-leaf-content:not([data-type=ex
   --background-primary: hsla(var(--background-secondary-hsl), 0.7);
 }
 body.back-blur-status-bar .status-bar {
-  --stauts-bar-background-opacity: 0.4;
-  backdrop-filter: blur(calc(var(--blur) * 1px));
+  --stauts-bar-background-opacity: 0.7;
+  backdrop-filter: blur(calc(var(--blur) * 3px));
 }
 
 /* ====== 打印 ====== */

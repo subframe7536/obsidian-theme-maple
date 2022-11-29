@@ -1,10 +1,11 @@
 /* ====== 亚克力效果 ======*/
-$blur: calc(var(--blur) * 1px);
+$blur: calc(var(--blur) * 3px);
+$opacity: 0.7;
 
 body.back-blur {
   &-menu {
     :is(.menu, .suggestion-container, .excalidraw .context-menu) {
-      background-color: hsla(var(--background-secondary-hsl), 0.7);
+      background-color: hsla(var(--background-secondary-hsl), #{$opacity});
       backdrop-filter: blur($blur);
     }
 
@@ -49,20 +50,20 @@ body.back-blur {
     $vher: '.workspace-leaf-content:not([data-type="excalidraw"]) .view-header';
 
     .workspace-leaf.mod-active #{$vher} {
-      --background-primary: hsla(var(--background-primary-hsl), 0.7);
+      --background-primary: hsla(var(--background-primary-hsl), #{$opacity});
     }
 
     &.tab-title-bar #{$vher} {
       --background-primary: hsla(var(--background-secondary-hsl), 0.9);
 
       .workspace-leaf.mod-active #{$vher} {
-        --background-primary: hsla(var(--background-secondary-hsl), 0.7);
+        --background-primary: hsla(var(--background-secondary-hsl), #{$opacity});
       }
     }
   }
 
   &-status-bar .status-bar {
-    --stauts-bar-background-opacity: 0.4;
+    --stauts-bar-background-opacity: #{$opacity};
     backdrop-filter: blur($blur);
   }
 }
