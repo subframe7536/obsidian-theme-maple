@@ -125,6 +125,10 @@ a :is(em, strong) {
   font-size: var(--font-small);
 }
 
+.view-header-title-container:not(.mod-at-end):after {
+  content: none;
+}
+
 .view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
   padding-top: 0; //calc(var(--file-margins) / 2);
 }

@@ -2409,6 +2409,10 @@ a :is(em, strong):hover {
   font-size: var(--font-small);
 }
 
+.view-header-title-container:not(.mod-at-end):after {
+  content: none;
+}
+
 .view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
   padding-top: 0;
 }
@@ -2897,6 +2901,14 @@ body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-
 }
 :is(.style-settings-heading[data-level="0"] + .style-settings-container, .style-settings-container):hover {
   border-left-color: var(--accent-active);
+}
+
+body.link-icon .dbfolder-table-container a.internal-link[class*=database-plugin]::before {
+  content: none;
+}
+
+body.back-blur-title-bar .dbfolder-table-container {
+  padding-top: var(--size-4-12);
 }
 
 /* ====== 文档内搜索框 ====== */
