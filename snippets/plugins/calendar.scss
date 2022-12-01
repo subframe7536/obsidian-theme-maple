@@ -3,6 +3,7 @@ $height: var(--size-4-6);
 
 body.calendar-swap-year-month #calendar-container .nav {
   padding-left: var(--size-4-1);
+  margin-top: 0;
 
   .title {
     display: flex;
@@ -13,9 +14,11 @@ body.calendar-swap-year-month #calendar-container .nav {
     .year {
       color: var(--text-normal);
       letter-spacing: 0.1rem;
+      display: flex;
+      align-items: center;
 
       &::after {
-        content: var(--calendar-year-suffix, '年');
+        content: var(--setting-calendar-year-suffix, '年');
         margin-right: var(--size-2-1);
         margin-left: var(--size-2-1);
       }
@@ -72,6 +75,9 @@ body.calendar-swap-year-month #calendar-container .nav {
       line-height: $height;
     }
   }
+}
+
+body.calendar-weekend #calendar-container {
 
   tbody tr td:nth-last-child(2),
   tbody tr td:nth-last-child(1) {

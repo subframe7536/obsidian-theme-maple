@@ -17,7 +17,7 @@ body {
   &.theme-dark .status-bar {
     --status-bar-background: hsla(var(--accent-h),
         var(--accent-s),
-        calc(100% - (100% - var(--accent-l)) / 0.8),
+        calc(var(--accent-l) / 3),
         var(--stauts-bar-background-opacity));
   }
 

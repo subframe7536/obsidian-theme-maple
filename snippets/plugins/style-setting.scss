@@ -24,19 +24,13 @@
   }
 }
 
-body input[type='range']::-webkit-slider-thumb {
-  height: 1.6em;
-  width: var(--size-4-1);
-  background-color: var(--text-muted);
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: var(--radius-m);
+.themed-color-wrapper .pickr-reset>button {
+  padding: var(--size-2-3);
+}
 
-  &:hover {
-    box-shadow: none;
-    background-color: var(--text-normal);
-  }
+.pickr .pcr-button::before,
+.pickr .pcr-button::after {
+  border-radius: var(--radius-s);
 }
 
 .style-settings-container {
@@ -84,7 +78,7 @@ body input[type='range']::-webkit-slider-thumb {
 }
 
 /* hide option */
-body:not(.calendar-swap-year-month) .setting-item[data-id='calendar-year-suffix'],
+body:not(.calendar-swap-year-month) .setting-item[data-id='setting-calendar-year-suffix'],
 body:not(.quote-theme) .setting-item:is([data-id='quote-mark'], [data-id='quote-break-all']),
 body:not(.scrollbar-smooth) .setting-item[data-id='scrollbar-smooth-editor'],
 body.status-bar-scroll .setting-item[data-id='status-bar-style-center'],

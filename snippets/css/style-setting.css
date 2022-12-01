@@ -335,8 +335,8 @@ settings:
         default-dark: '#'
     -
         id: modal
-        title: modal
-        title.zh: 弹出面板
+        title: modal & setting panel
+        title.zh: 模态框 & 设置面板
         type: heading
         collapsed: true
         level: 3
@@ -360,6 +360,12 @@ settings:
         type: class-toggle
         default: true
     -
+        id: modal-slider-thumb-thin
+        title: thin slider thumb
+        title.zh: 细的滑动条按钮
+        type: class-toggle
+        default: true
+    -
         id: scrollbar
         title: scrollbar & scroll behavior
         title.zh: 滚动条 & 滚动样式
@@ -380,9 +386,9 @@ settings:
     -
         id: scrollbar-gutter
         title: scrollbar gutter config
-        description: scroll bar appears without squeezing the parent container❗overlay property is marked as deprecated officially
+        description: make the scrollbar won't squeezing the parent container (overlay) / reserve scroll gutter instead of float the bar (reserve)
         title.zh: 控制滚动条槽
-        description.zh: 使滚动条出现时不会对父容器产生挤压，选项：默认(default) / 悬浮滚动条(overlay) / 预留滚动条位置(reserve)❗overlay可能在后续的版本不支持
+        description.zh: 默认（default）/ 悬浮滚动条，使滚动条出现时不会挤压父容器（overlay）/ 预留滚动条位置（reserve）
         type: class-select
         allowEmpty: false
         default: scrollbar-gutter-default
@@ -903,13 +909,19 @@ settings:
         collapsed: true
         level: 3
     -
+        id: calendar-weekend
+        title: highlight weekend
+        title.zh: 突显周末
+        type: class-toggle
+        default: true
+    -
         id: calendar-swap-year-month
         title: swap year & month
         title.zh: 交换年和月的位置
         type: class-toggle
         default: true
     -
-        id: calendar-year-suffix
+        id: setting-calendar-year-suffix
         title: year suffix
         title.zh: 年份后缀
         type: variable-text
