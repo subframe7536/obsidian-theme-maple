@@ -5,9 +5,9 @@
   // --link-external-decoration-hover: none;
   --link-color-rgb: var(--setting-link-internal-color, var(--color-blue-rgb));
   --link-external-color-rgb: var(--setting-link-external-color, var(--color-orange-rgb));
-  --link-color: rgb(var(--link-color-rgb));
+  --link-color: rgba(var(--link-color-rgb), var(--color-opacity));
   --link-color-hover: var(--link-color);
-  --link-external-color: rgb(var(--link-external-color-rgb));
+  --link-external-color: rgba(var(--link-external-color-rgb), var(--color-opacity));
   --link-external-color-hover: var(--link-external-color);
   --link-unresolved-color: var(--text-faint);
   --link-footnote: var(--color-purple);
@@ -74,8 +74,8 @@ a.is-unresolved:hover {
   color: var(--link-color);
 }
 
-span:is(.cm-formatting-link, .cm-formatting-link-string) {
-  color: var(--text-faint) !important;
+body span:is(.cm-formatting-link, .cm-formatting-link-string) {
+  color: rgba(var(--color-green-rgb), 0.6) !important;
 }
 
 body:not(.link-hover-expand) {
@@ -95,6 +95,15 @@ body:not(.link-hover-expand) {
 body.link-hover-expand {
   .cm-url {
     --link-external-decoration: none;
+    --link-external-decoration-hover: none;
+  }
+
+  .cm-link {
+    --link-external-decoration-hover: none;
+  }
+
+  .cm-hmd-internal-link {
+    --link-decoration-hover: none;
   }
 
   :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline) {

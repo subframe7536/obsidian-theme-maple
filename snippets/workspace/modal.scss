@@ -52,7 +52,7 @@ body.modal-slider-thumb-thin input[type='range']::-webkit-slider-thumb {
 
 body.modal-header .modal-container {
   .mod-settings::before {
-    content: var(--setting-header-title, 'Maple 0.2.0');
+    content: var(--setting-header-title, 'maple 0.2.2');
     position: absolute;
     left: 50%;
     top: var(--size-4-6);

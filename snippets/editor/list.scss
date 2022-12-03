@@ -60,6 +60,10 @@
 // }
 .markdown-source-view.mod-cm6 .task-list-label {
   margin-left: calc(var(--size-2-1) * -1);
+
+  .task-list-item-checkbox {
+    margin-top: calc(var(--size-2-1) * -1);
+  }
 }
 
 input[type='checkbox'] {

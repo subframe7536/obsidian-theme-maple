@@ -15,7 +15,7 @@ body.back-blur {
   }
 
   &-title-bar {
-    .workspace-leaf-content:not([data-type='excalidraw']) {
+    .workspace-leaf-content[data-type="markdown"] {
       .view-header {
         --background-primary: hsla(var(--background-primary-hsl), 0.9);
         backdrop-filter: blur($blur);
@@ -47,7 +47,7 @@ body.back-blur {
       }
     }
 
-    $vher: '.workspace-leaf-content:not([data-type="excalidraw"]) .view-header';
+    $vher: '.workspace-leaf-content[data-type="markdown"] .view-header';
 
     .workspace-leaf.mod-active #{$vher} {
       --background-primary: hsla(var(--background-primary-hsl), #{$opacity});
