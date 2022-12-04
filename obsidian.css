@@ -1282,7 +1282,7 @@ body.code-nowrap.scrollbar-gutter-overlay pre {
 body.code-nowrap.scrollbar-gutter-overlay pre code {
   padding-bottom: var(--size-4-2);
 }
-body.code-nowrap :not(.print) code {
+body.code-nowrap :not(.print) pre code {
   word-break: normal;
   word-wrap: break-word;
   white-space: pre;
