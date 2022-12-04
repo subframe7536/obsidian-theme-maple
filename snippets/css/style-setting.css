@@ -169,9 +169,9 @@ settings:
     -
         id: status-bar-style
         title: status bar animation
-        description: ❗last 2 style only valid when turn on “float status bar”
+        description: ❗last 2 style only valid when turn on “toast status bar”
         title.zh: 状态栏样式
-        description.zh: ❗后两种样式只在开启“状态栏浮动”才生效
+        description.zh: ❗后两种样式只在开启“toast 风格的状态栏”才生效
         type: class-select
         allowEmpty: false
         default: status-bar-default

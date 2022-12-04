@@ -140,7 +140,7 @@ html
   );
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eee;
-  --md-container-bg: hsl(calc(var(--accent-h) - 4), 20%, 10%);
+  --md-container-bg: hsl(calc(var(--accent-h) - 4), 18%, 9%);
   --color-opacity: 0.85;
 }
 body.theme-light.color-use-custom:not(.color-active-default-light),
