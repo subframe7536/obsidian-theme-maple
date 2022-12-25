@@ -4,17 +4,26 @@
   background-color: var(--background-secondary);
 }
 
-.document-search-container {
-  background-color: var(--background-primary);
-  position: absolute;
+body.search-internal-enable.back-blur-title-bar .document-search-container {
   top: calc(var(--header-height) + var(--size-4-4));
+}
+
+body.search-internal-enable .document-search-container {
+  background-color: hsl(var(--background-secondary-hsl)) !important;
+  position: absolute;
+  top: var(--size-4-2);
   right: var(--size-4-4);
   border-radius: var(--size-4-2);
-  padding: var(--size-2-3) var(--size-4-1) var(--size-2-3) 0;
+  padding: var(--size-2-3);
+  padding-left: 0;
   height: fit-content;
   border: var(--size-2-1) solid var(--frame-outline-color);
   box-shadow: var(--shadow-s);
   margin: 0;
+
+  :is(.document-search, .document-replace, .document-replace-buttons, .document-search-buttons) {
+    gap: var(--size-2-3);
+  }
 
   :is(.document-search, .document-replace) {
     align-items: center;
@@ -31,11 +40,11 @@
   }
 }
 
-body.search-internal-disable-select-all .document-search-container .document-search-buttons button:nth-child(3) {
+body.search-internal-enable.search-internal-disable-select-all .document-search-container .document-search-buttons button:nth-child(3) {
   display: none;
 }
 
-body.search-internal-expand-on-focus {
+body.search-internal-enable.search-internal-expand-on-focus {
   :is(.document-search-input, .document-replace-input) {
     margin-left: var(--size-2-3);
     width: 100px;
@@ -50,3 +59,16 @@ body.search-internal-expand-on-focus {
     width: 220px;
   }
 }
+
+body.tab-title-bar-compact.search-internal-enable .document-search-container {
+  top: var(--size-4-1);
+  left: var(--size-4-1);
+  right: unset;
+}
+
+body.tab-title-bar-compact.search-internal-enable.tab-title-bar-compact-left .document-search-container {
+  right: var(--size-4-1);
+  left: unset;
+}
+
+// todo @container

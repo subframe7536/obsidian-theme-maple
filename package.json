@@ -1,17 +1,16 @@
 {
-  "name": "maple",
-  "version": "0.2.2-beta",
-  "description": "A Obsidian Theme",
-  "main": "index.js",
+  "name": "Maple",
+  "version": "0.3.0-beta",
+  "description": "Maple —— A Obsidian Theme",
   "scripts": {
     "dev": "sass --watch snippets:D:/test/.obsidian/snippets --no-source-map --update",
-    "prod": "sass snippets/index.scss obsidian.css --no-source-map && node move.mjs"
+    "prod": "sass snippets/index.scss theme.css --no-source-map && node move.mjs"
   },
   "keywords": [
     "Obsidian"
   ],
   "author": "subframe7536",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "sass": "^1.55.0"
   },

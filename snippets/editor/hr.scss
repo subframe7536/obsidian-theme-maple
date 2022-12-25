@@ -1,25 +1,5 @@
 /* ======= 分隔符 ====== */
 
-// reference from blue topaz
-// wrong number, maybe caused by node destroy ?
-// .markdown-preview-view {
-//   counter-reset: hr-source;
-//   hr {
-//     counter-increment: hr-source;
-//     &::after {
-//       content: counter(hr-source);
-//     }
-//   }
-// }
-// .markdown-source-view.mod-cm6 {
-//   counter-reset: hr-preview;
-//   hr {
-//     counter-increment: hr-preview;
-//     &::after {
-//       content: counter(hr-preview);
-//     }
-//   }
-// }
 .markdown-rendered hr {
   margin-block-start: 2.4rem !important;
   margin-block-end: 2.4rem !important;
@@ -27,8 +7,6 @@
 
 :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
   overflow: initial;
-  // margin-block-start: 1.6rem;
-  // margin-block-end: 1.6rem;
   border: none;
   position: relative;
   height: var(--size-4-1);

@@ -1,4 +1,4 @@
-/* ====== 弹出面板 ====== */
+/* ====== 模态框、弹出面板 ====== */
 
 body {
   --modal-width: min(90vw, var(--modal-max-width));
@@ -35,7 +35,7 @@ body.titlebar-colorful .modal-container .mod-settings::before {
   --setting-color-logo: var(--text-on-accent);
 }
 
-body.modal-slider-thumb-thin input[type='range']::-webkit-slider-thumb {
+body.modal-slider input[type='range']::-webkit-slider-thumb {
   height: 1.6em;
   width: var(--size-4-1);
   background-color: var(--text-muted);
@@ -46,13 +46,114 @@ body.modal-slider-thumb-thin input[type='range']::-webkit-slider-thumb {
 
   &:hover {
     box-shadow: none;
-    background-color: var(--text-normal);
+  }
+}
+
+body:is(.modal-toggle-round, .modal-toggle-thin) .modal .checkbox-container {
+  --toggle-radius: var(--radius-m);
+  height: 1rem;
+  transition: var(--animation-slow);
+  border: var(--size-2-1) solid var(--text-faint);
+  background-color: var(--color-base-20);
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    display: none;
+  }
+}
+
+body.modal-toggle-round .modal .checkbox-container {
+  --toggle-shadow: var(--color-base-40);
+
+  &::after {
+    left: 0;
+    height: calc(var(--toggle-width) / 3);
+    width: calc(var(--toggle-width) / 3);
+    bottom: 30%;
+    border-radius: calc(var(--toggle-width) / 2);
+    border: var(--toggle-border-width) solid var(--text-faint);
+    background-color: var(--text-on-accent);
+    margin: 0;
+    transition: var(--animation-slow);
+    box-shadow: 0 4px 2px 0 var(--toggle-shadow);
+  }
+
+  &:hover::after {
+    bottom: 10%;
+    box-shadow: 0 2px 2px 0 var(--toggle-shadow);
+  }
+
+  &.is-enabled {
+    border-color: var(--accent-active);
+    background-color: var(--accent-inactive);
+
+    &::after {
+      border-color: var(--accent-active);
+      transform: none;
+      left: calc(100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width));
+    }
+  }
+}
+
+/* 参考 https://uiverse.io/martinval9/white-lionfish-18 */
+body.modal-toggle-thin .modal .checkbox-container {
+  &::before {
+    height: var(--toggle-border-width);
+    left: calc(var(--toggle-border-width) * 2);
+    right: calc(var(--toggle-border-width) * 2);
+    opacity: 1;
+    top: 50%;
+    bottom: initial;
+    transform: translateY(-50%);
+    background-color: var(--text-faint);
+  }
+
+  &::after {
+    left: var(--toggle-border-width);
+    height: 0.8rem;
+    bottom: 50%;
+    border-radius: var(--radius-m) var(--radius-m) 0 0;
+    border: var(--toggle-border-width) solid var(--text-faint);
+    border-bottom-width: calc(var(--toggle-border-width) / 2);
+    background-color: var(--text-on-accent);
+    width: 20%;
+    margin: 0;
+    transition: var(--animation-slow);
+  }
+
+  &:hover::after {
+    height: 0.6rem;
+  }
+
+  &:active::after {
+    width: calc(100% - var(--toggle-border-width) * 6);
+  }
+
+  &.is-enabled {
+    border-color: var(--accent-active);
+    background-color: var(--accent-inactive);
+
+    &::before {
+      background-color: var(--accent-active);
+    }
+
+    &::after {
+      border-color: var(--accent-active);
+      transform: none;
+      left: calc(80% - var(--toggle-border-width) * 4);
+    }
+
+    &:active::after {
+      left: calc(2 * var(--toggle-border-width));
+    }
   }
 }
 
 body.modal-header .modal-container {
+  --modal-header-height: var(--size-4-12);
+
   .mod-settings::before {
-    content: var(--setting-header-title, 'maple 0.2.2');
+    content: var(--setting-header-title, 'maple 0.3.0');
     position: absolute;
     left: 50%;
     top: var(--size-4-6);
@@ -66,15 +167,17 @@ body.modal-header .modal-container {
     background-color: var(--frame-background-color);
 
     .vertical-tab-header {
+      background-color: hsl(var(--background-secondary-hsl));
       border-top: 1px solid var(--divider-color);
-      margin-top: var(--size-4-12);
+      margin-top: var(--modal-header-height);
       padding-top: 0;
     }
 
     .vertical-tab-content-container {
-      padding-top: var(--size-4-12);
+      padding-top: var(--modal-header-height);
 
       .vertical-tab-content {
+        background-color: hsl(var(--background-primary-hsl));
         border-top: 1px solid var(--divider-color);
         padding-top: var(--size-4-6);
         padding-right: var(--size-4-8);
@@ -83,6 +186,8 @@ body.modal-header .modal-container {
           font-size: var(--h2-size);
           font-weight: var(--h2-weight);
         }
+
+
       }
     }
 
@@ -90,17 +195,19 @@ body.modal-header .modal-container {
       padding: 0;
 
       .settings-search-input {
-        position: fixed;
-        top: calc(50vh - var(--modal-height) / 2 + var(--size-2-3));
-        left: calc(50vw - var(--modal-width) / 2 + var(--size-2-3));
+        position: absolute;
+        top: 0;
+        left: var(--size-4-2);
+        transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 - var(--size-2-1)));
         width: calc(clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-3) * 1);
       }
     }
 
     .hotkey-search-container {
-      top: calc(50vh - var(--modal-height) / 2 - var(--size-4-3) + 22px);
-      right: calc(50vw - var(--modal-width) / 2 + var(--size-4-12));
-      position: fixed;
+      top: 0;
+      transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
+      right: var(--size-4-16);
+      position: absolute;
     }
 
     .plugin-list-plugins {
@@ -113,9 +220,10 @@ body.modal-header .modal-container {
 
         .setting-item-control {
           display: block;
-          position: fixed;
-          top: calc(50vh - var(--modal-height) / 2 - var(--size-4-3) + 22px);
-          right: calc(50vw - var(--modal-width) / 2 + var(--size-4-12));
+          position: absolute;
+          top: 0;
+          transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
+          right: var(--size-4-16);
         }
       }
     }
@@ -128,13 +236,24 @@ button {
   transition: var(--animation);
 }
 
+:is(select, .dropdown) {
+  background-size: 1.2rem;
+  background-position: right 0.4rem top 56%, 0 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23222" d="M12 14.975q-.2 0-.387-.075q-.188-.075-.313-.2l-4.6-4.6q-.275-.275-.275-.7q0-.425.275-.7q.275-.275.7-.275q.425 0 .7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275q.425 0 .7.275q.275.275.275.7q0 .425-.275.7l-4.6 4.6q-.15.15-.325.212q-.175.063-.375.063Z"/></svg>');
+}
+
+.theme-dark .dropdown {
+  /* current color seems to be invalid for SVG in background-image */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23eee" d="M12 14.975q-.2 0-.387-.075q-.188-.075-.313-.2l-4.6-4.6q-.275-.275-.275-.7q0-.425.275-.7q.275-.275.7-.275q.425 0 .7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275q.425 0 .7.275q.275.275.275.7q0 .425-.275.7l-4.6 4.6q-.15.15-.325.212q-.175.063-.375.063Z"/></svg>');
+}
+
 .modal-container {
   .modal-close-button {
     top: 9px;
     right: 9px !important;
   }
 
-  :is(.mod-community-plugin, .mod-community-theme) .community-modal-sidebar .setting-item:first-child {
+  :is(.mod-community-plugin, .mod-community-theme) .modal-sidebar .setting-item:first-child {
     max-width: var(--modal-community-sidebar-width);
   }
 
@@ -172,7 +291,6 @@ button {
   }
 }
 
-
 body.setting-group-title.theme-dark .modal-container .mod-settings .modal-content .vertical-tab-header-group-title {
   filter: brightness(1.4);
 }
@@ -188,12 +306,62 @@ body.setting-group-title .modal-container .mod-settings .modal-content .vertical
     &::before {
       content: '';
       position: absolute;
-      height: calc(100% - var(--size-4-3));
+      height: calc(100% - var(--size-4-4));
       width: var(--size-4-1);
-      top: var(--size-2-3);
+      top: var(--size-4-2);
       left: calc(var(--size-4-1) * -1);
       background-color: var(--accent-active);
       border-radius: var(--size-2-1);
     }
   }
+}
+
+//==============================
+:is(.menu, .prompt, .popover, .modal, .modal-bg, .document-search-container, .suggestion-container) {
+  animation: op var(--animation);
+}
+
+body.modal-animation :is(.prompt, .popover, .modal) {
+  animation: op var(--animation), bounce var(--animation);
+}
+
+@keyframes op {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.7;
+  }
+
+  70% {
+    opacity: 0.95;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.99);
+  }
+
+  70% {
+    transform: scale(1.01);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+:is(.menu, .suggestion-container, .excalidraw .context-menu) {
+  background-color: hsla(var(--background-secondary-hsl), 0.75) !important;
+  backdrop-filter: blur(var(--setting-blur, var(--size-4-2)));
+}
+
+.mod-search-suggestion .suggestion {
+  background-color: transparent;
 }

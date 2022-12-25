@@ -1,17 +1,17 @@
 /* ====== 滚动条 ====== */
 
 $base-panel: '.vertical-tab-header', '.vertical-tab-content',
-  '.nav-files-container', '.workspace-leaf-content:not([data-type*="graph"]) .view-content', '.search-result-container',
+  '.nav-files-container', '.workspace-leaf-content:not([data-type*="graph"],[data-type*="pdf"]) .view-content', '.search-result-container',
   '.git-view-body', '.suggestion-container .suggestion', '.prompt-results',
   '.community-modal-search-results-wrapper', '.community-modal-info',
   '.modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin)',
   '.tag-container', '.backlink-pane';
 
-$editor: ".workspace-leaf-content[data-type='markdown'] .cm-scroller",
+$editor: ".markdown-source-view .cm-scroller",
   '.markdown-preview-view';
 
 $horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
-  'mjx-container', '.markdown-embed-content .markdown-rendered', 'pre code';
+  '.markdown-embed-content .markdown-rendered', 'pre code';
 
 $kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items';
 
@@ -24,104 +24,109 @@ $calendar: ".workspace-leaf-content[data-type='calendar'] .view-content";
 
 $plugins: $calendar, $janitor, $excalidraw, $kanban;
 
-/* ! overflow: overlay is deprecated */
-body.scrollbar-gutter-overlay {
-  :is(#{$base-panel}, #{$editor}, #{$plugins}) {
-    overflow-y: overlay !important;
-  }
-
-  #{$horizon} {
-    overflow-x: overlay !important;
-  }
+body.scrollbar-hide ::-webkit-scrollbar {
+  display: none;
 }
 
-body.scrollbar-gutter-reserve {
-  --setting-scrollbar-gutter: stable;
-}
-
-$base-color: hsla(var(--color-accent-hsl), 24%);
-$hover-color: hsla(var(--color-accent-hsl), 40%);
-$active-color: hsla(var(--color-accent-hsl), 64%);
-
-body.scrollbar-hover-accent {
-  --setting-scrollbar-hover: #{$hover-color};
-}
-
-/* https://stackoverflow.com/a/74050413/20058211 */
-/* https://stackoverflow.com/a/46304690/20058211 */
 @property --scrollbar-color {
   syntax: '<color>';
   inherits: true;
   initial-value: #0000;
 }
 
-::-webkit-scrollbar {
-  width: var(--size-4-3) !important;
-  height: var(--size-4-3) !important;
-  background-color: transparent !important;
+/* ! overflow: overlay 已废弃, 详见 https://developer.mozilla.org/en-US/docs/Web/CSS/overflow#values */
+/* 使用 @property: https://stackoverflow.com/a/74050413/20058211 */
+/* 使用 -webkit-text-fill-color: https://stackoverflow.com/a/46304690/20058211 */
+body:not(.is-mobile, .scrollbar-hide) {
 
-  &-track {
-    background-color: transparent !important;
-    box-shadow: none !important;
-  }
-
-  &-thumb {
-    border-radius: var(--size-2-3) !important;
-    border: 3.6px solid transparent !important;
-    background-color: var(--scrollbar-color) !important;
-
-    &:hover {
-      --scrollbar-color: var(--setting-scrollbar-hover);
+  &.scrollbar-gutter-overlay {
+    :is(#{$base-panel}, #{$editor}, #{$plugins}) {
+      overflow-y: overlay !important;
     }
 
+    #{$horizon} {
+      overflow-x: overlay !important;
+    }
+  }
+
+  &.scrollbar-gutter-reserve {
+    --setting-scrollbar-gutter: stable;
+  }
+
+  $base-color: hsla(var(--color-accent-hsl), 24%);
+  $hover-color: hsla(var(--color-accent-hsl), 40%);
+  $active-color: hsla(var(--color-accent-hsl), 64%);
+
+  &.scrollbar-hover-accent {
+    --setting-scrollbar-hover: #{$hover-color};
+  }
+
+  &.scrollbar-hover-expand ::-webkit-scrollbar-thumb {
+
+    &:hover,
     &:active {
-      --scrollbar-color: #{$active-color};
-    }
-  }
-}
-
-body:not(.scrollbar-movein-animation) {
-  --scrollbar-color: #{$base-color};
-}
-
-body.scrollbar-movein-animation {
-  :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
-    transition: --scrollbar-color var(--animation);
-    scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
-
-    &:hover {
-      --scrollbar-color: #{$base-color};
+      border-width: var(--size-2-1) !important;
     }
   }
 
+  ::-webkit-scrollbar {
+    width: var(--size-4-3) !important;
+    height: var(--size-4-3) !important;
+    background-color: transparent !important;
 
-  textarea {
-    color: transparent;
-    transition: color var(--animation);
-    -webkit-text-fill-color: var(--text-normal);
-
-    &:hover {
-      color: #{$base-color};
-    }
-
-    * {
-      -webkit-text-fill-color: initial;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      box-shadow: 0 0 0 10px inset;
-      border-width: 3.2px;
-      background-clip: content-box;
+    &-track {
       background-color: transparent !important;
+      box-shadow: none !important;
+    }
+
+    &-thumb {
+      border-radius: var(--size-2-3) !important;
+      border: 3.6px solid transparent !important;
+      background-color: var(--scrollbar-color) !important;
+
+      &:hover {
+        --scrollbar-color: var(--setting-scrollbar-hover);
+      }
+
+      &:active {
+        --scrollbar-color: #{$active-color};
+      }
     }
   }
-}
 
+  &.scrollbar-movein-animation-disable {
+    --scrollbar-color: #{$base-color};
+  }
 
-body.scrollbar-smooth {
+  &:not(.scrollbar-movein-animation-disable) {
+    :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
+      transition: --scrollbar-color var(--animation);
+      scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
 
-  &.scrollbar-smooth-editor #{$editor},
-  :is(#{$base-panel}, #{$horizon}, #{$plugins}) {
-    scroll-behavior: smooth;
+      &:hover {
+        --scrollbar-color: #{$base-color};
+      }
+    }
+
+    textarea {
+      color: transparent;
+      transition: color var(--animation);
+      -webkit-text-fill-color: var(--text-normal);
+
+      &:hover {
+        color: #{$base-color};
+      }
+
+      * {
+        -webkit-text-fill-color: initial;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        box-shadow: 0 0 0 10px inset;
+        border-width: 3.2px;
+        background-clip: content-box;
+        background-color: transparent !important;
+      }
+    }
   }
 }

@@ -1,0 +1,65 @@
+/* ====== 背景图片 ====== */
+
+$op1: 0.3;
+$op2: 0.4;
+$op3: 0.6;
+$op4: 0.5;
+$speed: 1.2;
+
+$delay-1: $speed * -28;
+$duration-1: abs($delay-1) + $speed * 35;
+$delay-2: $speed * 2;
+$duration-2: abs($delay-2) + $speed * 55;
+$delay-3: $speed * -5;
+$duration-3: abs($delay-3) + $speed * 15;
+$delay-4: $speed * 16;
+$duration-4: abs($delay-4) + $speed * 45;
+
+@media screen and (min-width: 768px) {
+
+  body:is(.bg-static, .bg-live) {
+    background-color: hsl(var(--background-primary-hsl));
+    --modal-background: hsl(var(--background-primary-hsl));
+    --bg-opacity: 0.5;
+    --tab-background-active: hsl(var(--background-primary-hsl));
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-mask-repeat: no-repeat;
+      background-color: var(--setting-bg-color, var(--text-accent));
+      opacity: 0.5;
+    }
+
+    :is(.menu, .suggestion-container, .excalidraw .context-menu, .canvas-card-menu, .canvas-menu, .canvas-controls button) {
+      background-color: hsla(var(--background-secondary-hsl));
+    }
+
+    :is(.workspace-leaf-content:is([data-type="markdown"], [data-type="style-settings"]) .view-header.progress-bar, .prompt,
+      .popover) {
+      background-color: hsl(var(--background-primary-hsl));
+    }
+  }
+
+  /* 参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
+  body {
+    --setting-bg-static: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" xml:space="preserve"><path opacity="#{$op1}" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"/><path opacity="#{$op2}" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"/><path opacity="#{$op3}" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
+    --setting-bg-live: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 24 150 28' preserveAspectRatio='none' shape-rendering='auto' style='position:relative;width:100%25;height:15vh;min-height:100px;max-height:150px'%3E%3Cstyle%3E.parallax>use%7Banimation:move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite%7D.parallax>use:nth-child(1)%7Banimation-delay:#{$delay-1}s;animation-duration:#{$duration-1}s%7D.parallax>use:nth-child(2)%7Banimation-delay:#{$delay-2}s;animation-duration:#{$duration-2}s%7D.parallax>use:nth-child(3)%7Banimation-delay:#{$delay-3}s;animation-duration:#{$duration-3}s%7D.parallax>use:nth-child(4)%7Banimation-delay:#{$delay-4}s;animation-duration:#{$duration-4}s%7D@keyframes move-forever%7B0%25%7Btransform:translate3d(-90px, 0, 0)%7D100%25%7Btransform:translate3d(85px, 0, 0)%7D%7D@media (max-width:768px)%7B.waves%7Bheight:40px;min-height:40px%7D%7D%3C/style%3E%3Cdefs%3E%3Cpath id='gentle-wave' d='M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z'/%3E%3C/defs%3E%3Cg class='parallax'%3E%3Cuse xlink:href='%23gentle-wave' x='48' opacity='#{$op1}'/%3E%3Cuse xlink:href='%23gentle-wave' x='48' y='3' opacity='#{$op2}'/%3E%3Cuse xlink:href='%23gentle-wave' x='48' y='5' opacity='#{$op3}'/%3E%3Cuse xlink:href='%23gentle-wave' x='48' y='7' opacity='#{$op4}'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  body.bg-static::before {
+    -webkit-mask-image: var(--setting-bg-static);
+    -webkit-mask-size: 300% 300px;
+    -webkit-mask-position: 88.5% -73px;
+    transform: rotateZ(180deg);
+  }
+
+  /* 参考 https://www.cssscript.com/animated-waves-svg */
+  body.bg-live::before {
+    -webkit-mask-image: var(--setting-bg-live);
+    -webkit-mask-size: 100% 160px;
+    -webkit-mask-position-y: 100%;
+  }
+}

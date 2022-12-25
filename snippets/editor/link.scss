@@ -1,8 +1,6 @@
 /* ====== 链接 ====== */
 
 :is(body, .print .markdown-rendered) {
-  // --link-decoration-hover: none;
-  // --link-external-decoration-hover: none;
   --link-color-rgb: var(--setting-link-internal-color, var(--color-blue-rgb));
   --link-external-color-rgb: var(--setting-link-external-color, var(--color-orange-rgb));
   --link-color: rgba(var(--link-color-rgb), var(--color-opacity));
@@ -25,7 +23,7 @@
   initial-value: 2px;
 }
 
-@mixin underline($color) {
+@mixin hover-underline($color) {
   font-size: var(--font-text-size);
   text-underline-offset: var(--link-offset);
   color: $color !important;
@@ -44,7 +42,7 @@
   }
 }
 
-@mixin hover($color) {
+@mixin hover-base($color) {
   transition: var(--animation);
   color: rgb($color);
   border-radius: var(--radius-s);
@@ -80,11 +78,11 @@ body span:is(.cm-formatting-link, .cm-formatting-link-string) {
 
 body:not(.link-hover-expand) {
   :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string)) {
-    @include hover(var(--link-external-color-rgb));
+    @include hover-base(var(--link-external-color-rgb));
   }
 
   :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline) {
-    @include hover(var(--link-color-rgb));
+    @include hover-base(var(--link-color-rgb));
   }
 
   span:is(.cm-link, .cm-hmd-internal-link):hover {
@@ -107,11 +105,11 @@ body.link-hover-expand {
   }
 
   :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline) {
-    @include underline(var(--link-external-color));
+    @include hover-underline(var(--link-external-color));
   }
 
   :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline) {
-    @include underline(var(--link-color));
+    @include hover-underline(var(--link-color));
   }
 
   :is(.cm-hmd-internal-link, .cm-link) {
@@ -127,20 +125,19 @@ body.link-icon {
     width: calc(var(--font-text-size) - var(--size-2-1));
     height: calc(var(--font-text-size) - var(--size-2-1));
     background-color: var(--link-color);
-    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
+    // add icon in icons.scss
   }
 
   &:not(.link-click-to-edit-in-live-preview) {
     :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, :is(.cm-link:not(.cm-hmd-footnote), .cm-url) .cm-underline)::before {
       content: '';
       display: inline-block;
-      transform: translateY(var(--size-2-1));
       width: calc(var(--font-text-size) - var(--size-4-1));
       height: calc(var(--font-text-size) - var(--size-4-1));
       margin-left: var(--size-2-1);
       margin-right: var(--size-2-1);
       background-color: var(--link-external-color);
-      -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>');
+      // add icon in icons.scss
     }
 
     a.external-link {

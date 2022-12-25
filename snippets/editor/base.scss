@@ -4,11 +4,10 @@
   margin: var(--size-4-1) 0;
 }
 
-body mjx-container {
-  mjx-utext {
-    font-family: var(--font-text) !important;
-  }
+body.font-latex-text mjx-container mjx-utext {
+  font-family: var(--font-text) !important;
 }
+
 
 /* ====== latex 修复 ====== */
 
@@ -30,29 +29,36 @@ body.font-maple {
     var(--font-monospace-default);
 }
 
+code {
+  font-family: var(--font-monospace);
+}
+
+/* ====== 光标 ====== */
+
+:is(.markdown-source-view.mod-cm6 .cm-content, .mod-cm6 .cm-line, .fancy-cursor input.prompt-input) {
+  caret-color: var(--accent-active);
+}
+
 /* ====== 文本 ======= */
 
 .theme-light {
-  --active-line: hsl(calc(var(--accent-h) - 4),
-      calc(var(--accent-s) - 12%),
-      calc(100% - (100% - var(--accent-l)) / 5));
+  --active-line: var(--setting-line-active-color, hsl(calc(var(--accent-h) - 4),
+        calc(var(--accent-s) - 12%),
+        calc(100% - (100% - var(--accent-l)) / 5)));
 }
 
 .theme-dark {
-  --active-line: hsla(calc(var(--accent-h) - 24),
-      18%,
-      calc(var(--accent-l) / 4),
-      95%);
+  --active-line: var(--setting-line-active-color, hsla(calc(var(--accent-h) - 24),
+        18%,
+        calc(var(--accent-l) / 4),
+        95%));
 }
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
-  padding: {
-    left: var(--size-4-1);
-    right: var(--size-4-1);
-  }
+  padding-inline: var(--size-4-1);
 }
 
-body:not(.line-active-disable) .markdown-source-view .cm-scroller .cm-line.cm-active {
+body:not(.line-active-disable) .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: var(--active-line);
   border-radius: var(--radius-s);
 }
@@ -78,9 +84,14 @@ kbd {
   }
 }
 
-::selection {
-  text-decoration-line: none !important;
+/* ====== 高亮 ====== */
+
+.is-flashing {
+  transition: var(--animation);
+  border-radius: var(--radius-s);
 }
+
+/* ====== 粗体、斜体 ====== */
 
 body {
   --bold-color: var(--setting-text-bold-color, var(--color-red)) !important;
@@ -130,29 +141,5 @@ a :is(em, strong) {
 }
 
 .view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
-  padding-top: 0; //calc(var(--file-margins) / 2);
-}
-
-body.tab-title-bar {
-  .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
-    margin: var(--size-4-1);
-    padding: 0 var(--size-2-3) !important;
-    border: var(--size-2-1) solid var(--background-modifier-hover);
-    border-radius: var(--radius-m);
-    --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
-    transition: var(--animation);
-    width: calc(100% - var(--size-4-2)) !important;
-
-    .view-header-title-container:after {
-      content: none;
-    }
-  }
-
-  .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
-    --background-primary: var(--background-secondary);
-  }
-
-  &.tab-title-bar-shadow .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
-    box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
-  }
+  padding-top: 0;
 }

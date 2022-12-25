@@ -1,4 +1,4 @@
-/* ====== tab栏 ====== */
+/* ====== 标签 ====== */
 
 body.tab-float {
   --tab-radius: var(--size-2-3);
@@ -10,24 +10,31 @@ body.tab-float {
   .mod-root .workspace-tab-header-container-inner {
     margin-top: var(--size-4-1);
     padding-bottom: var(--size-4-1);
+    padding-left: var(--size-4-1);
   }
 
-  .mod-root .workspace-tab-header {
-    padding-bottom: 0 !important;
-    padding-top: 0 !important;
+  .mod-root {
+    .workspace-tab-header {
+      padding-block: 0 !important;
+      transition: color var(--animation), width var(--animation);
 
-    &.is-active {
-      --tab-radius-active: var(--size-2-3);
-      box-shadow: var(--shadow-s);
-      border: 1px solid var(--color-base-30);
+      &.is-active {
+        --tab-radius-active: var(--size-2-3);
+        box-shadow: var(--shadow-s);
+        border: 1px solid var(--color-base-30);
+      }
+
+      .workspace-tab-header-inner-close-button {
+        padding: var(--size-2-1);
+
+        &:hover {
+          background-color: var(--frame-background-color);
+        }
+      }
     }
 
-    .workspace-tab-header-inner-close-button {
-      padding: var(--size-2-1);
-
-      &:hover {
-        background-color: var(--frame-background-color);
-      }
+    .workspace-tabs:not(.mod-stacked):not(.mod-active) .workspace-tab-header.is-active {
+      --tab-background-active: hsla(var(--background-primary-hsl), 0.5);
     }
   }
 
@@ -58,4 +65,109 @@ body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active) {
   &:hover .workspace-tab-header-inner-close-button {
     display: inherit;
   }
+}
+
+body.tab-title-bar-round {
+  .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
+    margin: var(--size-4-1);
+    margin-bottom: 0;
+    padding: 0 var(--size-2-3) !important;
+    border: var(--size-2-1) solid var(--background-modifier-hover);
+    border-radius: var(--radius-m);
+    --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
+    transition: var(--animation);
+    width: calc(100% - var(--size-4-2)) !important;
+
+    .view-header-title-container:after {
+      content: none;
+    }
+  }
+
+  .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
+    background-color: hsl(var(--background-secondary-hsl));
+  }
+
+  &.tab-title-bar-shadow .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
+    box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
+  }
+}
+
+/* 参考 https://github.com/Akifyss/obsidian-border */
+body.tab-title-bar-compact .app-container .workspace-leaf-content:not([data-type='excalidraw']) {
+  .view-header {
+    z-index: var(--layer-cover);
+    position: absolute;
+    border: var(--size-2-1) solid var(--background-modifier-hover);
+    width: fit-content;
+    border-radius: var(--radius-m);
+    top: var(--size-2-3);
+    right: var(--size-2-3);
+    padding: 0 var(--size-4-2);
+    transition: var(--animation);
+
+    .view-header-nav-buttons::after {
+      content: '';
+      width: 1px;
+      height: 80%;
+      transform: translateX(var(--size-4-1));
+      background-color: var(--background-modifier-hover);
+    }
+
+    .view-header-title-container {
+      display: none;
+    }
+  }
+
+  .view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
+    padding-top: var(--file-margins);
+  }
+
+  :is(.cm-scroller, .markdown-preview-view)::-webkit-scrollbar-track {
+    margin-top: calc(var(--file-margins) + var(--size-4-3));
+  }
+}
+
+body.tab-title-bar-compact.tab-title-bar-compact-left .app-container .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
+  left: var(--size-2-3);
+  right: unset;
+}
+
+/* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
+body .workspace-split .workspace-tabs:not(.mod-stacked) .view-content,
+.workspace-leaf-content:not(:has(.view-content)) {
+  animation: slide-up var(--animation) forwards;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+
+  15% {
+    transform: translateY(0.1rem);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translateY(0.15rem);
+  }
+
+  45% {
+    opacity: 0.5;
+  }
+
+  65% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.is-sidedock-collapsed {
+  opacity: 0;
+  transition: var(--animation);
 }

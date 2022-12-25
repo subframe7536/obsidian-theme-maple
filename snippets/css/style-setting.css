@@ -11,13 +11,14 @@ settings:
         collapsed: true
         level: 2
     -
-        id: setting-
+        id: setting-animation-time
         title: animation duration (ms)
         title.zh: 动画持续时间（毫秒）
         type: variable-number-slider
-        default: 150
-        min: 50
-        max: 1000
+        format: ms
+        default: 200
+        min: 0
+        max: 500
         step: 50
     -
         id: accent-colors
@@ -26,13 +27,6 @@ settings:
         type: heading
         collapsed: false
         level: 3
-    -
-        id: color-fix-theme-color
-        title: format accent color
-        description: normalize accent color for better compability to theme. after opening, only the hue will be adjust, saturation/lightness will be fixed
-        title.zh: 规范颜色
-        description.zh: 固定主题色的 saturation / lightness 使颜色更适合主题，开启后主题色只调整 hue
-        type: class-toggle
     -
         id: color-use-custom
         title: use custom accent color
@@ -120,11 +114,52 @@ settings:
         default-dark: '#'
     -
         id: workspace
-        title: workspace
+        title: user interface
         title.zh: 工作区
         type: heading
         collapsed: true
         level: 2
+    -
+        id: titlebar-colorful
+        title: colorful titlebar
+        description: reference from https://github.com/kepano/obsidian-minimal
+        title.zh: 多彩 Obsidian 标题栏
+        description.zh: 参考 https://github.com/kepano/obsidian-minimal
+        type: class-toggle
+    -
+        id: bg
+        title: wave background
+        description: will also add in canvas card when card width > 768px
+        title.zh: 波浪背景图
+        description.zh: 白板的卡片宽度 >768px 时编辑卡片也会添加
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: bg-enable
+        title: enable background wave image
+        description: static style reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow, ❗live style will increase CPU/GPU use
+        title.zh: 开启背景波浪图
+        description.zh: 静态图（static）参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow，❗动态图（live）将提高 CPU/GPU 占用率
+        type: class-select
+        allowEmpty: false
+        default: bg-static
+        options:
+            -   label: none
+                value: bg-default
+            -   label: static
+                value: bg-static
+            -   label: live
+                value: bg-live
+    -
+        id: setting-bg-color
+        title: wave color
+        title.zh: 波浪颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
     -
         id: explorer
         title: file explorer
@@ -136,6 +171,14 @@ settings:
         id: explorer-hide-name
         title: hide vault name
         title.zh: 隐藏仓库名称
+        type: class-toggle
+        default: true
+    -
+        id: explorer-nav-decoration
+        title: styled active nav item
+        description: reference from https://github.com/Akifyss/obsidian-border
+        title.zh: 当前文件美化
+        description.zh: 参考 https://github.com/Akifyss/obsidian-border
         type: class-toggle
         default: true
     -
@@ -162,24 +205,22 @@ settings:
         level: 3
     -
         id: status-bar-float
-        title: toast style status bar
-        title.zh: taost 风格的状态栏
+        title: round style status bar
+        title.zh: 圆角风格的状态栏
         type: class-toggle
         default: true
     -
         id: status-bar-style
         title: status bar animation
-        description: ❗last 2 style only valid when turn on “toast status bar”
+        description: ❗last style only valid when turn on “round status bar”
         title.zh: 状态栏样式
-        description.zh: ❗后两种样式只在开启“toast 风格的状态栏”才生效
+        description.zh: ❗最后一种样式只在开启“圆角风格的状态栏”才生效
         type: class-select
         allowEmpty: false
         default: status-bar-default
         options:
             -   label: default
                 value: status-bar-default
-            -   label: fill the width
-                value: status-bar-full
             -   label: show on hover
                 value: status-bar-hidden
             -   label: scroll out on hover
@@ -197,6 +238,12 @@ settings:
         collapsed: true
         level: 3
     -
+        id: search-internal-enable
+        title: enable VSCode style search/replace panel
+        title.zh: 启用 VSCode 样式的搜索框
+        type: class-toggle
+        default: true
+    -
         id: search-internal-expand-on-focus
         title: search/replace input expand on search/replace input focus
         title.zh: 文档内搜索框获得焦点时扩大宽度
@@ -209,34 +256,23 @@ settings:
         description.zh: 显示会过长
         type: class-toggle
         default: true
-    -
-        id: titlebar
-        title: Obsidian titlebar
-        title.zh: Obsidian 标题栏
-        type: heading
-        collapsed: true
-        level: 3
-    -
-        id: titlebar-colorful
-        title: colorful titlebar
-        title.zh: 多彩 Obsidian 标题栏
-        type: class-toggle
+
     -
         id: tab
         title: tab
-        title.zh: Tab 栏
+        title.zh: 标签页
         type: heading
         collapsed: true
         level: 3
     -
         id: tab-float
         title: float tabs style like firefox / Microsoft Edge
-        title.zh: 仿 Firefox / Microsoft Edge 的 Tab 栏
+        title.zh: 仿 Firefox / Microsoft Edge 的标签页
         type: class-toggle
     -
         id: tab-show-close
         title: when to show close button on tabs
-        title.zh: 何时显示 Tab 的关闭按钮
+        title.zh: 何时显示标签页的关闭按钮
         type: class-select
         allowEmpty: false
         default: tab-show-close-default
@@ -250,51 +286,34 @@ settings:
     -
         id: tab-title
         title: tab title bar
-        title.zh: Tab 标题栏
+        title.zh: 标签页标题栏
         type: heading
-        collapsed: true
         level: 4
     -
         id: tab-title-bar
-        title: toast style tab title bar
-        title.zh: toast 风格的标题栏
-        type: class-toggle
-        default: true
+        title: tab title bar style
+        description: compact style will hide file name
+        title.zh: 标签页标题栏样式
+        description.zh: 袖珍样式（compact）会隐藏文件名
+        type: class-select
+        allowEmpty: false
+        default: tab-title-bar-default
+        options:
+            -   label: default
+                value: tab-title-bar-default
+            -   label: round
+                value: tab-title-bar-round
+            -   label: compact
+                value: tab-title-bar-compact
     -
         id: tab-title-bar-shadow
         title: add shadow for active tab title bar
-        title.zh: 为当前 Tab 的标题栏添加阴影
+        title.zh: 为当前标签页标题栏添加阴影
         type: class-toggle
     -
-        id: blur
-        title: Acrylic style background
-        title.zh: 亚克力背景
-        type: heading
-        collapsed: true
-        level: 3
-    -
-        id: setting-blur
-        title: blur dimension
-        title.zh: 模糊半径
-        type: variable-number-slider
-        default: 8
-        min: 4
-        max: 12
-        step: 1
-    -
-        id: back-blur-menu
-        title: menu / suggestion popover
-        title.zh: 菜单 / 提示框
-        type: class-toggle
-    -
-        id: back-blur-title-bar
-        title: tab title bar
-        title.zh: tab 标题栏
-        type: class-toggle
-    -
-        id: back-blur-status-bar
-        title: status bar
-        title.zh: 状态栏
+        id: tab-title-bar-compact-left
+        title: show tab title bar on the left
+        title.zh: 在左侧显示标签页标题栏
         type: class-toggle
     -
         id: message
@@ -304,10 +323,14 @@ settings:
         collapsed: true
         level: 3
     -
+        id: message-tooltip-hide-arrow
+        title: hide tooltip arrow
+        title.zh: 隐藏气泡提示框箭头
+        type: class-toggle
+    -
         id: message-tooltip-hide
         title: always hide tooltip
         title.zh: 永久隐藏气泡提示框
-        description.zh: 鼠标经过按钮时跳出的提示框
         type: class-toggle
     -
         id: message-modify
@@ -336,7 +359,7 @@ settings:
     -
         id: modal
         title: modal & setting panel
-        title.zh: 模态框 & 设置面板
+        title.zh: 弹出框 & 设置面板
         type: heading
         collapsed: true
         level: 3
@@ -352,7 +375,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.2.2'"
+        default: "'maple 0.3.0'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -360,27 +383,71 @@ settings:
         type: class-toggle
         default: true
     -
-        id: modal-slider-thumb-thin
-        title: thin slider thumb
-        title.zh: 细的滑动条按钮
+        id: setting-nav-decoration
+        title: styled active nav item
+        title.zh: 左侧当前设置项美化
+        type: class-toggle
+        default: true
+    -
+        id: modal-slider
+        title: styled slider thumb
+        title.zh: 滑动条按钮美化
+        type: class-toggle
+        default: true
+    -
+        id: modal-toggle
+        title: styled toggle button
+        title.zh: 开关按钮美化
+        type: class-select
+        allowEmpty: false
+        default: modal-toggle-default
+        options:
+            -   label: default
+                value: modal-toggle-default
+            -   label: thin
+                value: modal-toggle-thin
+            -   label: round
+                value: modal-toggle-round
+    -
+        id: modal-animation
+        title: modal bounce animation
+        desciption: reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow
+        title.zh: 弹出框抖动动画
+        desciption.zh: 参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow
         type: class-toggle
         default: true
     -
         id: scrollbar
-        title: scrollbar & scroll behavior
-        title.zh: 滚动条 & 滚动样式
+        title: scrollbar
+        title.zh: 滚动条
         type: heading
         collapsed: true
         level: 3
     -
-        id: scrollbar-hover-accent
-        title: scrollbar hover highlight
-        title.zh: 滚动条鼠标经过高亮
+        id: scrollbar-hide
+        title: always hide scrollbar
+        title.zh: 不显示滚动条
         type: class-toggle
     -
-        id: scrollbar-movein-animation
-        title: show scrollbar when mouse movein
-        title.zh: 滚动条鼠标经过时才显示
+        id: scrollbar-hover
+        title: scrollbar hover action
+        title.zh: 鼠标经过时滚动条变化
+        type: class-select
+        allowEmpty: false
+        default: scrollbar-hover-default
+        options:
+            -   label: default
+                value: scrollbar-hover-default
+            -   label: accent
+                value: scrollbar-hover-accent
+            -   label: expand
+                value: scrollbar-hover-expand
+    -
+        id: scrollbar-movein-animation-disable
+        title: disable scrollbar animation
+        description: when disabled, always show scrollbar; when enabled, hide scrollbar when the mouse move outside the container
+        title.zh: 关闭滚动条动画
+        description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
         type: class-toggle
         default: true
     -
@@ -399,18 +466,6 @@ settings:
                 value: scrollbar-gutter-overlay
             -   label: reserve
                 value: scrollbar-gutter-reserve
-    -
-        id: scrollbar-smooth
-        title: smooth scroll
-        title.zh: 开启顺滑滚动
-        type: class-toggle
-    -
-        id: scrollbar-smooth-editor
-        title: smooth scroll for editor
-        description: may cause bad animation
-        title.zh: 编辑器开启顺滑滚动
-        description.zh: ❗跳转动画可能不太好
-        type: class-toggle
     -
         id: editor
         title: editor
@@ -454,9 +509,16 @@ settings:
     -
         id: font-fix-latex
         title: fix latex italic absent
-        description: latex in my vault often wrong rendered, so i make this setting
+        description: latex in my vault often wrong rendered, so i make this setting. If wrong rendered, just toggle it
         title.zh: 修复 latex 斜体问题
-        description.zh: 在我的仓库里经常渲染失败，只能自己打包一份字体进主题了
+        description.zh: 在我的仓库里经常渲染失败，只能自己打包一份字体进主题了。只要字体不正常，开关一次即可
+        type: class-toggle
+    -
+        id: font-latex-text
+        title: use “text font” in non-formula parts of latex
+        description: ❗only tested in CJK
+        title.zh: 在 latex 非公式部分使用正文字体
+        description.zh: 默认的字体比较丑
         type: class-toggle
     -
         id: setting-line-height
@@ -472,6 +534,15 @@ settings:
         title: disable active line hightlight
         title.zh: 禁用当前行高亮
         type: class-toggle
+    -
+        id: setting-line-active-color
+        title: active line color
+        title.zh: 高亮行颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
     -
         id: links
         title: link
@@ -523,36 +594,28 @@ settings:
         collapsed: true
         level: 3
     -
-        id: heading-style-level
-        title: enable prefix level heading style
-        title.zh: 启用前置等级标题样式
-        type: class-toggle
-        default: true
-    -
         id: heading-level
-        title: prefix level preference
-        description: click to collapse title if you open setting “Fold heading”
-        title.zh: 前置标志设置
-        description.zh: 如果你开启了“折叠图标”选项，点击图标可以收起标题
+        title: heading level icon
+        description: add prefix icon for heading, click to collapse title if you open setting “Fold heading”
+        title.zh: 标题等级图标
+        description.zh: 为标题添加前置图标，如果你开启了“折叠图标”选项，点击图标可以收起标题
         type: heading
         collapsed: true
         level: 4
     -
+        id: heading-level-enable
+        title: enable level heading icon
+        title.zh: 启用标题等级图标
+        type: class-toggle
+    -
         id: heading-level-fix
         title: always show heading icon
-        description: add border on hover
-        title.zh: 总是显示前置标志
-        description.zh: 鼠标经过时添加边框
+        description: highlight on hover
+        title.zh: 总是显示图标
+        description.zh: 鼠标经过时高亮
         type: class-toggle
     -
-        id: heading-level-only-text
-        title: don't show icon border or background
-        description: only show header level
-        title.zh: 不添加边框或者背景色
-        description.zh: 只显示标题等级
-        type: class-toggle
-    -
-        id: heading-style
+        id: heading-level
         title: heading style preference
         title.zh: 标题样式设置
         type: heading
@@ -592,6 +655,26 @@ settings:
         type: heading
         collapsed: true
         level: 4
+    -
+        id: heading-color-style
+        title: heading color style
+        title.zh: 标题颜色样式
+        type: class-select
+        allowEmpty: false
+        default: heading-color-colorful
+        options:
+            -   label: text color
+                value: heading-color-base
+            -   label: accent color
+                value: heading-color-accent
+            -   label: colorful
+                value: heading-color-colorful
+    -
+        id: heading-color-custom
+        title: custom heading color
+        title.zh: 自定义标题颜色
+        type: heading
+        level: 5
     -
         id: setting-h1-color
         title: h1 color
@@ -646,6 +729,67 @@ settings:
         opacity: false
         default-light: '#'
         default-dark: '#'
+    -
+        id: heading-size
+        title: heading size
+        title.zh: 标题大小
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-h1-size
+        title: h1 font size
+        title.zh: 标题 1 字体大小
+        type: variable-number-slider
+        default: 1.6
+        min: 1
+        max: 2.4
+        step: 0.1
+    -
+        id: setting-h2-size
+        title: h2 font size
+        title.zh: 标题 2 字体大小
+        type: variable-number-slider
+        default: 1.5
+        min: 1
+        max: 2.4
+        step: 0.1
+    -
+        id: setting-h3-size
+        title: h3 font size
+        title.zh: 标题 3 字体大小
+        type: variable-number-slider
+        default: 1.4
+        min: 1
+        max: 2.4
+        step: 0.1
+    -
+        id: setting-h4-size
+        title: h4 font size
+        title.zh: 标题 4 字体大小
+        type: variable-number-slider
+        default: 1.3
+        min: 1
+        max: 2.4
+        step: 0.1
+    -
+        id: setting-h5-size
+        title: h5 font size
+        title.zh: 标题 5 字体大小
+        type: variable-number-slider
+        default: 1.2
+        min: 1
+        max: 2.4
+        step: 0.1
+    -
+        id: setting-h6-size
+        title: h6 font size
+        title.zh: 标题 6 字体大小
+        type: variable-number-slider
+        default: 1.1
+        min: 1
+        max: 2.4
+        step: 0.1
     -
         id: heading-font
         title: heading font
@@ -718,18 +862,82 @@ settings:
         type: class-toggle
         default: true
     -
+        id: setting-table-header-text
+        title: header text color
+        title.zh: 表头前景色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-table-header-bg
+        title: header background color
+        title.zh: 表头背景色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-table-line-bg
+        title: alt line color
+        title.zh: 交错行背景
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
         id: embed
         title: embed
-        title.zh: 内嵌
+        title.zh: 内嵌文档
         type: heading
         collapsed: true
         level: 3
+    -
+        id: embed-enable
+        title: enable embed file style
+        title.zh: 启用内嵌文档样式
+        type: class-toggle
+        default: true
     -
         id: embed-title-right-top
         title: move embed title to right top
         description: visiable on hover, disabled when alias is '#', Example ![[FileName|#]]
         title.zh: 内嵌文档标题移至右上角
         description.zh: 鼠标经过时显示；别名为'#'时禁用，例：![[文件名|#]]
+        type: class-toggle
+        default: true
+    -
+        id: image
+        title: image
+        title.zh: 图片
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: image-alt
+        title: add alt text below and center the image
+        description: example ![[image.jpg|alt text]]
+        title.zh: 在图片底部添加提示文本并居中图片
+        description.zh: 样例 ![[图片.jpg|提示文本]]
+        type: class-toggle
+        default: true
+    -
+        id: image-zoom
+        title: click to zoom out image
+        description: invalid in source view or live-preview
+        title.zh: 鼠标按下时放大图片
+        description.zh: 在 源码模式 或者 live preview 模式不生效
+        type: class-toggle
+        default: true
+    -
+        id: image-dark-hover
+        title: decrease brightness in dark mode
+        description: hover will increase brightness
+        title.zh: 黑暗模式下降低图片亮度
+        description.zh: 鼠标经过时会增加亮度
         type: class-toggle
         default: true
     -
@@ -743,28 +951,16 @@ settings:
         id: quote-theme
         title: enable quote theme
         description: with width guide line
-        title.zh: 使用引用块主题
+        title.zh: 启用引用块主题
         description.zh: 宽引导线
         type: class-toggle
         default: true
-#    -
-#        id: quote-break-all
-#        title: break word in the quote line
-#        description: recommand to open it when the whole line needs fill with letters without word
-#        type: class-toggle
     -
         id: quote-mark
         title: add front quote mark
         title.zh: 引用块添加前置引号
         type: class-toggle
         default: true
-    -
-        id: quote-reduce-blank
-        title: reduce empty line height after block
-        description: hover highlight & click to expand
-        title.zh: 减少块后空行的高度
-        description.zh: 鼠标经过高亮 & 点击扩大高度
-        type: class-toggle
     -
         id: code
         title: code

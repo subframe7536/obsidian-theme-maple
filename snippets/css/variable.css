@@ -15,169 +15,126 @@
   --color-cyan: rgba(99, 201, 201, var(--color-opacity)) !important;
   --color-purple: rgba(144, 132, 233, var(--color-opacity)) !important;
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
+  --background-modifier-cover: hsla(var(--background-secondary-hsl), 0.6);
   --interactive-accent: var(--accent-active);
+  --radius-xl: var(--size-4-3);
 
-  --animation: calc(var(--setting-animation-time, 150) * 1ms)
-    var(--anim-motion-smooth);
-  --animation-slow: var(--anim-duration-moderate) var(--anim-motion-smooth);
-  --blur: var(--setting-blur, 8);
+  --animation: var(--setting-animation-time, 200ms) var(--anim-motion-smooth);
+  --animation-slow: calc(var(--setting-animation-time, 200ms) * 2) var(--anim-motion-smooth);
+  --bg-opacity: 1;
 }
-html
-  :is(body.obsidian-app.color-fix-theme-color, body.obsidian-app.color-fix-theme-color
-    .print) {
+
+html :is(body.obsidian-app, body.obsidian-app .print) {
   --accent-s: 32% !important;
   --accent-l: 58% !important;
 }
-:is(body.color-use-custom.css-settings-manager, body.color-use-custom.css-settings-manager
-    .print) {
+
+:is(body.color-use-custom.css-settings-manager, body.color-use-custom.css-settings-manager .print) {
   --accent-s: var(--accent-color-s, 32%) !important;
   --accent-l: var(--accent-color-l, 58%) !important;
 }
-:is(body.color-use-custom.theme-light.css-settings-manager, body.color-use-custom.theme-light.css-settings-manager
-    .print) {
+
+:is(body.color-use-custom.theme-light.css-settings-manager, body.color-use-custom.theme-light.css-settings-manager .print) {
   --accent-h: var(--setting-color-base-light, 116) !important;
 }
-:is(body.color-use-custom.theme-dark.css-settings-manager, body.color-use-custom.theme-dark.css-settings-manager
-    .print) {
+
+:is(body.color-use-custom.theme-dark.css-settings-manager, body.color-use-custom.theme-dark.css-settings-manager .print) {
   --accent-h: var(--setting-color-base-dark, 207) !important;
 }
+
 :is(.theme-light, .theme-light .print) {
-  --background-primary: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 12%),
-    calc(100% - (100% - var(--accent-l)) / 12)
-  );
-  --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%),
-    calc(100% - (100% - var(--accent-l)) / 12);
-  --background-secondary: hsl(
-    calc(var(--accent-h) - 18),
-    calc(var(--accent-s) - 4%),
-    calc(100% - (100% - var(--accent-l)) / 8)
-  );
+  --background-primary: hsla(var(--accent-h),
+      calc(var(--accent-s) - 12%),
+      97%,
+      var(--bg-opacity));
+  --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
+  --background-secondary: hsla(calc(var(--accent-h) - 18),
+      calc(var(--accent-s) - 4%),
+      calc(100% - (100% - var(--accent-l)) / 8),
+      var(--bg-opacity));
   --background-secondary-hsl: calc(var(--accent-h) - 18),
     calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
   --background-modifier-hover: hsla(var(--color-accent-hsl), 16%);
-  --background-modifier-border-focus: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 4%),
-    calc(var(--accent-l) + 4%)
-  );
-  --accent-active: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 4%)
-  );
-  --accent-inactive: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 4%),
-    calc(var(--accent-l) + 24%)
-  );
-  --frame-background-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 32%)
-  );
-  --frame-outline-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 23.5%)
-  );
-  --frame-muted-color: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 20%),
-    calc(var(--accent-l) - 10%)
-  );
-  --background-modifier-cover: var(--color-base-70) !important;
+  --background-modifier-border-focus: hsl(var(--accent-h),
+      calc(var(--accent-s) - 4%),
+      calc(var(--accent-l) + 4%));
+  --accent-active: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 4%));
+  --accent-inactive: hsl(var(--accent-h),
+      calc(var(--accent-s) - 4%),
+      calc(var(--accent-l) + 24%));
+  --frame-background-color: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 32%));
+  --frame-outline-color: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 23.5%));
+  --frame-muted-color: hsl(var(--accent-h),
+      calc(var(--accent-s) - 20%),
+      calc(var(--accent-l) - 10%));
 
-  --md-container-bg: hsla(
-    calc(var(--accent-h) + 8),
-    calc(var(--accent-s) / 1.2),
-    calc(100% - (100% - var(--accent-l)) / 6),
-    70%
-  );
+  --md-container-bg: hsla(calc(var(--accent-h) + 8),
+      calc(var(--accent-s) / 1.2),
+      calc(100% - (100% - var(--accent-l)) / 6),
+      70%);
   --color-opacity: 1;
 }
+
 :is(.theme-dark, .theme-dark .print) {
-  --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 8));
+  --background-primary: hsla(var(--accent-h), 4%, calc(var(--accent-l) / 8), var(--bg-opacity));
   --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 8);
-  --background-secondary: hsl(
-    calc(var(--accent-h) + 8),
-    calc(var(--accent-s) / 6),
-    calc(var(--accent-l) / 4)
-  );
+  --background-secondary: hsla(calc(var(--accent-h) + 8),
+      calc(var(--accent-s) / 6),
+      calc(var(--accent-l) / 4),
+      var(--bg-opacity));
   --background-secondary-hsl: calc(var(--accent-h) + 8),
     calc(var(--accent-s) / 6), calc(var(--accent-l) / 4);
-  --background-modifier-hover: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) / 3)
-  );
-  --background-modifier-border-focus: hsl(
-    var(--accent-h),
-    12%,
-    calc(var(--accent-l) - 12%)
-  );
-  --accent-active: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 16%)
-  );
-  --accent-inactive: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) + 24%),
-    calc(var(--accent-l) - 32%)
-  );
+  --background-modifier-hover: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) / 3));
+  --background-modifier-border-focus: hsl(var(--accent-h),
+      12%,
+      calc(var(--accent-l) - 12%));
+  --accent-active: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) - 16%));
+  --accent-inactive: hsl(var(--accent-h),
+      calc(var(--accent-s) + 24%),
+      calc(var(--accent-l) - 32%));
   --frame-background-color: hsl(var(--accent-h), 12%, 20%);
-  --frame-outline-color: hsl(
-    calc(var(--accent-h) - 24),
-    calc(var(--accent-s) + 6%),
-    24%
-  );
-  --frame-muted-color: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 20%),
-    calc(var(--accent-l) + 10%)
-  );
+  --frame-outline-color: hsl(calc(var(--accent-h) - 24),
+      calc(var(--accent-s) + 6%),
+      24%);
+  --frame-muted-color: hsl(var(--accent-h),
+      calc(var(--accent-s) - 20%),
+      calc(var(--accent-l) + 10%));
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
-  --text-on-accent: #eee;
+  --text-on-accent: #eaeaea;
   --md-container-bg: hsl(calc(var(--accent-h) - 4), 18%, 9%);
   --color-opacity: 0.85;
 }
+
 body.theme-light.color-use-custom:not(.color-active-default-light),
 body.theme-light.color-use-custom:not(.color-active-default-light) .print {
-  --accent-active: var(
-    --setting-color-active-custom-light,
-    hsl(
-      calc(var(--accent-h) + 60),
-      calc(var(--accent-s) - 12%),
-      calc(var(--accent-l) + 4%)
-    )
-  );
-  --accent-inactive: var(
-    --setting-color-active-custom-dark,
-    hsl(
-      calc(var(--accent-h) + 60),
-      calc(var(--accent-s) - 12%),
-      calc(var(--accent-l) + 24%)
-    )
-  );
+  --accent-active: var(--setting-color-active-custom-light,
+      hsl(calc(var(--accent-h) + 60),
+        calc(var(--accent-s) - 12%),
+        calc(var(--accent-l) + 4%)));
+  --accent-inactive: var(--setting-color-active-custom-dark,
+      hsl(calc(var(--accent-h) + 60),
+        calc(var(--accent-s) - 12%),
+        calc(var(--accent-l) + 24%)));
 }
+
 body.theme-dark.color-use-custom:not(.color-active-default-dark),
 body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
-  --accent-active: var(
-    --setting-color-active-custom-dark,
-    hsl(
-      calc(var(--accent-h) + 60),
-      calc(var(--accent-s) - 12%),
-      calc(var(--accent-l) - 12%)
-    )
-  );
-  --accent-inactive: var(
-    --setting-color-active-custom-dark,
-    hsl(
-      calc(var(--accent-h) + 60),
-      calc(var(--accent-s) - 12%),
-      calc(var(--accent-l) - 28%)
-    )
-  );
+  --accent-active: var(--setting-color-active-custom-dark,
+      hsl(calc(var(--accent-h) + 60),
+        calc(var(--accent-s) - 12%),
+        calc(var(--accent-l) - 12%)));
+  --accent-inactive: var(--setting-color-active-custom-dark,
+      hsl(calc(var(--accent-h) + 60),
+        calc(var(--accent-s) - 12%),
+        calc(var(--accent-l) - 28%)));
 }

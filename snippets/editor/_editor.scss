@@ -1,8 +1,6 @@
 @use './code.scss';
-@use './cursor.scss';
 @use './embed.scss';
 @use './hr.scss';
-@use './img.scss';
 @use './link.scss';
 @use './list.scss';
 @use './quote.scss';
@@ -10,3 +8,5 @@
 @use './tag.scss';
 @use './base.scss';
 @use './heading.scss';
+@use './image.scss';
+@use './canvas.scss';

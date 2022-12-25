@@ -1,0 +1,49 @@
+/* ====== 白板 ====== */
+
+.canvas-wrapper {
+  .canvas-node-container {
+    border-radius: var(--radius-l);
+  }
+
+  .canvas-card-menu {
+    padding: var(--size-2-1);
+    border-radius: var(--radius-m);
+    bottom: var(--size-4-6);
+
+    .canvas-card-menu-button {
+      --icon-size: var(--icon-l);
+    }
+  }
+
+  :is(.canvas-menu, .canvas-controls-group) {
+    border-radius: var(--radius-m);
+  }
+
+  .canvas-menu {
+    padding: var(--size-4-1);
+
+    .clickable-icon {
+      padding: var(--size-2-3);
+    }
+  }
+
+  .canvas-controls {
+    &-group {
+      box-shadow: none;
+      border-width: var(--size-2-1);
+      background-color: hsl(var(--background-secondary-hsl));
+    }
+
+    button {
+      transition: none;
+      margin: var(--size-2-1);
+      padding: var(--size-2-3);
+      border-radius: var(--radius-s);
+      border-bottom: none;
+
+      &:not([disabled]):hover {
+        background-color: var(--background-modifier-hover) !important;
+      }
+    }
+  }
+}

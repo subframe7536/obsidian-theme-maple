@@ -1,3 +1,5 @@
+/* ====== day planner ====== */
+
 .theme-light {
   --day-planner-timeline: var(--code-base);
   --day-planner-line: var(--text-on-accent);
@@ -44,8 +46,7 @@ body .event_item.svelte-e43ld1.svelte-e43ld1:hover {
   padding-top: 10px !important;
 
   label.svelte-e43ld1 {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    margin-block: 0 !important;
   }
 }
 

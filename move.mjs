@@ -1,21 +1,15 @@
-import { copyFileSync, existsSync, mkdir } from 'fs'
+import { copyFileSync, existsSync, mkdirSync } from 'fs'
 import { resolve } from 'path'
-/**
- * in dir.js:
- *
- * ```js
- * export const dirs = ['/path/to/your/vault/root']
- * ```
- */
-if (existsSync('./dir.js')) {
-  const { dirs } = await import('./dir.js')
-  console.log(`choose ${dirs.length} vaults`)
-  dirs.forEach(dir => {
-    let vaultRoot = resolve(dir, '.obsidian', 'snippets')
-    !existsSync(vaultRoot) && mkdir(vaultRoot)
-    copyFileSync('obsidian.css', resolve(vaultRoot, 'obsidian.css'))
-    console.log(`apply to ${dir}`)
-  })
-} else {
-  console.log('no assigned vault')
-}
+
+// path/to/your/vault/root
+const dirs = []
+
+const vaultRoots = existsSync('./dir.js') ? (await import('./dir.js')).dirs : dirs
+console.log(`choose ${vaultRoots.length} vaults`)
+vaultRoots.forEach(root => {
+  let themeRoot = resolve(root, '.obsidian', 'themes', 'Maple')
+  !existsSync(themeRoot) && mkdirSync(themeRoot, { recursive: true })
+  copyFileSync('theme.css', resolve(themeRoot, 'theme.css'))
+  copyFileSync('manifest.json', resolve(themeRoot, 'manifest.json'))
+  console.log(`apply to ${root}`)
+})

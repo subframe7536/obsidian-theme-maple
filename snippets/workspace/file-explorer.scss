@@ -11,6 +11,7 @@ body {
   --nav-indentation-guide-width: 1.8px;
   --nav-item-background-hover: var(--background-modifier-hover);
   --nav-item-background-active: var(--accent-active);
+  --nav-item-background-selected: var(--frame-outline-color);
 }
 
 .theme-light {
@@ -21,7 +22,7 @@ body {
   --folder-inactive: 70%;
 }
 
-.nav-file-title.is-active {
+.nav-file-title.is-active:not(.is-selected) {
   color: var(--text-on-accent);
 }
 
@@ -62,12 +63,7 @@ body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files
         background-color: var(--folder-color);
         display: inline-block;
         margin-bottom: var(--size-4-1);
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 42 42"><g fill="none"><path d="M24.833 12.5H40.25a3.75 3.75 0 0 1 3.745 3.55l.005.2v19a3.75 3.75 0 0 1-3.55 3.745l-.2.005H7.75a3.75 3.75 0 0 1-3.745-3.55L4 35.25V18.999L17.804 19l.226-.007a3.75 3.75 0 0 0 2.547-1.219l.147-.172l4.109-5.102zM17.061 9c.832 0 1.639.277 2.294.784l.175.144l2.444 2.138l-3.197 3.968l-.094.105c-.2.197-.46.322-.739.353l-.14.008L4 16.499V12.75a3.75 3.75 0 0 1 3.55-3.745L7.75 9h9.31z" fill="currentColor"></path></g></svg>');
-
-        path {
-          display: none;
-        }
+        // add icon in icons.scss
       }
     }
 
@@ -91,14 +87,11 @@ body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files
         left: var(--size-4-1);
         margin-right: var(--size-4-1);
         transform: translateY(20%);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
         background-color: var(--accent-active);
-        -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>');
+        // add icon in icons.scss
       }
 
-      &.is-active .nav-file-title-content {
+      &.is-active:not(.is-selected) .nav-file-title-content {
         color: var(--text-on-accent);
 
         &:first-child::before {
@@ -120,12 +113,34 @@ body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files
     }
 
     &-title.is-active .nav-file-tag {
-      background-color: var(--background-secondary);
-      color: var(--accent-active);
+      background-color: hsl(var(--background-secondary-hsl), 0.9);
+      color: var(--nav-item-background-active);
     }
 
     &-title-content+.nav-file-tag {
       margin-left: var(--size-2-3);
     }
+  }
+}
+
+/* 参考 https://github.com/Akifyss/obsidian-border */
+:is(body.explorer-nav-decoration .nav-file-title, body.setting-nav-decoration .vertical-tab-nav-item) {
+  position: relative;
+
+  &.is-active::after {
+    height: calc(var(--line-height-tight) * var(--nav-item-size) - var(--size-2-1));
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    width: var(--size-4-1);
+    height: 0%;
+    border-radius: var(--radius-s);
+    background: var(--accent-inactive);
+    transition: var(--animation);
   }
 }

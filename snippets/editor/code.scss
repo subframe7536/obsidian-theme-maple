@@ -1,5 +1,7 @@
 /* ====== 代码 ====== */
 
+@use 'sass:math';
+
 :is(body, .print .markdown-rendered) {
   --inline-code: var(--color-red);
   --code-background: var(--md-container-bg);
@@ -95,7 +97,7 @@ body :is(.markdown-source-view, .markdown-rendered) {
 .markdown-source-view.mod-cm6 .cm-embed-block {
   box-shadow: none !important;
   border: var(--block-outline-width) solid transparent;
-  border-radius: var(--radius-l) !important;
+  border-radius: var(--radius-xl) !important;
   transition: var(--animation);
 
 
@@ -104,10 +106,10 @@ body :is(.markdown-source-view, .markdown-rendered) {
   }
 
   .edit-block-button {
-    border-radius: calc(var(--size-2-3)) !important;
+    border-radius: var(--radius-m) !important;
     transition: var(--animation);
-    top: 0.2rem;
-    right: 0.2rem;
+    inset-block: 0.2rem;
+    height: fit-content;
   }
 
   &:not(.cm-callout) {
@@ -143,7 +145,7 @@ body .markdown-rendered pre {
   }
 
   .copy-code-button {
-    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></g></svg>');
+    // add icon in icons.scss
     width: 1.5rem;
     height: 1.5rem;
     line-height: 1.5rem;
@@ -173,7 +175,7 @@ body.code-nowrap {
     }
   }
 
-  :not(.print) code {
+  :not(.print) pre code {
     word-break: normal;
     word-wrap: break-word;
     white-space: pre;
@@ -181,8 +183,10 @@ body.code-nowrap {
 }
 
 body.code-language .markdown-rendered {
+  $height: 1.8rem;
+
   pre {
-    padding: 1.8rem 1rem;
+    padding: $height 1rem;
     position: relative;
 
     &[class*='language-']::before {
@@ -190,34 +194,32 @@ body.code-language .markdown-rendered {
       font-family: var(--font-text);
       color: var(--setting-code-language-color, var(--inline-code));
       font-weight: bold;
-      font-size: 0.8rem;
+      font-size: math.div($height, 2) - 0.1rem;
       position: absolute;
-      letter-spacing: var(--size-2-1);
+      letter-spacing: 0.05rem;
       text-align: right;
-      right: calc(1.5rem + 2 * var(--size-4-1));
-      top: calc(1.8rem - 0.8rem * 2);
+      right: calc(1.3rem + 2 * var(--size-4-1));
+      top: math.div($height, 10);
       line-height: var(--line-height-normal);
       z-index: 9;
     }
   }
 
-  $language: c, properties, python, nginx, css, javascript, js, typescript, ts,
-    jsp, php, lua, shell, powershell, flow, sequence, sql, yaml, yml, ini, xml,
-    cs, cpp, java, html, txt, md, bat, json, groovy, scss, bash, cmd, latex, zig,
-    ssml, jsx, tsx, tsconfig, git, csharp, csv, cue, nginx, toml, kt, go, rust,
-    vue, regex;
+  $language: C, Properties, Python, Nginx, CSS, Javascript, JS, Typescript, TS,
+    JSP, PHP, Lua, Shell, PowerShell, Flow, Sequence, SQL, YAML, YML, ini, XML,
+    CS, CPP, Java, HTML, TXT, MD, Markdown, Bat, Json, Groovy, SCSS, Bash, Cmd,
+    Latex, Zig, SSML, JSX, TSX, tsconfig, Git, CSharp, CSV, cue, TOML, kt, Kotlin,
+    Go, Rust, Regex;
 
   @each $lan in $language {
-    pre[class~='language-#{$lan}']::before {
-      $t: to-upper-case($string: $lan);
-      content: quote($t);
+    pre[class~='language-#{to-lower-case($lan)}']::before {
+      content: quote($lan);
     }
   }
 }
 
 .markdown-source-view.mod-cm6 .code-block-flair {
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-block: 0;
   color: var(--color-red);
   transition: var(--animation);
 
@@ -335,3 +337,5 @@ body.code-line-number .markdown-source-view.mod-cm6 {
     }
   }
 }
+
+// todo :has() codesnap

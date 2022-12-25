@@ -1,3 +1,5 @@
+/* ====== 提示框、tooltip ====== */
+
 body.message-tooltip-hide .tooltip {
   display: none;
 }
@@ -21,4 +23,8 @@ body.message-modify {
             calc(var(--accent-h) + 60) calc(var(--accent-s) - 12%) calc(var(--accent-l) - 12%)));
     }
   }
+}
+
+body.message-tooltip-hide-arrow .tooltip-arrow {
+  display: none;
 }

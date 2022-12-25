@@ -1,72 +1,25 @@
 /* ====== 列表 ======= */
 
-// deprecated, no hierarchy, wait for :has()
-// .HyperMD-list-line {
-//   --list-guide-width: 2px;
-//   --list-bullet-size: var(--size-4-2);
-//   --indentation-guide-color-active: var(--indentation-guide-color);
-//   .cm-indent {
-//     position: relative;
-//     &::after {
-//       content: '';
-//       position: absolute;
-//       height: calc(150% + 0.15em);
-//       width: var(--list-guide-width);
-//       background-color: var(--text-accent);
-//       bottom: calc(var(--list-bullet-size) / -2);
-//       left: 0.2em;
-//     }
-//   }
-//   &.cm-active .cm-indent::after {
-//     background-color: transparent;
-//   }
-//   &.cm-active ~ & {
-//     .cm-hmd-list-indent .cm-indent::after {
-//       background-color: transparent !important;
-//     }
-//     .cm-formatting-list::before {
-//       border-color: transparent !important;
-//     }
-//   }
-//   &:not(.HyperMD-list-line-1) .cm-formatting-list {
-//     position: relative;
-//     &::before {
-//       content: '';
-//       position: absolute;
-//       width: var(--list-indent);
-//       height: 100%;
-//       border-left: var(--list-guide-width) solid var(--text-accent);
-//       border-bottom: var(--list-guide-width) solid var(--text-accent);
-//       border-bottom-left-radius: var(--radius-m);
-//       left: calc(var(--list-indent) * -1 + 0.2em);
-//       bottom: calc(50% - var(--list-guide-width) / 2);
-//     }
-//   }
-//   &.cm-active .cm-formatting-list::before {
-//     border-color: var(--text-accent) !important;
-//   }
-//   @for $i from 2 through 6 {
-//     &-#{$i} ~ &-#{$i} {
-//       .cm-formatting-list::before {
-//         border-color: transparent;
-//       }
-//       @for $j from ($i + 1) through 6 {
-//         & ~ .HyperMD-list-line-#{$j} .cm-formatting-list::before {
-//           border-color: transparent;
-//         }
-//       }
-//     }
-//   }
-// }
-.markdown-source-view.mod-cm6 .task-list-label {
-  margin-left: calc(var(--size-2-1) * -1);
+.markdown-source-view.mod-cm6 .HyperMD-task-line {
+  .task-list-label {
+    margin-left: calc(var(--size-2-1) * -1);
+  }
 
   .task-list-item-checkbox {
     margin-top: calc(var(--size-2-1) * -1);
   }
+
+  .collapse-indicator {
+    padding-right: 0.4rem;
+  }
 }
 
-input[type='checkbox'] {
+.markdown-rendered .contains-task-list .list-collapse-indicator {
+  margin-left: -3rem;
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) input[type='checkbox'] {
+  --checkbox-marker-color: var(--text-on-accent);
   transition: var(--animation);
   border-width: var(--size-2-1);
 
@@ -77,12 +30,12 @@ input[type='checkbox'] {
   }
 }
 
-.markdown-source-view.mod-cm6 .cm-indent::before {
-  transform: translateX(0.2em) !important;
+.markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-task-line) .cm-indent::before {
+  transform: translateX(0.2rem) !important;
 }
 
 .HyperMD-task-line .cm-indent::before {
-  transform: translateX(0.25em) !important;
+  transform: translateX(0.4em) !important;
 }
 
 body {
@@ -113,7 +66,7 @@ body {
       padding-inline-start: 1.2rem;
 
       &.contains-task-list {
-        padding-inline-start: 1.4rem;
+        padding-inline-start: 1.6rem;
         margin-inline-start: 0 !important;
       }
     }
@@ -124,7 +77,7 @@ body {
       }
 
       .list-collapse-indicator {
-        margin-left: -54px !important;
+        margin-left: -3.5rem !important;
       }
     }
 
@@ -139,7 +92,7 @@ body {
         ul>li {
           --list-marker-color: var(--list-marker-color-alt);
           --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
-          --list-bullet-radius: max(2px, calc(var(--list-bullet-size) / 3));
+          --list-bullet-radius: 1px;
 
           .list-bullet:after {
             transform: rotate(45deg);
@@ -149,8 +102,7 @@ body {
             --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
             --list-marker-color: transparent;
             --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
-            --list-bullet-radius: max(var(--size-2-1),
-                calc(var(--list-bullet-size) / 3));
+            --list-bullet-radius: 1px;
           }
         }
       }
@@ -166,28 +118,22 @@ body {
           margin-inline-start: 0.1rem !important;
 
           &::before {
-            left: -1rem;
+            left: -1.2rem;
           }
         }
       }
 
-      li {
-
-        // --indentation-guide-width: 1.4px;
-        &>ul::before {
-          left: -0.8rem;
-        }
-
-        &>ol::before {
-          left: -1.55rem;
-        }
+      li>ol::before {
+        left: -1.55rem;
       }
+
     }
   }
 
   .markdown-source-view.mod-cm6 {
-    .cm-fold-indicator .collapse-indicator {
-      padding-right: var(--size-4-2);
+    .cm-line.HyperMD-list-line:not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
+      padding-right: 0.5rem;
+      right: 0;
     }
 
     .cm-formatting-list {
@@ -210,7 +156,7 @@ body {
 
     .HyperMD-list-line-3 .list-bullet {
       --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
-      --list-bullet-radius: max(2px, calc(var(--list-bullet-size) / 3));
+      --list-bullet-radius: 1px;
 
       &::after {
         transform: rotate(45deg);
@@ -221,7 +167,7 @@ body {
       --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
       --list-marker-color: transparent;
       --list-bullet-border: 2px solid var(--list-marker-color-alt);
-      --list-bullet-radius: max(3px, calc(var(--list-bullet-size) / 3));
+      --list-bullet-radius: 1px;
 
       &::after {
         transform: rotate(45deg);
@@ -229,3 +175,5 @@ body {
     }
   }
 }
+
+// todo :has()

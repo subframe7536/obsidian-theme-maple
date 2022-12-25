@@ -1,4 +1,17 @@
 /* ====== style setting ====== */
+.mod-settings .vertical-tab-content>.setting-item:nth-child(2)>.setting-item-control>input[type=color] {
+  position: relative;
+
+  &::before {
+    content: 'only change Hue!';
+    font-family: var(--font-interface);
+    position: absolute;
+    width: auto;
+    left: calc((var(--swatch-width) + var(--size-4-12) * 2 + 120%) * -1);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
 
 :is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download, .style-settings-import-label) {
   transition: var(--animation);
@@ -24,13 +37,26 @@
   }
 }
 
-.themed-color-wrapper .pickr-reset>button {
-  padding: var(--size-2-3);
+.themed-color-wrapper {
+  &>.theme-light {
+    background-color: #eee;
+  }
+
+  &>.theme-dark {
+    background-color: #111;
+  }
+
+  .pickr-reset>button {
+    padding: var(--size-2-3);
+  }
 }
 
-.pickr .pcr-button::before,
-.pickr .pcr-button::after {
-  border-radius: var(--radius-s);
+.pickr .pcr-button {
+
+  &::before,
+  &::after {
+    border-radius: var(--radius-s);
+  }
 }
 
 .style-settings-container {
@@ -78,12 +104,17 @@
 }
 
 /* hide option */
+body.line-active-disable .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month) .setting-item[data-id='setting-calendar-year-suffix'],
 body:not(.quote-theme) .setting-item:is([data-id='quote-mark'], [data-id='quote-break-all']),
 body:not(.scrollbar-smooth) .setting-item[data-id='scrollbar-smooth-editor'],
-body.status-bar-scroll .setting-item[data-id='status-bar-style-center'],
-body:not(.tab-title-bar) .setting-item[data-id='tab-title-bar-shadow'],
+body.bg-default .setting-item[data-id='setting-bg-color'],
+body.scrollbar-hide .setting-item:is([data-id*='scrollbar-hover'], [data-id='scrollbar-movein-animation'], [data-id='scrollbar-gutter']),
+:is(body.status-bar-scroll, body:not(.status-bar-float)) .setting-item[data-id='status-bar-style-center'],
+body:not(.tab-title-bar-round) .setting-item[data-id='tab-title-bar-shadow'],
+body:not(.tab-title-bar-compact) .setting-item[data-id='tab-title-bar-compact-left'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
+body:not(.search-internal-enable) .setting-item:is([data-id='search-internal-expand-on-focus'], [data-id="search-internal-disable-select-all"]),
 body:not(.color-use-custom) .setting-item[data-id*='color-accent-'],
 body:not(.code-language) .setting-item[data-id='setting-code-language-color'],
 body:not(.modal-header) .setting-item[data-id='setting-modal-header-title'],
@@ -91,14 +122,16 @@ body:not(.color-use-custom) .setting-item[data-id^='accent-hue'],
 body:not(.color-active-custom-light) .setting-item[data-id='setting-color-active-custom-light'],
 body:not(.color-active-custom-dark) .setting-item[data-id='setting-color-active-custom-dark'],
 body:not(.message-modify) .setting-item[data-id^='setting-message'],
-body:not(.heading-style-level) .setting-item[data-id^='heading-level'],
-body:not(.heading-style-num) .setting-item[data-id^='heading-num'],
+body:not(.heading-level-enable) .setting-item[data-id^='heading-level-fix'],
+body:not(.heading-color-colorful) .setting-item[data-id='heading-color-custom'],
 body:not(.heading-h2-underline) .setting-item[data-id^='heading-h2-underline-thin'],
+body:not(.table-colorful) .setting-item[data-id^='setting-table'],
+body:not(.embed-enable) .setting-item[data-id^='embed-title'],
 body:not(.tag-colorful) .setting-item[data-id='tag-colorful-setting'] {
   display: none;
 }
 
-// reference from https://github.com/damiankorcz/Prism-Theme/blob/main/src/scss/Plugins/Community/styleSettings.scss
+/* 参考 https://github.com/damiankorcz/Prism-Theme */
 div.workspace-leaf-content[data-type="style-settings"] {
   div.view-content {
     padding: var(--file-margins);

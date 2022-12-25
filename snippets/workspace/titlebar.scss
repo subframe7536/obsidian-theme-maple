@@ -1,13 +1,17 @@
-/* ====== 标题栏 ====== */
+/* ====== obsidian 标题栏 ====== */
 
-:is(.mod-windows, .mod-linux) .titlebar-button {
-  width: 2.4rem;
-  padding: 13px;
+.is-hidden-frameless:is(.mod-windows, .mod-linux) .titlebar-button {
+  padding: 0 14px;
 
   svg {
     width: 100%;
-    height: 100%;
+    height: 32%;
   }
+}
+
+.is-frameless:not(.is-hidden-frameless):is(.mod-windows, .mod-linux) .titlebar-button svg:not([class*="logo"]) {
+  width: 100%;
+  height: 42%;
 }
 
 .titlebar-button.mod-close:hover {
@@ -18,7 +22,7 @@
   padding-bottom: var(--size-2-1);
 }
 
-/* minimal theme 片段 frame-color */
+/* 参考 minimal theme */
 :is(body, body.is-focused) {
 
   :is(.mod-top .workspace-tab-header-container, .sidebar-toggle-button.mod-left, .titlebar),
@@ -79,6 +83,6 @@ body.titlebar-colorful {
   }
 
   :is(.document-search-close-button, .modal-close-button)::before {
-    background-color: var(--text-on-accent);
+    background-color: var(--text-normal);
   }
 }

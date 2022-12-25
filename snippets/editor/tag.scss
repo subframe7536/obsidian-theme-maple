@@ -1,5 +1,9 @@
 /* ====== 标签 ====== */
 
+.HyperMD-header .cm-hashtag {
+  font-size: var(--tag-size) !important;
+}
+
 body.tag-colorful {
   @for $i from 1 through 6 {
     $index-start: $i * 2 - 1;

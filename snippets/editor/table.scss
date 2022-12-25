@@ -86,32 +86,35 @@ body:not(.table-colorful) .markdown-source-view.mod-cm6 .cm-embed-block.cm-table
 body.table-colorful {
   .markdown-source-view table+.edit-block-button {
     color: var(--text-on-accent);
-    --background-modifier-hover: var(--accent-inactive);
+    --background-modifier-hover: hsl(var(--background-secondary-hsl));
 
     &:hover {
-      color: var(--accent-active);
+      color: var(--setting-table-header-bg, var(--accent-active));
     }
   }
 
   table {
-    --table-header-color: var(--text-on-accent);
-    --table-header-background: var(--accent-active);
-    --table-header-background-hover: var(--accent-active);
+    --table-header-color: var(--setting-table-header-text, var(--text-on-accent));
+    --table-header-background: var(--setting-table-header-bg, var(--accent-active));
+    --table-header-background-hover: var(--table-header-background);
 
     tbody tr:nth-of-type(2n) {
-      background-color: var(--md-container-bg);
+      background-color: var(--setting-table-line-bg, var(--md-container-bg));
+    }
+
+    tbody tr:nth-of-type(2n+1) {
+      background-color: var(--background-primary);
     }
 
     th {
-      border-top: var(--block-outline-width) solid var(--accent-active) !important;
-      border-bottom: var(--block-outline-width) solid var(--accent-active);
+      border-block: var(--block-outline-width) solid var(--table-header-background) !important;
 
       &:first-child {
-        border-left-color: var(--accent-active);
+        border-left-color: var(--table-header-background);
       }
 
       &:last-child {
-        border-right-color: var(--accent-active);
+        border-right-color: var(--table-header-background);
       }
     }
   }

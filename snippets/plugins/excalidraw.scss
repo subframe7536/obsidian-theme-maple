@@ -1,71 +1,128 @@
 /* ====== excalidraw ====== */
 
-// .excalidraw {
-//   --excalidraw-ctx-opacity: 1;
+/* 参考 https://github.com/Maldonacho/obsidian-encore-theme */
+.excalidraw-wrapper {
+  background-color: transparent;
+}
 
-//   .popover {
-//     border-radius: var(--radius-m) !important;
-//     border: 1px solid var(--background-modifier-border-hover) !important;
-//     box-shadow: var(--shadow-s) !important;
-//   }
+.excalidraw {
+  border-radius: 8px;
+  background-color: transparent;
+  --help-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpath d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'%3E%3C/path%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'%3E%3C/line%3E%3C/svg%3E");
+  --grip-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Ccircle cx='12' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='19' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='5' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='12' cy='15' r='1'%3E%3C/circle%3E%3Ccircle cx='19' cy='15' r='1'%3E%3C/circle%3E%3Ccircle cx='5' cy='15' r='1'%3E%3C/circle%3E%3C/svg%3E");
 
-//   .context-menu {
-//     border-radius: var(--radius-m) !important;
-//     border: none !important;
-//     padding: var(--size-2-3) !important;
-//     background-color: var(--background-secondary);
-//     margin: 0 !important;
+  :is(&, &.theme--dark) {
+    --color-selection: var(--accent-active);
+    --color-primary: var(--accent-active);
+    --color-primary-darker: var(--accent-active);
+    --color-primary-darkest: var(--text-normal);
+    --button-gray-2: var(--nav-item-background-hover);
+    --color-primary-light: var(--nav-item-background-hover);
+    --border-radius-md: 4px;
+    --border-radius-lg: 8px;
+    --input-shadow: none;
+    --input-shadow-hover: none;
 
-//     li {
-//       padding: var(--size-2-1) var(--size-4-1);
+    .color-picker-label-swatch {
+      border: 1px solid var(--color-base-100);
+    }
 
-//       button {
-//         border-radius: var(--radius-s);
-//         padding: var(--size-2-1);
-//         padding-left: var(--size-4-2);
+    .color-picker-hash {
+      width: 1rem;
+    }
 
-//         &>div {
-//           margin-inline-end: var(--size-4-1) !important;
-//         }
+    .Island {
+      &>div:first-child>svg {
+        -webkit-mask-image: var(--grip-icon);
+        -webkit-mask-position: center;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: unset;
+        background-color: var(--button-gray-1);
+      }
 
-//         kbd {
-//           border: 0;
-//           box-shadow: none;
-//         }
-//       }
-//     }
+      // invalid?
+      // &.App-menu__left::-webkit-scrollbar-thumb {
+      //   width: 8px !important;
+      //   border-color: transparent !important;
+      // }
+    }
+  }
+}
 
-//     .context-menu-option-separator {
-//       border-top: 1px solid var(--background-modifier-border);
-//       margin: var(--size-4-1) calc(var(--size-4-1) * -1) !important;
-//     }
+.theme-light .excalidraw:not(.theme--dark) {
+  --button-gray-1: var(--color-base-30);
+  --button-gray-3: var(--color-base-30);
+  --dialog-border-color: var(--color-base-40);
+  --island-bg-color: var(--color-base-00);
+  --input-border-color: var(--color-base-30);
+  --input-bg-color: var(--color-base-20);
+}
 
-//     .context-menu-option:hover {
-//       background-color: var(--nav-item-background-hover);
-//       color: var(--text-normal);
+.theme-dark .excalidraw.theme--dark {
+  --button-gray-1: var(--color-base-30);
+  --button-gray-3: var(--color-base-30);
+  --dialog-border-color: var(--color-base-40);
+  --island-bg-color: var(--color-base-00);
+  --input-border-color: var(--color-base-30);
+  --input-bg-color: var(--color-base-20);
+}
 
-//       kbd {
-//         background-color: var(--background-primary) !important;
-//       }
-//     }
-//   }
+.excalidraw .layer-ui__wrapper__footer-right {
+  transform: translateY(-32px);
 
-//   h3 {
-//     font-weight: bold !important;
-//     color: inherit !important;
+  .help-icon {
+    display: none;
+  }
+}
 
-//     &::before {
-//       content: none;
-//     }
-//   }
+.excalidraw .layer-ui__wrapper__footer-left {
+  margin-bottom: 0.3rem;
+}
 
-//   .panelColumn {
-//     :is(h3, legend, .control-label) {
-//       font-size: 0.9rem !important;
-//     }
-//   }
+.help-icon {
+  -webkit-mask-image: var(--help-icon);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 18px;
+  background-color: var(--button-gray-1);
+  height: 30px;
 
-//   .color-picker-input {
-//     font-family: var(--font-text-ui);
-//   }
-// }
+  :hover {
+    background-color: var(--button-gray-2);
+  }
+
+  &>* {
+    display: none;
+  }
+}
+
+.workspace-leaf-content[data-type=excalidraw] .clickable-icon.view-action:is([aria-label="Press ESC to exit fullscreen mode"], [aria-label="Open selected text as link\a(SHIFT+CLICK to open in a new pane)"], [aria-label="Save (will also update transclusions)"], [aria-label="Install or update Excalidraw Scripts"])>svg {
+  -webkit-mask-image: unset;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 16px;
+  background-color: var(--color-base-70);
+  border-radius: 0;
+}
+
+.workspace-leaf-content[data-type=excalidraw] .clickable-icon.view-action[aria-label="Press ESC to exit fullscreen mode"]>svg {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cpolyline points='9 21 3 21 3 15'%3E%3C/polyline%3E%3Cline x1='21' y1='3' x2='14' y2='10'%3E%3C/line%3E%3Cline x1='3' y1='21' x2='10' y2='14'%3E%3C/line%3E%3C/svg%3E");
+}
+
+.workspace-leaf-content[data-type=excalidraw] .clickable-icon.view-action[aria-label="Open selected text as link\a(SHIFT+CLICK to open in a new pane)"]>svg {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+}
+
+.workspace-leaf-content[data-type=excalidraw] .clickable-icon.view-action[aria-label="Save (will also update transclusions)"]>svg {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpath d='M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z'%3E%3C/path%3E%3Cpolyline points='17 21 17 13 7 13 7 21'%3E%3C/polyline%3E%3Cpolyline points='7 3 7 8 15 8'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.workspace-leaf-content[data-type=excalidraw] .clickable-icon.view-action[aria-label="Install or update Excalidraw Scripts"]>svg {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpath d='M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4'%3E%3C/path%3E%3Cpolyline points='14 2 14 8 20 8'%3E%3C/polyline%3E%3Cpath d='m9 18 3-3-3-3'%3E%3C/path%3E%3Cpath d='m5 12-3 3 3 3'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.workspace-leaf-content .excalidraw-view {
+  padding: unset;
+  padding-right: 4px;
+  padding-bottom: 4px;
+}
