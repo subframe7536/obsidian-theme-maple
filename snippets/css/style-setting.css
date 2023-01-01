@@ -290,30 +290,14 @@ settings:
         type: heading
         level: 4
     -
-        id: tab-title-bar
-        title: tab title bar style
-        description: compact style will hide file name
-        title.zh: 标签页标题栏样式
-        description.zh: 袖珍样式（compact）会隐藏文件名
-        type: class-select
-        allowEmpty: false
-        default: tab-title-bar-default
-        options:
-            -   label: default
-                value: tab-title-bar-default
-            -   label: round
-                value: tab-title-bar-round
-            -   label: compact
-                value: tab-title-bar-compact
+        id: tab-title-bar-round
+        title: enable tab title bar round style
+        title.zh: 开启标签页标题栏圆角样式
+        type: class-toggle
     -
         id: tab-title-bar-shadow
         title: add shadow for active tab title bar
         title.zh: 为当前标签页标题栏添加阴影
-        type: class-toggle
-    -
-        id: tab-title-bar-compact-left
-        title: show tab title bar on the left
-        title.zh: 在左侧显示标签页标题栏
         type: class-toggle
     -
         id: message
@@ -986,6 +970,18 @@ settings:
         title.zh: 预览模式 代码块不换行
         type: class-toggle
         default: true
+    -
+        id: code-enable-equal-ligature
+        title: enable code ligatures for == === != !===
+        description: need to enable editor > text & font & line > use “Maple Mono” as monospace
+        title.zh: 开启代码 == === != !== 连字
+        description.zh: 需要开启 编辑器 > 文字 & 字体 & 行 > 使用“Maple Mono”作为等宽字体
+        type: class-toggle
+    -
+        id: code-preview-bg
+        title: enable codeblock background in preview mode
+        title.zh: 在 预览模式 开启代码块背景
+        type: class-toggle
     -
         id: setting-code-language-color
         title: language indicator color

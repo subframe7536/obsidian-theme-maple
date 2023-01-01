@@ -157,7 +157,7 @@ body .markdown-rendered pre {
     display: block !important;
     top: var(--size-4-1);
     right: var(--size-4-1);
-    z-index: 99;
+    z-index: 9;
 
     &:hover {
       opacity: 1;
@@ -338,4 +338,22 @@ body.code-line-number .markdown-source-view.mod-cm6 {
   }
 }
 
-// todo :has() codesnap
+body.code-enable-equal-ligature.font-maple code {
+  font-feature-settings: 'calt', 'cv02';
+}
+
+body.code-preview-bg .markdown-preview-view .markdown-preview-section {
+  div:has(pre) {
+    padding: var(--size-4-2) var(--size-4-6);
+    margin-block: var(--size-4-4);
+    border-radius: var(--radius-l);
+    background-image: linear-gradient(-30deg, #6dc6d6, #67c2dc, #67bde2, #6bb7e6, #75b1e8, #7eade9, #89a8e9, #95a3e7, #a09fe6, #ac9be3, #b897df, #c392da);
+  }
+
+  pre {
+    --code-background: hsl(var(--background-secondary-hsl));
+
+    border-width: 0;
+
+  }
+}

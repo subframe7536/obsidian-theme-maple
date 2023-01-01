@@ -71,4 +71,21 @@ body.tab-title-bar-compact.search-internal-enable.tab-title-bar-compact-left .do
   left: unset;
 }
 
-// todo @container
+.markdown-source-view,
+.markdown-reading-view {
+  container-type: inline-size;
+}
+
+@container (max-width: 400px) {
+  body.search-internal-enable .document-search-container {
+    width: calc(100% - 2 * var(--size-4-3));
+
+    :is(.document-search-input, .document-replace-input) {
+      min-width: 0;
+    }
+
+    :is(.document-search-buttons [aria-label="Shift + F3"], .document-replace-buttons [aria-label="Ctrl + Alt + Enter"]) {
+      display: none;
+    }
+  }
+}

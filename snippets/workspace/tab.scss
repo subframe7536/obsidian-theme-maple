@@ -77,6 +77,7 @@ body.tab-title-bar-round {
     --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
     transition: var(--animation);
     width: calc(100% - var(--size-4-2)) !important;
+    background-color: hsl(var(--background-secondary-hsl));
 
     .view-header-title-container:after {
       content: none;
@@ -84,7 +85,7 @@ body.tab-title-bar-round {
   }
 
   .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
-    background-color: hsl(var(--background-secondary-hsl));
+    background-color: hsl(var(--background-primary-hsl));
   }
 
   &.tab-title-bar-shadow .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
@@ -92,45 +93,45 @@ body.tab-title-bar-round {
   }
 }
 
-/* 参考 https://github.com/Akifyss/obsidian-border */
-body.tab-title-bar-compact .app-container .workspace-leaf-content:not([data-type='excalidraw']) {
-  .view-header {
-    z-index: var(--layer-cover);
-    position: absolute;
-    border: var(--size-2-1) solid var(--background-modifier-hover);
-    width: fit-content;
-    border-radius: var(--radius-m);
-    top: var(--size-2-3);
-    right: var(--size-2-3);
-    padding: 0 var(--size-4-2);
-    transition: var(--animation);
+// /* 参考 https://github.com/Akifyss/obsidian-border */
+// body.tab-title-bar-compact .app-container .workspace-leaf-content:not([data-type='excalidraw']) {
+//   .view-header {
+//     z-index: var(--layer-cover);
+//     position: absolute;
+//     border: var(--size-2-1) solid var(--background-modifier-hover);
+//     width: fit-content;
+//     border-radius: var(--radius-m);
+//     top: var(--size-2-3);
+//     right: var(--size-2-3);
+//     padding: 0 var(--size-4-2);
+//     transition: var(--animation);
 
-    .view-header-nav-buttons::after {
-      content: '';
-      width: 1px;
-      height: 80%;
-      transform: translateX(var(--size-4-1));
-      background-color: var(--background-modifier-hover);
-    }
+//     .view-header-nav-buttons::after {
+//       content: '';
+//       width: 1px;
+//       height: 80%;
+//       transform: translateX(var(--size-4-1));
+//       background-color: var(--background-modifier-hover);
+//     }
 
-    .view-header-title-container {
-      display: none;
-    }
-  }
+//     .view-header-title-container {
+//       display: none;
+//     }
+//   }
 
-  .view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
-    padding-top: var(--file-margins);
-  }
+//   .view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
+//     padding-top: var(--file-margins);
+//   }
 
-  :is(.cm-scroller, .markdown-preview-view)::-webkit-scrollbar-track {
-    margin-top: calc(var(--file-margins) + var(--size-4-3));
-  }
-}
+//   :is(.cm-scroller, .markdown-preview-view)::-webkit-scrollbar-track {
+//     margin-top: calc(var(--file-margins) + var(--size-4-3));
+//   }
+// }
 
-body.tab-title-bar-compact.tab-title-bar-compact-left .app-container .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
-  left: var(--size-2-3);
-  right: unset;
-}
+// body.tab-title-bar-compact.tab-title-bar-compact-left .app-container .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
+//   left: var(--size-2-3);
+//   right: unset;
+// }
 
 /* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
 body .workspace-split .workspace-tabs:not(.mod-stacked) .view-content,
