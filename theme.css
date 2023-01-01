@@ -291,30 +291,14 @@ settings:
         type: heading
         level: 4
     -
-        id: tab-title-bar
-        title: tab title bar style
-        description: compact style will hide file name
-        title.zh: 标签页标题栏样式
-        description.zh: 袖珍样式（compact）会隐藏文件名
-        type: class-select
-        allowEmpty: false
-        default: tab-title-bar-default
-        options:
-            -   label: default
-                value: tab-title-bar-default
-            -   label: round
-                value: tab-title-bar-round
-            -   label: compact
-                value: tab-title-bar-compact
+        id: tab-title-bar-round
+        title: enable tab title bar round style
+        title.zh: 开启标签页标题栏圆角样式
+        type: class-toggle
     -
         id: tab-title-bar-shadow
         title: add shadow for active tab title bar
         title.zh: 为当前标签页标题栏添加阴影
-        type: class-toggle
-    -
-        id: tab-title-bar-compact-left
-        title: show tab title bar on the left
-        title.zh: 在左侧显示标签页标题栏
         type: class-toggle
     -
         id: message
@@ -988,6 +972,18 @@ settings:
         type: class-toggle
         default: true
     -
+        id: code-enable-equal-ligature
+        title: enable code ligatures for == === != !===
+        description: need to enable editor > text & font & line > use “Maple Mono” as monospace
+        title.zh: 开启代码 == === != !== 连字
+        description.zh: 需要开启 编辑器 > 文字 & 字体 & 行 > 使用“Maple Mono”作为等宽字体
+        type: class-toggle
+    -
+        id: code-preview-bg
+        title: enable codeblock background in preview mode
+        title.zh: 在 预览模式 开启代码块背景
+        type: class-toggle
+    -
         id: setting-code-language-color
         title: language indicator color
         title.zh: 语言标识颜色
@@ -1423,7 +1419,7 @@ body .markdown-rendered pre .copy-code-button {
   display: block !important;
   top: var(--size-4-1);
   right: var(--size-4-1);
-  z-index: 99;
+  z-index: 9;
 }
 body .markdown-rendered pre .copy-code-button:hover {
   opacity: 1;
@@ -1704,6 +1700,21 @@ body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:n
 }
 body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
   counter-reset: code-line;
+}
+
+body.code-enable-equal-ligature.font-maple code {
+  font-feature-settings: "calt", "cv02";
+}
+
+body.code-preview-bg .markdown-preview-view .markdown-preview-section div:has(pre) {
+  padding: var(--size-4-2) var(--size-4-6);
+  margin-block: var(--size-4-4);
+  border-radius: var(--radius-l);
+  background-image: linear-gradient(-30deg, #6dc6d6, #67c2dc, #67bde2, #6bb7e6, #75b1e8, #7eade9, #89a8e9, #95a3e7, #a09fe6, #ac9be3, #b897df, #c392da);
+}
+body.code-preview-bg .markdown-preview-view .markdown-preview-section pre {
+  --code-background: hsl(var(--background-secondary-hsl));
+  border-width: 0;
 }
 
 /* ====== 内嵌文档 ====== */
@@ -2001,10 +2012,6 @@ body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-inte
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-task-line) .cm-indent::before {
-  transform: translateX(0.2rem) !important;
 }
 
 .HyperMD-task-line .cm-indent::before {
@@ -3126,7 +3133,6 @@ body.bg-default .setting-item[data-id=setting-bg-color],
 body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover], [data-id=scrollbar-movein-animation], [data-id=scrollbar-gutter]),
 :is(body.status-bar-scroll, body:not(.status-bar-float)) .setting-item[data-id=status-bar-style-center],
 body:not(.tab-title-bar-round) .setting-item[data-id=tab-title-bar-shadow],
-body:not(.tab-title-bar-compact) .setting-item[data-id=tab-title-bar-compact-left],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expand-on-focus], [data-id=search-internal-disable-select-all]),
 body:not(.color-use-custom) .setting-item[data-id*=color-accent-],
@@ -3445,6 +3451,22 @@ body.tab-title-bar-compact.search-internal-enable.tab-title-bar-compact-left .do
   left: unset;
 }
 
+.markdown-source-view,
+.markdown-reading-view {
+  container-type: inline-size;
+}
+
+@container (max-width: 400px) {
+  body.search-internal-enable .document-search-container {
+    width: calc(100% - 2 * var(--size-4-3));
+  }
+  body.search-internal-enable .document-search-container :is(.document-search-input, .document-replace-input) {
+    min-width: 0;
+  }
+  body.search-internal-enable .document-search-container :is(.document-search-buttons [aria-label="Shift + F3"], .document-replace-buttons [aria-label="Ctrl + Alt + Enter"]) {
+    display: none;
+  }
+}
 /* ====== 文件管理器 ====== */
 body {
   --file-folding-offset: 28px;
@@ -4112,49 +4134,16 @@ body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]) .vi
   --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
   transition: var(--animation);
   width: calc(100% - var(--size-4-2)) !important;
+  background-color: hsl(var(--background-secondary-hsl));
 }
 body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]) .view-header .view-header-title-container:after {
   content: none;
 }
 body.tab-title-bar-round .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  background-color: hsl(var(--background-secondary-hsl));
+  background-color: hsl(var(--background-primary-hsl));
 }
 body.tab-title-bar-round.tab-title-bar-shadow .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
   box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
-}
-
-/* 参考 https://github.com/Akifyss/obsidian-border */
-body.tab-title-bar-compact .app-container .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  z-index: var(--layer-cover);
-  position: absolute;
-  border: var(--size-2-1) solid var(--background-modifier-hover);
-  width: fit-content;
-  border-radius: var(--radius-m);
-  top: var(--size-2-3);
-  right: var(--size-2-3);
-  padding: 0 var(--size-4-2);
-  transition: var(--animation);
-}
-body.tab-title-bar-compact .app-container .workspace-leaf-content:not([data-type=excalidraw]) .view-header .view-header-nav-buttons::after {
-  content: "";
-  width: 1px;
-  height: 80%;
-  transform: translateX(var(--size-4-1));
-  background-color: var(--background-modifier-hover);
-}
-body.tab-title-bar-compact .app-container .workspace-leaf-content:not([data-type=excalidraw]) .view-header .view-header-title-container {
-  display: none;
-}
-body.tab-title-bar-compact .app-container .workspace-leaf-content:not([data-type=excalidraw]) .view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
-  padding-top: var(--file-margins);
-}
-body.tab-title-bar-compact .app-container .workspace-leaf-content:not([data-type=excalidraw]) :is(.cm-scroller, .markdown-preview-view)::-webkit-scrollbar-track {
-  margin-top: calc(var(--file-margins) + var(--size-4-3));
-}
-
-body.tab-title-bar-compact.tab-title-bar-compact-left .app-container .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  left: var(--size-2-3);
-  right: unset;
 }
 
 /* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
