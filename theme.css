@@ -360,7 +360,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.0'"
+        default: "'maple 0.3.1'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -3747,7 +3747,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.3.0");
+  content: var(--setting-header-title, "maple 0.3.1");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);

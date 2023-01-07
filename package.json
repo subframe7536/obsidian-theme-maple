@@ -1,9 +1,9 @@
 {
-  "name": "Maple",
-  "version": "0.3.0-beta",
+  "name": "maple",
+  "version": "0.3.1",
   "description": "Maple —— A Obsidian Theme",
   "scripts": {
-    "dev": "sass --watch snippets:D:/test/.obsidian/snippets --no-source-map --update",
+    "dev": "sass --watch snippets:vault/.obsidian/snippets --no-source-map --update",
     "prod": "sass snippets/index.scss theme.css --no-source-map && node move.mjs"
   },
   "keywords": [
