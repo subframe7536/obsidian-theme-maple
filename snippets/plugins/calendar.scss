@@ -59,6 +59,18 @@ body.calendar-swap-year-month #calendar-container .nav {
     padding: 0;
   }
 
+  .day {
+    border: 1px solid transparent;
+
+    &:hover {
+      border-color: var(--accent-inactive);
+    }
+
+    &.today:hover {
+      border-color: var(--text-on-accent);
+    }
+  }
+
   .today {
     --color-dot: var(--text-on-accent);
     background-color: var(--accent-active);
