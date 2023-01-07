@@ -49,7 +49,7 @@ body.modal-slider input[type='range']::-webkit-slider-thumb {
   }
 }
 
-body:is(.modal-toggle-round, .modal-toggle-thin) .modal .checkbox-container {
+body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
   height: 1rem;
   transition: var(--animation-slow);
@@ -62,7 +62,7 @@ body:is(.modal-toggle-round, .modal-toggle-thin) .modal .checkbox-container {
   }
 }
 
-body.modal-toggle-round .modal .checkbox-container {
+body.modal-toggle-round .checkbox-container {
   --toggle-shadow: var(--color-base-40);
 
   &::after {
@@ -96,7 +96,7 @@ body.modal-toggle-round .modal .checkbox-container {
 }
 
 /* 参考 https://uiverse.io/martinval9/white-lionfish-18 */
-body.modal-toggle-thin .modal .checkbox-container {
+body.modal-toggle-thin .checkbox-container {
   &::before {
     height: var(--toggle-border-width);
     left: calc(var(--toggle-border-width) * 2);
@@ -152,15 +152,26 @@ body.modal-toggle-thin .modal .checkbox-container {
 body.modal-header .modal-container {
   --modal-header-height: var(--size-4-12);
 
-  .mod-settings::before {
-    content: var(--setting-header-title, 'maple 0.3.0');
-    position: absolute;
-    left: 50%;
-    top: var(--size-4-6);
-    transform: translate(-50%, -50%);
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--setting-color-logo, var(--text-accent));
+  .mod-settings {
+    container-type: inline-size;
+
+    &::before {
+      content: var(--setting-header-title, 'maple 0.3.0');
+      position: absolute;
+      left: 50%;
+      top: var(--size-4-6);
+      transform: translate(-50%, -50%);
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--setting-color-logo, var(--text-accent));
+      transition: var(--animation);
+    }
+
+    @container (max-width:750px) {
+      &::before {
+        opacity: 0;
+      }
+    }
   }
 
   .mod-settings .modal-content {
@@ -186,8 +197,6 @@ body.modal-header .modal-container {
           font-size: var(--h2-size);
           font-weight: var(--h2-weight);
         }
-
-
       }
     }
 
@@ -207,6 +216,7 @@ body.modal-header .modal-container {
       top: 0;
       transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
       right: var(--size-4-16);
+
       position: absolute;
     }
 
@@ -224,6 +234,19 @@ body.modal-header .modal-container {
           top: 0;
           transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
           right: var(--size-4-16);
+        }
+      }
+    }
+
+    @supports selector(:has(input)) {
+      .vertical-tab-content>:nth-child(5):not(.style-settings-container):has(input[type="search"]) {
+        position: absolute;
+        top: 0;
+        transform: translateY(calc(var(--modal-header-height) / 2 - var(--input-height) + var(--size-4-1)));
+        right: var(--size-4-16);
+
+        .setting-item-info {
+          display: none;
         }
       }
     }

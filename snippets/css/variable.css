@@ -113,6 +113,8 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --text-on-accent: #eaeaea;
   --md-container-bg: hsl(calc(var(--accent-h) - 4), 18%, 9%);
   --color-opacity: 0.85;
+  --color-red: rgb(255, 70, 70, var(--color-opacity)) !important;
+  --color-red-rgb: 255, 70, 70 !important;
 }
 
 body.theme-light.color-use-custom:not(.color-active-default-light),

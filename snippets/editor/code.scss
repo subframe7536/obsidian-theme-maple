@@ -183,7 +183,7 @@ body.code-nowrap {
 }
 
 body.code-language .markdown-rendered {
-  $height: 1.8rem;
+  $height: 2rem;
 
   pre {
     padding: $height 1rem;
@@ -199,7 +199,7 @@ body.code-language .markdown-rendered {
       letter-spacing: 0.05rem;
       text-align: right;
       right: calc(1.3rem + 2 * var(--size-4-1));
-      top: math.div($height, 10);
+      top: math.div($height, 15);
       line-height: var(--line-height-normal);
       z-index: 9;
     }
@@ -342,18 +342,18 @@ body.code-enable-equal-ligature.font-maple code {
   font-feature-settings: 'calt', 'cv02';
 }
 
-body.code-preview-bg .markdown-preview-view .markdown-preview-section {
-  div:has(pre) {
-    padding: var(--size-4-2) var(--size-4-6);
-    margin-block: var(--size-4-4);
-    border-radius: var(--radius-l);
-    background-image: linear-gradient(-30deg, #6dc6d6, #67c2dc, #67bde2, #6bb7e6, #75b1e8, #7eade9, #89a8e9, #95a3e7, #a09fe6, #ac9be3, #b897df, #c392da);
-  }
+@supports selector(:has(pre)) {
+  body.code-preview-bg .markdown-preview-view .markdown-preview-section {
+    div:has(pre:not([class*="frontmatter"])) {
+      padding: var(--size-4-4) var(--size-4-8);
+      margin-block: var(--size-4-4);
+      border-radius: var(--radius-l);
+      background-image: linear-gradient(-30deg, #6dc6d6, #67c2dc, #67bde2, #6bb7e6, #75b1e8, #7eade9, #89a8e9, #95a3e7, #a09fe6, #ac9be3, #b897df, #c392da);
+    }
 
-  pre {
-    --code-background: hsl(var(--background-secondary-hsl));
-
-    border-width: 0;
-
+    pre:not([class*="frontmatter"]) {
+      --code-background: hsl(var(--background-secondary-hsl));
+      border-width: 0;
+    }
   }
 }

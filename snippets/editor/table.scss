@@ -107,6 +107,7 @@ body.table-colorful {
     }
 
     th {
+      caret-color: var(--text-on-accent);
       border-block: var(--block-outline-width) solid var(--table-header-background) !important;
 
       &:first-child {

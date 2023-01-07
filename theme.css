@@ -981,7 +981,9 @@ settings:
     -
         id: code-preview-bg
         title: enable codeblock background in preview mode
+        description: need install version >= 1.1.9
         title.zh: 在 预览模式 开启代码块背景
+        description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
     -
         id: setting-code-language-color
@@ -1233,6 +1235,8 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --text-on-accent: #eaeaea;
   --md-container-bg: hsl(calc(var(--accent-h) - 4), 18%, 9%);
   --color-opacity: 0.85;
+  --color-red: rgb(255, 70, 70, var(--color-opacity)) !important;
+  --color-red-rgb: 255, 70, 70 !important;
 }
 
 body.theme-light.color-use-custom:not(.color-active-default-light),
@@ -1439,7 +1443,7 @@ body.code-nowrap :not(.print) pre code {
 }
 
 body.code-language .markdown-rendered pre {
-  padding: 1.8rem 1rem;
+  padding: 2rem 1rem;
   position: relative;
 }
 body.code-language .markdown-rendered pre[class*=language-]::before {
@@ -1447,12 +1451,12 @@ body.code-language .markdown-rendered pre[class*=language-]::before {
   font-family: var(--font-text);
   color: var(--setting-code-language-color, var(--inline-code));
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   position: absolute;
   letter-spacing: 0.05rem;
   text-align: right;
   right: calc(1.3rem + 2 * var(--size-4-1));
-  top: 0.18rem;
+  top: 0.1333333333rem;
   line-height: var(--line-height-normal);
   z-index: 9;
 }
@@ -1706,17 +1710,18 @@ body.code-enable-equal-ligature.font-maple code {
   font-feature-settings: "calt", "cv02";
 }
 
-body.code-preview-bg .markdown-preview-view .markdown-preview-section div:has(pre) {
-  padding: var(--size-4-2) var(--size-4-6);
-  margin-block: var(--size-4-4);
-  border-radius: var(--radius-l);
-  background-image: linear-gradient(-30deg, #6dc6d6, #67c2dc, #67bde2, #6bb7e6, #75b1e8, #7eade9, #89a8e9, #95a3e7, #a09fe6, #ac9be3, #b897df, #c392da);
+@supports selector(:has(pre)) {
+  body.code-preview-bg .markdown-preview-view .markdown-preview-section div:has(pre:not([class*=frontmatter])) {
+    padding: var(--size-4-4) var(--size-4-8);
+    margin-block: var(--size-4-4);
+    border-radius: var(--radius-l);
+    background-image: linear-gradient(-30deg, #6dc6d6, #67c2dc, #67bde2, #6bb7e6, #75b1e8, #7eade9, #89a8e9, #95a3e7, #a09fe6, #ac9be3, #b897df, #c392da);
+  }
+  body.code-preview-bg .markdown-preview-view .markdown-preview-section pre:not([class*=frontmatter]) {
+    --code-background: hsl(var(--background-secondary-hsl));
+    border-width: 0;
+  }
 }
-body.code-preview-bg .markdown-preview-view .markdown-preview-section pre {
-  --code-background: hsl(var(--background-secondary-hsl));
-  border-width: 0;
-}
-
 /* ====== 内嵌文档 ====== */
 body.embed-enable .internal-embed.is-loaded:not(.image-embed) {
   --embed-background: var(--background-primary);
@@ -2334,6 +2339,7 @@ body.table-colorful table tbody tr:nth-of-type(2n+1) {
   background-color: var(--background-primary);
 }
 body.table-colorful table th {
+  caret-color: var(--text-on-accent);
   border-block: var(--block-outline-width) solid var(--table-header-background) !important;
 }
 body.table-colorful table th:first-child {
@@ -2808,7 +2814,7 @@ body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=im
   height: 100%;
   width: 100%;
   margin: 0;
-  padding: var(--size-2-3);
+  padding: var(--size-4-1);
   border-radius: 0;
   inset: 0;
   z-index: 200;
@@ -3396,6 +3402,10 @@ body .event_item.svelte-e43ld1.svelte-e43ld1:hover {
   display: none;
 }
 
+.MySnippets-statusbar-menu {
+  --interactive-normal: var(--accent-inactive);
+}
+
 /* ====== 文档内搜索框 ====== */
 .obsidian-search-match-highlight {
   background-color: var(--background-secondary);
@@ -3644,7 +3654,7 @@ body.modal-slider input[type=range]::-webkit-slider-thumb:hover {
   box-shadow: none;
 }
 
-body:is(.modal-toggle-round, .modal-toggle-thin) .modal .checkbox-container {
+body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
   height: 1rem;
   transition: var(--animation-slow);
@@ -3652,14 +3662,14 @@ body:is(.modal-toggle-round, .modal-toggle-thin) .modal .checkbox-container {
   background-color: var(--color-base-20);
   cursor: pointer;
 }
-body:is(.modal-toggle-round, .modal-toggle-thin) .modal .checkbox-container input[type=checkbox] {
+body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container input[type=checkbox] {
   display: none;
 }
 
-body.modal-toggle-round .modal .checkbox-container {
+body.modal-toggle-round .checkbox-container {
   --toggle-shadow: var(--color-base-40);
 }
-body.modal-toggle-round .modal .checkbox-container::after {
+body.modal-toggle-round .checkbox-container::after {
   left: 0;
   height: calc(var(--toggle-width) / 3);
   width: calc(var(--toggle-width) / 3);
@@ -3671,22 +3681,22 @@ body.modal-toggle-round .modal .checkbox-container::after {
   transition: var(--animation-slow);
   box-shadow: 0 4px 2px 0 var(--toggle-shadow);
 }
-body.modal-toggle-round .modal .checkbox-container:hover::after {
+body.modal-toggle-round .checkbox-container:hover::after {
   bottom: 10%;
   box-shadow: 0 2px 2px 0 var(--toggle-shadow);
 }
-body.modal-toggle-round .modal .checkbox-container.is-enabled {
+body.modal-toggle-round .checkbox-container.is-enabled {
   border-color: var(--accent-active);
   background-color: var(--accent-inactive);
 }
-body.modal-toggle-round .modal .checkbox-container.is-enabled::after {
+body.modal-toggle-round .checkbox-container.is-enabled::after {
   border-color: var(--accent-active);
   transform: none;
   left: calc(100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width));
 }
 
 /* 参考 https://uiverse.io/martinval9/white-lionfish-18 */
-body.modal-toggle-thin .modal .checkbox-container::before {
+body.modal-toggle-thin .checkbox-container::before {
   height: var(--toggle-border-width);
   left: calc(var(--toggle-border-width) * 2);
   right: calc(var(--toggle-border-width) * 2);
@@ -3696,7 +3706,7 @@ body.modal-toggle-thin .modal .checkbox-container::before {
   transform: translateY(-50%);
   background-color: var(--text-faint);
 }
-body.modal-toggle-thin .modal .checkbox-container::after {
+body.modal-toggle-thin .checkbox-container::after {
   left: var(--toggle-border-width);
   height: 0.8rem;
   bottom: 50%;
@@ -3708,30 +3718,33 @@ body.modal-toggle-thin .modal .checkbox-container::after {
   margin: 0;
   transition: var(--animation-slow);
 }
-body.modal-toggle-thin .modal .checkbox-container:hover::after {
+body.modal-toggle-thin .checkbox-container:hover::after {
   height: 0.6rem;
 }
-body.modal-toggle-thin .modal .checkbox-container:active::after {
+body.modal-toggle-thin .checkbox-container:active::after {
   width: calc(100% - var(--toggle-border-width) * 6);
 }
-body.modal-toggle-thin .modal .checkbox-container.is-enabled {
+body.modal-toggle-thin .checkbox-container.is-enabled {
   border-color: var(--accent-active);
   background-color: var(--accent-inactive);
 }
-body.modal-toggle-thin .modal .checkbox-container.is-enabled::before {
+body.modal-toggle-thin .checkbox-container.is-enabled::before {
   background-color: var(--accent-active);
 }
-body.modal-toggle-thin .modal .checkbox-container.is-enabled::after {
+body.modal-toggle-thin .checkbox-container.is-enabled::after {
   border-color: var(--accent-active);
   transform: none;
   left: calc(80% - var(--toggle-border-width) * 4);
 }
-body.modal-toggle-thin .modal .checkbox-container.is-enabled:active::after {
+body.modal-toggle-thin .checkbox-container.is-enabled:active::after {
   left: calc(2 * var(--toggle-border-width));
 }
 
 body.modal-header .modal-container {
   --modal-header-height: var(--size-4-12);
+}
+body.modal-header .modal-container .mod-settings {
+  container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
   content: var(--setting-header-title, "maple 0.3.0");
@@ -3742,6 +3755,12 @@ body.modal-header .modal-container .mod-settings::before {
   font-size: 1.4rem;
   font-weight: bold;
   color: var(--setting-color-logo, var(--text-accent));
+  transition: var(--animation);
+}
+@container (max-width:750px) {
+  body.modal-header .modal-container .mod-settings::before {
+    opacity: 0;
+  }
 }
 body.modal-header .modal-container .mod-settings .modal-content {
   background-color: var(--frame-background-color);
@@ -3793,6 +3812,17 @@ body.modal-header .modal-container .mod-settings .modal-content .plugin-list-plu
   top: 0;
   transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
   right: var(--size-4-16);
+}
+@supports selector(:has(input)) {
+  body.modal-header .modal-container .mod-settings .modal-content .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type=search]) {
+    position: absolute;
+    top: 0;
+    transform: translateY(calc(var(--modal-header-height) / 2 - var(--input-height) + var(--size-4-1)));
+    right: var(--size-4-16);
+  }
+  body.modal-header .modal-container .mod-settings .modal-content .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type=search]) .setting-item-info {
+    display: none;
+  }
 }
 
 select,
@@ -4156,11 +4186,15 @@ body.tab-title-bar-round.tab-title-bar-shadow .workspace-leaf.mod-active .worksp
 }
 
 /* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body .workspace-split .workspace-tabs:not(.mod-stacked) .view-content,
-.workspace-leaf-content:not(:has(.view-content)) {
+body .workspace-split .workspace-tabs:not(.mod-stacked) .view-content {
   animation: slide-up var(--animation) forwards;
 }
 
+@supports selector(:has(.view-content)) {
+  .workspace-leaf-content:not(:has(.view-content)) {
+    animation: slide-up var(--animation) forwards;
+  }
+}
 @keyframes slide-up {
   0% {
     transform: translateY(0%);

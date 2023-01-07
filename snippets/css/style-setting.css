@@ -980,7 +980,9 @@ settings:
     -
         id: code-preview-bg
         title: enable codeblock background in preview mode
+        description: need install version >= 1.1.9
         title.zh: 在 预览模式 开启代码块背景
+        description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
     -
         id: setting-code-language-color
