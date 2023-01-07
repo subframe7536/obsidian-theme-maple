@@ -31,6 +31,7 @@ body.font-maple {
 
 code {
   font-family: var(--font-monospace);
+  font-feature-settings: var(--setting-font-feature, "calt");
 }
 
 /* ====== 光标 ====== */
