@@ -490,14 +490,6 @@ settings:
         type: class-toggle
         default: true
     -
-        id: seting-font-feature
-        title: monospace font feature
-        description: https://github.com/subframe7536/Maple-font
-        title.zh: 等宽字体字体特性
-        description.zh: https://github.com/subframe7536/Maple-font
-        type: variable-text
-        default: "'calt'"
-    -
         id: font-fix-latex
         title: fix latex italic absent
         description: latex in my vault often wrong rendered, so i make this setting. If wrong rendered, just toggle it
@@ -978,12 +970,13 @@ settings:
         type: class-toggle
         default: true
     -
-        id: code-enable-equal-ligature
-        title: enable code ligatures for == === != !===
-        description: need to enable editor > text & font & line > use “Maple Mono” as monospace
-        title.zh: 开启代码 == === != !== 连字
-        description.zh: 需要开启 编辑器 > 文字 & 字体 & 行 > 使用“Maple Mono”作为等宽字体
-        type: class-toggle
+        id: setting-code-ligature
+        title: monospace font feature
+        description: if you use “Maple Mono” as monospace, recommend to set 'calt','cv02'
+        title.zh: 等宽字体字体特性
+        description.zh: 如果你使用“Maple Mono”作为等宽字体，推荐设置为 'calt','cv02'
+        type: variable-text
+        default: "'calt'"
     -
         id: code-preview-bg
         title: enable codeblock background in preview mode

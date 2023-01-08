@@ -205,7 +205,7 @@ body.modal-header .modal-container {
 
       .settings-search-input {
         position: absolute;
-        top: 0;
+        top: calc(var(--size-2-1) * -1);
         left: var(--size-4-2);
         transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 - var(--size-2-1)));
         width: calc(clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-3) * 1);
@@ -213,7 +213,7 @@ body.modal-header .modal-container {
     }
 
     .hotkey-search-container {
-      top: 0;
+      top: calc(var(--size-2-1) * -1);
       transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
       right: var(--size-4-16);
 
@@ -231,7 +231,7 @@ body.modal-header .modal-container {
         .setting-item-control {
           display: block;
           position: absolute;
-          top: 0;
+          top: calc(var(--size-2-1) * -1);
           transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
           right: var(--size-4-16);
         }
@@ -241,7 +241,7 @@ body.modal-header .modal-container {
     @supports selector(:has(input)) {
       .vertical-tab-content>:nth-child(5):not(.style-settings-container):has(input[type="search"]) {
         position: absolute;
-        top: 0;
+        top: calc(var(--size-2-1) * -1);
         transform: translateY(calc(var(--modal-header-height) / 2 - var(--input-height) + var(--size-4-1)));
         right: var(--size-4-16);
 
@@ -271,6 +271,10 @@ button {
 }
 
 .modal-container {
+  .is-loading {
+    position: initial;
+  }
+
   .modal-close-button {
     top: 9px;
     right: 9px !important;
