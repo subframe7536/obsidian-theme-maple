@@ -37,8 +37,7 @@ $duration-4: abs($delay-4) + $speed * 45;
       background-color: hsla(var(--background-secondary-hsl));
     }
 
-    :is(.workspace-leaf-content:is([data-type="markdown"], [data-type="style-settings"]) .view-header.progress-bar, .prompt,
-      .popover) {
+    :is(.workspace-leaf-content:is([data-type="markdown"], [data-type="style-settings"]) .view-header.progress-bar, .prompt, .popover, .progress-bar) {
       background-color: hsl(var(--background-primary-hsl));
     }
   }

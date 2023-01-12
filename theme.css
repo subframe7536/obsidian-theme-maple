@@ -1652,15 +1652,15 @@ body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-v
   opacity: 0.7;
 }
 
-body.code-mac-style-header .markdown-rendered pre {
+body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
 }
-body.code-mac-style-header .markdown-rendered pre[class*=language-]::before {
+body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre[class*=language-]::before {
   color: var(--setting-code-language-color, var(--accent-active));
 }
-body.code-mac-style-header .markdown-rendered pre::after {
+body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre::after {
   content: "";
   width: 100%;
   height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
@@ -1669,7 +1669,7 @@ body.code-mac-style-header .markdown-rendered pre::after {
   left: 0;
   position: absolute;
 }
-body.code-mac-style-header .markdown-rendered pre code::before {
+body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre code::before {
   content: "";
   width: calc(var(--code-size) - var(--size-2-1));
   height: calc(var(--code-size) - var(--size-2-1));
@@ -3934,8 +3934,8 @@ body.modal-animation :is(.prompt, .popover, .modal) {
   }
 }
 :is(.menu, .suggestion-container, .excalidraw .context-menu) {
-  background-color: hsla(var(--background-secondary-hsl), 0.75) !important;
-  backdrop-filter: blur(var(--setting-blur, var(--size-4-2)));
+  background-color: hsla(var(--background-secondary-hsl), 0.8) !important;
+  backdrop-filter: blur(var(--setting-blur, var(--size-4-4)));
 }
 
 .mod-search-suggestion .suggestion {
@@ -4304,6 +4304,9 @@ body.titlebar-colorful :is(.document-search-close-button, .modal-close-button)::
 }
 
 /* ====== 打印 ====== */
+.print code {
+  white-space: pre-wrap !important;
+}
 .print :is(.markdown-preview-view, .markdown-rendered) {
   background-color: var(--background-primary) !important;
 }
@@ -4515,8 +4518,7 @@ body.message-tooltip-hide-arrow .tooltip-arrow {
   body:is(.bg-static, .bg-live) :is(.menu, .suggestion-container, .excalidraw .context-menu, .canvas-card-menu, .canvas-menu, .canvas-controls button) {
     background-color: hsla(var(--background-secondary-hsl));
   }
-  body:is(.bg-static, .bg-live) :is(.workspace-leaf-content:is([data-type=markdown], [data-type=style-settings]) .view-header.progress-bar, .prompt,
-.popover) {
+  body:is(.bg-static, .bg-live) :is(.workspace-leaf-content:is([data-type=markdown], [data-type=style-settings]) .view-header.progress-bar, .prompt, .popover, .progress-bar) {
     background-color: hsl(var(--background-primary-hsl));
   }
   /* 参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */

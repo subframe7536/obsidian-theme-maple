@@ -1,6 +1,10 @@
 /* ====== 打印 ====== */
 
 .print {
+  code {
+    white-space: pre-wrap !important;
+  }
+
   :is(.markdown-preview-view, .markdown-rendered) {
     background-color: var(--background-primary) !important;
   }

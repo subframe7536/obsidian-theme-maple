@@ -385,8 +385,8 @@ body.modal-animation :is(.prompt, .popover, .modal) {
 }
 
 :is(.menu, .suggestion-container, .excalidraw .context-menu) {
-  background-color: hsla(var(--background-secondary-hsl), 0.75) !important;
-  backdrop-filter: blur(var(--setting-blur, var(--size-4-2)));
+  background-color: hsla(var(--background-secondary-hsl), 0.8) !important;
+  backdrop-filter: blur(var(--setting-blur, var(--size-4-4)));
 }
 
 .mod-search-suggestion .suggestion {

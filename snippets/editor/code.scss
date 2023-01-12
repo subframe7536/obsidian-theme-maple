@@ -274,7 +274,7 @@ body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) {
   }
 }
 
-body.code-mac-style-header .markdown-rendered pre {
+body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
