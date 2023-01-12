@@ -2488,6 +2488,10 @@ code {
 }
 
 /* ====== 文本 ======= */
+body {
+  --text-selection: hsla(var(--color-accent-hsl), 0.25);
+}
+
 .theme-light {
   --active-line: var(--setting-line-active-color, hsl(calc(var(--accent-h) - 4),
         calc(var(--accent-s) - 12%),
