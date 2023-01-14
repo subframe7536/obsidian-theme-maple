@@ -37,8 +37,8 @@
   &:hover,
   &:focus {
     color: var(--text-on-accent) !important;
-    --link-offset: calc(var(--font-text-size) * -1 - var(--size-4-4));
-    --link-thickness: calc(var(--font-text-size) + 10px);
+    --link-offset: calc(var(--font-text-size) * -1);
+    --link-thickness: calc(var(--font-text-size) + var(--size-2-3));
   }
 }
 

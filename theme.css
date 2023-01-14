@@ -1682,13 +1682,13 @@ body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre code::before
   box-shadow: var(--size-4-5) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-5) * 2) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
 }
 
-body.code-line-number .markdown-source-view.mod-cm6 {
+body.code-line-number .cm-contentContainer {
   counter-reset: code-line;
 }
-body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
+body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock {
   padding-left: var(--size-4-12);
 }
-body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
+body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
   counter-increment: code-line;
   content: counter(code-line);
   position: absolute;
@@ -1697,10 +1697,10 @@ body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:n
   left: 0;
   color: var(--accent-inactive);
 }
-body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end).cm-active::before {
+body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end).cm-active::before {
   color: var(--accent-active);
 }
-body.code-line-number .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
+body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock-end {
   counter-reset: code-line;
 }
 
@@ -1939,8 +1939,8 @@ body.link-hover-expand :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline
 }
 body.link-hover-expand :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline):hover, body.link-hover-expand :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline):focus {
   color: var(--text-on-accent) !important;
-  --link-offset: calc(var(--font-text-size) * -1 - var(--size-4-4));
-  --link-thickness: calc(var(--font-text-size) + 10px);
+  --link-offset: calc(var(--font-text-size) * -1);
+  --link-thickness: calc(var(--font-text-size) + var(--size-2-3));
 }
 body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline) {
   font-size: var(--font-text-size);
@@ -1954,8 +1954,8 @@ body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal
 }
 body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline):hover, body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline):focus {
   color: var(--text-on-accent) !important;
-  --link-offset: calc(var(--font-text-size) * -1 - var(--size-4-4));
-  --link-thickness: calc(var(--font-text-size) + 10px);
+  --link-offset: calc(var(--font-text-size) * -1);
+  --link-thickness: calc(var(--font-text-size) + var(--size-2-3));
 }
 body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   transition: color var(--animation);

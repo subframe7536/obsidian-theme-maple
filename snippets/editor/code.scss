@@ -310,7 +310,7 @@ body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
   }
 }
 
-body.code-line-number .markdown-source-view.mod-cm6 {
+body.code-line-number .cm-contentContainer {
   counter-reset: code-line;
 
   .cm-line.HyperMD-codeblock {
