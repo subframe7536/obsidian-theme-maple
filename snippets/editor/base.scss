@@ -64,7 +64,7 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 
 body:not(.line-active-disable) .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: var(--active-line);
-  border-radius: var(--radius-s);
+  border-radius: var(--size-2-3);
 }
 
 /* ======= 键盘 ====== */

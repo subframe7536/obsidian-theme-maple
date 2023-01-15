@@ -7,14 +7,13 @@ an Obsidian theme still in dev, using `Style Setting` to custom preference, embe
 
 put [theme.css](./theme.css) to `your-vault/.obsidian/snippets` and turn on, highly recommend to use `Style Setting`
 
-# **waiting for officially update to electron 21+ for :has() selector and container query**
-
-- codeblock style like [codesnap](https://github.com/kufii/CodeSnap)
-- outline style for list
-
 ### outline
 
 ![](./img/%E5%A4%A7%E7%BA%B2.gif)
+
+### document search
+
+![](img/container-query.gif)
 
 ### code block
 
