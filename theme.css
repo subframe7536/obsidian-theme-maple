@@ -1327,10 +1327,38 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
 
 .cm-inline-code {
   color: var(--inline-code) !important;
-  border-radius: var(--size-4-1);
+  border-radius: var(--radius-s);
+  border: var(--code-bg-border);
+}
+.cm-inline-code:not(.cm-formatting) {
+  padding-inline: var(--size-2-1);
+  margin-inline: var(--size-2-1);
+}
+.cm-formatting-code + .cm-inline-code {
+  padding: 0;
+  margin: 0;
 }
 .cm-inline-code.cm-header {
   color: var(--inline-code) !important;
+}
+
+.cm-formatting-code:has(+ .cm-inline-code) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+  padding-left: var(--size-2-1);
+  margin-left: var(--size-2-1);
+}
+.cm-formatting-code + .cm-inline-code {
+  border-radius: 0;
+  border-inline: 0;
+}
+.cm-inline-code + .cm-formatting-code {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+  padding-right: var(--size-2-1);
+  margin-right: var(--size-2-1);
 }
 
 .cm-s-obsidian .cm-line {
@@ -1969,7 +1997,7 @@ body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal
   height: calc(var(--font-text-size) - var(--size-2-1));
   background-color: var(--link-color);
 }
-body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, :is(.cm-link:not(.cm-hmd-footnote), .cm-url) .cm-underline)::before {
+body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) .cm-underline):not(.cm-escape + .cm-link .cm-underline)::before {
   content: "";
   display: inline-block;
   width: calc(var(--font-text-size) - var(--size-4-1));
@@ -3929,8 +3957,8 @@ body.modal-animation :is(.prompt, .popover, .modal) {
   }
 }
 :is(.menu, .suggestion-container, .excalidraw .context-menu) {
-  background-color: hsla(var(--background-secondary-hsl), 0.8) !important;
-  backdrop-filter: blur(var(--setting-blur, var(--size-4-4)));
+  background-color: hsla(var(--background-secondary-hsl), 0.6) !important;
+  backdrop-filter: blur(var(--size-4-8));
 }
 
 .mod-search-suggestion .suggestion {

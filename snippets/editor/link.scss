@@ -129,7 +129,7 @@ body.link-icon {
   }
 
   &:not(.link-click-to-edit-in-live-preview) {
-    :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, :is(.cm-link:not(.cm-hmd-footnote), .cm-url) .cm-underline)::before {
+    :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) .cm-underline):not(.cm-escape+.cm-link .cm-underline)::before {
       content: '';
       display: inline-block;
       width: calc(var(--font-text-size) - var(--size-4-1));

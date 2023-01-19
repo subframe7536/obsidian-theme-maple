@@ -50,10 +50,44 @@
 
 .cm-inline-code {
   color: var(--inline-code) !important;
-  border-radius: var(--size-4-1);
+  border-radius: var(--radius-s);
+  border: var(--code-bg-border);
+
+  &:not(.cm-formatting) {
+    padding-inline: var(--size-2-1);
+    margin-inline: var(--size-2-1);
+  }
+
+  .cm-formatting-code+& {
+    padding: 0;
+    margin: 0;
+  }
 
   &.cm-header {
     color: var(--inline-code) !important;
+  }
+}
+
+.cm-formatting-code {
+  &:has(+.cm-inline-code) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+    padding-left: var(--size-2-1);
+    margin-left: var(--size-2-1);
+  }
+
+  &+.cm-inline-code {
+    border-radius: 0;
+    border-inline: 0;
+  }
+
+  .cm-inline-code+& {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+    padding-right: var(--size-2-1);
+    margin-right: var(--size-2-1);
   }
 }
 
