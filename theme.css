@@ -1294,6 +1294,8 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
   --code-value: var(--color-orange);
   --code-comment: var(--text-faint);
   --code-normal: var(--code-base);
+  --code-bg-radius: var(--radius-l);
+  --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
 }
 
 :is(.theme-light, .theme-light .print) {
@@ -1321,8 +1323,14 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
   color: var(--inline-code);
 }
 
+.markdown-rendered code {
+  border: var(--code-bg-border);
+}
+
 .markdown-preview-view pre code {
   color: var(--code-base);
+  border: none;
+  border-radius: 0;
 }
 
 .cm-inline-code {
@@ -1361,10 +1369,6 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
   margin-right: var(--size-2-1);
 }
 
-.cm-s-obsidian .cm-line {
-  --code-bg-radius: var(--radius-l);
-  --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
-}
 .cm-s-obsidian .cm-line.HyperMD-codeblock {
   line-height: calc(var(--line-height-normal) - 0.2);
   color: var(--color-blue) !important;
@@ -1730,10 +1734,6 @@ body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock:not(.Hyper
 }
 body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock-end {
   counter-reset: code-line;
-}
-
-body.code-enable-equal-ligature.font-maple code {
-  font-feature-settings: "calt", "cv02";
 }
 
 @supports selector(:has(pre)) {
