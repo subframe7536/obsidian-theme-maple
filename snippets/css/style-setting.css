@@ -358,7 +358,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.2'"
+        default: "'maple 0.3.3'"
     -
         id: setting-group-title
         title: add style for left navigation group title
