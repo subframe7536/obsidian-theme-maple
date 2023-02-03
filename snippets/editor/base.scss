@@ -29,7 +29,10 @@ body.font-maple {
     var(--font-monospace-default);
 }
 
-code {
+code,
+code *,
+.HyperMD-codeblock *,
+.cm-inline-code {
   font-family: var(--font-monospace);
   font-feature-settings: var(--setting-code-ligature, "calt");
 }

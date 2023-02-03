@@ -63,12 +63,10 @@
 
   &:not(.cm-formatting) {
     padding-inline: var(--size-2-1);
-    margin-inline: var(--size-2-1);
   }
 
   .cm-formatting-code+& {
     padding: 0;
-    margin: 0;
   }
 
   &.cm-header {
@@ -82,7 +80,6 @@
     border-bottom-right-radius: 0;
     border-right: 0;
     padding-left: var(--size-2-1);
-    margin-left: var(--size-2-1);
   }
 
   &+.cm-inline-code {
@@ -95,7 +92,6 @@
     border-bottom-left-radius: 0;
     border-left: 0;
     padding-right: var(--size-2-1);
-    margin-right: var(--size-2-1);
   }
 }
 
@@ -201,7 +197,7 @@ body .markdown-rendered pre {
 
     &:hover {
       opacity: 1;
-      background-color: var(--accent-inactive);
+      background-color: var(--text-normal);
     }
   }
 }
@@ -348,6 +344,10 @@ body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
     box-shadow: var(--size-4-5) 0 0 0 rgba(255, 187, 78, var(--color-opacity)),
       calc(var(--size-4-5) * 2) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
   }
+
+  .copy-code-button:hover {
+    background-color: var(--accent-inactive);
+  }
 }
 
 body.code-line-number .cm-contentContainer {
@@ -380,7 +380,7 @@ body.code-line-number .cm-contentContainer {
 
 @supports selector(:has(pre)) {
   body.code-preview-bg .markdown-preview-view .markdown-preview-section {
-    div:has(pre:not([class*="frontmatter"])) {
+    div:has(>pre:not([class*="frontmatter"])) {
       padding: var(--size-4-4) var(--size-4-8);
       margin-block: var(--size-4-4);
       border-radius: var(--radius-l);

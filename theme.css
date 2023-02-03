@@ -433,7 +433,6 @@ settings:
         title.zh: 关闭滚动条动画
         description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
         type: class-toggle
-        default: true
     -
         id: scrollbar-gutter
         title: scrollbar gutter config
@@ -1187,6 +1186,7 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --accent-inactive: hsl(var(--accent-h),
       calc(var(--accent-s) - 4%),
       calc(var(--accent-l) + 24%));
+  --text-on-accent: #fafafa !important;
   --frame-background-color: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) + 32%));
@@ -1340,11 +1340,9 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
 }
 .cm-inline-code:not(.cm-formatting) {
   padding-inline: var(--size-2-1);
-  margin-inline: var(--size-2-1);
 }
 .cm-formatting-code + .cm-inline-code {
   padding: 0;
-  margin: 0;
 }
 .cm-inline-code.cm-header {
   color: var(--inline-code) !important;
@@ -1355,7 +1353,6 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
   border-bottom-right-radius: 0;
   border-right: 0;
   padding-left: var(--size-2-1);
-  margin-left: var(--size-2-1);
 }
 .cm-formatting-code + .cm-inline-code {
   border-radius: 0;
@@ -1366,7 +1363,6 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
   border-bottom-left-radius: 0;
   border-left: 0;
   padding-right: var(--size-2-1);
-  margin-right: var(--size-2-1);
 }
 
 .cm-s-obsidian .cm-line.HyperMD-codeblock {
@@ -1457,7 +1453,7 @@ body .markdown-rendered pre .copy-code-button {
 }
 body .markdown-rendered pre .copy-code-button:hover {
   opacity: 1;
-  background-color: var(--accent-inactive);
+  background-color: var(--text-normal);
 }
 
 body.code-nowrap.scrollbar-gutter-overlay pre {
@@ -1713,6 +1709,9 @@ body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre code::before
   background-color: rgba(255, 94, 92, var(--color-opacity));
   box-shadow: var(--size-4-5) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-5) * 2) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
 }
+body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre .copy-code-button:hover {
+  background-color: var(--accent-inactive);
+}
 
 body.code-line-number .cm-contentContainer {
   counter-reset: code-line;
@@ -1737,7 +1736,7 @@ body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock-end {
 }
 
 @supports selector(:has(pre)) {
-  body.code-preview-bg .markdown-preview-view .markdown-preview-section div:has(pre:not([class*=frontmatter])) {
+  body.code-preview-bg .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
     padding: var(--size-4-4) var(--size-4-8);
     margin-block: var(--size-4-4);
     border-radius: var(--radius-l);
@@ -2200,7 +2199,7 @@ body.quote-theme .markdown-rendered blockquote {
   box-shadow: var(--shadow-s);
   margin-inline-end: 0;
   position: relative;
-  margin-block: var(--size-4-2);
+  margin-block: var(--size-4-3);
   margin-left: 0;
   padding-block: 0;
 }
@@ -2505,7 +2504,9 @@ body.font-maple {
     var(--font-monospace-default);
 }
 
-code {
+code *,
+.HyperMD-codeblock *,
+.cm-inline-code {
   font-family: var(--font-monospace);
   font-feature-settings: var(--setting-code-ligature, "calt");
 }
@@ -2961,8 +2962,16 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 #calendar-container .day.today:hover {
   border-color: var(--text-on-accent);
 }
+#calendar-container .day:active {
+  background-color: var(--accent-inactive);
+}
+#calendar-container .active {
+  background-color: var(--accent-inactive);
+  color: var(--text-normal);
+}
 #calendar-container .today {
   --color-dot: var(--text-on-accent);
+  color: var(--text-on-accent);
   background-color: var(--accent-active);
 }
 #calendar-container .reset-button {
@@ -2988,13 +2997,22 @@ body.calendar-weekend #calendar-container tbody tr td:nth-last-child(1) {
   background-color: transparent;
 }
 
-.excalidraw {
+body .excalidraw {
   border-radius: 8px;
   background-color: transparent;
   --help-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpath d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'%3E%3C/path%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'%3E%3C/line%3E%3C/svg%3E");
   --grip-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Ccircle cx='12' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='19' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='5' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='12' cy='15' r='1'%3E%3C/circle%3E%3Ccircle cx='19' cy='15' r='1'%3E%3C/circle%3E%3Ccircle cx='5' cy='15' r='1'%3E%3C/circle%3E%3C/svg%3E");
 }
-:is(.excalidraw, .excalidraw.theme--dark) {
+body .excalidraw .welcome-screen-menu {
+  display: none;
+}
+body .excalidraw .mobile-misc-tools-container {
+  right: calc(var(--editor-container-padding) * -0.8);
+}
+body .excalidraw .mobile-misc-tools-container .library-button {
+  border-radius: 0;
+}
+:is(body .excalidraw, body .excalidraw.theme--dark) {
   --color-selection: var(--accent-active);
   --color-primary: var(--accent-active);
   --color-primary-darker: var(--accent-active);
@@ -3006,13 +3024,13 @@ body.calendar-weekend #calendar-container tbody tr td:nth-last-child(1) {
   --input-shadow: none;
   --input-shadow-hover: none;
 }
-:is(.excalidraw, .excalidraw.theme--dark) .color-picker-label-swatch {
+:is(body .excalidraw, body .excalidraw.theme--dark) .color-picker-label-swatch {
   border: 1px solid var(--color-base-100);
 }
-:is(.excalidraw, .excalidraw.theme--dark) .color-picker-hash {
+:is(body .excalidraw, body .excalidraw.theme--dark) .color-picker-hash {
   width: 1rem;
 }
-:is(.excalidraw, .excalidraw.theme--dark) .Island > div:first-child > svg {
+:is(body .excalidraw, body .excalidraw.theme--dark) .Island > div:first-child > svg {
   -webkit-mask-image: var(--grip-icon);
   -webkit-mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -3111,7 +3129,7 @@ body.calendar-weekend #calendar-container tbody tr td:nth-last-child(1) {
 
 :is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download, .style-settings-import-label) {
   transition: var(--animation);
-  text-decoration: none;
+  text-decoration: none !important;
   height: var(--input-height);
   font-size: var(--font-ui-small);
   font-family: inherit;
@@ -4398,7 +4416,7 @@ body.status-bar-float.status-bar-scroll .status-bar:hover {
 }
 
 svg.lucide-layout-dashboard rect {
-  rx: 2;
+  rx: 1.8;
   stroke-width: 2;
 }
 
@@ -4490,8 +4508,16 @@ body.explorer-icon .nav-file-title:is([data-path$=js], [data-path$=css], [data-p
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><path d="M14 2v6h6M9 18l3-3l-3-3m-4 0l-3 3l3 3"/></g></svg>');
 }
 
+body.explorer-icon .nav-file-title:is([data-path$=canvas]) .nav-file-title-content:first-child::before {
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-layout-dashboard svg-icon"><rect x="3" y="3" rx="1.8" width="7" height="9"></rect><rect x="14" y="3" rx="1.8" width="7" height="5"></rect><rect x="14" y="12" rx="1.8" width="7" height="9"></rect><rect x="3" y="16" rx="1.8" width="7" height="5"></rect></svg>');
+}
+
 /* ====== 提示框、tooltip ====== */
 body.message-tooltip-hide .tooltip {
+  display: none;
+}
+
+body.message-tooltip-hide-arrow .tooltip-arrow {
   display: none;
 }
 

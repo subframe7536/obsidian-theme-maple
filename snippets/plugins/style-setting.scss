@@ -15,7 +15,7 @@
 
 :is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download, .style-settings-import-label) {
   transition: var(--animation);
-  text-decoration: none;
+  text-decoration: none !important;
   height: var(--input-height);
   font-size: var(--font-ui-small);
   font-family: inherit;

@@ -85,6 +85,9 @@ body:not(.is-mobile, .scrollbar-hide) {
       background-color: var(--scrollbar-color) !important;
 
       &:hover {
+        // embed markdown's scrollbar color won't change until mouse leave the editor
+        // same --scrollbar-color cause it
+        // when the mouse leave embed card and in editor's hover, it won't change
         --scrollbar-color: var(--setting-scrollbar-hover);
       }
 

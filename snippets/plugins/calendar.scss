@@ -69,10 +69,20 @@ body.calendar-swap-year-month #calendar-container .nav {
     &.today:hover {
       border-color: var(--text-on-accent);
     }
+
+    &:active {
+      background-color: var(--accent-inactive);
+    }
+  }
+
+  .active {
+    background-color: var(--accent-inactive);
+    color: var(--text-normal);
   }
 
   .today {
     --color-dot: var(--text-on-accent);
+    color: var(--text-on-accent);
     background-color: var(--accent-active);
   }
 
@@ -89,6 +99,7 @@ body.calendar-swap-year-month #calendar-container .nav {
       line-height: $height;
     }
   }
+
 }
 
 body.calendar-weekend #calendar-container {

@@ -64,6 +64,7 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --accent-inactive: hsl(var(--accent-h),
       calc(var(--accent-s) - 4%),
       calc(var(--accent-l) + 24%));
+  --text-on-accent: #fafafa !important;
   --frame-background-color: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) + 32%));

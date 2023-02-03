@@ -432,7 +432,6 @@ settings:
         title.zh: 关闭滚动条动画
         description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
         type: class-toggle
-        default: true
     -
         id: scrollbar-gutter
         title: scrollbar gutter config

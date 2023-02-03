@@ -1,6 +1,14 @@
 /* ====== 提示框、tooltip ====== */
 
+//<div class="tooltip">
+//  content
+//  <div class="tooltip-arrow"></div>
+//</div>
 body.message-tooltip-hide .tooltip {
+  display: none;
+}
+
+body.message-tooltip-hide-arrow .tooltip-arrow {
   display: none;
 }
 
