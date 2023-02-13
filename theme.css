@@ -2022,9 +2022,6 @@ body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-inte
 .markdown-source-view.mod-cm6 .HyperMD-task-line .task-list-label {
   margin-left: calc(var(--size-2-1) * -1);
 }
-.markdown-source-view.mod-cm6 .HyperMD-task-line .task-list-item-checkbox {
-  margin-top: calc(var(--size-2-1) * -1);
-}
 .markdown-source-view.mod-cm6 .HyperMD-task-line .collapse-indicator {
   padding-right: 0.4rem;
 }
@@ -2504,6 +2501,7 @@ body.font-maple {
     var(--font-monospace-default);
 }
 
+code,
 code *,
 .HyperMD-codeblock *,
 .cm-inline-code {
