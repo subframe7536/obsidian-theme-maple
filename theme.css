@@ -980,10 +980,18 @@ settings:
     -
         id: code-preview-bg
         title: enable codeblock background in preview mode
-        description: need install version >= 1.1.9
+        description: need install version >= 1.1.9, depends on your accent color
         title.zh: 在 预览模式 开启代码块背景
-        description.zh: 需要安装程序版本 >= 1.1.9
+        description.zh: 需要安装程序版本 >= 1.1.9，会根据主题色变化
         type: class-toggle
+    -
+        id: setting-code-bg
+        title: custom codeblock background in preview mode
+        description: need install version >= 1.1.9, image is supported(eg. 'url("/your/image/uri")'), it can be all the css value that supported by background-image
+        title.zh: 修改 预览模式 代码块背景
+        description.zh: 需要安装程序版本 >= 1.1.9，支持图片（'url("图片地址")'），可以是 css background-image 支持的所有的值
+        type: variable-text
+        default: "''"
     -
         id: setting-code-language-color
         title: language indicator color
@@ -1457,7 +1465,7 @@ body .markdown-rendered pre .copy-code-button:hover {
 }
 
 body.code-nowrap.scrollbar-gutter-overlay pre {
-  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5 - var(--size-4-2)) !important;
+  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.8) !important;
 }
 body.code-nowrap.scrollbar-gutter-overlay pre code {
   padding-bottom: var(--size-4-2);
@@ -1683,7 +1691,7 @@ body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-v
 body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
-  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
+  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5) !important;
 }
 body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre[class*=language-]::before {
   color: var(--setting-code-language-color, var(--accent-active));
@@ -1740,7 +1748,7 @@ body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock-end {
     padding: var(--size-4-4) var(--size-4-8);
     margin-block: var(--size-4-4);
     border-radius: var(--radius-l);
-    background-image: linear-gradient(-30deg, #6dc6d6, #67c2dc, #67bde2, #6bb7e6, #75b1e8, #7eade9, #89a8e9, #95a3e7, #a09fe6, #ac9be3, #b897df, #c392da);
+    background-image: var(--setting-code-bg, linear-gradient(-30deg, hsl(calc(var(--accent-h) + 145), 50%, 85%), hsl(calc(var(--accent-h) + 115), 50%, 85%), hsl(calc(var(--accent-h) + 90), 50%, 85%), hsl(calc(var(--accent-h) + 65), 50%, 85%), hsl(calc(var(--accent-h) + 35), 50%, 85%)));
   }
   body.code-preview-bg .markdown-preview-view .markdown-preview-section pre:not([class*=frontmatter]) {
     --code-background: hsl(var(--background-secondary-hsl));
@@ -3209,6 +3217,7 @@ body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
 body:not(.heading-h2-underline) .setting-item[data-id^=heading-h2-underline-thin],
 body:not(.table-colorful) .setting-item[data-id^=setting-table],
 body:not(.embed-enable) .setting-item[data-id^=embed-title],
+body:not(.code-preview-bg) .setting-item[data-id^=setting-code-bg],
 body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
   display: none;
 }
@@ -3974,7 +3983,7 @@ body.modal-animation :is(.prompt, .popover, .modal) {
 }
 :is(.menu, .suggestion-container, .excalidraw .context-menu) {
   background-color: hsla(var(--background-secondary-hsl), 0.6) !important;
-  backdrop-filter: blur(var(--size-4-8));
+  backdrop-filter: blur(var(--size-4-12));
 }
 
 .mod-search-suggestion .suggestion {
