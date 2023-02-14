@@ -359,7 +359,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.3'"
+        default: "'maple 1.0.0'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1456,11 +1456,11 @@ body .markdown-rendered pre .copy-code-button:hover {
   background-color: var(--text-normal);
 }
 
-body.code-nowrap.scrollbar-gutter-overlay pre {
-  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5 - var(--size-4-2)) !important;
+body.code-nowrap.scrollbar-gutter-overlay:not(.code-mac-style-header) .app-container div pre {
+  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.7) !important;
 }
 body.code-nowrap.scrollbar-gutter-overlay pre code {
-  padding-bottom: var(--size-4-2);
+  padding-bottom: var(--size-2-3);
 }
 body.code-nowrap pre code {
   word-break: normal;
@@ -1683,7 +1683,7 @@ body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-v
 body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
-  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5);
+  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5) !important;
 }
 body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre[class*=language-]::before {
   color: var(--setting-code-language-color, var(--accent-active));
@@ -1740,7 +1740,7 @@ body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock-end {
     padding: var(--size-4-4) var(--size-4-8);
     margin-block: var(--size-4-4);
     border-radius: var(--radius-l);
-    background-image: linear-gradient(-30deg, #6dc6d6, #67c2dc, #67bde2, #6bb7e6, #75b1e8, #7eade9, #89a8e9, #95a3e7, #a09fe6, #ac9be3, #b897df, #c392da);
+    background-image: var(--setting-code-bg, linear-gradient(-30deg, hsl(calc(var(--accent-h) + 145), 50%, 85%), hsl(calc(var(--accent-h) + 115), 50%, 85%), hsl(calc(var(--accent-h) + 90), 50%, 85%), hsl(calc(var(--accent-h) + 65), 50%, 85%), hsl(calc(var(--accent-h) + 35), 50%, 85%)));
   }
   body.code-preview-bg .markdown-preview-view .markdown-preview-section pre:not([class*=frontmatter]) {
     --code-background: hsl(var(--background-secondary-hsl));
@@ -3785,7 +3785,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.3.3");
+  content: var(--setting-header-title, "maple 1.0.0");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
