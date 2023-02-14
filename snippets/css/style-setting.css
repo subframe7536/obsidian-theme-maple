@@ -979,18 +979,10 @@ settings:
     -
         id: code-preview-bg
         title: enable codeblock background in preview mode
-        description: need install version >= 1.1.9, depends on your accent color
+        description: need install version >= 1.1.9
         title.zh: 在 预览模式 开启代码块背景
-        description.zh: 需要安装程序版本 >= 1.1.9，会根据主题色变化
+        description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
-    -
-        id: setting-code-bg
-        title: custom codeblock background in preview mode
-        description: need install version >= 1.1.9, image is supported(eg. 'url("/your/image/uri")'), it can be all the css value that supported by background-image
-        title.zh: 修改 预览模式 代码块背景
-        description.zh: 需要安装程序版本 >= 1.1.9，支持图片（'url("图片地址")'），可以是 css background-image 支持的所有的值
-        type: variable-text
-        default: "''"
     -
         id: setting-code-language-color
         title: language indicator color
