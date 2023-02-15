@@ -1456,23 +1456,23 @@ body .markdown-rendered pre .copy-code-button:hover {
   background-color: var(--text-normal);
 }
 
-body.code-nowrap.scrollbar-gutter-overlay:not(.code-mac-style-header) .app-container div pre {
+.code-nowrap.scrollbar-gutter-overlay:not(.code-mac-style-header) .app-container div pre {
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.7) !important;
 }
-body.code-nowrap.scrollbar-gutter-overlay pre code {
+.code-nowrap.scrollbar-gutter-overlay pre code {
   padding-bottom: var(--size-2-3);
 }
-body.code-nowrap pre code {
+.code-nowrap pre code {
   word-break: normal;
   word-wrap: break-word;
   white-space: pre;
 }
 
-body.code-language .markdown-rendered pre {
+.code-language .markdown-rendered pre {
   padding: 2rem 1rem;
   position: relative;
 }
-body.code-language .markdown-rendered pre[class*=language-]::before {
+.code-language .markdown-rendered pre[class*=language-]::before {
   content: "未知语言";
   font-family: var(--font-text);
   color: var(--setting-code-language-color, var(--inline-code));
@@ -1486,154 +1486,154 @@ body.code-language .markdown-rendered pre[class*=language-]::before {
   line-height: var(--line-height-normal);
   z-index: 9;
 }
-body.code-language .markdown-rendered pre[class~=language-c]::before {
+.code-language .markdown-rendered pre[class~=language-c]::before {
   content: "C";
 }
-body.code-language .markdown-rendered pre[class~=language-properties]::before {
+.code-language .markdown-rendered pre[class~=language-properties]::before {
   content: "Properties";
 }
-body.code-language .markdown-rendered pre[class~=language-python]::before {
+.code-language .markdown-rendered pre[class~=language-python]::before {
   content: "Python";
 }
-body.code-language .markdown-rendered pre[class~=language-nginx]::before {
+.code-language .markdown-rendered pre[class~=language-nginx]::before {
   content: "Nginx";
 }
-body.code-language .markdown-rendered pre[class~=language-css]::before {
+.code-language .markdown-rendered pre[class~=language-css]::before {
   content: "CSS";
 }
-body.code-language .markdown-rendered pre[class~=language-javascript]::before {
+.code-language .markdown-rendered pre[class~=language-javascript]::before {
   content: "Javascript";
 }
-body.code-language .markdown-rendered pre[class~=language-js]::before {
+.code-language .markdown-rendered pre[class~=language-js]::before {
   content: "JS";
 }
-body.code-language .markdown-rendered pre[class~=language-typescript]::before {
+.code-language .markdown-rendered pre[class~=language-typescript]::before {
   content: "Typescript";
 }
-body.code-language .markdown-rendered pre[class~=language-ts]::before {
+.code-language .markdown-rendered pre[class~=language-ts]::before {
   content: "TS";
 }
-body.code-language .markdown-rendered pre[class~=language-jsp]::before {
+.code-language .markdown-rendered pre[class~=language-jsp]::before {
   content: "JSP";
 }
-body.code-language .markdown-rendered pre[class~=language-php]::before {
+.code-language .markdown-rendered pre[class~=language-php]::before {
   content: "PHP";
 }
-body.code-language .markdown-rendered pre[class~=language-lua]::before {
+.code-language .markdown-rendered pre[class~=language-lua]::before {
   content: "Lua";
 }
-body.code-language .markdown-rendered pre[class~=language-shell]::before {
+.code-language .markdown-rendered pre[class~=language-shell]::before {
   content: "Shell";
 }
-body.code-language .markdown-rendered pre[class~=language-powershell]::before {
+.code-language .markdown-rendered pre[class~=language-powershell]::before {
   content: "PowerShell";
 }
-body.code-language .markdown-rendered pre[class~=language-flow]::before {
+.code-language .markdown-rendered pre[class~=language-flow]::before {
   content: "Flow";
 }
-body.code-language .markdown-rendered pre[class~=language-sequence]::before {
+.code-language .markdown-rendered pre[class~=language-sequence]::before {
   content: "Sequence";
 }
-body.code-language .markdown-rendered pre[class~=language-sql]::before {
+.code-language .markdown-rendered pre[class~=language-sql]::before {
   content: "SQL";
 }
-body.code-language .markdown-rendered pre[class~=language-yaml]::before {
+.code-language .markdown-rendered pre[class~=language-yaml]::before {
   content: "YAML";
 }
-body.code-language .markdown-rendered pre[class~=language-yml]::before {
+.code-language .markdown-rendered pre[class~=language-yml]::before {
   content: "YML";
 }
-body.code-language .markdown-rendered pre[class~=language-ini]::before {
+.code-language .markdown-rendered pre[class~=language-ini]::before {
   content: "ini";
 }
-body.code-language .markdown-rendered pre[class~=language-xml]::before {
+.code-language .markdown-rendered pre[class~=language-xml]::before {
   content: "XML";
 }
-body.code-language .markdown-rendered pre[class~=language-cs]::before {
+.code-language .markdown-rendered pre[class~=language-cs]::before {
   content: "CS";
 }
-body.code-language .markdown-rendered pre[class~=language-cpp]::before {
+.code-language .markdown-rendered pre[class~=language-cpp]::before {
   content: "CPP";
 }
-body.code-language .markdown-rendered pre[class~=language-java]::before {
+.code-language .markdown-rendered pre[class~=language-java]::before {
   content: "Java";
 }
-body.code-language .markdown-rendered pre[class~=language-html]::before {
+.code-language .markdown-rendered pre[class~=language-html]::before {
   content: "HTML";
 }
-body.code-language .markdown-rendered pre[class~=language-txt]::before {
+.code-language .markdown-rendered pre[class~=language-txt]::before {
   content: "TXT";
 }
-body.code-language .markdown-rendered pre[class~=language-md]::before {
+.code-language .markdown-rendered pre[class~=language-md]::before {
   content: "MD";
 }
-body.code-language .markdown-rendered pre[class~=language-markdown]::before {
+.code-language .markdown-rendered pre[class~=language-markdown]::before {
   content: "Markdown";
 }
-body.code-language .markdown-rendered pre[class~=language-bat]::before {
+.code-language .markdown-rendered pre[class~=language-bat]::before {
   content: "Bat";
 }
-body.code-language .markdown-rendered pre[class~=language-json]::before {
+.code-language .markdown-rendered pre[class~=language-json]::before {
   content: "Json";
 }
-body.code-language .markdown-rendered pre[class~=language-groovy]::before {
+.code-language .markdown-rendered pre[class~=language-groovy]::before {
   content: "Groovy";
 }
-body.code-language .markdown-rendered pre[class~=language-scss]::before {
+.code-language .markdown-rendered pre[class~=language-scss]::before {
   content: "SCSS";
 }
-body.code-language .markdown-rendered pre[class~=language-bash]::before {
+.code-language .markdown-rendered pre[class~=language-bash]::before {
   content: "Bash";
 }
-body.code-language .markdown-rendered pre[class~=language-cmd]::before {
+.code-language .markdown-rendered pre[class~=language-cmd]::before {
   content: "Cmd";
 }
-body.code-language .markdown-rendered pre[class~=language-latex]::before {
+.code-language .markdown-rendered pre[class~=language-latex]::before {
   content: "Latex";
 }
-body.code-language .markdown-rendered pre[class~=language-zig]::before {
+.code-language .markdown-rendered pre[class~=language-zig]::before {
   content: "Zig";
 }
-body.code-language .markdown-rendered pre[class~=language-ssml]::before {
+.code-language .markdown-rendered pre[class~=language-ssml]::before {
   content: "SSML";
 }
-body.code-language .markdown-rendered pre[class~=language-jsx]::before {
+.code-language .markdown-rendered pre[class~=language-jsx]::before {
   content: "JSX";
 }
-body.code-language .markdown-rendered pre[class~=language-tsx]::before {
+.code-language .markdown-rendered pre[class~=language-tsx]::before {
   content: "TSX";
 }
-body.code-language .markdown-rendered pre[class~=language-tsconfig]::before {
+.code-language .markdown-rendered pre[class~=language-tsconfig]::before {
   content: "tsconfig";
 }
-body.code-language .markdown-rendered pre[class~=language-git]::before {
+.code-language .markdown-rendered pre[class~=language-git]::before {
   content: "Git";
 }
-body.code-language .markdown-rendered pre[class~=language-csharp]::before {
+.code-language .markdown-rendered pre[class~=language-csharp]::before {
   content: "CSharp";
 }
-body.code-language .markdown-rendered pre[class~=language-csv]::before {
+.code-language .markdown-rendered pre[class~=language-csv]::before {
   content: "CSV";
 }
-body.code-language .markdown-rendered pre[class~=language-cue]::before {
+.code-language .markdown-rendered pre[class~=language-cue]::before {
   content: "cue";
 }
-body.code-language .markdown-rendered pre[class~=language-toml]::before {
+.code-language .markdown-rendered pre[class~=language-toml]::before {
   content: "TOML";
 }
-body.code-language .markdown-rendered pre[class~=language-kt]::before {
+.code-language .markdown-rendered pre[class~=language-kt]::before {
   content: "kt";
 }
-body.code-language .markdown-rendered pre[class~=language-kotlin]::before {
+.code-language .markdown-rendered pre[class~=language-kotlin]::before {
   content: "Kotlin";
 }
-body.code-language .markdown-rendered pre[class~=language-go]::before {
+.code-language .markdown-rendered pre[class~=language-go]::before {
   content: "Go";
 }
-body.code-language .markdown-rendered pre[class~=language-rust]::before {
+.code-language .markdown-rendered pre[class~=language-rust]::before {
   content: "Rust";
 }
-body.code-language .markdown-rendered pre[class~=language-regex]::before {
+.code-language .markdown-rendered pre[class~=language-regex]::before {
   content: "Regex";
 }
 
@@ -1646,49 +1646,49 @@ body.code-language .markdown-rendered pre[class~=language-regex]::before {
   background-color: var(--nav-item-background-hover);
 }
 
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
   color: var(--code-comment);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
   color: var(--code-tag);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
   color: var(--code-punctuation);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.boolean, .number), .cm-number) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.boolean, .number), .cm-number) {
   color: var(--code-value);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta) {
   color: var(--code-string);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string, .cm-def, .cm-number + .cm-variable) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string, .cm-def, .cm-number + .cm-variable) {
   color: var(--code-property);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
   color: var(--code-function);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.keyword, .constant, .unit, .builtin, .atrule), .cm-keyword, .cm-builtin, .cm-type, .cm-atom) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.keyword, .constant, .unit, .builtin, .atrule), .cm-keyword, .cm-builtin, .cm-type, .cm-atom) {
   color: var(--code-keyword);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.regex, .important)) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.regex, .important)) {
   color: var(--code-important);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
   color: var(--code-base);
 }
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-variable-2, .cm-variable-3) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-variable-2, .cm-variable-3) {
   opacity: 0.7;
 }
 
-body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5) !important;
 }
-body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre[class*=language-]::before {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre[class*=language-]::before {
   color: var(--setting-code-language-color, var(--accent-active));
 }
-body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre::after {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre::after {
   content: "";
   width: 100%;
   height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
@@ -1697,7 +1697,7 @@ body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre::after {
   left: 0;
   position: absolute;
 }
-body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre code::before {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre code::before {
   content: "";
   width: calc(var(--code-size) - var(--size-2-1));
   height: calc(var(--code-size) - var(--size-2-1));
@@ -1709,17 +1709,17 @@ body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre code::before
   background-color: rgba(255, 94, 92, var(--color-opacity));
   box-shadow: var(--size-4-5) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-5) * 2) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
 }
-body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre .copy-code-button:hover {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre .copy-code-button:hover {
   background-color: var(--accent-inactive);
 }
 
-body.code-line-number .cm-contentContainer {
+.code-line-number .cm-contentContainer {
   counter-reset: code-line;
 }
-body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock {
+.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock {
   padding-left: var(--size-4-12);
 }
-body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
+.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
   counter-increment: code-line;
   content: counter(code-line);
   position: absolute;
@@ -1728,21 +1728,21 @@ body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock:not(.Hyper
   left: 0;
   color: var(--accent-inactive);
 }
-body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end).cm-active::before {
+.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end).cm-active::before {
   color: var(--accent-active);
 }
-body.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock-end {
+.code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock-end {
   counter-reset: code-line;
 }
 
 @supports selector(:has(pre)) {
-  body.code-preview-bg .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
+  .code-preview-bg .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
     padding: var(--size-4-4) var(--size-4-8);
     margin-block: var(--size-4-4);
     border-radius: var(--radius-l);
     background-image: var(--setting-code-bg, linear-gradient(-30deg, hsl(calc(var(--accent-h) + 145), 50%, 85%), hsl(calc(var(--accent-h) + 115), 50%, 85%), hsl(calc(var(--accent-h) + 90), 50%, 85%), hsl(calc(var(--accent-h) + 65), 50%, 85%), hsl(calc(var(--accent-h) + 35), 50%, 85%)));
   }
-  body.code-preview-bg .markdown-preview-view .markdown-preview-section pre:not([class*=frontmatter]) {
+  .code-preview-bg .markdown-preview-view .markdown-preview-section pre:not([class*=frontmatter]) {
     --code-background: hsl(var(--background-secondary-hsl));
     border-width: 0;
   }
@@ -2022,6 +2022,9 @@ body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-inte
 .markdown-source-view.mod-cm6 .HyperMD-task-line .task-list-label {
   margin-left: calc(var(--size-2-1) * -1);
 }
+.markdown-source-view.mod-cm6 .HyperMD-task-line .task-list-item-checkbox {
+  cursor: pointer;
+}
 .markdown-source-view.mod-cm6 .HyperMD-task-line .collapse-indicator {
   padding-right: 0.4rem;
 }
@@ -2052,6 +2055,9 @@ body :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered) {
   --list-marker-color-alt: var(--accent-active);
   --list-spacing: 0;
 }
+body :is(.markdown-rendered, .print .markdown-rendered) {
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
+}
 body :is(.markdown-rendered, .print .markdown-rendered) :is(ul, ol) {
   padding-inline-start: 2.1rem;
   margin: var(--size-2-1) 0;
@@ -2076,28 +2082,6 @@ body :is(.markdown-rendered, .print .markdown-rendered) ol li::marker {
 body :is(.markdown-rendered, .print .markdown-rendered) ol li .list-collapse-indicator {
   margin-left: -3.5rem !important;
 }
-body :is(.markdown-rendered, .print .markdown-rendered) ul > li {
-  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
-}
-body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li {
-  --list-marker-color: transparent;
-  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-  --list-bullet-border: 2px solid var(--list-marker-color-alt);
-}
-body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li ul > li {
-  --list-marker-color: var(--list-marker-color-alt);
-  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
-  --list-bullet-radius: 1px;
-}
-body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li ul > li .list-bullet:after {
-  transform: rotate(45deg);
-}
-body :is(.markdown-rendered, .print .markdown-rendered) ul > li ul > li ul > li ul > li {
-  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
-  --list-marker-color: transparent;
-  --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
-  --list-bullet-radius: 1px;
-}
 body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide .contains-task-list .task-list-item-checkbox {
   margin-right: var(--size-4-2);
 }
@@ -2109,6 +2093,25 @@ body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide .
 }
 body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide li > ol::before {
   left: -1.55rem;
+}
+body ul > li > ul > li {
+  --list-marker-color: transparent;
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
+  --list-bullet-border: 2px solid var(--list-marker-color-alt);
+}
+body ul > li > ul > li ul > li {
+  --list-marker-color: var(--list-marker-color-alt);
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
+  --list-bullet-radius: 1px;
+}
+body ul > li > ul > li ul > li .list-bullet:after {
+  transform: rotate(45deg);
+}
+body ul > li > ul > li ul > li ul > li {
+  --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
+  --list-marker-color: transparent;
+  --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
+  --list-bullet-radius: 1px;
 }
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-list-line:not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
   padding-right: 0.5rem;
@@ -3972,9 +3975,9 @@ body.modal-animation :is(.prompt, .popover, .modal) {
     transform: scale(1);
   }
 }
-:is(.menu, .suggestion-container, .excalidraw .context-menu) {
+:is(.menu, .suggestion-container, .excalidraw .context-menu, .graph-control-section) {
   background-color: hsla(var(--background-secondary-hsl), 0.6) !important;
-  backdrop-filter: blur(var(--size-4-8));
+  backdrop-filter: blur(var(--size-4-12));
 }
 
 .mod-search-suggestion .suggestion {
@@ -4562,7 +4565,7 @@ body.message-tooltip-hide-arrow .tooltip-arrow {
     background-color: var(--setting-bg-color, var(--text-accent));
     opacity: 0.5;
   }
-  body:is(.bg-static, .bg-live) :is(.menu, .suggestion-container, .excalidraw .context-menu, .canvas-card-menu, .canvas-menu, .canvas-controls button) {
+  body:is(.bg-static, .bg-live) :is(.menu, .suggestion-container, .excalidraw .context-menu, .canvas-card-menu, .canvas-menu, .canvas-controls button, .graph-controls) {
     background-color: hsla(var(--background-secondary-hsl));
   }
   body:is(.bg-static, .bg-live) :is(.workspace-leaf-content:is([data-type=markdown], [data-type=style-settings]) .view-header.progress-bar, .prompt, .popover, .progress-bar) {

@@ -33,7 +33,7 @@ $duration-4: abs($delay-4) + $speed * 45;
       opacity: 0.5;
     }
 
-    :is(.menu, .suggestion-container, .excalidraw .context-menu, .canvas-card-menu, .canvas-menu, .canvas-controls button) {
+    :is(.menu, .suggestion-container, .excalidraw .context-menu, .canvas-card-menu, .canvas-menu, .canvas-controls button, .graph-controls) {
       background-color: hsla(var(--background-secondary-hsl));
     }
 

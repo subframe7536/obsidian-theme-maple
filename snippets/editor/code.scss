@@ -202,7 +202,7 @@ body .markdown-rendered pre {
   }
 }
 
-body.code-nowrap {
+.code-nowrap {
   &.scrollbar-gutter-overlay {
     &:not(.code-mac-style-header) .app-container div pre {
       padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.7) !important;
@@ -220,7 +220,7 @@ body.code-nowrap {
   }
 }
 
-body.code-language .markdown-rendered {
+.code-language .markdown-rendered {
   $height: 2rem;
 
   pre {
@@ -266,7 +266,7 @@ body.code-language .markdown-rendered {
   }
 }
 
-body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) {
   :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
     color: var(--code-comment);
   }
@@ -312,7 +312,7 @@ body.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) {
   }
 }
 
-body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5) !important;
@@ -352,7 +352,7 @@ body.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
   }
 }
 
-body.code-line-number .cm-contentContainer {
+.code-line-number .cm-contentContainer {
   counter-reset: code-line;
 
   .cm-line.HyperMD-codeblock {
@@ -381,7 +381,7 @@ body.code-line-number .cm-contentContainer {
 }
 
 @supports selector(:has(pre)) {
-  body.code-preview-bg .markdown-preview-view .markdown-preview-section {
+  .code-preview-bg .markdown-preview-view .markdown-preview-section {
     div:has(>pre:not([class*="frontmatter"])) {
       padding: var(--size-4-4) var(--size-4-8);
       margin-block: var(--size-4-4);

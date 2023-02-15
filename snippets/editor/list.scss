@@ -5,9 +5,9 @@
     margin-left: calc(var(--size-2-1) * -1);
   }
 
-  // .task-list-item-checkbox {
-  //   margin-top: calc(var(--size-2-1) * -1);
-  // }
+  .task-list-item-checkbox {
+    cursor: pointer;
+  }
 
   .collapse-indicator {
     padding-right: 0.4rem;
@@ -44,6 +44,8 @@ body {
   }
 
   :is(.markdown-rendered, .print .markdown-rendered) {
+    --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
+
     :is(ul, ol) {
       padding-inline-start: 2.1rem;
       margin: var(--size-2-1) 0;
@@ -77,33 +79,6 @@ body {
       }
     }
 
-    ul>li {
-      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
-
-      ul>li {
-        --list-marker-color: transparent;
-        --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-        --list-bullet-border: 2px solid var(--list-marker-color-alt);
-
-        ul>li {
-          --list-marker-color: var(--list-marker-color-alt);
-          --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
-          --list-bullet-radius: 1px;
-
-          .list-bullet:after {
-            transform: rotate(45deg);
-          }
-
-          ul>li {
-            --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
-            --list-marker-color: transparent;
-            --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
-            --list-bullet-radius: 1px;
-          }
-        }
-      }
-    }
-
     &.show-indentation-guide {
       .contains-task-list {
         .task-list-item-checkbox {
@@ -123,6 +98,30 @@ body {
         left: -1.55rem;
       }
 
+    }
+  }
+
+
+  ul>li>ul>li {
+    --list-marker-color: transparent;
+    --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
+    --list-bullet-border: 2px solid var(--list-marker-color-alt);
+
+    ul>li {
+      --list-marker-color: var(--list-marker-color-alt);
+      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
+      --list-bullet-radius: 1px;
+
+      .list-bullet:after {
+        transform: rotate(45deg);
+      }
+
+      ul>li {
+        --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
+        --list-marker-color: transparent;
+        --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
+        --list-bullet-radius: 1px;
+      }
     }
   }
 
@@ -171,5 +170,3 @@ body {
     }
   }
 }
-
-// todo)) :has()
