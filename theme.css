@@ -1240,7 +1240,7 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
       calc(var(--accent-s) - 20%),
       calc(var(--accent-l) + 10%));
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
-  --text-on-accent: #eaeaea;
+  --text-on-accent: #eaeaea !important;
   --md-container-bg: hsl(calc(var(--accent-h) - 4), 18%, 9%);
   --color-opacity: 0.85;
   --color-red: rgb(255, 70, 70, var(--color-opacity)) !important;
@@ -1744,15 +1744,23 @@ body .markdown-rendered pre .copy-code-button:hover {
 }
 
 @supports selector(:has(pre)) {
+  .code-preview-bg {
+    --code-bg-s: 50%;
+    --code-bg-l: 85%;
+  }
   .code-preview-bg .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
     padding: var(--size-4-4) var(--size-4-8);
     margin-block: var(--size-4-4);
     border-radius: var(--radius-l);
-    background-image: var(--setting-code-bg, linear-gradient(-30deg, hsl(calc(var(--accent-h) + 145), 50%, 85%), hsl(calc(var(--accent-h) + 115), 50%, 85%), hsl(calc(var(--accent-h) + 90), 50%, 85%), hsl(calc(var(--accent-h) + 65), 50%, 85%), hsl(calc(var(--accent-h) + 35), 50%, 85%)));
+    background-image: var(--setting-code-bg, linear-gradient(-30deg, hsl(calc(var(--accent-h) + 145), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 115), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 90), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 65), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 35), var(--code-bg-s), var(--code-bg-l))));
   }
   .code-preview-bg .markdown-preview-view .markdown-preview-section pre:not([class*=frontmatter]) {
     --code-background: hsl(var(--background-secondary-hsl));
     border-width: 0;
+  }
+  .theme-dark .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
+    --code-bg-s: 20%;
+    --code-bg-l: 45%;
   }
 }
 /* ====== 内嵌文档 ====== */
@@ -1809,7 +1817,7 @@ body.embed-enable.scrollbar-gutter-reserve.embed-title-right-top .internal-embed
 body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .obsidian-metatable {
   display: none;
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
+body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
   position: absolute;
   right: var(--size-4-9);
   top: 0;
@@ -1817,11 +1825,11 @@ body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"])
   opacity: 0;
   transition: var(--animation);
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) * {
+body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) * {
   font-size: 1rem;
   cursor: pointer;
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) *::after {
+body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) *::after {
   content: none;
 }
 body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-title {

@@ -68,7 +68,7 @@ body.embed-enable {
       display: none;
     }
 
-    .embed-title:empty+.markdown-embed-content .markdown-preview-section>div:nth-child(3) {
+    &:not([src*="#^"]) .embed-title:empty+.markdown-embed-content .markdown-preview-section>div:nth-child(3) {
       position: absolute;
       right: var(--size-4-9);
       top: 0;
