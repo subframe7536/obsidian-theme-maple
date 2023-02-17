@@ -1,15 +1,53 @@
 ## Maple
 
-an Obsidian theme still in dev, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/Maple-font)
+an Obsidian theme with some awesome components, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/Maple-font)
+
+![](img/screenshot_source.webp)
 
 <a href="https://www.buymeacoffee.com/subframe753"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=subframe753&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" /></a>
-### usage
 
-put [theme.css](./theme.css) to `your-vault/.obsidian/snippets` and turn on, highly recommend to use `Style Setting`
+## Getting Started
+
+### Install the Style Settings Plugin (⚠️Required)
+1. Open Obsidian and go to Settings.
+2. Click on the Community plugins tab.
+3. Click on the Browse button.
+4. In the Search community plugins... Search Box, search for Style Settings.
+5. Click the Install button.
+6. Click the Enable button once the plugin is finished installing.
+
+### community store (wait for publish)
+
+1. Install the Prism Theme
+2. Open Obsidian and go to Settings.
+3. Click on the Appearance tab.
+4. Click the Manage button.
+5. In the Filter... Search Box, search "Maple".
+6. Click the Install and use button.
+
+### manual
+
+1. download theme.css in [project(latest)](./theme.css) or in [release](https://github.com/subframe7536/obsidian-theme-maple/releases)
+2. put `theme.css` to `your-vault/.obsidian/snippets`
+3. Open Obsidian and go to Settings.
+4. Click on the Apparence tab.
+5. scroll to the bottom and turn on "theme"
+
+## components
+
+### dynamic theme
+
+colors are customable!
+
+<video controls="" preload="none">
+  <source src="img/dynamic_theme.webm" type="video/webm">
+</videos>
 
 ### outline
 
-![](./img/%E5%A4%A7%E7%BA%B2.gif)
+in outline panel
+
+![](./img/outline.gif)
 
 ### document search
 
@@ -17,8 +55,35 @@ put [theme.css](./theme.css) to `your-vault/.obsidian/snippets` and turn on, hig
 
 ### code block
 
-![](img/code_line.png)
-![](img/code_header.png)
+![](img/code.png)
 
-### License
+### quote
+
+live preview
+
+![](img/quote.png)
+
+### style settings
+
+![](img/style_setting.png)
+
+### modal animation
+
+<video controls="" preload="none">
+  <source src="img/popup.webm" type="video/webm">
+</videos>
+
+### modal header search input
+
+<video controls="" preload="none">
+  <source src="img/setting_input.webm" type="video/webm">
+</videos>
+
+### toggle button style
+
+<video controls="" preload="none">
+  <source src="img/toggle.webm" type="video/webm">
+</videos>
+
+## License
 MIT
