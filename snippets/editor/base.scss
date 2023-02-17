@@ -108,19 +108,19 @@ body {
 em,
 .cm-em {
   --blockquote-color: var(--italic-color);
-  text-decoration-style: dotted;
 }
 
 strong,
 .cm-strong {
   --blockquote-color: var(--bold-color);
-  text-decoration-style: double;
+  // text-decoration-style: solid;
 }
 
 em,
 .cm-em,
 strong,
 .cm-strong {
+  text-decoration-style: dotted;
   text-decoration-line: underline;
   text-underline-offset: var(--size-2-1);
   transition: var(--animation);

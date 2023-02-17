@@ -125,6 +125,7 @@ body.link-icon {
     width: calc(var(--font-text-size) - var(--size-2-1));
     height: calc(var(--font-text-size) - var(--size-2-1));
     background-color: var(--link-color);
+    margin-inline: var(--size-2-1);
     // add icon in icons.scss
   }
 

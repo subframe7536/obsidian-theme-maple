@@ -72,8 +72,6 @@ settings:
         type: variable-themed-color
         format: rgb
         opacity: false
-        default-light: '#'
-        default-dark: '#'
     -
         id: color-accent-dark
         title: dark mode
@@ -111,8 +109,6 @@ settings:
         type: variable-themed-color
         format: rgb
         opacity: false
-        default-light: '#'
-        default-dark: '#'
     -
         id: workspace
         title: user interface
@@ -2011,6 +2007,7 @@ body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal
   width: calc(var(--font-text-size) - var(--size-2-1));
   height: calc(var(--font-text-size) - var(--size-2-1));
   background-color: var(--link-color);
+  margin-inline: var(--size-2-1);
 }
 body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) .cm-underline):not(.cm-escape + .cm-link .cm-underline)::before {
   content: "";
@@ -2594,19 +2591,18 @@ body {
 em,
 .cm-em {
   --blockquote-color: var(--italic-color);
-  text-decoration-style: dotted;
 }
 
 strong,
 .cm-strong {
   --blockquote-color: var(--bold-color);
-  text-decoration-style: double;
 }
 
 em,
 .cm-em,
 strong,
 .cm-strong {
+  text-decoration-style: dotted;
   text-decoration-line: underline;
   text-underline-offset: var(--size-2-1);
   transition: var(--animation);

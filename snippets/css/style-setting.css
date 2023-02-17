@@ -71,8 +71,6 @@ settings:
         type: variable-themed-color
         format: rgb
         opacity: false
-        default-light: '#'
-        default-dark: '#'
     -
         id: color-accent-dark
         title: dark mode
@@ -110,8 +108,6 @@ settings:
         type: variable-themed-color
         format: rgb
         opacity: false
-        default-light: '#'
-        default-dark: '#'
     -
         id: workspace
         title: user interface
