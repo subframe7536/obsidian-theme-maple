@@ -51,6 +51,12 @@ in outline panel
 
 ![](img/container-query.gif)
 
+### scrollbar style
+
+background color transition and overlay
+
+![](img/scrollbar.gif)
+
 ### code block
 
 ![](img/code.png)
