@@ -37,11 +37,9 @@ an Obsidian theme with some awesome components, using `Style Setting` to custom 
 
 ### dynamic theme
 
-colors are customable!
+dynamic theme with customable accent color
 
-<video controls="" preload="none">
-  <source src="img/dynamic_theme.webm" type="video/webm">
-</videos>
+![](img/dynamic.png)
 
 ### outline
 
@@ -63,27 +61,15 @@ live preview
 
 ![](img/quote.png)
 
-### style settings
-
-![](img/style_setting.png)
-
-### modal animation
-
-<video controls="" preload="none">
-  <source src="img/popup.webm" type="video/webm">
-</videos>
-
-### modal header search input
-
-<video controls="" preload="none">
-  <source src="img/setting_input.webm" type="video/webm">
-</videos>
-
 ### toggle button style
 
-<video controls="" preload="none">
-  <source src="img/toggle.webm" type="video/webm">
-</videos>
+![](img/toggle.gif)
+
+### style settings
+
+more options can be configured in Style Settings
+
+![](img/style_setting.png)
 
 ## License
 MIT
