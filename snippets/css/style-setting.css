@@ -193,6 +193,21 @@ settings:
         default-light: rgb(245, 180, 0)
         default-dark: rgb(245, 180, 0)
     -
+        id: outline-panel
+        title: outline panel
+        title.zh: 文档大纲
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: ouline-enable
+        title: enable bullet style
+        description: reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+        title.zh: 开启引导线样式
+        description.zh: 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+        type: class-toggle
+        default: true
+    -
         id: status-bar
         title: status bar
         title.zh: 状态栏
@@ -354,7 +369,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.4'"
+        default: "'maple 0.3.5'"
     -
         id: setting-group-title
         title: add style for left navigation group title

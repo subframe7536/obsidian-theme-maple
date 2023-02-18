@@ -9,7 +9,7 @@ body {
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
 
-.workspace-leaf-content[data-type='outline'] .view-content .outline {
+body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .outline {
   .tree-item {
     position: relative;
 
