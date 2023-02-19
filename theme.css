@@ -201,7 +201,7 @@ settings:
         collapsed: true
         level: 3
     -
-        id: ouline-enable
+        id: outline-enable
         title: enable bullet style
         description: reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         title.zh: 开启引导线样式
