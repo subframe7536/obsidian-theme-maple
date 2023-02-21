@@ -4,7 +4,7 @@
 
 :is(body, .print .markdown-rendered) {
   --inline-code: var(--color-red);
-  --code-background: var(--md-container-bg);
+  --code-background: var(--setting-code-bg, var(--md-container-bg));
   --code-function: var(--color-orange);
   --code-important: var(--color-purple);
   --code-keyword: var(--color-purple);
@@ -390,7 +390,7 @@ body .markdown-rendered pre {
         padding: var(--size-4-4) var(--size-4-8);
         margin-block: var(--size-4-4);
         border-radius: var(--radius-l);
-        background-image: var(--setting-code-bg, linear-gradient(-30deg,
+        background-image: var(--setting-code-bg-outer, linear-gradient(-30deg,
               hsl(calc(var(--accent-h) + 145), var(--code-bg-s), var(--code-bg-l)),
               hsl(calc(var(--accent-h) + 115), var(--code-bg-s), var(--code-bg-l)),
               hsl(calc(var(--accent-h) + 90), var(--code-bg-s), var(--code-bg-l)),
@@ -399,7 +399,7 @@ body .markdown-rendered pre {
       }
 
       pre:not([class*="frontmatter"]) {
-        --code-background: hsl(var(--background-secondary-hsl));
+        --code-background: var(--setting-code-bg, hsl(var(--background-secondary-hsl)));
         border-width: 0;
       }
     }

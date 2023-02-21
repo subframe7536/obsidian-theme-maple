@@ -43,6 +43,12 @@ code *,
   caret-color: var(--accent-active);
 }
 
+/* ====== 编辑器背景 ====== */
+
+.workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] .view-content {
+  background-color: hsla(var(--setting-editor-bg, var(--background-primary-hsl)), var(--bg-opacity));
+}
+
 /* ====== 文本 ======= */
 body {
   --text-selection: hsla(var(--color-accent-hsl), 0.25);
