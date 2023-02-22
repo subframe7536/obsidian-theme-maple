@@ -71,6 +71,10 @@ live preview
 
 ![](img/toggle.gif)
 
+### blur menu
+
+![](img/blur.png)
+
 ### style settings
 
 more options can be configured in Style Settings

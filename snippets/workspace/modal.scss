@@ -156,7 +156,7 @@ body.modal-header .modal-container {
     container-type: inline-size;
 
     &::before {
-      content: var(--setting-header-title, 'maple 0.3.6');
+      content: var(--setting-header-title, 'maple 0.3.7');
       position: absolute;
       left: 50%;
       top: var(--size-4-6);
@@ -344,7 +344,7 @@ body.setting-group-title .modal-container .mod-settings .modal-content .vertical
 }
 
 //==============================
-:is(.menu, .prompt, .popover, .modal, .modal-bg, .document-search-container, .suggestion-container) {
+:is(.menu, .prompt, :not(.excalidraw) .popover, .modal, .modal-bg, .document-search-container, .suggestion-container) {
   animation: op var(--animation);
 }
 
@@ -385,8 +385,8 @@ body.modal-animation :is(.prompt, .popover, .modal) {
 }
 
 :is(.menu, .suggestion-container, .excalidraw .context-menu, .graph-control-section) {
-  background-color: hsla(var(--background-secondary-hsl), 0.6) !important;
-  backdrop-filter: blur(var(--size-4-12));
+  background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
+  backdrop-filter: blur(var(--size-4-8));
 }
 
 .mod-search-suggestion .suggestion {

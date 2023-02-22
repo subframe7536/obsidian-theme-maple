@@ -20,6 +20,7 @@ body .excalidraw {
 
     .library-button {
       border-radius: 0;
+      padding: var(--size-4-1);
     }
   }
 
@@ -57,6 +58,38 @@ body .excalidraw {
       //   width: 8px !important;
       //   border-color: transparent !important;
       // }
+    }
+  }
+
+  $pad: var(--size-2-3);
+
+  .popover {
+    box-shadow: none;
+    background-color: hsl(var(--background-secondary-hsl)) !important;
+    animation: op var(--animation) !important;
+
+    ul {
+      border-radius: var(--radius-m);
+      margin-left: 0;
+      padding: $pad;
+      font-family: var(--font-text);
+      box-shadow: var(--shadow-s);
+
+      li button {
+        border-radius: var(--radius-s);
+        transition: none;
+
+        &:hover {
+          background-color: var(--background-modifier-hover);
+          color: var(--text-normal);
+        }
+      }
+
+      hr {
+        margin-block: $pad;
+        border-color: var(--hr-color);
+        margin-inline: calc(-1 * var(--size-4-1));
+      }
     }
   }
 }
