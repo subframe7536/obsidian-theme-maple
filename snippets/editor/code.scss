@@ -161,6 +161,17 @@ body :is(.markdown-source-view, .markdown-rendered) {
   transform: translateX(-0.15rem) !important;
 }
 
+.markdown-source-view.mod-cm6 .code-block-flair:has(svg) {
+  width: calc(var(--size-4-8) - var(--size-4-1));
+  height: calc(var(--size-4-8) - var(--size-4-1));
+  padding: var(--size-4-1);
+
+  svg {
+    width: var(--size-4-5);
+    height: var(--size-4-5);
+  }
+}
+
 code[class*='language-'],
 pre {
   line-height: calc(var(--line-height-normal) - 0.2);
