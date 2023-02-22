@@ -2,6 +2,8 @@
 
 an Obsidian theme with some awesome components, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/Maple-font)
 
+inspired by [Blue Topaz](https://github.com/whyt-byte/Blue-Topaz_Obsidian-css), [Mado Miniflow](https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow),[Border](https://github.com/Akifyss/obsidian-border)
+
 ![](img/screenshot_source.webp)
 
 <a href="https://www.buymeacoffee.com/subframe753"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=subframe753&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" /></a>
