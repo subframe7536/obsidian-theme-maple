@@ -18,12 +18,11 @@ an Obsidian theme with some awesome components, using `Style Setting` to custom 
 
 ### community store
 
-1. Install the Prism Theme
-2. Open Obsidian and go to Settings.
-3. Click on the Appearance tab.
-4. Click the Manage button.
-5. In the Filter... Search Box, search "Maple".
-6. Click the Install and use button.
+1. Open Obsidian and go to Settings.
+2. Click on the Appearance tab.
+3. Click the Manage button.
+4. In the Filter... Search Box, search "Maple".
+5. Click the Install and use button.
 
 ### manual
 
