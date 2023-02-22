@@ -75,6 +75,10 @@ live preview
 
 ![](img/blur.png)
 
+### modal panel title
+
+![](img/input.gif)
+
 ### style settings
 
 more options can be configured in Style Settings
