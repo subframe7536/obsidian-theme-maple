@@ -16,7 +16,7 @@ an Obsidian theme with some awesome components, using `Style Setting` to custom 
 5. Click the Install button.
 6. Click the Enable button once the plugin is finished installing.
 
-### community store (wait for publish)
+### community store
 
 1. Install the Prism Theme
 2. Open Obsidian and go to Settings.
