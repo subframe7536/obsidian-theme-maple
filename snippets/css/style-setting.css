@@ -42,7 +42,7 @@ settings:
         collapsed: true
         level: 4
     -
-        id: setting-color-base-light
+        id: setting-accent-h-light
         title: base color
         title.zh: 基础颜色
         type: variable-number-slider
@@ -68,9 +68,41 @@ settings:
         id: setting-color-active-custom-light
         title: custom highlight color
         title.zh: 自定义高亮颜色
-        type: variable-themed-color
+        type: variable-color
         format: rgb
+        default: '#'
         opacity: false
+    -
+        id: color-more-light
+        title: more configuration
+        title.zh: 更多设置
+        type: heading
+        collapsed: true
+        level: 5
+    -
+        id: setting-accent-s-light
+        title: accent color saturation
+        description: s of hsl
+        title.zh: 高亮颜色饱和度
+        description.zh: hsl中的s
+        type: variable-number-slider
+        default: 32
+        format: '%'
+        min: 0
+        max: 100
+        step: 1
+    -
+        id: setting-accent-l-light
+        title: accent color lightness
+        description: l of hsl
+        title.zh: 高亮颜色亮度
+        description.zh: hsl中的l
+        type: variable-number-slider
+        default: 58
+        format: '%'
+        min: 0
+        max: 100
+        step: 1
     -
         id: color-accent-dark
         title: dark mode
@@ -79,7 +111,7 @@ settings:
         collapsed: true
         level: 4
     -
-        id: setting-color-base-dark
+        id: setting-accent-h-dark
         title: base color
         title.zh: 基础颜色
         type: variable-number-slider
@@ -105,9 +137,41 @@ settings:
         id: setting-color-active-custom-dark
         title: custom highlight color
         title.zh: 自定义高亮颜色
-        type: variable-themed-color
+        type: variable-color
+        default: '#'
         format: rgb
         opacity: false
+    -
+        id: color-more-dark
+        title: more configuration
+        title.zh: 更多设置
+        type: heading
+        collapsed: true
+        level: 5
+    -
+        id: setting-accent-s-dark
+        title: accent color saturation
+        description: s of hsl
+        title.zh: 高亮颜色饱和度
+        description.zh: hsl中的s
+        type: variable-number-slider
+        default: 32
+        format: '%'
+        min: 0
+        max: 100
+        step: 1
+    -
+        id: setting-accent-l-dark
+        title: accent color lightness
+        description: l of hsl
+        title.zh: 高亮颜色亮度
+        description.zh: hsl中的l
+        type: variable-number-slider
+        default: 58
+        format: '%'
+        min: 0
+        max: 100
+        step: 1
     -
         id: workspace
         title: user interface
@@ -369,7 +433,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.7'"
+        default: "'maple 0.3.8'"
     -
         id: setting-group-title
         title: add style for left navigation group title

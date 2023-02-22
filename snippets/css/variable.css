@@ -29,17 +29,16 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --accent-l: 58% !important;
 }
 
-:is(body.color-use-custom.css-settings-manager, body.color-use-custom.css-settings-manager .print) {
-  --accent-s: var(--accent-color-s, 32%) !important;
-  --accent-l: var(--accent-color-l, 58%) !important;
-}
-
 :is(body.color-use-custom.theme-light.css-settings-manager, body.color-use-custom.theme-light.css-settings-manager .print) {
-  --accent-h: var(--setting-color-base-light, 116) !important;
+  --accent-h: var(--setting-accent-h-light, 116) !important;
+  --accent-s: var(--setting-accent-s-light, 32%) !important;
+  --accent-l: var(--setting-accent-l-light, 58%) !important;
 }
 
 :is(body.color-use-custom.theme-dark.css-settings-manager, body.color-use-custom.theme-dark.css-settings-manager .print) {
-  --accent-h: var(--setting-color-base-dark, 207) !important;
+  --accent-h: var(--setting-accent-h-dark, 207) !important;
+  --accent-s: var(--setting-accent-s-dark, 32%) !important;
+  --accent-l: var(--setting-accent-l-dark, 58%) !important;
 }
 
 :is(.theme-light, .theme-light .print) {
