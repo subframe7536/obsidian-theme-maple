@@ -74,10 +74,10 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
       calc(var(--accent-s) - 20%),
       calc(var(--accent-l) - 10%));
 
-  --md-container-bg: hsla(calc(var(--accent-h) + 8),
-      calc(var(--accent-s) / 1.2),
-      calc(100% - (100% - var(--accent-l)) / 6),
-      70%);
+  --md-container-bg: var(--setting-md-container-bg, hsla(calc(var(--accent-h) + 8),
+        calc(var(--accent-s) / 1.2),
+        calc(100% - (100% - var(--accent-l)) / 6),
+        60%));
   --color-opacity: 1;
 }
 
@@ -111,7 +111,7 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
       calc(var(--accent-l) + 10%));
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
-  --md-container-bg: hsl(calc(var(--accent-h) - 4), 18%, 9%);
+  --md-container-bg: var(--setting-md-container-bg, hsl(calc(var(--accent-h) - 4), 18%, 9%));
   --color-opacity: 0.85;
   --color-red: rgb(255, 70, 70, var(--color-opacity)) !important;
   --color-red-rgb: 255, 70, 70 !important;

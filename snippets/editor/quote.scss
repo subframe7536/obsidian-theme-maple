@@ -27,15 +27,19 @@ body.quote-theme {
       inset-block: var(--blockquote-radius);
     }
 
-    .HyperMD-quote.cm-active .cm-blockquote-border::before {
-      background-color: transparent;
-    }
-
     .HyperMD-quote {
-      border-top-left-radius: 0 !important;
-      border-top-right-radius: 0 !important;
-      border-bottom-left-radius: var(--blockquote-radius) !important;
-      border-bottom-right-radius: var(--blockquote-radius) !important;
+      border-radius: 0 !important;
+
+      &.cm-active {
+        &:not(:has(+.HyperMD-quote:not(.HyperMD-callout))) {
+          border-bottom-left-radius: var(--blockquote-radius) !important;
+          border-bottom-right-radius: var(--blockquote-radius) !important;
+        }
+
+        .cm-blockquote-border::before {
+          background-color: transparent;
+        }
+      }
 
       &::before {
         left: calc(var(--blockquote-border-thickness));
@@ -139,34 +143,34 @@ $items: (
   top: calc(var(--blockquote-radius) * -2);
 }
 
-/* 填补当前行的空隙 */
-body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout) {
+// 填补当前行的空隙
+// body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout) {
 
-  &::after,
-  .cm-quote.cm-formatting-quote-1::after {
-    content: '';
-    position: absolute;
-    display: inline-block;
-    z-index: 9;
-    height: var(--blockquote-radius);
-    width: var(--blockquote-radius);
-    top: calc(var(--blockquote-radius) * -1);
-    background-color: var(--md-container-bg);
-  }
+//   &::after,
+//   .cm-quote.cm-formatting-quote-1::after {
+//     content: '';
+//     position: absolute;
+//     display: inline-block;
+//     z-index: 9;
+//     height: var(--blockquote-radius);
+//     width: var(--blockquote-radius);
+//     top: calc(var(--blockquote-radius) * -1);
+//     background-color: var(--md-container-bg);
+//   }
 
-  &::after {
-    left: 0;
-  }
+//   &::after {
+//     left: 0;
+//   }
 
-  .cm-quote.cm-formatting-quote-1::after {
-    right: 0;
-  }
+//   .cm-quote.cm-formatting-quote-1::after {
+//     right: 0;
+//   }
 
-  &.cm-active+.HyperMD-quote:not(.HyperMD-callout)::after,
-  &.cm-active+.HyperMD-quote:not(.HyperMD-callout) .cm-quote.cm-formatting::after {
-    background-color: var(--active-line);
-  }
-}
+//   &.cm-active+.HyperMD-quote:not(.HyperMD-callout)::after,
+//   &.cm-active+.HyperMD-quote:not(.HyperMD-callout) .cm-quote.cm-formatting::after {
+//     background-color: var(--active-line);
+//   }
+// }
 
 // fix bugs, corner fill cause wrap
 // body.quote-theme.quote-break-all

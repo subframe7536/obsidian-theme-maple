@@ -531,9 +531,27 @@ settings:
         collapsed: true
         level: 2
     -
+        id: bg
+        title: background color
+        title.zh: 背景色
+        type: heading
+        collapsed: true
+        level: 3
+    -
         id: setting-editor-bg
         title: editor background color
         title.zh: 编辑器背景色
+        type: variable-themed-color
+        format: hsl-values
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-md-container-bg
+        title: editor container background color
+        description: quote, code block, table and so on
+        title.zh: 编辑器容器背景色
+        description.zh: 引用、代码块、表格等
         type: variable-themed-color
         format: hsl-values
         opacity: false
