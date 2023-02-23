@@ -71,9 +71,30 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   padding-inline: var(--size-4-1);
 }
 
+/* ======= 高亮行 ====== */
+
 body:not(.line-active-disable) .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: var(--active-line);
   border-radius: var(--size-2-3);
+}
+
+// 参考 https://github.com/Akifyss/obsidian-border
+body:not(.line-indicator-disable) {
+  .markdown-preview-sizer>div {
+    position: relative;
+  }
+
+  :is(.markdown-reading-view .markdown-preview-sizer>div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p>img, audio, video))),
+    .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-header, :has(.collapse-indicator))):hover::after {
+    content: '';
+    width: var(--size-4-1);
+    position: absolute;
+    inset-block: var(--size-4-1);
+    left: calc(var(--size-4-3) * -1);
+    background-color: var(--accent-active);
+    border-radius: var(--size-2-1);
+
+  }
 }
 
 /* ======= 键盘 ====== */

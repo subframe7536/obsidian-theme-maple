@@ -434,7 +434,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.9'"
+        default: "'maple 0.3.10'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -614,6 +614,13 @@ settings:
         min: 1.8
         max: 2.4
         step: 0.1
+    -
+        id: line-indicator-disable
+        title: disable hover line indicator
+        description: reference from https://github.com/Akifyss/obsidian-border, need install version>=1.1.9
+        title.zh: 禁用鼠标经过行指示器
+        description.zh: 参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9
+        type: class-toggle
     -
         id: line-active-disable
         title: disable active line hightlight
@@ -2398,6 +2405,7 @@ body.quote-theme.quote-mark .markdown-rendered blockquote::before {
 
 :is(.markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) table {
   width: 100% !important;
+  margin: 0;
   --table-column-first-border-width: var(--table-outline-width);
   --table-column-last-border-width: var(--table-outline-width);
   --table-row-last-border-width: var(--table-outline-width);
@@ -2659,9 +2667,24 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   padding-inline: var(--size-4-1);
 }
 
+/* ======= 高亮行 ====== */
 body:not(.line-active-disable) .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: var(--active-line);
   border-radius: var(--size-2-3);
+}
+
+body:not(.line-indicator-disable) .markdown-preview-sizer > div {
+  position: relative;
+}
+body:not(.line-indicator-disable) :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p > img, audio, video))),
+.markdown-source-view .cm-scroller .cm-line:not(.HyperMD-header, :has(.collapse-indicator))):hover::after {
+  content: "";
+  width: var(--size-4-1);
+  position: absolute;
+  inset-block: var(--size-4-1);
+  left: calc(var(--size-4-3) * -1);
+  background-color: var(--accent-active);
+  border-radius: var(--size-2-1);
 }
 
 /* ======= 键盘 ====== */
@@ -2830,12 +2853,13 @@ body.heading-level-enable :is(div.markdown-reading-view > div > div > div > :is(
   pointer-events: all;
 }
 body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header)::before {
-  opacity: 0.6;
-  filter: grayscale(0.8);
+  opacity: 0.4;
+}
+body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):not(:hover)::before {
+  color: var(--text-muted);
 }
 body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):hover::before {
   opacity: 1;
-  filter: brightness(1.1);
 }
 body.heading-level-enable div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
   left: calc(var(--size-4-6) * -1) !important;
@@ -2934,6 +2958,7 @@ body.theme-dark.image-dark-hover img:hover {
 
 img {
   border-radius: var(--radius-l);
+  cursor: pointer;
 }
 
 /* 提示文本，参考 https://github.com/chrisgrieser/shimmering-focus */
@@ -3349,6 +3374,8 @@ body:not(.color-use-custom) .setting-item[data-id*=color-accent-],
 body:not(.code-language) .setting-item[data-id=setting-code-language-color],
 body:not(.modal-header) .setting-item[data-id=setting-modal-header-title],
 body:not(.color-use-custom) .setting-item[data-id^=accent-hue],
+body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light],
+body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-active-custom-dark],
 body:not(.message-modify) .setting-item[data-id^=setting-message],
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix],
 body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
@@ -3931,7 +3958,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.3.9");
+  content: var(--setting-header-title, "maple 0.3.10");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
