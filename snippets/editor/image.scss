@@ -11,6 +11,7 @@ body.theme-dark.image-dark-hover img {
 
 img {
   border-radius: var(--radius-l);
+  cursor: pointer;
 }
 
 /* 提示文本，参考 https://github.com/chrisgrieser/shimmering-focus */
