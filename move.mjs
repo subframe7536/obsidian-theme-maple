@@ -11,5 +11,5 @@ vaultRoots.forEach(root => {
   !existsSync(themeRoot) && mkdirSync(themeRoot, { recursive: true })
   copyFileSync('theme.css', resolve(themeRoot, 'theme.css'))
   copyFileSync('manifest.json', resolve(themeRoot, 'manifest.json'))
-  console.log(`apply to ${root}`)
+  console.log(`✨ ${root}`)
 })
