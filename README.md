@@ -1,6 +1,6 @@
 ## Maple
 
-an Obsidian theme with some awesome components, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/Maple-font)
+an Obsidian theme for desktop with some awesome components, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/Maple-font)
 
 inspired by [Blue Topaz](https://github.com/whyt-byte/Blue-Topaz_Obsidian-css), [Mado Miniflow](https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow),[Border](https://github.com/Akifyss/obsidian-border)
 
@@ -85,6 +85,12 @@ live preview
 more options can be configured in Style Settings
 
 ![](img/style_setting.png)
+
+## todo
+
+- [ ] mobile support
+- [ ] callouts
+- [ ] dataview
 
 ## License
 MIT
