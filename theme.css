@@ -434,7 +434,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.12'"
+        default: "'maple 0.3.13'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1248,7 +1248,6 @@ settings:
         title: swap year & month
         title.zh: 交换年和月的位置
         type: class-toggle
-        default: true
     -
         id: setting-calendar-year-suffix
         title: year suffix
@@ -3973,7 +3972,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.3.12");
+  content: var(--setting-header-title, "maple 0.3.13");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -4040,6 +4039,12 @@ body.modal-header .modal-container .mod-settings .modal-content .plugin-list-plu
   right: var(--size-4-16);
 }
 @supports selector(:has(input)) {
+  body.modal-header .modal-container .mod-settings .modal-content .setting-item-name:has(.search-input-container) {
+    position: absolute;
+    top: calc(var(--size-2-1) * -1);
+    transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
+    right: var(--size-4-16);
+  }
   body.modal-header .modal-container .mod-settings .modal-content .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type=search]) {
     position: absolute;
     top: calc(var(--size-2-1) * -1);

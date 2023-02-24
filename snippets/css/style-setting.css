@@ -433,7 +433,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.12'"
+        default: "'maple 0.3.13'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1247,7 +1247,6 @@ settings:
         title: swap year & month
         title.zh: 交换年和月的位置
         type: class-toggle
-        default: true
     -
         id: setting-calendar-year-suffix
         title: year suffix
