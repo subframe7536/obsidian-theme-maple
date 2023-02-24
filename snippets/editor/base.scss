@@ -85,7 +85,7 @@ body:not(.line-indicator-disable) {
   }
 
   :is(.markdown-reading-view .markdown-preview-sizer>div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
-    .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-header, :has(.collapse-indicator))):hover::after {
+    .markdown-source-view .cm-line:not(.HyperMD-header, .HyperMD-quote, :has(.collapse-indicator))):hover::after {
     content: '';
     width: var(--size-4-1);
     position: absolute;
