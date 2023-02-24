@@ -1,0 +1,15 @@
+img.banner-image {
+  border-radius: 0;
+}
+
+.obsidian-banner-spacer {
+  height: 0;
+}
+
+.markdown-source-view .cm-line.has-banner {
+  margin-top: calc(var(--banner-height) - 24px) !important;
+}
+
+.markdown-preview-sizer>div.obsidian-banner-wrapper {
+  position: initial !important;
+}

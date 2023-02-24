@@ -84,7 +84,7 @@ body:not(.line-indicator-disable) {
     position: relative;
   }
 
-  :is(.markdown-reading-view .markdown-preview-sizer>div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p>img, audio, video))),
+  :is(.markdown-reading-view .markdown-preview-sizer>div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
     .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-header, :has(.collapse-indicator))):hover::after {
     content: '';
     width: var(--size-4-1);
@@ -93,7 +93,6 @@ body:not(.line-indicator-disable) {
     left: calc(var(--size-4-3) * -1);
     background-color: var(--accent-active);
     border-radius: var(--size-2-1);
-
   }
 }
 

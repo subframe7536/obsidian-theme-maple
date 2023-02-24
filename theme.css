@@ -434,7 +434,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.11'"
+        default: "'maple 0.3.12'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2679,7 +2679,7 @@ body:not(.line-active-disable) .workspace-leaf.mod-active .markdown-source-view 
 body:not(.line-indicator-disable) .markdown-preview-sizer > div {
   position: relative;
 }
-body:not(.line-indicator-disable) :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p > img, audio, video))),
+body:not(.line-indicator-disable) :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
 .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-header, :has(.collapse-indicator))):hover::after {
   content: "";
   width: var(--size-4-1);
@@ -2984,24 +2984,20 @@ body.image-alt .view-content img:not(.emoji) {
 }
 
 /* 点击放大图片, 参考 blue-topaz */
-body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=image]) img:not([class*=emoji]) {
+body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=image]) img:not([class*=emoji], .banner-image) {
   cursor: zoom-in;
 }
-body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=image]) img:not([class*=emoji]):active {
+body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=image]) img:not([class*=emoji], .banner-image):active {
   overflow: hidden;
   position: fixed;
   object-fit: contain;
   height: 100%;
   width: 100%;
   margin: 0;
-  padding: var(--size-4-1);
   border-radius: 0;
   inset: 0;
   z-index: 200;
   background-image: linear-gradient(to right, hsl(var(--background-primary-hsl)), hsl(var(--background-secondary-hsl)), hsl(var(--background-primary-hsl)));
-}
-body.image-zoom .markdown-source-view .internal-embed img {
-  pointer-events: none;
 }
 
 /* ====== 白板 ====== */
@@ -3629,6 +3625,22 @@ body .event_item.svelte-e43ld1.svelte-e43ld1:hover {
   --interactive-normal: var(--accent-inactive);
 }
 
+img.banner-image {
+  border-radius: 0;
+}
+
+.obsidian-banner-spacer {
+  height: 0;
+}
+
+.markdown-source-view .cm-line.has-banner {
+  margin-top: calc(var(--banner-height) - 24px) !important;
+}
+
+.markdown-preview-sizer > div.obsidian-banner-wrapper {
+  position: initial !important;
+}
+
 /* ====== 文档内搜索框 ====== */
 .obsidian-search-match-highlight {
   background-color: var(--background-secondary);
@@ -3961,7 +3973,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.3.11");
+  content: var(--setting-header-title, "maple 0.3.12");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);

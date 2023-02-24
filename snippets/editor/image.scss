@@ -45,7 +45,7 @@ body.image-alt {
 /* 点击放大图片, 参考 blue-topaz */
 
 body.image-zoom {
-  :is(.markdown-preview-view, .workspace-leaf-content[data-type="image"]) img:not([class*="emoji"]) {
+  :is(.markdown-preview-view, .workspace-leaf-content[data-type="image"]) img:not([class*="emoji"], .banner-image) {
     cursor: zoom-in;
 
     &:active {
@@ -55,15 +55,10 @@ body.image-zoom {
       height: 100%;
       width: 100%;
       margin: 0;
-      padding: var(--size-4-1);
       border-radius: 0;
       inset: 0;
       z-index: 200;
       background-image: linear-gradient(to right, hsl(var(--background-primary-hsl)), hsl(var(--background-secondary-hsl)), hsl(var(--background-primary-hsl)));
     }
-  }
-
-  .markdown-source-view .internal-embed img {
-    pointer-events: none;
   }
 }
