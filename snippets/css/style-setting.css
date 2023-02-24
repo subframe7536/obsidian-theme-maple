@@ -46,7 +46,7 @@ settings:
         title: base color
         title.zh: 基础颜色
         type: variable-number-slider
-        default: 116
+        default: 35
         min: 0
         max: 360
         step: 5

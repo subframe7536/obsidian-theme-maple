@@ -30,7 +30,7 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 }
 
 :is(body.color-use-custom.theme-light.css-settings-manager, body.color-use-custom.theme-light.css-settings-manager .print) {
-  --accent-h: var(--setting-accent-h-light, 116) !important;
+  --accent-h: var(--setting-accent-h-light, 35) !important;
   --accent-s: var(--setting-accent-s-light, 32%) !important;
   --accent-l: var(--setting-accent-l-light, 58%) !important;
 }
