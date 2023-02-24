@@ -434,7 +434,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.10'"
+        default: "'maple 0.3.11'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1061,6 +1061,15 @@ settings:
         collapsed: true
         level: 3
     -
+        id: setting-code-inline
+        title: inline code color
+        title.zh: 行内代码前景色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
         id: setting-code-bg
         title: code block background color
         title.zh: 代码块背景色
@@ -1407,7 +1416,7 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
 }
 /* ====== 代码 ====== */
 :is(body, .print .markdown-rendered) {
-  --inline-code: var(--color-red);
+  --inline-code: var(--setting-code-inline, var(--color-red));
   --code-background: var(--setting-code-bg, var(--md-container-bg));
   --code-function: var(--color-orange);
   --code-important: var(--color-purple);
@@ -1418,29 +1427,23 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
   --code-tag: var(--color-red);
   --code-value: var(--color-orange);
   --code-comment: var(--text-faint);
-  --code-normal: var(--code-base);
+  --code-normal: var(--code-preview-base);
   --code-bg-radius: var(--radius-l);
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
 }
 
 :is(.theme-light, .theme-light .print) {
-  --code-base: hsl(var(--accent-h),
+  --code-preview-base: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) - 30%));
   --code-mac-style-header-bg: #333;
 }
-:is(.theme-light, .theme-light .print) :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
-  --code-background: hsl(calc(var(--accent-h) - 8), 12%, 94%);
-}
 
 :is(.theme-dark, .theme-dark .print) {
-  --code-base: hsl(var(--accent-h),
+  --code-preview-base: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) + 10%));
   --code-mac-style-header-bg: #000;
-}
-:is(.theme-dark, .theme-dark .print) :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
-  --code-background: hsl(calc(var(--accent-h) - 8), 20%, 12%);
 }
 
 .cm-hmd-codeblock.cm-formatting,
@@ -1453,7 +1456,7 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
 }
 
 .markdown-preview-view pre code {
-  color: var(--code-base);
+  color: var(--code-preview-base);
   border: none;
   border-radius: 0;
 }
@@ -1809,7 +1812,7 @@ body .markdown-rendered pre .copy-code-button:hover {
   color: var(--code-important);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
-  color: var(--code-base);
+  color: var(--code-normal);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-variable-2, .cm-variable-3) {
   opacity: 0.7;
@@ -3958,7 +3961,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.3.10");
+  content: var(--setting-header-title, "maple 0.3.11");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);

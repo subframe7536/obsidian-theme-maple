@@ -3,7 +3,7 @@
 @use 'sass:math';
 
 :is(body, .print .markdown-rendered) {
-  --inline-code: var(--color-red);
+  --inline-code: var(--setting-code-inline, var(--color-red));
   --code-background: var(--setting-code-bg, var(--md-container-bg));
   --code-function: var(--color-orange);
   --code-important: var(--color-purple);
@@ -14,31 +14,23 @@
   --code-tag: var(--color-red);
   --code-value: var(--color-orange);
   --code-comment: var(--text-faint);
-  --code-normal: var(--code-base);
+  --code-normal: var(--code-preview-base);
   --code-bg-radius: var(--radius-l);
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
 }
 
 :is(.theme-light, .theme-light .print) {
-  --code-base: hsl(var(--accent-h),
+  --code-preview-base: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) - 30%));
   --code-mac-style-header-bg: #333;
-
-  :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
-    --code-background: hsl(calc(var(--accent-h) - 8), 12%, 94%);
-  }
 }
 
 :is(.theme-dark, .theme-dark .print) {
-  --code-base: hsl(var(--accent-h),
+  --code-preview-base: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) + 10%));
   --code-mac-style-header-bg: #000;
-
-  :is(.cm-inline-code, .cm-hmd-codeblock.cm-formatting, .markdown-rendered code) {
-    --code-background: hsl(calc(var(--accent-h) - 8), 20%, 12%);
-  }
 }
 
 .cm-hmd-codeblock.cm-formatting,
@@ -51,7 +43,7 @@
 }
 
 .markdown-preview-view pre code {
-  color: var(--code-base);
+  color: var(--code-preview-base);
   border: none;
   border-radius: 0;
 }
@@ -315,7 +307,7 @@ body .markdown-rendered pre {
   }
 
   :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
-    color: var(--code-base);
+    color: var(--code-normal);
   }
 
   :is(.cm-variable-2, .cm-variable-3) {
