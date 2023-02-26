@@ -156,7 +156,7 @@ body.modal-header .modal-container {
     container-type: inline-size;
 
     &::before {
-      content: var(--setting-header-title, 'maple 0.3.13');
+      content: var(--setting-header-title, 'maple 0.3.14');
       position: absolute;
       left: 50%;
       top: var(--size-4-6);
@@ -244,7 +244,6 @@ body.modal-header .modal-container {
         top: calc(var(--size-2-1) * -1);
         transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
         right: var(--size-4-16);
-
       }
 
       .vertical-tab-content>:nth-child(5):not(.style-settings-container):has(input[type="search"]) {
@@ -395,6 +394,12 @@ body.modal-animation :is(.prompt, .popover, .modal) {
 :is(.menu, .suggestion-container, .excalidraw .context-menu, .graph-control-section) {
   background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
   backdrop-filter: blur(var(--size-4-8));
+}
+
+body.modal-blur .modal-bg {
+  opacity: 1 !important;
+  background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
+  backdrop-filter: blur(var(--size-4-1));
 }
 
 .mod-search-suggestion .suggestion {

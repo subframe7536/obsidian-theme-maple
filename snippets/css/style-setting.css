@@ -422,6 +422,12 @@ settings:
         collapsed: true
         level: 3
     -
+        id: modal-blur
+        title: enable modal background blur
+        title.zh: 开启弹出框背景模糊
+        type: class-toggle
+        default: true
+    -
         id: modal-header
         title: add header for setting panel
         description: better with plugin “setting search”
@@ -433,7 +439,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.13'"
+        default: "'maple 0.3.14'"
     -
         id: setting-group-title
         title: add style for left navigation group title
