@@ -6,8 +6,8 @@ img.banner-image {
   height: 0;
 }
 
-.markdown-source-view .cm-line.has-banner {
-  margin-top: calc(var(--banner-height) - 24px) !important;
+.markdown-source-view .cm-content:has(.cm-line.has-banner) {
+  padding-top: calc(var(--banner-height) - var(--size-4-8)) !important;
 }
 
 .markdown-preview-sizer>div.obsidian-banner-wrapper {
