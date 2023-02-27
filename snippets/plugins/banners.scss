@@ -6,10 +6,17 @@ img.banner-image {
   height: 0;
 }
 
-.markdown-source-view .cm-content:has(.cm-line.has-banner) {
-  padding-top: calc(var(--banner-height) - var(--size-4-8)) !important;
+.markdown-source-view {
+  .cm-content:has(.cm-line.has-banner) {
+    padding-top: calc(var(--banner-height) - var(--size-4-8) + 1.5rem) !important;
+  }
+
+  .obsidian-banner-spacer {
+    margin: 0 !important;
+  }
 }
 
 .markdown-preview-sizer>div.obsidian-banner-wrapper {
   position: initial !important;
+  margin-top: var(--banner-height);
 }

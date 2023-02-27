@@ -3639,11 +3639,15 @@ img.banner-image {
 }
 
 .markdown-source-view .cm-content:has(.cm-line.has-banner) {
-  padding-top: calc(var(--banner-height) - var(--size-4-8)) !important;
+  padding-top: calc(var(--banner-height) - var(--size-4-8) + 1.5rem) !important;
+}
+.markdown-source-view .obsidian-banner-spacer {
+  margin: 0 !important;
 }
 
 .markdown-preview-sizer > div.obsidian-banner-wrapper {
   position: initial !important;
+  margin-top: var(--banner-height);
 }
 
 /* ====== 文档内搜索框 ====== */
