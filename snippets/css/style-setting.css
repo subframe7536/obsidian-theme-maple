@@ -439,7 +439,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.15'"
+        default: "'maple 0.4.0'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1259,4 +1259,37 @@ settings:
         title.zh: 年份后缀
         type: variable-text
         default: "'年'"
+    -
+        id: kanban
+        title: kanban
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-kanban-item-color
+        title: kanban item font color
+        title.zh: kanban 项 文字颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-kanban-item-bg
+        title: kanban item background color
+        title.zh: kanban 项 背景色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-kanban-board-bg
+        title: kanban board backgound color
+        title.zh: kanban 版面 背景色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
 */

@@ -13,7 +13,7 @@ $editor: ".markdown-source-view .cm-scroller",
 $horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
   '.markdown-embed-content .markdown-rendered', 'pre code';
 
-$kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items';
+$kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items', '.kanban-plugin__autocomplete';
 
 $excalidraw: '.excalidraw-wrapper :is(.App-mobile-menu,.App-menu .Stack .Island.App-menu__left,.scrollbar)',
   '.excalidraw-contextMenuContainer .popover';

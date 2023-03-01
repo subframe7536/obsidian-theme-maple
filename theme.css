@@ -440,7 +440,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.3.15'"
+        default: "'maple 0.4.0'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1260,6 +1260,39 @@ settings:
         title.zh: 年份后缀
         type: variable-text
         default: "'年'"
+    -
+        id: kanban
+        title: kanban
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-kanban-item-color
+        title: kanban item font color
+        title.zh: kanban 项 文字颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-kanban-item-bg
+        title: kanban item background color
+        title.zh: kanban 项 背景色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-kanban-board-bg
+        title: kanban board backgound color
+        title.zh: kanban 版面 背景色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
 */
 :is(body, body .print) {
   --font-ui-smaller: 13px;
@@ -2207,43 +2240,43 @@ body :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered) {
   --list-marker-color-alt: var(--accent-active);
   --list-spacing: 0;
 }
-body :is(.markdown-rendered, .print .markdown-rendered) {
+body :is(.markdown-preview-view, .print .markdown-rendered) {
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
 }
-body :is(.markdown-rendered, .print .markdown-rendered) :is(ul, ol) {
+body :is(.markdown-preview-view, .print .markdown-rendered) :is(ul, ol) {
   padding-inline-start: 2.1rem;
   margin: var(--size-2-1) 0;
 }
-body :is(.markdown-rendered, .print .markdown-rendered) :is(ul, ol) :is(ul, ol) {
+body :is(.markdown-preview-view, .print .markdown-rendered) :is(ul, ol) :is(ul, ol) {
   padding-inline-start: 2.1rem;
 }
-body :is(.markdown-rendered, .print .markdown-rendered) :is(ul, ol) li {
+body :is(.markdown-preview-view, .print .markdown-rendered) :is(ul, ol) li {
   margin: var(--size-4-2) auto;
   line-height: 1.8rem;
 }
-body :is(.markdown-rendered, .print .markdown-rendered) ul {
+body :is(.markdown-preview-view, .print .markdown-rendered) ul {
   padding-inline-start: 1.2rem;
 }
-body :is(.markdown-rendered, .print .markdown-rendered) ul.contains-task-list {
+body :is(.markdown-preview-view, .print .markdown-rendered) ul.contains-task-list {
   padding-inline-start: 1.6rem;
   margin-inline-start: 0 !important;
 }
-body :is(.markdown-rendered, .print .markdown-rendered) ol li::marker {
+body :is(.markdown-preview-view, .print .markdown-rendered) ol li::marker {
   font-family: var(--font-monospace);
 }
-body :is(.markdown-rendered, .print .markdown-rendered) ol li .list-collapse-indicator {
+body :is(.markdown-preview-view, .print .markdown-rendered) ol li .list-collapse-indicator {
   margin-left: -3.5rem !important;
 }
-body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide .contains-task-list .task-list-item-checkbox {
+body :is(.markdown-preview-view, .print .markdown-rendered).show-indentation-guide .contains-task-list .task-list-item-checkbox {
   margin-right: var(--size-4-2);
 }
-body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide .contains-task-list .contains-task-list {
+body :is(.markdown-preview-view, .print .markdown-rendered).show-indentation-guide .contains-task-list .contains-task-list {
   margin-inline-start: 0.1rem !important;
 }
-body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide .contains-task-list .contains-task-list::before {
+body :is(.markdown-preview-view, .print .markdown-rendered).show-indentation-guide .contains-task-list .contains-task-list::before {
   left: -1.2rem;
 }
-body :is(.markdown-rendered, .print .markdown-rendered).show-indentation-guide li > ol::before {
+body :is(.markdown-preview-view, .print .markdown-rendered).show-indentation-guide li > ol::before {
   left: -1.55rem;
 }
 body ul > li > ul > li {
@@ -3650,6 +3683,133 @@ img.banner-image {
   margin-top: var(--banner-height);
 }
 
+body {
+  --kanban-item-color: var(--setting-kanban-item-color, var(--text-normal));
+  --kanban-item-bg: var(--setting-kanban-item-bg, hsl(var(--background-primary-hsl)));
+  --kanban-board-bg: var(--setting-kanban-board-bg, hsl(var(--background-secondary-hsl)));
+}
+
+:is(.kanban-plugin, .kanban-plugin__item, .kanban-plugin__lane) button {
+  line-height: normal;
+  padding-block: 0;
+}
+:is(.kanban-plugin__item-action-add, .kanban-plugin__lane-action-add) {
+  color: var(--accent-active);
+}
+:is(.kanban-plugin__item-action-add, .kanban-plugin__lane-action-add):hover {
+  background-color: var(--accent-active);
+  color: var(--text-on-accent);
+}
+.kanban-plugin__lane {
+  background: var(--kanban-board-bg);
+}
+.kanban-plugin__lane-form-wrapper {
+  background: var(--kanban-board-bg);
+  border: 1px solid var(--background-modifier-border-hover);
+  box-shadow: var(--shadow-s);
+}
+.kanban-plugin__lane-form-wrapper textarea {
+  padding: var(--size-4-1) var(--size-2-3);
+}
+.kanban-plugin__grow-wrap > textarea, .kanban-plugin__grow-wrap:after {
+  border-radius: var(--radius-s);
+  box-sizing: border-box;
+  transition: box-shadow var(--animation) !important;
+}
+.kanban-plugin__new-item-button {
+  background-color: var(--kanban-item-bg) !important;
+  transition: var(--animation);
+}
+.kanban-plugin__new-item-button:hover {
+  color: var(--accent-active);
+}
+.kanban-plugin__item-form .kanban-plugin__item-input-wrapper {
+  padding: 0;
+  height: 100%;
+}
+.kanban-plugin__item-form .kanban-plugin__item-input-wrapper * {
+  height: 100%;
+}
+.kanban-plugin__item-form .kanban-plugin__item-input-wrapper textarea {
+  padding: var(--size-2-1) var(--size-2-3);
+}
+.kanban-plugin__item-title-wrapper {
+  background: var(--kanban-item-bg);
+}
+.kanban-plugin__item-title-wrapper p {
+  color: var(--kanban-item-color);
+}
+.kanban-plugin__item-title-wrapper:has(.kanban-plugin__item-input-wrapper) {
+  background: var(--background-modifier-form-field);
+}
+.kanban-plugin__item-postfix-button {
+  padding: var(--size-4-1);
+  margin-left: var(--size-2-3);
+  margin-right: calc(var(--size-2-1) * -1);
+}
+.kanban-plugin__lane-title .kanban-plugin__lane-input {
+  padding-inline: var(--size-2-3);
+}
+.kanban-plugin__lane a[aria-label=Close] {
+  padding: var(--size-4-1);
+  margin-left: var(--size-2-3);
+  margin-right: calc(var(--size-2-1) * -1);
+}
+.kanban-plugin__markdown-preview-view :is(ul, ol) {
+  padding-inline-start: var(--size-4-8);
+}
+.kanban-plugin__markdown-preview-view :is(ul, ol) li {
+  margin: 0 !important;
+  line-height: var(--line-height-tight) !important;
+}
+.kanban-plugin__markdown-preview-view img {
+  pointer-events: none !important;
+}
+.kanban-plugin__autocomplete {
+  backdrop-filter: blur(var(--size-4-8));
+  padding-inline: var(--size-2-2);
+  animation: op var(--animation);
+  border-radius: var(--radius-m);
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: var(--shadow-s);
+  z-index: var(--layer-notice);
+}
+.kanban-plugin__autocomplete-item, .kanban-plugin__autocomplete-item-active {
+  border: none;
+  border-radius: var(--radius-s);
+  margin-block: var(--size-4-1) !important;
+}
+.kanban-plugin__autocomplete-item *, .kanban-plugin__autocomplete-item-active * {
+  opacity: 1 !important;
+  transition: none !important;
+}
+.kanban-plugin__autocomplete-item-active * {
+  color: var(--text-on-accent) !important;
+}
+.kanban-plugin__autocomplete-item:hover {
+  background-color: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+.kanban-plugin * {
+  caret-color: var(--accent-active);
+}
+
+body.search-internal-enable .kanban-plugin__search-wrapper {
+  width: fit-content;
+  padding: var(--size-2-3) var(--size-2-3);
+  position: absolute;
+  background-color: var(--kanban-board-bg);
+  border: 1px solid var(--background-modifier-border-hover);
+  border-radius: var(--radius-m);
+  left: unset;
+  top: var(--size-2-3);
+  right: var(--size-2-3);
+}
+body.search-internal-enable .kanban-plugin__search-wrapper a[aria-label=Cancel] {
+  padding: var(--size-4-1);
+  margin-left: var(--size-2-2);
+}
+
 /* ====== 文档内搜索框 ====== */
 .obsidian-search-match-highlight {
   background-color: var(--background-secondary);
@@ -3982,7 +4142,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.3.15");
+  content: var(--setting-header-title, "maple 0.4.0");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -4301,7 +4461,7 @@ body.scrollbar-hide ::-webkit-scrollbar {
 /* ! overflow: overlay 已废弃, 详见 https://developer.mozilla.org/en-US/docs/Web/CSS/overflow#values */
 /* 使用 @property: https://stackoverflow.com/a/74050413/20058211 */
 /* 使用 -webkit-text-fill-color: https://stackoverflow.com/a/46304690/20058211 */
-body:not(.is-mobile, .scrollbar-hide).scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {
+body:not(.is-mobile, .scrollbar-hide).scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
   overflow-y: overlay !important;
 }
 body:not(.is-mobile, .scrollbar-hide).scrollbar-gutter-overlay .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, body:not(.is-mobile, .scrollbar-hide).scrollbar-gutter-overlay .markdown-embed-content .markdown-rendered, body:not(.is-mobile, .scrollbar-hide).scrollbar-gutter-overlay pre code {
@@ -4339,11 +4499,11 @@ body:not(.is-mobile, .scrollbar-hide) ::-webkit-scrollbar-thumb:active {
 body:not(.is-mobile, .scrollbar-hide).scrollbar-movein-animation-disable {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body:not(.is-mobile, .scrollbar-hide):not(.scrollbar-movein-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items) {
+body:not(.is-mobile, .scrollbar-hide):not(.scrollbar-movein-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
   transition: --scrollbar-color var(--animation);
   scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
 }
-body:not(.is-mobile, .scrollbar-hide):not(.scrollbar-movein-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items):hover {
+body:not(.is-mobile, .scrollbar-hide):not(.scrollbar-movein-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete):hover {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
 body:not(.is-mobile, .scrollbar-hide):not(.scrollbar-movein-animation-disable) textarea {

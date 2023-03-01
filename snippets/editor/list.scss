@@ -43,7 +43,7 @@ body {
     --list-spacing: 0;
   }
 
-  :is(.markdown-rendered, .print .markdown-rendered) {
+  :is(.markdown-preview-view, .print .markdown-rendered) {
     --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
 
     :is(ul, ol) {
