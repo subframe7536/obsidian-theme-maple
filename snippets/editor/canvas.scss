@@ -27,10 +27,10 @@
     }
   }
 
-  .canvas-controls {
+  .canvas-control {
     &-group {
       box-shadow: none;
-      border-width: var(--size-2-1);
+      border-radius: var(--radius-m);
       background-color: hsl(var(--background-secondary-hsl));
     }
 

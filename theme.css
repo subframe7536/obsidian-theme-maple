@@ -3059,19 +3059,19 @@ body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=im
 .canvas-wrapper .canvas-menu .clickable-icon {
   padding: var(--size-2-3);
 }
-.canvas-wrapper .canvas-controls-group {
+.canvas-wrapper .canvas-control-group {
   box-shadow: none;
-  border-width: var(--size-2-1);
+  border-radius: var(--radius-m);
   background-color: hsl(var(--background-secondary-hsl));
 }
-.canvas-wrapper .canvas-controls button {
+.canvas-wrapper .canvas-control button {
   transition: none;
   margin: var(--size-2-1);
   padding: var(--size-2-3);
   border-radius: var(--radius-s);
   border-bottom: none;
 }
-.canvas-wrapper .canvas-controls button:not([disabled]):hover {
+.canvas-wrapper .canvas-control button:not([disabled]):hover {
   background-color: var(--background-modifier-hover) !important;
 }
 
