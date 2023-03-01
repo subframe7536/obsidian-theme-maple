@@ -3794,6 +3794,42 @@ body {
   caret-color: var(--accent-active);
 }
 
+.kanban-plugin__board-settings-modal :is(.is-open .choices__list--dropdown, .choices__list--dropdown) {
+  background-color: var(--interactive-normal);
+}
+.kanban-plugin__board-settings-modal .choices {
+  border: none;
+  box-shadow: var(--input-shadow);
+  border-radius: var(--input-radius);
+  background-color: var(--interactive-normal);
+}
+.kanban-plugin__board-settings-modal .choices__inner {
+  border-radius: var(--input-radius);
+}
+.kanban-plugin__board-settings-modal .choices__list {
+  background-color: var(--interactive-normal);
+}
+.kanban-plugin__board-settings-modal .choices__list--dropdown {
+  border-radius: var(--input-radius);
+}
+.kanban-plugin__board-settings-modal .choices__list--dropdown:focus {
+  box-shadow: 0 0 0 3px var(--background-modifier-border-focus);
+}
+.kanban-plugin__board-settings-modal .choices__item--choice {
+  border-radius: var(--radius-s);
+}
+.kanban-plugin__board-settings-modal .choices::after {
+  content: var(--select-bg-img);
+  width: 1.2rem;
+  height: 1.2rem;
+  border: none;
+  margin-top: 0;
+  translate: 0 -50%;
+}
+.kanban-plugin__board-settings-modal .choices[data-type*=select-one].is-open:after {
+  margin-top: 0;
+}
+
 body.search-internal-enable .kanban-plugin__search-wrapper {
   width: fit-content;
   padding: var(--size-2-3) var(--size-2-3);
@@ -4232,15 +4268,19 @@ button {
   transition: var(--animation);
 }
 
+.theme-light {
+  --select-bg-img: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23222" d="M12 14.975q-.2 0-.387-.075q-.188-.075-.313-.2l-4.6-4.6q-.275-.275-.275-.7q0-.425.275-.7q.275-.275.7-.275q.425 0 .7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275q.425 0 .7.275q.275.275.275.7q0 .425-.275.7l-4.6 4.6q-.15.15-.325.212q-.175.063-.375.063Z"/></svg>');
+}
+
+.theme-dark {
+  /* current color seems to be invalid for SVG in background-image */
+  --select-bg-img: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23eee" d="M12 14.975q-.2 0-.387-.075q-.188-.075-.313-.2l-4.6-4.6q-.275-.275-.275-.7q0-.425.275-.7q.275-.275.7-.275q.425 0 .7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275q.425 0 .7.275q.275.275.275.7q0 .425-.275.7l-4.6 4.6q-.15.15-.325.212q-.175.063-.375.063Z"/></svg>');
+}
+
 :is(select, .dropdown) {
   background-size: 1.2rem;
   background-position: right 0.4rem top 56%, 0 0;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23222" d="M12 14.975q-.2 0-.387-.075q-.188-.075-.313-.2l-4.6-4.6q-.275-.275-.275-.7q0-.425.275-.7q.275-.275.7-.275q.425 0 .7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275q.425 0 .7.275q.275.275.275.7q0 .425-.275.7l-4.6 4.6q-.15.15-.325.212q-.175.063-.375.063Z"/></svg>');
-}
-
-.theme-dark .dropdown {
-  /* current color seems to be invalid for SVG in background-image */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23eee" d="M12 14.975q-.2 0-.387-.075q-.188-.075-.313-.2l-4.6-4.6q-.275-.275-.275-.7q0-.425.275-.7q.275-.275.7-.275q.425 0 .7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275q.425 0 .7.275q.275.275.275.7q0 .425-.275.7l-4.6 4.6q-.15.15-.325.212q-.175.063-.375.063Z"/></svg>');
+  background-image: var(--select-bg-img);
 }
 
 .modal-container .is-loading {

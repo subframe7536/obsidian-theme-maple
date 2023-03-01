@@ -152,6 +152,55 @@ body {
   }
 }
 
+
+.kanban-plugin__board-settings-modal {
+  :is(.is-open .choices__list--dropdown, .choices__list--dropdown) {
+    background-color: var(--interactive-normal);
+  }
+
+  .choices {
+    border: none;
+    box-shadow: var(--input-shadow);
+    border-radius: var(--input-radius);
+    background-color: var(--interactive-normal);
+
+    &__inner {
+      border-radius: var(--input-radius);
+
+    }
+
+    &__list {
+      background-color: var(--interactive-normal);
+    }
+
+    &__list--dropdown {
+      border-radius: var(--input-radius);
+      // background-color: var(--interactive-normal);
+
+      &:focus {
+        box-shadow: 0 0 0 3px var(--background-modifier-border-focus);
+      }
+    }
+
+    &__item--choice {
+      border-radius: var(--radius-s);
+    }
+
+    &::after {
+      content: var(--select-bg-img);
+      width: 1.2rem;
+      height: 1.2rem;
+      border: none;
+      margin-top: 0;
+      translate: 0 -50%;
+    }
+
+    &[data-type*=select-one].is-open:after {
+      margin-top: 0;
+    }
+  }
+}
+
 body.search-internal-enable .kanban-plugin__search-wrapper {
   width: fit-content;
   padding: var(--size-2-3) var(--size-2-3);
@@ -166,6 +215,5 @@ body.search-internal-enable .kanban-plugin__search-wrapper {
   a[aria-label="Cancel"] {
     padding: var(--size-4-1);
     margin-left: var(--size-2-2);
-    // margin-right: calc(var(--size-2-1) * -1);
   }
 }
