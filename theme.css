@@ -440,7 +440,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.4.0'"
+        default: "'maple 0.4.1'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1230,6 +1230,20 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
+        id: canvas
+        title: canvas
+        title.zh: canvas 画布
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: canvas-group-hide
+        title: hide left canvas control buttons
+        description: show on hover
+        title.zh: 隐藏左侧的控制按钮
+        description.zh: 鼠标移入时显示
+        type: class-toggle
+    -
         id: plugin
         title: plugin
         title.zh: 插件
@@ -1316,6 +1330,7 @@ settings:
   --radius-xl: var(--size-4-3);
   --animation: var(--setting-animation-time, 200ms) var(--anim-motion-smooth);
   --animation-slow: calc(var(--setting-animation-time, 200ms) * 2) var(--anim-motion-smooth);
+  --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
   --bg-opacity: 1;
 }
 
@@ -2882,7 +2897,7 @@ body.heading-level-enable :is(div.markdown-reading-view > div > div > div > :is(
   letter-spacing: 0.05rem;
   opacity: 0;
   transition: var(--animation);
-  transition-delay: calc(2 * var(--setting-animation-time, 150ms));
+  transition-delay: calc(var(--animation-delay) / 2);
   pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
@@ -2890,7 +2905,7 @@ body.heading-level-enable :is(div.markdown-reading-view > div > div > div > :is(
 }
 body.heading-level-enable :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):hover::before {
   opacity: 0.9;
-  transition-delay: 0.1s;
+  transition-delay: 0s;
   pointer-events: all;
 }
 body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header)::before {
@@ -3073,6 +3088,16 @@ body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=im
 }
 .canvas-wrapper .canvas-control button:not([disabled]):hover {
   background-color: var(--background-modifier-hover) !important;
+}
+
+body.canvas-control-hide .canvas-control-group {
+  opacity: 0;
+  transition: var(--animation);
+  transition-delay: var(--animation-delay);
+}
+body.canvas-control-hide .canvas-control-group:hover {
+  transition-delay: 0s;
+  opacity: 1;
 }
 
 /* ====== better command palette ======*/
@@ -4178,7 +4203,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.4.0");
+  content: var(--setting-header-title, "maple 0.4.1");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -4797,8 +4822,10 @@ body.theme-dark .status-bar {
 }
 body.status-bar-hidden .status-bar {
   opacity: 0;
+  transition-delay: var(--animation-delay);
 }
 body.status-bar-hidden .status-bar:hover {
+  transition-delay: 0s;
   opacity: 1;
 }
 
@@ -4815,7 +4842,7 @@ body.status-bar-float.status-bar-style-center:is(.status-bar-default, .status-ba
 }
 body.status-bar-float.status-bar-scroll .status-bar {
   transform: translateX(calc(100% - var(--size-4-2)));
-  transition-delay: calc(4 * var(--setting-animation-time, 150ms));
+  transition-delay: var(--animation-delay);
   right: 0;
 }
 body.status-bar-float.status-bar-scroll .status-bar:hover {

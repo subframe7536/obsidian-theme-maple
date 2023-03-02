@@ -21,6 +21,7 @@
 
   --animation: var(--setting-animation-time, 200ms) var(--anim-motion-smooth);
   --animation-slow: calc(var(--setting-animation-time, 200ms) * 2) var(--anim-motion-smooth);
+  --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
   --bg-opacity: 1;
 }
 

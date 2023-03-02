@@ -1,10 +1,6 @@
+/* Obsidian theme variables */
+/* ------------------------ */
 body {
-  /*
-	List of variables is placed in body rather than :root so
-	that we can	combine all property types including colors
-	and sort alphabetically to maximize readability in
-	the compiled app.css file.
-	----------------------------------------------------- */
   /* Animations */
   --anim-duration-none: 0;
   --anim-duration-superfast: 70ms;
@@ -54,13 +50,15 @@ body {
   --callout-warning: var(--color-orange-rgb);
   --callout-quote: 158, 158, 158;
   /* Canvas */
-  --canvas-dot-pattern: var(--color-base-30);
+  --canvas-background: var(--background-primary);
+  --canvas-card-label-color: var(--text-faint);
   --canvas-color-1: var(--color-red-rgb);
   --canvas-color-2: var(--color-orange-rgb);
   --canvas-color-3: var(--color-yellow-rgb);
   --canvas-color-4: var(--color-green-rgb);
   --canvas-color-5: var(--color-cyan-rgb);
   --canvas-color-6: var(--color-purple-rgb);
+  --canvas-dot-pattern: var(--color-base-30);
   /* Checkboxes */
   --checkbox-radius: var(--radius-s);
   --checkbox-size: var(--font-text-size);
@@ -295,7 +293,7 @@ body {
   --nav-item-color-highlighted: var(--text-accent-hover);
   --nav-item-background-hover: var(--background-modifier-hover);
   --nav-item-background-active: var(--background-modifier-hover);
-  --nav-item-background-selected: hsla(var(--color-accent-hsl), 0.2);
+  --nav-item-background-selected: hsla(var(--color-accent-hsl), 0.15);
   --nav-item-padding: var(--size-4-1) var(--size-4-2);
   --nav-item-parent-padding: var(--nav-item-padding);
   --nav-item-children-padding-left: var(--size-4-2);
@@ -389,6 +387,7 @@ body {
   --status-bar-text-color: var(--text-muted);
   --status-bar-position: fixed;
   --status-bar-radius: var(--radius-m) 0 0 0;
+  --status-bar-scroll-padding: calc(var(--status-bar-font-size) + 18px);
   /* Swatch for color inputs */
   --swatch-radius: 14px;
   --swatch-height: 24px;

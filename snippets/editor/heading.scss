@@ -86,7 +86,7 @@ body.heading-level-enable {
       letter-spacing: 0.05rem;
       opacity: 0;
       transition: var(--animation);
-      transition-delay: calc(2 * var(--setting-animation-time, 150ms));
+      transition-delay: calc(var(--animation-delay) / 2);
       pointer-events: none;
       top: 50%;
       transform: translateY(-50%);
@@ -95,7 +95,7 @@ body.heading-level-enable {
 
     &:hover::before {
       opacity: 0.9;
-      transition-delay: 0.1s;
+      transition-delay: 0s;
       pointer-events: all;
     }
   }

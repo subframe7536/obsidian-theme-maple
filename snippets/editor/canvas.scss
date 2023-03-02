@@ -47,3 +47,14 @@
     }
   }
 }
+
+body.canvas-control-hide .canvas-control-group {
+  opacity: 0;
+  transition: var(--animation);
+  transition-delay: var(--animation-delay);
+
+  &:hover {
+    transition-delay: 0s;
+    opacity: 1
+  }
+}

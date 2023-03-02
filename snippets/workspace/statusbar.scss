@@ -25,8 +25,10 @@ body {
 
   &.status-bar-hidden .status-bar {
     opacity: 0;
+    transition-delay: var(--animation-delay);
 
     &:hover {
+      transition-delay: 0s;
       opacity: 1;
     }
   }
@@ -48,7 +50,7 @@ body.status-bar-float {
 
   &.status-bar-scroll .status-bar {
     transform: translateX(calc(100% - var(--size-4-2)));
-    transition-delay: calc(4 * var(--setting-animation-time, 150ms));
+    transition-delay: var(--animation-delay);
     right: 0;
 
     &:hover {
