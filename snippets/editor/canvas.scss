@@ -3,6 +3,7 @@
 .canvas-wrapper {
   .canvas-node-container {
     border-radius: var(--radius-l);
+    background-color: hsl(var(--background-primary-hsl));
   }
 
   .canvas-card-menu {

@@ -3056,6 +3056,7 @@ body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=im
 /* ====== 白板 ====== */
 .canvas-wrapper .canvas-node-container {
   border-radius: var(--radius-l);
+  background-color: hsl(var(--background-primary-hsl));
 }
 .canvas-wrapper .canvas-card-menu {
   padding: var(--size-2-1);
