@@ -1,0 +1,19 @@
+hypothesis-app {
+  --radius-base: 0.25rem;
+
+  textarea {
+    color: var(--text-normal) !important;
+    border-bottom-left-radius: calc(var(--radius-base) * 4 / 5) !important;
+    border-bottom-right-radius: calc(var(--radius-base) * 4 / 5) !important;
+  }
+
+  .Hyp-Card {
+    transition: var(--setting-animation-time, 200ms) ease;
+    border-radius: calc(var(--radius-base) * 2);
+  }
+
+  :is(.Hyp-LabeledButton, .Hyp-TextInput) {
+    border-radius: var(--radius-base);
+  }
+
+}

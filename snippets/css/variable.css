@@ -3,6 +3,7 @@
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
+  --background-modifier-border-focus: var(--accent-inactive);
   --color-red-rgb: 228, 52, 52 !important;
   --color-red: rgba(228, 52, 52, var(--color-opacity)) !important;
   --color-green-rgb: 81, 188, 0 !important;
@@ -55,9 +56,6 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --background-secondary-hsl: calc(var(--accent-h) - 18),
     calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
   --background-modifier-hover: hsla(var(--color-accent-hsl), 16%);
-  --background-modifier-border-focus: hsl(var(--accent-h),
-      calc(var(--accent-s) - 4%),
-      calc(var(--accent-l) + 4%));
   --accent-active: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) + 4%));
@@ -94,9 +92,6 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --background-modifier-hover: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) / 3));
-  --background-modifier-border-focus: hsl(var(--accent-h),
-      12%,
-      calc(var(--accent-l) - 12%));
   --accent-active: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) - 16%));

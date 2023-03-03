@@ -156,7 +156,7 @@ body.modal-header .modal-container {
     container-type: inline-size;
 
     &::before {
-      content: var(--setting-header-title, 'maple 0.4.1');
+      content: var(--setting-header-title, 'maple 0.4.2');
       position: absolute;
       left: 50%;
       top: var(--size-4-6);
