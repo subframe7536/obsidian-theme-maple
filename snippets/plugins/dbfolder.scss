@@ -1,9 +1,5 @@
 /* ====== db folder ====== */
 
-body.link-icon .dbfolder-table-container a.internal-link[class*="database-plugin"]::before {
+body.link-icon .database-plugin__embed-link-wrapper a.internal-link[class*="database-plugin"]::before {
   content: none;
-}
-
-body.back-blur-title-bar .dbfolder-table-container {
-  padding-top: var(--size-4-12);
 }
