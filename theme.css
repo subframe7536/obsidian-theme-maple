@@ -572,24 +572,6 @@ settings:
         collapsed: true
         level: 3
     -
-        id: setting-text-bold-color
-        title: bold text color
-        title.zh: 粗体颜色
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: setting-text-italic-color
-        title: italic text color
-        title.zh: 斜体颜色
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
         id: font-maple
         title: use “Maple Mono” as monospace
         description: https://github.com/subframe7536/Maple-font
@@ -641,6 +623,66 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: text-bold
+        title: bold
+        title.zh: 粗体
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-text-bold-color
+        title: bold text color
+        title.zh: 粗体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-text-bold-style
+        title: bold style
+        description: support any css text-decoration property
+        title.zh: 粗体样式
+        description.zh: 支持任何 css 的 text-decoration 属性值
+        type: variable-text
+        default: "underline dotted"
+    -
+        id: setting-text-bold-font
+        title: bold font
+        title.zh: 粗体字体
+        type: variable-text
+        default: "''"
+    -
+        id: text-italic
+        title: italic
+        title.zh: 斜体
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-text-italic-color
+        title: italic text color
+        title.zh: 斜体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-text-italic-style
+        title: italic style
+        description: support any css text-decoration property
+        title.zh: 斜体样式
+        description.zh: 支持任何 css 的 text-decoration 属性值
+        type: variable-text
+        default: "underline dotted"
+    -
+        id: setting-text-italic-font
+        title: italic font
+        title.zh: 斜体字体
+        type: variable-text
+        default: "''"
     -
         id: links
         title: link
@@ -2770,24 +2812,23 @@ body {
   --italic-color: var(--setting-text-italic-color, var(--color-red)) !important;
 }
 
+:is(em, .cm-em, strong, .cm-strong) {
+  text-underline-offset: var(--size-2-1);
+  transition: var(--animation);
+}
+
 em,
 .cm-em {
   --blockquote-color: var(--italic-color);
+  text-decoration-style: var(--setting-text-italic-style, underline dotted);
+  font-family: var(--setting-text-italic-font, var(--font-text));
 }
 
 strong,
 .cm-strong {
   --blockquote-color: var(--bold-color);
-}
-
-em,
-.cm-em,
-strong,
-.cm-strong {
-  text-decoration-style: dotted;
-  text-decoration-line: underline;
-  text-underline-offset: var(--size-2-1);
-  transition: var(--animation);
+  text-decoration: var(--setting-text-bold-style, underline dotted);
+  font-family: var(--setting-text-bold-font, var(--font-text));
 }
 
 a :is(em, strong) {
@@ -4738,9 +4779,32 @@ body .workspace-split .workspace-tabs:not(.mod-stacked) .view-content {
   padding-bottom: var(--size-2-1);
 }
 
+.theme-light {
+  --ribbon-background: hsla(calc(var(--accent-h) + 16),
+      calc(var(--accent-s) / 1.2),
+      calc(100% - (100% - var(--accent-l)) / 4),
+      60%);
+}
+
+.theme-dark {
+  --ribbon-background: hsla(calc(var(--accent-h) + 16),
+      calc(var(--accent-s) / 1.5),
+      calc(var(--accent-l) - 40%),
+      60%);
+}
+
+.workspace-ribbon.mod-left {
+  border-right: 0;
+  --ribbon-background-collapsed: var(--ribbon-background);
+}
+.workspace-ribbon.mod-left::before {
+  height: var(--header-height);
+  border-bottom: 0;
+}
+
 /* 参考 minimal theme */
 :is(body, body.is-focused) :is(.mod-top .workspace-tab-header-container, .sidebar-toggle-button.mod-left, .titlebar),
-:is(body, body.is-focused) .workspace-ribbon.mod-left:before {
+:is(body, body.is-focused) .workspace-ribbon.mod-left::before {
   --titlebar-container: var(--frame-outline-color);
   --frame-divider-color: var(--frame-outline-color);
   --titlebar-background: var(--frame-background-color);

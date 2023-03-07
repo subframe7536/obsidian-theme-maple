@@ -131,25 +131,23 @@ body {
   --italic-color: var(--setting-text-italic-color, var(--color-red)) !important;
 }
 
+:is(em, .cm-em, strong, .cm-strong) {
+  text-underline-offset: var(--size-2-1);
+  transition: var(--animation);
+}
+
 em,
 .cm-em {
   --blockquote-color: var(--italic-color);
+  text-decoration-style: var(--setting-text-italic-style, underline dotted);
+  font-family: var(--setting-text-italic-font, var(--font-text));
 }
 
 strong,
 .cm-strong {
   --blockquote-color: var(--bold-color);
-  // text-decoration-style: solid;
-}
-
-em,
-.cm-em,
-strong,
-.cm-strong {
-  text-decoration-style: dotted;
-  text-decoration-line: underline;
-  text-underline-offset: var(--size-2-1);
-  transition: var(--animation);
+  text-decoration: var(--setting-text-bold-style, underline dotted);
+  font-family: var(--setting-text-bold-font, var(--font-text));
 }
 
 a :is(em, strong) {

@@ -571,24 +571,6 @@ settings:
         collapsed: true
         level: 3
     -
-        id: setting-text-bold-color
-        title: bold text color
-        title.zh: 粗体颜色
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: setting-text-italic-color
-        title: italic text color
-        title.zh: 斜体颜色
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
         id: font-maple
         title: use “Maple Mono” as monospace
         description: https://github.com/subframe7536/Maple-font
@@ -640,6 +622,66 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: text-bold
+        title: bold
+        title.zh: 粗体
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-text-bold-color
+        title: bold text color
+        title.zh: 粗体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-text-bold-style
+        title: bold style
+        description: support any css text-decoration property
+        title.zh: 粗体样式
+        description.zh: 支持任何 css 的 text-decoration 属性值
+        type: variable-text
+        default: "underline dotted"
+    -
+        id: setting-text-bold-font
+        title: bold font
+        title.zh: 粗体字体
+        type: variable-text
+        default: "''"
+    -
+        id: text-italic
+        title: italic
+        title.zh: 斜体
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-text-italic-color
+        title: italic text color
+        title.zh: 斜体颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-text-italic-style
+        title: italic style
+        description: support any css text-decoration property
+        title.zh: 斜体样式
+        description.zh: 支持任何 css 的 text-decoration 属性值
+        type: variable-text
+        default: "underline dotted"
+    -
+        id: setting-text-italic-font
+        title: italic font
+        title.zh: 斜体字体
+        type: variable-text
+        default: "''"
     -
         id: links
         title: link
