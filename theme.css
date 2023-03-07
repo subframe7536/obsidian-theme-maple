@@ -565,7 +565,7 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
-        id: text-line-height
+        id: text-line-font
         title: text & font & line
         title.zh: 文字 & 字体 & 行
         type: heading
@@ -599,8 +599,8 @@ settings:
         title.zh: 编辑器行高
         type: variable-number-slider
         default: 2.1
-        min: 1.8
-        max: 2.4
+        min: 1.5
+        max: 2.5
         step: 0.1
     -
         id: line-indicator-disable
@@ -1354,7 +1354,7 @@ settings:
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
-  --line-height-normal: 2.1;
+  --line-height-normal: var(--setting-line-height, 2.1);
   --background-modifier-border-focus: var(--accent-inactive);
   --color-red-rgb: 228, 52, 52 !important;
   --color-red: rgba(228, 52, 52, var(--color-opacity)) !important;

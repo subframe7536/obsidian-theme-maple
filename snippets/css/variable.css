@@ -2,7 +2,7 @@
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
-  --line-height-normal: 2.1;
+  --line-height-normal: var(--setting-line-height, 2.1);
   --background-modifier-border-focus: var(--accent-inactive);
   --color-red-rgb: 228, 52, 52 !important;
   --color-red: rgba(228, 52, 52, var(--color-opacity)) !important;
