@@ -994,7 +994,13 @@ settings:
         collapsed: true
         level: 3
     -
-        id: hr-icon
+        id: hr-enable
+        title: enable hr style
+        title.zh: 开启分割线样式
+        type: class-toggle
+        default: true
+    -
+        id: setting-hr-icon
         title: set icon in the center of hr
         title.zh: 分割行中部图标
         type: variable-text

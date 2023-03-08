@@ -5,7 +5,7 @@
   margin-block-end: 2.4rem !important;
 }
 
-:is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
+body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
   overflow: initial;
   border: none;
   position: relative;
@@ -21,7 +21,7 @@
       transparent 100%);
 
   &::after {
-    content: var(--hr-icon, '⭐');
+    content: var(--setting-hr-icon, '⭐');
     display: inline-block;
     font-family: var(--font-monospace);
     font-size: var(--font-ui-small);

@@ -127,6 +127,7 @@ body:not(.heading-color-colorful) .setting-item[data-id='heading-color-custom'],
 body:not(.heading-h2-underline) .setting-item[data-id^='heading-h2-underline-thin'],
 body:not(.table-colorful) .setting-item[data-id^='setting-table'],
 body:not(.embed-enable) .setting-item[data-id^='embed-title'],
+body:not(.hr-enable) .setting-item[data-id^='setting-hr-icon'],
 body:not(.tag-colorful) .setting-item[data-id='tag-colorful-setting'] {
   display: none;
 }
