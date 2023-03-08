@@ -1354,7 +1354,7 @@ settings:
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
-  --line-height-normal: var(--setting-line-height, 2.1);
+  --line-height-normal: 2.1;
   --background-modifier-border-focus: var(--accent-inactive);
   --color-red-rgb: 228, 52, 52 !important;
   --color-red: rgba(228, 52, 52, var(--color-opacity)) !important;
@@ -2758,6 +2758,11 @@ body {
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   padding-inline: var(--size-4-1);
+}
+
+/* ======== 编辑器行高 ====== */
+.workspace-split.mod-root {
+  --line-height-normal: var(--setting-line-height, 2.1) !important;
 }
 
 /* ======= 高亮行 ====== */

@@ -71,6 +71,12 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   padding-inline: var(--size-4-1);
 }
 
+/* ======== 编辑器行高 ====== */
+
+.workspace-split.mod-root {
+  --line-height-normal: var(--setting-line-height, 2.1) !important;
+}
+
 /* ======= 高亮行 ====== */
 
 body:not(.line-active-disable) .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
