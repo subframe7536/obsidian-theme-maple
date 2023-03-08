@@ -4,7 +4,7 @@ body {
   --stauts-bar-background-opacity: 1;
 
   .status-bar {
-    padding: var(--size-2-3) var(--size-4-1);
+    padding: var(--size-2-1) var(--size-4-1);
     width: fit-content;
     transition: var(--animation);
   }
@@ -36,7 +36,7 @@ body {
 
 body.status-bar-float {
   .status-bar {
-    --status-bar-radius: var(--radius-m);
+    --status-bar-radius: var(--size-2-3);
     --status-bar-border-width: 1px;
     bottom: var(--size-4-1);
     right: var(--size-4-1);
@@ -52,6 +52,7 @@ body.status-bar-float {
     transform: translateX(calc(100% - var(--size-4-2)));
     transition-delay: var(--animation-delay);
     right: 0;
+    padding: var(--size-4-1);
 
     &:hover {
       transform: translateX(0);
