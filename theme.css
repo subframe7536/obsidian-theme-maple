@@ -375,6 +375,20 @@ settings:
         title.zh: 为当前标签页标题栏添加阴影
         type: class-toggle
     -
+        id: tab-title-bar-text
+        title: file name on tab title bar
+        title.zh: 标签页标题栏的文件名
+        type: class-select
+        allowEmpty: false
+        default: tab-title-bar-text-default
+        options:
+            -   label: default
+                value: tab-title-bar-text-default
+            -   label: small size
+                value: tab-title-bar-text-small
+            -   label: show on hover
+                value: tab-title-bar-text-hidden
+    -
         id: message
         title: tooltip & notice
         title.zh: 气泡提示框 & 通知
@@ -4697,6 +4711,20 @@ body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active):hover .
   display: inherit;
 }
 
+body.tab-title-bar-text-small .view-header {
+  --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
+}
+
+body.tab-title-bar-text-hidden .workspace-leaf-content:not([data-type=excalidraw]) .view-header-title-container {
+  opacity: 0;
+  transition: var(--animation);
+  transition-delay: var(--animation-delay);
+}
+body.tab-title-bar-text-hidden .workspace-leaf-content:not([data-type=excalidraw]) .view-header-title-container:hover {
+  opacity: 1;
+  transition-delay: 0s;
+}
+
 body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]):is([data-type=markdown]) {
   background-color: hsla(var(--setting-editor-bg, var(--background-secondary-hsl)), var(--bg-opacity));
 }
@@ -4709,7 +4737,6 @@ body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]) .vi
   padding: 0 var(--size-2-3) !important;
   border: var(--size-2-1) solid var(--background-modifier-hover);
   border-radius: var(--radius-m);
-  --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
   transition: var(--animation);
   width: calc(100% - var(--size-4-2)) !important;
   background-color: hsl(var(--background-secondary-hsl));

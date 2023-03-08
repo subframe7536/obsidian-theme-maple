@@ -374,6 +374,20 @@ settings:
         title.zh: 为当前标签页标题栏添加阴影
         type: class-toggle
     -
+        id: tab-title-bar-text
+        title: file name on tab title bar
+        title.zh: 标签页标题栏的文件名
+        type: class-select
+        allowEmpty: false
+        default: tab-title-bar-text-default
+        options:
+            -   label: default
+                value: tab-title-bar-text-default
+            -   label: small size
+                value: tab-title-bar-text-small
+            -   label: show on hover
+                value: tab-title-bar-text-hidden
+    -
         id: message
         title: tooltip & notice
         title.zh: 气泡提示框 & 通知
