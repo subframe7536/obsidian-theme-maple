@@ -782,17 +782,9 @@ settings:
         type: class-toggle
         default: true
     -
-        id: heading-h2-underline
-        title: add underline for h2
-        description: with line-gredient
-        title.zh: 添加 h2 下划线
-        description.zh: 有渐变色
-        type: class-toggle
-        default: true
-    -
-        id: heading-h2-underline-thin
-        title: thinner h2 underline
-        title.zh: h2 下划线变细
+        id: heading-underline-thin
+        title: thinner heading underline
+        title.zh: 标题下划线变细
         type: class-toggle
     -
         id: heading-h6-variant
@@ -944,6 +936,46 @@ settings:
         min: 1
         max: 2.4
         step: 0.1
+    -
+        id: heading-underline
+        title: heading font
+        description: with line-gredient
+        title.zh: 标题下划线
+        description.zh: 渐变色
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: heading-h1-underline
+        title: add underline for h1
+        title.zh: 添加 h1 下划线
+        type: class-toggle
+    -
+        id: heading-h2-underline
+        title: add underline for h2
+        title.zh: 添加 h2 下划线
+        type: class-toggle
+        default: true
+    -
+        id: heading-h3-underline
+        title: add underline for h3
+        title.zh: 添加 h3 下划线
+        type: class-toggle
+    -
+        id: heading-h4-underline
+        title: add underline for h4
+        title.zh: 添加 h4 下划线
+        type: class-toggle
+    -
+        id: heading-h5-underline
+        title: add underline for h5
+        title.zh: 添加 h5 下划线
+        type: class-toggle
+    -
+        id: heading-h6-underline
+        title: add underline for h6
+        title.zh: 添加 h6 下划线
+        type: class-toggle
     -
         id: heading-font
         title: heading font
@@ -3044,6 +3076,32 @@ body.heading-h1-center h1 {
   text-align: center;
 }
 
+body.heading-h1-underline :is(h1, .HyperMD-header-1) {
+  position: relative;
+}
+body.heading-h1-underline :is(h1, .HyperMD-header-1)::after {
+  content: "";
+  position: absolute;
+  height: var(--size-4-1);
+  width: 100%;
+  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  border-radius: var(--size-2-1);
+  background-image: linear-gradient(to right, var(--h1-color) 30%, transparent 70%);
+}
+body.heading-h1-underline h1::after {
+  left: 0;
+}
+body.heading-h1-underline .HyperMD-header-1::after {
+  left: var(--size-4-1);
+}
+body.heading-h1-underline .vertical-tab-content h1 {
+  font-size: var(--h1-size);
+  font-weight: var(--h1-weight);
+}
+body.heading-h1-underline.heading-underline-thin :is(h1, .HyperMD-header-1)::after {
+  height: var(--size-2-1);
+}
+
 body.heading-h2-underline :is(h2, .HyperMD-header-2) {
   position: relative;
 }
@@ -3066,7 +3124,111 @@ body.heading-h2-underline .vertical-tab-content h2 {
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
 }
-body.heading-h2-underline.heading-h2-underline-thin :is(h2, .HyperMD-header-2)::after {
+body.heading-h2-underline.heading-underline-thin :is(h2, .HyperMD-header-2)::after {
+  height: var(--size-2-1);
+}
+
+body.heading-h3-underline :is(h3, .HyperMD-header-3) {
+  position: relative;
+}
+body.heading-h3-underline :is(h3, .HyperMD-header-3)::after {
+  content: "";
+  position: absolute;
+  height: var(--size-4-1);
+  width: 100%;
+  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  border-radius: var(--size-2-1);
+  background-image: linear-gradient(to right, var(--h3-color) 30%, transparent 70%);
+}
+body.heading-h3-underline h3::after {
+  left: 0;
+}
+body.heading-h3-underline .HyperMD-header-3::after {
+  left: var(--size-4-1);
+}
+body.heading-h3-underline .vertical-tab-content h3 {
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+}
+body.heading-h3-underline.heading-underline-thin :is(h3, .HyperMD-header-3)::after {
+  height: var(--size-2-1);
+}
+
+body.heading-h4-underline :is(h4, .HyperMD-header-4) {
+  position: relative;
+}
+body.heading-h4-underline :is(h4, .HyperMD-header-4)::after {
+  content: "";
+  position: absolute;
+  height: var(--size-4-1);
+  width: 100%;
+  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  border-radius: var(--size-2-1);
+  background-image: linear-gradient(to right, var(--h4-color) 30%, transparent 70%);
+}
+body.heading-h4-underline h4::after {
+  left: 0;
+}
+body.heading-h4-underline .HyperMD-header-4::after {
+  left: var(--size-4-1);
+}
+body.heading-h4-underline .vertical-tab-content h4 {
+  font-size: var(--h4-size);
+  font-weight: var(--h4-weight);
+}
+body.heading-h4-underline.heading-underline-thin :is(h4, .HyperMD-header-4)::after {
+  height: var(--size-2-1);
+}
+
+body.heading-h5-underline :is(h5, .HyperMD-header-5) {
+  position: relative;
+}
+body.heading-h5-underline :is(h5, .HyperMD-header-5)::after {
+  content: "";
+  position: absolute;
+  height: var(--size-4-1);
+  width: 100%;
+  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  border-radius: var(--size-2-1);
+  background-image: linear-gradient(to right, var(--h5-color) 30%, transparent 70%);
+}
+body.heading-h5-underline h5::after {
+  left: 0;
+}
+body.heading-h5-underline .HyperMD-header-5::after {
+  left: var(--size-4-1);
+}
+body.heading-h5-underline .vertical-tab-content h5 {
+  font-size: var(--h5-size);
+  font-weight: var(--h5-weight);
+}
+body.heading-h5-underline.heading-underline-thin :is(h5, .HyperMD-header-5)::after {
+  height: var(--size-2-1);
+}
+
+body.heading-h6-underline :is(h6, .HyperMD-header-6) {
+  position: relative;
+}
+body.heading-h6-underline :is(h6, .HyperMD-header-6)::after {
+  content: "";
+  position: absolute;
+  height: var(--size-4-1);
+  width: 100%;
+  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  border-radius: var(--size-2-1);
+  background-image: linear-gradient(to right, var(--h6-color) 30%, transparent 70%);
+}
+body.heading-h6-underline h6::after {
+  left: 0;
+}
+body.heading-h6-underline .HyperMD-header-6::after {
+  left: var(--size-4-1);
+}
+body.heading-h6-underline .vertical-tab-content h6 {
+  font-size: var(--h6-size);
+  font-weight: var(--h6-weight);
+}
+body.heading-h6-underline.heading-underline-thin :is(h6, .HyperMD-header-6)::after {
   height: var(--size-2-1);
 }
 
@@ -3517,7 +3679,6 @@ body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-active-c
 body:not(.message-modify) .setting-item[data-id^=setting-message],
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix],
 body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
-body:not(.heading-h2-underline) .setting-item[data-id^=heading-h2-underline-thin],
 body:not(.table-colorful) .setting-item[data-id^=setting-table],
 body:not(.embed-enable) .setting-item[data-id^=embed-title],
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],

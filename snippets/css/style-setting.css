@@ -781,17 +781,9 @@ settings:
         type: class-toggle
         default: true
     -
-        id: heading-h2-underline
-        title: add underline for h2
-        description: with line-gredient
-        title.zh: 添加 h2 下划线
-        description.zh: 有渐变色
-        type: class-toggle
-        default: true
-    -
-        id: heading-h2-underline-thin
-        title: thinner h2 underline
-        title.zh: h2 下划线变细
+        id: heading-underline-thin
+        title: thinner heading underline
+        title.zh: 标题下划线变细
         type: class-toggle
     -
         id: heading-h6-variant
@@ -943,6 +935,46 @@ settings:
         min: 1
         max: 2.4
         step: 0.1
+    -
+        id: heading-underline
+        title: heading font
+        description: with line-gredient
+        title.zh: 标题下划线
+        description.zh: 渐变色
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: heading-h1-underline
+        title: add underline for h1
+        title.zh: 添加 h1 下划线
+        type: class-toggle
+    -
+        id: heading-h2-underline
+        title: add underline for h2
+        title.zh: 添加 h2 下划线
+        type: class-toggle
+        default: true
+    -
+        id: heading-h3-underline
+        title: add underline for h3
+        title.zh: 添加 h3 下划线
+        type: class-toggle
+    -
+        id: heading-h4-underline
+        title: add underline for h4
+        title.zh: 添加 h4 下划线
+        type: class-toggle
+    -
+        id: heading-h5-underline
+        title: add underline for h5
+        title.zh: 添加 h5 下划线
+        type: class-toggle
+    -
+        id: heading-h6-underline
+        title: add underline for h6
+        title.zh: 添加 h6 下划线
+        type: class-toggle
     -
         id: heading-font
         title: heading font

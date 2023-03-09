@@ -167,38 +167,40 @@ body.heading-h1-center h1 {
   text-align: center;
 }
 
-body.heading-h2-underline {
-  :is(h2, .HyperMD-header-2) {
-    position: relative;
+@for $i from 1 through 6 {
+  body.heading-h#{$i}-underline {
+    :is(h#{$i}, .HyperMD-header-#{$i}) {
+      position: relative;
 
-    &::after {
-      content: '';
-      position: absolute;
-      height: var(--size-4-1);
-      width: 100%;
-      bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
-      border-radius: var(--size-2-1);
-      background-image: linear-gradient(to right,
-          var(--h2-color) 30%,
+      &::after {
+        content: '';
+        position: absolute;
+        height: var(--size-4-1);
+        width: 100%;
+        bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+        border-radius: var(--size-2-1);
+        background-image: linear-gradient(to right,
+          var(--h#{$i}-color) 30%,
           transparent 70%);
+      }
     }
-  }
 
-  h2::after {
-    left: 0;
-  }
+    h#{$i}::after {
+      left: 0;
+    }
 
-  .HyperMD-header-2::after {
-    left: var(--size-4-1);
-  }
+    .HyperMD-header-#{$i}::after {
+      left: var(--size-4-1);
+    }
 
-  .vertical-tab-content h2 {
-    font-size: var(--h2-size);
-    font-weight: var(--h2-weight);
-  }
+    .vertical-tab-content h#{$i} {
+      font-size: var(--h#{$i}-size);
+      font-weight: var(--h#{$i}-weight);
+    }
 
-  &.heading-h2-underline-thin :is(h2, .HyperMD-header-2)::after {
-    height: var(--size-2-1);
+    &.heading-underline-thin :is(h#{$i}, .HyperMD-header-#{$i})::after {
+      height: var(--size-2-1);
+    }
   }
 }
 
