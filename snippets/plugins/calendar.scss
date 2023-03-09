@@ -4,7 +4,7 @@ $height: var(--size-4-6);
 
 body.calendar-swap-year-month #calendar-container .nav {
   padding-left: var(--size-4-1);
-  margin-top: 0;
+  // margin-top: 0;
 
   .title {
     display: flex;
@@ -55,14 +55,21 @@ body.calendar-swap-year-month #calendar-container .nav {
     border-bottom: var(--size-2-1) solid var(--accent-active);
   }
 
+  th {
+    padding: 2px 0 4px;
+    font-weight: bold;
+    letter-spacing: .1em;
+  }
+
   .nav {
     padding: 0;
-    margin-bottom: var(--size-4-2);
+    margin-bottom: var(--size-4-3);
     padding-left: var(--size-4-1);
   }
 
   .day {
     border: 1px solid transparent;
+    // font-size: var(--font-ui-smaller);
 
     &:hover {
       border-color: var(--accent-inactive);
@@ -93,13 +100,9 @@ body.calendar-swap-year-month #calendar-container .nav {
   }
 
   .title {
-    line-height: 100%;
+    line-height: 1;
+    font-size: 1.4rem;
     white-space: nowrap;
-
-    .year {
-      height: $height;
-      line-height: $height;
-    }
   }
 
 }
@@ -115,4 +118,11 @@ body.calendar-weekend #calendar-container {
 .workspace-leaf-content[data-type=calendar] .view-content {
   padding-inline: var(--size-4-1);
   padding-block: 0;
+}
+
+body #calendar-container {
+  .day {
+    padding: var(--size-2-1) var(--size-4-1) !important;
+    border: none;
+  }
 }

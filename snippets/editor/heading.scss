@@ -18,12 +18,12 @@ body {
   --h4-weight: var(--font-bold);
   --h5-weight: var(--font-bold);
   --h6-weight: var(--font-bold);
-  --h1-line-height: var(--line-height-normal);
-  --h2-line-height: var(--line-height-normal);
-  --h3-line-height: var(--line-height-normal);
-  --h4-line-height: var(--line-height-normal);
-  --h5-line-height: var(--line-height-normal);
-  --h6-line-height: var(--line-height-normal);
+  --h1-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h1-size));
+  --h2-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h2-size));
+  --h3-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h3-size));
+  --h4-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h4-size));
+  --h5-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h5-size));
+  --h6-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h6-size));
   --h1-font: var(--setting-h1-font, var(--font-text));
   --h2-font: var(--setting-h2-font, var(--font-text));
   --h3-font: var(--setting-h3-font, var(--font-text));

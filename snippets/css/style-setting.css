@@ -453,7 +453,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.4.5'"
+        default: "'maple 0.4.6'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -877,7 +877,9 @@ settings:
     -
         id: heading-size
         title: heading size
+        description: compare to normal texxt
         title.zh: 标题大小
+        description.zh: 相对于正文字体
         type: heading
         collapsed: true
         level: 4
@@ -937,7 +939,7 @@ settings:
         step: 0.1
     -
         id: heading-underline
-        title: heading font
+        title: heading underline
         description: with line-gredient
         title.zh: 标题下划线
         description.zh: 渐变色

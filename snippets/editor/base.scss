@@ -73,7 +73,8 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 
 /* ======== 编辑器行高 ====== */
 
-.workspace-split.mod-root {
+.workspace-split.mod-root,
+.markdown-rendered {
   --line-height-normal: var(--setting-line-height, 2.1) !important;
 }
 
