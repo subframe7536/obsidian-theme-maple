@@ -47,15 +47,20 @@
   border-collapse: initial !important;
   border-spacing: 0;
   --table-border-color: var(--accent-inactive);
-  --table-header-background: var(--md-container-bg);
-  --table-header-background-hover: var(--md-container-bg);
+  --table-header-background: hsl(var(--background-secondary-hsl));
+  --table-header-background-hover: var(--active-line);
   --table-header-border-color: var(--accent-inactive);
   --table-header-weight: var(--font-bold);
   --table-column-max-width: 70%;
 
+  tr:hover td {
+    background-color: var(--active-line);
+  }
+
   :is(th, td) {
     min-width: fit-content;
     transition: border-color var(--animation);
+
   }
 
   tr:first-child th:first-child {
@@ -80,7 +85,7 @@
 }
 
 body:not(.table-colorful) .markdown-source-view.mod-cm6 .cm-embed-block.cm-table-widget .edit-block-button {
-  top: calc(var(--block-outline-width) + 0.7rem);
+  top: calc(var(--block-outline-width) + 0.2rem);
   right: calc(var(--block-outline-width) + 0.2rem);
 }
 

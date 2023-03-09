@@ -1368,4 +1368,18 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: dv
+        title: DataView(WIP)
+        title.zh: DataView(待完工)
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: dv-enable
+        title: enable dataview style
+        description: need install version >= 1.1.9
+        title.zh: 启用 dataview 样式
+        description.zh: 需要安装程序版本 >= 1.1.9
+        type: class-toggle
 */

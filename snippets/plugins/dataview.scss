@@ -1,0 +1,23 @@
+pre.dataview {
+  border: 0 !important;
+  padding-top: calc(var(--code-size) * var(--line-height-normal) * 0.7);
+
+  &-error {
+    font-family: var(--font-monospace);
+  }
+}
+
+body.dv-enable {
+
+  .cm-embed-block:has(.dataview) {
+    border-color: var(--accent-inactive);
+  }
+
+  // .dataview {
+  //   --dv-table-outline-width: var(--block-outline-width);
+
+  //   .table-view-thead th {
+  //     border-block: var(--dv-table-outline-width) solid var(--accent-active);
+  //   }
+  // }
+}

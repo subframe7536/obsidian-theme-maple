@@ -91,7 +91,6 @@ body.calendar-swap-year-month #calendar-container .nav {
   }
 
   .title {
-    margin-left: var(--size-4-1) !important;
     line-height: 100%;
     white-space: nowrap;
 
@@ -112,5 +111,5 @@ body.calendar-weekend #calendar-container {
 }
 
 .workspace-leaf-content[data-type=calendar] .view-content {
-  padding-inline: 0;
+  padding-inline: var(--size-4-1);
 }

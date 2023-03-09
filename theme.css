@@ -1369,6 +1369,20 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: dv
+        title: DataView(WIP)
+        title.zh: DataView(待完工)
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: dv-enable
+        title: enable dataview style
+        description: need install version >= 1.1.9
+        title.zh: 启用 dataview 样式
+        description.zh: 需要安装程序版本 >= 1.1.9
+        type: class-toggle
 */
 :is(body, body .print) {
   --font-ui-smaller: 13px;
@@ -1635,7 +1649,7 @@ body :is(.markdown-source-view, .markdown-rendered) {
 .markdown-source-view.mod-cm6 .cm-embed-block {
   box-shadow: none !important;
   border: var(--block-outline-width) solid transparent;
-  border-radius: var(--radius-xl) !important;
+  border-radius: var(--radius-l) !important;
   transition: var(--animation);
 }
 .markdown-source-view.mod-cm6 .cm-embed-block:hover {
@@ -1647,14 +1661,7 @@ body :is(.markdown-source-view, .markdown-rendered) {
   inset-block: 0.2rem;
   height: fit-content;
 }
-.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-callout) {
-  padding: 0.5rem 0 !important;
-}
-.markdown-source-view.mod-cm6 .cm-embed-block.cm-table-widget .edit-block-button {
-  top: 0.7rem;
-}
-
-.markdown-source-view.mod-cm6 .cm-hmd-codeblock .cm-indent::before {
+.markdown-source-view.mod-cm6 .cm-embed-block .cm-hmd-codeblock .cm-indent::before {
   transform: translateX(-0.15rem) !important;
 }
 
@@ -2549,11 +2556,14 @@ body.quote-theme.quote-mark .markdown-rendered blockquote::before {
   border-collapse: initial !important;
   border-spacing: 0;
   --table-border-color: var(--accent-inactive);
-  --table-header-background: var(--md-container-bg);
-  --table-header-background-hover: var(--md-container-bg);
+  --table-header-background: hsl(var(--background-secondary-hsl));
+  --table-header-background-hover: var(--active-line);
   --table-header-border-color: var(--accent-inactive);
   --table-header-weight: var(--font-bold);
   --table-column-max-width: 70%;
+}
+:is(.markdown-rendered, .cm-embed-block) table tr:hover td {
+  background-color: var(--active-line);
 }
 :is(.markdown-rendered, .cm-embed-block) table :is(th, td) {
   min-width: fit-content;
@@ -2577,7 +2587,7 @@ body.quote-theme.quote-mark .markdown-rendered blockquote::before {
 }
 
 body:not(.table-colorful) .markdown-source-view.mod-cm6 .cm-embed-block.cm-table-widget .edit-block-button {
-  top: calc(var(--block-outline-width) + 0.7rem);
+  top: calc(var(--block-outline-width) + 0.2rem);
   right: calc(var(--block-outline-width) + 0.2rem);
 }
 
@@ -3247,7 +3257,6 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   white-space: nowrap;
 }
 #calendar-container .title {
-  margin-left: var(--size-4-1) !important;
   line-height: 100%;
   white-space: nowrap;
 }
@@ -3262,7 +3271,7 @@ body.calendar-weekend #calendar-container tbody tr td:nth-last-child(1) {
 }
 
 .workspace-leaf-content[data-type=calendar] .view-content {
-  padding-inline: 0;
+  padding-inline: var(--size-4-1);
 }
 
 /* ====== excalidraw ====== */
@@ -3953,6 +3962,18 @@ hypothesis-app .Hyp-Card {
 }
 hypothesis-app :is(.Hyp-LabeledButton, .Hyp-TextInput) {
   border-radius: var(--radius-base);
+}
+
+pre.dataview {
+  border: 0 !important;
+  padding-top: calc(var(--code-size) * var(--line-height-normal) * 0.7);
+}
+pre.dataview-error {
+  font-family: var(--font-monospace);
+}
+
+body.dv-enable .cm-embed-block:has(.dataview) {
+  border-color: var(--accent-inactive);
 }
 
 /* ====== 文档内搜索框 ====== */
