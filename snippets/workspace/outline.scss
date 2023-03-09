@@ -9,6 +9,14 @@ body {
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
 
+.workspace-leaf-content[data-type='outline'] .view-content .outline .tree-item-inner {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: var(--outline-item-height);
+  line-height: var(--outline-item-height);
+}
+
 body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .outline {
   .tree-item {
     position: relative;
@@ -22,10 +30,6 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
       /* fix item gap */
       .tree-item-inner {
         padding-left: var(--size-4-4);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: var(--outline-item-height);
-        line-height: var(--outline-item-height);
 
         &::before {
           content: '';
