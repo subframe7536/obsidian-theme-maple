@@ -2346,66 +2346,66 @@ body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-inte
   transform: translateX(0.4em) !important;
 }
 
-body :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered) {
+body :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered, .cm-callout) {
   --list-bullet-base: var(--size-4-3);
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
   --list-marker-color: var(--accent-active);
   --list-marker-color-alt: var(--accent-active);
   --list-spacing: 0;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered) {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) {
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
 }
-body :is(.markdown-preview-view, .print .markdown-rendered) :is(ul, ol) {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) :is(ul, ol) {
   padding-inline-start: 2.1rem;
   margin: var(--size-2-1) 0;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered) :is(ul, ol) :is(ul, ol) {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) :is(ul, ol) :is(ul, ol) {
   padding-inline-start: 2.1rem;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered) :is(ul, ol) li {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) :is(ul, ol) li {
   margin: var(--size-4-2) auto;
   line-height: 1.8rem;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered) ul {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ul {
   padding-inline-start: 1.2rem;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered) ul.contains-task-list {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ul.contains-task-list {
   padding-inline-start: 1.6rem;
   margin-inline-start: 0 !important;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered) ol li::marker {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ol li::marker {
   font-family: var(--font-monospace);
 }
-body :is(.markdown-preview-view, .print .markdown-rendered) ol li .list-collapse-indicator {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ol li .list-collapse-indicator {
   margin-left: -3.5rem !important;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered).show-indentation-guide .contains-task-list .task-list-item-checkbox {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide .contains-task-list .task-list-item-checkbox {
   margin-right: var(--size-4-2);
 }
-body :is(.markdown-preview-view, .print .markdown-rendered).show-indentation-guide .contains-task-list .contains-task-list {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide .contains-task-list .contains-task-list {
   margin-inline-start: 0.1rem !important;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered).show-indentation-guide .contains-task-list .contains-task-list::before {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide .contains-task-list .contains-task-list::before {
   left: -1.2rem;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered).show-indentation-guide li > ol::before {
+body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide li > ol::before {
   left: -1.55rem;
 }
-body ul > li > ul > li {
+body .mode-root ul > li > ul > li {
   --list-marker-color: transparent;
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
   --list-bullet-border: 2px solid var(--list-marker-color-alt);
 }
-body ul > li > ul > li ul > li {
+body .mode-root ul > li > ul > li ul > li {
   --list-marker-color: var(--list-marker-color-alt);
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
   --list-bullet-radius: 1px;
 }
-body ul > li > ul > li ul > li .list-bullet:after {
+body .mode-root ul > li > ul > li ul > li .list-bullet:after {
   transform: rotate(45deg);
 }
-body ul > li > ul > li ul > li ul > li {
+body .mode-root ul > li > ul > li ul > li ul > li {
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
   --list-marker-color: transparent;
   --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);

@@ -35,7 +35,7 @@
 }
 
 body {
-  :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered) {
+  :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered, .cm-callout) {
     --list-bullet-base: var(--size-4-3);
     --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
     --list-marker-color: var(--accent-active);
@@ -43,7 +43,7 @@ body {
     --list-spacing: 0;
   }
 
-  :is(.markdown-preview-view, .print .markdown-rendered) {
+  :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) {
     --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
 
     :is(ul, ol) {
@@ -102,7 +102,7 @@ body {
   }
 
 
-  ul>li>ul>li {
+  .mode-root ul>li>ul>li {
     --list-marker-color: transparent;
     --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
     --list-bullet-border: 2px solid var(--list-marker-color-alt);
