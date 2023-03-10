@@ -18,7 +18,7 @@
 
   thead th {
     --table-white-space: nowrap;
-    border-top: var(--block-outline-width) solid var(--table-header-border-color);
+    border-top-width: var(--block-outline-width);
   }
 }
 

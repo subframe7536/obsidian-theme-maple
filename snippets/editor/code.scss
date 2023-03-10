@@ -168,7 +168,7 @@ pre {
 
 body .markdown-rendered pre {
   border-radius: var(--radius-l);
-  border: var(--size-2-1) solid var(--accent-inactive);
+  border: var(--block-outline-width) solid var(--accent-inactive);
   transition: var(--animation);
   overflow-x: hidden;
 

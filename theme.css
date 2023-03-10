@@ -1716,7 +1716,7 @@ pre {
 
 body .markdown-rendered pre {
   border-radius: var(--radius-l);
-  border: var(--size-2-1) solid var(--accent-inactive);
+  border: var(--block-outline-width) solid var(--accent-inactive);
   transition: var(--animation);
   overflow-x: hidden;
 }
@@ -2566,7 +2566,7 @@ body.quote-theme.quote-mark .markdown-rendered blockquote::before {
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6.is-live-preview) table thead th {
   --table-white-space: nowrap;
-  border-top: var(--block-outline-width) solid var(--table-header-border-color);
+  border-top-width: var(--block-outline-width);
 }
 
 .markdown-source-view.mod-cm6.is-live-preview .cm-embed-block.cm-table-widget:hover table :is(td, th):first-child,
@@ -3431,6 +3431,9 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   line-height: 1;
   font-size: 1.4rem;
   white-space: nowrap;
+}
+#calendar-container .dot-container {
+  translate: 0 calc(-1 * var(--size-2-1));
 }
 
 body.calendar-weekend #calendar-container tbody tr td:nth-last-child(2),

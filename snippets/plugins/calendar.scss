@@ -105,6 +105,10 @@ body.calendar-swap-year-month #calendar-container .nav {
     white-space: nowrap;
   }
 
+  .dot-container {
+    translate: 0 calc(-1 * var(--size-2-1));
+  }
+
 }
 
 body.calendar-weekend #calendar-container {
