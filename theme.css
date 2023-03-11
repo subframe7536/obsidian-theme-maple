@@ -878,7 +878,7 @@ settings:
     -
         id: heading-size
         title: heading size
-        description: compare to normal texxt
+        description: compare to normal text
         title.zh: 标题大小
         description.zh: 相对于正文字体
         type: heading
