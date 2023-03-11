@@ -2853,12 +2853,14 @@ body:not(.line-indicator-disable) :is(.markdown-reading-view .markdown-preview-s
 /* ======= 键盘 ====== */
 .cm-hmd-html-begin,
 .cm-hmd-html-begin ~ .cm-tag,
-.cm-hmd-html-end {
+.cm-hmd-html-end,
+.cm-line:has(.cm-hmd-html-begin) {
   font-family: var(--font-monospace);
 }
 
 kbd {
   user-select: none;
+  text-transform: capitalize;
   border: var(--size-2-1) solid var(--accent-inactive);
   box-shadow: var(--shadow-s);
   border-radius: var(--size-2-3);
