@@ -35,6 +35,10 @@ body.titlebar-colorful .modal-container .mod-settings::before {
   --setting-color-logo: var(--text-on-accent);
 }
 
+input {
+  transition-duration: var(--setting-animation-time, 200ms) !important;
+}
+
 body.modal-slider input[type='range']::-webkit-slider-thumb {
   height: 1.6em;
   width: var(--size-4-1);
