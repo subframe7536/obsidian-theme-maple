@@ -37,12 +37,6 @@ code *,
   font-feature-settings: var(--setting-code-ligature, "calt");
 }
 
-/* ====== 光标 ====== */
-
-:is(.markdown-source-view.mod-cm6 .cm-content, .mod-cm6 .cm-line, .fancy-cursor input.prompt-input) {
-  caret-color: var(--accent-active);
-}
-
 /* ====== 编辑器背景 ====== */
 
 .workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] .view-content {
