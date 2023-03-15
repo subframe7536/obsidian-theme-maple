@@ -453,7 +453,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.4.6'"
+        default: "'maple 0.4.7'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -631,6 +631,31 @@ settings:
         id: setting-line-active-color
         title: active line color
         title.zh: 高亮行颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: text-highlight
+        title: highlight
+        title.zh: 高亮
+        type: heading
+        collapsed: true
+        level: 4
+    -
+        id: setting-text-highlight-bg
+        title: highlight text background color
+        title.zh: 文本高亮背景色
+        type: variable-themed-color
+        format: rgb
+        opacity: true
+        default-light: 'rgba(255, 208, 0, 0.4)'
+        default-dark: 'rgba(255, 208, 0, 0.4)'
+    -
+        id: setting-text-highlight-color
+        title: highlight text color
+        title.zh: 文本高亮文字颜色
         type: variable-themed-color
         format: hex
         opacity: true

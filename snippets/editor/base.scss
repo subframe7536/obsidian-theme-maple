@@ -132,11 +132,22 @@ kbd {
 body {
   --bold-color: var(--setting-text-bold-color, var(--color-red)) !important;
   --italic-color: var(--setting-text-italic-color, var(--color-red)) !important;
+  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(255, 208, 0, 0.4));
 }
 
 :is(em, .cm-em, strong, .cm-strong) {
   text-underline-offset: var(--size-2-1);
   transition: var(--animation);
+}
+
+body {
+  :is(.cm-highlight.cm-strong, mark>strong) {
+    color: var(--setting-text-highlight-color, var(--bold-color));
+  }
+
+  :is(.cm-highlight.cm-em, mark>em) {
+    color: var(--setting-text-highlight-color, var(--bold-color));
+  }
 }
 
 em,
