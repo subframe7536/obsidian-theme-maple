@@ -30,9 +30,13 @@ body.tag-colorful {
     }
   }
 
-  // .cm-line span.cm-hashtag {
-  //   caret-color: var(--text-on-accent);
-  // }
+  .app-container .markdown-rendered a.tag {
+    transition: var(--animation);
+
+    &:hover {
+      color: var(--text-normal) !important;
+    }
+  }
 }
 
 :is(body, .print .markdown-rendered) {

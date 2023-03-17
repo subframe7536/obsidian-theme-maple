@@ -1342,15 +1342,6 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
-        id: setting-tag-6
-        title: colorful tag 6
-        title.zh: 多彩标签 颜色 6
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
         id: canvas
         title: canvas
         title.zh: canvas 画布
@@ -2685,112 +2676,94 @@ body.table-colorful table th:last-child {
 }
 
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-1-default: hsl(calc(var(--accent-h) + (1 - 1) * 60),
+  --tag-1-default: hsl(calc(var(--accent-h) + 0),
     50%,
     60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-1-default: hsl(calc(var(--accent-h) + (1 - 1) * 60),
+  --tag-1-default: hsl(calc(var(--accent-h) + 0),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 1),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 2),
-span.cm-hashtag:nth-of-type(12n + 2) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 1),
-span.cm-hashtag:nth-of-type(12n + 2))) {
-  background-color: var(--tag-1, var(--tag-1-default));
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+0), span.cm-hashtag-begin:nth-child(5n+0) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+0) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 1)) {
+  --tag-background: var(--tag-1, var(--tag-1-default));
   color: var(--text-on-accent) !important;
 }
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-2-default: hsl(calc(var(--accent-h) + (2 - 1) * 60),
+  --tag-2-default: hsl(calc(var(--accent-h) + 60),
     50%,
     60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-2-default: hsl(calc(var(--accent-h) + (2 - 1) * 60),
+  --tag-2-default: hsl(calc(var(--accent-h) + 60),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 2),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 4),
-span.cm-hashtag:nth-of-type(12n + 4) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 3),
-span.cm-hashtag:nth-of-type(12n + 4))) {
-  background-color: var(--tag-2, var(--tag-2-default));
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+1), span.cm-hashtag-begin:nth-child(5n+1) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+1) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 2)) {
+  --tag-background: var(--tag-2, var(--tag-2-default));
   color: var(--text-on-accent) !important;
 }
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-3-default: hsl(calc(var(--accent-h) + (3 - 1) * 60),
+  --tag-3-default: hsl(calc(var(--accent-h) + 120),
     50%,
     60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-3-default: hsl(calc(var(--accent-h) + (3 - 1) * 60),
+  --tag-3-default: hsl(calc(var(--accent-h) + 120),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 3),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 6),
-span.cm-hashtag:nth-of-type(12n + 6) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 5),
-span.cm-hashtag:nth-of-type(12n + 6))) {
-  background-color: var(--tag-3, var(--tag-3-default));
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+2), span.cm-hashtag-begin:nth-child(5n+2) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+2) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 3)) {
+  --tag-background: var(--tag-3, var(--tag-3-default));
   color: var(--text-on-accent) !important;
 }
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-4-default: hsl(calc(var(--accent-h) + (4 - 1) * 60),
+  --tag-4-default: hsl(calc(var(--accent-h) + 180),
     50%,
     60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-4-default: hsl(calc(var(--accent-h) + (4 - 1) * 60),
+  --tag-4-default: hsl(calc(var(--accent-h) + 180),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 4),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 8),
-span.cm-hashtag:nth-of-type(12n + 8) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 7),
-span.cm-hashtag:nth-of-type(12n + 8))) {
-  background-color: var(--tag-4, var(--tag-4-default));
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+3), span.cm-hashtag-begin:nth-child(5n+3) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+3) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 4)) {
+  --tag-background: var(--tag-4, var(--tag-4-default));
   color: var(--text-on-accent) !important;
 }
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-5-default: hsl(calc(var(--accent-h) + (5 - 1) * 60),
+  --tag-5-default: hsl(calc(var(--accent-h) + 240),
     50%,
     60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-5-default: hsl(calc(var(--accent-h) + (5 - 1) * 60),
+  --tag-5-default: hsl(calc(var(--accent-h) + 240),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 5),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 10),
-span.cm-hashtag:nth-of-type(12n + 10) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 9),
-span.cm-hashtag:nth-of-type(12n + 10))) {
-  background-color: var(--tag-5, var(--tag-5-default));
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+4), span.cm-hashtag-begin:nth-child(5n+4) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+4) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 5)) {
+  --tag-background: var(--tag-5, var(--tag-5-default));
   color: var(--text-on-accent) !important;
 }
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-6-default: hsl(calc(var(--accent-h) + (6 - 1) * 60),
+  --tag-6-default: hsl(calc(var(--accent-h) + 300),
     50%,
     60%);
 }
 :is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-6-default: hsl(calc(var(--accent-h) + (6 - 1) * 60),
+  --tag-6-default: hsl(calc(var(--accent-h) + 300),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 6),
-.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 12),
-span.cm-hashtag:nth-of-type(12n + 12) + .cm-hashtag),
-.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 11),
-span.cm-hashtag:nth-of-type(12n + 12))) {
-  background-color: var(--tag-6, var(--tag-6-default));
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+5), span.cm-hashtag-begin:nth-child(5n+5) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+5) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 6)) {
+  --tag-background: var(--tag-6, var(--tag-6-default));
   color: var(--text-on-accent) !important;
+}
+body.tag-colorful .app-container .markdown-rendered a.tag {
+  transition: var(--animation);
+}
+body.tag-colorful .app-container .markdown-rendered a.tag:hover {
+  color: var(--text-normal) !important;
 }
 
 :is(body, .print .markdown-rendered) {
