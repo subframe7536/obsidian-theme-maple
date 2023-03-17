@@ -2694,7 +2694,11 @@ body.table-colorful table th:last-child {
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 1), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 2), span.cm-hashtag:nth-of-type(12n + 2) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 1), span.cm-hashtag-end:nth-of-type(12n + 2))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 1),
+.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 2),
+span.cm-hashtag:nth-of-type(12n + 2) + .cm-hashtag),
+.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 1),
+span.cm-hashtag:nth-of-type(12n + 2))) {
   background-color: var(--tag-1, var(--tag-1-default));
   color: var(--text-on-accent) !important;
 }
@@ -2708,7 +2712,11 @@ body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 1),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 2), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 4), span.cm-hashtag:nth-of-type(12n + 4) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 3), span.cm-hashtag-end:nth-of-type(12n + 4))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 2),
+.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 4),
+span.cm-hashtag:nth-of-type(12n + 4) + .cm-hashtag),
+.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 3),
+span.cm-hashtag:nth-of-type(12n + 4))) {
   background-color: var(--tag-2, var(--tag-2-default));
   color: var(--text-on-accent) !important;
 }
@@ -2722,7 +2730,11 @@ body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 2),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 3), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 6), span.cm-hashtag:nth-of-type(12n + 6) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 5), span.cm-hashtag-end:nth-of-type(12n + 6))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 3),
+.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 6),
+span.cm-hashtag:nth-of-type(12n + 6) + .cm-hashtag),
+.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 5),
+span.cm-hashtag:nth-of-type(12n + 6))) {
   background-color: var(--tag-3, var(--tag-3-default));
   color: var(--text-on-accent) !important;
 }
@@ -2736,7 +2748,11 @@ body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 3),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 4), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 8), span.cm-hashtag:nth-of-type(12n + 8) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 7), span.cm-hashtag-end:nth-of-type(12n + 8))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 4),
+.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 8),
+span.cm-hashtag:nth-of-type(12n + 8) + .cm-hashtag),
+.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 7),
+span.cm-hashtag:nth-of-type(12n + 8))) {
   background-color: var(--tag-4, var(--tag-4-default));
   color: var(--text-on-accent) !important;
 }
@@ -2750,7 +2766,11 @@ body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 4),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 5), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 10), span.cm-hashtag:nth-of-type(12n + 10) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 9), span.cm-hashtag-end:nth-of-type(12n + 10))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 5),
+.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 10),
+span.cm-hashtag:nth-of-type(12n + 10) + .cm-hashtag),
+.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 9),
+span.cm-hashtag:nth-of-type(12n + 10))) {
   background-color: var(--tag-5, var(--tag-5-default));
   color: var(--text-on-accent) !important;
 }
@@ -2764,12 +2784,13 @@ body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 5),
     30%,
     40%);
 }
-body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 6), .HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 12), span.cm-hashtag:nth-of-type(12n + 12) + .cm-hashtag), .cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 11), span.cm-hashtag-end:nth-of-type(12n + 12))) {
+body.tag-colorful :is(.markdown-preview-section > div a.tag:nth-of-type(6n + 6),
+.HyperMD-list-line > :is(span.cm-hashtag:nth-of-type(12n + 12),
+span.cm-hashtag:nth-of-type(12n + 12) + .cm-hashtag),
+.cm-line > :is(span.cm-hashtag-begin:nth-of-type(12n + 11),
+span.cm-hashtag:nth-of-type(12n + 12))) {
   background-color: var(--tag-6, var(--tag-6-default));
   color: var(--text-on-accent) !important;
-}
-body.tag-colorful .cm-line span.cm-hashtag {
-  caret-color: var(--text-on-accent);
 }
 
 :is(body, .print .markdown-rendered) {

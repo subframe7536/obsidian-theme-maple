@@ -1341,15 +1341,6 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
-        id: setting-tag-6
-        title: colorful tag 6
-        title.zh: 多彩标签 颜色 6
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
         id: canvas
         title: canvas
         title.zh: canvas 画布
