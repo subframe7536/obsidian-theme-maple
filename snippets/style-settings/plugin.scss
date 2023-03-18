@@ -1,0 +1,77 @@
+/* @settings
+
+name: 🔌 Maple Plugin
+id: maple-plugin
+settings:
+    -
+        id: calendar
+        title: calendar
+        title.zh: 日历
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: calendar-weekend
+        title: highlight weekend
+        title.zh: 突显周末
+        type: class-toggle
+        default: true
+    -
+        id: calendar-swap-year-month
+        title: swap year & month
+        title.zh: 交换年和月的位置
+        type: class-toggle
+    -
+        id: setting-calendar-year-suffix
+        title: year suffix
+        title.zh: 年份后缀
+        type: variable-text
+        default: "'年'"
+    -
+        id: kanban
+        title: kanban
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: setting-kanban-item-color
+        title: kanban item font color
+        title.zh: kanban 项 文字颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-kanban-item-bg
+        title: kanban item background color
+        title.zh: kanban 项 背景色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-kanban-board-bg
+        title: kanban board backgound color
+        title.zh: kanban 版面 背景色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: dv
+        title: DataView(WIP)
+        title.zh: DataView(待完工)
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: dv-enable
+        title: enable dataview style
+        description: need install version >= 1.1.9
+        title.zh: 启用 dataview 样式
+        description.zh: 需要安装程序版本 >= 1.1.9
+        type: class-toggle
+*/

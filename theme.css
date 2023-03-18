@@ -1,16 +1,9 @@
 @charset "UTF-8";
 /* @settings
 
-name: Maple
-id: Maple
+name: 🛠️ Maple Basic Setting
+id: maple-basic
 settings:
-    -
-        id: base
-        title: basic setting
-        title.zh: 基本设置
-        type: heading
-        collapsed: true
-        level: 2
     -
         id: setting-animation-time
         title: animation duration (ms)
@@ -21,13 +14,6 @@ settings:
         min: 0
         max: 500
         step: 50
-    -
-        id: accent-colors
-        title: theme colors
-        title.zh: 主题颜色
-        type: heading
-        collapsed: false
-        level: 3
     -
         id: color-use-custom
         title: use custom accent color
@@ -41,7 +27,7 @@ settings:
         title.zh: 浅色模式
         type: heading
         collapsed: true
-        level: 4
+        level: 2
     -
         id: setting-accent-h-light
         title: base color
@@ -79,7 +65,7 @@ settings:
         title.zh: 更多设置
         type: heading
         collapsed: true
-        level: 5
+        level: 3
     -
         id: setting-accent-s-light
         title: accent color saturation
@@ -110,7 +96,7 @@ settings:
         title.zh: 暗色模式
         type: heading
         collapsed: true
-        level: 4
+        level: 2
     -
         id: setting-accent-h-dark
         title: base color
@@ -148,7 +134,7 @@ settings:
         title.zh: 更多设置
         type: heading
         collapsed: true
-        level: 5
+        level: 3
     -
         id: setting-accent-s-dark
         title: accent color saturation
@@ -174,12 +160,12 @@ settings:
         max: 100
         step: 1
     -
-        id: workspace
-        title: user interface
-        title.zh: 工作区
-        type: heading
-        collapsed: true
-        level: 2
+*/
+/* @settings
+
+name: 🌏 Maple Workspace
+id: maple-workspace
+settings:
     -
         id: titlebar-colorful
         title: colorful titlebar
@@ -195,7 +181,7 @@ settings:
         description.zh: 白板的卡片宽度 >768px 时编辑卡片也会添加
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: bg-enable
         title: enable background wave image
@@ -227,7 +213,7 @@ settings:
         title.zh: 文件管理器
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: explorer-hide-name
         title: hide vault name
@@ -263,7 +249,7 @@ settings:
         title.zh: 文档大纲
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: outline-enable
         title: enable bullet style
@@ -278,7 +264,7 @@ settings:
         title.zh: 状态栏
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: status-bar-float
         title: round style status bar
@@ -312,7 +298,7 @@ settings:
         title.zh: 文档内搜索框
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: search-internal-enable
         title: enable VSCode style search/replace panel
@@ -338,7 +324,7 @@ settings:
         title.zh: 标签页
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: tab-float
         title: float tabs style like firefox / Microsoft Edge
@@ -363,7 +349,7 @@ settings:
         title: tab title bar
         title.zh: 标签页标题栏
         type: heading
-        level: 4
+        level: 3
     -
         id: tab-title-bar-round
         title: enable tab title bar round style
@@ -394,7 +380,7 @@ settings:
         title.zh: 气泡提示框 & 通知
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: message-tooltip-hide-arrow
         title: hide tooltip arrow
@@ -435,7 +421,7 @@ settings:
         title.zh: 弹出框 & 设置面板
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: modal-blur
         title: enable modal background blur
@@ -454,7 +440,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.4.7'"
+        default: "'maple 0.5.0'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -501,7 +487,7 @@ settings:
         title.zh: 滚动条
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: scrollbar-hide
         title: always hide scrollbar
@@ -544,20 +530,19 @@ settings:
                 value: scrollbar-gutter-overlay
             -   label: reserve
                 value: scrollbar-gutter-reserve
-    -
-        id: editor
-        title: editor
-        title.zh: 编辑器
-        type: heading
-        collapsed: true
-        level: 2
+*/
+/* @settings
+
+name: ✏️ Maple Editor
+id: maple-editor
+settings:
     -
         id: bg
         title: background color
         title.zh: 背景色
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: setting-editor-bg
         title: editor background color
@@ -584,7 +569,7 @@ settings:
         title.zh: 文字 & 字体 & 行
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: font-maple
         title: use “Maple Mono” as monospace
@@ -643,7 +628,7 @@ settings:
         title.zh: 高亮
         type: heading
         collapsed: true
-        level: 4
+        level: 3
     -
         id: setting-text-highlight-bg
         title: highlight text background color
@@ -668,7 +653,7 @@ settings:
         title.zh: 粗体
         type: heading
         collapsed: true
-        level: 4
+        level: 3
     -
         id: setting-text-bold-color
         title: bold text color
@@ -698,7 +683,7 @@ settings:
         title.zh: 斜体
         type: heading
         collapsed: true
-        level: 4
+        level: 3
     -
         id: setting-text-italic-color
         title: italic text color
@@ -728,7 +713,7 @@ settings:
         title.zh: 链接
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: setting-link-internal-color
         title: internal link color
@@ -771,7 +756,7 @@ settings:
         title.zh: 标题
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: heading-level
         title: heading level icon
@@ -780,7 +765,7 @@ settings:
         description.zh: 为标题添加前置图标，如果你开启了“折叠图标”选项，点击图标可以收起标题
         type: heading
         collapsed: true
-        level: 4
+        level: 3
     -
         id: heading-level-enable
         title: enable level heading icon
@@ -799,7 +784,7 @@ settings:
         title.zh: 标题样式设置
         type: heading
         collapsed: true
-        level: 4
+        level: 3
     -
         id: heading-h1-center
         title: center h1
@@ -825,7 +810,7 @@ settings:
         title.zh: 标题颜色
         type: heading
         collapsed: true
-        level: 4
+        level: 3
     -
         id: heading-color-style
         title: heading color style
@@ -845,7 +830,7 @@ settings:
         title: custom heading color
         title.zh: 自定义标题颜色
         type: heading
-        level: 5
+        level: 4
     -
         id: setting-h1-color
         title: h1 color
@@ -908,7 +893,7 @@ settings:
         description.zh: 相对于正文字体
         type: heading
         collapsed: true
-        level: 4
+        level: 3
     -
         id: setting-h1-size
         title: h1 font size
@@ -971,7 +956,7 @@ settings:
         description.zh: 渐变色
         type: heading
         collapsed: true
-        level: 4
+        level: 3
     -
         id: heading-h1-underline
         title: add underline for h1
@@ -1009,7 +994,7 @@ settings:
         title.zh: 标题字体
         type: heading
         collapsed: true
-        level: 4
+        level: 3
     -
         id: setting-h1-font
         title: h1 font
@@ -1052,7 +1037,7 @@ settings:
         title.zh: 分隔行
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: hr-enable
         title: enable hr style
@@ -1071,7 +1056,7 @@ settings:
         title.zh: 表格
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: table-colorful
         title: colorful table
@@ -1113,7 +1098,7 @@ settings:
         title.zh: 内嵌文档
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: embed-enable
         title: enable embed file style
@@ -1134,7 +1119,7 @@ settings:
         title.zh: 图片
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: image-alt
         title: add alt text below and center the image
@@ -1165,7 +1150,7 @@ settings:
         title.zh: 引用
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: quote-theme
         title: enable quote theme
@@ -1186,7 +1171,7 @@ settings:
         title.zh: 代码
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: setting-code-inline
         title: inline code color
@@ -1274,7 +1259,7 @@ settings:
         title.zh: 标签
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: tag-click-to-edit
         title: click to edit tags in Live-Preview mode
@@ -1295,7 +1280,7 @@ settings:
         title.zh: 标签颜色
         type: heading
         collapsed: true
-        level: 4
+        level: 3
     -
         id: setting-tag-1
         title: colorful tag 1
@@ -1347,7 +1332,7 @@ settings:
         title.zh: canvas 画布
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: canvas-group-hide
         title: hide left canvas control buttons
@@ -1355,20 +1340,19 @@ settings:
         title.zh: 隐藏左侧的控制按钮
         description.zh: 鼠标移入时显示
         type: class-toggle
-    -
-        id: plugin
-        title: plugin
-        title.zh: 插件
-        type: heading
-        collapsed: true
-        level: 2
+*/
+/* @settings
+
+name: 🔌 Maple Plugin
+id: maple-plugin
+settings:
     -
         id: calendar
         title: calendar
         title.zh: 日历
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: calendar-weekend
         title: highlight weekend
@@ -1391,7 +1375,7 @@ settings:
         title: kanban
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: setting-kanban-item-color
         title: kanban item font color
@@ -1425,7 +1409,7 @@ settings:
         title.zh: DataView(待完工)
         type: heading
         collapsed: true
-        level: 3
+        level: 2
     -
         id: dv-enable
         title: enable dataview style
@@ -1434,6 +1418,177 @@ settings:
         description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
 */
+/* ====== style setting ====== */
+.mod-settings .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control > input[type=color] {
+  position: relative;
+}
+.mod-settings .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control > input[type=color]::before {
+  content: "only change Hue!";
+  font-family: var(--font-interface);
+  position: absolute;
+  width: auto;
+  left: calc((var(--swatch-width) + var(--size-4-12) * 2 + 120%) * -1);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+:is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download, .style-settings-import-label) {
+  transition: var(--animation);
+  text-decoration: none !important;
+  height: var(--input-height);
+  font-size: var(--font-ui-small);
+  font-family: inherit;
+  font-weight: var(--input-font-weight);
+  color: var(--text-normal) !important;
+  line-height: var(--line-height-normal);
+  padding: 0 0.8em;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  box-shadow: var(--input-shadow);
+  border-radius: var(--input-radius);
+  background-color: var(--interactive-normal);
+}
+:is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download, .style-settings-import-label):hover {
+  box-shadow: var(--input-shadow-hover);
+  background-color: var(--interactive-hover);
+}
+
+.themed-color-wrapper > .theme-light {
+  background-color: #eee;
+}
+.themed-color-wrapper > .theme-dark {
+  background-color: #111;
+}
+.themed-color-wrapper .pickr-reset > button {
+  padding: var(--size-2-3);
+}
+
+.pickr .pcr-button::before, .pickr .pcr-button::after {
+  border-radius: var(--radius-s);
+}
+
+.style-settings-container .setting-item:is([data-id^=setting-accent-h]) input.slider {
+  height: 0.8em;
+  --hue-slider-sat: 70%;
+  --hue-slider-br: 60%;
+  background: linear-gradient(to right, hsl(0, var(--hue-slider-sat), var(--hue-slider-br)), hsl(30, var(--hue-slider-sat), var(--hue-slider-br)), hsl(60, var(--hue-slider-sat), var(--hue-slider-br)), hsl(90, var(--hue-slider-sat), var(--hue-slider-br)), hsl(120, var(--hue-slider-sat), var(--hue-slider-br)), hsl(150, var(--hue-slider-sat), var(--hue-slider-br)), hsl(180, var(--hue-slider-sat), var(--hue-slider-br)), hsl(210, var(--hue-slider-sat), var(--hue-slider-br)), hsl(240, var(--hue-slider-sat), var(--hue-slider-br)), hsl(270, var(--hue-slider-sat), var(--hue-slider-br)), hsl(300, var(--hue-slider-sat), var(--hue-slider-br)), hsl(330, var(--hue-slider-sat), var(--hue-slider-br)), hsl(360, var(--hue-slider-sat), var(--hue-slider-br)));
+  border-radius: var(--size-2-1);
+}
+.style-settings-container .setting-item:is([data-id^=setting-accent-h]) .setting-item-control::before {
+  content: " ";
+  font-size: 0.7em;
+  text-align: center;
+  white-space: pre-wrap;
+  height: 1.6em;
+  width: 1.6em;
+  color: var(--text-normal);
+  background-color: hsl(var(--setting-accent-h-light, 116), 32%, 58%);
+  position: relative;
+  right: 1em;
+  border-radius: var(--radius-s);
+}
+.style-settings-container .setting-item[data-id=setting-accent-h-dark] .setting-item-control::before {
+  background-color: hsl(var(--setting-accent-h-dark, 207), 32%, 58%);
+}
+
+/* hide option */
+body.line-active-disable .setting-item[data-id=setting-line-active-color],
+body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
+body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-break-all]),
+body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor],
+body.bg-default .setting-item[data-id=setting-bg-color],
+body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover], [data-id=scrollbar-movein-animation], [data-id=scrollbar-gutter]),
+:is(body.status-bar-scroll, body:not(.status-bar-float)) .setting-item[data-id=status-bar-style-center],
+body:not(.tab-title-bar-round) .setting-item[data-id=tab-title-bar-shadow],
+body:not(.loading-text) .setting-item[data-id=loading-text-content],
+body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expand-on-focus], [data-id=search-internal-disable-select-all]),
+body:not(.color-use-custom) .setting-item[data-id*=color-accent-],
+body:not(.code-language) .setting-item[data-id=setting-code-language-color],
+body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer],
+body:not(.modal-header) .setting-item[data-id=setting-modal-header-title],
+body:not(.color-use-custom) .setting-item[data-id^=accent-hue],
+body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light],
+body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-active-custom-dark],
+body:not(.message-modify) .setting-item[data-id^=setting-message],
+body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix],
+body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
+body:not(.table-colorful) .setting-item[data-id^=setting-table],
+body:not(.embed-enable) .setting-item[data-id^=embed-title],
+body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
+body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
+  display: none;
+}
+
+/* 参考 https://github.com/damiankorcz/Prism-Theme */
+div.workspace-leaf-content[data-type=style-settings] div.view-content {
+  padding: var(--file-margins);
+}
+body.is-mobile div.workspace-leaf-content[data-type=style-settings] div.view-content {
+  padding: var(--size-4-8) var(--size-4-4);
+}
+body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-content .style-settings-container .setting-item:not(.setting-item-heading) {
+  flex-direction: row;
+}
+
+.setting-item.setting-item-heading.style-settings-heading {
+  padding: var(--size-4-2);
+  margin: var(--size-4-1) 0;
+  border-radius: var(--radius-m);
+  padding-left: var(--size-4-3);
+}
+.setting-item.setting-item-heading.style-settings-heading:hover {
+  color: var(--highlight-text-normal);
+  background-color: var(--background-modifier-hover);
+}
+
+.style-settings-container {
+  padding-bottom: unset;
+}
+.style-settings-container .setting-item {
+  padding: var(--size-4-2);
+  padding-left: var(--size-4-6);
+}
+.is-phone .style-settings-container .setting-item {
+  margin-top: unset;
+}
+
+.style-settings-heading[data-level="0"] {
+  background-color: var(--md-container-bg);
+  border: 1px solid hsla(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%), 16%) !important;
+}
+.style-settings-heading[data-level="0"] + .style-settings-container .style-settings-collapse-indicator {
+  margin-left: unset;
+}
+
+:is(.setting-item.setting-item-heading.style-settings-heading, .style-settings-container .style-settings-heading) {
+  border-bottom: unset;
+}
+
+.setting-item-heading .setting-item-description {
+  padding-left: var(--size-4-4);
+}
+
+.setting-item.setting-item-heading.is-collapsed {
+  margin-bottom: unset;
+}
+
+.style-settings-container > .setting-item:last-of-type {
+  padding-bottom: unset;
+  margin-bottom: var(--size-4-4);
+}
+
+:is(.style-settings-heading[data-level="0"] + .style-settings-container, .style-settings-container) {
+  padding-left: var(--size-2-1);
+  margin-left: var(--size-4-4);
+  border-left: var(--nav-indentation-guide-width) solid var(--nav-indentation-guide-color);
+  transition: var(--animation);
+}
+:is(.style-settings-heading[data-level="0"] + .style-settings-container, .style-settings-container):hover {
+  border-left-color: var(--accent-active);
+}
+
 :is(body, body .print) {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
@@ -3623,176 +3778,6 @@ body .excalidraw .popover ul hr {
   padding-bottom: 4px;
 }
 
-/* ====== style setting ====== */
-.mod-settings .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control > input[type=color] {
-  position: relative;
-}
-.mod-settings .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control > input[type=color]::before {
-  content: "only change Hue!";
-  font-family: var(--font-interface);
-  position: absolute;
-  width: auto;
-  left: calc((var(--swatch-width) + var(--size-4-12) * 2 + 120%) * -1);
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-:is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download, .style-settings-import-label) {
-  transition: var(--animation);
-  text-decoration: none !important;
-  height: var(--input-height);
-  font-size: var(--font-ui-small);
-  font-family: inherit;
-  font-weight: var(--input-font-weight);
-  color: var(--text-normal) !important;
-  line-height: var(--line-height-normal);
-  padding: 0 0.8em;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  border: 0;
-  box-shadow: var(--input-shadow);
-  border-radius: var(--input-radius);
-  background-color: var(--interactive-normal);
-}
-:is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download, .style-settings-import-label):hover {
-  box-shadow: var(--input-shadow-hover);
-  background-color: var(--interactive-hover);
-}
-
-.themed-color-wrapper > .theme-light {
-  background-color: #eee;
-}
-.themed-color-wrapper > .theme-dark {
-  background-color: #111;
-}
-.themed-color-wrapper .pickr-reset > button {
-  padding: var(--size-2-3);
-}
-
-.pickr .pcr-button::before, .pickr .pcr-button::after {
-  border-radius: var(--radius-s);
-}
-
-.style-settings-container .setting-item:is([data-id^=setting-accent-h]) input.slider {
-  height: 0.8em;
-  --hue-slider-sat: 70%;
-  --hue-slider-br: 60%;
-  background: linear-gradient(to right, hsl(0, var(--hue-slider-sat), var(--hue-slider-br)), hsl(30, var(--hue-slider-sat), var(--hue-slider-br)), hsl(60, var(--hue-slider-sat), var(--hue-slider-br)), hsl(90, var(--hue-slider-sat), var(--hue-slider-br)), hsl(120, var(--hue-slider-sat), var(--hue-slider-br)), hsl(150, var(--hue-slider-sat), var(--hue-slider-br)), hsl(180, var(--hue-slider-sat), var(--hue-slider-br)), hsl(210, var(--hue-slider-sat), var(--hue-slider-br)), hsl(240, var(--hue-slider-sat), var(--hue-slider-br)), hsl(270, var(--hue-slider-sat), var(--hue-slider-br)), hsl(300, var(--hue-slider-sat), var(--hue-slider-br)), hsl(330, var(--hue-slider-sat), var(--hue-slider-br)), hsl(360, var(--hue-slider-sat), var(--hue-slider-br)));
-  border-radius: var(--size-2-1);
-}
-.style-settings-container .setting-item:is([data-id^=setting-accent-h]) .setting-item-control::before {
-  content: " ";
-  font-size: 0.7em;
-  text-align: center;
-  white-space: pre-wrap;
-  height: 1.6em;
-  width: 1.6em;
-  color: var(--text-normal);
-  background-color: hsl(var(--setting-accent-h-light, 116), 32%, 58%);
-  position: relative;
-  right: 1em;
-  border-radius: var(--radius-s);
-}
-.style-settings-container .setting-item[data-id=setting-accent-h-dark] .setting-item-control::before {
-  background-color: hsl(var(--setting-accent-h-dark, 207), 32%, 58%);
-}
-
-/* hide option */
-body.line-active-disable .setting-item[data-id=setting-line-active-color],
-body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
-body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-break-all]),
-body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor],
-body.bg-default .setting-item[data-id=setting-bg-color],
-body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover], [data-id=scrollbar-movein-animation], [data-id=scrollbar-gutter]),
-:is(body.status-bar-scroll, body:not(.status-bar-float)) .setting-item[data-id=status-bar-style-center],
-body:not(.tab-title-bar-round) .setting-item[data-id=tab-title-bar-shadow],
-body:not(.loading-text) .setting-item[data-id=loading-text-content],
-body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expand-on-focus], [data-id=search-internal-disable-select-all]),
-body:not(.color-use-custom) .setting-item[data-id*=color-accent-],
-body:not(.code-language) .setting-item[data-id=setting-code-language-color],
-body:not(.modal-header) .setting-item[data-id=setting-modal-header-title],
-body:not(.color-use-custom) .setting-item[data-id^=accent-hue],
-body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light],
-body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-active-custom-dark],
-body:not(.message-modify) .setting-item[data-id^=setting-message],
-body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix],
-body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
-body:not(.table-colorful) .setting-item[data-id^=setting-table],
-body:not(.embed-enable) .setting-item[data-id^=embed-title],
-body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
-body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
-  display: none;
-}
-
-/* 参考 https://github.com/damiankorcz/Prism-Theme */
-div.workspace-leaf-content[data-type=style-settings] div.view-content {
-  padding: var(--file-margins);
-}
-body.is-mobile div.workspace-leaf-content[data-type=style-settings] div.view-content {
-  padding: var(--size-4-8) var(--size-4-4);
-}
-body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-content .style-settings-container .setting-item:not(.setting-item-heading) {
-  flex-direction: row;
-}
-
-.setting-item.setting-item-heading.style-settings-heading {
-  padding: var(--size-4-2);
-  margin: var(--size-4-1) 0;
-  border-radius: var(--radius-m);
-  padding-left: var(--size-4-3);
-}
-.setting-item.setting-item-heading.style-settings-heading:hover {
-  color: var(--highlight-text-normal);
-  background-color: var(--background-modifier-hover);
-}
-
-.style-settings-container {
-  padding-bottom: unset;
-}
-.style-settings-container .setting-item {
-  padding: var(--size-4-2);
-  padding-left: var(--size-4-6);
-}
-.is-phone .style-settings-container .setting-item {
-  margin-top: unset;
-}
-
-.style-settings-heading[data-level="0"] {
-  background-color: var(--md-container-bg);
-  border: 1px solid hsla(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%), 16%) !important;
-}
-.style-settings-heading[data-level="0"] + .style-settings-container .style-settings-collapse-indicator {
-  margin-left: unset;
-}
-
-:is(.setting-item.setting-item-heading.style-settings-heading, .style-settings-container .style-settings-heading) {
-  border-bottom: unset;
-}
-
-.setting-item-heading .setting-item-description {
-  padding-left: var(--size-4-4);
-}
-
-.setting-item.setting-item-heading.is-collapsed {
-  margin-bottom: unset;
-}
-
-.style-settings-container > .setting-item:last-of-type {
-  padding-bottom: unset;
-  margin-bottom: var(--size-4-4);
-}
-
-:is(.style-settings-heading[data-level="0"] + .style-settings-container, .style-settings-container) {
-  padding-left: var(--size-2-1);
-  margin-left: var(--size-4-4);
-  border-left: var(--nav-indentation-guide-width) solid var(--nav-indentation-guide-color);
-  transition: var(--animation);
-}
-:is(.style-settings-heading[data-level="0"] + .style-settings-container, .style-settings-container):hover {
-  border-left-color: var(--accent-active);
-}
-
 /* ====== db folder ====== */
 body.link-icon .database-plugin__embed-link-wrapper a.internal-link[class*=database-plugin]::before {
   content: none;
@@ -4512,7 +4497,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.4.7");
+  content: var(--setting-header-title, "maple 0.5.0");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);

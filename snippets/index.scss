@@ -1,8 +1,7 @@
-@use './css/style-setting.css';
+@use './style-settings';
 @use './css/variable.css';
 @use './css/fonts.css';
-@use './editor/editor';
-@use './plugins/plugin';
-@use './workspace/workspace';
-
+@use './editor';
+@use './plugins';
+@use './workspace';
 //todo)) callouts(bt,prism,mado) / slide / dataview / plugins adapt

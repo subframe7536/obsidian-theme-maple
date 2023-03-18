@@ -1,0 +1,370 @@
+/* @settings
+
+name: 🌏 Maple Workspace
+id: maple-workspace
+settings:
+    -
+        id: titlebar-colorful
+        title: colorful titlebar
+        description: reference from https://github.com/kepano/obsidian-minimal
+        title.zh: 多彩 Obsidian 标题栏
+        description.zh: 参考 https://github.com/kepano/obsidian-minimal
+        type: class-toggle
+    -
+        id: bg
+        title: wave background
+        description: will also add in canvas card when card width > 768px
+        title.zh: 波浪背景图
+        description.zh: 白板的卡片宽度 >768px 时编辑卡片也会添加
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: bg-enable
+        title: enable background wave image
+        description: static style reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow, ❗live style will increase CPU/GPU use
+        title.zh: 开启背景波浪图
+        description.zh: 静态图（static）参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow，❗动态图（live）将提高 CPU/GPU 占用率
+        type: class-select
+        allowEmpty: false
+        default: bg-static
+        options:
+            -   label: none
+                value: bg-default
+            -   label: static
+                value: bg-static
+            -   label: live
+                value: bg-live
+    -
+        id: setting-bg-color
+        title: wave color
+        title.zh: 波浪颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: explorer
+        title: file explorer
+        title.zh: 文件管理器
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: explorer-hide-name
+        title: hide vault name
+        title.zh: 隐藏仓库名称
+        type: class-toggle
+        default: true
+    -
+        id: explorer-nav-decoration
+        title: styled active nav item
+        description: reference from https://github.com/Akifyss/obsidian-border
+        title.zh: 当前文件美化
+        description.zh: 参考 https://github.com/Akifyss/obsidian-border
+        type: class-toggle
+        default: true
+    -
+        id: explorer-icon
+        title: enable prefix icon
+        title.zh: 开启前置图标
+        type: class-toggle
+        default: true
+    -
+        id: setting-color-dirs
+        title: dir color
+        title.zh: 文件夹颜色
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        default-light: rgb(245, 180, 0)
+        default-dark: rgb(245, 180, 0)
+    -
+        id: outline-panel
+        title: outline panel
+        title.zh: 文档大纲
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: outline-enable
+        title: enable bullet style
+        description: reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+        title.zh: 开启引导线样式
+        description.zh: 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+        type: class-toggle
+        default: true
+    -
+        id: status-bar
+        title: status bar
+        title.zh: 状态栏
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: status-bar-float
+        title: round style status bar
+        title.zh: 圆角风格的状态栏
+        type: class-toggle
+        default: true
+    -
+        id: status-bar-style
+        title: status bar animation
+        description: ❗last style only valid when turn on “round status bar”
+        title.zh: 状态栏样式
+        description.zh: ❗最后一种样式只在开启“圆角风格的状态栏”才生效
+        type: class-select
+        allowEmpty: false
+        default: status-bar-default
+        options:
+            -   label: default
+                value: status-bar-default
+            -   label: show on hover
+                value: status-bar-hidden
+            -   label: scroll out on hover
+                value: status-bar-scroll
+    -
+        id: status-bar-style-center
+        title: center status bar
+        title.zh: 状态栏居中
+        type: class-toggle
+    -
+        id: search-internal
+        title: document search panel
+        title.zh: 文档内搜索框
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: search-internal-enable
+        title: enable VSCode style search/replace panel
+        title.zh: 启用 VSCode 样式的搜索框
+        type: class-toggle
+        default: true
+    -
+        id: search-internal-expand-on-focus
+        title: search/replace input expand on search/replace input focus
+        title.zh: 文档内搜索框获得焦点时扩大宽度
+        type: class-toggle
+    -
+        id: search-internal-disable-select-all
+        title: hide select all button
+        description: display it maybe seems to be too long
+        title.zh: 文档内搜索框隐藏选择全部按钮
+        description.zh: 显示会过长
+        type: class-toggle
+        default: true
+    -
+        id: tab
+        title: tab
+        title.zh: 标签页
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: tab-float
+        title: float tabs style like firefox / Microsoft Edge
+        title.zh: 仿 Firefox / Microsoft Edge 的标签页
+        type: class-toggle
+    -
+        id: tab-show-close
+        title: when to show close button on tabs
+        title.zh: 何时显示标签页的关闭按钮
+        type: class-select
+        allowEmpty: false
+        default: tab-show-close-default
+        options:
+            -   label: default
+                value: tab-show-close-default
+            -   label: on hover all tabs
+                value: tab-show-close-all
+            -   label: on hover except active tab
+                value: tab-show-close-part
+    -
+        id: tab-title
+        title: tab title bar
+        title.zh: 标签页标题栏
+        type: heading
+        level: 3
+    -
+        id: tab-title-bar-round
+        title: enable tab title bar round style
+        title.zh: 开启标签页标题栏圆角样式
+        type: class-toggle
+    -
+        id: tab-title-bar-shadow
+        title: add shadow for active tab title bar
+        title.zh: 为当前标签页标题栏添加阴影
+        type: class-toggle
+    -
+        id: tab-title-bar-text
+        title: file name on tab title bar
+        title.zh: 标签页标题栏的文件名
+        type: class-select
+        allowEmpty: false
+        default: tab-title-bar-text-default
+        options:
+            -   label: default
+                value: tab-title-bar-text-default
+            -   label: small size
+                value: tab-title-bar-text-small
+            -   label: show on hover
+                value: tab-title-bar-text-hidden
+    -
+        id: message
+        title: tooltip & notice
+        title.zh: 气泡提示框 & 通知
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: message-tooltip-hide-arrow
+        title: hide tooltip arrow
+        title.zh: 隐藏气泡提示框箭头
+        type: class-toggle
+    -
+        id: message-tooltip-hide
+        title: always hide tooltip
+        title.zh: 永久隐藏气泡提示框
+        type: class-toggle
+    -
+        id: message-modify
+        title: change tooltip & notice color
+        title.zh: 修改气泡提示框和消息的颜色
+        type: class-toggle
+        default: true
+    -
+        id: setting-message-bg
+        title: background color
+        title.zh: 背景色
+        type: variable-themed-color
+        format: hsl-values
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-message-fg
+        title: foreground color
+        title.zh: 前景色
+        type: variable-themed-color
+        format: rgb-values
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: modal
+        title: modal & setting panel
+        title.zh: 弹出框 & 设置面板
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: modal-blur
+        title: enable modal background blur
+        title.zh: 开启弹出框背景模糊
+        type: class-toggle
+        default: true
+    -
+        id: modal-header
+        title: add header for setting panel
+        description: better with plugin “setting search”
+        title.zh: 为设置面板添加顶部框
+        description.zh: 配合 setting search 插件使用更佳
+        type: class-toggle
+    -
+        id: setting-modal-header-title
+        title: set modal header title
+        title.zh: 设置面板标题
+        type: variable-text
+        default: "'maple 0.5.0'"
+    -
+        id: setting-group-title
+        title: add style for left navigation group title
+        title.zh: 为左侧选项组标题添加样式
+        type: class-toggle
+        default: true
+    -
+        id: setting-nav-decoration
+        title: styled active nav item
+        title.zh: 左侧当前设置项美化
+        type: class-toggle
+        default: true
+    -
+        id: modal-slider
+        title: styled slider thumb
+        title.zh: 滑动条按钮美化
+        type: class-toggle
+        default: true
+    -
+        id: modal-toggle
+        title: styled toggle button
+        title.zh: 开关按钮美化
+        type: class-select
+        allowEmpty: false
+        default: modal-toggle-default
+        options:
+            -   label: default
+                value: modal-toggle-default
+            -   label: thin
+                value: modal-toggle-thin
+            -   label: round
+                value: modal-toggle-round
+    -
+        id: modal-animation
+        title: modal bounce animation
+        desciption: reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow
+        title.zh: 弹出框抖动动画
+        desciption.zh: 参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow
+        type: class-toggle
+        default: true
+    -
+        id: scrollbar
+        title: scrollbar
+        title.zh: 滚动条
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: scrollbar-hide
+        title: always hide scrollbar
+        title.zh: 不显示滚动条
+        type: class-toggle
+    -
+        id: scrollbar-hover
+        title: scrollbar hover action
+        title.zh: 鼠标经过时滚动条变化
+        type: class-select
+        allowEmpty: false
+        default: scrollbar-hover-default
+        options:
+            -   label: default
+                value: scrollbar-hover-default
+            -   label: accent
+                value: scrollbar-hover-accent
+            -   label: expand
+                value: scrollbar-hover-expand
+    -
+        id: scrollbar-movein-animation-disable
+        title: disable scrollbar animation
+        description: when disabled, always show scrollbar; when enabled, hide scrollbar when the mouse move outside the container
+        title.zh: 关闭滚动条动画
+        description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
+        type: class-toggle
+    -
+        id: scrollbar-gutter
+        title: scrollbar gutter config
+        description: make the scrollbar won't squeezing the parent container (overlay) / reserve scroll gutter instead of float the bar (reserve)
+        title.zh: 控制滚动条槽
+        description.zh: 默认（default）/ 悬浮滚动条，使滚动条出现时不会挤压父容器（overlay）/ 预留滚动条位置（reserve）
+        type: class-select
+        allowEmpty: false
+        default: scrollbar-gutter-default
+        options:
+            -   label: default
+                value: scrollbar-gutter-default
+            -   label: overlay
+                value: scrollbar-gutter-overlay
+            -   label: reserve
+                value: scrollbar-gutter-reserve
+*/

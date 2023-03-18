@@ -1,0 +1,162 @@
+/* @settings
+
+name: 🛠️ Maple Basic Setting
+id: maple-basic
+settings:
+    -
+        id: setting-animation-time
+        title: animation duration (ms)
+        title.zh: 动画持续时间（毫秒）
+        type: variable-number-slider
+        format: ms
+        default: 200
+        min: 0
+        max: 500
+        step: 50
+    -
+        id: color-use-custom
+        title: use custom accent color
+        description: use style setting accent color instead of Obsidian's accent color
+        title.zh: 自定义 accent color
+        description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
+        type: class-toggle
+    -
+        id: color-accent-light
+        title: light mode
+        title.zh: 浅色模式
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: setting-accent-h-light
+        title: base color
+        title.zh: 基础颜色
+        type: variable-number-slider
+        default: 35
+        min: 0
+        max: 360
+        step: 5
+    -
+        id: color-active-light
+        title: highlight color
+        title.zh: 高亮颜色
+        type: class-select
+        allowEmpty: false
+        default: color-active-default-light
+        options:
+            -   label: accent color
+                value: color-active-default-light
+            -   label: accent color alt
+                value: color-active-alt-light
+            -   label: custom
+                value: color-active-custom-light
+    -
+        id: setting-color-active-custom-light
+        title: custom highlight color
+        title.zh: 自定义高亮颜色
+        type: variable-color
+        format: rgb
+        default: '#'
+        opacity: false
+    -
+        id: color-more-light
+        title: more configuration
+        title.zh: 更多设置
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-accent-s-light
+        title: accent color saturation
+        description: s of hsl
+        title.zh: 高亮颜色饱和度
+        description.zh: hsl中的s
+        type: variable-number-slider
+        default: 32
+        format: '%'
+        min: 0
+        max: 100
+        step: 1
+    -
+        id: setting-accent-l-light
+        title: accent color lightness
+        description: l of hsl
+        title.zh: 高亮颜色亮度
+        description.zh: hsl中的l
+        type: variable-number-slider
+        default: 58
+        format: '%'
+        min: 0
+        max: 100
+        step: 1
+    -
+        id: color-accent-dark
+        title: dark mode
+        title.zh: 暗色模式
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: setting-accent-h-dark
+        title: base color
+        title.zh: 基础颜色
+        type: variable-number-slider
+        default: 207
+        min: 0
+        max: 360
+        step: 5
+    -
+        id: color-active-dark
+        title: highlight color
+        title.zh: 高亮颜色
+        type: class-select
+        allowEmpty: false
+        default: color-active-default-dark
+        options:
+            -   label: accent color
+                value: color-active-default-dark
+            -   label: accent color alt
+                value: color-active-alt-dark
+            -   label: custom
+                value: color-active-custom-dark
+    -
+        id: setting-color-active-custom-dark
+        title: custom highlight color
+        title.zh: 自定义高亮颜色
+        type: variable-color
+        default: '#'
+        format: rgb
+        opacity: false
+    -
+        id: color-more-dark
+        title: more configuration
+        title.zh: 更多设置
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-accent-s-dark
+        title: accent color saturation
+        description: s of hsl
+        title.zh: 高亮颜色饱和度
+        description.zh: hsl中的s
+        type: variable-number-slider
+        default: 32
+        format: '%'
+        min: 0
+        max: 100
+        step: 1
+    -
+        id: setting-accent-l-dark
+        title: accent color lightness
+        description: l of hsl
+        title.zh: 高亮颜色亮度
+        description.zh: hsl中的l
+        type: variable-number-slider
+        default: 58
+        format: '%'
+        min: 0
+        max: 100
+        step: 1
+    -
+*/

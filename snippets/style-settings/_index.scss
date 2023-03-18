@@ -1,3 +1,8 @@
+@use './basic.scss';
+@use './workspace.scss';
+@use './editor.scss';
+@use './plugin.scss';
+
 /* ====== style setting ====== */
 
 .mod-settings .vertical-tab-content>.setting-item:nth-child(2)>.setting-item-control>input[type=color] {
@@ -117,6 +122,7 @@ body:not(.loading-text) .setting-item[data-id='loading-text-content'],
 body:not(.search-internal-enable) .setting-item:is([data-id='search-internal-expand-on-focus'], [data-id="search-internal-disable-select-all"]),
 body:not(.color-use-custom) .setting-item[data-id*='color-accent-'],
 body:not(.code-language) .setting-item[data-id='setting-code-language-color'],
+body:not(.code-preview-bg) .setting-item[data-id='setting-code-bg-outer'],
 body:not(.modal-header) .setting-item[data-id='setting-modal-header-title'],
 body:not(.color-use-custom) .setting-item[data-id^='accent-hue'],
 body:not(.color-active-custom-light) .setting-item[data-id='setting-color-active-custom-light'],
