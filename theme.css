@@ -516,13 +516,13 @@ settings:
         type: class-toggle
     -
         id: scrollbar-gutter
-        title: scrollbar gutter config
+        title: scrollbar gutter configuration
         description: make the scrollbar won't squeezing the parent container (overlay) / reserve scroll gutter instead of float the bar (reserve)
-        title.zh: 控制滚动条槽
+        title.zh: 滚动条槽配置
         description.zh: 默认（default）/ 悬浮滚动条，使滚动条出现时不会挤压父容器（overlay）/ 预留滚动条位置（reserve）
         type: class-select
         allowEmpty: false
-        default: scrollbar-gutter-default
+        default: scrollbar-gutter-overlay
         options:
             -   label: default
                 value: scrollbar-gutter-default
