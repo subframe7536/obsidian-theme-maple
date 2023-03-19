@@ -1917,7 +1917,7 @@ body .markdown-rendered pre .copy-code-button:hover {
 }
 
 .code-nowrap.scrollbar-gutter-overlay:not(.code-mac-style-header) .app-container div pre {
-  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.7) !important;
+  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.8) !important;
 }
 .code-nowrap.scrollbar-gutter-overlay pre code {
   padding-bottom: var(--size-2-3);
@@ -2272,7 +2272,7 @@ body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"])
 body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
   position: absolute;
   right: var(--size-4-9);
-  top: 0;
+  top: var(--size-4-2);
   z-index: 99;
   opacity: 0;
   transition: var(--animation);
@@ -2280,6 +2280,7 @@ body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"])
 body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) * {
   font-size: 1rem;
   cursor: pointer;
+  line-height: 1rem;
 }
 body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) *::after {
   content: none;
@@ -2935,7 +2936,7 @@ body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
 
 /* ====== 段落 ====== */
 .markdown-rendered p {
-  margin: var(--size-4-1) 0;
+  margin: var(--size-4-1) 0 !important;
 }
 
 body.font-latex-text mjx-container mjx-utext {

@@ -205,7 +205,7 @@ body .markdown-rendered pre {
 .code-nowrap {
   &.scrollbar-gutter-overlay {
     &:not(.code-mac-style-header) .app-container div pre {
-      padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.7) !important;
+      padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.8) !important;
     }
 
     pre code {

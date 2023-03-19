@@ -72,7 +72,7 @@ body.embed-enable {
     &:not([src*="#^"]) .embed-title:empty+.markdown-embed-content .markdown-preview-section>div:nth-child(3) {
       position: absolute;
       right: var(--size-4-9);
-      top: 0;
+      top: var(--size-4-2);
       z-index: 99;
       opacity: 0;
       transition: var(--animation);
@@ -80,6 +80,7 @@ body.embed-enable {
       * {
         font-size: 1rem;
         cursor: pointer;
+        line-height: 1rem;
 
         &::after {
           content: none;
