@@ -425,7 +425,9 @@ settings:
     -
         id: modal-blur
         title: enable modal background blur
+        description: If there is a delay in scrolling, try turning this option off
         title.zh: 开启弹出框背景模糊
+        description.zh: 如果滚动时有卡顿，尝试关闭该选项
         type: class-toggle
         default: true
     -
