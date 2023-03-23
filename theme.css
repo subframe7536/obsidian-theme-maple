@@ -1371,6 +1371,14 @@ settings:
         type: variable-text
         default: "'年'"
     -
+        id: setting-calendar-max-width
+        title: max width
+        description: support any css max-width property
+        title.zh: 最大宽度
+        description.zh: 支持任何 css 的 max-width 属性值
+        type: variable-text
+        default: "250px"
+    -
         id: kanban
         title: kanban
         type: heading
@@ -3626,6 +3634,10 @@ body.calendar-weekend #calendar-container tbody tr td:nth-last-child(1) {
   padding-block: 0;
 }
 
+body #calendar-container {
+  max-width: var(--setting-calendar-max-width, 250px);
+  margin-inline: auto;
+}
 body #calendar-container .day {
   padding: var(--size-2-1) var(--size-4-1) !important;
   border: none;

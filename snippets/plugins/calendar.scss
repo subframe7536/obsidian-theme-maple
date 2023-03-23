@@ -125,6 +125,9 @@ body.calendar-weekend #calendar-container {
 }
 
 body #calendar-container {
+  max-width: var(--setting-calendar-max-width, 250px);
+  margin-inline: auto;
+
   .day {
     padding: var(--size-2-1) var(--size-4-1) !important;
     border: none;
