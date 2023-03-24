@@ -95,8 +95,10 @@
   border-radius: 0 !important;
 
   .cm-fold-indicator .collapse-indicator {
-    padding-right: var(--size-4-3) !important;
-    right: calc(var(--size-4-2) * -1) !important;
+    padding-left: var(--size-4-3);
+    padding-right: unset !important;
+    left: calc(var(--size-4-2) * -3);
+    right: unset !important;
     cursor: pointer;
   }
 

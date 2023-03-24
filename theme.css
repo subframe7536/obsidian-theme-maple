@@ -1840,8 +1840,10 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
   border-radius: 0 !important;
 }
 .cm-s-obsidian .cm-line.HyperMD-codeblock .cm-fold-indicator .collapse-indicator {
-  padding-right: var(--size-4-3) !important;
-  right: calc(var(--size-4-2) * -1) !important;
+  padding-left: var(--size-4-3);
+  padding-right: unset !important;
+  left: calc(var(--size-4-2) * -3);
+  right: unset !important;
   cursor: pointer;
 }
 .cm-s-obsidian .cm-line.HyperMD-codeblock.HyperMD-codeblock-begin-bg {
