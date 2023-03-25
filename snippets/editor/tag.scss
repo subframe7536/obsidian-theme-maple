@@ -1,5 +1,9 @@
 /* ====== 标签tag ====== */
 
+body {
+  --tag-color: var(--accent-active);
+}
+
 .HyperMD-header .cm-hashtag {
   font-size: var(--tag-size) !important;
 }
@@ -14,6 +18,10 @@
 
 body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
   pointer-events: none;
+}
+
+body.tag-plain {
+  --tag-background: transparent;
 }
 
 body.tag-outline .cm-hashtag {

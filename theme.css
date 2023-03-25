@@ -1301,7 +1301,7 @@ settings:
         title.zh: 标签样式
         type: class-select
         allowEmpty: false
-        default: tag-plain
+        default: tag-outline
         options:
             -   label: plain
                 value: tag-plain
@@ -2218,7 +2218,7 @@ body .markdown-rendered pre .copy-code-button:hover {
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.boolean, .number), .cm-number) {
   color: var(--code-value);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta:not(.cm-hashtag)) {
   color: var(--code-string);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string, .cm-def, .cm-number + .cm-variable) {
@@ -2944,6 +2944,10 @@ body.table-colorful table th:last-child {
 }
 
 /* ====== 标签tag ====== */
+body {
+  --tag-color: var(--accent-active);
+}
+
 .HyperMD-header .cm-hashtag {
   font-size: var(--tag-size) !important;
 }
@@ -2958,6 +2962,10 @@ body.table-colorful table th:last-child {
 
 body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
   pointer-events: none;
+}
+
+body.tag-plain {
+  --tag-background: transparent;
 }
 
 body.tag-outline .cm-hashtag {

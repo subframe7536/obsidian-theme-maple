@@ -285,7 +285,7 @@ body .markdown-rendered pre {
     color: var(--code-value);
   }
 
-  :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta) {
+  :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta:not(.cm-hashtag)) {
     color: var(--code-string);
   }
 
