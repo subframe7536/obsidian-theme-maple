@@ -4,6 +4,24 @@
   font-size: var(--tag-size) !important;
 }
 
+:is(body, .print .markdown-rendered) {
+  --tag-padding-y: 0.05rem;
+}
+
+.cm-line span.cm-hashtag {
+  vertical-align: baseline;
+}
+
+body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
+  pointer-events: none;
+}
+
+body.tag-outline .cm-hashtag {
+  border-color: var(--setting-tag-outline, var(--accent-inactive)) !important;
+  border-width: var(--size-2-1) !important;
+  color: var(--setting-tag-color, var(--accent-active)) !important;
+}
+
 body.tag-colorful {
   @for $i from 1 through 6 {
     $index: $i - 1;
@@ -24,7 +42,9 @@ body.tag-colorful {
 
     $start: 'span.cm-hashtag-begin:nth-child';
 
-    :is(#{$start}(5n + #{$index}), #{$start}(5n + #{$index})+.cm-hashtag, #{$start}(5n + #{$index})+.cm-hashtag+.cm-hashtag-end, .markdown-preview-section>div a.tag:nth-of-type(5n + #{$i})) {
+    :is(#{$start}(5n + #{$index}), #{$start}(5n + #{$index})+.cm-hashtag,
+      #{$start}(5n + #{$index})+.cm-hashtag+.cm-hashtag-end,
+      .markdown-preview-section>div a.tag:nth-of-type(5n + #{$i})) {
       --tag-background: var(--tag-#{$i}, var(--tag-#{$i}-default));
       color: var(--text-on-accent) !important;
     }
@@ -37,16 +57,4 @@ body.tag-colorful {
       color: var(--text-normal) !important;
     }
   }
-}
-
-:is(body, .print .markdown-rendered) {
-  --tag-padding-y: 0.1rem;
-}
-
-.cm-line span.cm-hashtag {
-  vertical-align: baseline;
-}
-
-body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
-  pointer-events: none;
 }

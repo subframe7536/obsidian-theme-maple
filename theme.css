@@ -442,7 +442,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.5.1'"
+        default: "'maple 0.5.2'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -716,24 +716,7 @@ settings:
         type: heading
         collapsed: true
         level: 2
-    -
-        id: setting-link-internal-color
-        title: internal link color
-        title.zh: 内部链接颜色
-        type: variable-themed-color
-        format: rgb-value
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: setting-link-external-color
-        title: external link color
-        title.zh: 外部链接颜色
-        type: variable-themed-color
-        format: rgb-value
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
+
     -
         id: link-hover-expand
         title: use underline animation on hover
@@ -752,6 +735,49 @@ settings:
         title.zh: live preview 模式时点击链接进行编辑而不是跳转
         description.zh: ❗鼠标经过动画会消失，外部链接的前置图标会消失
         type: class-toggle
+    -
+        id: link-color
+        title: link color
+        title.zh: 链接颜色
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-link-internal-color
+        title: internal link color
+        title.zh: 内部链接颜色
+        type: variable-themed-color
+        format: rgb-value
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-link-internal-color-underline
+        title: internal link underline color
+        title.zh: 内部链接下划线颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-link-external-color
+        title: external link color
+        title.zh: 外部链接颜色
+        type: variable-themed-color
+        format: rgb-value
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-link-external-color-underline
+        title: external link underline color
+        title.zh: 外部链接下划线颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
     -
         id: heading
         title: heading
@@ -1270,16 +1296,50 @@ settings:
         description.zh: 点击'#'跳转
         type: class-toggle
     -
-        id: tag-colorful
-        title: enable colorful tag
-        description: ❗maybe different style between edit mode and preview mode
-        title.zh: 开启多彩标签
-        description.zh: ❗编辑模式和预览模式颜色会不一样
-        type: class-toggle
+        id: tag-style
+        title: tag style
+        title.zh: 标签样式
+        type: class-select
+        allowEmpty: false
+        default: tag-plain
+        options:
+            -   label: plain
+                value: tag-plain
+            -   label: outline
+                value: tag-outline
+            -   label: colorful
+                value: tag-colorful
+    -
+        id: tag-outline-setting
+        title: outline style setting
+        title.zh: 边框模式设置
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-tag-color
+        title: tag text color
+        title.zh: 标签文字颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-tag-border
+        title: tag border color
+        title.zh: 标签边框颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
     -
         id: tag-colorful-setting
-        title: tag color
-        title.zh: 标签颜色
+        title: colorful style setting
+        description: ❗maybe different style between edit mode and preview mode
+        title.zh: 多彩模式设置
+        description.zh: ❗编辑模式和预览模式颜色会不一样
         type: heading
         collapsed: true
         level: 3
@@ -1527,7 +1587,35 @@ body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
 body:not(.table-colorful) .setting-item[data-id^=setting-table],
 body:not(.embed-enable) .setting-item[data-id^=embed-title],
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
-body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] {
+body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting],
+body:not(.tag-outline) .setting-item[data-id=tag-outline-setting] {
+  display: none;
+}
+body.line-active-disable .setting-item[data-id=setting-line-active-color] + .style-settings-container,
+body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
+body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-break-all]) + .style-settings-container,
+body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor] + .style-settings-container,
+body.bg-default .setting-item[data-id=setting-bg-color] + .style-settings-container,
+body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover], [data-id=scrollbar-movein-animation], [data-id=scrollbar-gutter]) + .style-settings-container,
+:is(body.status-bar-scroll, body:not(.status-bar-float)) .setting-item[data-id=status-bar-style-center] + .style-settings-container,
+body:not(.tab-title-bar-round) .setting-item[data-id=tab-title-bar-shadow] + .style-settings-container,
+body:not(.loading-text) .setting-item[data-id=loading-text-content] + .style-settings-container,
+body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expand-on-focus], [data-id=search-internal-disable-select-all]) + .style-settings-container,
+body:not(.color-use-custom) .setting-item[data-id*=color-accent-] + .style-settings-container,
+body:not(.code-language) .setting-item[data-id=setting-code-language-color] + .style-settings-container,
+body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer] + .style-settings-container,
+body:not(.modal-header) .setting-item[data-id=setting-modal-header-title] + .style-settings-container,
+body:not(.color-use-custom) .setting-item[data-id^=accent-hue] + .style-settings-container,
+body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light] + .style-settings-container,
+body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-active-custom-dark] + .style-settings-container,
+body:not(.message-modify) .setting-item[data-id^=setting-message] + .style-settings-container,
+body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix] + .style-settings-container,
+body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom] + .style-settings-container,
+body:not(.table-colorful) .setting-item[data-id^=setting-table] + .style-settings-container,
+body:not(.embed-enable) .setting-item[data-id^=embed-title] + .style-settings-container,
+body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon] + .style-settings-container,
+body:not(.tag-colorful) .setting-item[data-id=tag-colorful-setting] + .style-settings-container,
+body:not(.tag-outline) .setting-item[data-id=tag-outline-setting] + .style-settings-container {
   display: none;
 }
 
@@ -2362,9 +2450,11 @@ body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr::after 
   --link-external-color-rgb: var(--setting-link-external-color, var(--color-orange-rgb));
   --link-color: rgba(var(--link-color-rgb), var(--color-opacity));
   --link-color-hover: var(--link-color);
+  --link-color-underline: var(--setting-link-internal-color-underline, var(--link-color));
   --link-external-color: rgba(var(--link-external-color-rgb), var(--color-opacity));
   --link-external-color-hover: var(--link-external-color);
-  --link-unresolved-color: var(--text-faint);
+  --link-external-color-underline: var(--setting-link-external-color-underline, var(--link-external-color));
+  --link-unresolved-decoration-color: var(--link-unresolve-color);
   --link-footnote: var(--color-purple);
 }
 
@@ -2385,8 +2475,11 @@ body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr::after 
   pointer-events: none;
 }
 
-a.is-unresolved:hover {
-  --link-color-hover: var(--link-unresolved-color);
+.is-unresolved {
+  transition: var(--animation);
+}
+.is-unresolved:hover {
+  --link-color-hover: rgba(var(--link-color-rgb), 0.6) !important;
 }
 
 .cm-s-obsidian .cm-formatting-link-string + span.cm-url {
@@ -2397,29 +2490,31 @@ body span:is(.cm-formatting-link, .cm-formatting-link-string) {
   color: rgba(var(--color-green-rgb), 0.6) !important;
 }
 
-body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string)) {
+body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline) {
   transition: var(--animation);
-  color: rgb(var(--link-external-color-rgb));
+  color: rgba(var(--link-external-color-rgb), var(--color-opacity));
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
+  text-decoration-color: var(--link-external-color-underline);
 }
-body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string)):hover {
-  background-color: rgb(var(--link-external-color-rgb), 0.15);
+body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline):hover {
+  background-color: rgba(var(--link-external-color-rgb), 0.15);
 }
-body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string)):active {
-  background-color: rgb(var(--link-external-color-rgb), 0.35);
+body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline):active {
+  background-color: rgba(var(--link-external-color-rgb), 0.35);
 }
-body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline) {
+body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline) {
   transition: var(--animation);
-  color: rgb(var(--link-color-rgb));
+  color: rgba(var(--link-color-rgb), var(--color-opacity));
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
+  text-decoration-color: var(--link-color-underline);
 }
-body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline):hover {
-  background-color: rgb(var(--link-color-rgb), 0.15);
+body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):hover {
+  background-color: rgba(var(--link-color-rgb), 0.15);
 }
-body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline):active {
-  background-color: rgb(var(--link-color-rgb), 0.35);
+body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):active {
+  background-color: rgba(var(--link-color-rgb), 0.35);
 }
 body:not(.link-hover-expand) span:is(.cm-link, .cm-hmd-internal-link):hover {
   text-decoration: none;
@@ -2432,44 +2527,50 @@ body.link-hover-expand .cm-url {
 body.link-hover-expand .cm-link {
   --link-external-decoration-hover: none;
 }
-body.link-hover-expand .cm-hmd-internal-link {
+body.link-hover-expand .cm-hmd-internal-link > .cm-underline {
   --link-decoration-hover: none;
 }
-body.link-hover-expand :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline) {
+body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline) {
   font-size: var(--font-text-size);
   text-underline-offset: var(--link-offset);
   color: var(--link-external-color) !important;
   text-decoration-line: underline !important;
   text-decoration-skip-ink: none;
-  text-decoration-color: var(--link-external-color) !important;
+  text-decoration-color: var(--link-external-color-underline) !important;
   text-decoration-thickness: var(--link-thickness) !important;
   transition: --link-offset var(--animation), --link-thickness var(--animation), color var(--animation);
 }
-body.link-hover-expand :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline):hover, body.link-hover-expand :is(a.external-link, :is(.cm-link, .cm-url) .cm-underline):focus {
+body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline):hover, body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline):focus {
   color: var(--text-on-accent) !important;
   --link-offset: calc(-1 * var(--size-2-1) - var(--font-text-size));
   --link-thickness: calc(var(--font-text-size) + var(--size-4-2));
 }
-body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline) {
+body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline)::selection {
+  text-decoration-color: var(--link-external-color-underline) !important;
+}
+body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline) {
   font-size: var(--font-text-size);
   text-underline-offset: var(--link-offset);
   color: var(--link-color) !important;
   text-decoration-line: underline !important;
   text-decoration-skip-ink: none;
-  text-decoration-color: var(--link-color) !important;
+  text-decoration-color: var(--link-color-underline) !important;
   text-decoration-thickness: var(--link-thickness) !important;
   transition: --link-offset var(--animation), --link-thickness var(--animation), color var(--animation);
 }
-body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline):hover, body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline):focus {
+body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):hover, body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):focus {
   color: var(--text-on-accent) !important;
   --link-offset: calc(-1 * var(--size-2-1) - var(--font-text-size));
   --link-thickness: calc(var(--font-text-size) + var(--size-4-2));
+}
+body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline)::selection {
+  text-decoration-color: var(--link-color-underline) !important;
 }
 body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   transition: color var(--animation);
 }
 
-body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline)::before {
+body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline)::before {
   content: "";
   display: inline-block;
   transform: translateY(var(--size-2-1));
@@ -2478,7 +2579,7 @@ body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal
   background-color: var(--link-color);
   margin-inline: var(--size-2-1);
 }
-body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link, :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) .cm-underline):not(.cm-escape + .cm-link .cm-underline)::before {
+body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved), :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline):not(.cm-escape + .cm-link .cm-underline)::before {
   content: "";
   display: inline-block;
   width: calc(var(--font-text-size) - var(--size-4-1));
@@ -2843,6 +2944,24 @@ body.table-colorful table th:last-child {
   font-size: var(--tag-size) !important;
 }
 
+:is(body, .print .markdown-rendered) {
+  --tag-padding-y: 0.05rem;
+}
+
+.cm-line span.cm-hashtag {
+  vertical-align: baseline;
+}
+
+body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
+  pointer-events: none;
+}
+
+body.tag-outline .cm-hashtag {
+  border-color: var(--setting-tag-outline, var(--accent-inactive)) !important;
+  border-width: var(--size-2-1) !important;
+  color: var(--setting-tag-color, var(--accent-active)) !important;
+}
+
 :is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
   --tag-1-default: hsl(calc(var(--accent-h) + 0),
     50%,
@@ -2853,7 +2972,9 @@ body.table-colorful table th:last-child {
     30%,
     40%);
 }
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+0), span.cm-hashtag-begin:nth-child(5n+0) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+0) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 1)) {
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+0), span.cm-hashtag-begin:nth-child(5n+0) + .cm-hashtag,
+span.cm-hashtag-begin:nth-child(5n+0) + .cm-hashtag + .cm-hashtag-end,
+.markdown-preview-section > div a.tag:nth-of-type(5n + 1)) {
   --tag-background: var(--tag-1, var(--tag-1-default));
   color: var(--text-on-accent) !important;
 }
@@ -2867,7 +2988,9 @@ body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+0), span.cm-hashtag-beg
     30%,
     40%);
 }
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+1), span.cm-hashtag-begin:nth-child(5n+1) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+1) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 2)) {
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+1), span.cm-hashtag-begin:nth-child(5n+1) + .cm-hashtag,
+span.cm-hashtag-begin:nth-child(5n+1) + .cm-hashtag + .cm-hashtag-end,
+.markdown-preview-section > div a.tag:nth-of-type(5n + 2)) {
   --tag-background: var(--tag-2, var(--tag-2-default));
   color: var(--text-on-accent) !important;
 }
@@ -2881,7 +3004,9 @@ body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+1), span.cm-hashtag-beg
     30%,
     40%);
 }
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+2), span.cm-hashtag-begin:nth-child(5n+2) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+2) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 3)) {
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+2), span.cm-hashtag-begin:nth-child(5n+2) + .cm-hashtag,
+span.cm-hashtag-begin:nth-child(5n+2) + .cm-hashtag + .cm-hashtag-end,
+.markdown-preview-section > div a.tag:nth-of-type(5n + 3)) {
   --tag-background: var(--tag-3, var(--tag-3-default));
   color: var(--text-on-accent) !important;
 }
@@ -2895,7 +3020,9 @@ body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+2), span.cm-hashtag-beg
     30%,
     40%);
 }
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+3), span.cm-hashtag-begin:nth-child(5n+3) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+3) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 4)) {
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+3), span.cm-hashtag-begin:nth-child(5n+3) + .cm-hashtag,
+span.cm-hashtag-begin:nth-child(5n+3) + .cm-hashtag + .cm-hashtag-end,
+.markdown-preview-section > div a.tag:nth-of-type(5n + 4)) {
   --tag-background: var(--tag-4, var(--tag-4-default));
   color: var(--text-on-accent) !important;
 }
@@ -2909,7 +3036,9 @@ body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+3), span.cm-hashtag-beg
     30%,
     40%);
 }
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+4), span.cm-hashtag-begin:nth-child(5n+4) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+4) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 5)) {
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+4), span.cm-hashtag-begin:nth-child(5n+4) + .cm-hashtag,
+span.cm-hashtag-begin:nth-child(5n+4) + .cm-hashtag + .cm-hashtag-end,
+.markdown-preview-section > div a.tag:nth-of-type(5n + 5)) {
   --tag-background: var(--tag-5, var(--tag-5-default));
   color: var(--text-on-accent) !important;
 }
@@ -2923,7 +3052,9 @@ body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+4), span.cm-hashtag-beg
     30%,
     40%);
 }
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+5), span.cm-hashtag-begin:nth-child(5n+5) + .cm-hashtag, span.cm-hashtag-begin:nth-child(5n+5) + .cm-hashtag + .cm-hashtag-end, .markdown-preview-section > div a.tag:nth-of-type(5n + 6)) {
+body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+5), span.cm-hashtag-begin:nth-child(5n+5) + .cm-hashtag,
+span.cm-hashtag-begin:nth-child(5n+5) + .cm-hashtag + .cm-hashtag-end,
+.markdown-preview-section > div a.tag:nth-of-type(5n + 6)) {
   --tag-background: var(--tag-6, var(--tag-6-default));
   color: var(--text-on-accent) !important;
 }
@@ -2932,18 +3063,6 @@ body.tag-colorful .app-container .markdown-rendered a.tag {
 }
 body.tag-colorful .app-container .markdown-rendered a.tag:hover {
   color: var(--text-normal) !important;
-}
-
-:is(body, .print .markdown-rendered) {
-  --tag-padding-y: 0.1rem;
-}
-
-.cm-line span.cm-hashtag {
-  vertical-align: baseline;
-}
-
-body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
-  pointer-events: none;
 }
 
 /* ====== 段落 ====== */
@@ -4514,7 +4633,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.5.1");
+  content: var(--setting-header-title, "maple 0.5.2");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);

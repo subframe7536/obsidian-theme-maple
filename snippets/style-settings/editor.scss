@@ -181,24 +181,7 @@ settings:
         type: heading
         collapsed: true
         level: 2
-    -
-        id: setting-link-internal-color
-        title: internal link color
-        title.zh: 内部链接颜色
-        type: variable-themed-color
-        format: rgb-value
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: setting-link-external-color
-        title: external link color
-        title.zh: 外部链接颜色
-        type: variable-themed-color
-        format: rgb-value
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
+
     -
         id: link-hover-expand
         title: use underline animation on hover
@@ -217,6 +200,49 @@ settings:
         title.zh: live preview 模式时点击链接进行编辑而不是跳转
         description.zh: ❗鼠标经过动画会消失，外部链接的前置图标会消失
         type: class-toggle
+    -
+        id: link-color
+        title: link color
+        title.zh: 链接颜色
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-link-internal-color
+        title: internal link color
+        title.zh: 内部链接颜色
+        type: variable-themed-color
+        format: rgb-value
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-link-internal-color-underline
+        title: internal link underline color
+        title.zh: 内部链接下划线颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-link-external-color
+        title: external link color
+        title.zh: 外部链接颜色
+        type: variable-themed-color
+        format: rgb-value
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-link-external-color-underline
+        title: external link underline color
+        title.zh: 外部链接下划线颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
     -
         id: heading
         title: heading
@@ -735,16 +761,50 @@ settings:
         description.zh: 点击'#'跳转
         type: class-toggle
     -
-        id: tag-colorful
-        title: enable colorful tag
-        description: ❗maybe different style between edit mode and preview mode
-        title.zh: 开启多彩标签
-        description.zh: ❗编辑模式和预览模式颜色会不一样
-        type: class-toggle
+        id: tag-style
+        title: tag style
+        title.zh: 标签样式
+        type: class-select
+        allowEmpty: false
+        default: tag-plain
+        options:
+            -   label: plain
+                value: tag-plain
+            -   label: outline
+                value: tag-outline
+            -   label: colorful
+                value: tag-colorful
+    -
+        id: tag-outline-setting
+        title: outline style setting
+        title.zh: 边框模式设置
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-tag-color
+        title: tag text color
+        title.zh: 标签文字颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-tag-border
+        title: tag border color
+        title.zh: 标签边框颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
     -
         id: tag-colorful-setting
-        title: tag color
-        title.zh: 标签颜色
+        title: colorful style setting
+        description: ❗maybe different style between edit mode and preview mode
+        title.zh: 多彩模式设置
+        description.zh: ❗编辑模式和预览模式颜色会不一样
         type: heading
         collapsed: true
         level: 3
