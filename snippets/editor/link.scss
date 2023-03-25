@@ -79,6 +79,10 @@
   }
 }
 
+body .cm-s-obsidian .cm-url {
+  text-decoration: none;
+}
+
 .cm-s-obsidian .cm-formatting-link-string+span.cm-url {
   color: var(--link-color);
 }

@@ -2482,6 +2482,10 @@ body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr::after 
   --link-color-hover: rgba(var(--link-color-rgb), 0.6) !important;
 }
 
+body .cm-s-obsidian .cm-url {
+  text-decoration: none;
+}
+
 .cm-s-obsidian .cm-formatting-link-string + span.cm-url {
   color: var(--link-color);
 }
