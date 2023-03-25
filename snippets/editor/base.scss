@@ -184,7 +184,3 @@ a :is(em, strong) {
 .view-header-title-container:not(.mod-at-end):after {
   content: none;
 }
-
-.view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
-  padding-top: 0;
-}

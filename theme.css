@@ -3232,10 +3232,6 @@ a :is(em, strong):hover {
   content: none;
 }
 
-.view-content :is(.cm-scroller, .markdown-reading-view > .markdown-preview-view) {
-  padding-top: 0;
-}
-
 /* ======= 标题heading ====== */
 body {
   --font-bold: bold;
