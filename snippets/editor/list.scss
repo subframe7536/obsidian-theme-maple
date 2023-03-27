@@ -19,7 +19,6 @@
 }
 
 :is(.markdown-rendered, .markdown-source-view.mod-cm6) input[type='checkbox'] {
-  --checkbox-marker-color: var(--text-on-accent);
   transition: var(--animation);
   border-width: var(--size-2-1);
 
@@ -34,12 +33,15 @@
   transform: translateX(0.4em) !important;
 }
 
-body {
+body.list-enable {
   :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered, .cm-callout) {
     --list-bullet-base: var(--size-4-3);
     --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-    --list-marker-color: var(--accent-active);
-    --list-marker-color-alt: var(--accent-active);
+    --list-marker-color: var(--setting-list-marker, var(--accent-active));
+    --list-marker-color-alt: var(--setting-list-marker-alt, var(--accent-active));
+    --checkbox-color: var(--setting-list-checkbox-bg, var(--accent-active));
+    --checkbox-marker-color: var(--setting-list-checkbox-color, var(--text-on-accent));
+    --checkbox-border-color: var(--setting-list-checkbox-border, var(--accent-active));
     --list-spacing: 0;
   }
 
@@ -99,28 +101,27 @@ body {
       }
 
     }
-  }
 
-
-  .mode-root ul>li>ul>li {
-    --list-marker-color: transparent;
-    --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-    --list-bullet-border: 2px solid var(--list-marker-color-alt);
-
-    ul>li {
-      --list-marker-color: var(--list-marker-color-alt);
-      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
-      --list-bullet-radius: 1px;
-
-      .list-bullet:after {
-        transform: rotate(45deg);
-      }
+    ul>li>ul>li {
+      --list-marker-color: transparent;
+      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
+      --list-bullet-border: 2px solid var(--list-marker-color-alt);
 
       ul>li {
+        --list-marker-color: var(--list-marker-color);
         --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
-        --list-marker-color: transparent;
-        --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
         --list-bullet-radius: 1px;
+
+        .list-bullet:after {
+          transform: rotate(45deg);
+        }
+
+        ul>li {
+          --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
+          --list-marker-color: transparent;
+          --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
+          --list-bullet-radius: 1px;
+        }
       }
     }
   }

@@ -659,6 +659,71 @@ settings:
         type: class-toggle
         default: true
     -
+        id: list
+        title: list
+        title.zh: 列表
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: list-enable
+        title: enable list style
+        title.zh: 启用列表样式
+        type: class-toggle
+        default: true
+    -
+        id: setting-list-marker
+        title: list marker color
+        title.zh: 列表标号颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-list-marker-alt
+        title: list marker alt color
+        title.zh: 列表标号颜色 2
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: list-checkbox
+        title: checkbox
+        title.zh: 勾选框
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-list-checkbox-color
+        title: checkbox marker color
+        title.zh: 勾选框颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-list-checkbox-bg
+        title: checkbox marker background
+        title.zh: 勾选框背景色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-list-checkbox-border
+        title: checkbox marker border
+        title.zh: 勾选框边框
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
         id: code
         title: code
         title.zh: 代码

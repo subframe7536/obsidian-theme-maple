@@ -442,7 +442,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.5.3'"
+        default: "'maple 0.5.4'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1194,6 +1194,71 @@ settings:
         type: class-toggle
         default: true
     -
+        id: list
+        title: list
+        title.zh: 列表
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: list-enable
+        title: enable list style
+        title.zh: 启用列表样式
+        type: class-toggle
+        default: true
+    -
+        id: setting-list-marker
+        title: list marker color
+        title.zh: 列表标号颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-list-marker-alt
+        title: list marker alt color
+        title.zh: 列表标号颜色 2
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: list-checkbox
+        title: checkbox
+        title.zh: 勾选框
+        type: heading
+        collapsed: true
+        level: 3
+    -
+        id: setting-list-checkbox-color
+        title: checkbox marker color
+        title.zh: 勾选框颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-list-checkbox-bg
+        title: checkbox marker background
+        title.zh: 勾选框背景色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-list-checkbox-border
+        title: checkbox marker border
+        title.zh: 勾选框边框
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
         id: code
         title: code
         title.zh: 代码
@@ -1575,6 +1640,7 @@ body:not(.tab-title-bar-round) .setting-item[data-id=tab-title-bar-shadow],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expand-on-focus], [data-id=search-internal-disable-select-all]),
 body:not(.color-use-custom) .setting-item[data-id*=color-accent-],
+body:not(.list-enable) .setting-item:is([data-id*=setting-list-], [data-id=list-checkbox]),
 body:not(.code-language) .setting-item[data-id=setting-code-language-color],
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer],
 body:not(.modal-header) .setting-item[data-id=setting-modal-header-title],
@@ -1602,6 +1668,7 @@ body:not(.tab-title-bar-round) .setting-item[data-id=tab-title-bar-shadow] + .st
 body:not(.loading-text) .setting-item[data-id=loading-text-content] + .style-settings-container,
 body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expand-on-focus], [data-id=search-internal-disable-select-all]) + .style-settings-container,
 body:not(.color-use-custom) .setting-item[data-id*=color-accent-] + .style-settings-container,
+body:not(.list-enable) .setting-item:is([data-id*=setting-list-], [data-id=list-checkbox]) + .style-settings-container,
 body:not(.code-language) .setting-item[data-id=setting-code-language-color] + .style-settings-container,
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer] + .style-settings-container,
 body:not(.modal-header) .setting-item[data-id=setting-modal-header-title] + .style-settings-container,
@@ -2621,7 +2688,6 @@ body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-inte
 }
 
 :is(.markdown-rendered, .markdown-source-view.mod-cm6) input[type=checkbox] {
-  --checkbox-marker-color: var(--text-on-accent);
   transition: var(--animation);
   border-width: var(--size-2-1);
 }
@@ -2635,103 +2701,106 @@ body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-inte
   transform: translateX(0.4em) !important;
 }
 
-body :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered, .cm-callout) {
+body.list-enable :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered, .cm-callout) {
   --list-bullet-base: var(--size-4-3);
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-  --list-marker-color: var(--accent-active);
-  --list-marker-color-alt: var(--accent-active);
+  --list-marker-color: var(--setting-list-marker, var(--accent-active));
+  --list-marker-color-alt: var(--setting-list-marker-alt, var(--accent-active));
+  --checkbox-color: var(--setting-list-checkbox-bg, var(--accent-active));
+  --checkbox-marker-color: var(--setting-list-checkbox-color, var(--text-on-accent));
+  --checkbox-border-color: var(--setting-list-checkbox-border, var(--accent-active));
   --list-spacing: 0;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) {
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) :is(ul, ol) {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) :is(ul, ol) {
   padding-inline-start: 2.1rem;
   margin: var(--size-2-1) 0;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) :is(ul, ol) :is(ul, ol) {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) :is(ul, ol) :is(ul, ol) {
   padding-inline-start: 2.1rem;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) :is(ul, ol) li {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) :is(ul, ol) li {
   margin: var(--size-4-2) auto;
   line-height: 1.8rem;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ul {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ul {
   padding-inline-start: 1.2rem;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ul.contains-task-list {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ul.contains-task-list {
   padding-inline-start: 1.6rem;
   margin-inline-start: 0 !important;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ol li::marker {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ol li::marker {
   font-family: var(--font-monospace);
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ol li .list-collapse-indicator {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ol li .list-collapse-indicator {
   margin-left: -3.5rem !important;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide .contains-task-list .task-list-item-checkbox {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide .contains-task-list .task-list-item-checkbox {
   margin-right: var(--size-4-2);
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide .contains-task-list .contains-task-list {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide .contains-task-list .contains-task-list {
   margin-inline-start: 0.1rem !important;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide .contains-task-list .contains-task-list::before {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide .contains-task-list .contains-task-list::before {
   left: -1.2rem;
 }
-body :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide li > ol::before {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout).show-indentation-guide li > ol::before {
   left: -1.55rem;
 }
-body .mode-root ul > li > ul > li {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ul > li > ul > li {
   --list-marker-color: transparent;
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
   --list-bullet-border: 2px solid var(--list-marker-color-alt);
 }
-body .mode-root ul > li > ul > li ul > li {
-  --list-marker-color: var(--list-marker-color-alt);
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ul > li > ul > li ul > li {
+  --list-marker-color: var(--list-marker-color);
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
   --list-bullet-radius: 1px;
 }
-body .mode-root ul > li > ul > li ul > li .list-bullet:after {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ul > li > ul > li ul > li .list-bullet:after {
   transform: rotate(45deg);
 }
-body .mode-root ul > li > ul > li ul > li ul > li {
+body.list-enable :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) ul > li > ul > li ul > li ul > li {
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
   --list-marker-color: transparent;
   --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
   --list-bullet-radius: 1px;
 }
-body .markdown-source-view.mod-cm6 .cm-line.HyperMD-list-line:not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
+body.list-enable .markdown-source-view.mod-cm6 .cm-line.HyperMD-list-line:not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
   padding-right: 0.5rem;
   right: 0;
 }
-body .markdown-source-view.mod-cm6 .cm-formatting-list {
+body.list-enable .markdown-source-view.mod-cm6 .cm-formatting-list {
   font-family: var(--font-monospace);
 }
-body .markdown-source-view.mod-cm6 .HyperMD-list-line > .list-bullet:after {
+body.list-enable .markdown-source-view.mod-cm6 .HyperMD-list-line > .list-bullet:after {
   content: none;
 }
-body .markdown-source-view.mod-cm6 .HyperMD-list-line-1 .list-bullet {
+body.list-enable .markdown-source-view.mod-cm6 .HyperMD-list-line-1 .list-bullet {
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
 }
-body .markdown-source-view.mod-cm6 .HyperMD-list-line-2 .list-bullet {
+body.list-enable .markdown-source-view.mod-cm6 .HyperMD-list-line-2 .list-bullet {
   --list-marker-color: transparent;
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
   --list-bullet-border: 2px solid var(--list-marker-color-alt);
 }
-body .markdown-source-view.mod-cm6 .HyperMD-list-line-3 .list-bullet {
+body.list-enable .markdown-source-view.mod-cm6 .HyperMD-list-line-3 .list-bullet {
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
   --list-bullet-radius: 1px;
 }
-body .markdown-source-view.mod-cm6 .HyperMD-list-line-3 .list-bullet::after {
+body.list-enable .markdown-source-view.mod-cm6 .HyperMD-list-line-3 .list-bullet::after {
   transform: rotate(45deg);
 }
-body .markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet {
+body.list-enable .markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet {
   --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
   --list-marker-color: transparent;
   --list-bullet-border: 2px solid var(--list-marker-color-alt);
   --list-bullet-radius: 1px;
 }
-body .markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet::after {
+body.list-enable .markdown-source-view.mod-cm6 .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet::after {
   transform: rotate(45deg);
 }
 
@@ -4641,7 +4710,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.5.3");
+  content: var(--setting-header-title, "maple 0.5.4");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
