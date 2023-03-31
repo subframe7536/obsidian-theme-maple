@@ -13,38 +13,19 @@
   --link-footnote: var(--color-purple);
 }
 
-@property --link-offset {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 4px;
-}
-
-@property --link-thickness {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 2px;
-}
-
 @mixin hover-underline($color, $underline) {
   font-size: var(--font-text-size);
-  text-underline-offset: var(--link-offset);
+  box-shadow: inset 0 -0.1em 0 $underline;
+  text-decoration: none !important;
+  transition: var(--animation);
   color: $color !important;
-  text-decoration-line: underline !important;
-  text-decoration-skip-ink: none;
-  text-decoration-color: $underline !important;
-  text-decoration-thickness: var(--link-thickness) !important;
-  transition: --link-offset var(--animation), --link-thickness var(--animation),
-    color var(--animation);
 
   &:hover,
   &:focus {
-    color: var(--text-on-accent) !important;
-    --link-offset: calc(-1 * var(--size-2-1) - var(--font-text-size));
-    --link-thickness: calc(var(--font-text-size) + var(--size-4-2));
-  }
-
-  &::selection {
-    text-decoration-color: $underline !important;
+    // color: var(--text-on-accent) !important;
+    box-shadow: inset 0 -1.3em 0 $underline;
+    --link-color: var(--setting-link-internal-color-hover, var(--text-on-accent));
+    --link-external-color: var(--setting-link-external-color-hover, var(--text-on-accent));
   }
 }
 
@@ -56,6 +37,8 @@
   text-decoration-color: $underline;
 
   &:hover {
+    --link-color: var(--setting-link-internal-color-hover, var(--link-color));
+    --link-external-color: var(--setting-link-external-color-hover, var(--link-external-color));
     background-color: rgba($color, 0.15);
   }
 
@@ -100,9 +83,10 @@ body:not(.link-hover-expand) {
     @include hover-base(var(--link-color-rgb), var(--link-color-underline));
   }
 
-  span:is(.cm-link, .cm-hmd-internal-link):hover {
-    text-decoration: none;
-  }
+}
+
+span:is(.cm-url, .cm-link, .cm-hmd-internal-link, .cm-formatting-link.cm-url):hover {
+  text-decoration: none;
 }
 
 body.link-hover-expand {
@@ -136,6 +120,7 @@ body.link-icon {
   :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved), .cm-hmd-internal-link>.cm-underline)::before {
     content: '';
     display: inline-block;
+    transition: var(--animation);
     transform: translateY(var(--size-2-1));
     width: calc(var(--font-text-size) - var(--size-2-1));
     height: calc(var(--font-text-size) - var(--size-2-1));
@@ -148,6 +133,7 @@ body.link-icon {
     :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved), :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url)>.cm-underline):not(.cm-escape+.cm-link .cm-underline)::before {
       content: '';
       display: inline-block;
+      transition: var(--animation);
       width: calc(var(--font-text-size) - var(--size-4-1));
       height: calc(var(--font-text-size) - var(--size-4-1));
       margin-left: var(--size-2-1);

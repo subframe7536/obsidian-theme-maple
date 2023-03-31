@@ -9,6 +9,7 @@ body {
 }
 
 :is(body, .print .markdown-rendered) {
+  --tag-padding-x: 0.4rem;
   --tag-padding-y: 0.05rem;
 }
 

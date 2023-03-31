@@ -442,7 +442,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.5.4'"
+        default: "'maple 0.5.5'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -761,6 +761,15 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
+        id: setting-link-internal-color-hover
+        title: internal link hover color
+        title.zh: 内部链接鼠标经过时字体颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
         id: setting-link-external-color
         title: external link color
         title.zh: 外部链接颜色
@@ -773,6 +782,15 @@ settings:
         id: setting-link-external-color-underline
         title: external link underline color
         title.zh: 外部链接下划线颜色
+        type: variable-themed-color
+        format: rgb
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-link-external-color-hover
+        title: external link hover color
+        title.zh: 外部链接鼠标经过时文字颜色
         type: variable-themed-color
         format: rgb
         opacity: false
@@ -2525,16 +2543,6 @@ body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr::after 
   --link-footnote: var(--color-purple);
 }
 
-@property --link-offset {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: 4px;
-}
-@property --link-thickness {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: 2px;
-}
 .cm-hmd-footnote .cm-underline {
   color: var(--link-footnote) !important;
   font-size: var(--footnote-size);
@@ -2569,6 +2577,8 @@ body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-ur
   text-decoration-color: var(--link-external-color-underline);
 }
 body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline):hover {
+  --link-color: var(--setting-link-internal-color-hover, var(--link-color));
+  --link-external-color: var(--setting-link-external-color-hover, var(--link-external-color));
   background-color: rgba(var(--link-external-color-rgb), 0.15);
 }
 body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline):active {
@@ -2582,12 +2592,15 @@ body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-in
   text-decoration-color: var(--link-color-underline);
 }
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):hover {
+  --link-color: var(--setting-link-internal-color-hover, var(--link-color));
+  --link-external-color: var(--setting-link-external-color-hover, var(--link-external-color));
   background-color: rgba(var(--link-color-rgb), 0.15);
 }
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):active {
   background-color: rgba(var(--link-color-rgb), 0.35);
 }
-body:not(.link-hover-expand) span:is(.cm-link, .cm-hmd-internal-link):hover {
+
+span:is(.cm-url, .cm-link, .cm-hmd-internal-link, .cm-formatting-link.cm-url):hover {
   text-decoration: none;
 }
 
@@ -2603,39 +2616,27 @@ body.link-hover-expand .cm-hmd-internal-link > .cm-underline {
 }
 body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline) {
   font-size: var(--font-text-size);
-  text-underline-offset: var(--link-offset);
+  box-shadow: inset 0 -0.1em 0 var(--link-external-color-underline);
+  text-decoration: none !important;
+  transition: var(--animation);
   color: var(--link-external-color) !important;
-  text-decoration-line: underline !important;
-  text-decoration-skip-ink: none;
-  text-decoration-color: var(--link-external-color-underline) !important;
-  text-decoration-thickness: var(--link-thickness) !important;
-  transition: --link-offset var(--animation), --link-thickness var(--animation), color var(--animation);
 }
 body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline):hover, body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline):focus {
-  color: var(--text-on-accent) !important;
-  --link-offset: calc(-1 * var(--size-2-1) - var(--font-text-size));
-  --link-thickness: calc(var(--font-text-size) + var(--size-4-2));
-}
-body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline)::selection {
-  text-decoration-color: var(--link-external-color-underline) !important;
+  box-shadow: inset 0 -1.3em 0 var(--link-external-color-underline);
+  --link-color: var(--setting-link-internal-color-hover, var(--text-on-accent));
+  --link-external-color: var(--setting-link-external-color-hover, var(--text-on-accent));
 }
 body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline) {
   font-size: var(--font-text-size);
-  text-underline-offset: var(--link-offset);
+  box-shadow: inset 0 -0.1em 0 var(--link-color-underline);
+  text-decoration: none !important;
+  transition: var(--animation);
   color: var(--link-color) !important;
-  text-decoration-line: underline !important;
-  text-decoration-skip-ink: none;
-  text-decoration-color: var(--link-color-underline) !important;
-  text-decoration-thickness: var(--link-thickness) !important;
-  transition: --link-offset var(--animation), --link-thickness var(--animation), color var(--animation);
 }
 body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):hover, body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):focus {
-  color: var(--text-on-accent) !important;
-  --link-offset: calc(-1 * var(--size-2-1) - var(--font-text-size));
-  --link-thickness: calc(var(--font-text-size) + var(--size-4-2));
-}
-body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline)::selection {
-  text-decoration-color: var(--link-color-underline) !important;
+  box-shadow: inset 0 -1.3em 0 var(--link-color-underline);
+  --link-color: var(--setting-link-internal-color-hover, var(--text-on-accent));
+  --link-external-color: var(--setting-link-external-color-hover, var(--text-on-accent));
 }
 body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   transition: color var(--animation);
@@ -2644,6 +2645,7 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
 body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline)::before {
   content: "";
   display: inline-block;
+  transition: var(--animation);
   transform: translateY(var(--size-2-1));
   width: calc(var(--font-text-size) - var(--size-2-1));
   height: calc(var(--font-text-size) - var(--size-2-1));
@@ -2653,6 +2655,7 @@ body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal
 body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved), :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline):not(.cm-escape + .cm-link .cm-underline)::before {
   content: "";
   display: inline-block;
+  transition: var(--animation);
   width: calc(var(--font-text-size) - var(--size-4-1));
   height: calc(var(--font-text-size) - var(--size-4-1));
   margin-left: var(--size-2-1);
@@ -3022,6 +3025,7 @@ body {
 }
 
 :is(body, .print .markdown-rendered) {
+  --tag-padding-x: 0.4rem;
   --tag-padding-y: 0.05rem;
 }
 
@@ -4710,7 +4714,7 @@ body.modal-header .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.5.4");
+  content: var(--setting-header-title, "maple 0.5.5");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
