@@ -3,8 +3,8 @@
   "version": "0.5.5",
   "description": "Maple —— A Obsidian Theme",
   "scripts": {
-    "dev": "sass --watch snippets:vault/.obsidian/snippets --no-source-map --update",
-    "prod": "sass snippets/index.scss theme.css --no-source-map && node move.mjs"
+    "dev": "sass --watch src:vault/.obsidian/snippets --no-source-map --update",
+    "prod": "sass src/index.scss theme.css --no-source-map && node move.mjs"
   },
   "keywords": [
     "Obsidian"
