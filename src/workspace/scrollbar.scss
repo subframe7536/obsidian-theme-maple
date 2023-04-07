@@ -15,7 +15,7 @@ $horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-conta
 
 $kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items', '.kanban-plugin__autocomplete';
 
-$excalidraw: '.excalidraw-wrapper :is(.App-mobile-menu,.App-menu .Stack .Island.App-menu__left,.scrollbar)',
+$excalidraw: '.excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left,.scrollbar)',
   '.excalidraw-contextMenuContainer .popover';
 
 $janitor: '.janitor-scan-results';

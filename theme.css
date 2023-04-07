@@ -3729,6 +3729,10 @@ body.canvas-control-hide .canvas-control-group:hover {
   opacity: 1;
 }
 
+.callout-icon {
+  margin-block: auto;
+}
+
 /* ====== better command palette ======*/
 .better-command-palette p.better-command-palette-title {
   margin: var(--size-4-3) var(--size-4-6);
@@ -3856,6 +3860,7 @@ body #calendar-container .day {
 body .excalidraw {
   border-radius: 8px;
   background-color: transparent;
+  --ui-font: var(--font-interface);
   --help-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpath d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'%3E%3C/path%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'%3E%3C/line%3E%3C/svg%3E");
   --grip-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Ccircle cx='12' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='19' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='5' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='12' cy='15' r='1'%3E%3C/circle%3E%3Ccircle cx='19' cy='15' r='1'%3E%3C/circle%3E%3Ccircle cx='5' cy='15' r='1'%3E%3C/circle%3E%3C/svg%3E");
 }
@@ -5041,7 +5046,7 @@ body.scrollbar-hide ::-webkit-scrollbar {
 /* ! overflow: overlay 已废弃, 详见 https://developer.mozilla.org/en-US/docs/Web/CSS/overflow#values */
 /* 使用 @property: https://stackoverflow.com/a/74050413/20058211 */
 /* 使用 -webkit-text-fill-color: https://stackoverflow.com/a/46304690/20058211 */
-body:not(.is-mobile, .scrollbar-hide).scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
+body:not(.is-mobile, .scrollbar-hide).scrollbar-gutter-overlay :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
   overflow-y: overlay !important;
 }
 body:not(.is-mobile, .scrollbar-hide).scrollbar-gutter-overlay .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, body:not(.is-mobile, .scrollbar-hide).scrollbar-gutter-overlay .markdown-embed-content .markdown-rendered, body:not(.is-mobile, .scrollbar-hide).scrollbar-gutter-overlay pre code {
@@ -5079,11 +5084,11 @@ body:not(.is-mobile, .scrollbar-hide) ::-webkit-scrollbar-thumb:active {
 body:not(.is-mobile, .scrollbar-hide).scrollbar-movein-animation-disable {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body:not(.is-mobile, .scrollbar-hide):not(.scrollbar-movein-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
+body:not(.is-mobile, .scrollbar-hide):not(.scrollbar-movein-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
   transition: --scrollbar-color var(--animation);
   scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
 }
-body:not(.is-mobile, .scrollbar-hide):not(.scrollbar-movein-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-mobile-menu, .App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete):hover {
+body:not(.is-mobile, .scrollbar-hide):not(.scrollbar-movein-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete):hover {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
 body:not(.is-mobile, .scrollbar-hide):not(.scrollbar-movein-animation-disable) textarea {
