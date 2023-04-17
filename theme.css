@@ -5174,7 +5174,7 @@ body.tab-title-bar-text-hidden .workspace-leaf-content:not([data-type=excalidraw
 }
 
 body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]):is([data-type=markdown]) {
-  background-color: hsla(var(--setting-editor-bg, var(--background-secondary-hsl)), var(--bg-opacity));
+  background-color: hsla(var(--setting-editor-bg, var(--background-primary-hsl)), var(--bg-opacity));
 }
 body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]):is([data-type=markdown]) .view-content {
   background-color: transparent;
@@ -5193,7 +5193,7 @@ body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]) .vi
   content: none;
 }
 body.tab-title-bar-round .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  background-color: hsl(var(--background-primary-hsl));
+  background-color: var(--md-container-bg);
 }
 body.tab-title-bar-round.tab-title-bar-shadow .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
   box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
