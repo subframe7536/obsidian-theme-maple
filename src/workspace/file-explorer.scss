@@ -92,11 +92,13 @@ body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files
         // add icon in icons.scss
       }
 
-      &.is-active:not(.is-selected) .nav-file-title-content {
-        color: var(--text-on-accent);
-
+      &.is-active:not(.is-selected) {
         &:first-child::before {
           background-color: var(--text-on-accent);
+        }
+
+        .nav-file-title-content {
+          color: var(--text-on-accent);
         }
       }
     }
