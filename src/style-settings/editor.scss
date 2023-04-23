@@ -775,13 +775,13 @@ settings:
     -
         id: code-language
         title: add code block language indicator in preview mode
-        title.zh: 为 预览模式 代码块添加语言标识
+        title.zh: 为 阅读模式 代码块添加语言标识
         type: class-toggle
         default: true
     -
         id: code-nowrap
         title: no wrap in preview mode
-        title.zh: 预览模式 代码块不换行
+        title.zh: 阅读模式 代码块不换行
         type: class-toggle
         default: true
     -
@@ -796,17 +796,24 @@ settings:
         id: code-preview-bg
         title: enable codeblock background in preview mode
         description: need install version >= 1.1.9
-        title.zh: 在 预览模式 开启代码块背景
+        title.zh: 在 阅读模式 开启代码块背景
         description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
     -
         id: setting-code-bg-outer
         title: custom codeblock background in preview mode
         description: need install version >= 1.1.9, image is supported(eg. 'url("/your/image/uri")'), it can be all the css value that supported by background-image
-        title.zh: 修改 预览模式 代码块背景
+        title.zh: 修改 阅读模式 代码块背景
         description.zh: 需要安装程序版本 >= 1.1.9，支持图片（'url("图片地址")'），可以是 css background-image 支持的所有的值
         type: variable-text
         default: "''"
+    -
+        id: code-mac-style-header
+        title: add mac style code block header in preview mode
+        description: no code block border
+        title.zh: 为 阅读模式 代码块添加mac的标题栏
+        description.zh: 没有代码块边框
+        type: class-toggle
     -
         id: setting-code-language-color
         title: language indicator color
@@ -816,13 +823,6 @@ settings:
         opacity: false
         default-light: '#'
         default-dark: '#'
-    -
-        id: code-mac-style-header
-        title: add mac style code block header in preview mode
-        description: no code block border
-        title.zh: 为 预览模式 代码块添加mac的标题栏
-        description.zh: 没有代码块边框
-        type: class-toggle
     -
         id: code-theme
         title: use theme's color schema
@@ -887,7 +887,7 @@ settings:
         title: colorful style setting
         description: ❗maybe different style between edit mode and preview mode
         title.zh: 多彩模式设置
-        description.zh: ❗编辑模式和预览模式颜色会不一样
+        description.zh: ❗编辑模式和阅读模式颜色会不一样
         type: heading
         collapsed: true
         level: 3
