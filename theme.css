@@ -3297,13 +3297,13 @@ body {
 .markdown-source-view span.cm-highlight,
 .markdown-rendered mark {
   border-radius: calc(var(--setting-text-highlight-radius, 4) * 1px);
-  margin: var(--size-2-1);
+  margin: 0 var(--size-2-1);
   padding: var(--size-2-1) var(--size-4-1);
   color: var(--setting-text-highlight-color);
   background: var(--text-highlight-bg) !important;
 }
 
-.markdown-source-view :not(.cm-highlight) + .cm-formatting-highlight {
+.markdown-source-view :is(:not(.cm-highlight) + .cm-formatting-highlight, .cm-formatting-highlight:first-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   margin-right: 0;
