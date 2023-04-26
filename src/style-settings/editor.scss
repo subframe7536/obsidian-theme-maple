@@ -99,12 +99,11 @@ settings:
     -
         id: setting-text-highlight-bg
         title: highlight text background color
+        description: The value can be the value of any background attribute in css
         title.zh: 文本高亮背景色
-        type: variable-themed-color
-        format: rgb
-        opacity: true
-        default-light: 'rgba(255, 208, 0, 0.4)'
-        default-dark: 'rgba(255, 208, 0, 0.4)'
+        description.zh: 填写的值可以为css中任意 background 属性的值
+        type: variable-text
+        default: 'rgba(255, 208, 0, 0.4)'
     -
         id: setting-text-highlight-color
         title: highlight text color
@@ -114,6 +113,25 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: setting-text-highlight-radius
+        title: highlight background radius
+        description: format px
+        title.zh: 高亮背景色圆角大小
+        description.zh: 单位 px
+        type: variable-number-slider
+        default: 4
+        min: 0
+        max: 8
+        step: 1
+    -
+        id: text-highlight-all-round
+        title: keep radius when wrap
+        description: except when edit
+        title.zh: 换行时保持圆角
+        description.zh: 除了编辑的时候
+        type: class-toggle
+        default: true
     -
         id: text-bold
         title: bold
@@ -181,7 +199,6 @@ settings:
         type: heading
         collapsed: true
         level: 2
-
     -
         id: link-hover-expand
         title: use underline animation on hover

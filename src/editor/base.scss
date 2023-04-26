@@ -127,12 +127,51 @@ kbd {
   border-radius: var(--radius-s);
 }
 
+body {
+  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(255, 208, 0, 0.4));
+}
+
+.text-highlight-all-round :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
+  -webkit-box-decoration-break: clone;
+}
+
+.markdown-source-view span.cm-highlight,
+.markdown-rendered mark {
+  border-radius: calc(var(--setting-text-highlight-radius, 4) * 1px);
+  margin: var(--size-2-1);
+  padding: var(--size-2-1) var(--size-4-1);
+  color: var(--setting-text-highlight-color);
+  background: var(--text-highlight-bg) !important;
+}
+
+.markdown-source-view {
+  :not(.cm-highlight)+.cm-formatting-highlight {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .cm-formatting-highlight+.cm-highlight {
+    border-radius: 0;
+    padding-inline: 0;
+    margin: 0;
+  }
+
+  .cm-highlight+.cm-formatting-highlight {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+
 /* ====== 粗体、斜体 ====== */
 
 body {
   --bold-color: var(--setting-text-bold-color, var(--color-red)) !important;
   --italic-color: var(--setting-text-italic-color, var(--color-red)) !important;
-  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(255, 208, 0, 0.4));
 }
 
 :is(em, .cm-em, strong, .cm-strong) {
