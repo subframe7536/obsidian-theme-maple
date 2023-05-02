@@ -275,16 +275,16 @@ settings:
     -
         id: modal-header
         title: add header for setting panel
-        description: better with plugin “setting search”
+        description: better with plugin “setting search”, invalid in mobile
         title.zh: 为设置面板添加顶部框
-        description.zh: 配合 setting search 插件使用更佳
+        description.zh: 配合 setting search 插件使用更佳，移动端无效
         type: class-toggle
     -
         id: setting-modal-header-title
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.6.1'"
+        default: "'maple 0.6.2'"
     -
         id: setting-group-title
         title: add style for left navigation group title
