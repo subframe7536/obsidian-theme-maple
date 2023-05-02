@@ -46,6 +46,7 @@ body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files
 
     &>.nav-folder-children {
       transition: var(--animation);
+      --nav-item-children-padding-left: var(--nav-item-children-margin-left);
 
       &:hover {
         border-color: var(--accent-active);
@@ -54,6 +55,7 @@ body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files
 
     &-collapse-indicator {
       margin-right: var(--size-4-2);
+      padding-inline-end: var(--size-2-1);
       cursor: pointer;
       height: fit-content;
 

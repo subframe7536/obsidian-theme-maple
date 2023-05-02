@@ -1,0 +1,22 @@
+.workspace-leaf-content[data-type="bookmarks"] {
+  --nav-item-color-active: var(--text-on-accent);
+
+  .tree-item-self {
+    &.mod-collapsible .tree-item-icon {
+      margin-right: var(--size-4-1);
+    }
+
+    &:not(.mod-collapsible) {
+      padding-left: var(--size-2-3);
+
+      .tree-item-icon {
+        transform: translateY(var(--size-2-1));
+        color: var(--accent-active);
+      }
+    }
+  }
+
+  .tree-item-self.is-active .tree-item-icon {
+    color: var(--nav-item-color-active);
+  }
+}
