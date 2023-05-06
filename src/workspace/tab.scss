@@ -56,6 +56,11 @@ body.tab-float {
   }
 }
 
+.view-header-title {
+  max-width: 70%;
+  text-align: center;
+}
+
 body.tab-show-close-all .mod-root .workspace-tab-header,
 body.tab-show-close-part .mod-root .workspace-tab-header:not(.is-active) {
   .workspace-tab-header-inner-close-button {
