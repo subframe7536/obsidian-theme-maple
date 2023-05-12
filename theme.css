@@ -2303,6 +2303,9 @@ body .markdown-rendered pre .copy-code-button:hover {
 .code-language .markdown-rendered pre[class~=language-regex]::before {
   content: "Regex";
 }
+.code-language .markdown-rendered pre[class~=language-swift]::before {
+  content: "Swift";
+}
 
 .markdown-source-view.mod-cm6 .code-block-flair {
   padding-block: 0;
@@ -3787,6 +3790,10 @@ body.canvas-control-hide .canvas-control-group:hover {
 
 .callout-icon {
   margin-block: auto;
+}
+
+.callout-fold {
+  margin: auto 0 !important;
 }
 
 /* ====== better command palette ======*/
