@@ -249,7 +249,7 @@ body .markdown-rendered pre {
     JSP, PHP, Lua, Shell, PowerShell, Flow, Sequence, SQL, YAML, YML, ini, XML,
     CS, CPP, Java, HTML, TXT, MD, Markdown, Bat, Json, Groovy, SCSS, Bash, Cmd,
     Latex, Zig, SSML, JSX, TSX, tsconfig, Git, CSharp, CSV, cue, TOML, kt, Kotlin,
-    Go, Rust, Regex;
+    Go, Rust, Regex, Swift;
 
   @each $lan in $language {
     pre[class~='language-#{to-lower-case($lan)}']::before {
