@@ -34,6 +34,16 @@ body.explorer-hide-name .workspace-leaf-content[data-type='file-explorer'] .nav-
   }
 }
 
+body.explorer-item-animation {
+  .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item) {
+    transition: var(--animation);
+
+    &:hover {
+      transition: none;
+    }
+  }
+}
+
 body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files-container .mod-root {
   .nav-folder {
     &-title {

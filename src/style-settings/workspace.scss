@@ -71,6 +71,11 @@ settings:
         title.zh: 标题换行
         type: class-toggle
     -
+        id: explorer-item-animation
+        title: enable item animation
+        title.zh: 开启鼠标经过动画
+        type: class-toggle
+    -
         id: explorer-icon
         title: enable prefix icon
         title.zh: 开启前置图标
@@ -100,6 +105,11 @@ settings:
         description.zh: 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         type: class-toggle
         default: true
+    -
+        id: outline-item-animation
+        title: enable item animation
+        title.zh: 开启鼠标经过动画
+        type: class-toggle
     -
         id: status-bar
         title: status bar
@@ -264,6 +274,11 @@ settings:
         type: heading
         collapsed: true
         level: 2
+    -
+        id: modal-item-animation
+        title: enable item animation
+        title.zh: 开启鼠标经过动画
+        type: class-toggle
     -
         id: modal-blur
         title: enable modal background blur

@@ -17,6 +17,16 @@ body {
   line-height: var(--outline-item-height);
 }
 
+body.outline-item-animation {
+  .outline .tree-item-self {
+    transition: var(--animation);
+
+    &:hover {
+      transition: none;
+    }
+  }
+}
+
 body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .outline {
   .tree-item {
     position: relative;

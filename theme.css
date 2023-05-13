@@ -234,6 +234,11 @@ settings:
         title.zh: 标题换行
         type: class-toggle
     -
+        id: explorer-item-animation
+        title: enable item animation
+        title.zh: 开启鼠标经过动画
+        type: class-toggle
+    -
         id: explorer-icon
         title: enable prefix icon
         title.zh: 开启前置图标
@@ -263,6 +268,11 @@ settings:
         description.zh: 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         type: class-toggle
         default: true
+    -
+        id: outline-item-animation
+        title: enable item animation
+        title.zh: 开启鼠标经过动画
+        type: class-toggle
     -
         id: status-bar
         title: status bar
@@ -427,6 +437,11 @@ settings:
         type: heading
         collapsed: true
         level: 2
+    -
+        id: modal-item-animation
+        title: enable item animation
+        title.zh: 开启鼠标经过动画
+        type: class-toggle
     -
         id: modal-blur
         title: enable modal background blur
@@ -1794,6 +1809,13 @@ body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-
   border-left-color: var(--accent-active);
 }
 
+body.modal-item-animation .style-settings-heading {
+  transition: var(--animation);
+}
+body.modal-item-animation .style-settings-heading:hover {
+  transition: none;
+}
+
 :is(body, body .print) {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
@@ -2906,10 +2928,10 @@ body.quote-theme .markdown-rendered blockquote blockquote {
   box-shadow: none;
   margin: 0;
 }
-body.quote-theme.quote-mark :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)) {
+body.quote-theme.quote-mark .is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)) {
   text-indent: 1.2rem !important;
 }
-body.quote-mark.quote-theme blockquote::before, body.quote-theme.quote-mark :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
+body.quote-mark.quote-theme blockquote::before, body.quote-theme.quote-mark .is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
   position: absolute;
   font-size: 3rem;
   font-family: Source Code Pro;
@@ -2921,10 +2943,10 @@ body.quote-mark.quote-theme blockquote::before, body.quote-theme.quote-mark :is(
   transform: translateX(-1.32rem);
 }
 
-body.quote-theme.quote-mark .markdown-rendered blockquote {
+body.quote-theme.quote-mark .is-live-preview .markdown-rendered blockquote {
   padding-left: 2.28rem;
 }
-body.quote-theme.quote-mark .markdown-rendered blockquote::before {
+body.quote-theme.quote-mark .is-live-preview .markdown-rendered blockquote::before {
   transform: translateX(-1.62rem);
 }
 
@@ -4551,6 +4573,13 @@ body.explorer-hide-name .workspace-leaf-content[data-type=file-explorer] .nav-fi
   display: none;
 }
 
+body.explorer-item-animation .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item) {
+  transition: var(--animation);
+}
+body.explorer-item-animation .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item):hover {
+  transition: none;
+}
+
 body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title {
   padding-left: var(--size-4-1);
 }
@@ -4707,6 +4736,13 @@ body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
 }
 body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container input[type=checkbox] {
   display: none;
+}
+
+body.modal-item-animation :is(.suggestion-item, .modal .vertical-tab-nav-item) {
+  transition: var(--animation);
+}
+body.modal-item-animation :is(.suggestion-item, .modal .vertical-tab-nav-item):hover {
+  transition: none;
 }
 
 body.modal-toggle-round .checkbox-container {
@@ -5018,6 +5054,13 @@ body {
   white-space: nowrap;
   height: var(--outline-item-height);
   line-height: var(--outline-item-height);
+}
+
+body.outline-item-animation .outline .tree-item-self {
+  transition: var(--animation);
+}
+body.outline-item-animation .outline .tree-item-self:hover {
+  transition: none;
 }
 
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item {

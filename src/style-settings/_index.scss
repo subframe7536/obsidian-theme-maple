@@ -223,3 +223,13 @@ div.workspace-leaf-content[data-type="style-settings"] {
     border-left-color: var(--accent-active);
   }
 }
+
+body.modal-item-animation {
+  .style-settings-heading {
+    transition: var(--animation);
+
+    &:hover {
+      transition: none;
+    }
+  }
+}
