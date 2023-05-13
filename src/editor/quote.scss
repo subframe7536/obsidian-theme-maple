@@ -95,7 +95,7 @@ body.quote-theme {
     }
   }
 
-  &.quote-mark {
+  &.quote-mark .is-live-preview {
     :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)) {
       text-indent: $indent * 2 !important;
 
