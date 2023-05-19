@@ -63,6 +63,18 @@ body.quote-theme {
   }
 
   .markdown-rendered blockquote {
+    --h1-size: var(--font-text-size);
+    --h2-size: var(--font-text-size);
+    --h3-size: var(--font-text-size);
+    --h4-size: var(--font-text-size);
+    --h5-size: var(--font-text-size);
+    --h6-size: var(--font-text-size);
+    --h1-line-height: var(--setting-line-height, var(--line-height-normal));
+    --h2-line-height: var(--setting-line-height, var(--line-height-normal));
+    --h3-line-height: var(--setting-line-height, var(--line-height-normal));
+    --h4-line-height: var(--setting-line-height, var(--line-height-normal));
+    --h5-line-height: var(--setting-line-height, var(--line-height-normal));
+    --h6-line-height: var(--setting-line-height, var(--line-height-normal));
     background-color: var(--md-container-bg);
     border: none !important;
     border-radius: var(--blockquote-radius);
@@ -73,7 +85,7 @@ body.quote-theme {
     margin-left: 0;
     padding-block: 0;
 
-    p {
+    :is(p, h1, h2, h3, h4, h5, h6) {
       padding-left: var(--blockquote-border-thickness);
       padding-right: var(--size-4-1);
     }
@@ -95,32 +107,42 @@ body.quote-theme {
     }
   }
 
-  &.quote-mark .is-live-preview {
-    :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)) {
-      text-indent: $indent * 2 !important;
+  &.quote-mark {
+    .is-live-preview {
+      :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)) {
+        text-indent: $indent * 2 !important;
 
-      &:not(.cm-active) {
+        &:not(.cm-active) {
 
-        @at-root body.quote-mark.quote-theme blockquote::before,
-        &>.cm-formatting.cm-formatting-quote.cm-quote-1::before {
-          position: absolute;
-          font-size: $mark-size;
-          font-family: Source Code Pro;
-          line-height: 1;
-          content: '“' !important;
-          background-color: transparent;
-          color: var(--text-muted);
-          top: calc(var(--font-text-size) * var(--line-height-normal) - math.div($mark-size, 1.4));
-          transform: translateX($indent * -2.2);
+          @at-root body.quote-mark.quote-theme blockquote::before,
+          &>.cm-formatting.cm-formatting-quote.cm-quote-1::before {
+            position: absolute;
+            font-size: $mark-size;
+            font-family: Source Code Pro;
+            line-height: 1;
+            content: '“' !important;
+            background-color: transparent;
+            color: var(--text-muted);
+            top: calc(var(--font-text-size) * var(--line-height-normal) - math.div($mark-size, 1.4));
+            transform: translateX($indent * -2.2);
+          }
+        }
+      }
+
+      .markdown-rendered blockquote {
+        padding-left: $indent * 3.8;
+
+        &::before {
+          transform: translateX($indent * -2.7);
         }
       }
     }
 
-    .markdown-rendered blockquote {
-      padding-left: $indent * 3.8;
+    .markdown-preview-view blockquote {
+      padding-left: var(--size-4-8);
 
-      &::before {
-        transform: translateX($indent * -2.7);
+      :is(p, h1, h2, h3, h4, h5, h6) {
+        padding-left: calc(var(--blockquote-border-thickness) * 2);
       }
     }
   }
