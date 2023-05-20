@@ -2164,7 +2164,7 @@ body .markdown-rendered pre .copy-code-button:hover {
   position: relative;
 }
 .code-language .markdown-rendered pre[class*=language-]::before {
-  content: "未知语言";
+  content: "unkown language";
   font-family: var(--font-text);
   color: var(--setting-code-language-color, var(--inline-code));
   font-weight: bold;
@@ -2329,6 +2329,12 @@ body .markdown-rendered pre .copy-code-button:hover {
 }
 .code-language .markdown-rendered pre[class~=language-swift]::before {
   content: "Swift";
+}
+.code-language .markdown-rendered pre[class~=language-abap]::before {
+  content: "ABAP";
+}
+.code-language .markdown-rendered pre[class~="language-pl/sql"]::before {
+  content: "PL/SQL";
 }
 
 .markdown-source-view.mod-cm6 .code-block-flair {
