@@ -1559,7 +1559,7 @@ settings:
         title.zh: 最大宽度
         description.zh: 支持任何 css 的 max-width 属性值
         type: variable-text
-        default: "250px"
+        default: "500px"
     -
         id: kanban
         title: kanban
@@ -3958,7 +3958,7 @@ body.calendar-weekend #calendar-container tbody tr td:nth-last-child(1) {
 }
 
 body #calendar-container {
-  max-width: var(--setting-calendar-max-width, 250px);
+  max-width: var(--setting-calendar-max-width, 500px);
   margin-inline: auto;
 }
 body #calendar-container .day {
