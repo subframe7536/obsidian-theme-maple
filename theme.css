@@ -688,6 +688,11 @@ settings:
         type: class-toggle
         default: true
     -
+        id: text-highlight-margin
+        title: add spacing around highlight
+        title.zh: 增加高亮周围边距
+        type: class-toggle
+    -
         id: text-bold
         title: bold
         title.zh: 粗体
@@ -3348,10 +3353,13 @@ body {
 .markdown-source-view span.cm-highlight,
 .markdown-rendered mark {
   border-radius: calc(var(--setting-text-highlight-radius, 4) * 1px);
-  margin: 0 var(--size-2-1);
   padding: var(--size-2-1) var(--size-4-1);
   color: var(--setting-text-highlight-color);
   background: var(--text-highlight-bg) !important;
+}
+
+body.text-highlight-margin :is(.markdown-source-view span.cm-highlight, .markdown-rendered mark) {
+  margin: 0 var(--size-2-1);
 }
 
 .markdown-source-view :is(:not(.cm-highlight) + .cm-formatting-highlight, .cm-formatting-highlight:first-child) {

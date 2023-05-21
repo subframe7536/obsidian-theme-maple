@@ -133,6 +133,11 @@ settings:
         type: class-toggle
         default: true
     -
+        id: text-highlight-margin
+        title: add spacing around highlight
+        title.zh: 增加高亮周围边距
+        type: class-toggle
+    -
         id: text-bold
         title: bold
         title.zh: 粗体
