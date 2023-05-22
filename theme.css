@@ -15,6 +15,15 @@ settings:
         max: 500
         step: 50
     -
+        id: setting-text-normal
+        title: normal text color
+        title.zh: 文字颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
         id: color-use-custom
         title: use custom accent color
         description: use style setting accent color instead of Obsidian's accent color
@@ -3271,6 +3280,10 @@ body {
   --text-selection: hsla(var(--color-accent-hsl), 0.25);
 }
 
+.cm-s-obsidian {
+  --text-normal: var(--setting-text-normal, var(--color-base-100));
+}
+
 .theme-light {
   --active-line: var(--setting-line-active-color, hsl(calc(var(--accent-h) - 4),
         calc(var(--accent-s) - 12%),
@@ -5462,7 +5475,7 @@ body .workspace-split .workspace-tabs:not(.mod-stacked) .view-content {
   --background-modifier-hover: var(--frame-outline-color);
   --icon-color: var(--frame-muted-color);
   --icon-color-hover: var(--frame-muted-color);
-  --icon-color-focus: var(--text-on-accent);
+  --icon-color-focused: var(--color-base-100);
   --tab-text-color: var(--frame-muted-color);
   --tab-text-color-hover: var(--frame-muted-color);
   --tab-text-color-focused: var(--frame-muted-color);
