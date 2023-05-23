@@ -1,0 +1,8 @@
+body.theme-dark.pdf-dark-hover .pdf-viewer {
+  opacity: 0.7;
+  transition: var(--animation);
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

@@ -127,6 +127,10 @@ kbd {
   border-radius: var(--radius-s);
 }
 
+.theme-dark .is-flashing {
+  --text-faint: #aaa;
+}
+
 body {
   --text-highlight-bg: var(--setting-text-highlight-bg, rgba(255, 208, 0, 0.4));
 }

@@ -972,4 +972,18 @@ settings:
         title.zh: 隐藏左侧的控制按钮
         description.zh: 鼠标移入时显示
         type: class-toggle
+    -
+        id: pdf
+        title: pdf
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: pdf-dark-hover
+        title: decrease brightness in dark mode
+        description: hover will increase brightness
+        title.zh: 黑暗模式下降低图片亮度
+        description.zh: 鼠标经过时会增加亮度
+        type: class-toggle
+        default: true
 */

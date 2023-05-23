@@ -46,13 +46,24 @@ body.explorer-item-animation {
 
 body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files-container .mod-root {
   .nav-folder {
+
     &-title {
       padding-left: var(--size-4-1);
 
       &:hover {
         background-color: var(--folder-hover-color);
       }
+
+      &.tree-item-self {
+        margin-left: calc(-1 * var(--size-2-1)) !important;
+        padding-left: calc(var(--size-4-6) + var(--size-4-1)) !important;
+      }
+
+      &-content {
+        padding-left: var(--size-2-1);
+      }
     }
+
 
     &>.nav-folder-children {
       transition: var(--animation);
@@ -91,7 +102,12 @@ body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files
     &-title {
       padding-left: var(--size-4-1);
 
-      &::before {
+      &.tree-item-self {
+        margin-left: 0 !important;
+        padding-left: var(--size-4-2) !important;
+      }
+
+      &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw'])::before {
         content: ' ';
         display: inline-block;
         width: 1rem;

@@ -1527,6 +1527,20 @@ settings:
         title.zh: 隐藏左侧的控制按钮
         description.zh: 鼠标移入时显示
         type: class-toggle
+    -
+        id: pdf
+        title: pdf
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: pdf-dark-hover
+        title: decrease brightness in dark mode
+        description: hover will increase brightness
+        title.zh: 黑暗模式下降低图片亮度
+        description.zh: 鼠标经过时会增加亮度
+        type: class-toggle
+        default: true
 */
 /* @settings
 
@@ -3342,6 +3356,10 @@ kbd:hover {
   border-radius: var(--radius-s);
 }
 
+.theme-dark .is-flashing {
+  --text-faint: #aaa;
+}
+
 body {
   --text-highlight-bg: var(--setting-text-highlight-bg, rgba(255, 208, 0, 0.4));
 }
@@ -3854,6 +3872,14 @@ body {
 
 .callout-fold {
   margin: auto 0 !important;
+}
+
+body.theme-dark.pdf-dark-hover .pdf-viewer {
+  opacity: 0.7;
+  transition: var(--animation);
+}
+body.theme-dark.pdf-dark-hover .pdf-viewer:hover {
+  opacity: 0.85;
 }
 
 /* ====== better command palette ======*/
@@ -4624,6 +4650,13 @@ body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-c
 body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title:hover {
   background-color: var(--folder-hover-color);
 }
+body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title.tree-item-self {
+  margin-left: calc(-1 * var(--size-2-1)) !important;
+  padding-left: calc(var(--size-4-6) + var(--size-4-1)) !important;
+}
+body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title-content {
+  padding-left: var(--size-2-1);
+}
 body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children {
   transition: var(--animation);
   --nav-item-children-padding-left: var(--nav-item-children-margin-left);
@@ -4653,7 +4686,11 @@ body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-c
 body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title {
   padding-left: var(--size-4-1);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title::before {
+body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.tree-item-self {
+  margin-left: 0 !important;
+  padding-left: var(--size-4-2) !important;
+}
+body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title:not([data-path$="excalidraw.md"]):not([data-path$=excalidraw])::before {
   content: " ";
   display: inline-block;
   width: 1rem;
