@@ -4644,6 +4644,10 @@ body.explorer-item-animation .nav-files-container :is(.tree-item-self, .vertical
   transition: none;
 }
 
+body.theme-dark.explorer-icon .is-active .nav-file-tag {
+  --nav-item-background-active: var(--text-on-accent);
+}
+
 body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title {
   padding-left: var(--size-4-1);
 }

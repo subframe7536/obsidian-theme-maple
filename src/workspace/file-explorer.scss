@@ -44,6 +44,10 @@ body.explorer-item-animation {
   }
 }
 
+body.theme-dark.explorer-icon .is-active .nav-file-tag {
+  --nav-item-background-active: var(--text-on-accent);
+}
+
 body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files-container .mod-root {
   .nav-folder {
 
