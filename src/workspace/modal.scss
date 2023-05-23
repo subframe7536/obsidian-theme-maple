@@ -292,7 +292,7 @@ button {
 :is(select, .dropdown) {
   background-size: 1.2rem;
   background-position: right 0.4rem top 56%, 0 0;
-  background-image: var(--select-bg-img);
+  background-image: var(--select-bg-img) !important;
 }
 
 .modal-container {

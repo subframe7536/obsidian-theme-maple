@@ -4966,7 +4966,7 @@ button {
 :is(select, .dropdown) {
   background-size: 1.2rem;
   background-position: right 0.4rem top 56%, 0 0;
-  background-image: var(--select-bg-img);
+  background-image: var(--select-bg-img) !important;
 }
 
 .modal-container .is-loading {
@@ -5112,7 +5112,7 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   /* fix item gap */
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self .tree-item-inner {
-  padding-left: var(--size-4-4);
+  padding-left: var(--size-4-1);
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self .tree-item-inner::before {
   content: "";
@@ -5121,9 +5121,8 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   border: var(--size-2-1) solid var(--outline-guideline-color);
   border-radius: 50%;
   position: absolute;
-  left: 7px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(calc(-1 * var(--size-4-5)), -50%);
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self .tree-item-icon ~ .tree-item-inner {
   padding-left: var(--size-4-1);
@@ -5140,7 +5139,7 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   position: absolute;
   background-color: transparent;
   top: calc(var(--outline-item-height) / 2 * -1);
-  left: -10px;
+  left: -14px;
   height: calc(100% - var(--outline-item-height) + var(--size-4-8));
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-icon {
@@ -5152,9 +5151,9 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   background-color: var(--outline-guideline-color);
   border-radius: 50%;
   position: absolute;
-  left: 7px;
+  left: 3px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(45%);
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-icon svg path {
   display: none;
@@ -5172,16 +5171,17 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   content: "";
   position: absolute;
   top: calc(var(--outline-item-height) / 2 * -1);
-  left: -10px;
+  left: -14px;
   bottom: calc(100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px);
-  width: var(--size-4-4);
+  width: var(--size-4-6);
   border-bottom-left-radius: var(--radius-m);
   border-bottom: var(--outline-guideline-width) solid var(--outline-guideline-color);
   border-left: var(--outline-guideline-width) solid var(--outline-guideline-color);
+  z-index: 99;
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline :is(.tree-item-children, .tree-item-self .tree-item-self) {
-  padding-left: 0;
-  margin-left: var(--size-4-5);
+body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline :is(.tree-item-children, .tree-item-self) {
+  padding-left: 28px !important;
+  margin-left: 0 !important;
   border-left: none;
 }
 

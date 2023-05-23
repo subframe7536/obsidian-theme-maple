@@ -39,7 +39,7 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
 
       /* fix item gap */
       .tree-item-inner {
-        padding-left: var(--size-4-4);
+        padding-left: var(--size-4-1);
 
         &::before {
           content: '';
@@ -48,9 +48,8 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
           border: var(--size-2-1) solid var(--outline-guideline-color);
           border-radius: 50%;
           position: absolute;
-          left: 7px;
           top: 50%;
-          transform: translateY(-50%);
+          transform: translate(calc(-1 * var(--size-4-5)), -50%);
         }
       }
 
@@ -73,7 +72,7 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
       position: absolute;
       background-color: transparent;
       top: calc(var(--outline-item-height) / 2 * -1);
-      left: -10px;
+      left: -14px;
       height: calc(100% - var(--outline-item-height) + var(--size-4-8));
     }
 
@@ -86,9 +85,9 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
         background-color: var(--outline-guideline-color);
         border-radius: 50%;
         position: absolute;
-        left: 7px;
+        left: 3px;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(45%);
       }
 
       svg path {
@@ -117,19 +116,20 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
         content: '';
         position: absolute;
         top: calc(var(--outline-item-height) / 2 * -1);
-        left: -10px;
+        left: -14px;
         bottom: calc(100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px);
-        width: var(--size-4-4);
+        width: var(--size-4-6);
         border-bottom-left-radius: var(--radius-m);
         border-bottom: var(--outline-guideline-width) solid var(--outline-guideline-color);
         border-left: var(--outline-guideline-width) solid var(--outline-guideline-color);
+        z-index: 99;
       }
     }
   }
 
-  :is(.tree-item-children, .tree-item-self .tree-item-self) {
-    padding-left: 0;
-    margin-left: var(--size-4-5);
+  :is(.tree-item-children, .tree-item-self) {
+    padding-left: 28px !important;
+    margin-left: 0 !important;
     border-left: none;
   }
 }
