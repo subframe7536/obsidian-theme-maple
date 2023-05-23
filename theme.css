@@ -15,15 +15,6 @@ settings:
         max: 500
         step: 50
     -
-        id: setting-text-normal
-        title: normal text color
-        title.zh: 文字颜色
-        type: variable-themed-color
-        format: hex
-        opacity: true
-        default-light: '#'
-        default-dark: '#'
-    -
         id: color-use-custom
         title: use custom accent color
         description: use style setting accent color instead of Obsidian's accent color
@@ -3278,10 +3269,6 @@ code *,
 /* ====== 文本 ======= */
 body {
   --text-selection: hsla(var(--color-accent-hsl), 0.25);
-}
-
-.cm-s-obsidian {
-  --text-normal: var(--setting-text-normal, var(--color-base-100));
 }
 
 .theme-light {
