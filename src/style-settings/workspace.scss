@@ -118,7 +118,13 @@ settings:
         collapsed: true
         level: 2
     -
-        id: status-bar-float
+        id: status-bar-enable
+        title: enable status bar style
+        title.zh: 启用状态栏样式
+        type: class-toggle
+        default: true
+    -
+        id: status-bar-style-float
         title: round style status bar
         title.zh: 圆角风格的状态栏
         type: class-toggle

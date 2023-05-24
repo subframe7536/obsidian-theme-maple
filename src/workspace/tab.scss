@@ -56,18 +56,20 @@ body.tab-float {
   }
 }
 
-.view-header-title-parent:empty+.view-header-title {
-  max-width: 70%;
-  text-align: center;
-  cursor: text;
-}
+.view-header-title-parent {
+  &:empty+.view-header-title {
+    max-width: 70%;
+    text-align: center;
+    cursor: text;
+  }
 
-.view-header-title-parent:not(:empty)+.view-header-title:after {
-  content: "";
-  width: 20%;
-  inset-block: 0;
-  position: absolute;
-  cursor: text;
+  &:not(:empty)+.view-header-title:after {
+    content: "";
+    width: 20%;
+    inset-block: 0;
+    position: absolute;
+    cursor: text;
+  }
 }
 
 body.tab-show-close-all .mod-root .workspace-tab-header,
