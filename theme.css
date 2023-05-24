@@ -5152,6 +5152,14 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   margin-top: -1px;
   /* fix item gap */
 }
+body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self::before {
+  content: "";
+  width: var(--size-4-5);
+  height: calc(var(--outline-item-height) + var(--size-4-2));
+  position: absolute;
+  left: calc(var(--size-4-4) * -1);
+  top: 0;
+}
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self .tree-item-inner {
   padding-left: var(--size-4-1);
 }
@@ -5185,6 +5193,7 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-icon {
   cursor: pointer;
+  transform: translateY(8px);
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-icon::before {
   width: var(--size-4-2);
@@ -5194,7 +5203,8 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   position: absolute;
   left: 3px;
   top: 50%;
-  transform: translateY(45%);
+  transform: translateY(-50%);
+  z-index: 10;
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-icon svg path {
   display: none;
@@ -5218,7 +5228,7 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   border-bottom-left-radius: var(--radius-m);
   border-bottom: var(--outline-guideline-width) solid var(--outline-guideline-color);
   border-left: var(--outline-guideline-width) solid var(--outline-guideline-color);
-  z-index: 99;
+  z-index: 9;
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline :is(.tree-item-children, .tree-item-self) {
   padding-left: 28px !important;

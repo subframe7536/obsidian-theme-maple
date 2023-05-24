@@ -37,6 +37,15 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
       white-space: nowrap;
       margin-top: -1px;
 
+      &::before {
+        content: '';
+        width: var(--size-4-5);
+        height: calc(var(--outline-item-height) + var(--size-4-2));
+        position: absolute;
+        left: calc(var(--size-4-4) * -1);
+        top: 0;
+      }
+
       /* fix item gap */
       .tree-item-inner {
         padding-left: var(--size-4-1);
@@ -78,6 +87,8 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
 
     &-icon {
       cursor: pointer;
+      transform: translateY(8px);
+
 
       &::before {
         width: var(--size-4-2);
@@ -87,7 +98,8 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
         position: absolute;
         left: 3px;
         top: 50%;
-        transform: translateY(45%);
+        transform: translateY(-50%);
+        z-index: 10;
       }
 
       svg path {
@@ -122,7 +134,7 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
         border-bottom-left-radius: var(--radius-m);
         border-bottom: var(--outline-guideline-width) solid var(--outline-guideline-color);
         border-left: var(--outline-guideline-width) solid var(--outline-guideline-color);
-        z-index: 99;
+        z-index: 9;
       }
     }
   }
