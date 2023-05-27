@@ -1,3 +1,5 @@
+/* ====== 状态栏 ====== */
+
 body {
   --stauts-bar-background-opacity: 1;
 
@@ -15,8 +17,6 @@ body {
         var(--stauts-bar-background-opacity));
   }
 }
-
-/* ====== 状态栏 ====== */
 
 body.status-bar-enable {
 
