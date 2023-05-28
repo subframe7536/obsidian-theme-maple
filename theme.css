@@ -4694,6 +4694,7 @@ body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-c
   background-color: var(--folder-color);
   display: inline-block;
   margin-bottom: var(--size-4-1);
+  margin-left: calc(-1 * var(--size-2-3));
 }
 body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder.is-collapsed .collapse-icon svg.svg-icon {
   transform: none;
@@ -4714,7 +4715,8 @@ body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-c
   opacity: 0.8;
   height: 0.9rem;
   left: var(--size-4-1);
-  margin-right: var(--size-4-1);
+  margin-right: var(--size-4-2);
+  margin-left: calc(-1 * var(--size-2-1));
   transform: translateY(25%);
   background-color: var(--accent-active);
 }

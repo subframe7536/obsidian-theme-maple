@@ -81,6 +81,7 @@ body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files
         background-color: var(--folder-color);
         display: inline-block;
         margin-bottom: var(--size-4-1);
+        margin-left: calc(-1 * var(--size-2-3));
         // add icon in icons.scss
       }
     }
@@ -108,7 +109,8 @@ body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files
         opacity: 0.8;
         height: 0.9rem;
         left: var(--size-4-1);
-        margin-right: var(--size-4-1);
+        margin-right: var(--size-4-2);
+        margin-left: calc(-1 * var(--size-2-1));
         transform: translateY(25%);
         background-color: var(--accent-active);
         // add icon in icons.scss
