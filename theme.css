@@ -234,11 +234,6 @@ settings:
         title.zh: 标题换行
         type: class-toggle
     -
-        id: explorer-item-animation
-        title: enable item animation
-        title.zh: 开启鼠标经过动画
-        type: class-toggle
-    -
         id: explorer-icon
         title: enable prefix icon
         title.zh: 开启前置图标
@@ -4660,13 +4655,6 @@ body.explorer-hide-name .workspace-leaf-content[data-type=file-explorer] .nav-fi
 }
 body.explorer-hide-name .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title {
   display: none;
-}
-
-body.explorer-item-animation .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item) {
-  transition: var(--animation);
-}
-body.explorer-item-animation .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item):hover {
-  transition: none;
 }
 
 body.theme-dark.explorer-icon .is-active .nav-file-tag {
