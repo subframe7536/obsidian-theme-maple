@@ -90,6 +90,15 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
+        id: setting-text-normal
+        title: editor text color
+        title.zh: 编辑器文字颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
         id: text-highlight
         title: highlight
         title.zh: 高亮

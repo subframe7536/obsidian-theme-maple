@@ -1,9 +1,5 @@
 /* ====== 段落 ====== */
 
-// .markdown-rendered p {
-//   margin: var(--size-4-1) 0 !important;
-// }
-
 body.font-latex-text mjx-container mjx-utext {
   font-family: var(--font-text) !important;
 }
@@ -46,6 +42,13 @@ code *,
 /* ====== 文本 ======= */
 body {
   --text-selection: hsla(var(--color-accent-hsl), 0.25);
+}
+
+.markdown-source-view,
+.markdown-rendered,
+.markdown-preview-view,
+.community-modal-readme {
+  color: var(--setting-text-normal, var(--text-normal));
 }
 
 .theme-light {

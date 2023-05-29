@@ -234,6 +234,11 @@ settings:
         title.zh: 标题换行
         type: class-toggle
     -
+        id: explorer-item-animation
+        title: enable item animation
+        title.zh: 开启鼠标经过动画
+        type: class-toggle
+    -
         id: explorer-icon
         title: enable prefix icon
         title.zh: 开启前置图标
@@ -640,6 +645,15 @@ settings:
         id: setting-line-active-color
         title: active line color
         title.zh: 高亮行颜色
+        type: variable-themed-color
+        format: hex
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-text-normal
+        title: editor text color
+        title.zh: 编辑器文字颜色
         type: variable-themed-color
         format: hex
         opacity: true
@@ -3284,6 +3298,13 @@ body {
   --text-selection: hsla(var(--color-accent-hsl), 0.25);
 }
 
+.markdown-source-view,
+.markdown-rendered,
+.markdown-preview-view,
+.community-modal-readme {
+  color: var(--setting-text-normal, var(--text-normal));
+}
+
 .theme-light {
   --active-line: var(--setting-line-active-color, hsl(calc(var(--accent-h) - 4),
         calc(var(--accent-s) - 12%),
@@ -4652,6 +4673,20 @@ body {
 
 .nav-file-title.is-active:not(.is-selected) {
   color: var(--text-on-accent);
+}
+
+body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.is-being-dragged),
+.nav-file-title.is-being-dragged,
+.nav-folder-title.is-being-dragged {
+  background-color: var(--accent-inactive);
+  color: var(--text-normal);
+}
+
+body.explorer-item-animation .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item) {
+  transition: background-color var(--animation);
+}
+body.explorer-item-animation .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item):hover {
+  transition: none;
 }
 
 body.explorer-hide-name .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root {
