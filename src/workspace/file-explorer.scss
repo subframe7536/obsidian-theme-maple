@@ -26,6 +26,23 @@ body {
   color: var(--text-on-accent);
 }
 
+body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.is-being-dragged),
+.nav-file-title.is-being-dragged,
+.nav-folder-title.is-being-dragged {
+  background-color: var(--accent-inactive);
+  color: var(--text-normal);
+}
+
+body.explorer-item-animation {
+  .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item) {
+    transition: background-color var(--animation);
+
+    &:hover {
+      transition: none;
+    }
+  }
+}
+
 body.explorer-hide-name .workspace-leaf-content[data-type='file-explorer'] .nav-files-container .mod-root {
   padding-top: var(--size-4-2);
 
