@@ -90,7 +90,7 @@ body:not(.table-colorful) .markdown-source-view.mod-cm6 .cm-embed-block.cm-table
 }
 
 body.table-colorful {
-  .markdown-source-view table+.edit-block-button {
+  .markdown-source-view .cm-table-widget .edit-block-button {
     color: var(--text-on-accent);
     --background-modifier-hover: hsl(var(--background-secondary-hsl));
 
