@@ -147,9 +147,10 @@ body :is(.markdown-source-view, .markdown-rendered) {
   //   top: 0.7rem;
   // }
 
-  .cm-hmd-codeblock .cm-indent::before {
-    transform: translateX(-0.15rem) !important;
-  }
+}
+
+.cm-hmd-codeblock .cm-indent::before {
+  transform: unset !important;
 }
 
 .markdown-source-view.mod-cm6 .code-block-flair:has(svg) {
