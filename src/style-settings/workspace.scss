@@ -395,4 +395,38 @@ settings:
                 value: scrollbar-gutter-overlay
             -   label: reserve
                 value: scrollbar-gutter-reserve
+    -
+        id: graph
+        title: graph
+        title.zh: 关系图谱
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: setting-graph-node
+        title: node color
+        title.zh: 普通节点颜色
+        type: variable-themed-color
+        format: rgb-values
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-graph-node-unresolved
+        title: unresolved node color
+        title.zh: 未连接节点颜色
+        type: variable-themed-color
+        format: rgb-values
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
+    -
+        id: setting-graph-node-focus
+        title: focused node color
+        title.zh: 聚焦节点颜色
+        type: variable-themed-color
+        format: rgb-values
+        opacity: true
+        default-light: '#'
+        default-dark: '#'
 */
