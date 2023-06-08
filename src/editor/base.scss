@@ -35,6 +35,10 @@ code *,
 
 /* ====== 编辑器背景 ====== */
 
+body {
+  --file-line-width: var(--setting-editor-width, 700px);
+}
+
 .workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] .view-content {
   background-color: hsla(var(--setting-editor-bg, var(--background-primary-hsl)), var(--bg-opacity));
 }

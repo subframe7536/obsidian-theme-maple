@@ -5,11 +5,21 @@ id: maple-editor
 settings:
     -
         id: bg
-        title: background color
-        title.zh: 背景色
+        title: background
+        title.zh: 背景
         type: heading
         collapsed: true
         level: 2
+    -
+        id: setting-editor-width
+        title: editor line width
+        title.zh: 编辑器行宽
+        type: variable-number-slider
+        default: 700
+        format: 'px'
+        min: 400
+        max: 1000
+        step: 50
     -
         id: setting-editor-bg
         title: editor background color
