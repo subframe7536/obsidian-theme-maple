@@ -3050,10 +3050,10 @@ body.quote-theme.quote-mark .is-live-preview .markdown-rendered blockquote {
 body.quote-theme.quote-mark .is-live-preview .markdown-rendered blockquote::before {
   transform: translateX(-1.62rem);
 }
-body.quote-theme.quote-mark .markdown-preview-view blockquote {
+body.quote-theme.quote-mark :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote {
   padding-left: var(--size-4-8);
 }
-body.quote-theme.quote-mark .markdown-preview-view blockquote :is(p, h1, h2, h3, h4, h5, h6) {
+body.quote-theme.quote-mark :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote :is(p, h1, h2, h3, h4, h5, h6) {
   padding-left: calc(var(--blockquote-border-thickness) * 2);
 }
 
@@ -5866,6 +5866,12 @@ body.message-tooltip-hide-arrow .tooltip-arrow {
 }
 
 /* ====== 关系图 ====== */
+body {
+  --graph-node: var(--setting-graph-node, var(--text-muted));
+  --graph-node-unresolved: var(--setting-graph-node-unresolved, var(--text-faint));
+  --graph-node-focused: var(--setting-graph-node-focus, var(--accent-active));
+}
+
 .graph-controls {
   top: var(--size-4-1);
   right: var(--size-4-1);

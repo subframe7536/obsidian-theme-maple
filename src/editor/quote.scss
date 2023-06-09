@@ -138,7 +138,7 @@ body.quote-theme {
       }
     }
 
-    .markdown-preview-view blockquote {
+    :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote {
       padding-left: var(--size-4-8);
 
       :is(p, h1, h2, h3, h4, h5, h6) {
