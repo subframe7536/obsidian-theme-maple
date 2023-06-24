@@ -226,51 +226,57 @@ body.modal-header:not(.is-mobile) .modal-container {
       }
     }
 
-    .hotkey-search-container {
-      top: calc(var(--size-2-1) * -1);
-      transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
-      right: var(--size-4-16);
+    .setting-item:has(.search-input-container.mod-hotkey) {
+      .setting-item-info {
+        display: none;
+      }
 
-      position: absolute;
-    }
+      .setting-item-control {
+        top: calc(var(--size-2-1) * -1);
+        transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
+        right: var(--size-4-16);
+        position: absolute;
+      }
 
-    .plugin-list-plugins {
-      &>.setting-item {
-        padding: 0;
-
-        .setting-item-info {
-          display: none;
-        }
-
-        .setting-item-control {
-          display: block;
-          position: absolute;
-          top: calc(var(--size-2-1) * -1);
-          transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
-          right: var(--size-4-16);
-        }
+      &+.setting-filter-container {
+        display: none;
       }
     }
 
-    @supports selector(:has(input)) {
-      .setting-item-name:has(.search-input-container) {
+    .plugin-list-plugins>.setting-item {
+      padding: 0;
+
+      .setting-item-info {
+        display: none;
+      }
+
+      .setting-item-control {
+        display: block;
         position: absolute;
         top: calc(var(--size-2-1) * -1);
         transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
         right: var(--size-4-16);
       }
+    }
 
-      .vertical-tab-content>:nth-child(5):not(.style-settings-container):has(input[type="search"]) {
-        position: absolute;
-        top: calc(var(--size-2-1) * -1);
-        transform: translateY(calc(var(--modal-header-height) / 2 - var(--input-height) + var(--size-4-1)));
-        right: var(--size-4-16);
+    .setting-item-name:has(.search-input-container) {
+      position: absolute;
+      top: calc(var(--size-2-1) * -1);
+      transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
+      right: var(--size-4-16);
+    }
 
-        .setting-item-info {
-          display: none;
-        }
+    .vertical-tab-content>:nth-child(5):not(.style-settings-container):has(input[type="search"]) {
+      position: absolute;
+      top: calc(var(--size-2-1) * -1);
+      transform: translateY(calc(var(--modal-header-height) / 2 - var(--input-height) + var(--size-4-1)));
+      right: var(--size-4-16);
+
+      .setting-item-info {
+        display: none;
       }
     }
+
   }
 }
 
