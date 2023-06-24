@@ -7,10 +7,8 @@ body.font-latex-text mjx-container mjx-utext {
 
 /* ====== latex 修复 ====== */
 
-body.font-fix-latex mjx-container {
-  .TEX-I {
-    font-family: MJXZERO, EMBED-TEX-I;
-  }
+body.font-fix-latex mjx-container .TEX-I {
+  font-family: MJXZERO, EMBED-TEX-I;
 }
 
 mjx-stretchy-h>mjx-ext>mjx-c::before {

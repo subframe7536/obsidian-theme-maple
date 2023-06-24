@@ -510,6 +510,31 @@ settings:
         type: class-toggle
         default: true
     -
+        id: menu-blur
+        title: menu blur
+        title.zh: 菜单模糊
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: menu-normal
+        title: normal menu
+        title.zh: 普通菜单
+        type: class-toggle
+        default: true
+    -
+        id: menu-suggestion
+        title: suggestion menu
+        title.zh: 提示菜单
+        type: class-toggle
+        default: true
+    -
+        id: menu-graph
+        title: graph menu
+        title.zh: 图谱菜单
+        type: class-toggle
+        default: true
+    -
         id: scrollbar
         title: scrollbar
         title.zh: 滚动条
@@ -3835,11 +3860,11 @@ body.heading-h6-variant :is(h6, .cm-header-6) {
 
 /* ====== 图片img ====== */
 body.theme-dark.image-dark-hover img {
-  opacity: 0.7;
+  filter: brightness(0.7);
   transition: var(--animation);
 }
 body.theme-dark.image-dark-hover img:hover {
-  opacity: 0.85;
+  filter: brightness(0.85);
 }
 
 img {
@@ -4079,24 +4104,24 @@ body #calendar-container .day {
   background-color: transparent;
 }
 
-body .excalidraw {
+.excalidraw {
   border-radius: 8px;
   background-color: transparent;
   --ui-font: var(--font-interface);
   --help-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpath d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'%3E%3C/path%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'%3E%3C/line%3E%3C/svg%3E");
   --grip-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Ccircle cx='12' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='19' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='5' cy='9' r='1'%3E%3C/circle%3E%3Ccircle cx='12' cy='15' r='1'%3E%3C/circle%3E%3Ccircle cx='19' cy='15' r='1'%3E%3C/circle%3E%3Ccircle cx='5' cy='15' r='1'%3E%3C/circle%3E%3C/svg%3E");
 }
-body .excalidraw .welcome-screen-menu {
+.excalidraw .welcome-screen-menu {
   display: none;
 }
-body .excalidraw .mobile-misc-tools-container {
+.excalidraw .mobile-misc-tools-container {
   right: calc(var(--editor-container-padding) * -0.8);
 }
-body .excalidraw .mobile-misc-tools-container .library-button {
+.excalidraw .mobile-misc-tools-container .library-button {
   border-radius: 0;
   padding: var(--size-4-1);
 }
-:is(body .excalidraw, body .excalidraw.theme--dark) {
+:is(.excalidraw, .excalidraw.theme--dark) {
   --color-selection: var(--accent-active);
   --color-primary: var(--accent-active);
   --color-primary-darker: var(--accent-active);
@@ -4108,43 +4133,52 @@ body .excalidraw .mobile-misc-tools-container .library-button {
   --input-shadow: none;
   --input-shadow-hover: none;
 }
-:is(body .excalidraw, body .excalidraw.theme--dark) .color-picker-label-swatch {
+:is(.excalidraw, .excalidraw.theme--dark) .color-picker-label-swatch {
   border: 1px solid var(--color-base-100);
 }
-:is(body .excalidraw, body .excalidraw.theme--dark) .color-picker-hash {
+:is(.excalidraw, .excalidraw.theme--dark) .color-picker-hash {
   width: 1rem;
 }
-:is(body .excalidraw, body .excalidraw.theme--dark) .Island > div:first-child > svg {
+:is(.excalidraw, .excalidraw.theme--dark) .Island > div:first-child > svg {
   -webkit-mask-image: var(--grip-icon);
   -webkit-mask-position: center;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: unset;
   background-color: var(--button-gray-1);
 }
-body .excalidraw .popover {
+.excalidraw .popover {
   box-shadow: none;
   background-color: hsl(var(--background-secondary-hsl)) !important;
   animation: op var(--animation) !important;
 }
-body .excalidraw .popover ul {
+.excalidraw .popover ul {
   border-radius: var(--radius-m);
   margin-left: 0;
   padding: var(--size-2-3);
   font-family: var(--font-text);
   box-shadow: var(--shadow-s);
 }
-body .excalidraw .popover ul li button {
+.excalidraw .popover ul li button {
   border-radius: var(--radius-s);
   transition: none;
 }
-body .excalidraw .popover ul li button:hover {
+.excalidraw .popover ul li button:hover {
   background-color: var(--background-modifier-hover);
   color: var(--text-normal);
 }
-body .excalidraw .popover ul hr {
+.excalidraw .popover ul hr {
   margin-block: var(--size-2-3);
   border-color: var(--hr-color);
   margin-inline: calc(-1 * var(--size-4-1));
+}
+.excalidraw .layer-ui__wrapper__footer-right {
+  transform: translateY(-32px);
+}
+.excalidraw .layer-ui__wrapper__footer-right .help-icon {
+  display: none;
+}
+.excalidraw .layer-ui__wrapper__footer-left {
+  margin-bottom: 0.3rem;
 }
 
 .theme-light .excalidraw:not(.theme--dark) {
@@ -4163,17 +4197,6 @@ body .excalidraw .popover ul hr {
   --island-bg-color: var(--color-base-00);
   --input-border-color: var(--color-base-30);
   --input-bg-color: var(--color-base-20);
-}
-
-.excalidraw .layer-ui__wrapper__footer-right {
-  transform: translateY(-32px);
-}
-.excalidraw .layer-ui__wrapper__footer-right .help-icon {
-  display: none;
-}
-
-.excalidraw .layer-ui__wrapper__footer-left {
-  margin-bottom: 0.3rem;
 }
 
 .help-icon {
@@ -4199,19 +4222,15 @@ body .excalidraw .popover ul hr {
   background-color: var(--color-base-70);
   border-radius: 0;
 }
-
 .workspace-leaf-content[data-type=excalidraw] .clickable-icon.view-action[aria-label="Press ESC to exit fullscreen mode"] > svg {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cpolyline points='9 21 3 21 3 15'%3E%3C/polyline%3E%3Cline x1='21' y1='3' x2='14' y2='10'%3E%3C/line%3E%3Cline x1='3' y1='21' x2='10' y2='14'%3E%3C/line%3E%3C/svg%3E");
 }
-
 .workspace-leaf-content[data-type=excalidraw] .clickable-icon.view-action[aria-label="Open selected text as link\a(SHIFT+CLICK to open in a new pane)"] > svg {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
 }
-
 .workspace-leaf-content[data-type=excalidraw] .clickable-icon.view-action[aria-label="Save (will also update transclusions)"] > svg {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpath d='M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z'%3E%3C/path%3E%3Cpolyline points='17 21 17 13 7 13 7 21'%3E%3C/polyline%3E%3Cpolyline points='7 3 7 8 15 8'%3E%3C/polyline%3E%3C/svg%3E");
 }
-
 .workspace-leaf-content[data-type=excalidraw] .clickable-icon.view-action[aria-label="Install or update Excalidraw Scripts"] > svg {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpath d='M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4'%3E%3C/path%3E%3Cpolyline points='14 2 14 8 20 8'%3E%3C/polyline%3E%3Cpath d='m9 18 3-3-3-3'%3E%3C/path%3E%3Cpath d='m5 12-3 3 3 3'%3E%3C/path%3E%3C/svg%3E");
 }
@@ -5205,7 +5224,7 @@ body.modal-animation :is(.prompt, .popover, .modal) {
     transform: scale(1);
   }
 }
-:is(.menu, .suggestion-container, .excalidraw .context-menu, .graph-control-section) {
+:is(.menu-normal .menu, .menu-suggestion .suggestion-container, .menu-graph .graph-control-section) {
   background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
   backdrop-filter: blur(var(--size-4-8));
 }

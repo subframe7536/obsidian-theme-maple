@@ -347,6 +347,31 @@ settings:
         type: class-toggle
         default: true
     -
+        id: menu-blur
+        title: menu blur
+        title.zh: 菜单模糊
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: menu-normal
+        title: normal menu
+        title.zh: 普通菜单
+        type: class-toggle
+        default: true
+    -
+        id: menu-suggestion
+        title: suggestion menu
+        title.zh: 提示菜单
+        type: class-toggle
+        default: true
+    -
+        id: menu-graph
+        title: graph menu
+        title.zh: 图谱菜单
+        type: class-toggle
+        default: true
+    -
         id: scrollbar
         title: scrollbar
         title.zh: 滚动条
