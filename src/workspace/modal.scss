@@ -170,7 +170,7 @@ body.modal-header:not(.is-mobile) .modal-container {
     container-type: inline-size;
 
     &::before {
-      content: var(--setting-header-title, 'maple 0.6.10');
+      content: var(--setting-header-title, 'maple 0.6.11');
       position: absolute;
       left: 50%;
       top: var(--size-4-6);

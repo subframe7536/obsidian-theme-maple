@@ -139,14 +139,6 @@ body :is(.markdown-source-view, .markdown-rendered) {
     height: fit-content;
   }
 
-  // &:not(.cm-callout) {
-  //   padding: 0.5rem 0 !important;
-  // }
-
-  // &.cm-table-widget .edit-block-button {
-  //   top: 0.7rem;
-  // }
-
 }
 
 .cm-hmd-codeblock .cm-indent::before {
