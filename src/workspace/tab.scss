@@ -177,3 +177,7 @@ body .workspace-split .workspace-tabs:not(.mod-stacked) .view-content {
   opacity: 0;
   transition: var(--animation);
 }
+
+.search-result-file-matches {
+  border-radius: var(--radius-m);
+}
