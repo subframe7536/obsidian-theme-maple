@@ -1,11 +1,12 @@
 /* ====== 段落 ====== */
+p {
+  margin-block: var(--size-4-1);
+}
 
+/* ====== latex 修复 ====== */
 body.font-latex-text mjx-container mjx-utext {
   font-family: var(--font-text) !important;
 }
-
-
-/* ====== latex 修复 ====== */
 
 body.font-fix-latex mjx-container .TEX-I {
   font-family: MJXZERO, EMBED-TEX-I;
