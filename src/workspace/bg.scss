@@ -23,6 +23,10 @@ $duration-4: abs($delay-4) + $speed * 45;
     --bg-opacity: 0.5;
     --tab-background-active: hsl(var(--background-primary-hsl));
 
+    .mod-stacked .workspace-tab-container {
+      --background-primary: hsl(var(--background-primary-hsl));
+    }
+
     &::before {
       content: "";
       position: absolute;
