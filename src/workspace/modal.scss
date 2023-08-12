@@ -418,6 +418,7 @@ body.modal-animation :is(.prompt, .popover, .modal) {
 :is(.menu-normal .menu, .menu-suggestion .suggestion-container, .menu-graph .graph-control-section) {
   background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
   backdrop-filter: blur(var(--size-4-8));
+  will-change: backdrop-filter;
 }
 
 
@@ -425,6 +426,7 @@ body.modal-blur .modal-bg {
   opacity: 1 !important;
   background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
   backdrop-filter: blur(var(--size-4-1));
+  will-change: backdrop-filter;
 }
 
 .mod-search-suggestion .suggestion {
