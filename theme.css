@@ -2541,26 +2541,26 @@ body .markdown-rendered pre .copy-code-button:hover {
   counter-reset: code-line;
 }
 
-@supports selector(:has(pre)) {
-  .code-preview-bg {
-    --code-bg-s: 50%;
-    --code-bg-l: 85%;
-  }
-  .code-preview-bg .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
-    padding: var(--size-4-4) var(--size-4-8);
-    margin-block: var(--size-4-4);
-    border-radius: var(--radius-l);
-    background-image: var(--setting-code-bg-outer, linear-gradient(-30deg, hsl(calc(var(--accent-h) + 145), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 115), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 90), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 65), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 35), var(--code-bg-s), var(--code-bg-l))));
-  }
-  .code-preview-bg .markdown-preview-view .markdown-preview-section pre:not([class*=frontmatter]) {
-    --code-background: var(--setting-code-bg, hsl(var(--background-secondary-hsl)));
-    border-width: 0;
-  }
-  .theme-dark .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
-    --code-bg-s: 20%;
-    --code-bg-l: 45%;
-  }
+.code-preview-bg {
+  --code-bg-s: 50%;
+  --code-bg-l: 85%;
 }
+.code-preview-bg .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
+  padding: var(--size-4-4) var(--size-4-8);
+  margin-block: var(--size-4-4);
+  border-radius: var(--radius-l);
+  background-image: var(--setting-code-bg-outer, linear-gradient(-30deg, hsl(calc(var(--accent-h) + 145), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 115), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 90), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 65), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--accent-h) + 35), var(--code-bg-s), var(--code-bg-l))));
+}
+.code-preview-bg .markdown-preview-view .markdown-preview-section pre:not([class*=frontmatter]) {
+  --code-background: var(--setting-code-bg, hsl(var(--background-secondary-hsl)));
+  border-width: 0;
+}
+
+.theme-dark .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
+  --code-bg-s: 20%;
+  --code-bg-l: 45%;
+}
+
 /* ====== 内嵌文档embed ====== */
 body.embed-enable .internal-embed.is-loaded:not(.image-embed) {
   --embed-background: var(--background-primary);
@@ -3641,13 +3641,21 @@ body.heading-level-enable :is(div.markdown-reading-view > div > div > div > :is(
   transition-delay: 0s;
   pointer-events: all;
 }
-body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header)::before {
+body.heading-level-enable :is(div.markdown-reading-view > div > div > div.is-collapsed > :is(h1, h2, h3, h4, h5, h6),
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(> .cm-foldPlaceholder))::before {
+  opacity: 0.9;
+  text-decoration: underline 0.1rem;
+}
+body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder)))::before {
   opacity: 0.4;
 }
-body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):not(:hover)::before {
+body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder))):not(:hover)::before {
   color: var(--text-muted);
 }
-body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):hover::before {
+body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder))):hover::before {
   opacity: 1;
 }
 body.heading-level-enable div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
@@ -5771,11 +5779,10 @@ body .workspace-split .workspace-tabs:not(.mod-stacked) .view-content {
   animation: slide-up var(--animation) forwards;
 }
 
-@supports selector(:has(.view-content)) {
-  .workspace-leaf-content:not(:has(.view-content)) {
-    animation: slide-up var(--animation) forwards;
-  }
+.workspace-leaf-content:not(:has(.view-content)) {
+  animation: slide-up var(--animation) forwards;
 }
+
 @keyframes slide-up {
   0% {
     transform: translateY(0%);

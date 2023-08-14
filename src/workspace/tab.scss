@@ -138,10 +138,8 @@ body .workspace-split .workspace-tabs:not(.mod-stacked) .view-content {
   animation: slide-up var(--animation) forwards;
 }
 
-@supports selector(:has(.view-content)) {
-  .workspace-leaf-content:not(:has(.view-content)) {
-    animation: slide-up var(--animation) forwards;
-  }
+.workspace-leaf-content:not(:has(.view-content)) {
+  animation: slide-up var(--animation) forwards;
 }
 
 @keyframes slide-up {
