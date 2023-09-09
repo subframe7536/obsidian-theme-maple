@@ -25,45 +25,8 @@ body.tag-plain {
   --tag-background: transparent;
 }
 
-body.tag-outline .cm-hashtag {
-  border-color: var(--setting-tag-outline, var(--accent-inactive)) !important;
-  border-width: var(--size-2-1) !important;
-  color: var(--setting-tag-color, var(--accent-active)) !important;
-}
-
-body.tag-colorful {
-  @for $i from 1 through 6 {
-    $index: $i - 1;
-    $deg: $index*60;
-
-    :is(&.theme-light, &.theme-light .print) {
-      --tag-#{$i}-default: hsl(calc(var(--accent-h) + #{$deg}),
-        50%,
-        60%);
-    }
-
-    :is(&.theme-dark, &.theme-dark .print) {
-      --tag-#{$i}-default: hsl(calc(var(--accent-h) + #{$deg}),
-        30%,
-        40%);
-    }
-
-
-    $start: 'span.cm-hashtag-begin:nth-child';
-
-    :is(#{$start}(5n + #{$index}), #{$start}(5n + #{$index})+.cm-hashtag,
-      #{$start}(5n + #{$index})+.cm-hashtag+.cm-hashtag-end,
-      .markdown-preview-section>div a.tag:nth-of-type(5n + #{$i})) {
-      --tag-background: var(--tag-#{$i}, var(--tag-#{$i}-default));
-      color: var(--text-on-accent) !important;
-    }
-  }
-
-  .app-container .markdown-rendered a.tag {
-    transition: var(--animation);
-
-    &:hover {
-      color: var(--text-normal) !important;
-    }
-  }
+body.tag-outline {
+  --tag-border-color: var(--setting-tag-outline, var(--accent-inactive)) !important;
+  --tag-border-width: var(--size-2-1) !important;
+  --tag-color: var(--setting-tag-color, var(--accent-active)) !important;
 }

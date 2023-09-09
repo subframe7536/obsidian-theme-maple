@@ -892,12 +892,12 @@ settings:
         allowEmpty: false
         default: tag-outline
         options:
+            -   label: default
+                value: tag-default
             -   label: plain
                 value: tag-plain
             -   label: outline
                 value: tag-outline
-            -   label: colorful
-                value: tag-colorful
     -
         id: tag-outline-setting
         title: outline style setting

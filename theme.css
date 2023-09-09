@@ -1512,12 +1512,12 @@ settings:
         allowEmpty: false
         default: tag-outline
         options:
+            -   label: default
+                value: tag-default
             -   label: plain
                 value: tag-plain
             -   label: outline
                 value: tag-outline
-            -   label: colorful
-                value: tag-colorful
     -
         id: tag-outline-setting
         title: outline style setting
@@ -1928,6 +1928,7 @@ body.modal-item-animation .style-settings-heading:hover {
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
+  --background-modifier-border: var(--accent-inactive);
   --background-modifier-border-focus: var(--accent-inactive);
   --color-red-rgb: 228, 52, 52 !important;
   --color-red: rgba(228, 52, 52, var(--color-opacity)) !important;
@@ -3220,113 +3221,10 @@ body.tag-plain {
   --tag-background: transparent;
 }
 
-body.tag-outline .cm-hashtag {
-  border-color: var(--setting-tag-outline, var(--accent-inactive)) !important;
-  border-width: var(--size-2-1) !important;
-  color: var(--setting-tag-color, var(--accent-active)) !important;
-}
-
-:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-1-default: hsl(calc(var(--accent-h) + 0),
-    50%,
-    60%);
-}
-:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-1-default: hsl(calc(var(--accent-h) + 0),
-    30%,
-    40%);
-}
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+0), span.cm-hashtag-begin:nth-child(5n+0) + .cm-hashtag,
-span.cm-hashtag-begin:nth-child(5n+0) + .cm-hashtag + .cm-hashtag-end,
-.markdown-preview-section > div a.tag:nth-of-type(5n + 1)) {
-  --tag-background: var(--tag-1, var(--tag-1-default));
-  color: var(--text-on-accent) !important;
-}
-:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-2-default: hsl(calc(var(--accent-h) + 60),
-    50%,
-    60%);
-}
-:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-2-default: hsl(calc(var(--accent-h) + 60),
-    30%,
-    40%);
-}
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+1), span.cm-hashtag-begin:nth-child(5n+1) + .cm-hashtag,
-span.cm-hashtag-begin:nth-child(5n+1) + .cm-hashtag + .cm-hashtag-end,
-.markdown-preview-section > div a.tag:nth-of-type(5n + 2)) {
-  --tag-background: var(--tag-2, var(--tag-2-default));
-  color: var(--text-on-accent) !important;
-}
-:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-3-default: hsl(calc(var(--accent-h) + 120),
-    50%,
-    60%);
-}
-:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-3-default: hsl(calc(var(--accent-h) + 120),
-    30%,
-    40%);
-}
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+2), span.cm-hashtag-begin:nth-child(5n+2) + .cm-hashtag,
-span.cm-hashtag-begin:nth-child(5n+2) + .cm-hashtag + .cm-hashtag-end,
-.markdown-preview-section > div a.tag:nth-of-type(5n + 3)) {
-  --tag-background: var(--tag-3, var(--tag-3-default));
-  color: var(--text-on-accent) !important;
-}
-:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-4-default: hsl(calc(var(--accent-h) + 180),
-    50%,
-    60%);
-}
-:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-4-default: hsl(calc(var(--accent-h) + 180),
-    30%,
-    40%);
-}
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+3), span.cm-hashtag-begin:nth-child(5n+3) + .cm-hashtag,
-span.cm-hashtag-begin:nth-child(5n+3) + .cm-hashtag + .cm-hashtag-end,
-.markdown-preview-section > div a.tag:nth-of-type(5n + 4)) {
-  --tag-background: var(--tag-4, var(--tag-4-default));
-  color: var(--text-on-accent) !important;
-}
-:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-5-default: hsl(calc(var(--accent-h) + 240),
-    50%,
-    60%);
-}
-:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-5-default: hsl(calc(var(--accent-h) + 240),
-    30%,
-    40%);
-}
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+4), span.cm-hashtag-begin:nth-child(5n+4) + .cm-hashtag,
-span.cm-hashtag-begin:nth-child(5n+4) + .cm-hashtag + .cm-hashtag-end,
-.markdown-preview-section > div a.tag:nth-of-type(5n + 5)) {
-  --tag-background: var(--tag-5, var(--tag-5-default));
-  color: var(--text-on-accent) !important;
-}
-:is(body.tag-colorful.theme-light, body.tag-colorful.theme-light .print) {
-  --tag-6-default: hsl(calc(var(--accent-h) + 300),
-    50%,
-    60%);
-}
-:is(body.tag-colorful.theme-dark, body.tag-colorful.theme-dark .print) {
-  --tag-6-default: hsl(calc(var(--accent-h) + 300),
-    30%,
-    40%);
-}
-body.tag-colorful :is(span.cm-hashtag-begin:nth-child(5n+5), span.cm-hashtag-begin:nth-child(5n+5) + .cm-hashtag,
-span.cm-hashtag-begin:nth-child(5n+5) + .cm-hashtag + .cm-hashtag-end,
-.markdown-preview-section > div a.tag:nth-of-type(5n + 6)) {
-  --tag-background: var(--tag-6, var(--tag-6-default));
-  color: var(--text-on-accent) !important;
-}
-body.tag-colorful .app-container .markdown-rendered a.tag {
-  transition: var(--animation);
-}
-body.tag-colorful .app-container .markdown-rendered a.tag:hover {
-  color: var(--text-normal) !important;
+body.tag-outline {
+  --tag-border-color: var(--setting-tag-outline, var(--accent-inactive)) !important;
+  --tag-border-width: var(--size-2-1) !important;
+  --tag-color: var(--setting-tag-color, var(--accent-active)) !important;
 }
 
 /* ====== 段落 ====== */
@@ -4205,6 +4103,40 @@ li[data-task="<"] > p > input:checked {
   --checkbox-color-hover: var(--color-blue);
   color: var(--color-blue);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M2.75 15.5h10.5c.83 0 1.5-.67 1.5-1.5V3.5c0-.83-.67-1.5-1.5-1.5h-1.5V.5h-1.5V2h-4.5V.5h-1.5V2h-1.5c-.83 0-1.5.67-1.5 1.5V14c0 .83.67 1.5 1.5 1.5zm0-11.25h10.5v1.5H2.75v-1.5z" /></svg>');
+}
+
+/* ====== 属性 ====== */
+.metadata-container {
+  margin-block-end: var(--size-4-2);
+  transition: var(--animation);
+  --metadata-border-width: var(--size-2-1);
+  --metadata-border-radius: var(--radius-l);
+  --metadata-padding: var(--radius-l);
+  --metadata-border-color: var(--accent-inactive);
+  --metadata-property-background-hover: var(--md-container-bg);
+}
+.metadata-container:hover {
+  --metadata-border-color: var(--accent-active);
+}
+
+.metadata-properties-heading .collapse-indicator {
+  left: calc(var(--size-4-8) * -1);
+}
+
+.metadata-property-icon,
+input.metadata-property-key-input,
+.multi-select-pill,
+.multi-select-input {
+  line-height: calc(var(--line-height-normal) / 1.4);
+  height: calc(var(--line-height-normal) / 1.4);
+}
+
+.metadata-property-key {
+  padding-block: var(--size-2-1);
+}
+
+.metadata-property:not([data-property-key=tags]) .metadata-property-icon {
+  padding: var(--size-2-1) 0;
 }
 
 /* ====== better command palette ======*/
