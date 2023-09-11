@@ -3,14 +3,24 @@
 .metadata-container {
   margin-block-end: var(--size-4-2);
   transition: var(--animation);
-  --metadata-border-width: var(--size-2-1);
-  --metadata-border-radius: var(--radius-l);
-  --metadata-padding: var(--radius-l);
-  --metadata-border-color: var(--accent-inactive);
   --metadata-property-background-hover: var(--md-container-bg);
 
-  &:hover {
-    --metadata-border-color: var(--accent-active);
+  body.prop-outline & {
+    margin-inline: var(--size-4-1);
+    --metadata-border-width: var(--block-outline-width);
+    --metadata-border-radius: var(--radius-l);
+    --metadata-border-color: var(--accent-inactive);
+    --metadata-padding: var(--radius-l);
+
+    &:hover {
+      --metadata-border-color: var(--accent-active);
+    }
+  }
+
+  .metadata-add-button {
+    padding: var(--size-4-1);
+    margin-top: var(--size-4-2);
+    gap: var(--size-2-3);
   }
 }
 
@@ -22,14 +32,18 @@
 input.metadata-property-key-input,
 .multi-select-pill,
 .multi-select-input {
-  line-height: calc(var(--line-height-normal) / 1.4);
-  height: calc(var(--line-height-normal) / 1.4);
+  line-height: calc(var(--line-height-normal) / 1.5);
+  height: calc(var(--line-height-normal) / 1.5);
 }
 
 .metadata-property-key {
   padding-block: var(--size-2-1);
 }
 
-.metadata-property:not([data-property-key="tags"]) .metadata-property-icon {
-  padding: var(--size-2-1) 0;
+.metadata-property:not([data-property-key="tags"]) .metadata-property-key-input {
+  padding-block: var(--size-2-3);
+}
+
+.multi-select-pill {
+  transition: var(--animation);
 }

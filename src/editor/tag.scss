@@ -30,3 +30,10 @@ body.tag-outline {
   --tag-border-width: var(--size-2-1) !important;
   --tag-color: var(--setting-tag-color, var(--accent-active)) !important;
 }
+
+body.tag-colored {
+  --tag-background: var(--setting-tag-bg, var(--accent-active)) !important;
+  --tag-background-hover: var(--tag-background);
+  --tag-color: var(--text-on-accent);
+  --tag-color-hover: var(--tag-color);
+}

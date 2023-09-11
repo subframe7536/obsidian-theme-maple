@@ -898,6 +898,17 @@ settings:
                 value: tag-plain
             -   label: outline
                 value: tag-outline
+            -   label: colored
+                value: tag-colored
+    -
+        id: setting-tag-bg
+        title: tag background color
+        title.zh: 标签背景颜色
+        type: variable-themed-color
+        format: hex
+        opacity: false
+        default-light: '#'
+        default-dark: '#'
     -
         id: tag-outline-setting
         title: outline style setting
@@ -926,7 +937,7 @@ settings:
     -
         id: canvas
         title: canvas
-        title.zh: canvas 画布
+        title.zh: 画布 canvas
         type: heading
         collapsed: true
         level: 2
@@ -949,6 +960,19 @@ settings:
         description: hover will increase brightness
         title.zh: 黑暗模式下降低图片亮度
         description.zh: 鼠标经过时会增加亮度
+        type: class-toggle
+        default: true
+    -
+        id: prop
+        title: property
+        title.zh: 属性 property
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: prop-outline
+        title: add outlint for property panel
+        title.zh: 属性面板添加边框
         type: class-toggle
         default: true
 */
