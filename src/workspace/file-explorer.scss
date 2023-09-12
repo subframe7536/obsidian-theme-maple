@@ -121,14 +121,13 @@ body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files
 
       &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw'])::before {
         content: ' ';
-        display: inline-block;
         width: 1rem;
         opacity: 0.8;
-        height: 0.9rem;
-        left: var(--size-4-1);
+        height: 1rem;
         margin-right: var(--size-4-2);
         margin-left: calc(-1 * var(--size-2-1));
-        transform: translateY(25%);
+        flex-shrink: 0;
+        transform: translateY(10%);
         background-color: var(--accent-active);
         // add icon in icons.scss
       }
