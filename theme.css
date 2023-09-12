@@ -469,7 +469,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.6.17'"
+        default: "'maple 0.6.18'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -5379,14 +5379,13 @@ body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-c
 
 body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title:not([data-path$="excalidraw.md"]):not([data-path$=excalidraw])::before {
   content: " ";
-  display: inline-block;
   width: 1rem;
   opacity: 0.8;
-  height: 0.9rem;
-  left: var(--size-4-1);
+  height: 1rem;
   margin-right: var(--size-4-2);
   margin-left: calc(-1 * var(--size-2-1));
-  transform: translateY(25%);
+  flex-shrink: 0;
+  transform: translateY(10%);
   background-color: var(--accent-active);
 }
 
@@ -5615,7 +5614,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
 }
 
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.6.17");
+  content: var(--setting-header-title, "maple 0.6.18");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6541,7 +6540,7 @@ body.explorer-icon .nav-file-title:is([data-path$=png], [data-path$=svg], [data-
 }
 
 body.explorer-icon .nav-file-title:is([data-path$=pdf])::before {
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><path d="M14 2v6h6m-4" /></g><path d="M16.714 14.869c-.6-.642-2.31-.466-3.165-.348-.844-.562-1.41-1.34-1.808-2.48.192-.862.497-2.174.266-3-.207-1.403-1.857-1.264-2.093-.316-.217.862-.02 2.062.344 3.594-.492 1.28-1.224 3-1.74 3.986-.983.552-2.31 1.403-2.506 2.474-.162.847 1.278 2.957 3.74-1.67 1.1-.397 2.3-.885 3.36-1.078.929.547 2.015.912 2.742.912 1.254 0 1.376-1.512.86-2.074zM6.98 19.037c.251-.734 1.204-1.58 1.494-1.875-.933 1.623-1.494 1.912-1.494 1.875zm4.01-10.21c.363 0 .33 1.72.087 2.185-.215-.744-.21-2.185-.088-2.185zM9.79 16.144c.477-.905.885-1.981 1.214-2.93.408.809.929 1.457 1.479 1.901-1.022.23-1.911.703-2.693 1.03zm6.467-.268q-.246.322-1.834-.417c1.726-.14 2.01.29 1.834.417z" fill="currentColor"/></svg>');
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><path d="M14 2v6h6m-4" /></g><path d="M16.714 14.869c-.6-.642-2.31-.466-3.165-.348-.844-.562-1.41-1.34-1.808-2.48.192-.862.497-2.174.266-3-.207-1.403-1.857-1.264-2.093-.316-.217.862-.02 2.062.344 3.594-.492 1.28-1.224 3-1.74 3.986-.983.552-2.31 1.403-2.506 2.474-.162.847 1.278 2.957 3.74-1.67 1.1-.397 2.3-.885 3.36-1.078.929.547 2.015.912 2.742.912 1.254 0 1.376-1.512.86-2.074zM6.98 19.037c.251-.734 1.204-1.58 1.494-1.875-.933 1.623-1.494 1.912-1.494 1.875zm4.01-10.21c.363 0 .33 1.72.087 2.185-.215-.744-.21-2.185-.088-2.185zM9.79 16.144c.477-.905.885-1.981 1.214-2.93.408.809.929 1.457 1.479 1.901-1.022.23-1.911.703-2.693 1.03zm6.467-.268q-.246.322-1.834-.417c1.726-.14 2.01.29 1.834.417z" fill="currentColor"/></svg>');
 }
 
 body.explorer-icon .nav-file-title:is([data-path$=mp3], [data-path$=flac], [data-path$=wav], [data-path$=ape], [data-path$=alac], [data-path$=aac])::before {
