@@ -1,6 +1,6 @@
 /* ====== 段落 ====== */
-p {
-  margin-block: var(--size-4-1);
+body {
+  --p-spacing: var(--size-4-1)
 }
 
 /* ====== latex 修复 ====== */

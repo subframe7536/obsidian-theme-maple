@@ -765,9 +765,9 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
-        id: setting-list-checkbox-bg
-        title: checkbox marker background
-        title.zh: 勾选框背景色
+        id: setting-list-checkbox-color-hover
+        title: checkbox marker hover color
+        title.zh: 勾选框鼠标经过色
         type: variable-themed-color
         format: hex
         opacity: false
