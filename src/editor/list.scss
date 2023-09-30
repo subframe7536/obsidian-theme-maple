@@ -1,172 +1,111 @@
 /* ====== 列表list ======= */
-
-.markdown-source-view.mod-cm6 .HyperMD-task-line {
-  .task-list-label {
-    margin-left: calc(var(--size-2-1) * -1);
-  }
-
-  .task-list-item-checkbox {
-    cursor: pointer;
-  }
-
-  .collapse-indicator {
-    padding-right: 0.4rem;
-  }
-}
-
-.markdown-rendered .contains-task-list .list-collapse-indicator {
-  margin-left: -3rem;
-}
-
-:is(.markdown-rendered, .markdown-source-view.mod-cm6) input[type='checkbox'] {
-  transition: var(--animation);
-  border-width: var(--size-2-1);
-
-  &:checked:after {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-.HyperMD-task-line .cm-indent::before {
-  transform: translateX(0.4em) !important;
-}
-
 body.list-enable {
-  :is(.markdown-source-view, .markdown-rendered, .print .markdown-rendered, .cm-callout) {
-    --list-bullet-base: var(--size-4-3);
-    --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-    --list-marker-color: var(--setting-list-marker, var(--accent-active));
-    --list-marker-color-alt: var(--setting-list-marker-alt, var(--accent-active));
-    --checkbox-color: var(--setting-list-checkbox-bg, var(--accent-active));
-    --checkbox-marker-color: var(--setting-list-checkbox-color, var(--text-on-accent));
-    --checkbox-border-color: var(--setting-list-checkbox-border, var(--accent-active));
-    --list-spacing: 0;
+  --_marker-color: var(--setting-list-marker, var(--accent-active));
+  --_marker-size: calc(var(--font-text-size) / 3.6 + var(--size-2-1));
+  --list-marker-color: var(--_marker-color);
+  --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
+  --checkbox-marker-color: var(--text-on-accent);
+  --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
+  --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
+
+  .cm-formatting-list-ol,
+  li::marker {
+    font-family: var(--font-monospace);
   }
 
-  :is(.markdown-preview-view, .print .markdown-rendered, .cm-callout) {
-    --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
+  :is(.markdown-source-view, .markdown-preview-view) .task-list-item-checkbox {
+    border-width: var(--size-2-1);
+  }
 
-    :is(ul, ol) {
-      padding-inline-start: 2.1rem;
-      margin: var(--size-2-1) 0;
-
-      :is(ul, ol) {
-        padding-inline-start: 2.1rem;
-      }
-
-      li {
-        margin: var(--size-4-2) auto;
-        line-height: 1.8rem;
-      }
-    }
-
-    ul {
-      padding-inline-start: 1.2rem;
-
-      &.contains-task-list {
-        padding-inline-start: 1.6rem;
-        margin-inline-start: 0 !important;
-      }
-    }
-
-    ol li {
-      &::marker {
-        font-family: var(--font-monospace);
-      }
-
-      .list-collapse-indicator {
-        margin-left: -3.5rem !important;
-      }
-    }
-
-    &.show-indentation-guide {
-      .contains-task-list {
-        .task-list-item-checkbox {
-          margin-right: var(--size-4-2);
-        }
-
-        .contains-task-list {
-          margin-inline-start: 0.1rem !important;
-
-          &::before {
-            left: -1.2rem;
-          }
-        }
-      }
-
-      li>ol::before {
-        left: -1.55rem;
-      }
-
-    }
-
-    ul>li>ul>li {
-      --list-marker-color: transparent;
-      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-      --list-bullet-border: 2px solid var(--list-marker-color-alt);
-
-      ul>li {
-        --list-marker-color: var(--list-marker-color);
-        --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
-        --list-bullet-radius: 1px;
-
-        .list-bullet:after {
-          transform: rotate(45deg);
-        }
-
-        ul>li {
-          --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
-          --list-marker-color: transparent;
-          --list-bullet-border: var(--size-2-1) solid var(--list-marker-color-alt);
-          --list-bullet-radius: 1px;
-        }
-      }
-    }
+  // guide line and indicator
+  .collapse-indicator {
+    --cursor: pointer;
   }
 
   .markdown-source-view.mod-cm6 {
-    .cm-line.HyperMD-list-line:not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
-      padding-right: 0.5rem;
-      right: 0;
+    .cm-line:not(.cm-active):not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
+      padding-right: 1rem;
+      right: -0.5rem;
     }
 
-    .cm-formatting-list {
-      font-family: var(--font-monospace);
+    .cm-indent::before {
+      transform: translateX(var(--size-2-2));
     }
 
-    .HyperMD-list-line>.list-bullet:after {
-      content: none;
+    .HyperMD-task-line .collapse-indicator {
+      right: var(--size-2-1);
+    }
+  }
+
+  // indicator
+  ol li .list-collapse-indicator {
+    transform: translateX(0.1rem);
+  }
+
+  ul li .list-collapse-indicator {
+    margin-inline-start: calc(var(--size-4-8) * -1 - var(--size-4-3)) !important;
+    padding-inline-end: calc(var(--size-4-6) + var(--size-4-1)) !important;
+    transform: translateX(0.1rem);
+  }
+
+  // ol padding
+  .markdown-rendered.show-indentation-guide {
+    ol>li {
+      margin-inline-start: var(--size-4-2);
     }
 
-    .HyperMD-list-line-1 .list-bullet {
-      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
-    }
+    li>ol {
+      padding-left: calc(var(--size-4-6) + var(--size-2-1));
 
-    .HyperMD-list-line-2 .list-bullet {
-      --list-marker-color: transparent;
-      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base));
-      --list-bullet-border: 2px solid var(--list-marker-color-alt);
-    }
-
-    .HyperMD-list-line-3 .list-bullet {
-      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) + 3px);
-      --list-bullet-radius: 1px;
-
-      &::after {
-        transform: rotate(45deg);
+      &::before {
+        left: calc(var(--size-2-1) * -1 - var(--size-4-6));
       }
     }
+  }
 
-    .HyperMD-list-line:not(.HyperMD-list-line-1, .HyperMD-list-line-2, .HyperMD-list-line-3) .list-bullet {
-      --list-bullet-size: calc(var(--font-text-size) - var(--list-bullet-base) - 1px);
-      --list-marker-color: transparent;
-      --list-bullet-border: 2px solid var(--list-marker-color-alt);
-      --list-bullet-radius: 1px;
+  // bullet style
+  --list-bullet-size: var(--_marker-size);
 
-      &::after {
+  .HyperMD-list-line-2 .list-bullet {
+    --list-marker-color: transparent;
+    --list-bullet-border: var(--_marker-color) var(--size-2-1) solid;
+    --list-bullet-size: calc(var(--_marker-size) - var(--size-2-1));
+  }
+
+  .HyperMD-list-line-3 .list-bullet {
+    --list-bullet-radius: 0;
+    --list-marker-color: var(--list-marker-color-alt);
+    transform: rotate(45deg);
+  }
+
+  .HyperMD-list-line-4 .list-bullet {
+    --list-marker-color: transparent;
+    --list-bullet-border: var(--list-marker-color-alt) var(--size-2-1) solid;
+    --list-bullet-size: calc(var(--_marker-size) - var(--size-2-1));
+    --list-bullet-radius: 0;
+    transform: rotate(45deg);
+  }
+
+  .markdown-preview-sizer>div>ul>li>ul>li {
+    --list-marker-color: transparent;
+    --list-bullet-border: var(--_marker-color) var(--size-2-1) solid;
+    --list-bullet-size: calc(var(--_marker-size) - var(--size-2-1));
+
+    &>ul>li {
+      --list-bullet-radius: 0;
+      --list-marker-color: var(--list-marker-color-alt);
+
+      .list-bullet {
         transform: rotate(45deg);
+      }
+
+      &>ul>li {
+        --list-marker-color: transparent;
+
+        ul>li {
+          --list-bullet-radius: var(--radius-s);
+          --list-marker-color: var(--_marker-color);
+        }
       }
     }
   }
