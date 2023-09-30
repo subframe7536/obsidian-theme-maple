@@ -405,22 +405,6 @@ settings:
         description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
         type: class-toggle
     -
-        id: scrollbar-gutter
-        title: scrollbar gutter configuration
-        description: make the scrollbar won't squeezing the parent container (overlay) / reserve scroll gutter instead of float the bar (reserve)
-        title.zh: 滚动条槽配置
-        description.zh: 默认（default）/ 悬浮滚动条，使滚动条出现时不会挤压父容器（overlay）/ 预留滚动条位置（reserve）
-        type: class-select
-        allowEmpty: false
-        default: scrollbar-gutter-overlay
-        options:
-            -   label: default
-                value: scrollbar-gutter-default
-            -   label: overlay
-                value: scrollbar-gutter-overlay
-            -   label: reserve
-                value: scrollbar-gutter-reserve
-    -
         id: graph
         title: graph
         title.zh: 关系图谱
