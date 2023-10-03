@@ -2848,7 +2848,7 @@ body.list-enable .HyperMD-list-line-2 .list-bullet {
 body.list-enable .HyperMD-list-line-3 .list-bullet {
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.75);
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.9);
   transform: rotate(45deg);
 }
 body.list-enable .HyperMD-list-line-4 .list-bullet {
@@ -2864,7 +2864,7 @@ body.list-enable ul > li > ul > li {
   --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) - var(--size-2-1));
 }
 body.list-enable ul > li > ul > li > ul > li {
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.75 - var(--size-2-1));
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.9 - var(--size-2-1));
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
   --deg: 45deg;
