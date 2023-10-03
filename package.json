@@ -1,10 +1,10 @@
 {
   "name": "maple",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Maple —— A Obsidian Theme",
   "scripts": {
     "dev": "sass --watch src:vault/.obsidian/snippets --no-source-map --update",
-    "prod": "sass src/index.scss theme.css --no-source-map && node move.mjs"
+    "build": "sass src/index.scss theme.css --no-source-map && node move.mjs"
   },
   "keywords": [
     "Obsidian"

@@ -1,8 +1,8 @@
 /* ====== 列表list ======= */
 body.list-enable {
-  --_marker-color: var(--setting-list-marker, var(--accent-active));
-  --_marker-size: calc(var(--font-text-size) / 3.6 + var(--size-2-1));
-  --list-marker-color: var(--_marker-color);
+  $marker-color: var(--setting-list-marker, var(--accent-active));
+  $marker-size: calc(var(--font-text-size) / 3.6 + var(--size-2-1));
+  --list-marker-color: #{$marker-color};
   --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
   --checkbox-marker-color: var(--text-on-accent);
   --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
@@ -66,47 +66,53 @@ body.list-enable {
   }
 
   // bullet style
-  --list-bullet-size: var(--_marker-size);
+  --list-bullet-size: #{$marker-size};
+  $optical-factor-3: 0.75;
+  $optical-factor-4: 0.9;
 
   .HyperMD-list-line-2 .list-bullet {
     --list-marker-color: transparent;
-    --list-bullet-border: var(--_marker-color) var(--size-2-1) solid;
-    --list-bullet-size: calc(var(--_marker-size) - var(--size-2-1));
+    --list-bullet-border: #{$marker-color} var(--size-2-1) solid;
+    --list-bullet-size: calc(#{$marker-size} - var(--size-2-1));
   }
 
   .HyperMD-list-line-3 .list-bullet {
     --list-bullet-radius: 0;
     --list-marker-color: var(--list-marker-color-alt);
+    --list-bullet-size: calc(#{$marker-size} * #{$optical-factor-3});
     transform: rotate(45deg);
   }
 
   .HyperMD-list-line-4 .list-bullet {
     --list-marker-color: transparent;
     --list-bullet-border: var(--list-marker-color-alt) var(--size-2-1) solid;
-    --list-bullet-size: calc(var(--_marker-size) - var(--size-2-1));
+    --list-bullet-size: calc(#{$marker-size} * #{$optical-factor-4} - var(--size-2-1));
     --list-bullet-radius: 0;
     transform: rotate(45deg);
   }
 
   ul>li>ul>li {
     --list-marker-color: transparent;
-    --list-bullet-border: var(--_marker-color) var(--size-2-1) solid;
-    --list-bullet-size: calc(var(--_marker-size) - var(--size-2-1));
+    --list-bullet-border: #{$marker-color} var(--size-2-1) solid;
+    --list-bullet-size: calc(#{$marker-size} - var(--size-2-1));
 
     &>ul>li {
+      --list-bullet-size: calc(#{$marker-size} * #{$optical-factor-3} - var(--size-2-1));
       --list-bullet-radius: 0;
       --list-marker-color: var(--list-marker-color-alt);
+      --deg: 45deg;
 
       .list-bullet {
-        transform: rotate(45deg);
+        transform: rotate(var(--deg));
       }
 
       &>ul>li {
+        --list-bullet-size: calc(#{$marker-size} * #{$optical-factor-4} - var(--size-2-1));
         --list-marker-color: transparent;
 
         ul>li {
           --list-bullet-radius: var(--radius-s);
-          --list-marker-color: var(--_marker-color);
+          --list-marker-color: #{$marker-color};
         }
       }
     }
@@ -119,12 +125,23 @@ body.list-enable {
       --list-indent: 0.4em;
     }
 
-    li::marker {
-      --list-marker-color: var(--_marker-color) !important;
-    }
-
     &::before {
       left: -0.7em;
+    }
+
+    li::marker {
+      --list-marker-color: transparent !important;
+    }
+
+    li::before {
+      content: '';
+      position: absolute;
+      width: var(--list-bullet-size);
+      height: var(--list-bullet-size);
+      background-color: var(--list-marker-color);
+      border-radius: var(--list-bullet-radius);
+      border: var(--list-bullet-border);
+      transform: translate(-0.9em, calc(var(--font-text-size) * var(--line-height-normal) / 2.5)) rotate(var(--deg, 0)); // only 3 or 4 will have --deg
     }
   }
 }

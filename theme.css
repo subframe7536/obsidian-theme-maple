@@ -468,7 +468,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.1'"
+        default: "'maple 0.7.2'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2793,14 +2793,12 @@ body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-inte
 
 /* ====== 列表list ======= */
 body.list-enable {
-  --_marker-color: var(--setting-list-marker, var(--accent-active));
-  --_marker-size: calc(var(--font-text-size) / 3.6 + var(--size-2-1));
-  --list-marker-color: var(--_marker-color);
+  --list-marker-color: var(--setting-list-marker, var(--accent-active));
   --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
   --checkbox-marker-color: var(--text-on-accent);
   --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
-  --list-bullet-size: var(--_marker-size);
+  --list-bullet-size: calc(var(--font-text-size) / 3.6 + var(--size-2-1));
 }
 body.list-enable .cm-formatting-list-ol,
 body.list-enable li::marker {
@@ -2844,39 +2842,43 @@ body.list-enable .markdown-rendered.show-indentation-guide ol li > ol::before {
 }
 body.list-enable .HyperMD-list-line-2 .list-bullet {
   --list-marker-color: transparent;
-  --list-bullet-border: var(--_marker-color) var(--size-2-1) solid;
-  --list-bullet-size: calc(var(--_marker-size) - var(--size-2-1));
+  --list-bullet-border: var(--setting-list-marker, var(--accent-active)) var(--size-2-1) solid;
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) - var(--size-2-1));
 }
 body.list-enable .HyperMD-list-line-3 .list-bullet {
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.75);
   transform: rotate(45deg);
 }
 body.list-enable .HyperMD-list-line-4 .list-bullet {
   --list-marker-color: transparent;
   --list-bullet-border: var(--list-marker-color-alt) var(--size-2-1) solid;
-  --list-bullet-size: calc(var(--_marker-size) - var(--size-2-1));
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.9 - var(--size-2-1));
   --list-bullet-radius: 0;
   transform: rotate(45deg);
 }
 body.list-enable ul > li > ul > li {
   --list-marker-color: transparent;
-  --list-bullet-border: var(--_marker-color) var(--size-2-1) solid;
-  --list-bullet-size: calc(var(--_marker-size) - var(--size-2-1));
+  --list-bullet-border: var(--setting-list-marker, var(--accent-active)) var(--size-2-1) solid;
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) - var(--size-2-1));
 }
 body.list-enable ul > li > ul > li > ul > li {
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.75 - var(--size-2-1));
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
+  --deg: 45deg;
 }
 body.list-enable ul > li > ul > li > ul > li .list-bullet {
-  transform: rotate(45deg);
+  transform: rotate(var(--deg));
 }
 body.list-enable ul > li > ul > li > ul > li > ul > li {
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.9 - var(--size-2-1));
   --list-marker-color: transparent;
 }
 body.list-enable ul > li > ul > li > ul > li > ul > li ul > li {
   --list-bullet-radius: var(--radius-s);
-  --list-marker-color: var(--_marker-color);
+  --list-marker-color: var(--setting-list-marker, var(--accent-active));
 }
 body.list-enable .callout-content ul {
   --list-indent: 1.6em;
@@ -2884,11 +2886,21 @@ body.list-enable .callout-content ul {
 body.list-enable .callout-content ul.contains-task-list {
   --list-indent: 0.4em;
 }
-body.list-enable .callout-content ul li::marker {
-  --list-marker-color: var(--_marker-color) !important;
-}
 body.list-enable .callout-content ul::before {
   left: -0.7em;
+}
+body.list-enable .callout-content ul li::marker {
+  --list-marker-color: transparent !important;
+}
+body.list-enable .callout-content ul li::before {
+  content: "";
+  position: absolute;
+  width: var(--list-bullet-size);
+  height: var(--list-bullet-size);
+  background-color: var(--list-marker-color);
+  border-radius: var(--list-bullet-radius);
+  border: var(--list-bullet-border);
+  transform: translate(-0.9em, calc(var(--font-text-size) * var(--line-height-normal) / 2.5)) rotate(var(--deg, 0));
 }
 
 /* ====== 引用quote ====== */
@@ -5130,7 +5142,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.1");
+  content: var(--setting-header-title, "maple 0.7.2");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
