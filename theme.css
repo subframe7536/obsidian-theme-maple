@@ -468,7 +468,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.0'"
+        default: "'maple 0.7.1'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2830,14 +2830,17 @@ body.list-enable ul li .list-collapse-indicator {
   padding-inline-end: calc(var(--size-4-6) + var(--size-4-1)) !important;
   transform: translateX(0.1rem);
 }
+body.list-enable .markdown-rendered.show-indentation-guide ol {
+  --list-indent: calc(var(--font-text-size) + 0.5em);
+}
 body.list-enable .markdown-rendered.show-indentation-guide ol > li {
-  margin-inline-start: var(--size-4-2);
+  margin-inline-start: var(--font-text-size);
 }
-body.list-enable .markdown-rendered.show-indentation-guide li > ol {
-  padding-left: calc(var(--size-4-6) + var(--size-2-1));
+body.list-enable .markdown-rendered.show-indentation-guide ol li > ol {
+  padding-left: calc(var(--font-text-size));
 }
-body.list-enable .markdown-rendered.show-indentation-guide li > ol::before {
-  left: calc(var(--size-2-1) * -1 - var(--size-4-6));
+body.list-enable .markdown-rendered.show-indentation-guide ol li > ol::before {
+  left: calc(var(--font-text-size) * -1.5);
 }
 body.list-enable .HyperMD-list-line-2 .list-bullet {
   --list-marker-color: transparent;
@@ -2856,24 +2859,36 @@ body.list-enable .HyperMD-list-line-4 .list-bullet {
   --list-bullet-radius: 0;
   transform: rotate(45deg);
 }
-body.list-enable .markdown-preview-sizer > div > ul > li > ul > li {
+body.list-enable ul > li > ul > li {
   --list-marker-color: transparent;
   --list-bullet-border: var(--_marker-color) var(--size-2-1) solid;
   --list-bullet-size: calc(var(--_marker-size) - var(--size-2-1));
 }
-body.list-enable .markdown-preview-sizer > div > ul > li > ul > li > ul > li {
+body.list-enable ul > li > ul > li > ul > li {
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
 }
-body.list-enable .markdown-preview-sizer > div > ul > li > ul > li > ul > li .list-bullet {
+body.list-enable ul > li > ul > li > ul > li .list-bullet {
   transform: rotate(45deg);
 }
-body.list-enable .markdown-preview-sizer > div > ul > li > ul > li > ul > li > ul > li {
+body.list-enable ul > li > ul > li > ul > li > ul > li {
   --list-marker-color: transparent;
 }
-body.list-enable .markdown-preview-sizer > div > ul > li > ul > li > ul > li > ul > li ul > li {
+body.list-enable ul > li > ul > li > ul > li > ul > li ul > li {
   --list-bullet-radius: var(--radius-s);
   --list-marker-color: var(--_marker-color);
+}
+body.list-enable .callout-content ul {
+  --list-indent: 1.6em;
+}
+body.list-enable .callout-content ul.contains-task-list {
+  --list-indent: 0.4em;
+}
+body.list-enable .callout-content ul li::marker {
+  --list-marker-color: var(--_marker-color) !important;
+}
+body.list-enable .callout-content ul::before {
+  left: -0.7em;
 }
 
 /* ====== 引用quote ====== */
@@ -5115,7 +5130,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.0");
+  content: var(--setting-header-title, "maple 0.7.1");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
