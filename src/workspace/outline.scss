@@ -19,13 +19,15 @@ body {
 
 body.outline-item-animation {
   .outline .tree-item-self {
-    transition: var(--animation);
+    transition: background-color var(--animation);
 
     &:hover {
       transition: none;
     }
   }
 }
+
+$indent-width: -14px;
 
 body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .outline {
   .tree-item {
@@ -51,9 +53,10 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
         padding-left: var(--size-4-1);
 
         &::before {
+          $size: calc(var(--size-4-1) * 1.2);
           content: '';
-          width: var(--size-4-1);
-          height: var(--size-4-1);
+          width: $size;
+          height: $size;
           border: var(--size-2-1) solid var(--outline-guideline-color);
           border-radius: 50%;
           position: absolute;
@@ -81,7 +84,7 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
       position: absolute;
       background-color: transparent;
       top: calc(var(--outline-item-height) / 2 * -1);
-      left: -14px;
+      left: $indent-width;
       height: calc(100% - var(--outline-item-height) + var(--size-4-8));
     }
 
@@ -128,7 +131,7 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
         content: '';
         position: absolute;
         top: calc(var(--outline-item-height) / 2 * -1);
-        left: -14px;
+        left: $indent-width;
         bottom: calc(100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px);
         width: var(--size-4-6);
         border-bottom-left-radius: var(--radius-m);
