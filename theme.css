@@ -2848,7 +2848,7 @@ body.list-enable .HyperMD-list-line-2 .list-bullet {
 body.list-enable .HyperMD-list-line-3 .list-bullet {
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.9);
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.95);
   transform: rotate(45deg);
 }
 body.list-enable .HyperMD-list-line-4 .list-bullet {
@@ -2864,7 +2864,7 @@ body.list-enable ul > li > ul > li {
   --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) - var(--size-2-1));
 }
 body.list-enable ul > li > ul > li > ul > li {
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.9 - var(--size-2-1));
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.5);
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
   --deg: 45deg;
@@ -5370,7 +5370,7 @@ body {
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
 
-.workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-inner {
+.workspace-leaf-content[data-type=outline] .tree-item-inner {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -5378,35 +5378,27 @@ body {
   line-height: var(--outline-item-height);
 }
 
-body.outline-item-animation .outline .tree-item-self {
+body.outline-item-animation .workspace-leaf-content[data-type=outline] .tree-item-self {
   transition: background-color var(--animation);
 }
-body.outline-item-animation .outline .tree-item-self:hover {
+body.outline-item-animation .workspace-leaf-content[data-type=outline] .tree-item-self:hover {
   transition: none;
 }
 
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item {
   position: relative;
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self {
   position: relative;
   margin-bottom: 0;
   white-space: nowrap;
   margin-top: -1px;
   /* fix item gap */
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self::before {
-  content: "";
-  width: var(--size-4-5);
-  height: calc(var(--outline-item-height) + var(--size-4-2));
-  position: absolute;
-  left: calc(var(--size-4-4) * -1);
-  top: 0;
-}
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self .tree-item-inner {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self .tree-item-inner {
   padding-left: var(--size-4-1);
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self .tree-item-inner::before {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self .tree-item-inner::before {
   content: "";
   width: calc(var(--size-4-1) * 1.2);
   height: calc(var(--size-4-1) * 1.2);
@@ -5416,16 +5408,16 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   top: 50%;
   transform: translate(calc(-1 * var(--size-4-5)), -50%);
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self .tree-item-icon ~ .tree-item-inner {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self .tree-item-icon ~ .tree-item-inner {
   padding-left: var(--size-4-1);
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-self .tree-item-icon ~ .tree-item-inner::before {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self .tree-item-icon ~ .tree-item-inner::before {
   content: none;
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item.is-collapsed .tree-item-icon::before {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item.is-collapsed .tree-item-icon::before {
   box-shadow: 0 0 0 var(--size-4-1) var(--background-modifier-hover);
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item::after {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item::after {
   content: "";
   width: var(--outline-guideline-width);
   position: absolute;
@@ -5434,11 +5426,11 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   left: -14px;
   height: calc(100% - var(--outline-item-height) + var(--size-4-8));
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-icon {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-icon {
   cursor: pointer;
   transform: translateY(8px);
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-icon::before {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-icon::before {
   width: var(--size-4-2);
   height: var(--size-4-2);
   background-color: var(--outline-guideline-color);
@@ -5449,19 +5441,19 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   transform: translateY(-50%);
   z-index: 10;
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item-icon svg path {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-icon svg path {
   display: none;
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item:hover > .tree-item-children > .tree-item::after {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-children > .tree-item::after {
   background-color: var(--outline-guideline-color);
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item:hover > .tree-item-self:hover + .tree-item-children .tree-item::after {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-self:hover + .tree-item-children .tree-item::after {
   background-color: transparent;
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item:hover > .tree-item-children > .tree-item:hover::after, body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item:hover > .tree-item-children > .tree-item:hover ~ .tree-item::after {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-children > .tree-item:hover::after, body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-children > .tree-item:hover ~ .tree-item::after {
   background-color: transparent;
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline .tree-item:hover > .tree-item-children > .tree-item:hover::before {
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-children > .tree-item:hover::before {
   content: "";
   position: absolute;
   top: calc(var(--outline-item-height) / 2 * -1);
@@ -5473,7 +5465,7 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .ou
   border-left: var(--outline-guideline-width) solid var(--outline-guideline-color);
   z-index: 9;
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .view-content .outline :is(.tree-item-children, .tree-item-self) {
+body.outline-enable .workspace-leaf-content[data-type=outline] :is(.tree-item-children, .tree-item-self) {
   padding-left: 28px !important;
   margin-left: 0 !important;
   border-left: none;

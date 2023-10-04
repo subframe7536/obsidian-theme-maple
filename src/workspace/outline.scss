@@ -9,7 +9,7 @@ body {
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
 
-.workspace-leaf-content[data-type='outline'] .view-content .outline .tree-item-inner {
+.workspace-leaf-content[data-type='outline'] .tree-item-inner {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -17,19 +17,17 @@ body {
   line-height: var(--outline-item-height);
 }
 
-body.outline-item-animation {
-  .outline .tree-item-self {
-    transition: background-color var(--animation);
+body.outline-item-animation .workspace-leaf-content[data-type='outline'] .tree-item-self {
+  transition: background-color var(--animation);
 
-    &:hover {
-      transition: none;
-    }
+  &:hover {
+    transition: none;
   }
 }
 
 $indent-width: -14px;
 
-body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .outline {
+body.outline-enable .workspace-leaf-content[data-type='outline'] {
   .tree-item {
     position: relative;
 
@@ -38,15 +36,6 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] .view-content .
       margin-bottom: 0;
       white-space: nowrap;
       margin-top: -1px;
-
-      &::before {
-        content: '';
-        width: var(--size-4-5);
-        height: calc(var(--outline-item-height) + var(--size-4-2));
-        position: absolute;
-        left: calc(var(--size-4-4) * -1);
-        top: 0;
-      }
 
       /* fix item gap */
       .tree-item-inner {
