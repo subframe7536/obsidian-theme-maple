@@ -53,12 +53,6 @@
         -webkit-mask-size: unset;
         background-color: var(--button-gray-1);
       }
-
-      // invalid?
-      // &.App-menu__left::-webkit-scrollbar-thumb {
-      //   width: 8px !important;
-      //   border-color: transparent !important;
-      // }
     }
   }
 
@@ -175,4 +169,12 @@
   padding: unset;
   padding-right: 4px;
   padding-bottom: 4px;
+}
+
+// #53
+.excalidraw .excalidraw__embeddable__outer .theme-light {
+  --background-primary: hsla(var(--accent-h),
+      calc(var(--accent-s) - 12%),
+      97%,
+      var(--bg-opacity)) !important
 }
