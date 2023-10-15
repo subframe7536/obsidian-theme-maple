@@ -87,7 +87,7 @@ body:not(.line-active-disable) .workspace-leaf.mod-active .markdown-source-view 
 
 // 参考 https://github.com/Akifyss/obsidian-border
 body:not(.line-indicator-disable) {
-  .markdown-preview-sizer>div {
+  .markdown-preview-sizer>div:not(.search-highlight) {
     position: relative;
   }
 
