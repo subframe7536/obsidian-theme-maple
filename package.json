@@ -1,10 +1,12 @@
 {
   "name": "maple",
   "version": "0.7.7",
-  "description": "Maple —— A Obsidian Theme",
+  "description": "elegant theme for Obsidian",
   "scripts": {
     "dev": "sass --watch src:vault/.obsidian/snippets --no-source-map --update",
-    "build": "sass src/index.scss theme.css --no-source-map && node move.mjs"
+    "build": "sass src/index.scss theme.css --no-source-map && node scripts/move.mjs",
+    "replace-version": "node scripts/version.mjs && pnpm build",
+    "release": "bumpp -x \"pnpm replace-version\" --all -p false"
   },
   "keywords": [
     "Obsidian"
@@ -14,5 +16,8 @@
   "dependencies": {
     "sass": "^1.66.1"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "bumpp": "^9.2.0"
+  }
 }
