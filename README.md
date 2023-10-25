@@ -10,31 +10,27 @@ an Obsidian theme for desktop with some awesome components, using `Style Setting
 
 does not guarantee backward compatibility due to working time limitations
 
-## Getting Started
 
-### Install the Style Settings Plugin (⚠️Required)
+## getting started
+
+### install theme
+
+1. Open Obsidian and go to Settings.
+2. Click on the Appearance tab.
+3. Click on the Manage button to open Community Store.
+4. In the Filter... Search Box, search "Maple".
+5. Click the Install and use button.
+
+### customize (⚠️Recommend):
+
+by community plugin: Style Settings
+
 1. Open Obsidian and go to Settings.
 2. Click on the Community plugins tab.
 3. Click on the Browse button.
 4. In the Search community plugins... Search Box, search for Style Settings.
 5. Click the Install button.
 6. Click the Enable button once the plugin is finished installing.
-
-### community store
-
-1. Open Obsidian and go to Settings.
-2. Click on the Appearance tab.
-3. Click the Manage button.
-4. In the Filter... Search Box, search "Maple".
-5. Click the Install and use button.
-
-### manual
-
-1. download theme.css in [project(latest)](./theme.css) or in [release](https://github.com/subframe7536/obsidian-theme-maple/releases)
-2. put `theme.css` to `your-vault/.obsidian/snippets`
-3. Open Obsidian and go to Settings.
-4. Click on the Apparence tab.
-5. scroll to the bottom and turn on "theme"
 
 ## components
 
