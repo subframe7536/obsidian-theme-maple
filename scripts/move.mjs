@@ -3,8 +3,12 @@ import { resolve } from 'path'
 
 // path/to/your/vault/root
 const dirs = []
-
-const vaultRoots = existsSync('./dir.js') ? (await import('./dir.js')).dirs : dirs
+let vaultRoots
+try {
+  vaultRoots =  (await import('./dir.js')).dirs
+} catch (error) {
+  vaultRoots = dirs
+}
 console.log(`choose ${vaultRoots.length} vaults`)
 
 vaultRoots.forEach(root => {
