@@ -131,8 +131,17 @@ body.heading-level-enable {
   }
 
   @for $i from 1 through 6 {
+    $selector: 'div.markdown-reading-view>div>div>div>h#{$i}, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-#{$i}';
 
-    :is(div.markdown-reading-view > div > div > div > h#{$i}, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-#{$i})::before {
+    &.link-heading :is(#{$selector}) {
+      --link-color: var(--h#{$i}-color);
+      --link-color-underline: var(--h#{$i}-color);
+      --link-external-color: var(--h#{$i}-color);
+      --link-external-color-underline: var(--h#{$i}-color);
+      --link-text-size: var(--h#{$i}-size);
+    }
+
+    :is(#{$selector})::before {
       content: 'H#{$i}';
     }
   }

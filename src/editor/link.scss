@@ -11,10 +11,11 @@
   --link-external-color-underline: var(--setting-link-external-color-underline, var(--link-external-color));
   --link-unresolved-decoration-color: var(--link-unresolve-color);
   --link-footnote: var(--color-purple);
+  --link-text-size: var(--font-text-size)
 }
 
 @mixin hover-underline($color, $underline) {
-  font-size: var(--font-text-size);
+  font-size: var(--link-text-size);
   box-shadow: inset 0 -0.1em 0 $underline;
   text-decoration: none !important;
   transition: var(--animation);
@@ -122,8 +123,8 @@ body.link-icon {
     display: inline-block;
     transition: var(--animation);
     transform: translateY(var(--size-2-1));
-    width: calc(var(--font-text-size) - var(--size-2-1));
-    height: calc(var(--font-text-size) - var(--size-2-1));
+    width: calc(var(--link-text-size) - var(--size-2-1));
+    height: calc(var(--link-text-size) - var(--size-2-1));
     background-color: var(--link-color);
     margin-inline: var(--size-2-1);
     // add icon in icons.scss
@@ -134,8 +135,8 @@ body.link-icon {
       content: '';
       display: inline-block;
       transition: var(--animation);
-      width: calc(var(--font-text-size) - var(--size-4-1));
-      height: calc(var(--font-text-size) - var(--size-4-1));
+      width: calc(var(--link-text-size) - var(--size-4-1));
+      height: calc(var(--link-text-size) - var(--size-4-1));
       margin-left: var(--size-2-1);
       margin-right: var(--size-2-1);
       background-color: var(--link-external-color);

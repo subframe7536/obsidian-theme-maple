@@ -235,6 +235,13 @@ settings:
         type: class-toggle
         default: true
     -
+        id: link-heading
+        title: Compatible with heading style
+        description: keep link color with heading, but keep icon
+        title.zh: 兼容标题样式
+        description.zh: 链接颜色改为标题颜色，保留图标
+        type: class-toggle
+    -
         id: link-click-to-edit-in-live-preview
         title: click to edit link in live preview
         description: ❗will disable hover animation, external link prefix icon will be diabled

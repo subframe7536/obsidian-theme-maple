@@ -45,17 +45,10 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 }
 
 :is(.theme-light, .theme-light .print) {
-  --background-primary: hsla(var(--accent-h),
-      calc(var(--accent-s) - 12%),
-      97%,
-      var(--bg-opacity));
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
-  --background-secondary: hsla(calc(var(--accent-h) - 18),
-      calc(var(--accent-s) - 4%),
-      calc(100% - (100% - var(--accent-l)) / 8),
-      var(--bg-opacity));
-  --background-secondary-hsl: calc(var(--accent-h) - 18),
-    calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
+  --background-primary: hsla(var(--background-primary-hsl), var(--bg-opacity));
+  --background-secondary-hsl: calc(var(--accent-h) - 18), calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
+  --background-secondary: hsla(var(--background-secondary-hsl), var(--bg-opacity));
   --background-modifier-hover: hsla(var(--color-accent-hsl), 16%);
   --accent-active: hsl(var(--accent-h),
       var(--accent-s),
