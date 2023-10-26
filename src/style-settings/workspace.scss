@@ -198,6 +198,13 @@ settings:
         title.zh: 仿 Firefox / Microsoft Edge 的标签页
         type: class-toggle
     -
+        id: labeled-nav
+        title: text labels for primary navigation
+        description: reference from https://github.com/kepano/obsidian-minimal
+        title.zh: 主导航栏添加文字
+        description.zh: 参考自 https://github.com/kepano/obsidian-minimal
+        type: class-toggle
+    -
         id: tab-show-close
         title: when to show close button on tabs
         title.zh: 何时显示标签页的关闭按钮
