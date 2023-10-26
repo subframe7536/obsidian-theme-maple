@@ -4,6 +4,21 @@ name: 🌏 Maple Workspace
 id: maple-workspace
 settings:
     -
+        id: titlebar
+        title: obsidian titlebar
+        title.zh: obsidian 标题栏
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: titlebar-button-style
+        title: styled window buttons
+        description: for Windows and Linux
+        title.zh: 窗体按钮美化
+        description.zh: 在 Windows 和 Linux 中生效
+        type: class-toggle
+        default: true
+    -
         id: titlebar-colorful
         title: colorful titlebar
         description: reference from https://github.com/kepano/obsidian-minimal
