@@ -499,7 +499,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.9'"
+        default: "'maple 0.7.10'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -878,9 +878,9 @@ settings:
         type: class-toggle
     -
         id: link-click-to-edit-in-live-preview
-        title: click to edit link in live preview
+        title: click to edit link in Live-Preview
         description: ❗will disable hover animation, external link prefix icon will be diabled
-        title.zh: live preview 模式时点击链接进行编辑而不是跳转
+        title.zh: 实时预览 模式时点击链接进行编辑而不是跳转
         description.zh: ❗鼠标经过动画会消失，外部链接的前置图标会消失
         type: class-toggle
     -
@@ -1325,9 +1325,9 @@ settings:
     -
         id: image-zoom
         title: click to zoom out image
-        description: invalid in source view or live-preview
+        description: invalid in source view or Live-Preview
         title.zh: 鼠标按下时放大图片
-        description.zh: 在 源码模式 或者 live preview 模式不生效
+        description.zh: 在 源码模式 或者 实时预览 模式不生效
         type: class-toggle
         default: true
     -
@@ -1357,6 +1357,26 @@ settings:
         id: quote-mark
         title: add front quote mark
         title.zh: 引用块添加前置引号
+        type: class-toggle
+        default: true
+    -
+        id: quote-ouline-style
+        title: Preview mode outline style
+        title.zh: 外部样式
+        type: class-select
+        allowEmpty: false
+        default: quote-shadow
+        options:
+            -   label: none
+                value: quote-none
+            -   label: border
+                value: quote-border
+            -   label: shadow
+                value: quote-shadow
+    -
+        id: quote-shadow
+        title: enable quote shadow in Preview mode
+        title.zh: 启用 预览模式 引用块阴影
         type: class-toggle
         default: true
     -
@@ -1451,19 +1471,19 @@ settings:
         default-dark: '#'
     -
         id: code-line-number
-        title: add code block line number in live preview mode
+        title: add code block line number in live Preview mode
         title.zh: 为 实时预览模式 代码块添加行号
         type: class-toggle
         default: true
     -
         id: code-language
-        title: add code block language indicator in preview mode
+        title: add code block language indicator in Preview mode
         title.zh: 为 阅读模式 代码块添加语言标识
         type: class-toggle
         default: true
     -
         id: code-nowrap
-        title: no wrap in preview mode
+        title: no wrap in Preview mode
         title.zh: 阅读模式 代码块不换行
         type: class-toggle
         default: true
@@ -1477,14 +1497,14 @@ settings:
         default: "'calt'"
     -
         id: code-preview-bg
-        title: enable codeblock background in preview mode
+        title: enable codeblock background in Preview mode
         description: need install version >= 1.1.9
         title.zh: 在 阅读模式 开启代码块背景
         description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
     -
         id: setting-code-bg-outer
-        title: custom codeblock background in preview mode
+        title: custom codeblock background in Preview mode
         description: need install version >= 1.1.9, image is supported(eg. 'url("/your/image/uri")'), it can be all the css value that supported by background-image
         title.zh: 修改 阅读模式 代码块背景
         description.zh: 需要安装程序版本 >= 1.1.9，支持图片（'url("图片地址")'），可以是 css background-image 支持的所有的值
@@ -1492,7 +1512,7 @@ settings:
         default: "''"
     -
         id: code-mac-style-header
-        title: add mac style code block header in preview mode
+        title: add mac style code block header in Preview mode
         description: no code block border
         title.zh: 为 阅读模式 代码块添加mac的标题栏
         description.zh: 没有代码块边框
@@ -1526,22 +1546,7 @@ settings:
         title.zh: 点击标签进行编辑
         description.zh: 点击'#'跳转
         type: class-toggle
-    -
-        id: tag-style
-        title: tag style
-        title.zh: 标签样式
-        type: class-select
-        allowEmpty: false
-        default: tag-outline
-        options:
-            -   label: default
-                value: tag-default
-            -   label: plain
-                value: tag-plain
-            -   label: outline
-                value: tag-outline
-            -   label: colored
-                value: tag-colored
+
     -
         id: setting-tag-bg
         title: tag background color
@@ -1781,7 +1786,7 @@ settings:
 /* hide option */
 body.line-active-disable .setting-item[data-id=setting-line-active-color],
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
-body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-break-all]),
+body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-shadow]),
 body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor],
 body.bg-default .setting-item[data-id=setting-bg-color],
 body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover], [data-id=scrollbar-movein-animation], [data-id=scrollbar-gutter]),
@@ -1811,7 +1816,7 @@ body:not(.tag-colored) .setting-item[data-id=setting-tag-bg] {
 }
 body.line-active-disable .setting-item[data-id=setting-line-active-color] + .style-settings-container,
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
-body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-break-all]) + .style-settings-container,
+body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-shadow]) + .style-settings-container,
 body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor] + .style-settings-container,
 body.bg-default .setting-item[data-id=setting-bg-color] + .style-settings-container,
 body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover], [data-id=scrollbar-movein-animation], [data-id=scrollbar-gutter]) + .style-settings-container,
@@ -1941,6 +1946,7 @@ body.modal-item-animation .style-settings-heading:hover {
   --animation-slow: calc(var(--setting-animation-time, 200ms) * 2) var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
   --bg-opacity: 1;
+  --block-outline-width: 3px;
 }
 
 html :is(body.obsidian-app, body.obsidian-app .print) {
@@ -2167,10 +2173,6 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
   border-bottom-left-radius: var(--code-bg-radius) !important;
   border-bottom-right-radius: var(--code-bg-radius) !important;
   margin-bottom: var(--size-2-1) !important;
-}
-
-body :is(.markdown-source-view, .markdown-rendered) {
-  --block-outline-width: 3px;
 }
 
 .markdown-source-view.mod-cm6 .cm-embed-block {
@@ -2993,15 +2995,10 @@ body.quote-theme .markdown-rendered blockquote {
   --h4-line-height: var(--setting-line-height, var(--line-height-normal));
   --h5-line-height: var(--setting-line-height, var(--line-height-normal));
   --h6-line-height: var(--setting-line-height, var(--line-height-normal));
-  background-color: var(--md-container-bg);
-  border: none !important;
+  border: none;
   border-radius: var(--blockquote-radius);
-  box-shadow: var(--shadow-s);
-  margin-inline-end: 0;
   position: relative;
   margin-block: var(--size-4-3);
-  margin-left: 0;
-  padding-block: 0;
 }
 body.quote-theme .markdown-rendered blockquote :is(p, h1, h2, h3, h4, h5, h6) {
   padding-left: var(--blockquote-border-thickness);
@@ -3020,6 +3017,19 @@ body.quote-theme .markdown-rendered blockquote::after {
 body.quote-theme .markdown-rendered blockquote blockquote {
   box-shadow: none;
   margin: 0;
+}
+body.quote-theme.quote-shadow .markdown-rendered blockquote {
+  box-shadow: var(--shadow-s);
+}
+body.quote-theme.quote-border .markdown-rendered blockquote {
+  border: var(--block-outline-width) solid var(--accent-inactive);
+  transition: var(--animation);
+}
+body.quote-theme.quote-border .markdown-rendered blockquote:hover {
+  border-color: var(--accent-active);
+}
+body.quote-theme.quote-border .markdown-rendered blockquote blockquote {
+  margin: var(--block-outline-width);
 }
 body.quote-theme.quote-mark .is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)) {
   text-indent: 1.2rem !important;
@@ -5227,7 +5237,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.9");
+  content: var(--setting-header-title, "maple 0.7.10");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
