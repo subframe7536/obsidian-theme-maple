@@ -10,8 +10,7 @@ an Obsidian theme for desktop with some awesome components, using `Style Setting
 
 does not guarantee backward compatibility due to working time limitations
 
-
-## getting started
+## quick start
 
 ### install theme
 
@@ -80,7 +79,7 @@ live preview
 
 ### style settings
 
-more options can be configured in Style Settings
+**more** options can be configured in Style Settings plugin
 
 ![](img/style_setting.png)
 

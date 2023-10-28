@@ -117,11 +117,6 @@
   }
 }
 
-
-body :is(.markdown-source-view, .markdown-rendered) {
-  --block-outline-width: 3px;
-}
-
 .markdown-source-view.mod-cm6 .cm-embed-block {
   box-shadow: none !important;
   border: var(--block-outline-width) solid transparent;

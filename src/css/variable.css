@@ -25,6 +25,7 @@
   --animation-slow: calc(var(--setting-animation-time, 200ms) * 2) var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
   --bg-opacity: 1;
+  --block-outline-width: 3px;
 }
 
 html :is(body.obsidian-app, body.obsidian-app .print) {
