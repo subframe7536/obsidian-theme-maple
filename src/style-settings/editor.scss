@@ -61,8 +61,8 @@ settings:
         type: class-toggle
     -
         id: setting-editor-width
-        title: editor line width
-        title.zh: 编辑器行宽
+        title: editor line width (px)
+        title.zh: 编辑器行宽（px）
         type: variable-number-slider
         default: 700
         format: 'px'
@@ -70,23 +70,36 @@ settings:
         max: 1000
         step: 50
     -
+        id: setting-editor-p-spacing
+        title: editor paragraph spacing (px)
+        title.zh: 编辑器段落间隔（px）
+        type: variable-number-slider
+        default: 4
+        format: 'px'
+        min: 0
+        max: 20
+        step: 1
+    -
         id: setting-line-height
         title: editor line height
+        description: multiple of the text size
         title.zh: 编辑器行高
+        description.zh: 文字大小的倍数
         type: variable-number-slider
         default: 2.1
         min: 1.5
         max: 2.5
         step: 0.1
     -
-        id: line-indicator-disable
-        title: disable hover line indicator
+        id: line-indicator-enable
+        title: enable hover line indicator
         description: reference from https://github.com/Akifyss/obsidian-border, need install version>=1.1.9
-        title.zh: 禁用鼠标经过行指示器
+        title.zh: 启用鼠标经过行指示器
         description.zh: 参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9
         type: class-toggle
+        default: true
     -
-        id: line-active-disable
+        id: line-active-enable
         title: disable active line hightlight
         title.zh: 禁用当前行高亮
         type: class-toggle

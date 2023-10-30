@@ -110,7 +110,7 @@
 }
 
 /* hide option */
-body.line-active-disable .setting-item[data-id='setting-line-active-color'],
+body:not(.line-active-enable) .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month) .setting-item[data-id='setting-calendar-year-suffix'],
 body:not(.quote-theme) .setting-item:is([data-id='quote-mark'], [data-id='quote-shadow']),
 body:not(.scrollbar-smooth) .setting-item[data-id='scrollbar-smooth-editor'],
