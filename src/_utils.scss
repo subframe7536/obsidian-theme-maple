@@ -1,0 +1,3 @@
+@function with-no-plugin($selector) {
+  @return unquote('body:is(:not(.css-settings-manager),#{$selector})');
+}

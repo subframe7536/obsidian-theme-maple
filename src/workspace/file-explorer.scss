@@ -1,5 +1,7 @@
 /* ====== 文件管理器 ====== */
 
+@use '../utils';
+
 body {
   --file-folding-offset: 28px;
   --folder-color-rgb: 245, 180, 0;
@@ -59,113 +61,115 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
-body.explorer-icon .workspace-leaf-content[data-type='file-explorer'] .nav-files-container .mod-root {
-  .nav-folder {
+#{utils.with-no-plugin('.explorer-icon')} {
+  .workspace-leaf-content[data-type='file-explorer'] .nav-files-container .mod-root {
+    .nav-folder {
 
-    &-title {
-      padding-left: var(--size-4-1);
+      &-title {
+        padding-left: var(--size-4-1);
 
-      &:hover {
-        background-color: var(--folder-hover-color);
+        &:hover {
+          background-color: var(--folder-hover-color);
+        }
+
+        &.tree-item-self {
+          margin-left: calc(-1 * var(--size-2-1)) !important;
+          padding-left: calc(var(--size-4-6) + var(--size-4-1)) !important;
+        }
+
+        &-content {
+          padding-left: var(--size-2-1);
+        }
       }
 
-      &.tree-item-self {
-        margin-left: calc(-1 * var(--size-2-1)) !important;
-        padding-left: calc(var(--size-4-6) + var(--size-4-1)) !important;
+
+      &>.nav-folder-children {
+        transition: var(--animation);
+        --nav-item-children-padding-left: var(--nav-item-children-margin-left);
+
+        &:hover {
+          border-color: var(--accent-active);
+        }
       }
 
-      &-content {
-        padding-left: var(--size-2-1);
-      }
-    }
-
-
-    &>.nav-folder-children {
-      transition: var(--animation);
-      --nav-item-children-padding-left: var(--nav-item-children-margin-left);
-
-      &:hover {
-        border-color: var(--accent-active);
-      }
-    }
-
-    &-collapse-indicator {
-      margin-right: var(--size-4-2);
-      padding-inline-end: var(--size-2-1);
-      cursor: pointer;
-      height: fit-content;
-
-      svg {
-        line-height: var(--line-height-tight);
-        width: 1rem;
-        height: 1rem;
-        background-color: var(--folder-color);
-        display: inline-block;
-        margin-bottom: var(--size-4-1);
-        margin-left: calc(-1 * var(--size-2-3));
-        // add icon in icons.scss
-      }
-    }
-
-    &.is-collapsed .collapse-icon svg.svg-icon {
-      transform: none;
-      filter: brightness(var(--folder-inactive));
-      transition: var(--animation);
-    }
-  }
-
-  .nav-file {
-    &-title {
-      padding-left: var(--size-4-1);
-
-      &.tree-item-self {
-        margin-left: 0 !important;
-        padding-left: var(--size-4-2) !important;
-      }
-
-      &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw'])::before {
-        content: ' ';
-        width: 1rem;
-        opacity: 0.8;
-        height: 1rem;
+      &-collapse-indicator {
         margin-right: var(--size-4-2);
-        margin-left: calc(-1 * var(--size-2-1));
-        flex-shrink: 0;
-        transform: translateY(10%);
-        background-color: var(--accent-active);
-        // add icon in icons.scss
+        padding-inline-end: var(--size-2-1);
+        cursor: pointer;
+        height: fit-content;
+
+        svg {
+          line-height: var(--line-height-tight);
+          width: 1rem;
+          height: 1rem;
+          background-color: var(--folder-color);
+          display: inline-block;
+          margin-bottom: var(--size-4-1);
+          margin-left: calc(-1 * var(--size-2-3));
+          // add icon in icons.scss
+        }
       }
 
-      &.is-active:not(.is-selected) {
-        &:first-child::before {
-          background-color: var(--text-on-accent);
-        }
-
-        .nav-file-title-content {
-          color: var(--text-on-accent);
-        }
+      &.is-collapsed .collapse-icon svg.svg-icon {
+        transform: none;
+        filter: brightness(var(--folder-inactive));
+        transition: var(--animation);
       }
     }
 
-    &-tag {
-      font-size: 0.6rem;
-      margin-left: 0;
-      margin-right: var(--size-4-2);
-      line-height: 2;
-    }
+    .nav-file {
+      &-title {
+        padding-left: var(--size-4-1);
 
-    &-title .nav-file-tag {
-      background-color: var(--nav-item-background-active);
-      color: var(--text-on-accent);
-    }
+        &.tree-item-self {
+          margin-left: 0 !important;
+          padding-left: var(--size-4-2) !important;
+        }
 
-    &-title.is-active .nav-file-tag {
-      background-color: hsl(var(--background-secondary-hsl), 0.9);
-      color: var(--nav-item-background-active);
-    }
+        &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw'])::before {
+          content: ' ';
+          width: 1rem;
+          opacity: 0.8;
+          height: 1rem;
+          margin-right: var(--size-4-2);
+          margin-left: calc(-1 * var(--size-2-1));
+          flex-shrink: 0;
+          transform: translateY(10%);
+          background-color: var(--accent-active);
+          // add icon in icons.scss
+        }
 
-    &-title-content+.nav-file-tag {
-      margin-left: var(--size-2-3);
+        &.is-active:not(.is-selected) {
+          &:first-child::before {
+            background-color: var(--text-on-accent);
+          }
+
+          .nav-file-title-content {
+            color: var(--text-on-accent);
+          }
+        }
+      }
+
+      &-tag {
+        font-size: 0.6rem;
+        margin-left: 0;
+        margin-right: var(--size-4-2);
+        line-height: 2;
+      }
+
+      &-title .nav-file-tag {
+        background-color: var(--nav-item-background-active);
+        color: var(--text-on-accent);
+      }
+
+      &-title.is-active .nav-file-tag {
+        background-color: hsl(var(--background-secondary-hsl), 0.9);
+        color: var(--nav-item-background-active);
+      }
+
+      &-title-content+.nav-file-tag {
+        margin-left: var(--size-2-3);
+      }
     }
   }
 }

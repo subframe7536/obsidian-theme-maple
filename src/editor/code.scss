@@ -1,6 +1,7 @@
 /* ====== 代码code ====== */
 
 @use 'sass:math';
+@use '../utils';
 
 :is(body, .print .markdown-rendered) {
   --inline-code: var(--setting-code-inline, var(--color-red));
@@ -210,38 +211,40 @@ body .markdown-rendered pre {
   }
 }
 
-.code-language .markdown-rendered {
-  $height: 2rem;
+#{utils.with-no-plugin('.code-language')} {
+  .markdown-rendered {
+    $height: 2rem;
 
-  pre {
-    padding: $height 1rem;
-    position: relative;
+    pre {
+      padding: $height 1rem;
+      position: relative;
 
-    &[class*='language-']::before {
-      content: 'unkown language';
-      font-family: var(--font-text);
-      color: var(--setting-code-language-color, var(--inline-code));
-      font-weight: bold;
-      font-size: math.div($height, 2) - 0.1rem;
-      position: absolute;
-      letter-spacing: 0.05rem;
-      text-align: right;
-      right: calc(1.3rem + 2 * var(--size-4-1));
-      top: math.div($height, 15);
-      line-height: var(--line-height-normal);
-      z-index: 9;
+      &[class*='language-']::before {
+        content: 'unkown language';
+        font-family: var(--font-text);
+        color: var(--setting-code-language-color, var(--inline-code));
+        font-weight: bold;
+        font-size: math.div($height, 2) - 0.1rem;
+        position: absolute;
+        letter-spacing: 0.05rem;
+        text-align: right;
+        right: calc(1.3rem + 2 * var(--size-4-1));
+        top: math.div($height, 15);
+        line-height: var(--line-height-normal);
+        z-index: 9;
+      }
     }
-  }
 
-  $language: C, Properties, Python, Nginx, CSS, Javascript, JS, Typescript, TS,
-    JSP, PHP, Lua, Shell, PowerShell, Flow, Sequence, SQL, YAML, YML, ini, XML,
-    CS, CPP, Java, HTML, TXT, MD, Markdown, Bat, Json, Groovy, SCSS, Bash, Cmd,
-    Latex, Zig, SSML, JSX, TSX, tsconfig, Git, CSharp, CSV, cue, TOML, kt, Kotlin,
-    Go, Rust, Regex, Swift, ABAP, PL/SQL;
+    $language: C, Properties, Python, Nginx, CSS, Javascript, JS, Typescript, TS,
+      JSP, PHP, Lua, Shell, PowerShell, Flow, Sequence, SQL, YAML, YML, ini, XML,
+      CS, CPP, Java, HTML, TXT, MD, Markdown, Bat, Json, Groovy, SCSS, Bash, Cmd,
+      Latex, Zig, SSML, JSX, TSX, tsconfig, Git, CSharp, CSV, cue, TOML, kt, Kotlin,
+      Go, Rust, Regex, Swift, ABAP, PL/SQL;
 
-  @each $lan in $language {
-    pre[class~='language-#{to-lower-case($lan)}']::before {
-      content: quote($lan);
+    @each $lan in $language {
+      pre[class~='language-#{to-lower-case($lan)}']::before {
+        content: quote($lan);
+      }
     }
   }
 }

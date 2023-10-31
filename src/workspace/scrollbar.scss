@@ -93,11 +93,11 @@ body:not(.is-mobile) {
     }
   }
 
-  &.scrollbar-movein-animation-disable {
+  &:not(.scrollbar-movein-animation-enable) {
     --scrollbar-color: #{$base-color};
   }
 
-  &:not(.scrollbar-movein-animation-disable) {
+  &.scrollbar-movein-animation-enable {
     :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
       transition: --scrollbar-color var(--animation);
       // scrollbar-gutter: var(--setting-scrollbar-gutter, initial);

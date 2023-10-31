@@ -429,12 +429,13 @@ settings:
             -   label: expand
                 value: scrollbar-hover-expand
     -
-        id: scrollbar-movein-animation-disable
-        title: disable scrollbar animation
+        id: scrollbar-movein-animation-enable
+        title: enable scrollbar animation
         description: when disabled, always show scrollbar; when enabled, hide scrollbar when the mouse move outside the container
-        title.zh: 关闭滚动条动画
+        title.zh: 启用滚动条动画
         description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
         type: class-toggle
+        default: true
     -
         id: graph
         title: graph

@@ -1,3 +1,5 @@
+@use '../utils';
+
 /* ====== 段落 ====== */
 body {
   --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1))
@@ -80,9 +82,11 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 
 /* ======= 高亮行 ====== */
 
-body.line-active-enable .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
-  background-color: var(--active-line);
-  border-radius: var(--size-2-3);
+#{utils.with-no-plugin('.line-active-enable')} {
+  .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
+    background-color: var(--active-line);
+    border-radius: var(--size-2-3);
+  }
 }
 
 // 参考 https://github.com/Akifyss/obsidian-border

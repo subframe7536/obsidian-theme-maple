@@ -592,12 +592,13 @@ settings:
             -   label: expand
                 value: scrollbar-hover-expand
     -
-        id: scrollbar-movein-animation-disable
-        title: disable scrollbar animation
+        id: scrollbar-movein-animation-enable
+        title: enable scrollbar animation
         description: when disabled, always show scrollbar; when enabled, hide scrollbar when the mouse move outside the container
-        title.zh: 关闭滚动条动画
+        title.zh: 启用滚动条动画
         description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
         type: class-toggle
+        default: true
     -
         id: graph
         title: graph
@@ -696,8 +697,8 @@ settings:
         type: class-toggle
     -
         id: setting-editor-width
-        title: editor line width
-        title.zh: 编辑器行宽
+        title: editor line width (px)
+        title.zh: 编辑器行宽（px）
         type: variable-number-slider
         default: 700
         format: 'px'
@@ -705,23 +706,36 @@ settings:
         max: 1000
         step: 50
     -
+        id: setting-editor-p-spacing
+        title: editor paragraph spacing (px)
+        title.zh: 编辑器段落间隔（px）
+        type: variable-number-slider
+        default: 4
+        format: 'px'
+        min: 0
+        max: 20
+        step: 1
+    -
         id: setting-line-height
         title: editor line height
+        description: multiple of the text size
         title.zh: 编辑器行高
+        description.zh: 文字大小的倍数
         type: variable-number-slider
         default: 2.1
         min: 1.5
         max: 2.5
         step: 0.1
     -
-        id: line-indicator-disable
-        title: disable hover line indicator
+        id: line-indicator-enable
+        title: enable hover line indicator
         description: reference from https://github.com/Akifyss/obsidian-border, need install version>=1.1.9
-        title.zh: 禁用鼠标经过行指示器
+        title.zh: 启用鼠标经过行指示器
         description.zh: 参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9
         type: class-toggle
+        default: true
     -
-        id: line-active-disable
+        id: line-active-enable
         title: disable active line hightlight
         title.zh: 禁用当前行高亮
         type: class-toggle
@@ -1784,7 +1798,7 @@ settings:
 }
 
 /* hide option */
-body.line-active-disable .setting-item[data-id=setting-line-active-color],
+body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color],
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
 body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-shadow]),
 body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor],
@@ -1814,7 +1828,7 @@ body:not(.tag-outline) .setting-item[data-id=tag-outline-setting],
 body:not(.tag-colored) .setting-item[data-id=setting-tag-bg] {
   display: none;
 }
-body.line-active-disable .setting-item[data-id=setting-line-active-color] + .style-settings-container,
+body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
 body:not(.quote-theme) .setting-item:is([data-id=quote-mark], [data-id=quote-shadow]) + .style-settings-container,
 body:not(.scrollbar-smooth) .setting-item[data-id=scrollbar-smooth-editor] + .style-settings-container,
@@ -2253,11 +2267,11 @@ body .markdown-rendered pre .copy-code-button:hover {
   white-space: pre;
 }
 
-.code-language .markdown-rendered pre {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre {
   padding: 2rem 1rem;
   position: relative;
 }
-.code-language .markdown-rendered pre[class*=language-]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class*=language-]::before {
   content: "unkown language";
   font-family: var(--font-text);
   color: var(--setting-code-language-color, var(--inline-code));
@@ -2271,163 +2285,163 @@ body .markdown-rendered pre .copy-code-button:hover {
   line-height: var(--line-height-normal);
   z-index: 9;
 }
-.code-language .markdown-rendered pre[class~=language-c]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-c]::before {
   content: "C";
 }
-.code-language .markdown-rendered pre[class~=language-properties]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-properties]::before {
   content: "Properties";
 }
-.code-language .markdown-rendered pre[class~=language-python]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-python]::before {
   content: "Python";
 }
-.code-language .markdown-rendered pre[class~=language-nginx]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-nginx]::before {
   content: "Nginx";
 }
-.code-language .markdown-rendered pre[class~=language-css]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-css]::before {
   content: "CSS";
 }
-.code-language .markdown-rendered pre[class~=language-javascript]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-javascript]::before {
   content: "Javascript";
 }
-.code-language .markdown-rendered pre[class~=language-js]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-js]::before {
   content: "JS";
 }
-.code-language .markdown-rendered pre[class~=language-typescript]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-typescript]::before {
   content: "Typescript";
 }
-.code-language .markdown-rendered pre[class~=language-ts]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-ts]::before {
   content: "TS";
 }
-.code-language .markdown-rendered pre[class~=language-jsp]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-jsp]::before {
   content: "JSP";
 }
-.code-language .markdown-rendered pre[class~=language-php]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-php]::before {
   content: "PHP";
 }
-.code-language .markdown-rendered pre[class~=language-lua]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-lua]::before {
   content: "Lua";
 }
-.code-language .markdown-rendered pre[class~=language-shell]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-shell]::before {
   content: "Shell";
 }
-.code-language .markdown-rendered pre[class~=language-powershell]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-powershell]::before {
   content: "PowerShell";
 }
-.code-language .markdown-rendered pre[class~=language-flow]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-flow]::before {
   content: "Flow";
 }
-.code-language .markdown-rendered pre[class~=language-sequence]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-sequence]::before {
   content: "Sequence";
 }
-.code-language .markdown-rendered pre[class~=language-sql]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-sql]::before {
   content: "SQL";
 }
-.code-language .markdown-rendered pre[class~=language-yaml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-yaml]::before {
   content: "YAML";
 }
-.code-language .markdown-rendered pre[class~=language-yml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-yml]::before {
   content: "YML";
 }
-.code-language .markdown-rendered pre[class~=language-ini]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-ini]::before {
   content: "ini";
 }
-.code-language .markdown-rendered pre[class~=language-xml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-xml]::before {
   content: "XML";
 }
-.code-language .markdown-rendered pre[class~=language-cs]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-cs]::before {
   content: "CS";
 }
-.code-language .markdown-rendered pre[class~=language-cpp]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-cpp]::before {
   content: "CPP";
 }
-.code-language .markdown-rendered pre[class~=language-java]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-java]::before {
   content: "Java";
 }
-.code-language .markdown-rendered pre[class~=language-html]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-html]::before {
   content: "HTML";
 }
-.code-language .markdown-rendered pre[class~=language-txt]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-txt]::before {
   content: "TXT";
 }
-.code-language .markdown-rendered pre[class~=language-md]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-md]::before {
   content: "MD";
 }
-.code-language .markdown-rendered pre[class~=language-markdown]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-markdown]::before {
   content: "Markdown";
 }
-.code-language .markdown-rendered pre[class~=language-bat]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-bat]::before {
   content: "Bat";
 }
-.code-language .markdown-rendered pre[class~=language-json]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-json]::before {
   content: "Json";
 }
-.code-language .markdown-rendered pre[class~=language-groovy]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-groovy]::before {
   content: "Groovy";
 }
-.code-language .markdown-rendered pre[class~=language-scss]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-scss]::before {
   content: "SCSS";
 }
-.code-language .markdown-rendered pre[class~=language-bash]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-bash]::before {
   content: "Bash";
 }
-.code-language .markdown-rendered pre[class~=language-cmd]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-cmd]::before {
   content: "Cmd";
 }
-.code-language .markdown-rendered pre[class~=language-latex]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-latex]::before {
   content: "Latex";
 }
-.code-language .markdown-rendered pre[class~=language-zig]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-zig]::before {
   content: "Zig";
 }
-.code-language .markdown-rendered pre[class~=language-ssml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-ssml]::before {
   content: "SSML";
 }
-.code-language .markdown-rendered pre[class~=language-jsx]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-jsx]::before {
   content: "JSX";
 }
-.code-language .markdown-rendered pre[class~=language-tsx]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-tsx]::before {
   content: "TSX";
 }
-.code-language .markdown-rendered pre[class~=language-tsconfig]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-tsconfig]::before {
   content: "tsconfig";
 }
-.code-language .markdown-rendered pre[class~=language-git]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-git]::before {
   content: "Git";
 }
-.code-language .markdown-rendered pre[class~=language-csharp]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-csharp]::before {
   content: "CSharp";
 }
-.code-language .markdown-rendered pre[class~=language-csv]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-csv]::before {
   content: "CSV";
 }
-.code-language .markdown-rendered pre[class~=language-cue]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-cue]::before {
   content: "cue";
 }
-.code-language .markdown-rendered pre[class~=language-toml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-toml]::before {
   content: "TOML";
 }
-.code-language .markdown-rendered pre[class~=language-kt]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-kt]::before {
   content: "kt";
 }
-.code-language .markdown-rendered pre[class~=language-kotlin]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-kotlin]::before {
   content: "Kotlin";
 }
-.code-language .markdown-rendered pre[class~=language-go]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-go]::before {
   content: "Go";
 }
-.code-language .markdown-rendered pre[class~=language-rust]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-rust]::before {
   content: "Rust";
 }
-.code-language .markdown-rendered pre[class~=language-regex]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-regex]::before {
   content: "Regex";
 }
-.code-language .markdown-rendered pre[class~=language-swift]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-swift]::before {
   content: "Swift";
 }
-.code-language .markdown-rendered pre[class~=language-abap]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-abap]::before {
   content: "ABAP";
 }
-.code-language .markdown-rendered pre[class~="language-pl/sql"]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~="language-pl/sql"]::before {
   content: "PL/SQL";
 }
 
@@ -3212,7 +3226,7 @@ body.tag-colored {
 
 /* ====== 段落 ====== */
 body {
-  --p-spacing: var(--size-4-1) ;
+  --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1)) ;
 }
 
 /* ====== latex 修复 ====== */
@@ -3288,15 +3302,15 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 }
 
 /* ======= 高亮行 ====== */
-body:not(.line-active-disable) .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
+body:is(:not(.css-settings-manager), .line-active-enable) .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: var(--active-line);
   border-radius: var(--size-2-3);
 }
 
-body:not(.line-indicator-disable) .markdown-preview-sizer > div:not(.search-highlight) {
+body.line-indicator-enable .markdown-preview-sizer > div:not(.search-highlight) {
   position: relative;
 }
-body:not(.line-indicator-disable) :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
+body.line-indicator-enable :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
 .markdown-source-view .cm-line:not(.HyperMD-header, .HyperMD-quote, :has(.collapse-indicator))):hover::after {
   content: "";
   width: var(--size-4-1);
@@ -3473,16 +3487,17 @@ body.heading-color-accent {
   --h5-color: var(--accent-active);
   --h6-color: var(--accent-active);
 }
-body.heading-color-colorful {
+body :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0 !important;
+}
+
+body:is(:not(.css-settings-manager), .heading-color-colorful) {
   --h1-color: var(--setting-h1-color, var(--color-red));
   --h2-color: var(--setting-h2-color, var(--color-orange));
   --h3-color: var(--setting-h3-color, var(--color-green));
   --h4-color: var(--setting-h4-color, var(--color-blue));
   --h5-color: var(--setting-h5-color, var(--color-purple));
   --h6-color: var(--setting-h6-color, var(--color-cyan));
-}
-body :is(h1, h2, h3, h4, h5, h6) {
-  margin: 0 !important;
 }
 
 .cm-formatting.cm-formatting-header {
@@ -3496,10 +3511,10 @@ body :is(h1, h2, h3, h4, h5, h6) {
   padding-block: 0;
 }
 
-body.heading-level-enable :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header) {
+body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header) {
   position: relative;
 }
-body.heading-level-enable :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header)::before {
+body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header)::before {
   content: "";
   position: absolute;
   z-index: 1;
@@ -3517,95 +3532,95 @@ body.heading-level-enable :is(div.markdown-reading-view > div > div > div > :is(
   transform: translateY(-50%);
   left: calc(var(--size-4-5) * -1);
 }
-body.heading-level-enable :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):hover::before {
+body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):hover::before {
   opacity: 0.9;
   transition-delay: 0s;
   pointer-events: all;
 }
-body.heading-level-enable :is(div.markdown-reading-view > div > div > div.is-collapsed > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div.is-collapsed > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(> .cm-foldPlaceholder))::before {
   opacity: 0.9;
   text-decoration: underline 0.1rem;
 }
-body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), .heading-level-enable).heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder)))::before {
   opacity: 0.4;
 }
-body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), .heading-level-enable).heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder))):not(:hover)::before {
   color: var(--text-muted);
 }
-body.heading-level-enable.heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), .heading-level-enable).heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder))):hover::before {
   opacity: 1;
 }
-body.heading-level-enable div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
+body:is(:not(.css-settings-manager), .heading-level-enable) div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
   left: calc(var(--size-4-6) * -1) !important;
 }
-body.heading-level-enable.link-heading :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1) {
+body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1) {
   --link-color: var(--h1-color);
   --link-color-underline: var(--h1-color);
   --link-external-color: var(--h1-color);
   --link-external-color-underline: var(--h1-color);
   --link-text-size: var(--h1-size);
 }
-body.heading-level-enable :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1)::before {
+body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1)::before {
   content: "H1";
 }
-body.heading-level-enable.link-heading :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2) {
+body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2) {
   --link-color: var(--h2-color);
   --link-color-underline: var(--h2-color);
   --link-external-color: var(--h2-color);
   --link-external-color-underline: var(--h2-color);
   --link-text-size: var(--h2-size);
 }
-body.heading-level-enable :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2)::before {
+body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2)::before {
   content: "H2";
 }
-body.heading-level-enable.link-heading :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3) {
+body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3) {
   --link-color: var(--h3-color);
   --link-color-underline: var(--h3-color);
   --link-external-color: var(--h3-color);
   --link-external-color-underline: var(--h3-color);
   --link-text-size: var(--h3-size);
 }
-body.heading-level-enable :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3)::before {
+body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3)::before {
   content: "H3";
 }
-body.heading-level-enable.link-heading :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4) {
+body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4) {
   --link-color: var(--h4-color);
   --link-color-underline: var(--h4-color);
   --link-external-color: var(--h4-color);
   --link-external-color-underline: var(--h4-color);
   --link-text-size: var(--h4-size);
 }
-body.heading-level-enable :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4)::before {
+body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4)::before {
   content: "H4";
 }
-body.heading-level-enable.link-heading :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5) {
+body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5) {
   --link-color: var(--h5-color);
   --link-color-underline: var(--h5-color);
   --link-external-color: var(--h5-color);
   --link-external-color-underline: var(--h5-color);
   --link-text-size: var(--h5-size);
 }
-body.heading-level-enable :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5)::before {
+body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5)::before {
   content: "H5";
 }
-body.heading-level-enable.link-heading :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6) {
+body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6) {
   --link-color: var(--h6-color);
   --link-color-underline: var(--h6-color);
   --link-external-color: var(--h6-color);
   --link-external-color-underline: var(--h6-color);
   --link-text-size: var(--h6-size);
 }
-body.heading-level-enable :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6)::before {
+body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6)::before {
   content: "H6";
 }
-body.heading-level-enable div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
+body:is(:not(.css-settings-manager), .heading-level-enable) div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
   left: calc(-1 * var(--size-4-6)) !important;
 }
-body.heading-level-enable .heading-collapse-indicator {
+body:is(:not(.css-settings-manager), .heading-level-enable) .heading-collapse-indicator {
   position: absolute;
   z-index: 99;
   height: var(--size-4-4);
@@ -3616,13 +3631,13 @@ body.heading-level-enable .heading-collapse-indicator {
   padding: 0 !important;
   --cursor: pointer;
 }
-body.heading-level-enable .heading-collapse-indicator svg {
+body:is(:not(.css-settings-manager), .heading-level-enable) .heading-collapse-indicator svg {
   display: none;
 }
-body.heading-level-enable .HyperMD-header {
+body:is(:not(.css-settings-manager), .heading-level-enable) .HyperMD-header {
   position: relative;
 }
-body.heading-level-enable .HyperMD-header .cm-fold-indicator .collapse-indicator {
+body:is(:not(.css-settings-manager), .heading-level-enable) .HyperMD-header .cm-fold-indicator .collapse-indicator {
   --cursor: pointer;
   z-index: 99;
   opacity: 0 !important;
@@ -4979,33 +4994,33 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title {
   padding-left: var(--size-4-1);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title:hover {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title:hover {
   background-color: var(--folder-hover-color);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title.tree-item-self {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title.tree-item-self {
   margin-left: calc(-1 * var(--size-2-1)) !important;
   padding-left: calc(var(--size-4-6) + var(--size-4-1)) !important;
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title-content {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title-content {
   padding-left: var(--size-2-1);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children {
   transition: var(--animation);
   --nav-item-children-padding-left: var(--nav-item-children-margin-left);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children:hover {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children:hover {
   border-color: var(--accent-active);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-collapse-indicator {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-collapse-indicator {
   margin-right: var(--size-4-2);
   padding-inline-end: var(--size-2-1);
   cursor: pointer;
   height: fit-content;
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-collapse-indicator svg {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-collapse-indicator svg {
   line-height: var(--line-height-tight);
   width: 1rem;
   height: 1rem;
@@ -5014,19 +5029,19 @@ body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-c
   margin-bottom: var(--size-4-1);
   margin-left: calc(-1 * var(--size-2-3));
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder.is-collapsed .collapse-icon svg.svg-icon {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder.is-collapsed .collapse-icon svg.svg-icon {
   transform: none;
   filter: brightness(var(--folder-inactive));
   transition: var(--animation);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title {
   padding-left: var(--size-4-1);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.tree-item-self {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.tree-item-self {
   margin-left: 0 !important;
   padding-left: var(--size-4-2) !important;
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title:not([data-path$="excalidraw.md"]):not([data-path$=excalidraw])::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title:not([data-path$="excalidraw.md"]):not([data-path$=excalidraw])::before {
   content: " ";
   width: 1rem;
   opacity: 0.8;
@@ -5037,27 +5052,27 @@ body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-c
   transform: translateY(10%);
   background-color: var(--accent-active);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active:not(.is-selected):first-child::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active:not(.is-selected):first-child::before {
   background-color: var(--text-on-accent);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active:not(.is-selected) .nav-file-title-content {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active:not(.is-selected) .nav-file-title-content {
   color: var(--text-on-accent);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-tag {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-tag {
   font-size: 0.6rem;
   margin-left: 0;
   margin-right: var(--size-4-2);
   line-height: 2;
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title .nav-file-tag {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title .nav-file-tag {
   background-color: var(--nav-item-background-active);
   color: var(--text-on-accent);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active .nav-file-tag {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active .nav-file-tag {
   background-color: hsl(var(--background-secondary-hsl), 0.9);
   color: var(--nav-item-background-active);
 }
-body.explorer-icon .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title-content + .nav-file-tag {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title-content + .nav-file-tag {
   margin-left: var(--size-2-3);
 }
 
@@ -5230,13 +5245,13 @@ body.modal-toggle-thin .checkbox-container.is-enabled:active::after {
   left: calc(2 * var(--toggle-border-width));
 }
 
-body.modal-header:not(.is-mobile) .modal-container {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container {
   --modal-header-height: var(--size-4-12);
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
   content: var(--setting-header-title, "maple 0.7.10");
   position: absolute;
   left: 50%;
@@ -5248,80 +5263,80 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
   transition: var(--animation);
 }
 @container (max-width:750px) {
-  body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
+  body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
     opacity: 0;
   }
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content {
   background-color: var(--frame-background-color);
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-header {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-header {
   background-color: hsl(var(--background-secondary-hsl));
   border-top: 1px solid var(--divider-color);
   margin-top: var(--modal-header-height);
   padding-top: 0;
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container {
   padding-top: var(--modal-header-height);
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
   background-color: hsl(var(--background-primary-hsl));
   border-top: 1px solid var(--divider-color);
   padding-top: var(--size-4-6);
   padding-right: var(--size-4-8);
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .settings-search-container {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .settings-search-container {
   padding: 0;
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .settings-search-container .settings-search-input {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .settings-search-container .settings-search-input {
   position: absolute;
   top: calc(var(--size-2-1) * -1);
   left: var(--size-4-2);
   transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 - var(--size-2-1)));
   width: calc(clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-3) * 1);
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:has(.search-input-container.mod-hotkey) .setting-item-info {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:has(.search-input-container.mod-hotkey) .setting-item-info {
   display: none;
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:has(.search-input-container.mod-hotkey) .setting-item-control {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:has(.search-input-container.mod-hotkey) .setting-item-control {
   top: calc(var(--size-2-1) * -1);
   transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
   right: var(--size-4-16);
   position: absolute;
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:has(.search-input-container.mod-hotkey) + .setting-filter-container {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:has(.search-input-container.mod-hotkey) + .setting-filter-container {
   display: none;
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .plugin-list-plugins > .setting-item {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .plugin-list-plugins > .setting-item {
   padding: 0;
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .plugin-list-plugins > .setting-item .setting-item-info {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .plugin-list-plugins > .setting-item .setting-item-info {
   display: none;
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .plugin-list-plugins > .setting-item .setting-item-control {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .plugin-list-plugins > .setting-item .setting-item-control {
   display: block;
   position: absolute;
   top: calc(var(--size-2-1) * -1);
   transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
   right: var(--size-4-16);
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item-name:has(.search-input-container) {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item-name:has(.search-input-container) {
   position: absolute;
   top: calc(var(--size-2-1) * -1);
   transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
   right: var(--size-4-16);
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type=search]) {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type=search]) {
   position: absolute;
   top: calc(var(--size-2-1) * -1);
   transform: translateY(calc(var(--modal-header-height) / 2 - var(--input-height) + var(--size-4-1)));
   right: var(--size-4-16);
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type=search]) .setting-item-info {
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type=search]) .setting-item-info {
   display: none;
 }
 
@@ -5601,27 +5616,27 @@ body:not(.is-mobile) ::-webkit-scrollbar-thumb:hover {
 body:not(.is-mobile) ::-webkit-scrollbar-thumb:active {
   --scrollbar-color: hsla(var(--color-accent-hsl), 64%);
 }
-body:not(.is-mobile).scrollbar-movein-animation-disable {
+body:not(.is-mobile):not(.scrollbar-movein-animation-enable) {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body:not(.is-mobile):not(.scrollbar-movein-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
+body:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
   transition: --scrollbar-color var(--animation);
 }
-body:not(.is-mobile):not(.scrollbar-movein-animation-disable) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete):hover {
+body:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete):hover {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body:not(.is-mobile):not(.scrollbar-movein-animation-disable) textarea {
+body:not(.is-mobile).scrollbar-movein-animation-enable textarea {
   color: transparent;
   transition: color var(--animation);
   -webkit-text-fill-color: var(--text-normal);
 }
-body:not(.is-mobile):not(.scrollbar-movein-animation-disable) textarea:hover {
+body:not(.is-mobile).scrollbar-movein-animation-enable textarea:hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body:not(.is-mobile):not(.scrollbar-movein-animation-disable) textarea * {
+body:not(.is-mobile).scrollbar-movein-animation-enable textarea * {
   -webkit-text-fill-color: initial;
 }
-body:not(.is-mobile):not(.scrollbar-movein-animation-disable) textarea::-webkit-scrollbar-thumb {
+body:not(.is-mobile).scrollbar-movein-animation-enable textarea::-webkit-scrollbar-thumb {
   box-shadow: 0 0 0 10px inset;
   border-width: 3.2px;
   background-clip: content-box;
@@ -5990,15 +6005,15 @@ body.titlebar-button-style.is-maximized .mod-maximize svg {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><g fill="none" stroke="currentColor" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"><path d="M602 932H234c-77.3 0-140-62.7-140-140V424c0-77.3 62.7-140 140-140h368c77.3 0 140 62.7 140 140v368c0 77.3-62.7 140-140 140z" /><path d="M284 284v-50c0-77.3 62.7-140 140-140h368c77.3 0 140 62.7 140 140v368c0 77.3-62.7 140-140 140h-50" /></g></svg>');
 }
 
-body.explorer-icon .workspace-leaf-content:is([data-type=file-explorer]) .nav-folder-collapse-indicator svg {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content:is([data-type=file-explorer]) .nav-folder-collapse-indicator svg {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42"><path d="M24.833 12.5H40.25a3.75 3.75 0 0 1 3.745 3.55l.005.2v19a3.75 3.75 0 0 1-3.55 3.745l-.2.005H7.75a3.75 3.75 0 0 1-3.745-3.55L4 35.25V18.999L17.804 19l.226-.007a3.75 3.75 0 0 0 2.547-1.219l.147-.172 4.109-5.102zM17.061 9c.832 0 1.639.277 2.294.784l.175.144 2.444 2.138-3.197 3.968-.094.105c-.2.197-.46.322-.739.353l-.14.008L4 16.499V12.75a3.75 3.75 0 0 1 3.55-3.745L7.75 9h9.31z" fill="currentColor"/></svg>');
 }
 
-:is(:is(body.titlebar-button-style .mod-maximize, body.titlebar-button-style.is-maximized .mod-maximize, body.explorer-icon .workspace-leaf-content:is([data-type=file-explorer]) .nav-folder-collapse-indicator) svg, svg:is(.excalidraw-icon, .spreadsheet, [class*=lucide-folder], .lucide-sticky-note, .lucide-image, .lucide-file, .lucide-copy, .database-folder-icon)) {
+:is(:is(body.titlebar-button-style .mod-maximize, body.titlebar-button-style.is-maximized .mod-maximize, body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content:is([data-type=file-explorer]) .nav-folder-collapse-indicator) svg, svg:is(.excalidraw-icon, .spreadsheet, [class*=lucide-folder], .lucide-sticky-note, .lucide-image, .lucide-file, .lucide-copy, .database-folder-icon)) {
   background-color: currentColor;
   -webkit-mask-size: 100% 100%;
 }
-:is(:is(body.titlebar-button-style .mod-maximize, body.titlebar-button-style.is-maximized .mod-maximize, body.explorer-icon .workspace-leaf-content:is([data-type=file-explorer]) .nav-folder-collapse-indicator) svg, svg:is(.excalidraw-icon, .spreadsheet, [class*=lucide-folder], .lucide-sticky-note, .lucide-image, .lucide-file, .lucide-copy, .database-folder-icon)) path {
+:is(:is(body.titlebar-button-style .mod-maximize, body.titlebar-button-style.is-maximized .mod-maximize, body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content:is([data-type=file-explorer]) .nav-folder-collapse-indicator) svg, svg:is(.excalidraw-icon, .spreadsheet, [class*=lucide-folder], .lucide-sticky-note, .lucide-image, .lucide-file, .lucide-copy, .database-folder-icon)) path {
   display: none;
 }
 
@@ -6006,7 +6021,7 @@ body.explorer-icon .workspace-leaf-content:is([data-type=file-explorer]) .nav-fo
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" /><rect width="6" height="4" x="9" y="3" rx="2" /><path d="M9 12h6m-6 4h6" /></g></svg>');
 }
 
-:where(body.explorer-icon .nav-file-title, body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline))::before {
+:where(body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title, body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved), .cm-hmd-internal-link .cm-underline))::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6m-4 5H8m8 4H8m2-8H8"/></g></svg>');
 }
 
@@ -6014,39 +6029,39 @@ body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>');
 }
 
-body.explorer-icon .nav-file-title:is(.is-unsupported)::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is(.is-unsupported)::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><path d="M10 10.3c.2-.4.5-.8.9-1a2.1 2.1 0 0 1 2.6.4c.3.4.5.8.5 1.3c0 1.3-2 2-2 2m0 4h.01" /></g></svg>');
 }
 
-body.explorer-icon .nav-file-title:is([data-path$=png], [data-path$=svg], [data-path$=jpeg], [data-path$=jpg], [data-path$=bmp], [data-path$=gif], [data-path$=webp], [data-path$=tiff])::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=png], [data-path$=svg], [data-path$=jpeg], [data-path$=jpg], [data-path$=bmp], [data-path$=gif], [data-path$=webp], [data-path$=tiff])::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><path d="M14 2v6h6" /><circle cx="10" cy="13" r="2" /><path d="m20 17l-1.09-1.09a2 2 0 0 0-2.82 0L10 22" /></g></svg>');
 }
 
-body.explorer-icon .nav-file-title:is([data-path$=pdf])::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=pdf])::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><path d="M14 2v6h6m-4" /></g><path d="M16.714 14.869c-.6-.642-2.31-.466-3.165-.348-.844-.562-1.41-1.34-1.808-2.48.192-.862.497-2.174.266-3-.207-1.403-1.857-1.264-2.093-.316-.217.862-.02 2.062.344 3.594-.492 1.28-1.224 3-1.74 3.986-.983.552-2.31 1.403-2.506 2.474-.162.847 1.278 2.957 3.74-1.67 1.1-.397 2.3-.885 3.36-1.078.929.547 2.015.912 2.742.912 1.254 0 1.376-1.512.86-2.074zM6.98 19.037c.251-.734 1.204-1.58 1.494-1.875-.933 1.623-1.494 1.912-1.494 1.875zm4.01-10.21c.363 0 .33 1.72.087 2.185-.215-.744-.21-2.185-.088-2.185zM9.79 16.144c.477-.905.885-1.981 1.214-2.93.408.809.929 1.457 1.479 1.901-1.022.23-1.911.703-2.693 1.03zm6.467-.268q-.246.322-1.834-.417c1.726-.14 2.01.29 1.834.417z" fill="currentColor"/></svg>');
 }
 
-body.explorer-icon .nav-file-title:is([data-path$=mp3], [data-path$=flac], [data-path$=wav], [data-path$=ape], [data-path$=alac], [data-path$=aac])::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=mp3], [data-path$=flac], [data-path$=wav], [data-path$=ape], [data-path$=alac], [data-path$=aac])::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17.5 22h.5c.5 0 1-.2 1.4-.6c.4-.4.6-.9.6-1.4V7.5L14.5 2H6c-.5 0-1 .2-1.4.6C4.2 3 4 3.5 4 4v3" /><path d="M14 2v6h6M10 20v-1a2 2 0 1 1 4 0v1a2 2 0 1 1-4 0Zm-4 0v-1a2 2 0 1 0-4 0v1a2 2 0 1 0 4 0Z"/><path d="M2 19v-3a6 6 0 0 1 12 0v3"/></g></svg>');
 }
 
-body.explorer-icon .nav-file-title:is([data-path$=mkv], [data-path$=mp4], [data-path$=flv], [data-path$=webm], [data-path$=avi])::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=mkv], [data-path$=mp4], [data-path$=flv], [data-path$=webm], [data-path$=avi])::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 8V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4"/><path d="M14 2v6h6m-10 7.5l4 2.5v-6l-4 2.5"/><rect width="8" height="6" x="2" y="12" rx="1"/></g></svg>');
 }
 
-body.explorer-icon .nav-file-title:is([data-path$=ttf], [data-path$=otf], [data-path$=ttc], [data-path$=otc])::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=ttf], [data-path$=otf], [data-path$=ttc], [data-path$=otc])::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6M9 13v-1h6v1m-4 5h2m-1-6v6"/></g></svg>');
 }
 
-body.explorer-icon .nav-file-title:is([data-path$=zip], [data-path$="7z"], [data-path$=tar])::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=zip], [data-path$="7z"], [data-path$=tar])::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22V4c0-.5.2-1 .6-1.4C5 2.2 5.5 2 6 2h8.5L20 7.5V20c0 .5-.2 1-.6 1.4c-.4.4-.9.6-1.4.6h-2"/><path d="M14 2v6h6"/><circle cx="10" cy="20" r="2"/><path d="M10 7V6m0 6v-1m0 7v-2"/></g></svg>');
 }
 
-body.explorer-icon .nav-file-title:is([data-path$=js], [data-path$=css], [data-path$=html], [data-path$=py], [data-path$=c], [data-path$=cpp], [data-path$=java], [data-path$=rs], [data-path$=ts], [data-path$=tsx], [data-path$=jsx], [data-path$=json], [data-path$=bash], [data-path$=sh])::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=js], [data-path$=css], [data-path$=html], [data-path$=py], [data-path$=c], [data-path$=cpp], [data-path$=java], [data-path$=rs], [data-path$=ts], [data-path$=tsx], [data-path$=jsx], [data-path$=json], [data-path$=bash], [data-path$=sh])::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><path d="M14 2v6h6M9 18l3-3l-3-3m-4 0l-3 3l3 3"/></g></svg>');
 }
 
-body.explorer-icon .nav-file-title:is([data-path$=canvas])::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=canvas])::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-layout-dashboard svg-icon"><rect x="3" y="3" rx="1.8" width="7" height="9"></rect><rect x="14" y="3" rx="1.8" width="7" height="5"></rect><rect x="14" y="12" rx="1.8" width="7" height="9"></rect><rect x="3" y="16" rx="1.8" width="7" height="5"></rect></svg>');
 }
 

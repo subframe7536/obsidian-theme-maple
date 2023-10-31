@@ -1,5 +1,7 @@
 /* ======= 标题heading ====== */
 
+@use '../utils';
+
 $headings: h1, h2, h3, h4, h5, h6;
 $cm-headings: '.HyperMD-header-1', '.HyperMD-header-2', '.HyperMD-header-3',
   '.HyperMD-header-4', '.HyperMD-header-5', '.HyperMD-header-6';
@@ -49,18 +51,19 @@ body {
     --h6-color: var(--accent-active);
   }
 
-  &.heading-color-colorful {
-    --h1-color: var(--setting-h1-color, var(--color-red));
-    --h2-color: var(--setting-h2-color, var(--color-orange));
-    --h3-color: var(--setting-h3-color, var(--color-green));
-    --h4-color: var(--setting-h4-color, var(--color-blue));
-    --h5-color: var(--setting-h5-color, var(--color-purple));
-    --h6-color: var(--setting-h6-color, var(--color-cyan));
-  }
 
   :is(#{$headings}) {
     margin: 0 !important;
   }
+}
+
+#{utils.with-no-plugin('.heading-color-colorful')} {
+  --h1-color: var(--setting-h1-color, var(--color-red));
+  --h2-color: var(--setting-h2-color, var(--color-orange));
+  --h3-color: var(--setting-h3-color, var(--color-green));
+  --h4-color: var(--setting-h4-color, var(--color-blue));
+  --h5-color: var(--setting-h5-color, var(--color-purple));
+  --h6-color: var(--setting-h6-color, var(--color-cyan));
 }
 
 .cm-formatting.cm-formatting-header {
@@ -74,7 +77,7 @@ body {
   padding-block: 0;
 }
 
-body.heading-level-enable {
+#{utils.with-no-plugin('.heading-level-enable')} {
 
   :is(div.markdown-reading-view > div > div > div > :is(#{$headings}), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header) {
     position: relative;
