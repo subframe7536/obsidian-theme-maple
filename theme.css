@@ -499,7 +499,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.10'"
+        default: "'maple 0.7.11'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -5252,7 +5252,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.10");
+  content: var(--setting-header-title, "maple 0.7.11");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
