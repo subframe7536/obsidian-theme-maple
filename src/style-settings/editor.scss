@@ -100,9 +100,10 @@ settings:
         default: true
     -
         id: line-active-enable
-        title: disable active line hightlight
-        title.zh: 禁用当前行高亮
+        title: enable active line hightlight
+        title.zh: 启用当前行高亮
         type: class-toggle
+        default: true
     -
         id: setting-line-active-color
         title: active line color
