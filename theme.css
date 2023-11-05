@@ -499,7 +499,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.11'"
+        default: "'maple 0.7.12'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -675,7 +675,7 @@ settings:
         level: 2
     -
         id: font-maple
-        title: use “Maple Mono” as monospace
+        title: use "Maple Mono" as monospace
         description: https://github.com/subframe7536/Maple-font
         title.zh: 使用 Maple Mono 作为等宽字体
         description.zh: https://github.com/subframe7536/Maple-font
@@ -691,7 +691,7 @@ settings:
     -
         id: font-latex-text
         title: use “text font” in non-formula parts of latex
-        description: ❗only tested in CJK
+        description: ❗only tested in CJK font, maybe not reconcile with latin characters
         title.zh: 在 latex 非公式部分使用正文字体
         description.zh: 默认的字体比较丑
         type: class-toggle
@@ -716,6 +716,17 @@ settings:
         max: 20
         step: 1
     -
+        id: setting-editor-p-indent
+        title: editor paragraph indent
+        description: if 'p-indent' exist in properties.cssclasses, all paragraph will add indent(n times of font size)
+        title.zh: 编辑器段落缩进
+        description.zh: 在文档属性的cssclasses中存在 'p-indent' 类时，会为段落添加缩进（字体大小的倍数）
+        type: variable-number-slider
+        default: 2
+        min: 0
+        max: 4
+        step: 0.2
+    -
         id: setting-line-height
         title: editor line height
         description: multiple of the text size
@@ -736,9 +747,10 @@ settings:
         default: true
     -
         id: line-active-enable
-        title: disable active line hightlight
-        title.zh: 禁用当前行高亮
+        title: enable active line hightlight
+        title.zh: 启用当前行高亮
         type: class-toggle
+        default: true
     -
         id: setting-line-active-color
         title: active line color
@@ -1560,7 +1572,20 @@ settings:
         title.zh: 点击标签进行编辑
         description.zh: 点击'#'跳转
         type: class-toggle
-
+    -
+        id: tag-style
+        title: tag style
+        title.zh: 标签样式
+        type: class-select
+        allowEmpty: false
+        default: tag-outline
+        options:
+            -   label: default
+                value: tag-default
+            -   label: plain
+                value: tag-plain
+            -   label: outline
+                value: tag-outline
     -
         id: setting-tag-bg
         title: tag background color
@@ -3229,6 +3254,10 @@ body {
   --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1)) ;
 }
 
+.p-indent [class=cm-line] {
+  text-indent: calc(var(--font-text-size) * var(--setting-editor-p-indent, 2));
+}
+
 /* ====== latex 修复 ====== */
 body.font-latex-text mjx-container mjx-utext {
   font-family: var(--font-text) !important;
@@ -4191,6 +4220,13 @@ input.metadata-property-key-input,
   transition: var(--animation);
 }
 
+.metadata-property[data-property-key=cssclasses] {
+  --pill-padding-x: 0.4em;
+}
+.metadata-property[data-property-key=cssclasses] .multi-select-pill {
+  line-height: 1;
+}
+
 /* ====== better command palette ======*/
 .better-command-palette p.better-command-palette-title {
   margin: var(--size-4-3) var(--size-4-6);
@@ -5081,7 +5117,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
   position: relative;
 }
 :is(body.explorer-nav-decoration .nav-file-title, body.setting-nav-decoration .vertical-tab-nav-item).is-active::after {
-  height: calc(var(--line-height-tight) * var(--nav-item-size) - var(--size-2-1));
+  height: calc(100% - var(--size-4-2));
   transform: translateY(-50%);
 }
 :is(body.explorer-nav-decoration .nav-file-title, body.setting-nav-decoration .vertical-tab-nav-item)::after {
@@ -5252,7 +5288,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.11");
+  content: var(--setting-header-title, "maple 0.7.12");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);

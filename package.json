@@ -1,6 +1,6 @@
 {
   "name": "maple",
-  "version": "0.7.11",
+  "version": "0.7.12",
   "description": "elegant theme for Obsidian",
   "scripts": {
     "dev": "sass --watch src:vault/.obsidian/snippets --no-source-map --update",
