@@ -1,11 +1,17 @@
 @use '../utils';
 
 /* ====== 段落 ====== */
+
 body {
   --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1))
 }
 
+.p-indent [class="cm-line"] {
+  text-indent: calc(var(--font-text-size) * var(--setting-editor-p-indent, 2));
+}
+
 /* ====== latex 修复 ====== */
+
 body.font-latex-text mjx-container mjx-utext {
   font-family: var(--font-text) !important;
 }
@@ -45,6 +51,7 @@ body {
 }
 
 /* ====== 文本 ======= */
+
 body {
   --text-selection: hsla(var(--color-accent-hsl), 0.25);
 }
@@ -108,6 +115,7 @@ body.line-indicator-enable {
 }
 
 /* ======= 键盘 ====== */
+
 .cm-hmd-html-begin,
 .cm-hmd-html-begin~.cm-tag,
 .cm-hmd-html-end,

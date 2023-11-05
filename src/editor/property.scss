@@ -47,3 +47,11 @@ input.metadata-property-key-input,
 .multi-select-pill {
   transition: var(--animation);
 }
+
+.metadata-property[data-property-key="cssclasses"] {
+  --pill-padding-x: 0.4em;
+
+  .multi-select-pill {
+    line-height: 1;
+  }
+}

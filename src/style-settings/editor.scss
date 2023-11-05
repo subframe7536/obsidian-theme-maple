@@ -39,7 +39,7 @@ settings:
         level: 2
     -
         id: font-maple
-        title: use “Maple Mono” as monospace
+        title: use "Maple Mono" as monospace
         description: https://github.com/subframe7536/Maple-font
         title.zh: 使用 Maple Mono 作为等宽字体
         description.zh: https://github.com/subframe7536/Maple-font
@@ -55,7 +55,7 @@ settings:
     -
         id: font-latex-text
         title: use “text font” in non-formula parts of latex
-        description: ❗only tested in CJK
+        description: ❗only tested in CJK font, maybe not reconcile with latin characters
         title.zh: 在 latex 非公式部分使用正文字体
         description.zh: 默认的字体比较丑
         type: class-toggle
@@ -79,6 +79,17 @@ settings:
         min: 0
         max: 20
         step: 1
+    -
+        id: setting-editor-p-indent
+        title: editor paragraph indent
+        description: if 'p-indent' exist in properties.cssclasses, all paragraph will add indent(n times of font size)
+        title.zh: 编辑器段落缩进
+        description.zh: 在文档属性的cssclasses中存在 'p-indent' 类时，会为段落添加缩进（字体大小的倍数）
+        type: variable-number-slider
+        default: 2
+        min: 0
+        max: 4
+        step: 0.2
     -
         id: setting-line-height
         title: editor line height
@@ -925,7 +936,20 @@ settings:
         title.zh: 点击标签进行编辑
         description.zh: 点击'#'跳转
         type: class-toggle
-
+    -
+        id: tag-style
+        title: tag style
+        title.zh: 标签样式
+        type: class-select
+        allowEmpty: false
+        default: tag-outline
+        options:
+            -   label: default
+                value: tag-default
+            -   label: plain
+                value: tag-plain
+            -   label: outline
+                value: tag-outline
     -
         id: setting-tag-bg
         title: tag background color
