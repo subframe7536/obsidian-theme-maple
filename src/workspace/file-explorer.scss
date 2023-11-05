@@ -179,7 +179,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   position: relative;
 
   &.is-active::after {
-    height: calc(var(--line-height-tight) * var(--nav-item-size) - var(--size-2-1));
+    height: calc(100% - var(--size-4-2));
     transform: translateY(-50%);
   }
 
