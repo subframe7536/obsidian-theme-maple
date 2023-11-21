@@ -36,15 +36,15 @@ settings:
         level: 2
     -
         id: bg-enable
-        title: enable background wave image
+        title: background wave image
         description: static style reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow, ❗live style will increase CPU/GPU use
-        title.zh: 开启背景波浪图
+        title.zh: 背景波浪图
         description.zh: 静态图（static）参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow，❗动态图（live）将提高 CPU/GPU 占用率
         type: class-select
         allowEmpty: false
         default: bg-static
         options:
-            -   label: none
+            -   label: disable
                 value: bg-default
             -   label: static
                 value: bg-static

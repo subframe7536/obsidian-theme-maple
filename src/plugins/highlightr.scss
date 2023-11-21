@@ -1,0 +1,14 @@
+$styles: (
+  'lowlight',
+  'floating',
+  'rounded',
+  'realistic'
+);
+
+body:not(.bg-default) {
+  @each $s in $styles {
+    &.highlightr-#{$s} {
+      --#{$s}-background: hsl(var(--background-primary-hsl)) !important;
+    }
+  }
+}
