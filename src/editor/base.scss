@@ -248,3 +248,11 @@ a :is(em, strong) {
 .view-header-title-container:not(.mod-at-end):after {
   content: none;
 }
+
+input[type=checkbox] {
+  transition: var(--animation);
+
+  &:checked::after {
+    -webkit-mask-position: 47% 52%;
+  }
+}
