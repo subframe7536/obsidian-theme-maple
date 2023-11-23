@@ -4187,7 +4187,7 @@ li[data-task="<"] > p > input:checked {
   --metadata-property-background-hover: var(--md-container-bg);
 }
 body.prop-outline .metadata-container {
-  margin-inline: var(--size-4-1);
+  transform: none;
   --metadata-border-width: var(--block-outline-width);
   --metadata-border-radius: var(--radius-l);
   --metadata-border-color: var(--accent-inactive);
