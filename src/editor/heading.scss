@@ -68,9 +68,12 @@ body {
 
 .cm-formatting.cm-formatting-header {
   filter: grayscale(70%);
-  font-size: 1rem !important;
   font-weight: 400 !important;
-  line-height: 1.2rem;
+
+  body:not(.fix-line-number) & {
+    font-size: 1rem !important;
+    line-height: 1.2rem;
+  }
 }
 
 .cm-s-obsidian .cm-line.HyperMD-header {
@@ -149,7 +152,7 @@ body {
     }
   }
 
-  div.markdown-reading-view>div>div>div> #{$headings}::before {
+  div.markdown-reading-view>div>div>div>#{$headings}::before {
     left: calc(-1 * var(--size-4-6)) !important;
   }
 

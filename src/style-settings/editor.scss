@@ -342,6 +342,13 @@ settings:
         collapsed: true
         level: 2
     -
+        id: fix-line-number
+        title: fix line number movement
+        description: will increase '#' size
+        title.zh: 修复行号的移动
+        description.zh: 将增加 '#' 的大小
+        type: class-toggle
+    -
         id: heading-level
         title: heading level icon
         description: add prefix icon for heading, click to collapse title if you open setting “Fold heading”
