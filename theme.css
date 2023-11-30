@@ -499,7 +499,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.15'"
+        default: "'maple 0.7.16'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -977,6 +977,13 @@ settings:
         type: heading
         collapsed: true
         level: 2
+    -
+        id: fix-line-number
+        title: fix line number movement
+        description: will increase '#' size
+        title.zh: 修复行号的移动
+        description.zh: 将增加 '#' 的大小
+        type: class-toggle
     -
         id: heading-level
         title: heading level icon
@@ -3537,8 +3544,10 @@ body:is(:not(.css-settings-manager), .heading-color-colorful) {
 
 .cm-formatting.cm-formatting-header {
   filter: grayscale(70%);
-  font-size: 1rem !important;
   font-weight: 400 !important;
+}
+body:not(.fix-line-number) .cm-formatting.cm-formatting-header {
+  font-size: 1rem !important;
   line-height: 1.2rem;
 }
 
@@ -5294,7 +5303,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.15");
+  content: var(--setting-header-title, "maple 0.7.16");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
