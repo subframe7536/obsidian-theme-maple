@@ -1,3 +1,5 @@
+/* #region callout */
+
 body {
   --callout-padding: var(--size-4-3) var(--size-4-6);
 }
@@ -14,3 +16,5 @@ body.quote-theme .callout-content blockquote {
   // box-shadow: none;
   // border: var(--size-2-1) solid var(--nav-item-background-hover) !important;
 }
+
+/* #endregion callout */

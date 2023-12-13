@@ -1,3 +1,7 @@
 @function with-no-plugin($selector) {
   @return unquote('body:is(:not(.css-settings-manager),#{$selector})');
 }
+
+@function use-setting($selector) {
+  @return unquote('body#{$selector}');
+}

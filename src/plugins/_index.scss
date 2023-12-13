@@ -1,3 +1,5 @@
+/* #region [plugin] */
+
 @use './better-command-palette.scss';
 @use './calendar.scss';
 @use './excalidraw.scss';
@@ -10,3 +12,5 @@
 @use './annotator.scss';
 @use './dataview.scss';
 @use './recent-files.scss';
+
+/* #endregion [plugin] */

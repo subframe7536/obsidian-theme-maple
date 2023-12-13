@@ -3,7 +3,7 @@
 @use './editor.scss';
 @use './plugin.scss';
 
-/* ====== style setting ====== */
+/* #region [style-settings] */
 
 .mod-settings .vertical-tab-content>.setting-item:nth-child(2)>.setting-item-control>input[type=color] {
   position: relative;
@@ -235,3 +235,5 @@ body.modal-item-animation {
     }
   }
 }
+
+/* #endregion [style-settings] */

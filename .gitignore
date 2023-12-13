@@ -1,13 +1,9 @@
-# vscode
-.vscode
-
 # npm
 node_modules
-package-lock.json
-pnpm-lock.yaml
 
 # Mac
 .DS_Store
-dir.js
+
+scripts/dir.js
 src/snippet.scss
 vault

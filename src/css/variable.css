@@ -1,3 +1,5 @@
+/* #region variables */
+
 :is(body, body .print) {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
@@ -130,3 +132,5 @@ body.theme-dark.color-use-custom:not(.color-active-default-dark) .print {
         calc(var(--accent-s) - 12%),
         calc(var(--accent-l) - 28%)));
 }
+
+/* #endregion */

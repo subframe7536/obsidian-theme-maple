@@ -1,4 +1,4 @@
-## Maple
+# Maple
 
 an Obsidian theme for desktop with some awesome components, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/Maple-font)
 
@@ -6,13 +6,11 @@ an Obsidian theme for desktop with some awesome components, using `Style Setting
 
 <a href="https://www.buymeacoffee.com/subframe753"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=subframe753&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" /></a>
 
-### note
+**does not guarantee backward compatibility due to working time limitations**
 
-does not guarantee backward compatibility due to working time limitations
+## Quick Start
 
-## quick start
-
-### install theme
+### Install theme
 
 1. Open Obsidian and go to Settings.
 2. Click on the Appearance tab.
@@ -20,7 +18,7 @@ does not guarantee backward compatibility due to working time limitations
 4. In the Filter... Search Box, search "Maple".
 5. Click the Install and use button.
 
-### customize (⚠️Recommend):
+### Customize (⚠️Recommend):
 
 by community plugin: Style Settings
 
@@ -31,69 +29,70 @@ by community plugin: Style Settings
 5. Click the Install button.
 6. Click the Enable button once the plugin is finished installing.
 
-## components
+## Components
 
-### dynamic theme
+### Dynamic theme
 
 dynamic theme with customable accent color
 
 ![](img/dynamic.png)
 
-### outline
+### Outline
 
 in outline panel
 
 ![](./img/outline.gif)
 
-### document search
+### Document search
 
 ![](img/container-query.gif)
 
-### scrollbar style
+### Scrollbar style
 
 background color transition and overlay
 
 ![](img/scrollbar.gif)
 
-### code block
+### Code block
 
 ![](img/code.png)
 
-### quote
+### Quote
 
 live preview
 
 ![](img/quote.png)
 
-### toggle button style
+### Toggle button style
 
 ![](img/toggle.gif)
 
-### blur menu
+### Blur menu
 
 ![](img/blur.png)
 
-### modal panel title
+### Modal panel title
 
 ![](img/input.gif)
 
-### style settings
+### Style settings
 
 **more** options can be configured in Style Settings plugin
 
 ![](img/style_setting.png)
 
-## todo
+## Todo
 
 - [ ] mobile support
 - [ ] callouts
 - [ ] dataview
 
-### credit
+### Credit
 
 - [Blue Topaz](https://github.com/whyt-byte/Blue-Topaz_Obsidian-css)
 - [Mado Miniflow](https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow)
 - [Border](https://github.com/Akifyss/obsidian-border)
 
 ## License
+
 MIT

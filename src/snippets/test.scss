@@ -1,0 +1,9 @@
+@mixin test($height) {
+  .asd {
+    height: $height;
+    text-shadow: #666;
+  }
+}
+
+@include test(20px);
+@include test(var(--text-test));
