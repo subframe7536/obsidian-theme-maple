@@ -24,10 +24,6 @@ Steps to reproduce the behavior, e.g.
 - [ ] Source Mode
 - [ ] Live Preview
 
-**Which editor are you using?**
-- [ ] Legacy Editor
-- [ ] New Editor
-
 **Which version of Obsidian are you using?**
 - [ ] Public Release (Desktop)
 - [ ] Public Release (Mobile)
@@ -35,5 +31,6 @@ Steps to reproduce the behavior, e.g.
 - [ ] Insider Release (Mobile)
 
 **Checklist**
+- [ ] **The bug can be reproduced in Sandbox Vault**
 - [ ] I have updated to the latest version of the theme (`Obsidian Settings → Appearance → Themes - Manage → Update`).
 - [ ] I made sure that the issue is related to this theme, by checking that the issue does not occur with other themes or the default theme.
