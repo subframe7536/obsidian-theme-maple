@@ -869,7 +869,9 @@ settings:
     -
         id: code-line-number
         title: add code block line number in live Preview mode
+        description: if the code block lines are too large, the line number will have error
         title.zh: 为 实时预览模式 代码块添加行号
+        description.zh: 如果代码块行数太多，行号会出现错误
         type: class-toggle
         default: true
     -
