@@ -3,12 +3,14 @@ import { resolve } from 'path'
 
 // path/to/your/vault/root
 const dirs = []
+
 let vaultRoots
 try {
-  vaultRoots =  (await import('./dir.js')).dirs
+  vaultRoots =  await import('./dir.js')
 } catch (error) {
   vaultRoots = dirs
 }
+
 console.log(`choose ${vaultRoots.length} vaults`)
 
 vaultRoots.forEach(root => {

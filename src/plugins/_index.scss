@@ -1,16 +1,47 @@
-/* #region [plugin] */
-
+/* #region better-command-palette */
 @use './better-command-palette.scss';
-@use './calendar.scss';
-@use './excalidraw.scss';
-@use './dbfolder.scss';
-@use './git.scss';
-@use './day-planner.scss';
-@use './my-snippets.scss';
-@use './banners.scss';
-@use './kanban.scss';
-@use './annotator.scss';
-@use './dataview.scss';
-@use './recent-files.scss';
+/* #endregion better-command-palette */
 
-/* #endregion [plugin] */
+/* #region calender */
+@use './calendar.scss';
+/* #endregion calender */
+
+/* #region excalidraw */
+@use './excalidraw.scss';
+/* #endregion excalidraw */
+
+/* #region dbfolder */
+@use './dbfolder.scss';
+/* #endregion dbfolder */
+
+/* #region git */
+@use './git.scss';
+/* #endregion git */
+
+/* #region day-planner */
+@use './day-planner.scss';
+/* #endregion day-planner */
+
+/* #region my-snippets */
+@use './my-snippets.scss';
+/* #endregion my-snippets */
+
+/* #region banners */
+@use './banners.scss';
+/* #endregion banners */
+
+/* #region kanban */
+@use './kanban.scss';
+/* #endregion kanban */
+
+/* #region annotator */
+@use './annotator.scss';
+/* #endregion annotator */
+
+/* #region dataview */
+@use './dataview.scss';
+/* #endregion dataview */
+
+/* #region recent-files */
+@use './recent-files.scss';
+/* #endregion recent-files */

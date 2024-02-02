@@ -1,5 +1,3 @@
-/* ====== 链接link ====== */
-
 :is(body, .print .markdown-rendered) {
   --link-color-rgb: var(--setting-link-internal-color, var(--color-blue-rgb));
   --link-external-color-rgb: var(--setting-link-external-color, var(--color-orange-rgb));
@@ -23,7 +21,6 @@
 
   &:hover,
   &:focus {
-    // color: var(--text-on-accent) !important;
     box-shadow: inset 0 -1.3em 0 $underline;
     --link-color: var(--setting-link-internal-color-hover, var(--text-on-accent));
     --link-external-color: var(--setting-link-external-color-hover, var(--text-on-accent));

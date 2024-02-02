@@ -5,5 +5,156 @@
   }
 }
 
-@include test(20px);
-@include test(var(--text-test));
+// @include test(20px);
+// @include test(var(--text-test));
+
+// body {
+//   /* 表格圆角大小 */
+//   --table-radius: var(--size-2-3);
+//   /* 表格按钮颜色 */
+//   --table-btn-color: #fff;
+//   /* 表格按钮背景色 */
+//   --table-btn-bg: #ddd;
+//   /* 表格头背景色 */
+//   --table-header-bg: #f4f4f4;
+//   /* 表格隔行背景色 */
+//   --table-alt-line-bg: #f4f4f4;
+//   --table-cell-vertical-alignment: middle;
+//   /* 动画时间 */
+//   --animation: 200ms var(--anim-motion-smooth);
+// }
+
+body {
+  --table-radius: var(--size-2-3);
+  --table-btn-color: var(--text-on-accent);
+  --table-btn-bg: var(--accent-inactive);
+  --table-header-bg: var(--setting-table-line-bg, var(--md-container-bg));
+  --table-alt-line-bg: var(--setting-table-line-bg, var(--md-container-bg));
+  --table-cell-vertical-alignment: middle;
+}
+
+// make table radius available
+.markdown-rendered table {
+  border-collapse: initial;
+  border-spacing: 0;
+}
+
+:is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
+  // #region expand width
+  --table-white-space: break-all;
+  width: 100%;
+
+  .table-editor {
+    width: 100%;
+  }
+
+  // #endregion
+
+  // #region table drag handler
+
+  .table-col-btn {
+    border-top-right-radius: var(--table-radius);
+    border-bottom-right-radius: var(--table-radius);
+    color: var(--table-btn-color);
+  }
+
+  .table-row-btn {
+    border-bottom-left-radius: var(--table-radius);
+    border-bottom-right-radius: var(--table-radius);
+    color: var(--table-btn-color);
+  }
+
+  :is(.table-col-btn, .table-row-btn, .table-col-drag-handle:hover, .table-row-drag-handle:hover) {
+    transition: var(--animation);
+    background-color: var(--table-btn-bg);
+    --table-drag-handle-color: var(--table-btn-color);
+  }
+
+  :is(tr:hover .table-row-drag-handle, th:hover .table-col-drag-handle) {
+    opacity: 1;
+  }
+
+  // #endregion
+
+  // #region radius
+
+  th:first-child:not(:has(:is(.table-row-drag-handle, .table-col-drag-handle):hover)) {
+    border-top-left-radius: var(--table-radius);
+  }
+
+  th:last-child:not(:has(.table-col-drag-handle:hover)) {
+    border-top-right-radius: var(--table-radius);
+  }
+
+  &:has(.table-col-btn:hover) th:last-child {
+    border-top-right-radius: 0;
+  }
+
+  tr:last-child td:first-child {
+    border-bottom-left-radius: var(--table-radius);
+  }
+
+  &:has(.table-row-btn:hover) tr:last-child td:first-child {
+    border-bottom-left-radius: 0;
+  }
+
+  tr:last-child td:last-child {
+    border-bottom-right-radius: var(--table-radius);
+  }
+
+  &:has(:is(.table-col-btn, .table-row-btn):hover) tr:last-child td:last-child {
+    border-bottom-right-radius: 0;
+  }
+
+  // #endregion
+
+  // #region fix table inner border
+
+  :is(th, td):not(:first-child) {
+    border-left: 0;
+  }
+
+  tbody td {
+    border-top: 0;
+  }
+
+  // #endregion
+
+  // #region line background color
+  thead tr {
+    background-color: var(--table-header-bg);
+  }
+
+  tbody {
+    tr:nth-of-type(2n) {
+      background-color: var(--table-alt-line-bg);
+    }
+
+    tr:nth-of-type(2n+1) {
+      background-color: var(--background-primary);
+    }
+  }
+
+  // #endregion
+
+  // #region center image
+
+  .table-cell-wrapper {
+    &:has(>.image-embed) {
+      display: table-cell;
+    }
+
+    &:has(.is-live-preview .image-embed) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      [class=cm-line] {
+        display: none;
+      }
+    }
+  }
+
+  // #endregion
+}

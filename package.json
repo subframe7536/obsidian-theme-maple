@@ -3,7 +3,8 @@
   "version": "0.7.17",
   "description": "elegant theme for Obsidian",
   "scripts": {
-    "dev": "sass --watch src:vault/.obsidian/snippets --no-source-map --update",
+    "dev": "node scripts/dev.mjs",
+    "dev:test": "node scripts/dev.mjs src/snippets/test.scss",
     "build": "sass src/index.scss theme.css --no-source-map && node scripts/move.mjs",
     "replace-version": "node scripts/version.mjs && npm run build",
     "release": "bumpp -x \"npm run replace-version\" --all"
@@ -14,10 +15,11 @@
   "author": "subframe7536",
   "license": "MIT",
   "dependencies": {
-    "sass": "^1.66.1"
+    "sass": "^1.69.7",
+    "which": "^4.0.0"
   },
   "type": "module",
   "devDependencies": {
-    "bumpp": "^9.2.0"
+    "bumpp": "^9.2.1"
   }
 }

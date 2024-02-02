@@ -1,8 +1,25 @@
+/* #region [style settings] */
 @use './style-settings';
-@use './css/variable.css';
-@use './css/fonts.css';
+/* #endregion [style settings] */
+
+/* #region [global] */
+@use './global';
+/* #endregion [global] */
+
+/* #region [editor] */
 @use './editor';
+/* #endregion [editor] */
+
+/* #region [plugins] */
 @use './plugins';
+/* #endregion [plugins] */
+
+/* #region [workspace] */
 @use './workspace';
+/* #endregion [workspace] */
+
+/* #region [mobile] */
 @use './mobile';
+/* #endregion [mobile] */
+
 //todo)) callouts(bt,prism,mado) / slide / dataview / plugins adapt

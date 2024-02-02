@@ -1,20 +1,63 @@
-/* #region [editor] */
-
-@use './code.scss';
-@use './embed.scss';
-@use './hr.scss';
-@use './link.scss';
-@use './list.scss';
-@use './quote.scss';
-@use './table.scss';
-@use './tag.scss';
+/* #region base */
 @use './base.scss';
-@use './heading.scss';
-@use './image.scss';
-@use './canvas.scss';
-@use './callout.scss';
-@use './pdf.scss';
-@use './checkbox.scss';
-@use './property.scss';
+/* #endregion base */
 
-/* #endregion [editor] */
+/* #region code */
+@use './code.scss';
+/* #endregion code */
+
+/* #region embed */
+@use './embed.scss';
+/* #endregion embed */
+
+/* #region hr */
+@use './hr.scss';
+/* #endregion hr */
+
+/* #region link */
+@use './link.scss';
+/* #endregion link */
+
+/* #region list */
+@use './list.scss';
+/* #endregion list */
+
+/* #region checkbox */
+@use './checkbox.scss';
+/* #endregion checkbox */
+
+/* #region quote */
+@use './quote.scss';
+/* #endregion quote */
+
+/* #region table */
+@use './table.scss';
+/* #endregion table */
+
+/* #region tag */
+@use './tag.scss';
+/* #endregion tag */
+
+/* #region heading */
+@use './heading.scss';
+/* #endregion heading */
+
+/* #region image */
+@use './image.scss';
+/* #endregion image */
+
+/* #region canvas */
+@use './canvas.scss';
+/* #endregion canvas */
+
+/* #region callout */
+@use './callout.scss';
+/* #endregion callout */
+
+/* #region pdf */
+@use './pdf.scss';
+/* #endregion pdf */
+
+/* #region property */
+@use './property.scss';
+/* #endregion property */

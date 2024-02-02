@@ -1,19 +1,59 @@
-/* #region [workspace] */
-
+/* #region document-search */
 @use './document-search.scss';
-@use './file-explorer.scss';
-@use './modal.scss';
-@use './outline.scss';
-@use './scrollbar.scss';
-@use './tab.scss';
-@use './titlebar.scss';
-@use './print.scss';
-@use './statusbar.scss';
-@use './icons.scss';
-@use './message.scss';
-@use './graph.scss';
-@use './bg.scss';
-@use './bookmark.scss';
-@use './labeled-nav.scss';
+/* #endregion document-search */
 
-/* #endregion [workspace] */
+/* #region file-explorer */
+@use './file-explorer.scss';
+/* #endregion file-explorer */
+
+/* #region modal */
+@use './modal.scss';
+/* #endregion modal */
+
+/* #region outline */
+@use './outline.scss';
+/* #endregion outline */
+
+/* #region scrollbar */
+@use './scrollbar.scss';
+/* #endregion scrollbar */
+
+/* #region tab */
+@use './tab.scss';
+/* #endregion tab */
+
+/* #region titlebar */
+@use './titlebar.scss';
+/* #endregion titlebar */
+
+/* #region print */
+@use './print.scss';
+/* #endregion print */
+
+/* #region statusbar */
+@use './statusbar.scss';
+/* #endregion statusbar */
+
+/* #region icons */
+@use './icons.scss';
+/* #endregion icons */
+
+/* #region notice, tooltips */
+@use './message.scss';
+/* #endregion message */
+
+/* #region graph */
+@use './graph.scss';
+/* #endregion graph */
+
+/* #region background image */
+@use './bg.scss';
+/* #endregion background */
+
+/* #region bookmark */
+@use './bookmark.scss';
+/* #endregion bookmark */
+
+/* #region labeled-navigator */
+@use './labeled-nav.scss';
+/* #endregion labeled-navigator */

@@ -6,13 +6,8 @@
   @return unquote('body#{$selector}');
 }
 
-@mixin _svg-icon() {
-  background-color: currentColor;
-  -webkit-mask-size: 100% 100%;
-
-  path {
-    display: none;
-  }
+@function with-print($selector) {
+  @return ":is(#{$selector}, #{$selector} .print)"
 }
 
 @mixin icon-have-class($class, $svg) {

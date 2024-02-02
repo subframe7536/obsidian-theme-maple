@@ -1,5 +1,3 @@
-/* ====== 代码code ====== */
-
 @use 'sass:math';
 @use '../utils';
 
@@ -20,14 +18,14 @@
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
 }
 
-:is(.theme-light, .theme-light .print) {
+#{utils.with-print('.theme-light')} {
   --code-preview-base: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) - 30%));
   --code-mac-style-header-bg: #333;
 }
 
-:is(.theme-dark, .theme-dark .print) {
+#{utils.with-print('.theme-dark')} {
   --code-preview-base: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) + 10%));

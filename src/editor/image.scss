@@ -1,5 +1,3 @@
-/* ====== 图片img ====== */
-
 body.theme-dark.image-dark-hover img {
   filter: brightness(0.7);
   transition: var(--animation);
@@ -14,7 +12,7 @@ img {
   cursor: pointer;
 }
 
-/* 提示文本，参考 https://github.com/chrisgrieser/shimmering-focus */
+/* hint text, reference from https://github.com/chrisgrieser/shimmering-focus */
 
 body.image-alt {
 
@@ -42,7 +40,7 @@ body.image-alt {
   }
 }
 
-/* 点击放大图片, 参考 blue-topaz */
+/* scale on click, reference from blue-topaz */
 
 body.image-zoom {
   :is(.markdown-preview-view, .workspace-leaf-content[data-type="image"]) img:not([class*="emoji"], .banner-image) {
