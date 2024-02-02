@@ -1,13 +1,13 @@
 @use '../utils.scss';
 
 @mixin var-color($name, $r, $g, $b) {
-  --color-#{$name}: rgba(#{$r}, #{$g}, #{$b}, var(--color-opacity)) !important;
+  --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity)) !important;
   --color-#{$name}-rgb: #{$r}, #{$g}, #{$b} !important;
 }
 
 #{utils.with-print('body')} {
   @include var-color('red', 228, 52, 52);
-  @include var-color('green', 81, 118, 0);
+  @include var-color('green', 118, 190, 86);
   @include var-color('yellow', 245, 200, 145);
   @include var-color('orange', 228, 152, 12);
   @include var-color('blue', 18, 158, 222);

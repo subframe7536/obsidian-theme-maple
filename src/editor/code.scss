@@ -116,7 +116,7 @@
   }
 }
 
-.markdown-source-view.mod-cm6 .cm-embed-block {
+.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget) {
   box-shadow: none !important;
   border: var(--block-outline-width) solid transparent;
   border-radius: var(--radius-l) !important;
