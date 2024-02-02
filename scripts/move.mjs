@@ -6,14 +6,22 @@ const dirs = []
 
 let vaultRoots
 try {
-  vaultRoots =  await import('./dir.js')
+  /**
+   * in `scripts/dir.mjs`:
+   *
+   * export default [
+   *   'D:/note/self',
+   *   'D:/note/work'
+   * ]
+   */
+  vaultRoots = (await import('./dir.mjs')).default
 } catch (error) {
   vaultRoots = dirs
 }
 
-console.log(`choose ${vaultRoots.length} vaults`)
+console.log(`choose ${vaultRoots?.length ?? 0} vaults`)
 
-vaultRoots.forEach(root => {
+vaultRoots?.forEach(root => {
   let themeRoot = resolve(root, '.obsidian', 'themes', 'Maple')
 
   !existsSync(themeRoot) && mkdirSync(themeRoot, { recursive: true })
