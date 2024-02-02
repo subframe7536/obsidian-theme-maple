@@ -60,16 +60,6 @@ settings:
         description.zh: 默认的字体比较丑
         type: class-toggle
     -
-        id: setting-editor-width
-        title: editor line width (px)
-        title.zh: 编辑器行宽（px）
-        type: variable-number-slider
-        default: 700
-        format: 'px'
-        min: 400
-        max: 1000
-        step: 50
-    -
         id: setting-editor-p-spacing
         title: editor paragraph spacing (px)
         title.zh: 编辑器段落间隔（px）
@@ -101,6 +91,16 @@ settings:
         min: 1.5
         max: 2.5
         step: 0.1
+    -
+        id: setting-editor-width
+        title: editor line width (px)
+        title.zh: 编辑器行宽（px）
+        type: variable-number-slider
+        default: 700
+        format: 'px'
+        min: 400
+        max: 1000
+        step: 50
     -
         id: line-indicator-enable
         title: enable hover line indicator

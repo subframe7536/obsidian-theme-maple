@@ -201,7 +201,7 @@ body.heading-h1-center h1 {
         position: absolute;
         height: var(--size-4-1);
         width: 100%;
-        bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+        bottom: calc(var(--h#{$i}-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
         border-radius: var(--size-2-1);
         background-image: linear-gradient(to right,
           var(--h#{$i}-color) 30%,

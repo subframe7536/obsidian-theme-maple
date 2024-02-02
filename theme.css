@@ -697,16 +697,6 @@ settings:
         description.zh: 默认的字体比较丑
         type: class-toggle
     -
-        id: setting-editor-width
-        title: editor line width (px)
-        title.zh: 编辑器行宽（px）
-        type: variable-number-slider
-        default: 700
-        format: 'px'
-        min: 400
-        max: 1000
-        step: 50
-    -
         id: setting-editor-p-spacing
         title: editor paragraph spacing (px)
         title.zh: 编辑器段落间隔（px）
@@ -738,6 +728,16 @@ settings:
         min: 1.5
         max: 2.5
         step: 0.1
+    -
+        id: setting-editor-width
+        title: editor line width (px)
+        title.zh: 编辑器行宽（px）
+        type: variable-number-slider
+        default: 700
+        format: 'px'
+        min: 400
+        max: 1000
+        step: 50
     -
         id: line-indicator-enable
         title: enable hover line indicator
@@ -3943,7 +3943,7 @@ body.heading-h1-underline :is(h1, .HyperMD-header-1)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  bottom: calc(var(--h1-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h1-color) 30%, transparent 70%);
 }
@@ -3969,7 +3969,7 @@ body.heading-h2-underline :is(h2, .HyperMD-header-2)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  bottom: calc(var(--h2-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h2-color) 30%, transparent 70%);
 }
@@ -3995,7 +3995,7 @@ body.heading-h3-underline :is(h3, .HyperMD-header-3)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  bottom: calc(var(--h3-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h3-color) 30%, transparent 70%);
 }
@@ -4021,7 +4021,7 @@ body.heading-h4-underline :is(h4, .HyperMD-header-4)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  bottom: calc(var(--h4-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h4-color) 30%, transparent 70%);
 }
@@ -4047,7 +4047,7 @@ body.heading-h5-underline :is(h5, .HyperMD-header-5)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  bottom: calc(var(--h5-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h5-color) 30%, transparent 70%);
 }
@@ -4073,7 +4073,7 @@ body.heading-h6-underline :is(h6, .HyperMD-header-6)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--font-text-size) * var(--line-height-normal) * 0.2 - var(--size-2-1));
+  bottom: calc(var(--h6-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h6-color) 30%, transparent 70%);
 }
