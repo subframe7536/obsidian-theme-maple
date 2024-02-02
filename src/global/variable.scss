@@ -1,0 +1,127 @@
+@use '../utils.scss';
+
+@mixin var-color($name, $r, $g, $b) {
+  --color-#{$name}: rgba(#{$r}, #{$g}, #{$b}, var(--color-opacity)) !important;
+  --color-#{$name}-rgb: #{$r}, #{$g}, #{$b} !important;
+}
+
+#{utils.with-print('body')} {
+  @include var-color('red', 228, 52, 52);
+  @include var-color('green', 81, 118, 0);
+  @include var-color('yellow', 245, 200, 145);
+  @include var-color('orange', 228, 152, 12);
+  @include var-color('blue', 18, 158, 222);
+  @include var-color('cyan',99, 201, 201);
+  @include var-color('purple',144, 132, 233);
+
+  --font-ui-smaller: 13px;
+  --font-ui-small: 14px;
+  --font-ui-medium: 16px;
+  --line-height-normal: 2.1;
+  --background-modifier-border: var(--accent-inactive);
+  --background-modifier-border-focus: var(--accent-inactive);
+  --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
+  --background-modifier-cover: hsla(var(--background-secondary-hsl), 0.6);
+  --interactive-accent: var(--accent-active);
+  --radius-xl: var(--size-4-3);
+
+  --animation: var(--setting-animation-time, 200ms) var(--anim-motion-smooth);
+  --animation-slow: calc(var(--setting-animation-time, 200ms) * 2) var(--anim-motion-smooth);
+  --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
+  --bg-opacity: 1;
+  --block-outline-width: 3px;
+}
+
+html #{utils.with-print('body.obsidian-app')} {
+  --accent-s: 32% !important;
+  --accent-l: 58% !important;
+}
+
+@mixin setup-hsl($theme, $h, $s, $l) {
+  #{utils.with-print('body.color-use-custom.theme-#{$theme}.css-settings-manager')} {
+    --accent-h: var(--setting-accent-h-#{$theme}, #{$h}) !important;
+    --accent-s: var(--setting-accent-s-#{$theme}, #{$s}) !important;
+    --accent-l: var(--setting-accent-l-#{$theme}, #{$l}) !important;
+  }
+}
+
+@include setup-hsl('light', 35, 32%, 58%);
+@include setup-hsl('dark', 207, 32%, 58%);
+
+#{utils.with-print('.theme-light')} {
+  --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
+  --background-primary: hsl(var(--background-primary-hsl));
+  --background-secondary-hsl: calc(var(--accent-h) - 18), calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
+  --background-secondary: hsl(var(--background-secondary-hsl));
+  --background-modifier-hover: hsla(var(--color-accent-hsl), 16%);
+  --accent-active: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 4%));
+  --accent-inactive: hsl(var(--accent-h),
+      calc(var(--accent-s) - 4%),
+      calc(var(--accent-l) + 24%));
+  --text-on-accent: #fafafa !important;
+  --frame-background-color: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 32%));
+  --frame-outline-color: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 23.5%));
+  --frame-muted-color: hsl(var(--accent-h),
+      calc(var(--accent-s) - 20%),
+      calc(var(--accent-l) - 10%));
+
+  --md-container-bg: var(--setting-md-container-bg, hsla(calc(var(--accent-h) + 8),
+        calc(var(--accent-s) / 1.2),
+        calc(100% - (100% - var(--accent-l)) / 6),
+        60%));
+  --color-opacity: 1;
+}
+
+#{utils.with-print('.theme-dark')} {
+  --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 7));
+  --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 7);
+  --background-secondary: hsl(calc(var(--accent-h) + 8),
+      calc(var(--accent-s) / 6),
+      calc(var(--accent-l) / 4));
+  --background-secondary-hsl: calc(var(--accent-h) + 8),
+    calc(var(--accent-s) / 6), calc(var(--accent-l) / 4);
+  --background-modifier-hover: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) / 3));
+  --accent-active: hsl(var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) - 16%));
+  --accent-inactive: hsl(var(--accent-h),
+      calc(var(--accent-s) + 24%),
+      calc(var(--accent-l) - 32%));
+  --frame-background-color: hsl(var(--accent-h), 12%, 20%);
+  --frame-outline-color: hsl(calc(var(--accent-h) - 24),
+      calc(var(--accent-s) + 6%),
+      24%);
+  --frame-muted-color: hsl(var(--accent-h),
+      calc(var(--accent-s) - 20%),
+      calc(var(--accent-l) + 10%));
+  --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
+  --text-on-accent: #eaeaea !important;
+  --md-container-bg: var(--setting-md-container-bg, hsl(calc(var(--accent-h) - 4), 18%, 9%));
+  --color-opacity: 0.85;
+
+  @include var-color('red', 255, 70, 70);
+}
+
+@mixin setup-custom($theme, $active-h, $active-s, $active-l, $inactive-h, $inactive-s, $inactive-l) {
+  #{utils.with-print("body.theme-light.color-use-custom:not(.color-active-default-#{$theme})")} {
+    --accent-active: var(--setting-color-active-custom-light,
+      hsl(calc(var(--accent-h) + #{$active-h}),
+        calc(var(--accent-s) + #{$active-s}),
+        calc(var(--accent-l) + #{$active-l})));
+    --accent-inactive: var(--setting-color-active-custom-dark,
+      hsl(calc(var(--accent-h) + #{$inactive-h}),
+        calc(var(--accent-s) + #{$inactive-s}),
+        calc(var(--accent-l) + #{$inactive-l})));
+  }
+}
+
+@include setup-custom('light', 60, -12%, 4%, 60, -12%, 24%);
+@include setup-custom('dark', 60, -12%, -12%, 60, -12%, -28%);

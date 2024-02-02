@@ -5,3 +5,7 @@
 @function use-setting($selector) {
   @return unquote('body#{$selector}');
 }
+
+@function with-print($selector) {
+  @return ":is(#{$selector}, #{$selector} .print)"
+}
