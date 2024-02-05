@@ -738,28 +738,27 @@ settings:
     -
         id: quote
         title: quote
-        title.zh: 引用
+        title.zh: 引言
         type: heading
         collapsed: true
         level: 2
     -
         id: quote-theme
         title: enable quote theme
-        description: with width guide line
-        title.zh: 启用引用块主题
+        description: with thick guide line
+        title.zh: 启用引言块主题
         description.zh: 宽引导线
         type: class-toggle
         default: true
     -
         id: quote-mark
-        title: add front quote mark
-        title.zh: 引用块添加前置引号
+        title: add front quote mark in preview mode
+        title.zh: 阅读模式 引言块添加前置引号
         type: class-toggle
-        default: true
     -
-        id: quote-ouline-style
+        id: quote-outline-style
         title: Preview mode outline style
-        title.zh: 外部样式
+        title.zh: 阅读模式 外部样式
         type: class-select
         allowEmpty: false
         default: quote-shadow
@@ -771,12 +770,6 @@ settings:
             -   label: shadow
                 value: quote-shadow
     -
-        id: quote-shadow
-        title: enable quote shadow in Preview mode
-        title.zh: 启用 阅读模式 引用块阴影
-        type: class-toggle
-        default: true
-    -
         id: list
         title: list
         title.zh: 列表
@@ -786,7 +779,9 @@ settings:
     -
         id: list-enable
         title: enable list style
+        description: ❗no support for list or task items inside callout
         title.zh: 启用列表样式
+        description.zh: ❗精力有限，不打算适配 callout 中的列表或者代办项
         type: class-toggle
         default: true
     -

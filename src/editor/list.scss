@@ -1,3 +1,7 @@
+.cm-formatting-list-ul,
+.cm-formatting-list-ol{
+  padding-inline-start: 0.4rem;
+}
 body.list-enable {
   $marker-color: var(--setting-list-marker, var(--accent-active));
   $marker-size: calc(var(--font-text-size) / 3.6 + var(--size-2-1));
@@ -22,7 +26,7 @@ body.list-enable {
   }
 
   .markdown-source-view.mod-cm6 {
-    .cm-line:not(.cm-active):not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
+    .cm-line:not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
       padding-right: 1rem;
       right: -0.5rem;
     }

@@ -18,6 +18,8 @@ tags:
   - test
 ---
 
+**Please install "Style Settings" plugin for further develop**
+
 ## Heading 2
 
 > Quote
