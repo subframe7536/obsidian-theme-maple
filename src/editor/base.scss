@@ -58,6 +58,7 @@ body {
 
 .workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] {
   background-color: hsla(var(--editor-bg), var(--bg-opacity));
+
   .view-content {
     background-color: transparent;
   }
@@ -166,6 +167,10 @@ kbd {
 /* #endregion keyboard */
 
 /* #region highlight */
+
+mark {
+  color: var(--text-normal)
+}
 
 .is-flashing {
   transition: var(--animation);
