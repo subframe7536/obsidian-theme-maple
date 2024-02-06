@@ -56,8 +56,11 @@ body {
   --file-line-width: var(--setting-editor-width, 700px);
 }
 
-.workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] .view-content {
-  background-color: hsla(var(--setting-editor-bg, var(--background-primary-hsl)), var(--bg-opacity));
+.workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] {
+  background-color: hsla(var(--editor-bg), var(--bg-opacity));
+  .view-content {
+    background-color: transparent;
+  }
 }
 
 /* #endregion editor background */

@@ -30,6 +30,7 @@
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
   --bg-opacity: 1;
   --block-outline-width: 3px;
+  --editor-bg: var(--setting-editor-bg, var(--background-primary-hsl));
 }
 
 html #{utils.with-print('body.obsidian-app')} {

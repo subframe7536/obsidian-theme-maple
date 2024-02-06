@@ -21,7 +21,7 @@ $duration-4: abs($delay-4) + $speed * 45;
 
     .workspace-split.mod-root,
     .workspace-split.mod-root .workspace-leaf-content {
-      background-color: hsla(var(--background-primary-hsl), calc(var(--bg-opacity) * 0.5));
+      background-color: hsla(var(--editor-bg), calc(var(--bg-opacity) / 2));
     }
 
     :not(.mod-root) .workspace-leaf {
