@@ -64,7 +64,7 @@ body .cm-s-obsidian .cm-url {
   text-decoration: none;
 }
 
-.cm-s-obsidian .cm-formatting-link-string+span.cm-url {
+.cm-s-obsidian .cm-formatting-link-string + span.cm-url {
   color: var(--link-color);
 }
 
@@ -97,7 +97,7 @@ body.link-hover-expand {
     --link-external-decoration-hover: none;
   }
 
-  .cm-hmd-internal-link>.cm-underline {
+  .cm-hmd-internal-link > .cm-underline {
     --link-decoration-hover: none;
   }
 

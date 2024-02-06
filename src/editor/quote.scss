@@ -125,6 +125,7 @@ body.quote-theme {
   &.quote-mark {
     &.quote-theme blockquote {
       padding-left: $indent * 3.8;
+
       &::before {
         position: absolute;
         font-size: $mark-size;

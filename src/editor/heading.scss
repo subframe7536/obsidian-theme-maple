@@ -130,7 +130,7 @@ body {
     }
   }
 
-  div.markdown-reading-view>div>div>div>#{$headings}::before {
+  div.markdown-reading-view > div > div > div > #{$headings}::before {
     left: calc(var(--size-4-6) * -1) !important;
   }
 
@@ -150,7 +150,7 @@ body {
     }
   }
 
-  div.markdown-reading-view>div>div>div>#{$headings}::before {
+  div.markdown-reading-view > div > div > div > #{$headings}::before {
     left: calc(-1 * var(--size-4-6)) !important;
   }
 
