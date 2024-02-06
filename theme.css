@@ -653,7 +653,6 @@ settings:
         title.zh: 编辑器背景色
         type: variable-themed-color
         format: hsl-values
-        opacity: true
         default-light: '#'
         default-dark: '#'
     -
@@ -664,7 +663,6 @@ settings:
         description.zh: 引用、代码块、表格等
         type: variable-themed-color
         format: hsl-values
-        opacity: true
         default-light: '#'
         default-dark: '#'
     -
@@ -1375,28 +1373,27 @@ settings:
     -
         id: quote
         title: quote
-        title.zh: 引用
+        title.zh: 引言
         type: heading
         collapsed: true
         level: 2
     -
         id: quote-theme
         title: enable quote theme
-        description: with width guide line
-        title.zh: 启用引用块主题
+        description: with thick guide line
+        title.zh: 启用引言块主题
         description.zh: 宽引导线
         type: class-toggle
         default: true
     -
         id: quote-mark
-        title: add front quote mark
-        title.zh: 引用块添加前置引号
+        title: add front quote mark in preview mode
+        title.zh: 阅读模式 引言块添加前置引号
         type: class-toggle
-        default: true
     -
-        id: quote-ouline-style
+        id: quote-outline-style
         title: Preview mode outline style
-        title.zh: 外部样式
+        title.zh: 阅读模式 外部样式
         type: class-select
         allowEmpty: false
         default: quote-shadow
@@ -1408,12 +1405,6 @@ settings:
             -   label: shadow
                 value: quote-shadow
     -
-        id: quote-shadow
-        title: enable quote shadow in Preview mode
-        title.zh: 启用 阅读模式 引用块阴影
-        type: class-toggle
-        default: true
-    -
         id: list
         title: list
         title.zh: 列表
@@ -1423,7 +1414,9 @@ settings:
     -
         id: list-enable
         title: enable list style
+        description: ❗no support for list or task items inside callout
         title.zh: 启用列表样式
+        description.zh: ❗精力有限，不打算适配 callout 中的列表或者代办项
         type: class-toggle
         default: true
     -
@@ -1643,6 +1636,11 @@ settings:
         description: show on hover
         title.zh: 隐藏左侧的控制按钮
         description.zh: 鼠标移入时显示
+        type: class-toggle
+    -
+        id: canvas-center
+        title: center text in card when blur focus
+        title.zh: 卡片失去焦点时居中文本
         type: class-toggle
     -
         id: pdf
@@ -2021,6 +2019,7 @@ body.modal-item-animation .style-settings-heading:hover {
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
   --bg-opacity: 1;
   --block-outline-width: 3px;
+  --editor-bg: var(--setting-editor-bg, var(--background-primary-hsl));
 }
 
 html :is(body.obsidian-app, body.obsidian-app .print) {
@@ -2065,7 +2064,7 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --md-container-bg: var(--setting-md-container-bg, hsla(calc(var(--accent-h) + 8),
         calc(var(--accent-s) / 1.2),
         calc(100% - (100% - var(--accent-l)) / 6),
-        60%));
+        70%));
   --color-opacity: 1;
 }
 
@@ -2176,8 +2175,11 @@ body {
   --file-line-width: var(--setting-editor-width, 700px);
 }
 
+.workspace-split.mod-root .workspace-leaf-content[data-type=markdown] {
+  background-color: hsla(var(--editor-bg), var(--bg-opacity));
+}
 .workspace-split.mod-root .workspace-leaf-content[data-type=markdown] .view-content {
-  background-color: hsla(var(--setting-editor-bg, var(--background-primary-hsl)), var(--bg-opacity));
+  background-color: transparent;
 }
 
 /* #endregion editor background */
@@ -2231,7 +2233,7 @@ body.line-indicator-enable .markdown-preview-sizer > div:not(.search-highlight) 
   position: relative;
 }
 body.line-indicator-enable :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
-.markdown-source-view .cm-line:not(.HyperMD-header, .HyperMD-quote, :has(.collapse-indicator))):hover::after {
+.markdown-source-view .cm-line:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator))):hover::after {
   content: "";
   width: var(--size-4-1);
   position: absolute;
@@ -2266,6 +2268,10 @@ kbd:hover {
 
 /* #endregion keyboard */
 /* #region highlight */
+mark {
+  color: var(--text-normal);
+}
+
 .is-flashing {
   transition: var(--animation);
   border-radius: var(--radius-s);
@@ -3110,8 +3116,8 @@ body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal
   transform: translateY(var(--size-2-1));
   width: calc(var(--link-text-size) - var(--size-2-1));
   height: calc(var(--link-text-size) - var(--size-2-1));
-  background-color: var(--link-color);
   margin-inline: var(--size-2-1);
+  background-color: rgb(var(--link-color-rgb));
 }
 body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved), :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline):not(.cm-escape + .cm-link .cm-underline)::before {
   content: "";
@@ -3121,7 +3127,7 @@ body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source
   height: calc(var(--link-text-size) - var(--size-4-1));
   margin-left: var(--size-2-1);
   margin-right: var(--size-2-1);
-  background-color: var(--link-external-color);
+  background-color: rgb(var(--link-external-color-rgb));
 }
 body.link-icon:not(.link-click-to-edit-in-live-preview) a.external-link {
   background-image: none;
@@ -3138,6 +3144,11 @@ body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-inte
 
 /* #endregion link */
 /* #region list */
+.cm-formatting-list-ul,
+.cm-formatting-list-ol {
+  padding-inline-start: 0.4rem;
+}
+
 body.list-enable {
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
   --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
@@ -3153,38 +3164,56 @@ body.list-enable li::marker {
 body.list-enable :is(.markdown-source-view, .markdown-preview-view) .task-list-item-checkbox {
   border-width: var(--size-2-1);
 }
+body.list-enable .markdown-source-view .task-list-item-checkbox {
+  margin-inline: 0.5rem;
+}
+body.list-enable .markdown-preview-view .task-list-item-checkbox {
+  margin-inline-start: calc(var(--checkbox-size) * -1.3);
+}
 body.list-enable .collapse-indicator {
   --cursor: pointer;
 }
-body.list-enable .markdown-source-view.mod-cm6 .cm-line:not(.cm-active):not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
+body.list-enable .markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
   padding-right: 1rem;
-  right: -0.5rem;
+  right: -0.8rem;
 }
 body.list-enable .markdown-source-view.mod-cm6 .cm-indent::before {
-  transform: translateX(var(--size-2-2));
+  transform: translateX(10px);
 }
 body.list-enable .markdown-source-view.mod-cm6 .HyperMD-task-line .collapse-indicator {
-  right: var(--size-2-1);
+  right: 0.1rem !important;
+}
+body.list-enable li .list-collapse-indicator {
+  margin-inline-start: 0 !important;
+  padding-inline-end: 1.2rem !important;
+  transform: translateX(-2.1rem);
 }
 body.list-enable ol li .list-collapse-indicator {
-  transform: translateX(0.1rem);
+  transform: translateX(-3rem);
 }
-body.list-enable ul li .list-collapse-indicator {
-  margin-inline-start: calc(var(--size-4-8) * -1 - var(--size-4-3)) !important;
-  padding-inline-end: calc(var(--size-4-6) + var(--size-4-1)) !important;
-  transform: translateX(0.1rem);
+body.list-enable .contains-task-list .list-collapse-indicator {
+  transform: translateX(-2.4rem);
 }
-body.list-enable .markdown-rendered.show-indentation-guide ol {
-  --list-indent: calc(var(--font-text-size) + 0.5em);
+body.list-enable .markdown-rendered ul {
+  --list-indent: var(--font-text-size);
 }
-body.list-enable .markdown-rendered.show-indentation-guide ol > li {
-  margin-inline-start: var(--font-text-size);
+body.list-enable .markdown-rendered ul > li {
+  margin-inline-start: calc(var(--font-text-size) + 0.25rem);
 }
-body.list-enable .markdown-rendered.show-indentation-guide ol li > ol {
+body.list-enable .markdown-rendered ol {
+  --list-indent: calc(var(--font-text-size) - 0.25rem);
+}
+body.list-enable .markdown-rendered ol > li {
+  margin-inline-start: calc(var(--font-text-size) + 0.25rem);
+}
+body.list-enable .markdown-rendered ol li > ol {
   padding-left: calc(var(--font-text-size));
 }
-body.list-enable .markdown-rendered.show-indentation-guide ol li > ol::before {
+body.list-enable .markdown-rendered ol li > ol::before {
   left: calc(var(--font-text-size) * -1.5);
+}
+body.list-enable :is(.markdown-rendered, div) > ul {
+  --list-indent: 0;
 }
 body.list-enable .HyperMD-list-line-2 .list-bullet {
   --list-marker-color: transparent;
@@ -3194,7 +3223,7 @@ body.list-enable .HyperMD-list-line-2 .list-bullet {
 body.list-enable .HyperMD-list-line-3 .list-bullet {
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.95);
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 1.1);
   transform: rotate(45deg);
 }
 body.list-enable .HyperMD-list-line-4 .list-bullet {
@@ -3486,6 +3515,9 @@ body.quote-theme .markdown-source-view.mod-cm6 :is(.HyperMD-quote, .cm-blockquot
   border-radius: var(--blockquote-radius);
   inset-block: var(--blockquote-radius);
 }
+body.quote-theme .markdown-source-view.mod-cm6 :is(.HyperMD-quote, .cm-blockquote-border) :not(:first-child)::before {
+  transform: translateX(var(--size-4-1));
+}
 body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote {
   border-radius: 0 !important;
 }
@@ -3497,7 +3529,7 @@ body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote.cm-active .cm-bloc
   background-color: transparent;
 }
 body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote::before {
-  left: calc(var(--blockquote-border-thickness));
+  left: var(--blockquote-border-thickness);
   z-index: 10;
 }
 body.quote-theme .markdown-source-view.mod-cm6 .HyperMD-quote + .HyperMD-quote::before {
@@ -3553,6 +3585,7 @@ body.quote-theme.quote-shadow .markdown-rendered blockquote {
 body.quote-theme.quote-border .markdown-rendered blockquote {
   border: var(--block-outline-width) solid var(--accent-inactive);
   transition: var(--animation);
+  box-shadow: none;
 }
 body.quote-theme.quote-border .markdown-rendered blockquote:hover {
   border-color: var(--accent-active);
@@ -3560,10 +3593,10 @@ body.quote-theme.quote-border .markdown-rendered blockquote:hover {
 body.quote-theme.quote-border .markdown-rendered blockquote blockquote {
   margin: var(--block-outline-width);
 }
-body.quote-theme.quote-mark .is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)) {
-  text-indent: 1.2rem !important;
+body.quote-theme.quote-mark.quote-theme blockquote {
+  padding-left: 2.28rem;
 }
-body.quote-mark.quote-theme blockquote::before, body.quote-theme.quote-mark .is-live-preview :is(div:not(.HyperMD-quote) + .HyperMD-quote-1:not(.HyperMD-callout), .cm-content :first-child:is(.HyperMD-quote):not(.HyperMD-callout)):not(.cm-active) > .cm-formatting.cm-formatting-quote.cm-quote-1::before {
+body.quote-theme.quote-mark.quote-theme blockquote::before {
   position: absolute;
   font-size: 3rem;
   font-family: Source Code Pro;
@@ -3574,17 +3607,10 @@ body.quote-mark.quote-theme blockquote::before, body.quote-theme.quote-mark .is-
   top: calc(var(--font-text-size) * var(--line-height-normal) - 2.1428571429rem);
   transform: translateX(-1.32rem);
 }
-
-body.quote-theme.quote-mark .is-live-preview .markdown-rendered blockquote {
-  padding-left: 2.28rem;
-}
-body.quote-theme.quote-mark .is-live-preview .markdown-rendered blockquote::before {
-  transform: translateX(-1.62rem);
-}
-body.quote-theme.quote-mark :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote {
+body.quote-theme :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote {
   padding-left: var(--size-4-8);
 }
-body.quote-theme.quote-mark :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote :is(p, h1, h2, h3, h4, h5, h6) {
+body.quote-theme :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote :is(p, h1, h2, h3, h4, h5, h6) {
   padding-left: calc(var(--blockquote-border-thickness) * 2);
 }
 
@@ -4195,6 +4221,10 @@ body.canvas-control-hide .canvas-control-group:hover {
   opacity: 1;
 }
 
+body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content > .markdown-preview-view > .markdown-preview-sizer {
+  text-align: center;
+}
+
 /* #endregion canvas */
 /* #region callout */
 body {
@@ -4448,6 +4478,9 @@ body #calendar-container .day {
   -webkit-mask-size: unset;
   background-color: var(--button-gray-1);
 }
+:is(.excalidraw, .excalidraw.theme--dark) :is(.Island, .mobile-misc-tools-container) {
+  backdrop-filter: blur(var(--size-2-3));
+}
 .excalidraw .popover {
   box-shadow: none;
   background-color: hsl(var(--background-secondary-hsl)) !important;
@@ -4567,157 +4600,6 @@ body.back-blur-title-bar .workspace-leaf-content[data-type=diff-view] .d2h-file-
 }
 
 /* #endregion git */
-/* #region day-planner */
-.theme-light {
-  --day-planner-timeline: var(--code-base);
-  --day-planner-line: var(--text-on-accent);
-  --day-planner-dot: var(--text-on-accent);
-  --day-planner-item-hover: #345e9699;
-  --event-item-color1: #28349388;
-  --event-item-color2: #1565c088;
-  --event-item-color3: #00838f88;
-  --event-item-color4: #2e7d3288;
-  --event-item-color5: #9e9d2488;
-  --event-item-color6: #ff8f0088;
-  --event-item-color7: #d8431588;
-  --event-item-color8: #c6282888;
-  --event-item-color9: #ad145788;
-  --event-item-color10: #6a1b9a88;
-}
-
-.theme-dark {
-  --day-planner-timeline: var(--code-base);
-  --day-planner-line: var(--text-on-accent);
-  --day-planner-dot: var(--text-on-accent);
-  --day-planner-item-hover: #8fccff66;
-  --event-item-color1: #65ace666;
-  --event-item-color2: #52a4e766;
-  --event-item-color3: #2e96eb66;
-  --event-item-color4: #2786da66;
-  --event-item-color5: #1275cc66;
-  --event-item-color6: #2664c066;
-  --event-item-color7: #1652ac66;
-  --event-item-color8: #0c469c66;
-  --event-item-color9: #0a3c8666;
-  --event-item-color10: #072f6b66;
-}
-
-.day-planner-progress-bar {
-  margin-top: 0 !important;
-}
-
-body .event_item.svelte-e43ld1.svelte-e43ld1:hover {
-  box-shadow: none;
-}
-
-#scroll-controls.svelte-e43ld1 {
-  padding-top: 10px !important;
-}
-#scroll-controls.svelte-e43ld1 label.svelte-e43ld1 {
-  margin-block: 0 !important;
-}
-
-.workspace-leaf-content[data-type=timeline] .view-content {
-  padding: 0 !important;
-}
-.workspace-leaf-content[data-type=timeline] .view-content input[type=checkbox] {
-  margin-top: var(--size-4-1);
-}
-.workspace-leaf-content[data-type=timeline] .view-content input[type=checkbox]::before {
-  color: var(--accent-active) !important;
-  background-color: var(--accent-active) !important;
-}
-.workspace-leaf-content[data-type=timeline] .view-content input[type=checkbox]:checked::before {
-  color: var(--text-on-accent) !important;
-  background-color: var(--text-on-accent) !important;
-}
-.workspace-leaf-content[data-type=timeline] .view-content input[type=checkbox]:checked::after {
-  content: none;
-}
-
-.aside__line {
-  background: var(--day-planner-dot) !important;
-  left: 35px !important;
-}
-
-.event_item {
-  overflow: hidden !important;
-}
-
-#now-line,
-.timeline-time {
-  background-color: var(--day-planner-timeline) !important;
-}
-
-.event_item:hover {
-  background-color: var(--day-planner-item-hover) !important;
-  transition: var(--animation);
-}
-
-.event_item_color1 {
-  background-color: var(--event-item-color1) !important;
-}
-
-.event_item_color2 {
-  background-color: var(--event-item-color2) !important;
-}
-
-.event_item_color3 {
-  background-color: var(--event-item-color3) !important;
-}
-
-.event_item_color4 {
-  background-color: var(--event-item-color4) !important;
-}
-
-.event_item_color5 {
-  background-color: var(--event-item-color5) !important;
-}
-
-.event_item_color6 {
-  background-color: var(--event-item-color6) !important;
-}
-
-.event_item_color7 {
-  background-color: var(--event-item-color7) !important;
-}
-
-.event_item_color8 {
-  background-color: var(--event-item-color8) !important;
-}
-
-.event_item_color9 {
-  background-color: var(--event-item-color9) !important;
-}
-
-.event_item_color10 {
-  background-color: var(--event-item-color10) !important;
-}
-
-.status-bar-item.plugin-obsidian-day-planner {
-  display: flex !important;
-  --bold-color: var(--accent-active);
-}
-.status-bar-item.plugin-obsidian-day-planner .day-planner {
-  display: flex;
-  align-items: center;
-}
-.status-bar-item.plugin-obsidian-day-planner strong {
-  text-decoration: none;
-}
-.status-bar-item.plugin-obsidian-day-planner .status-bar-item-segment.day-planner-progress-bar {
-  background-color: var(--accent-inactive);
-}
-.status-bar-item.plugin-obsidian-day-planner .day-planner-status-card {
-  top: -100px;
-  width: fit-content;
-  border-radius: var(--radius-m);
-}
-.status-bar-item.plugin-obsidian-day-planner .day-planner-status-card .arrow-down {
-  display: none;
-}
-
-/* #endregion day-planner */
 /* #region my-snippets */
 .MySnippets-statusbar-menu {
   --interactive-normal: var(--accent-inactive);
@@ -5692,9 +5574,13 @@ body.outline-enable .workspace-leaf-content[data-type=outline] :is(.tree-item-ch
   inherits: true;
   initial-value: rgba(0, 0, 0, 0);
 }
-/* ! overflow: overlay 已废弃, Chrome >= 114 (Obsidian 1.4) 后等价于 overflow: auto */
-/* 使用 @property: https://stackoverflow.com/a/74050413/20058211 */
-/* 使用 -webkit-text-fill-color: https://stackoverflow.com/a/46304690/20058211 */
+/* ! `overflow: overlay` is deprecated, Chrome >= 114 (Obsidian 1.4) is equal to `overflow: auto` */
+/* !Chrome >= 121 no longer support `-webkit-scrollbar-*`, no effect currently */
+/* usage of `@property`: https://stackoverflow.com/a/74050413/20058211 */
+/* usage of `-webkit-text-fill-color`: https://stackoverflow.com/a/46304690/20058211 */
+body:not(.is-mobile) .mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
+  scrollbar-gutter: stable;
+}
 body:not(.is-mobile).scrollbar-hover-accent {
   --setting-scrollbar-hover: hsla(var(--color-accent-hsl), 40%);
 }
@@ -5830,12 +5716,6 @@ body.tab-title-bar-text-hidden .workspace-leaf-content:not([data-type=excalidraw
   transition-delay: 0s;
 }
 
-body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]):is([data-type=markdown]) {
-  background-color: hsla(var(--setting-editor-bg, var(--background-primary-hsl)), var(--bg-opacity));
-}
-body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]):is([data-type=markdown]) .view-content {
-  background-color: transparent;
-}
 body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
   margin: var(--size-4-1);
   margin-bottom: 0;
@@ -6226,7 +6106,7 @@ body {
   }
   body:is(.bg-static, .bg-live) .workspace-split.mod-root,
   body:is(.bg-static, .bg-live) .workspace-split.mod-root .workspace-leaf-content {
-    background-color: hsla(var(--background-primary-hsl), calc(var(--bg-opacity) * 0.5));
+    background-color: hsla(var(--editor-bg), calc(var(--bg-opacity) / 2));
   }
   body:is(.bg-static, .bg-live) :not(.mod-root) .workspace-leaf {
     background-color: hsla(var(--background-secondary-hsl), var(--bg-opacity));
