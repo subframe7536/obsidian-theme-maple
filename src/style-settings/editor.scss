@@ -1001,6 +1001,11 @@ settings:
         description.zh: 鼠标移入时显示
         type: class-toggle
     -
+        id: canvas-center
+        title: center text in card when blur focus
+        title.zh: 卡片失去焦点时居中文本
+        type: class-toggle
+    -
         id: pdf
         title: pdf
         type: heading
