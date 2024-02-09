@@ -3,7 +3,9 @@ body {
   /* 引导线粗细 */
   --outline-guideline-width: var(--size-2-1);
   /* 引导线颜色 */
-  --outline-guideline-color: var(--accent-active);
+  --outline-guideline-color: var(--accent-inactive);
+  /* 引导线颜色 */
+  --outline-guideline-color-alt: var(--accent-active);
   /* 一行高度 */
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
@@ -36,7 +38,7 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] {
       white-space: nowrap;
       margin-top: -1px;
 
-      /* fix item gap */
+      // fix item gap
       .tree-item-inner {
         padding-left: var(--size-4-1);
 
@@ -45,7 +47,7 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] {
           content: '';
           width: $size;
           height: $size;
-          border: var(--size-2-1) solid var(--outline-guideline-color);
+          border: var(--size-2-1) solid var(--outline-guideline-color-alt);
           border-radius: 50%;
           position: absolute;
           top: 50%;
@@ -53,7 +55,11 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] {
         }
       }
 
-      .tree-item-icon~.tree-item-inner {
+      &.is-active .tree-item-inner::before {
+        border-color: var(--outline-guideline-color)
+      }
+
+      .tree-item-icon ~ .tree-item-inner {
         padding-left: var(--size-4-1);
 
         &::before {
@@ -80,11 +86,10 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] {
       cursor: pointer;
       transform: translateY(8px);
 
-
       &::before {
         width: var(--size-4-2);
         height: var(--size-4-2);
-        background-color: var(--outline-guideline-color);
+        background-color: var(--outline-guideline-color-alt);
         border-radius: 50%;
         position: absolute;
         left: 3px;
@@ -97,21 +102,30 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] {
         display: none;
       }
     }
+
+    &-self.is-active {
+      &>.tree-item-inner {
+        color: var(--text-on-accent);
+      }
+      .tree-item-icon::before {
+        background-color: var(--outline-guideline-color);
+      }
+    }
   }
 
   .tree-item:hover {
-    >.tree-item-children>.tree-item::after {
+    > .tree-item-children > .tree-item::after {
       background-color: var(--outline-guideline-color);
     }
 
-    >.tree-item-self:hover+.tree-item-children .tree-item::after {
+    > .tree-item-self:hover + .tree-item-children .tree-item::after {
       background-color: transparent;
     }
 
-    >.tree-item-children>.tree-item:hover {
+    > .tree-item-children > .tree-item:hover {
 
       &::after,
-      &~.tree-item::after {
+      & ~ .tree-item::after {
         background-color: transparent;
       }
 

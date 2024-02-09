@@ -129,5 +129,5 @@ html #{utils.with-print('body.obsidian-app')} {
   }
 }
 
-@include setup-custom('light', 60, -12%, 4%, 60, -12%, 24%);
+@include setup-custom('light', 60, -12%, 4%, 60, -12%, 20%);
 @include setup-custom('dark', 60, -12%, -12%, 60, -12%, -28%);

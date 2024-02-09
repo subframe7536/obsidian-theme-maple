@@ -8,6 +8,7 @@ body {
       0.24);
   --nav-item-size: 0.9rem;
   --line-height-tight: 1.6;
+  --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
   --nav-indentation-guide-width: 1.8px;
 }
 
@@ -77,7 +78,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         --nav-item-children-padding-left: var(--nav-item-children-margin-left);
 
         &:hover {
-          border-color: var(--accent-active);
+          --nav-indentation-guide-color: var(--accent-inactive);
         }
       }
 
