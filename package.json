@@ -1,6 +1,6 @@
 {
   "name": "maple",
-  "version": "0.7.17",
+  "version": "0.7.18",
   "description": "elegant theme for Obsidian",
   "scripts": {
     "dev": "node scripts/dev.mjs",

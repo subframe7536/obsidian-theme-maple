@@ -500,7 +500,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.17'"
+        default: "'maple 0.7.18'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2020,6 +2020,9 @@ body.modal-item-animation .style-settings-heading:hover {
   --bg-opacity: 1;
   --block-outline-width: 3px;
   --editor-bg: var(--setting-editor-bg, var(--background-primary-hsl));
+  --nav-item-background-hover: var(--background-modifier-hover);
+  --nav-item-background-active: var(--accent-active);
+  --nav-item-background-selected: var(--frame-outline-color);
 }
 
 html :is(body.obsidian-app, body.obsidian-app .print) {
@@ -2108,7 +2111,7 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --accent-inactive: var(--setting-color-active-custom-dark,
     hsl(calc(var(--accent-h) + 60),
       calc(var(--accent-s) + -12%),
-      calc(var(--accent-l) + 24%)));
+      calc(var(--accent-l) + 20%)));
 }
 
 :is(body.theme-light.color-use-custom:not(.color-active-default-dark), body.theme-light.color-use-custom:not(.color-active-default-dark) .print) {
@@ -4931,10 +4934,8 @@ body {
       0.24);
   --nav-item-size: 0.9rem;
   --line-height-tight: 1.6;
+  --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
   --nav-indentation-guide-width: 1.8px;
-  --nav-item-background-hover: var(--background-modifier-hover);
-  --nav-item-background-active: var(--accent-active);
-  --nav-item-background-selected: var(--frame-outline-color);
 }
 
 .theme-light {
@@ -4984,23 +4985,18 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title:hover {
   background-color: var(--folder-hover-color);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title.tree-item-self {
-  margin-left: calc(-1 * var(--size-2-1)) !important;
-  padding-left: calc(var(--size-4-6) + var(--size-4-1)) !important;
-}
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title-content {
-  padding-left: var(--size-2-1);
+  padding-left: var(--size-4-6);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children {
   transition: var(--animation);
   --nav-item-children-padding-left: var(--nav-item-children-margin-left);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children:hover {
-  border-color: var(--accent-active);
+  --nav-indentation-guide-color: var(--accent-inactive);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-collapse-indicator {
-  margin-right: var(--size-4-2);
-  padding-inline-end: var(--size-2-1);
+  margin-left: var(--size-4-1);
   cursor: pointer;
   height: fit-content;
 }
@@ -5021,20 +5017,19 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title {
   padding-left: var(--size-4-1);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.tree-item-self {
-  margin-left: 0 !important;
-  padding-left: var(--size-4-2) !important;
-}
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title:not([data-path$="excalidraw.md"]):not([data-path$=excalidraw])::before {
   content: " ";
   width: 1rem;
-  opacity: 0.8;
   height: 1rem;
-  margin-right: var(--size-4-2);
-  margin-left: calc(-1 * var(--size-2-1));
+  opacity: 0.8;
+  margin-right: var(--size-2-3);
+  margin-left: var(--size-2-1);
   flex-shrink: 0;
   transform: translateY(10%);
   background-color: var(--accent-active);
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active:not(.is-selected) {
+  color: var(--text-on-accent);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active:not(.is-selected):first-child::before {
   background-color: var(--text-on-accent);
@@ -5049,7 +5044,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
   line-height: 2;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title .nav-file-tag {
-  background-color: var(--nav-item-background-active);
+  background-color: var(--accent-active);
   color: var(--text-on-accent);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active .nav-file-tag {
@@ -5237,7 +5232,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.17");
+  content: var(--setting-header-title, "maple 0.7.18");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5461,7 +5456,9 @@ body {
   /* 引导线粗细 */
   --outline-guideline-width: var(--size-2-1);
   /* 引导线颜色 */
-  --outline-guideline-color: var(--accent-active);
+  --outline-guideline-color: var(--accent-inactive);
+  /* 引导线颜色 */
+  --outline-guideline-color-alt: var(--accent-active);
   /* 一行高度 */
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
@@ -5489,7 +5486,6 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self {
   margin-bottom: 0;
   white-space: nowrap;
   margin-top: -1px;
-  /* fix item gap */
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self .tree-item-inner {
   padding-left: var(--size-4-1);
@@ -5498,11 +5494,14 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self .
   content: "";
   width: calc(var(--size-4-1) * 1.2);
   height: calc(var(--size-4-1) * 1.2);
-  border: var(--size-2-1) solid var(--outline-guideline-color);
+  border: var(--size-2-1) solid var(--outline-guideline-color-alt);
   border-radius: 50%;
   position: absolute;
   top: 50%;
   transform: translate(calc(-1 * var(--size-4-5)), -50%);
+}
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self.is-active .tree-item-inner::before {
+  border-color: var(--outline-guideline-color);
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self .tree-item-icon ~ .tree-item-inner {
   padding-left: var(--size-4-1);
@@ -5529,7 +5528,7 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-icon {
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-icon::before {
   width: var(--size-4-2);
   height: var(--size-4-2);
-  background-color: var(--outline-guideline-color);
+  background-color: var(--outline-guideline-color-alt);
   border-radius: 50%;
   position: absolute;
   left: 3px;
@@ -5539,6 +5538,12 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-icon::
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-icon svg path {
   display: none;
+}
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self.is-active > .tree-item-inner {
+  color: var(--text-on-accent);
+}
+body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self.is-active .tree-item-icon::before {
+  background-color: var(--outline-guideline-color);
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-children > .tree-item::after {
   background-color: var(--outline-guideline-color);
