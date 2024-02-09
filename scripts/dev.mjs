@@ -4,8 +4,9 @@ import { fileURLToPath } from 'url'
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import which from 'which'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const devVaultRoot = resolve(__dirname, '..', 'vault')
+// const __dirname = dirname(fileURLToPath(import.meta.url))
+// const devVaultRoot = resolve(__dirname, '..', 'vault')
+const devVaultRoot = 'D:/note/dev-vault'
 
 const baseDir = resolve(devVaultRoot, 'test')
 if (!existsSync(baseDir)) {

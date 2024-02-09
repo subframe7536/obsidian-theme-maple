@@ -31,6 +31,11 @@
   --bg-opacity: 1;
   --block-outline-width: 3px;
   --editor-bg: var(--setting-editor-bg, var(--background-primary-hsl));
+
+  // tree item color
+  --nav-item-background-hover: var(--background-modifier-hover);
+  --nav-item-background-active: var(--accent-active);
+  --nav-item-background-selected: var(--frame-outline-color);
 }
 
 html #{utils.with-print('body.obsidian-app')} {

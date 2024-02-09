@@ -9,9 +9,6 @@ body {
   --nav-item-size: 0.9rem;
   --line-height-tight: 1.6;
   --nav-indentation-guide-width: 1.8px;
-  --nav-item-background-hover: var(--background-modifier-hover);
-  --nav-item-background-active: var(--accent-active);
-  --nav-item-background-selected: var(--frame-outline-color);
 }
 
 .theme-light {
@@ -71,7 +68,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         }
 
         &-content {
-          padding-left: var(--size-2-1);
+          padding-left: var(--size-4-6);
         }
       }
 
@@ -85,8 +82,9 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       }
 
       &-collapse-indicator {
-        margin-right: var(--size-4-2);
-        padding-inline-end: var(--size-2-1);
+        // margin-right: var(--size-4-2);
+        // padding-inline-end: var(--size-2-1);
+        margin-left: var(--size-4-1);
         cursor: pointer;
         height: fit-content;
 
@@ -116,10 +114,10 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw'])::before {
           content: ' ';
           width: 1rem;
-          opacity: 0.8;
           height: 1rem;
-          margin-right: var(--size-4-2);
-          margin-left: calc(-1 * var(--size-2-1));
+          opacity: 0.8;
+          margin-right: var(--size-2-3);
+          margin-left: var(--size-2-1);
           flex-shrink: 0;
           transform: translateY(10%);
           background-color: var(--accent-active);
@@ -127,6 +125,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         }
 
         &.is-active:not(.is-selected) {
+          color: var(--text-on-accent);
+
           &:first-child::before {
             background-color: var(--text-on-accent);
           }
@@ -145,7 +145,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       }
 
       &-title .nav-file-tag {
-        background-color: var(--nav-item-background-active);
+        background-color: var(--accent-active);
         color: var(--text-on-accent);
       }
 
