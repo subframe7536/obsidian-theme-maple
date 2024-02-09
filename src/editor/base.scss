@@ -22,7 +22,7 @@ body.font-fix-latex mjx-container .TEX-I {
   font-family: MJXZERO, EMBED-TEX-I;
 }
 
-mjx-stretchy-h>mjx-ext>mjx-c::before {
+mjx-stretchy-h > mjx-ext > mjx-c::before {
   transform: scaleX(200) !important;
 }
 
@@ -56,8 +56,12 @@ body {
   --file-line-width: var(--setting-editor-width, 700px);
 }
 
-.workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] .view-content {
-  background-color: hsla(var(--setting-editor-bg, var(--background-primary-hsl)), var(--bg-opacity));
+.workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] {
+  background-color: hsla(var(--editor-bg), var(--bg-opacity));
+
+  .view-content {
+    background-color: transparent;
+  }
 }
 
 /* #endregion editor background */
@@ -118,12 +122,12 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 
 /* reference from https://github.com/Akifyss/obsidian-border */
 body.line-indicator-enable {
-  .markdown-preview-sizer>div:not(.search-highlight) {
+  .markdown-preview-sizer > div:not(.search-highlight) {
     position: relative;
   }
 
   :is(.markdown-reading-view .markdown-preview-sizer>div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
-    .markdown-source-view .cm-line:not(.HyperMD-header, .HyperMD-quote, :has(.collapse-indicator))):hover::after {
+    .markdown-source-view .cm-line:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator))):hover::after {
     content: '';
     width: var(--size-4-1);
     position: absolute;
@@ -139,7 +143,7 @@ body.line-indicator-enable {
 /* #region keyboard */
 
 .cm-hmd-html-begin,
-.cm-hmd-html-begin~.cm-tag,
+.cm-hmd-html-begin ~ .cm-tag,
 .cm-hmd-html-end,
 .cm-line:has(.cm-hmd-html-begin) {
   font-family: var(--font-monospace);
@@ -163,6 +167,10 @@ kbd {
 /* #endregion keyboard */
 
 /* #region highlight */
+
+mark {
+  color: var(--text-normal)
+}
 
 .is-flashing {
   transition: var(--animation);
@@ -201,13 +209,13 @@ body.text-highlight-margin :is(.markdown-source-view span.cm-highlight, .markdow
     padding-right: 0;
   }
 
-  .cm-formatting-highlight+.cm-highlight {
+  .cm-formatting-highlight + .cm-highlight {
     border-radius: 0;
     padding-inline: 0;
     margin: 0;
   }
 
-  .cm-highlight+.cm-formatting-highlight {
+  .cm-highlight + .cm-formatting-highlight {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     margin-left: 0;

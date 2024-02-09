@@ -27,30 +27,19 @@ $plugins: $calendar, $janitor, $excalidraw, $kanban;
   inherits: true;
   initial-value: #0000;
 }
-
-/* ! overflow: overlay 已废弃, Chrome >= 114 (Obsidian 1.4) 后等价于 overflow: auto */
-/* 使用 @property: https://stackoverflow.com/a/74050413/20058211 */
-/* 使用 -webkit-text-fill-color: https://stackoverflow.com/a/46304690/20058211 */
+/* ! `overflow: overlay` is deprecated, Chrome >= 114 (Obsidian 1.4) is equal to `overflow: auto` */
+/* !Chrome >= 121 no longer support `-webkit-scrollbar-*`, no effect currently */
+/* usage of `@property`: https://stackoverflow.com/a/74050413/20058211 */
+/* usage of `-webkit-text-fill-color`: https://stackoverflow.com/a/46304690/20058211 */
 body:not(.is-mobile) {
-
-  // &.scrollbar-gutter-overlay {
-  //   :is(#{$base-panel}, #{$editor}, #{$plugins}) {
-  //     overflow-y: overlay !important;
-  //   }
-
-  //   #{$horizon} {
-  //     overflow-x: overlay !important;
-  //   }
-  // }
-
-  // &.scrollbar-gutter-reserve {
-  //   --setting-scrollbar-gutter: stable;
-  // }
 
   $base-color: hsla(var(--color-accent-hsl), 24%);
   $hover-color: hsla(var(--color-accent-hsl), 40%);
   $active-color: hsla(var(--color-accent-hsl), 64%);
 
+  .mod-settings :is(.vertical-tab-content, .vertical-tab-header){
+    scrollbar-gutter: stable;
+  }
   &.scrollbar-hover-accent {
     --setting-scrollbar-hover: #{$hover-color};
   }
@@ -98,7 +87,6 @@ body:not(.is-mobile) {
   &.scrollbar-movein-animation-enable {
     :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
       transition: --scrollbar-color var(--animation);
-      // scrollbar-gutter: var(--setting-scrollbar-gutter, initial);
 
       &:hover {
         --scrollbar-color: #{$base-color};

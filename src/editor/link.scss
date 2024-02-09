@@ -64,7 +64,7 @@ body .cm-s-obsidian .cm-url {
   text-decoration: none;
 }
 
-.cm-s-obsidian .cm-formatting-link-string+span.cm-url {
+.cm-s-obsidian .cm-formatting-link-string + span.cm-url {
   color: var(--link-color);
 }
 
@@ -97,7 +97,7 @@ body.link-hover-expand {
     --link-external-decoration-hover: none;
   }
 
-  .cm-hmd-internal-link>.cm-underline {
+  .cm-hmd-internal-link > .cm-underline {
     --link-decoration-hover: none;
   }
 
@@ -122,8 +122,8 @@ body.link-icon {
     transform: translateY(var(--size-2-1));
     width: calc(var(--link-text-size) - var(--size-2-1));
     height: calc(var(--link-text-size) - var(--size-2-1));
-    background-color: var(--link-color);
     margin-inline: var(--size-2-1);
+    background-color: rgb(var(--link-color-rgb));
     // add icon in icons.scss
   }
 
@@ -136,7 +136,7 @@ body.link-icon {
       height: calc(var(--link-text-size) - var(--size-4-1));
       margin-left: var(--size-2-1);
       margin-right: var(--size-2-1);
-      background-color: var(--link-external-color);
+      background-color: rgb(var(--link-external-color-rgb));
       // add icon in icons.scss
     }
 

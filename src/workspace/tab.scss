@@ -98,14 +98,6 @@ body.tab-title-bar-text-hidden .workspace-leaf-content:not([data-type='excalidra
 
 body.tab-title-bar-round {
   .workspace-leaf-content:not([data-type='excalidraw']) {
-    &:is([data-type='markdown']) {
-      background-color: hsla(var(--setting-editor-bg, var(--background-primary-hsl)), var(--bg-opacity));
-
-      .view-content {
-        background-color: transparent;
-      }
-    }
-
     .view-header {
       margin: var(--size-4-1);
       margin-bottom: 0;

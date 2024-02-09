@@ -1,126 +1,126 @@
-.theme-light {
-  --day-planner-timeline: var(--code-base);
-  --day-planner-line: var(--text-on-accent);
-  --day-planner-dot: var(--text-on-accent);
-  --day-planner-item-hover: #345e9699;
-  --event-item-color1: #28349388;
-  --event-item-color2: #1565c088;
-  --event-item-color3: #00838f88;
-  --event-item-color4: #2e7d3288;
-  --event-item-color5: #9e9d2488;
-  --event-item-color6: #ff8f0088;
-  --event-item-color7: #d8431588;
-  --event-item-color8: #c6282888;
-  --event-item-color9: #ad145788;
-  --event-item-color10: #6a1b9a88;
-}
+// .theme-light {
+//   --day-planner-timeline: var(--code-base);
+//   --day-planner-line: var(--text-on-accent);
+//   --day-planner-dot: var(--text-on-accent);
+//   --day-planner-item-hover: #345e9699;
+//   --event-item-color1: #28349388;
+//   --event-item-color2: #1565c088;
+//   --event-item-color3: #00838f88;
+//   --event-item-color4: #2e7d3288;
+//   --event-item-color5: #9e9d2488;
+//   --event-item-color6: #ff8f0088;
+//   --event-item-color7: #d8431588;
+//   --event-item-color8: #c6282888;
+//   --event-item-color9: #ad145788;
+//   --event-item-color10: #6a1b9a88;
+// }
 
-.theme-dark {
-  --day-planner-timeline: var(--code-base);
-  --day-planner-line: var(--text-on-accent);
-  --day-planner-dot: var(--text-on-accent);
-  --day-planner-item-hover: #8fccff66;
-  --event-item-color1: #65ace666;
-  --event-item-color2: #52a4e766;
-  --event-item-color3: #2e96eb66;
-  --event-item-color4: #2786da66;
-  --event-item-color5: #1275cc66;
-  --event-item-color6: #2664c066;
-  --event-item-color7: #1652ac66;
-  --event-item-color8: #0c469c66;
-  --event-item-color9: #0a3c8666;
-  --event-item-color10: #072f6b66;
-}
+// .theme-dark {
+//   --day-planner-timeline: var(--code-base);
+//   --day-planner-line: var(--text-on-accent);
+//   --day-planner-dot: var(--text-on-accent);
+//   --day-planner-item-hover: #8fccff66;
+//   --event-item-color1: #65ace666;
+//   --event-item-color2: #52a4e766;
+//   --event-item-color3: #2e96eb66;
+//   --event-item-color4: #2786da66;
+//   --event-item-color5: #1275cc66;
+//   --event-item-color6: #2664c066;
+//   --event-item-color7: #1652ac66;
+//   --event-item-color8: #0c469c66;
+//   --event-item-color9: #0a3c8666;
+//   --event-item-color10: #072f6b66;
+// }
 
-.day-planner-progress-bar {
-  margin-top: 0 !important;
-}
+// .day-planner-progress-bar {
+//   margin-top: 0 !important;
+// }
 
-body .event_item.svelte-e43ld1.svelte-e43ld1:hover {
-  box-shadow: none;
-}
+// body .event_item.svelte-e43ld1.svelte-e43ld1:hover {
+//   box-shadow: none;
+// }
 
-#scroll-controls.svelte-e43ld1 {
-  padding-top: 10px !important;
+// #scroll-controls.svelte-e43ld1 {
+//   padding-top: 10px !important;
 
-  label.svelte-e43ld1 {
-    margin-block: 0 !important;
-  }
-}
+//   label.svelte-e43ld1 {
+//     margin-block: 0 !important;
+//   }
+// }
 
-.workspace-leaf-content[data-type='timeline'] .view-content {
-  padding: 0 !important;
+// .workspace-leaf-content[data-type='timeline'] .view-content {
+//   padding: 0 !important;
 
-  input[type=checkbox] {
-    margin-top: var(--size-4-1);
+//   input[type=checkbox] {
+//     margin-top: var(--size-4-1);
 
-    &::before {
-      color: var(--accent-active) !important;
-      background-color: var(--accent-active) !important;
-    }
+//     &::before {
+//       color: var(--accent-active) !important;
+//       background-color: var(--accent-active) !important;
+//     }
 
-    &:checked {
-      &::before {
-        color: var(--text-on-accent) !important;
-        background-color: var(--text-on-accent) !important;
-      }
+//     &:checked {
+//       &::before {
+//         color: var(--text-on-accent) !important;
+//         background-color: var(--text-on-accent) !important;
+//       }
 
-      &::after {
-        content: none;
-      }
-    }
-  }
-}
+//       &::after {
+//         content: none;
+//       }
+//     }
+//   }
+// }
 
-.aside__line {
-  background: var(--day-planner-dot) !important;
-  left: 35px !important;
-}
+// .aside__line {
+//   background: var(--day-planner-dot) !important;
+//   left: 35px !important;
+// }
 
-.event_item {
-  overflow: hidden !important;
-}
+// .event_item {
+//   overflow: hidden !important;
+// }
 
-#now-line,
-.timeline-time {
-  background-color: var(--day-planner-timeline) !important;
-}
+// #now-line,
+// .timeline-time {
+//   background-color: var(--day-planner-timeline) !important;
+// }
 
-.event_item:hover {
-  background-color: var(--day-planner-item-hover) !important;
-  transition: var(--animation);
-}
+// .event_item:hover {
+//   background-color: var(--day-planner-item-hover) !important;
+//   transition: var(--animation);
+// }
 
-@for $i from 1 through 10 {
-  .event_item_color#{$i} {
-    background-color: var(--event-item-color#{$i}) !important;
-  }
-}
+// @for $i from 1 through 10 {
+//   .event_item_color#{$i} {
+//     background-color: var(--event-item-color#{$i}) !important;
+//   }
+// }
 
-.status-bar-item.plugin-obsidian-day-planner {
-  display: flex !important;
-  --bold-color: var(--accent-active);
+// .status-bar-item.plugin-obsidian-day-planner {
+//   display: flex !important;
+//   --bold-color: var(--accent-active);
 
-  .day-planner {
-    display: flex;
-    align-items: center;
-  }
+//   .day-planner {
+//     display: flex;
+//     align-items: center;
+//   }
 
-  strong {
-    text-decoration: none;
-  }
+//   strong {
+//     text-decoration: none;
+//   }
 
-  .status-bar-item-segment.day-planner-progress-bar {
-    background-color: var(--accent-inactive);
-  }
+//   .status-bar-item-segment.day-planner-progress-bar {
+//     background-color: var(--accent-inactive);
+//   }
 
-  .day-planner-status-card {
-    top: -100px;
-    width: fit-content;
-    border-radius: var(--radius-m);
+//   .day-planner-status-card {
+//     top: -100px;
+//     width: fit-content;
+//     border-radius: var(--radius-m);
 
-    .arrow-down {
-      display: none;
-    }
-  }
-}
+//     .arrow-down {
+//       display: none;
+//     }
+//   }
+// }

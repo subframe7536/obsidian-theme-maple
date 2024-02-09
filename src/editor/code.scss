@@ -56,7 +56,7 @@
     padding-inline: var(--size-2-1);
   }
 
-  .cm-formatting-code+& {
+  .cm-formatting-code + & {
     padding: 0;
   }
 
@@ -73,12 +73,12 @@
     padding-left: var(--size-2-1);
   }
 
-  &+.cm-inline-code {
+  & + .cm-inline-code {
     border-radius: 0;
     border-inline: 0;
   }
 
-  .cm-inline-code+& {
+  .cm-inline-code + & {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left: 0;

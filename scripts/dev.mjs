@@ -1,8 +1,51 @@
 import { spawn } from 'child_process'
-import { basename, extname } from 'path'
+import { basename, extname, dirname, resolve } from 'path'
+import { fileURLToPath } from 'url'
+import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import which from 'which'
 
-const devVaultRoot = 'D:/note/dev-vault'
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const devVaultRoot = resolve(__dirname, '..', 'vault')
+
+if (!existsSync(devVaultRoot)) {
+  mkdirSync(devVaultRoot)
+}
+
+const testFile = resolve(devVaultRoot, 'test', 'index.md')
+if (!existsSync(testFile)) {
+  writeFileSync(testFile, `---
+tags:
+  - test
+---
+
+**Please install "Style Settings" plugin for further develop**
+
+## Heading 2
+
+> Quote
+>> text
+
+- list
+- list
+  - sublist
+  - sublist
+
+### Heading 3
+
+1. asd
+2. asdasd
+3. asdasdasd
+
+---
+
+[URL](https://github.com/subframe7536/obsidian-theme-maple)
+
+| table1 | table2 |
+| ------ | ------ |
+| cell1  | cell2  |
+
+`)
+}
 
 const input = process.argv?.[2] ?? 'src/index.scss'
 const output = basename(input).replace(extname(input), '.css')

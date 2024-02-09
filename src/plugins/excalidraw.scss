@@ -44,13 +44,17 @@
     }
 
     .Island {
-      &>div:first-child>svg {
+      & > div:first-child > svg {
         -webkit-mask-image: var(--grip-icon);
         -webkit-mask-position: center;
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-size: unset;
         background-color: var(--button-gray-1);
       }
+    }
+
+    :is(.Island, .mobile-misc-tools-container) {
+      backdrop-filter: blur(var(--size-2-3));
     }
   }
 
@@ -130,14 +134,14 @@
     background-color: var(--button-gray-2);
   }
 
-  &>* {
+  & > * {
     display: none;
   }
 }
 
 
 .workspace-leaf-content[data-type=excalidraw] .clickable-icon.view-action {
-  &:is([aria-label="Press ESC to exit fullscreen mode"], [aria-label="Open selected text as link\a(SHIFT+CLICK to open in a new pane)"], [aria-label="Save (will also update transclusions)"], [aria-label="Install or update Excalidraw Scripts"])>svg {
+  &:is([aria-label="Press ESC to exit fullscreen mode"], [aria-label="Open selected text as link\a(SHIFT+CLICK to open in a new pane)"], [aria-label="Save (will also update transclusions)"], [aria-label="Install or update Excalidraw Scripts"]) > svg {
     -webkit-mask-image: unset;
     -webkit-mask-position: center;
     -webkit-mask-repeat: no-repeat;
@@ -146,19 +150,19 @@
     border-radius: 0;
   }
 
-  &[aria-label="Press ESC to exit fullscreen mode"]>svg {
+  &[aria-label="Press ESC to exit fullscreen mode"] > svg {
     -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cpolyline points='9 21 3 21 3 15'%3E%3C/polyline%3E%3Cline x1='21' y1='3' x2='14' y2='10'%3E%3C/line%3E%3Cline x1='3' y1='21' x2='10' y2='14'%3E%3C/line%3E%3C/svg%3E");
   }
 
-  &[aria-label="Open selected text as link\a(SHIFT+CLICK to open in a new pane)"]>svg {
+  &[aria-label="Open selected text as link\a(SHIFT+CLICK to open in a new pane)"] > svg {
     -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
   }
 
-  &[aria-label="Save (will also update transclusions)"]>svg {
+  &[aria-label="Save (will also update transclusions)"] > svg {
     -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpath d='M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z'%3E%3C/path%3E%3Cpolyline points='17 21 17 13 7 13 7 21'%3E%3C/polyline%3E%3Cpolyline points='7 3 7 8 15 8'%3E%3C/polyline%3E%3C/svg%3E");
   }
 
-  &[aria-label="Install or update Excalidraw Scripts"]>svg {
+  &[aria-label="Install or update Excalidraw Scripts"] > svg {
     -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' data-darkreader-inline-stroke='' style='--darkreader-inline-stroke:currentColor;'%3E%3Cpath d='M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4'%3E%3C/path%3E%3Cpolyline points='14 2 14 8 20 8'%3E%3C/polyline%3E%3Cpath d='m9 18 3-3-3-3'%3E%3C/path%3E%3Cpath d='m5 12-3 3 3 3'%3E%3C/path%3E%3C/svg%3E");
   }
 }

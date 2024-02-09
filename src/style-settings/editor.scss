@@ -16,7 +16,6 @@ settings:
         title.zh: 编辑器背景色
         type: variable-themed-color
         format: hsl-values
-        opacity: true
         default-light: '#'
         default-dark: '#'
     -
@@ -27,7 +26,6 @@ settings:
         description.zh: 引用、代码块、表格等
         type: variable-themed-color
         format: hsl-values
-        opacity: true
         default-light: '#'
         default-dark: '#'
     -
@@ -738,28 +736,27 @@ settings:
     -
         id: quote
         title: quote
-        title.zh: 引用
+        title.zh: 引言
         type: heading
         collapsed: true
         level: 2
     -
         id: quote-theme
         title: enable quote theme
-        description: with width guide line
-        title.zh: 启用引用块主题
+        description: with thick guide line
+        title.zh: 启用引言块主题
         description.zh: 宽引导线
         type: class-toggle
         default: true
     -
         id: quote-mark
-        title: add front quote mark
-        title.zh: 引用块添加前置引号
+        title: add front quote mark in preview mode
+        title.zh: 阅读模式 引言块添加前置引号
         type: class-toggle
-        default: true
     -
-        id: quote-ouline-style
+        id: quote-outline-style
         title: Preview mode outline style
-        title.zh: 外部样式
+        title.zh: 阅读模式 外部样式
         type: class-select
         allowEmpty: false
         default: quote-shadow
@@ -771,12 +768,6 @@ settings:
             -   label: shadow
                 value: quote-shadow
     -
-        id: quote-shadow
-        title: enable quote shadow in Preview mode
-        title.zh: 启用 阅读模式 引用块阴影
-        type: class-toggle
-        default: true
-    -
         id: list
         title: list
         title.zh: 列表
@@ -786,7 +777,9 @@ settings:
     -
         id: list-enable
         title: enable list style
+        description: ❗no support for list or task items inside callout
         title.zh: 启用列表样式
+        description.zh: ❗精力有限，不打算适配 callout 中的列表或者代办项
         type: class-toggle
         default: true
     -
@@ -1006,6 +999,11 @@ settings:
         description: show on hover
         title.zh: 隐藏左侧的控制按钮
         description.zh: 鼠标移入时显示
+        type: class-toggle
+    -
+        id: canvas-center
+        title: center text in card when blur focus
+        title.zh: 卡片失去焦点时居中文本
         type: class-toggle
     -
         id: pdf
