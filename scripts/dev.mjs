@@ -1,5 +1,5 @@
 import { spawn } from 'child_process'
-import { basename, extname, dirname, resolve } from 'path'
+import { basename, extname, dirname, resolve, join } from 'path'
 import { fileURLToPath } from 'url'
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import which from 'which'
@@ -7,11 +7,12 @@ import which from 'which'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const devVaultRoot = resolve(__dirname, '..', 'vault')
 
-if (!existsSync(devVaultRoot)) {
-  mkdirSync(devVaultRoot)
+const baseDir = resolve(devVaultRoot, 'test')
+if (!existsSync(baseDir)) {
+  mkdirSync(baseDir, { recursive: true })
 }
 
-const testFile = resolve(devVaultRoot, 'test', 'index.md')
+const testFile = join(baseDir, 'index.md')
 if (!existsSync(testFile)) {
   writeFileSync(testFile, `---
 tags:
