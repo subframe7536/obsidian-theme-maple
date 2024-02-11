@@ -180,3 +180,9 @@
       97%,
       var(--bg-opacity)) !important
 }
+
+// #75
+.theme-dark .excalidraw .excalidraw-textEditorContainer * {
+  color: var(--text-on-accent) !important;
+  filter: none !important;
+}
