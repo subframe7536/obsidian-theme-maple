@@ -3197,9 +3197,6 @@ body.list-enable ol li .list-collapse-indicator {
 body.list-enable .contains-task-list .list-collapse-indicator {
   transform: translateX(-2.4rem);
 }
-body.list-enable .markdown-rendered ul {
-  --list-indent: var(--font-text-size);
-}
 body.list-enable .markdown-rendered ul > li {
   margin-inline-start: calc(var(--font-text-size) + 0.25rem);
 }
@@ -4584,6 +4581,11 @@ body #calendar-container .day {
       calc(var(--accent-s) - 12%),
       97%,
       var(--bg-opacity)) !important ;
+}
+
+.theme-dark .excalidraw .excalidraw-textEditorContainer * {
+  color: var(--text-on-accent) !important;
+  filter: none !important;
 }
 
 /* #endregion excalidraw */

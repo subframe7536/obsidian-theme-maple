@@ -59,18 +59,15 @@ body.list-enable {
   ol li .list-collapse-indicator {
     transform: translateX(-3rem);
   }
+
   .contains-task-list .list-collapse-indicator {
     transform: translateX(-2.4rem);
   }
 
   // padding
   .markdown-rendered {
-    ul {
-      --list-indent: var(--font-text-size);
-
-      & > li {
-        margin-inline-start: calc(var(--font-text-size) + 0.25rem);
-      }
+    ul > li {
+      margin-inline-start: calc(var(--font-text-size) + 0.25rem);
     }
 
     ol {
