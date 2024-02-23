@@ -22,7 +22,8 @@ body.list-enable {
   }
 
   .markdown-source-view .task-list-item-checkbox {
-    margin-inline: 0.5rem;
+    margin-inline-start: 0.7rem;
+    margin-inline-end: var(--size-4-1);
   }
 
   .markdown-preview-view .task-list-item-checkbox {
@@ -67,7 +68,11 @@ body.list-enable {
   // padding
   .markdown-rendered {
     ul > li {
-      margin-inline-start: calc(var(--font-text-size) + 0.25rem);
+      margin-inline-start: calc(var(--font-text-size) * 2 + 0.25rem);
+    }
+
+    div > ul:is(.has-list-bullet, .contains-task-list) {
+      margin-inline-start: calc(var(--size-4-3) * -1);
     }
 
     ol {
