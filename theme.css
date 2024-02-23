@@ -500,7 +500,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.19'"
+        default: "'maple 0.7.20'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -3168,7 +3168,8 @@ body.list-enable :is(.markdown-source-view, .markdown-preview-view) .task-list-i
   border-width: var(--size-2-1);
 }
 body.list-enable .markdown-source-view .task-list-item-checkbox {
-  margin-inline: 0.5rem;
+  margin-inline-start: 0.7rem;
+  margin-inline-end: var(--size-4-1);
 }
 body.list-enable .markdown-preview-view .task-list-item-checkbox {
   margin-inline-start: calc(var(--checkbox-size) * -1.3);
@@ -3198,7 +3199,10 @@ body.list-enable .contains-task-list .list-collapse-indicator {
   transform: translateX(-2.4rem);
 }
 body.list-enable .markdown-rendered ul > li {
-  margin-inline-start: calc(var(--font-text-size) + 0.25rem);
+  margin-inline-start: calc(var(--font-text-size) * 2 + 0.25rem);
+}
+body.list-enable .markdown-rendered div > ul:is(.has-list-bullet, .contains-task-list) {
+  margin-inline-start: calc(var(--size-4-3) * -1);
 }
 body.list-enable .markdown-rendered ol {
   --list-indent: calc(var(--font-text-size) - 0.25rem);
@@ -5234,7 +5238,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.19");
+  content: var(--setting-header-title, "maple 0.7.20");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
