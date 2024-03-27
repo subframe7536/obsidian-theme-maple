@@ -262,7 +262,7 @@ body .markdown-rendered pre {
     color: var(--code-comment);
   }
 
-  :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
+  :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag, .cm-operator) {
     color: var(--code-tag);
   }
 

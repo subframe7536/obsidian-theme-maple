@@ -44,6 +44,7 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
     .clickable-icon {
       background-color: hsl(var(--background-secondary-hsl));
       opacity: 1;
+
       &:hover {
         background-color: var(--background-modifier-hover);
         opacity: 1;

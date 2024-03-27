@@ -97,7 +97,9 @@ settings:
     -
         id: explorer-icon
         title: enable prefix icon
+        description: if the tree indent is weird, just collpase all the directory and restart Obsidian
         title.zh: 开启前置图标
+        description.zh: 如果缩进出现问题，请折叠全部文件夹并重启 Obsidian
         type: class-toggle
         default: true
     -
