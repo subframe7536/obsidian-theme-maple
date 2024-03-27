@@ -1990,20 +1990,6 @@ body.modal-item-animation .style-settings-heading:hover {
 /* #endregion built-in fonts */
 /* #region global variables */
 :is(body, body .print) {
-  --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
-  --color-red-rgb: 228, 52, 52 !important;
-  --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
-  --color-green-rgb: 118, 190, 86 !important;
-  --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
-  --color-yellow-rgb: 245, 200, 145 !important;
-  --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
-  --color-orange-rgb: 228, 152, 12 !important;
-  --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
-  --color-blue-rgb: 18, 158, 222 !important;
-  --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
-  --color-cyan-rgb: 99, 201, 201 !important;
-  --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity)) !important;
-  --color-purple-rgb: 144, 132, 233 !important;
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
@@ -2043,6 +2029,20 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 }
 
 :is(.theme-light, .theme-light .print) {
+  --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
+  --color-red-rgb: 210, 75, 75 !important;
+  --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
+  --color-green-rgb: 94, 179, 77 !important;
+  --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
+  --color-yellow-rgb: 204, 150, 0 !important;
+  --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
+  --color-orange-rgb: 206, 117, 39 !important;
+  --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
+  --color-blue-rgb: 24, 168, 220 !important;
+  --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
+  --color-cyan-rgb: 54, 181, 134 !important;
+  --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity)) !important;
+  --color-purple-rgb: 128, 120, 186 !important;
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
   --background-primary: hsl(var(--background-primary-hsl));
   --background-secondary-hsl: calc(var(--accent-h) - 18), calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
@@ -2072,6 +2072,20 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 }
 
 :is(.theme-dark, .theme-dark .print) {
+  --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
+  --color-red-rgb: 244, 154, 154 !important;
+  --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
+  --color-green-rgb: 154, 214, 164 !important;
+  --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
+  --color-yellow-rgb: 244, 208, 154 !important;
+  --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
+  --color-orange-rgb: 244, 184, 154 !important;
+  --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
+  --color-blue-rgb: 133, 194, 255 !important;
+  --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
+  --color-cyan-rgb: 168, 240, 240 !important;
+  --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity)) !important;
+  --color-purple-rgb: 197, 190, 249 !important;
   --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 7));
   --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 7);
   --background-secondary: hsl(calc(var(--accent-h) + 8),

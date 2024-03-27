@@ -6,13 +6,6 @@
 }
 
 #{utils.with-print('body')} {
-  @include var-color('red', 228, 52, 52);
-  @include var-color('green', 118, 190, 86);
-  @include var-color('yellow', 245, 200, 145);
-  @include var-color('orange', 228, 152, 12);
-  @include var-color('blue', 18, 158, 222);
-  @include var-color('cyan',99, 201, 201);
-  @include var-color('purple',144, 132, 233);
 
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
@@ -55,6 +48,14 @@ html #{utils.with-print('body.obsidian-app')} {
 @include setup-hsl('dark', 207, 32%, 58%);
 
 #{utils.with-print('.theme-light')} {
+  @include var-color('red', 210, 75, 75);
+  @include var-color('green', 94, 179, 77);
+  @include var-color('yellow', 204, 150, 0);
+  @include var-color('orange', 206, 117, 39);
+  @include var-color('blue', 24, 168, 220);
+  @include var-color('cyan', 54, 181, 134);
+  @include var-color('purple', 128, 120, 186);
+
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
   --background-primary: hsl(var(--background-primary-hsl));
   --background-secondary-hsl: calc(var(--accent-h) - 18), calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
@@ -85,6 +86,14 @@ html #{utils.with-print('body.obsidian-app')} {
 }
 
 #{utils.with-print('.theme-dark')} {
+  @include var-color('red', 244, 154, 154);
+  @include var-color('green', 154, 214, 164);
+  @include var-color('yellow', 244, 208, 154);
+  @include var-color('orange', 244, 184, 154);
+  @include var-color('blue', 133, 194, 255);
+  @include var-color('cyan', 168, 240, 240);
+  @include var-color('purple', 197, 190, 249);
+
   --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 7));
   --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 7);
   --background-secondary: hsl(calc(var(--accent-h) + 8),
