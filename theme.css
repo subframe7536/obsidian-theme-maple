@@ -490,7 +490,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.23'"
+        default: "'maple 0.7.24'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -3706,6 +3706,9 @@ body {
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) .table-cell-wrapper:has(> .image-embed) {
   display: table-cell;
 }
+:is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) .table-cell-wrapper .image-embed {
+  padding-block: 0;
+}
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) .table-cell-wrapper:has(.is-live-preview .image-embed) {
   display: flex;
   flex-direction: column;
@@ -4143,14 +4146,14 @@ img {
 }
 
 /* hint text, reference from https://github.com/chrisgrieser/shimmering-focus */
-body.image-alt img[alt] {
+body.image-alt .image-embed[alt] {
   padding: var(--size-4-1) 0;
 }
-body.image-alt img[alt]::after {
+body.image-alt .image-embed[alt]::after {
   display: block;
   text-align: center;
 }
-body.image-alt img[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"], [alt$=".webp"], [alt$=".bmp"])::after {
+body.image-alt .image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"], [alt$=".webp"], [alt$=".bmp"])::after {
   content: attr(alt);
   font-size: var(--font-smaller);
   color: var(--text-faint);
@@ -5085,7 +5088,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.23");
+  content: var(--setting-header-title, "maple 0.7.24");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
