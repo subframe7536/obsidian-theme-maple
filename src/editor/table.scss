@@ -104,6 +104,10 @@ body {
   // center image
 
   .table-cell-wrapper {
+    &:has(>.cm-s-obsidian):not(:has(.image-embed)) {
+      padding-inline: var(--size-4-1);
+    }
+
     &:has(>.image-embed) {
       display: table-cell;
     }
@@ -119,6 +123,8 @@ body {
       }
     }
   }
+
+  .mod-active-row + {}
 }
 
 // :is(body, .print .markdown-rendered) {
