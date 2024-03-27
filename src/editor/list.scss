@@ -36,10 +36,6 @@ body.list-enable {
   }
 
   .markdown-source-view.mod-cm6 {
-    .cm-line:not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
-      padding-right: 1rem;
-      right: -0.8rem;
-    }
 
     .cm-indent::before {
       transform: translateX(10px);
