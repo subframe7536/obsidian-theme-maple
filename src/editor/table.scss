@@ -113,6 +113,10 @@ body {
       display: table-cell;
     }
 
+    .image-embed {
+      padding-block: 0;
+    }
+
     &:has(.is-live-preview .image-embed) {
       display: flex;
       flex-direction: column;

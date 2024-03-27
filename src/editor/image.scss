@@ -17,7 +17,7 @@ img {
 body.image-alt {
 
   // centers image and image caption
-  img[alt] {
+  .image-embed[alt] {
     padding: var(--size-4-1) 0;
 
     &::after {
