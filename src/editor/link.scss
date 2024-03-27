@@ -123,7 +123,7 @@ body.link-icon {
     width: calc(var(--link-text-size) - var(--size-2-1));
     height: calc(var(--link-text-size) - var(--size-2-1));
     margin-inline: var(--size-2-1);
-    background-color: rgb(var(--link-color-rgb));
+    background-color: var(--link-color);
     // add icon in icons.scss
   }
 
@@ -136,7 +136,7 @@ body.link-icon {
       height: calc(var(--link-text-size) - var(--size-4-1));
       margin-left: var(--size-2-1);
       margin-right: var(--size-2-1);
-      background-color: rgb(var(--link-external-color-rgb));
+      background-color: var(--link-external-color);
       // add icon in icons.scss
     }
 
@@ -152,6 +152,6 @@ body.link-icon {
   }
 }
 
-body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-internal-link .cm-underline) {
+body.link-click-to-edit-in-live-preview :is(.cm-url, .cm-link, .cm-hmd-internal-link) .cm-underline{
   pointer-events: none;
 }
