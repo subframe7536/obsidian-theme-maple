@@ -31,16 +31,6 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
   color: var(--text-normal);
 }
 
-body.explorer-item-animation {
-  .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item) {
-    transition: background-color var(--animation);
-
-    &:hover {
-      transition: none;
-    }
-  }
-}
-
 .workspace-leaf-content[data-type='file-explorer'] {
   --line-height-tight: var(--explorer-item-height, 1.6);
 }
@@ -180,7 +170,6 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
     height: 0%;
     border-radius: var(--radius-s);
     background: var(--accent-inactive);
-    transition: var(--animation);
   }
 }
 

@@ -66,16 +66,6 @@ body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   }
 }
 
-body.modal-item-animation {
-  :is(.suggestion-item, .modal .vertical-tab-nav-item) {
-    transition: var(--animation);
-
-    &:hover {
-      transition: none;
-    }
-  }
-}
-
 body.modal-toggle-round .checkbox-container {
   --toggle-shadow: var(--color-base-40);
 
