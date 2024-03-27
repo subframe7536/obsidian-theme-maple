@@ -57,7 +57,7 @@ body {
 
 #{utils.with-no-plugin('.heading-color-colorful')} {
   --h1-color: var(--setting-h1-color, var(--color-red));
-  --h2-color: var(--setting-h2-color, var(--color-orange));
+  --h2-color: var(--setting-h2-color, var(--color-yellow));
   --h3-color: var(--setting-h3-color, var(--color-green));
   --h4-color: var(--setting-h4-color, var(--color-blue));
   --h5-color: var(--setting-h5-color, var(--color-purple));

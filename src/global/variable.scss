@@ -50,8 +50,8 @@ html #{utils.with-print('body.obsidian-app')} {
 #{utils.with-print('.theme-light')} {
   @include var-color('red', 210, 75, 75);
   @include var-color('green', 94, 179, 77);
-  @include var-color('yellow', 204, 150, 0);
-  @include var-color('orange', 206, 117, 39);
+  @include var-color('yellow', 222, 170, 0);
+  @include var-color('orange', 206, 124, 36);
   @include var-color('blue', 24, 168, 220);
   @include var-color('cyan', 54, 181, 134);
   @include var-color('purple', 128, 120, 186);
@@ -94,8 +94,8 @@ html #{utils.with-print('body.obsidian-app')} {
   @include var-color('cyan', 168, 240, 240);
   @include var-color('purple', 197, 190, 249);
 
-  --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 7));
-  --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 7);
+  --background-primary: hsl(var(--background-primary-hsl));
+  --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 4);
   --background-secondary: hsl(calc(var(--accent-h) + 8),
       calc(var(--accent-s) / 6),
       calc(var(--accent-l) / 4));

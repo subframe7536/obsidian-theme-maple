@@ -28,7 +28,7 @@
 #{utils.with-print('.theme-dark')} {
   --code-preview-base: hsl(var(--accent-h),
       var(--accent-s),
-      calc(var(--accent-l) + 10%));
+      85%);
   --code-mac-style-header-bg: #000;
 }
 
