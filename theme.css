@@ -250,11 +250,6 @@ settings:
         title.zh: 标题换行
         type: class-toggle
     -
-        id: explorer-item-animation
-        title: enable item animation
-        title.zh: 开启鼠标经过动画
-        type: class-toggle
-    -
         id: explorer-item-height
         title: item line height
         title.zh: 行高
@@ -476,11 +471,6 @@ settings:
         collapsed: true
         level: 2
     -
-        id: modal-item-animation
-        title: enable item animation
-        title.zh: 开启鼠标经过动画
-        type: class-toggle
-    -
         id: modal-blur
         title: enable modal background blur
         description: If there is a delay in scrolling, try turning this option off
@@ -500,7 +490,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.21'"
+        default: "'maple 0.7.22'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2034,9 +2024,9 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
   --color-green-rgb: 94, 179, 77 !important;
   --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
-  --color-yellow-rgb: 204, 150, 0 !important;
+  --color-yellow-rgb: 222, 170, 0 !important;
   --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
-  --color-orange-rgb: 206, 117, 39 !important;
+  --color-orange-rgb: 204, 148, 36 !important;
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
   --color-blue-rgb: 24, 168, 220 !important;
   --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
@@ -2086,8 +2076,8 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --color-cyan-rgb: 168, 240, 240 !important;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity)) !important;
   --color-purple-rgb: 197, 190, 249 !important;
-  --background-primary: hsl(var(--accent-h), 4%, calc(var(--accent-l) / 7));
-  --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 7);
+  --background-primary: hsl(var(--background-primary-hsl));
+  --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 4);
   --background-secondary: hsl(calc(var(--accent-h) + 8),
       calc(var(--accent-s) / 6),
       calc(var(--accent-l) / 4));
@@ -2428,7 +2418,7 @@ input[type=checkbox]:checked::after {
 :is(.theme-dark, .theme-dark .print) {
   --code-preview-base: hsl(var(--accent-h),
       var(--accent-s),
-      calc(var(--accent-l) + 10%));
+      85%);
   --code-mac-style-header-bg: #000;
 }
 
@@ -3134,7 +3124,7 @@ body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal
   width: calc(var(--link-text-size) - var(--size-2-1));
   height: calc(var(--link-text-size) - var(--size-2-1));
   margin-inline: var(--size-2-1);
-  background-color: rgb(var(--link-color-rgb));
+  background-color: var(--link-color);
 }
 body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved), :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline):not(.cm-escape + .cm-link .cm-underline)::before {
   content: "";
@@ -3144,7 +3134,7 @@ body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source
   height: calc(var(--link-text-size) - var(--size-4-1));
   margin-left: var(--size-2-1);
   margin-right: var(--size-2-1);
-  background-color: rgb(var(--link-external-color-rgb));
+  background-color: var(--link-external-color);
 }
 body.link-icon:not(.link-click-to-edit-in-live-preview) a.external-link {
   background-image: none;
@@ -3155,7 +3145,7 @@ body.link-icon:not(.link-click-to-edit-in-live-preview) span.external-link {
   display: none;
 }
 
-body.link-click-to-edit-in-live-preview :is(.cm-link .cm-underline, .cm-hmd-internal-link .cm-underline) {
+body.link-click-to-edit-in-live-preview :is(.cm-url, .cm-link, .cm-hmd-internal-link) .cm-underline {
   pointer-events: none;
 }
 
@@ -3172,7 +3162,7 @@ body.list-enable {
   --checkbox-marker-color: var(--text-on-accent);
   --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
-  --list-bullet-size: calc(var(--font-text-size) / 3.6 + var(--size-2-1));
+  --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 }
 body.list-enable .cm-formatting-list-ol,
 body.list-enable li::marker {
@@ -3190,10 +3180,6 @@ body.list-enable .markdown-preview-view .task-list-item-checkbox {
 }
 body.list-enable .collapse-indicator {
   --cursor: pointer;
-}
-body.list-enable .markdown-source-view.mod-cm6 .cm-line:not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
-  padding-right: 1rem;
-  right: -0.8rem;
 }
 body.list-enable .markdown-source-view.mod-cm6 .cm-indent::before {
   transform: translateX(10px);
@@ -3236,28 +3222,28 @@ body.list-enable :is(.markdown-rendered, div) > ul {
 body.list-enable .HyperMD-list-line-2 .list-bullet {
   --list-marker-color: transparent;
   --list-bullet-border: var(--setting-list-marker, var(--accent-active)) var(--size-2-1) solid;
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) - var(--size-2-1));
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) - var(--size-2-1));
 }
 body.list-enable .HyperMD-list-line-3 .list-bullet {
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 1.1);
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 1.1);
   transform: rotate(45deg);
 }
 body.list-enable .HyperMD-list-line-4 .list-bullet {
   --list-marker-color: transparent;
   --list-bullet-border: var(--list-marker-color-alt) var(--size-2-1) solid;
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.9 - var(--size-2-1));
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.9 - var(--size-2-1));
   --list-bullet-radius: 0;
   transform: rotate(45deg);
 }
 body.list-enable ul > li > ul > li {
   --list-marker-color: transparent;
   --list-bullet-border: var(--setting-list-marker, var(--accent-active)) var(--size-2-1) solid;
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) - var(--size-2-1));
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) - var(--size-2-1));
 }
 body.list-enable ul > li > ul > li > ul > li {
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.5);
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.5);
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
   --deg: 45deg;
@@ -3266,7 +3252,7 @@ body.list-enable ul > li > ul > li > ul > li .list-bullet {
   transform: rotate(var(--deg));
 }
 body.list-enable ul > li > ul > li > ul > li > ul > li {
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3.6 + var(--size-2-1)) * 0.9 - var(--size-2-1));
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.9 - var(--size-2-1));
   --list-marker-color: transparent;
 }
 body.list-enable ul > li > ul > li > ul > li > ul > li ul > li {
@@ -3714,6 +3700,9 @@ body {
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) tbody tr:nth-of-type(2n+1) {
   background-color: var(--background-primary);
 }
+:is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) .table-cell-wrapper:has(> .cm-s-obsidian):not(:has(.image-embed)) {
+  padding-inline: var(--size-4-1);
+}
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) .table-cell-wrapper:has(> .image-embed) {
   display: table-cell;
 }
@@ -3726,7 +3715,6 @@ body {
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) .table-cell-wrapper:has(.is-live-preview .image-embed) [class=cm-line] {
   display: none;
 }
-
 /* #endregion table */
 /* #region tag */
 body {
@@ -3818,7 +3806,7 @@ body :is(h1, h2, h3, h4, h5, h6) {
 
 body:is(:not(.css-settings-manager), .heading-color-colorful) {
   --h1-color: var(--setting-h1-color, var(--color-red));
-  --h2-color: var(--setting-h2-color, var(--color-orange));
+  --h2-color: var(--setting-h2-color, var(--color-yellow));
   --h3-color: var(--setting-h3-color, var(--color-green));
   --h4-color: var(--setting-h4-color, var(--color-blue));
   --h5-color: var(--setting-h5-color, var(--color-purple));
@@ -4155,14 +4143,14 @@ img {
 }
 
 /* hint text, reference from https://github.com/chrisgrieser/shimmering-focus */
-body.image-alt .image-embed[alt] {
+body.image-alt img[alt] {
   padding: var(--size-4-1) 0;
 }
-body.image-alt .image-embed[alt]::after {
+body.image-alt img[alt]::after {
   display: block;
   text-align: center;
 }
-body.image-alt .image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"], [alt$=".webp"], [alt$=".bmp"])::after {
+body.image-alt img[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"], [alt$=".webp"], [alt$=".bmp"])::after {
   content: attr(alt);
   font-size: var(--font-smaller);
   color: var(--text-faint);
@@ -4977,13 +4965,6 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
   color: var(--text-normal);
 }
 
-body.explorer-item-animation .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item) {
-  transition: background-color var(--animation);
-}
-body.explorer-item-animation .nav-files-container :is(.tree-item-self, .vertical-tab-nav-item):hover {
-  transition: none;
-}
-
 .workspace-leaf-content[data-type=file-explorer] {
   --line-height-tight: var(--explorer-item-height, 1.6);
 }
@@ -5092,7 +5073,6 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
   height: 0%;
   border-radius: var(--radius-s);
   background: var(--accent-inactive);
-  transition: var(--animation);
 }
 
 body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content) {
@@ -5162,13 +5142,6 @@ body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
 }
 body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container input[type=checkbox] {
   display: none;
-}
-
-body.modal-item-animation :is(.suggestion-item, .modal .vertical-tab-nav-item) {
-  transition: var(--animation);
-}
-body.modal-item-animation :is(.suggestion-item, .modal .vertical-tab-nav-item):hover {
-  transition: none;
 }
 
 body.modal-toggle-round .checkbox-container {
@@ -5252,7 +5225,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.21");
+  content: var(--setting-header-title, "maple 0.7.22");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);

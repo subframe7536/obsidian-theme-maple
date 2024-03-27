@@ -104,6 +104,7 @@ body {
   // center image
 
   .table-cell-wrapper {
+    // debounce cell
     &:has(>.cm-s-obsidian):not(:has(.image-embed)) {
       padding-inline: var(--size-4-1);
     }
