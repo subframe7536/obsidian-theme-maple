@@ -2,17 +2,9 @@
 @use './document-search.scss';
 /* #endregion document-search */
 
-/* #region file-explorer */
-@use './file-explorer.scss';
-/* #endregion file-explorer */
-
 /* #region modal */
 @use './modal.scss';
 /* #endregion modal */
-
-/* #region outline */
-@use './outline.scss';
-/* #endregion outline */
 
 /* #region scrollbar */
 @use './scrollbar.scss';
@@ -42,18 +34,14 @@
 @use './message.scss';
 /* #endregion message */
 
-/* #region graph */
-@use './graph.scss';
-/* #endregion graph */
-
 /* #region background image */
 @use './bg.scss';
 /* #endregion background */
 
-/* #region bookmark */
-@use './bookmark.scss';
-/* #endregion bookmark */
-
 /* #region labeled-navigator */
 @use './labeled-nav.scss';
 /* #endregion labeled-navigator */
+
+/* #region navigator */
+@use './panel';
+/* #endregion navigator */

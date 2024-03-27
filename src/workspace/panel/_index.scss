@@ -1,0 +1,23 @@
+/* #region panel-base*/
+@use './base.scss';
+/* #endregion */
+
+/* #region tag */
+@use './tag.scss';
+/* #endregion */
+
+/* #region bookmark */
+@use './bookmark.scss';
+/* #endregion bookmark */
+
+/* #region graph */
+@use './graph.scss';
+/* #endregion graph */
+
+/* #region outline */
+@use './outline.scss';
+/* #endregion outline */
+
+/* #region file-explorer */
+@use './file-explorer.scss';
+/* #endregion file-explorer */

@@ -1,0 +1,10 @@
+.workspace-leaf-content[data-type="tag"] .tree-item-self::before {
+  background-color: var(--text-normal);
+  line-height: var(--line-height-tight);
+  width: 1rem;
+  height: 1rem;
+  margin-left: calc(-1 * var(--size-4-4));
+  margin-right: var(--size-2-3);
+  transform: translateY(var(--size-4-1));
+  // add icon in icons.scss
+}
