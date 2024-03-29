@@ -238,7 +238,7 @@ settings:
         default: true
     -
         id: explorer-nav-decoration
-        title: styled active nav item
+        title: styled active file
         description: reference from https://github.com/Akifyss/obsidian-border
         title.zh: 当前文件美化
         description.zh: 参考 https://github.com/Akifyss/obsidian-border
@@ -261,7 +261,9 @@ settings:
     -
         id: explorer-icon
         title: enable prefix icon
+        description: if the tree indent is weird, please collpase all the directory and restart Obsidian
         title.zh: 开启前置图标
+        description.zh: 如果缩进出现问题，请折叠全部文件夹并重启 Obsidian
         type: class-toggle
         default: true
     -
@@ -490,7 +492,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.24'"
+        default: "'maple 0.7.25'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -924,15 +926,6 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
-        id: setting-link-internal-color-hover
-        title: internal link hover color
-        title.zh: 内部链接鼠标经过时字体颜色
-        type: variable-themed-color
-        format: rgb
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
-    -
         id: setting-link-external-color
         title: external link color
         title.zh: 外部链接颜色
@@ -945,15 +938,6 @@ settings:
         id: setting-link-external-color-underline
         title: external link underline color
         title.zh: 外部链接下划线颜色
-        type: variable-themed-color
-        format: rgb
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: setting-link-external-color-hover
-        title: external link hover color
-        title.zh: 外部链接鼠标经过时文字颜色
         type: variable-themed-color
         format: rgb
         opacity: false
@@ -1521,6 +1505,16 @@ settings:
         title.zh: 在 阅读模式 开启代码块背景
         description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
+    -
+        id: setting-code-bg-radius
+        title: code block border radius
+        title.zh: 代码块背景圆角
+        type: variable-number-slider
+        default: 12
+        format: 'px'
+        min: 0
+        max: 20
+        step: 1
     -
         id: setting-code-bg-outer
         title: custom codeblock background in Preview mode
@@ -2404,7 +2398,7 @@ input[type=checkbox]:checked::after {
   --code-value: var(--color-orange);
   --code-comment: var(--text-faint);
   --code-normal: var(--code-preview-base);
-  --code-bg-radius: var(--radius-l);
+  --code-bg-radius: var(--setting-code-bg-radius, var(--radius-l));
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
 }
 
@@ -2532,7 +2526,7 @@ pre {
 }
 
 body .markdown-rendered pre {
-  border-radius: var(--radius-l);
+  border-radius: var(--code-bg-radius);
   border: var(--block-outline-width) solid var(--accent-inactive);
   transition: var(--animation);
   overflow-x: hidden;
@@ -2764,7 +2758,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
   color: var(--code-comment);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag, .cm-operator) {
   color: var(--code-tag);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
@@ -3051,8 +3045,6 @@ body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-ur
   text-decoration-color: var(--link-external-color-underline);
 }
 body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline):hover {
-  --link-color: var(--setting-link-internal-color-hover, var(--link-color));
-  --link-external-color: var(--setting-link-external-color-hover, var(--link-external-color));
   background-color: rgba(var(--link-external-color-rgb), 0.15);
 }
 body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline):active {
@@ -3066,8 +3058,6 @@ body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-in
   text-decoration-color: var(--link-color-underline);
 }
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):hover {
-  --link-color: var(--setting-link-internal-color-hover, var(--link-color));
-  --link-external-color: var(--setting-link-external-color-hover, var(--link-external-color));
   background-color: rgba(var(--link-color-rgb), 0.15);
 }
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):active {
@@ -3227,7 +3217,7 @@ body.list-enable .HyperMD-list-line-2 .list-bullet {
 body.list-enable .HyperMD-list-line-3 .list-bullet {
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
-  --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 1.1);
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.95);
   transform: rotate(45deg);
 }
 body.list-enable .HyperMD-list-line-4 .list-bullet {
@@ -5088,7 +5078,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.24");
+  content: var(--setting-header-title, "maple 0.7.25");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6015,16 +6005,29 @@ https://github.com/sponsors/kepano
   padding-left: var(--size-4-1);
 }
 
+body {
+  --nav-item-children-padding-left: var(--size-4-2);
+}
+
 /* #endregion panel-base */
 /* #region tag */
 .workspace-leaf-content[data-type=tag] .tree-item-self::before {
-  background-color: var(--text-normal);
+  background-color: var(--accent-active);
   line-height: var(--line-height-tight);
   width: 1rem;
   height: 1rem;
-  margin-left: calc(-1 * var(--size-4-4));
-  margin-right: var(--size-2-3);
+  margin-left: calc(-1 * var(--size-4-5));
+  margin-right: var(--size-4-3);
   transform: translateY(var(--size-4-1));
+}
+.workspace-leaf-content[data-type=tag] .tree-item-self:has(.tree-item-icon)::before {
+  background-color: var(--folder-color);
+}
+.workspace-leaf-content[data-type=tag] .tree-item-icon.collapse-icon {
+  cursor: pointer;
+}
+.workspace-leaf-content[data-type=tag] .tree-item-icon.collapse-icon svg {
+  color: transparent;
 }
 
 /* #endregion tag */
@@ -6221,16 +6224,10 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
 
 body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-header {
   position: absolute;
-  width: 100%;
-  z-index: calc(var(--layer-cover) + 1);
-}
-body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-header .clickable-icon {
+  width: fit-content;
+  right: 0;
   background-color: hsl(var(--background-secondary-hsl));
-  opacity: 1;
-}
-body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-header .clickable-icon:hover {
-  background-color: var(--background-modifier-hover);
-  opacity: 1;
+  z-index: calc(var(--layer-cover) + 1);
 }
 body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-buttons-container {
   justify-content: flex-end;
@@ -6239,14 +6236,21 @@ body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-l
   padding-top: var(--size-4-12);
 }
 body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title {
-  position: absolute;
-  margin-left: var(--size-4-6);
+  position: fixed;
+  height: calc(var(--header-height) + var(--size-2-1));
+  line-height: 2;
+  top: var(--header-height);
+  left: var(--size-4-3);
+  right: 0;
   transform: translate(calc(-1 * var(--size-4-5)), calc(-1 * var(--size-4-10)));
   z-index: var(--layer-cover);
   color: var(--color-accent-2);
   font-size: 1rem;
   font-weight: bold;
-  line-height: 1.2;
+  background-color: hsl(var(--background-secondary-hsl));
+}
+body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title:hover {
+  background-color: hsl(var(--background-secondary-hsl)) !important;
 }
 body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title > .tree-item-inner {
   padding-left: 0;
@@ -6256,24 +6260,19 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title {
-  padding-left: var(--size-4-1);
-}
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title:hover {
   background-color: var(--folder-hover-color);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title-content {
-  padding-left: var(--size-4-6);
+  padding-left: var(--size-2-1);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children {
   transition: var(--animation);
-  --nav-item-children-padding-left: var(--nav-item-children-margin-left);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children:hover {
   --nav-indentation-guide-color: var(--accent-inactive);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-collapse-indicator {
-  margin-left: var(--size-4-1);
   cursor: pointer;
   height: fit-content;
 }
@@ -6283,27 +6282,33 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
   height: 1rem;
   background-color: var(--folder-color);
   display: inline-block;
-  margin-bottom: var(--size-4-1);
-  margin-left: calc(-1 * var(--size-2-3));
+  translate: 0 calc(-1 * var(--size-2-1));
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder.is-collapsed .collapse-icon svg.svg-icon {
   transform: none;
   filter: brightness(var(--folder-inactive));
   transition: var(--animation);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title {
-  padding-left: var(--size-4-1);
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file {
+  --nav-item-background-hover: hsl(var(--accent-h), calc(var(--accent-s) * 1.2), min(var(--accent-l) * 1.5, 90%), 50%);
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title-content {
+  padding-left: var(--size-2-1);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title:not([data-path$="excalidraw.md"]):not([data-path$=excalidraw])::before {
   content: " ";
+  position: absolute;
   width: 1rem;
   height: 1rem;
   opacity: 0.8;
-  margin-right: var(--size-2-3);
-  margin-left: var(--size-2-1);
   flex-shrink: 0;
-  transform: translateY(10%);
+  translate: calc(1px - var(--size-4-5)) 15%;
   background-color: var(--accent-active);
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title:is([data-path$="excalidraw.md"], [data-path$=excalidraw]) .nav-file-tag {
+  position: absolute;
+  translate: calc(-1 * var(--size-4-5));
+  top: var(--size-2-3);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active:not(.is-selected) {
   color: var(--text-on-accent);
