@@ -133,7 +133,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         }
 
         &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw'])::before {
-          content: ' ';
+          content: '';
           position: absolute;
           width: 1rem;
           height: 1rem;

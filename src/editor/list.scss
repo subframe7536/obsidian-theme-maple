@@ -41,8 +41,8 @@ body.list-enable {
       transform: translateX(10px);
     }
 
-    .HyperMD-task-line .collapse-indicator {
-      right: 0.1rem !important;
+    .collapse-indicator {
+      right: 0.15rem !important;
     }
   }
 
@@ -50,7 +50,7 @@ body.list-enable {
   li .list-collapse-indicator {
     margin-inline-start: 0 !important;
     padding-inline-end: 1.2rem !important;
-    transform: translateX(-2.1rem);
+    transform: translateX(-2.25rem);
   }
 
   ol li .list-collapse-indicator {
