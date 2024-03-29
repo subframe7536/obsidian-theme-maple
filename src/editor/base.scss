@@ -80,16 +80,11 @@ body {
 }
 
 .theme-light {
-  --active-line: var(--setting-line-active-color, hsl(calc(var(--accent-h) - 4),
-        calc(var(--accent-s) - 12%),
-        calc(100% - (100% - var(--accent-l)) / 5)));
+  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 24%, 94%));
 }
 
 .theme-dark {
-  --active-line: var(--setting-line-active-color, hsla(calc(var(--accent-h) - 24),
-        18%,
-        calc(var(--accent-l) / 4),
-        95%));
+  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 18%, 18%));
 }
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
