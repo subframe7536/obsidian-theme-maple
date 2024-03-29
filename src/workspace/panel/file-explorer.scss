@@ -81,7 +81,6 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 
 #{utils.with-no-plugin('.explorer-icon')} {
   .workspace-leaf-content[data-type='file-explorer'] .nav-files-container .mod-root {
-    --nav-item-children-padding-left: var(--size-4-2);
     .nav-folder {
 
       &-title {
