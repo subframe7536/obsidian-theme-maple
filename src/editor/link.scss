@@ -35,8 +35,6 @@
   text-decoration-color: $underline;
 
   &:hover {
-    --link-color: var(--setting-link-internal-color-hover, var(--link-color));
-    --link-external-color: var(--setting-link-external-color-hover, var(--link-external-color));
     background-color: rgba($color, 0.15);
   }
 

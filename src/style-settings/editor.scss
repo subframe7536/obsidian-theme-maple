@@ -297,15 +297,6 @@ settings:
         default-light: '#'
         default-dark: '#'
     -
-        id: setting-link-internal-color-hover
-        title: internal link hover color
-        title.zh: 内部链接鼠标经过时字体颜色
-        type: variable-themed-color
-        format: rgb
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
-    -
         id: setting-link-external-color
         title: external link color
         title.zh: 外部链接颜色
@@ -318,15 +309,6 @@ settings:
         id: setting-link-external-color-underline
         title: external link underline color
         title.zh: 外部链接下划线颜色
-        type: variable-themed-color
-        format: rgb
-        opacity: false
-        default-light: '#'
-        default-dark: '#'
-    -
-        id: setting-link-external-color-hover
-        title: external link hover color
-        title.zh: 外部链接鼠标经过时文字颜色
         type: variable-themed-color
         format: rgb
         opacity: false
