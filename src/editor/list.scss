@@ -105,7 +105,7 @@ body.list-enable {
   .HyperMD-list-line-3 .list-bullet {
     --list-bullet-radius: 0;
     --list-marker-color: var(--list-marker-color-alt);
-    --list-bullet-size: calc(#{$marker-size} * #{$optical-factor + 0.2});
+    --list-bullet-size: calc(#{$marker-size} * #{$optical-factor + 0.05});
     transform: rotate(45deg);
   }
 
