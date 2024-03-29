@@ -61,7 +61,6 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
 
     & > .nav-folder-title {
       position: absolute;
-      margin-left: var(--size-4-6);
       transform: translate(calc(-1 * var(--size-4-5)), calc(-1 * var(--size-4-10)));
       z-index: var(--layer-cover);
       color: var(--color-accent-2);
@@ -85,20 +84,17 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
     .nav-folder {
 
       &-title {
-        padding-left: var(--size-4-1);
-
         &:hover {
           background-color: var(--folder-hover-color);
         }
 
         &-content {
-          padding-left: var(--size-4-6);
+          padding-left: var(--size-2-1);
         }
       }
 
       & > .nav-folder-children {
         transition: var(--animation);
-        --nav-item-children-padding-left: var(--nav-item-children-margin-left);
 
         &:hover {
           --nav-indentation-guide-color: var(--accent-inactive);
@@ -106,9 +102,6 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       }
 
       &-collapse-indicator {
-        // margin-right: var(--size-4-2);
-        // padding-inline-end: var(--size-2-1);
-        margin-left: var(--size-4-1);
         cursor: pointer;
         height: fit-content;
 
@@ -118,8 +111,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
           height: 1rem;
           background-color: var(--folder-color);
           display: inline-block;
-          margin-bottom: var(--size-4-1);
-          margin-left: calc(-1 * var(--size-2-3));
+          translate: 0 calc(-1 * var(--size-2-1));
           // add icon in icons.scss
         }
       }
@@ -132,20 +124,29 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
     }
 
     .nav-file {
+      --nav-item-background-hover: hsl(var(--accent-h), calc(var(--accent-s) * 1.2), min(var(--accent-l) * 1.5, 90%), 50%);
+
       &-title {
-        padding-left: var(--size-4-1);
+        &-content {
+          padding-left: var(--size-2-1);
+        }
 
         &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw'])::before {
           content: ' ';
+          position: absolute;
           width: 1rem;
           height: 1rem;
           opacity: 0.8;
-          margin-right: var(--size-2-3);
-          margin-left: var(--size-2-1);
           flex-shrink: 0;
-          transform: translateY(10%);
+          translate: calc(1px - var(--size-4-5)) 15%;
           background-color: var(--accent-active);
           // add icon in icons.scss
+        }
+
+        &:is([data-path$='excalidraw.md'], [data-path$='excalidraw']) .nav-file-tag {
+          position: absolute;
+          translate: calc(-1 * var(--size-4-5));
+          top: var(--size-2-3);
         }
 
         &.is-active:not(.is-selected) {
