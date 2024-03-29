@@ -38,18 +38,10 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
 #{utils.with-no-plugin('.explorer-vault-name-position')} .workspace-leaf-content[data-type='file-explorer'] {
   .nav-header {
     position: absolute;
-    width: 100%;
+    width: fit-content;
+    right: 0;
+    background-color: hsl(var(--background-secondary-hsl));
     z-index: calc(var(--layer-cover) + 1);
-
-    .clickable-icon {
-      background-color: hsl(var(--background-secondary-hsl));
-      opacity: 1;
-
-      &:hover {
-        background-color: var(--background-modifier-hover);
-        opacity: 1;
-      }
-    }
   }
 
   .nav-buttons-container {
@@ -60,13 +52,22 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
     padding-top: var(--size-4-12);
 
     & > .nav-folder-title {
-      position: absolute;
+      position: fixed;
+      height: calc(var(--header-height) + var(--size-2-1));
+      line-height: 2;
+      top: var(--header-height);
+      left: var(--size-4-3);
+      right: 0;
       transform: translate(calc(-1 * var(--size-4-5)), calc(-1 * var(--size-4-10)));
       z-index: var(--layer-cover);
       color: var(--color-accent-2);
       font-size: 1rem;
       font-weight: bold;
-      line-height: 1.2;
+      background-color: hsl(var(--background-secondary-hsl));
+
+      &:hover {
+        background-color: hsl(var(--background-secondary-hsl)) !important;
+      }
 
       & > .tree-item-inner {
         padding-left: 0;
