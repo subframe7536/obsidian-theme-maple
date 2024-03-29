@@ -35,7 +35,7 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
   --line-height-tight: var(--explorer-item-height, 1.6);
 }
 
-#{utils.with-no-plugin('.explorer-vault-name-position')} .workspace-leaf-content[data-type='file-explorer'] {
+body.explorer-vault-name-position .workspace-leaf-content[data-type='file-explorer'] {
   .nav-header {
     position: absolute;
     width: fit-content;
