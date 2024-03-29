@@ -877,6 +877,16 @@ settings:
         description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
     -
+        id: setting-code-bg-radius
+        title: code block border radius
+        title.zh: 代码块背景圆角
+        type: variable-number-slider
+        default: 12
+        format: 'px'
+        min: 0
+        max: 20
+        step: 1
+    -
         id: setting-code-bg-outer
         title: custom codeblock background in Preview mode
         description: need install version >= 1.1.9, image is supported(eg. 'url("/your/image/uri")'), it can be all the css value that supported by background-image

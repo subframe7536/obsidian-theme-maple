@@ -14,7 +14,7 @@
   --code-value: var(--color-orange);
   --code-comment: var(--text-faint);
   --code-normal: var(--code-preview-base);
-  --code-bg-radius: var(--radius-l);
+  --code-bg-radius: var(--setting-code-bg-radius, var(--radius-l));
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
 }
 
@@ -156,7 +156,7 @@ pre {
 }
 
 body .markdown-rendered pre {
-  border-radius: var(--radius-l);
+  border-radius: var(--code-bg-radius);
   border: var(--block-outline-width) solid var(--accent-inactive);
   transition: var(--animation);
   overflow-x: hidden;
