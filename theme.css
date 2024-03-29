@@ -235,7 +235,6 @@ settings:
         title: optimize vault name position
         title.zh: 优化仓库名称位置
         type: class-toggle
-        default: true
     -
         id: explorer-nav-decoration
         title: styled active file
@@ -492,7 +491,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.25'"
+        default: "'maple 0.7.26'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2197,16 +2196,11 @@ body {
 }
 
 .theme-light {
-  --active-line: var(--setting-line-active-color, hsl(calc(var(--accent-h) - 4),
-        calc(var(--accent-s) - 12%),
-        calc(100% - (100% - var(--accent-l)) / 5)));
+  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 24%, 94%));
 }
 
 .theme-dark {
-  --active-line: var(--setting-line-active-color, hsla(calc(var(--accent-h) - 24),
-        18%,
-        calc(var(--accent-l) / 4),
-        95%));
+  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 18%, 18%));
 }
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
@@ -5078,7 +5072,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.25");
+  content: var(--setting-header-title, "maple 0.7.26");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6222,20 +6216,20 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
   --line-height-tight: var(--explorer-item-height, 1.6);
 }
 
-body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-header {
+body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-header {
   position: absolute;
   width: fit-content;
   right: 0;
   background-color: hsl(var(--background-secondary-hsl));
   z-index: calc(var(--layer-cover) + 1);
 }
-body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-buttons-container {
+body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-buttons-container {
   justify-content: flex-end;
 }
-body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root {
+body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root {
   padding-top: var(--size-4-12);
 }
-body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title {
+body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title {
   position: fixed;
   height: calc(var(--header-height) + var(--size-2-1));
   line-height: 2;
@@ -6249,10 +6243,10 @@ body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-l
   font-weight: bold;
   background-color: hsl(var(--background-secondary-hsl));
 }
-body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title:hover {
+body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title:hover {
   background-color: hsl(var(--background-secondary-hsl)) !important;
 }
-body:is(:not(.css-settings-manager), .explorer-vault-name-position) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title > .tree-item-inner {
+body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title > .tree-item-inner {
   padding-left: 0;
 }
 
