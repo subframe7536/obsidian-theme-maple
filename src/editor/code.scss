@@ -303,7 +303,7 @@ body .markdown-rendered pre {
   }
 }
 
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5) !important;

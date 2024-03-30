@@ -7,6 +7,14 @@ pre.dataview {
   }
 }
 
+pre.dataview-error::before {
+  content: 'DataView Error';
+  color: var(--color-red);
+  position: absolute;
+  top: var(--size-4-1);
+  font-weight: bold;
+}
+
 body.dv-enable {
 
   .cm-embed-block:has(.dataview) {
