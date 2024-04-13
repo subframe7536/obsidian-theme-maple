@@ -232,9 +232,18 @@ settings:
         level: 2
     -
         id: explorer-vault-name-position
-        title: optimize vault name position
-        title.zh: 优化仓库名称位置
-        type: class-toggle
+        title: vault name position
+        title.zh: 仓库名称位置
+        type: class-select
+        allowEmpty: false
+        default: explorer-vault-name-default
+        options:
+            -   label: default
+                value: explorer-vault-name-default
+            -   label: compact
+                value: explorer-vault-name-compact
+            -   label: hidden
+                value: explorer-vault-name-hidden
     -
         id: explorer-nav-decoration
         title: styled active file
@@ -491,7 +500,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.26'"
+        default: "'maple 0.7.27'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1796,7 +1805,7 @@ settings:
   border-radius: var(--size-2-1);
 }
 .style-settings-container .setting-item:is([data-id^=setting-accent-h]) .setting-item-control::before {
-  content: " ";
+  content: "";
   font-size: 0.7em;
   text-align: center;
   white-space: pre-wrap;
@@ -2783,15 +2792,15 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   opacity: 0.7;
 }
 
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5) !important;
 }
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre[class*=language-]::before {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview)[class*=language-]::before {
   color: var(--setting-code-language-color, var(--accent-active));
 }
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre::after {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview)::after {
   content: "";
   width: 100%;
   height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
@@ -2800,7 +2809,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   left: 0;
   position: absolute;
 }
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre code::before {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) code::before {
   content: "";
   width: calc(var(--code-size) - var(--size-2-1));
   height: calc(var(--code-size) - var(--size-2-1));
@@ -2812,7 +2821,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   background-color: rgba(255, 94, 92, var(--color-opacity));
   box-shadow: var(--size-4-5) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-5) * 2) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
 }
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre .copy-code-button:hover {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) .copy-code-button:hover {
   background-color: var(--accent-inactive);
 }
 
@@ -3168,13 +3177,13 @@ body.list-enable .collapse-indicator {
 body.list-enable .markdown-source-view.mod-cm6 .cm-indent::before {
   transform: translateX(10px);
 }
-body.list-enable .markdown-source-view.mod-cm6 .HyperMD-task-line .collapse-indicator {
-  right: 0.1rem !important;
+body.list-enable .markdown-source-view.mod-cm6 .collapse-indicator {
+  right: 0.15rem !important;
 }
 body.list-enable li .list-collapse-indicator {
   margin-inline-start: 0 !important;
   padding-inline-end: 1.2rem !important;
-  transform: translateX(-2.1rem);
+  transform: translateX(-2.25rem);
 }
 body.list-enable ol li .list-collapse-indicator {
   transform: translateX(-3rem);
@@ -4826,6 +4835,14 @@ pre.dataview-error {
   font-family: var(--font-monospace);
 }
 
+pre.dataview-error::before {
+  content: "DataView Error";
+  color: var(--color-red);
+  position: absolute;
+  top: var(--size-4-1);
+  font-weight: bold;
+}
+
 body.dv-enable .cm-embed-block:has(.dataview) {
   border-color: var(--accent-inactive);
 }
@@ -5072,7 +5089,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.26");
+  content: var(--setting-header-title, "maple 0.7.27");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6078,13 +6095,6 @@ body {
   line-height: var(--outline-item-height);
 }
 
-body.outline-item-animation .workspace-leaf-content[data-type=outline] .tree-item-self {
-  transition: background-color var(--animation);
-}
-body.outline-item-animation .workspace-leaf-content[data-type=outline] .tree-item-self:hover {
-  transition: none;
-}
-
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item {
   position: relative;
 }
@@ -6216,20 +6226,20 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
   --line-height-tight: var(--explorer-item-height, 1.6);
 }
 
-body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-header {
+body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-header {
   position: absolute;
   width: fit-content;
   right: 0;
   background-color: hsl(var(--background-secondary-hsl));
   z-index: calc(var(--layer-cover) + 1);
 }
-body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-buttons-container {
+body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-buttons-container {
   justify-content: flex-end;
 }
-body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root {
+body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root {
   padding-top: var(--size-4-12);
 }
-body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title {
+body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title {
   position: fixed;
   height: calc(var(--header-height) + var(--size-2-1));
   line-height: 2;
@@ -6243,11 +6253,18 @@ body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explore
   font-weight: bold;
   background-color: hsl(var(--background-secondary-hsl));
 }
-body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title:hover {
+body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title:hover {
   background-color: hsl(var(--background-secondary-hsl)) !important;
 }
-body.explorer-vault-name-position .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title > .tree-item-inner {
+body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title > .tree-item-inner {
   padding-left: 0;
+}
+
+body.explorer-vault-name-hidden .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root {
+  padding-top: var(--size-4-2);
+}
+body.explorer-vault-name-hidden .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title {
+  display: none;
 }
 
 body.theme-dark.explorer-icon .is-active .nav-file-tag {
@@ -6290,7 +6307,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
   padding-left: var(--size-2-1);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title:not([data-path$="excalidraw.md"]):not([data-path$=excalidraw])::before {
-  content: " ";
+  content: "";
   position: absolute;
   width: 1rem;
   height: 1rem;
