@@ -218,6 +218,14 @@ settings:
         title.zh: 仿 Firefox / Microsoft Edge 的标签页
         type: class-toggle
     -
+        id: tab-slide-up
+        title: slide up animation on tab switch
+        desciption: ❗will prevent outline panel update instantly on switch articles
+        title.zh: 标签页切换动画
+        desciption.zh: ❗会导致切换文章时无法及时更新大纲面板
+        type: class-toggle
+        default: true
+    -
         id: labeled-nav
         title: text labels for primary navigation
         description: reference from https://github.com/kepano/obsidian-minimal

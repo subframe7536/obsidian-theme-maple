@@ -18,6 +18,10 @@ body {
   line-height: var(--outline-item-height);
 }
 
+.workspace-leaf-content[data-type=outline] .tree-item-self.is-active > .tree-item-inner {
+  color: var(--text-on-accent);
+}
+
 $indent-width: -14px;
 
 body.outline-enable .workspace-leaf-content[data-type='outline'] {
@@ -96,9 +100,6 @@ body.outline-enable .workspace-leaf-content[data-type='outline'] {
     }
 
     &-self.is-active {
-      &>.tree-item-inner {
-        color: var(--text-on-accent);
-      }
       .tree-item-icon::before {
         background-color: var(--outline-guideline-color);
       }

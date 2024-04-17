@@ -124,7 +124,7 @@ body.tab-title-bar-round {
 }
 
 /* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body .workspace-split .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type='pdf']) .view-content,
+body.tab-slide-up .workspace-split .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type='pdf']) .view-content,
 .workspace-leaf-content:not(:has(.view-content)) {
   animation: slide-up var(--animation) forwards;
 }
