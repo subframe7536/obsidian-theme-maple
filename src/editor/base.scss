@@ -177,7 +177,7 @@ mark {
 }
 
 body {
-  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(255, 208, 0, 0.4));
+  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(var(--color-yellow-rgb), 0.3));
 }
 
 .text-highlight-all-round :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {

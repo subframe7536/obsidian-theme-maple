@@ -50,8 +50,8 @@ html #{utils.with-print('body.obsidian-app')} {
 #{utils.with-print('.theme-light')} {
   @include var-color('red', 210, 75, 75);
   @include var-color('green', 94, 179, 77);
-  @include var-color('yellow', 222, 170, 0);
-  @include var-color('orange', 204, 148, 36);
+  @include var-color('yellow', 226, 178, 18);
+  @include var-color('orange', 228, 163, 12);
   @include var-color('blue', 24, 168, 220);
   @include var-color('cyan', 54, 181, 134);
   @include var-color('purple', 128, 120, 186);
