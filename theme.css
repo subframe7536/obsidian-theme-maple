@@ -382,6 +382,14 @@ settings:
         title.zh: 仿 Firefox / Microsoft Edge 的标签页
         type: class-toggle
     -
+        id: tab-slide-up
+        title: slide up animation on tab switch
+        description: ❗will prevent outline panel update instantly on switch articles
+        title.zh: 标签页切换动画
+        description.zh: ❗会导致切换文章时无法立即更新大纲面板
+        type: class-toggle
+        default: true
+    -
         id: labeled-nav
         title: text labels for primary navigation
         description: reference from https://github.com/kepano/obsidian-minimal
@@ -500,7 +508,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.27'"
+        default: "'maple 0.7.28'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2026,9 +2034,9 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
   --color-green-rgb: 94, 179, 77 !important;
   --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
-  --color-yellow-rgb: 222, 170, 0 !important;
+  --color-yellow-rgb: 226, 178, 18 !important;
   --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
-  --color-orange-rgb: 204, 148, 36 !important;
+  --color-orange-rgb: 228, 163, 12 !important;
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
   --color-blue-rgb: 24, 168, 220 !important;
   --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
@@ -2286,7 +2294,7 @@ mark {
 }
 
 body {
-  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(255, 208, 0, 0.4));
+  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(var(--color-yellow-rgb), 0.3));
 }
 
 .text-highlight-all-round :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
@@ -3802,7 +3810,7 @@ body :is(h1, h2, h3, h4, h5, h6) {
 
 body:is(:not(.css-settings-manager), .heading-color-colorful) {
   --h1-color: var(--setting-h1-color, var(--color-red));
-  --h2-color: var(--setting-h2-color, var(--color-yellow));
+  --h2-color: var(--setting-h2-color, var(--color-orange));
   --h3-color: var(--setting-h3-color, var(--color-green));
   --h4-color: var(--setting-h4-color, var(--color-blue));
   --h5-color: var(--setting-h5-color, var(--color-purple));
@@ -5089,7 +5097,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.27");
+  content: var(--setting-header-title, "maple 0.7.28");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5477,7 +5485,7 @@ body.tab-title-bar-round.tab-title-bar-shadow .workspace-leaf.mod-active .worksp
 }
 
 /* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body .workspace-split .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=pdf]) .view-content,
+body.tab-slide-up .workspace-split .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=pdf]) .view-content,
 .workspace-leaf-content:not(:has(.view-content)) {
   animation: slide-up var(--animation) forwards;
 }
@@ -6095,6 +6103,10 @@ body {
   line-height: var(--outline-item-height);
 }
 
+.workspace-leaf-content[data-type=outline] .tree-item-self.is-active > .tree-item-inner {
+  color: var(--text-on-accent);
+}
+
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item {
   position: relative;
 }
@@ -6155,9 +6167,6 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-icon::
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-icon svg path {
   display: none;
-}
-body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self.is-active > .tree-item-inner {
-  color: var(--text-on-accent);
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self.is-active .tree-item-icon::before {
   background-color: var(--outline-guideline-color);

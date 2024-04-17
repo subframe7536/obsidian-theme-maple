@@ -220,9 +220,9 @@ settings:
     -
         id: tab-slide-up
         title: slide up animation on tab switch
-        desciption: ❗will prevent outline panel update instantly on switch articles
+        description: ❗will prevent outline panel update instantly on switch articles
         title.zh: 标签页切换动画
-        desciption.zh: ❗会导致切换文章时无法及时更新大纲面板
+        description.zh: ❗会导致切换文章时无法立即更新大纲面板
         type: class-toggle
         default: true
     -
@@ -344,7 +344,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.27'"
+        default: "'maple 0.7.28'"
     -
         id: setting-group-title
         title: add style for left navigation group title
