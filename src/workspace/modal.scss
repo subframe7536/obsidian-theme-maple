@@ -217,7 +217,12 @@ body.modal-toggle-thin .checkbox-container {
         }
       }
 
+      .setting-item-heading {
+        margin-top: 0;
+      }
       .setting-item:has(.search-input-container.mod-hotkey) {
+        padding-bottom: 0;
+
         .setting-item-info {
           display: none;
         }
@@ -229,12 +234,12 @@ body.modal-toggle-thin .checkbox-container {
           position: absolute;
         }
 
-        &+.setting-filter-container {
+        & + .setting-filter-container {
           display: none;
         }
       }
 
-      .plugin-list-plugins>.setting-item {
+      .plugin-list-plugins > .setting-item {
         padding: 0;
 
         .setting-item-info {
@@ -257,7 +262,7 @@ body.modal-toggle-thin .checkbox-container {
         right: var(--size-4-16);
       }
 
-      .vertical-tab-content>:nth-child(5):not(.style-settings-container):has(input[type="search"]) {
+      .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type="search"]) {
         position: absolute;
         top: calc(var(--size-2-1) * -1);
         transform: translateY(calc(var(--modal-header-height) / 2 - var(--input-height) + var(--size-4-1)));
