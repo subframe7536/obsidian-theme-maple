@@ -1,0 +1,10 @@
+body {
+  .markmap {
+    font: var(--font-text-size) var(--font-text);
+  }
+
+  .mm-toolbar {
+    background-color: var(--status-bar-background);
+    border-color: var(--status-bar-border-color);
+  }
+}
