@@ -508,7 +508,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.28'"
+        default: "'maple 0.7.29'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -4879,6 +4879,16 @@ body.dv-enable .cm-embed-block:has(.dataview) {
 }
 
 /* #endregion recent-files */
+/* #region markmap */
+body .markmap {
+  font: var(--font-text-size) var(--font-text);
+}
+body .mm-toolbar {
+  background-color: var(--status-bar-background);
+  border-color: var(--status-bar-border-color);
+}
+
+/* #endregion markmap */
 /* #endregion [plugins] */
 /* #region [workspace] */
 /* #region document-search */
@@ -5097,7 +5107,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.28");
+  content: var(--setting-header-title, "maple 0.7.29");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5143,6 +5153,12 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   left: var(--size-4-2);
   transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 - var(--size-2-1)));
   width: calc(clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-3) * 1);
+}
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item-heading {
+  margin-top: 0;
+}
+body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:has(.search-input-container.mod-hotkey) {
+  padding-bottom: 0;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:has(.search-input-container.mod-hotkey) .setting-item-info {
   display: none;
