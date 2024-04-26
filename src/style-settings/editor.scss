@@ -933,7 +933,9 @@ settings:
     -
         id: tag-style
         title: tag style
+        description: tags of obsidian / todo / important / progress / complete will be colorized when use outline or fill
         title.zh: 标签样式
+        description.zh: 当选择 outline 或者 fill 时，obsidian / todo / important / progress / complete 标签会有额外颜色
         type: class-select
         allowEmpty: false
         default: tag-outline
@@ -944,6 +946,8 @@ settings:
                 value: tag-plain
             -   label: outline
                 value: tag-outline
+            -   label: fill
+                value: tag-fill
     -
         id: setting-tag-bg
         title: tag background color
