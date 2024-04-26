@@ -508,7 +508,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.29'"
+        default: "'maple 0.7.30'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -730,7 +730,7 @@ settings:
         title.zh: 编辑器行高
         description.zh: 文字大小的倍数
         type: variable-number-slider
-        default: 2.1
+        default: 2
         min: 1.5
         max: 2.5
         step: 0.1
@@ -1578,7 +1578,9 @@ settings:
     -
         id: tag-style
         title: tag style
+        description: tags of obsidian / todo / important / progress / complete will be colorized when use outline or fill
         title.zh: 标签样式
+        description.zh: 当选择 outline 或者 fill 时，obsidian / todo / important / progress / complete 标签会有额外颜色
         type: class-select
         allowEmpty: false
         default: tag-outline
@@ -1589,6 +1591,8 @@ settings:
                 value: tag-plain
             -   label: outline
                 value: tag-outline
+            -   label: fill
+                value: tag-fill
     -
         id: setting-tag-bg
         title: tag background color
@@ -1856,8 +1860,7 @@ body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
 body:not(.table-colorful) .setting-item[data-id^=setting-table],
 body:not(.embed-enable) .setting-item[data-id^=embed-title],
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
-body:not(.tag-outline) .setting-item[data-id=tag-outline-setting],
-body:not(.tag-colored) .setting-item[data-id=setting-tag-bg] {
+body:not(.tag-outline) .setting-item[data-id=tag-outline-setting] {
   display: none;
 }
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
@@ -1886,8 +1889,7 @@ body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom] + 
 body:not(.table-colorful) .setting-item[data-id^=setting-table] + .style-settings-container,
 body:not(.embed-enable) .setting-item[data-id^=embed-title] + .style-settings-container,
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon] + .style-settings-container,
-body:not(.tag-outline) .setting-item[data-id=tag-outline-setting] + .style-settings-container,
-body:not(.tag-colored) .setting-item[data-id=setting-tag-bg] + .style-settings-container {
+body:not(.tag-outline) .setting-item[data-id=tag-outline-setting] + .style-settings-container {
   display: none;
 }
 
@@ -2228,7 +2230,7 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 /* #region editor line height */
 .workspace-split.mod-root,
 .markdown-rendered {
-  --line-height-normal: var(--setting-line-height, 2.1) !important;
+  --line-height-normal: var(--setting-line-height, 2) !important;
 }
 
 /* #endregion editor line height */
@@ -3751,12 +3753,47 @@ body.tag-outline {
   --tag-border-width: var(--size-2-1) !important;
   --tag-color: var(--setting-tag-color, var(--accent-active)) !important;
 }
+body.tag-outline :is(.cm-tag-obsidian, .tag[href="#obsidian"]) {
+  --tag-border-color: var(--setting-tag-obsidian, var(--color-purple)) !important;
+  --tag-color: var(--tag-border-color);
+}
+body.tag-outline :is(.cm-tag-todo, .tag[href="#todo"]) {
+  --tag-border-color: var(--setting-tag-todo, var(--color-green)) !important;
+  --tag-color: var(--tag-border-color);
+}
+body.tag-outline :is(.cm-tag-important, .tag[href="#important"]) {
+  --tag-border-color: var(--setting-tag-important, var(--color-red)) !important;
+  --tag-color: var(--tag-border-color);
+}
+body.tag-outline :is(.cm-tag-progress, .tag[href="#progress"]) {
+  --tag-border-color: var(--setting-tag-progress, var(--color-blue)) !important;
+  --tag-color: var(--tag-border-color);
+}
+body.tag-outline :is(.cm-tag-complete, .tag[href="#complete"]) {
+  --tag-border-color: var(--setting-tag-complete, var(--color-orange)) !important;
+  --tag-color: var(--tag-border-color);
+}
 
-body.tag-colored {
+body.tag-fill {
   --tag-background: var(--setting-tag-bg, var(--accent-active)) !important;
   --tag-background-hover: var(--tag-background);
   --tag-color: var(--text-on-accent);
   --tag-color-hover: var(--tag-color);
+}
+body.tag-fill :is(.cm-tag-obsidian, .tag[href="#obsidian"]) {
+  --tag-background: var(--setting-tag-obsidian, var(--color-purple)) !important ;
+}
+body.tag-fill :is(.cm-tag-todo, .tag[href="#todo"]) {
+  --tag-background: var(--setting-tag-todo, var(--color-green)) !important ;
+}
+body.tag-fill :is(.cm-tag-important, .tag[href="#important"]) {
+  --tag-background: var(--setting-tag-important, var(--color-red)) !important ;
+}
+body.tag-fill :is(.cm-tag-progress, .tag[href="#progress"]) {
+  --tag-background: var(--setting-tag-progress, var(--color-blue)) !important ;
+}
+body.tag-fill :is(.cm-tag-complete, .tag[href="#complete"]) {
+  --tag-background: var(--setting-tag-complete, var(--color-orange)) !important ;
 }
 
 /* #endregion tag */
@@ -5107,7 +5144,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.29");
+  content: var(--setting-header-title, "maple 0.7.30");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
