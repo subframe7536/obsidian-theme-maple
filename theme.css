@@ -508,7 +508,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.30'"
+        default: "'maple 0.7.31'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -4926,15 +4926,23 @@ body .mm-toolbar {
 }
 
 /* #endregion markmap */
+/* #region edit-toolbar */
+body.search-internal-enable :is(.cMenuToolbarpopover + .document-search-container.top,
+.document-search-container:has(+ #cMenuToolbarModalBar.top)) {
+  top: var(--size-4-12);
+  right: var(--size-2-2);
+}
+
+#cMenuToolbarModalBar.top {
+  margin: var(--size-2-2);
+}
+
+/* #endregion edit-toolbar */
 /* #endregion [plugins] */
 /* #region [workspace] */
 /* #region document-search */
 .obsidian-search-match-highlight {
   background-color: var(--background-secondary);
-}
-
-body.search-internal-enable.back-blur-title-bar .document-search-container {
-  top: calc(var(--header-height) + var(--size-4-4));
 }
 
 body.search-internal-enable .document-search-container {
@@ -4964,20 +4972,21 @@ body.search-internal-enable .document-search-container .document-search-close-bu
   position: relative;
   top: 0;
 }
-
-body.search-internal-enable.search-internal-disable-select-all .document-search-container .document-search-buttons button:nth-child(3) {
+body.search-internal-enable .document-search-container.back-blur-title-bar .document-search-container {
+  top: calc(var(--header-height) + var(--size-4-4));
+}
+body.search-internal-enable .document-search-container.search-internal-disable-select-all .document-search-container .document-search-buttons button:nth-child(3) {
   display: none;
 }
-
-body.search-internal-enable.search-internal-expand-on-focus :is(.document-search-input, .document-replace-input) {
+body.search-internal-enable .document-search-container.search-internal-expand-on-focus :is(.document-search-input, .document-replace-input) {
   margin-left: var(--size-2-3);
   width: 100px;
   transition: var(--animation);
 }
-body.search-internal-enable.search-internal-expand-on-focus .document-search-input:focus {
+body.search-internal-enable .document-search-container.search-internal-expand-on-focus .document-search-input:focus {
   width: 180px;
 }
-body.search-internal-enable.search-internal-expand-on-focus .document-replace-input:focus {
+body.search-internal-enable .document-search-container.search-internal-expand-on-focus .document-replace-input:focus {
   width: 220px;
 }
 
@@ -5144,7 +5153,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.30");
+  content: var(--setting-header-title, "maple 0.7.31");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
