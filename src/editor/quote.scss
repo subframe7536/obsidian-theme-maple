@@ -26,7 +26,7 @@ body.quote-theme {
     }
 
     :is(.HyperMD-quote, .cm-blockquote-border) :not(:first-child)::before {
-      transform: translateX(var(--size-4-1));
+      transform: translateX(var(--size-2-1));
     }
 
     .HyperMD-quote {
@@ -44,7 +44,7 @@ body.quote-theme {
       }
 
       &::before {
-        left: var(--blockquote-border-thickness);
+        left: calc(var(--blockquote-border-thickness) / 2);
         z-index: 10;
       }
 
@@ -147,23 +147,23 @@ body.quote-theme {
       padding-left: calc(var(--blockquote-border-thickness) * 2);
     }
   }
-}
+  $items: (
+  );
 
-$items: (
-);
+  @for $i from 2 through $level-max {
+    @for $j from 2 through $level-max {
+      $items: append($list: $items,
+          $val: '.HyperMD-quote-#{$j}:not(.cm-active)+.HyperMD-quote-#{$i} .cm-blockquote-border:nth-of-type(-n + #{$j})',
+          $separator: comma);
+    }
+  }
 
-@for $i from 2 through $level-max {
-  @for $j from 2 through $level-max {
-    $items: append($list: $items,
-        $val: '.HyperMD-quote-#{$j}:not(.cm-active)+.HyperMD-quote-#{$i} .cm-blockquote-border:nth-of-type(-n + #{$j})',
-        $separator: comma);
+  /* 引导线高度修复 */
+  :is(#{$items})::before {
+    top: calc(var(--blockquote-radius) * -2);
   }
 }
 
-/* 引导线高度修复 */
-:is(#{$items})::before {
-  top: calc(var(--blockquote-radius) * -2);
-}
 
 // 填补当前行的空隙
 // body:not(.line-active-disable) .markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout) {
