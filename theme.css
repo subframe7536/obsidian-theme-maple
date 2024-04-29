@@ -475,7 +475,7 @@ settings:
     -
         id: setting-message-fg
         title: foreground color
-        title.zh: 前景色
+        title.zh: 文字色
         type: variable-themed-color
         format: rgb-values
         opacity: false
@@ -508,7 +508,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.34'"
+        default: "'maple 0.7.35'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1284,7 +1284,7 @@ settings:
     -
         id: setting-table-header-text
         title: header text color
-        title.zh: 表头前景色
+        title.zh: 表头文字色
         type: variable-themed-color
         format: hex
         opacity: true
@@ -1302,7 +1302,7 @@ settings:
     -
         id: setting-table-line-bg
         title: alt line color
-        title.zh: 交错行背景
+        title.zh: 交错行背景色
         type: variable-themed-color
         format: hex
         opacity: true
@@ -1471,7 +1471,7 @@ settings:
     -
         id: setting-code-inline
         title: inline code color
-        title.zh: 行内代码前景色
+        title.zh: 行内代码文字色
         type: variable-themed-color
         format: hex
         opacity: false
@@ -3632,7 +3632,7 @@ body {
   --table-radius: var(--size-2-3);
   --table-btn-color: var(--text-on-accent);
   --table-btn-bg: var(--accent-inactive);
-  --table-header-bg: var(--setting-table-line-bg, var(--md-container-bg));
+  --table-header-bg: var(--setting-table-header-bg, var(--md-container-bg));
   --table-alt-line-bg: var(--setting-table-line-bg, var(--md-container-bg));
   --table-cell-vertical-alignment: middle;
 }
@@ -5165,7 +5165,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.34");
+  content: var(--setting-header-title, "maple 0.7.35");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
