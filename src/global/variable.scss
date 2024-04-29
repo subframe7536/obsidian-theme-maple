@@ -11,6 +11,7 @@
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
+  --background-modifier-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%), 20%);
   --background-modifier-border: var(--accent-inactive);
   --background-modifier-border-focus: var(--accent-inactive);
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
@@ -126,7 +127,7 @@ html #{utils.with-print('body.obsidian-app')} {
 }
 
 @mixin setup-custom($theme, $active-h, $active-s, $active-l, $inactive-h, $inactive-s, $inactive-l) {
-  #{utils.with-print("body.theme-light.color-use-custom:not(.color-active-default-#{$theme})")} {
+  #{utils.with-print(".theme-#{$theme}.color-use-custom:not(.color-active-default-#{$theme})")} {
     --accent-active: var(--setting-color-active-custom-light,
       hsl(calc(var(--accent-h) + #{$active-h}),
         calc(var(--accent-s) + #{$active-s}),
