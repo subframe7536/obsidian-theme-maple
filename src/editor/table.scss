@@ -2,7 +2,7 @@ body {
   --table-radius: var(--size-2-3);
   --table-btn-color: var(--text-on-accent);
   --table-btn-bg: var(--accent-inactive);
-  --table-header-bg: var(--setting-table-line-bg, var(--md-container-bg));
+  --table-header-bg: var(--setting-table-header-bg, var(--md-container-bg));
   --table-alt-line-bg: var(--setting-table-line-bg, var(--md-container-bg));
   --table-cell-vertical-alignment: middle;
 }

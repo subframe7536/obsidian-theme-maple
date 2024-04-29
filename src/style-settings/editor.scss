@@ -639,7 +639,7 @@ settings:
     -
         id: setting-table-header-text
         title: header text color
-        title.zh: 表头前景色
+        title.zh: 表头文字色
         type: variable-themed-color
         format: hex
         opacity: true
@@ -657,7 +657,7 @@ settings:
     -
         id: setting-table-line-bg
         title: alt line color
-        title.zh: 交错行背景
+        title.zh: 交错行背景色
         type: variable-themed-color
         format: hex
         opacity: true
@@ -826,7 +826,7 @@ settings:
     -
         id: setting-code-inline
         title: inline code color
-        title.zh: 行内代码前景色
+        title.zh: 行内代码文字色
         type: variable-themed-color
         format: hex
         opacity: false
