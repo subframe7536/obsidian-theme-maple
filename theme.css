@@ -508,7 +508,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.33'"
+        default: "'maple 0.7.34'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1996,6 +1996,7 @@ body.modal-item-animation .style-settings-heading:hover {
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
   --line-height-normal: 2.1;
+  --background-modifier-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%), 20%);
   --background-modifier-border: var(--accent-inactive);
   --background-modifier-border-focus: var(--accent-inactive);
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
@@ -2119,7 +2120,7 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --color-red-rgb: 255, 70, 70 !important;
 }
 
-:is(body.theme-light.color-use-custom:not(.color-active-default-light), body.theme-light.color-use-custom:not(.color-active-default-light) .print) {
+:is(.theme-light.color-use-custom:not(.color-active-default-light), .theme-light.color-use-custom:not(.color-active-default-light) .print) {
   --accent-active: var(--setting-color-active-custom-light,
     hsl(calc(var(--accent-h) + 60),
       calc(var(--accent-s) + -12%),
@@ -2130,7 +2131,7 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
       calc(var(--accent-l) + 20%)));
 }
 
-:is(body.theme-light.color-use-custom:not(.color-active-default-dark), body.theme-light.color-use-custom:not(.color-active-default-dark) .print) {
+:is(.theme-dark.color-use-custom:not(.color-active-default-dark), .theme-dark.color-use-custom:not(.color-active-default-dark) .print) {
   --accent-active: var(--setting-color-active-custom-light,
     hsl(calc(var(--accent-h) + 60),
       calc(var(--accent-s) + -12%),
@@ -5164,7 +5165,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.33");
+  content: var(--setting-header-title, "maple 0.7.34");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6381,9 +6382,6 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
   transform: none;
   filter: brightness(var(--folder-inactive));
   transition: var(--animation);
-}
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file {
-  --nav-item-background-hover: hsl(var(--accent-h), calc(var(--accent-s) * 1.2), min(var(--accent-l) * 1.5, 90%), 50%);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title-content {
   padding-left: var(--size-2-1);
