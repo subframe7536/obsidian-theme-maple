@@ -508,7 +508,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.35'"
+        default: "'maple 0.7.36'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2033,98 +2033,102 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 
 :is(.theme-light, .theme-light .print) {
   --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
-  --color-red-rgb: 210, 75, 75 !important;
+  --color-red-rgb: 210,
+  75,
+  75 !important;
   --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
-  --color-green-rgb: 94, 179, 77 !important;
+  --color-green-rgb: 94,
+  179,
+  77 !important;
   --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
-  --color-yellow-rgb: 226, 178, 18 !important;
+  --color-yellow-rgb: 226,
+  178,
+  18 !important;
   --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
-  --color-orange-rgb: 228, 163, 12 !important;
+  --color-orange-rgb: 228,
+  163,
+  12 !important;
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
-  --color-blue-rgb: 24, 168, 220 !important;
+  --color-blue-rgb: 24,
+  168,
+  220 !important;
   --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
-  --color-cyan-rgb: 54, 181, 134 !important;
+  --color-cyan-rgb: 54,
+  181,
+  134 !important;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity)) !important;
-  --color-purple-rgb: 128, 120, 186 !important;
+  --color-purple-rgb: 128,
+  120,
+  186 !important;
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
   --background-primary: hsl(var(--background-primary-hsl));
   --background-secondary-hsl: calc(var(--accent-h) - 18), calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(var(--accent-h), calc(var(--accent-s) * 1.2), min(var(--accent-l) * 2, 90%));
-  --accent-active: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) + 4%));
-  --accent-inactive: hsl(var(--accent-h),
-      calc(var(--accent-s) - 4%),
-      calc(var(--accent-l) + 24%));
+  --accent-active: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%));
+  --accent-inactive: hsl(var(--accent-h), calc(var(--accent-s) - 4%), calc(var(--accent-l) + 24%));
   --text-on-accent: #fafafa !important;
-  --frame-background-color: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) + 32%));
-  --frame-outline-color: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) + 23.5%));
-  --frame-muted-color: hsl(var(--accent-h),
-      calc(var(--accent-s) - 20%),
-      calc(var(--accent-l) - 10%));
-  --md-container-bg: var(--setting-md-container-bg, hsla(calc(var(--accent-h) + 8),
-        calc(var(--accent-s) / 1.2),
-        calc(100% - (100% - var(--accent-l)) / 6),
-        70%));
+  --frame-background-color: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 32%));
+  --frame-outline-color: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 23.5%));
+  --frame-muted-color: hsl(var(--accent-h), calc(var(--accent-s) - 20%), calc(var(--accent-l) - 10%));
+  --md-container-bg: var(--setting-md-container-bg, hsla(calc(var(--accent-h) + 8), calc(var(--accent-s) / 1.2), calc(100% - (100% - var(--accent-l)) / 6), 70%));
   --color-opacity: 1;
 }
 
 :is(.theme-dark, .theme-dark .print) {
   --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
-  --color-red-rgb: 244, 154, 154 !important;
+  --color-red-rgb: 244,
+  154,
+  154 !important;
   --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
-  --color-green-rgb: 154, 214, 164 !important;
+  --color-green-rgb: 154,
+  214,
+  164 !important;
   --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
-  --color-yellow-rgb: 244, 208, 154 !important;
+  --color-yellow-rgb: 244,
+  208,
+  154 !important;
   --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
-  --color-orange-rgb: 244, 184, 154 !important;
+  --color-orange-rgb: 244,
+  184,
+  154 !important;
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
-  --color-blue-rgb: 133, 194, 255 !important;
+  --color-blue-rgb: 133,
+  194,
+  255 !important;
   --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
-  --color-cyan-rgb: 168, 240, 240 !important;
+  --color-cyan-rgb: 168,
+  240,
+  240 !important;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity)) !important;
-  --color-purple-rgb: 197, 190, 249 !important;
+  --color-purple-rgb: 197,
+  190,
+  249 !important;
   --background-primary: hsl(var(--background-primary-hsl));
-  --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 4);
-  --background-secondary: hsl(calc(var(--accent-h) + 8),
-      calc(var(--accent-s) / 6),
-      calc(var(--accent-l) / 4));
-  --background-secondary-hsl: calc(var(--accent-h) + 8),
-    calc(var(--accent-s) / 6), calc(var(--accent-l) / 4);
-  --background-modifier-hover: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) / 3));
-  --accent-active: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) - 16%));
-  --accent-inactive: hsl(var(--accent-h),
-      calc(var(--accent-s) + 24%),
-      calc(var(--accent-l) - 32%));
-  --frame-background-color: hsl(var(--accent-h), 12%, 20%);
-  --frame-outline-color: hsl(calc(var(--accent-h) - 24),
-      calc(var(--accent-s) + 6%),
-      24%);
-  --frame-muted-color: hsl(var(--accent-h),
-      calc(var(--accent-s) - 20%),
-      calc(var(--accent-l) + 10%));
+  --background-primary-hsl: var(--accent-h), 5%, 5%;
+  --background-secondary: hsl(var(--background-secondary-hsl));
+  --background-secondary-hsl: calc(var(--accent-h) + 8), calc(var(--accent-s) / 6), calc(var(--accent-l) / 5);
+  --background-modifier-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) / 3));
+  --accent-active: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 16%));
+  --accent-inactive: hsl(var(--accent-h), calc(var(--accent-s) + 24%), calc(var(--accent-l) - 32%));
+  --frame-background-color: hsl(var(--accent-h), 12%, 16%);
+  --frame-outline-color: hsl(calc(var(--accent-h) - 24), calc(var(--accent-s) + 6%), 24%);
+  --frame-muted-color: hsl(var(--accent-h), calc(var(--accent-s) - 20%), calc(var(--accent-l) + 10%));
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
   --md-container-bg: var(--setting-md-container-bg, hsl(calc(var(--accent-h) - 4), 18%, 9%));
   --color-opacity: 0.85;
   --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
-  --color-red-rgb: 255, 70, 70 !important;
+  --color-red-rgb: 255,
+  70,
+  70 !important;
 }
 
 :is(.theme-light.color-use-custom:not(.color-active-default-light), .theme-light.color-use-custom:not(.color-active-default-light) .print) {
   --accent-active: var(--setting-color-active-custom-light,
-    hsl(calc(var(--accent-h) + 60),
-      calc(var(--accent-s) + -12%),
-      calc(var(--accent-l) + 4%)));
+     hsl(calc(var(--accent-h) + 60),
+       calc(var(--accent-s) + -12%),
+       calc(var(--accent-l) + 4%)));
   --accent-inactive: var(--setting-color-active-custom-dark,
     hsl(calc(var(--accent-h) + 60),
       calc(var(--accent-s) + -12%),
@@ -2133,9 +2137,9 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 
 :is(.theme-dark.color-use-custom:not(.color-active-default-dark), .theme-dark.color-use-custom:not(.color-active-default-dark) .print) {
   --accent-active: var(--setting-color-active-custom-light,
-    hsl(calc(var(--accent-h) + 60),
-      calc(var(--accent-s) + -12%),
-      calc(var(--accent-l) + -12%)));
+     hsl(calc(var(--accent-h) + 60),
+       calc(var(--accent-s) + -12%),
+       calc(var(--accent-l) + -12%)));
   --accent-inactive: var(--setting-color-active-custom-dark,
     hsl(calc(var(--accent-h) + 60),
       calc(var(--accent-s) + -12%),
@@ -2215,14 +2219,6 @@ body {
   color: var(--setting-text-normal, var(--text-normal));
 }
 
-.theme-light {
-  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 24%, 94%));
-}
-
-.theme-dark {
-  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 18%, 18%));
-}
-
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   padding-inline: var(--size-4-1);
 }
@@ -2236,6 +2232,14 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 
 /* #endregion editor line height */
 /* #region current line highlight */
+.theme-light {
+  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 24%, 94%));
+}
+
+.theme-dark {
+  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 18%, 14%));
+}
+
 body:is(:not(.css-settings-manager), .line-active-enable) .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: var(--active-line);
   border-radius: var(--size-2-3);
@@ -5165,7 +5169,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.35");
+  content: var(--setting-header-title, "maple 0.7.36");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5480,7 +5484,6 @@ body.tab-float .mod-root .workspace-tab-header {
 body.tab-float .mod-root .workspace-tab-header.is-active {
   --tab-radius-active: var(--size-2-3);
   box-shadow: var(--shadow-s);
-  border: 1px solid var(--color-base-30);
 }
 body.tab-float .mod-root .workspace-tab-header .workspace-tab-header-inner-close-button {
   padding: var(--size-2-1);
