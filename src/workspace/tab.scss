@@ -19,7 +19,6 @@ body.tab-float {
       &.is-active {
         --tab-radius-active: var(--size-2-3);
         box-shadow: var(--shadow-s);
-        border: 1px solid var(--color-base-30);
       }
 
       .workspace-tab-header-inner-close-button {

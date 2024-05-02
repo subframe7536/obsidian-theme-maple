@@ -2,7 +2,9 @@
 
 @mixin var-color($name, $r, $g, $b) {
   --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity)) !important;
-  --color-#{$name}-rgb: #{$r}, #{$g}, #{$b} !important;
+  --color-#{$name}-rgb: #{$r},
+  #{$g},
+  #{$b} !important;
 }
 
 #{utils.with-print('body')} {
@@ -39,10 +41,10 @@ html #{utils.with-print('body.obsidian-app')} {
 
 @mixin setup-hsl($theme, $h, $s, $l) {
   #{utils.with-print('body.color-use-custom.theme-#{$theme}.css-settings-manager')} {
-    --accent-h: var(--setting-accent-h-#{$theme}, #{$h}) !important;
-    --accent-s: var(--setting-accent-s-#{$theme}, #{$s}) !important;
-    --accent-l: var(--setting-accent-l-#{$theme}, #{$l}) !important;
-  }
+ --accent-h: var(--setting-accent-h-#{$theme}, #{$h}) !important;
+  --accent-s: var(--setting-accent-s-#{$theme}, #{$s}) !important;
+  --accent-l: var(--setting-accent-l-#{$theme}, #{$l}) !important;
+}
 }
 
 @include setup-hsl('light', 35, 32%, 58%);
@@ -62,27 +64,13 @@ html #{utils.with-print('body.obsidian-app')} {
   --background-secondary-hsl: calc(var(--accent-h) - 18), calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(var(--accent-h), calc(var(--accent-s) * 1.2), min(var(--accent-l) * 2, 90%));
-  --accent-active: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) + 4%));
-  --accent-inactive: hsl(var(--accent-h),
-      calc(var(--accent-s) - 4%),
-      calc(var(--accent-l) + 24%));
+  --accent-active: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%));
+  --accent-inactive: hsl(var(--accent-h), calc(var(--accent-s) - 4%), calc(var(--accent-l) + 24%));
   --text-on-accent: #fafafa !important;
-  --frame-background-color: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) + 32%));
-  --frame-outline-color: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) + 23.5%));
-  --frame-muted-color: hsl(var(--accent-h),
-      calc(var(--accent-s) - 20%),
-      calc(var(--accent-l) - 10%));
-
-  --md-container-bg: var(--setting-md-container-bg, hsla(calc(var(--accent-h) + 8),
-        calc(var(--accent-s) / 1.2),
-        calc(100% - (100% - var(--accent-l)) / 6),
-        70%));
+  --frame-background-color: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 32%));
+  --frame-outline-color: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 23.5%));
+  --frame-muted-color: hsl(var(--accent-h), calc(var(--accent-s) - 20%), calc(var(--accent-l) - 10%));
+  --md-container-bg: var(--setting-md-container-bg, hsla(calc(var(--accent-h) + 8), calc(var(--accent-s) / 1.2), calc(100% - (100% - var(--accent-l)) / 6), 70%));
   --color-opacity: 1;
 }
 
@@ -96,28 +84,15 @@ html #{utils.with-print('body.obsidian-app')} {
   @include var-color('purple', 197, 190, 249);
 
   --background-primary: hsl(var(--background-primary-hsl));
-  --background-primary-hsl: var(--accent-h), 4%, calc(var(--accent-l) / 4);
-  --background-secondary: hsl(calc(var(--accent-h) + 8),
-      calc(var(--accent-s) / 6),
-      calc(var(--accent-l) / 4));
-  --background-secondary-hsl: calc(var(--accent-h) + 8),
-    calc(var(--accent-s) / 6), calc(var(--accent-l) / 4);
-  --background-modifier-hover: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) / 3));
-  --accent-active: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) - 16%));
-  --accent-inactive: hsl(var(--accent-h),
-      calc(var(--accent-s) + 24%),
-      calc(var(--accent-l) - 32%));
-  --frame-background-color: hsl(var(--accent-h), 12%, 20%);
-  --frame-outline-color: hsl(calc(var(--accent-h) - 24),
-      calc(var(--accent-s) + 6%),
-      24%);
-  --frame-muted-color: hsl(var(--accent-h),
-      calc(var(--accent-s) - 20%),
-      calc(var(--accent-l) + 10%));
+  --background-primary-hsl: var(--accent-h), 5%, 5%;
+  --background-secondary: hsl(var(--background-secondary-hsl));
+  --background-secondary-hsl: calc(var(--accent-h) + 8), calc(var(--accent-s) / 6), calc(var(--accent-l) / 5);
+  --background-modifier-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) / 3));
+  --accent-active: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 16%));
+  --accent-inactive: hsl(var(--accent-h), calc(var(--accent-s) + 24%), calc(var(--accent-l) - 32%));
+  --frame-background-color: hsl(var(--accent-h), 12%, 16%);
+  --frame-outline-color: hsl(calc(var(--accent-h) - 24), calc(var(--accent-s) + 6%), 24%);
+  --frame-muted-color: hsl(var(--accent-h), calc(var(--accent-s) - 20%), calc(var(--accent-l) + 10%));
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
   --md-container-bg: var(--setting-md-container-bg, hsl(calc(var(--accent-h) - 4), 18%, 9%));
@@ -128,15 +103,15 @@ html #{utils.with-print('body.obsidian-app')} {
 
 @mixin setup-custom($theme, $active-h, $active-s, $active-l, $inactive-h, $inactive-s, $inactive-l) {
   #{utils.with-print(".theme-#{$theme}.color-use-custom:not(.color-active-default-#{$theme})")} {
-    --accent-active: var(--setting-color-active-custom-light,
-      hsl(calc(var(--accent-h) + #{$active-h}),
-        calc(var(--accent-s) + #{$active-s}),
-        calc(var(--accent-l) + #{$active-l})));
-    --accent-inactive: var(--setting-color-active-custom-dark,
-      hsl(calc(var(--accent-h) + #{$inactive-h}),
-        calc(var(--accent-s) + #{$inactive-s}),
-        calc(var(--accent-l) + #{$inactive-l})));
-  }
+ --accent-active: var(--setting-color-active-custom-light,
+    hsl(calc(var(--accent-h) + #{$active-h}),
+      calc(var(--accent-s) + #{$active-s}),
+      calc(var(--accent-l) + #{$active-l})));
+  --accent-inactive: var(--setting-color-active-custom-dark,
+    hsl(calc(var(--accent-h) + #{$inactive-h}),
+      calc(var(--accent-s) + #{$inactive-s}),
+      calc(var(--accent-l) + #{$inactive-l})));
+}
 }
 
 @include setup-custom('light', 60, -12%, 4%, 60, -12%, 20%);

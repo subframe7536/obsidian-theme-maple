@@ -79,13 +79,6 @@ body {
   color: var(--setting-text-normal, var(--text-normal));
 }
 
-.theme-light {
-  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 24%, 94%));
-}
-
-.theme-dark {
-  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 18%, 18%));
-}
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   padding-inline: var(--size-4-1);
@@ -103,6 +96,14 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 /* #endregion editor line height */
 
 /* #region current line highlight */
+
+.theme-light {
+  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 24%, 94%));
+}
+
+.theme-dark {
+  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 18%, 14%));
+}
 
 #{utils.with-no-plugin('.line-active-enable')} {
   .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
