@@ -1,14 +1,15 @@
-//<body>
-//  <div class="print theme-light">
-//    <div class="markdown-preview-view markdown-rendered">
-//      <ul class="contains-task-list">
-//      </ul>
-//      <p>
-//      </p>
-//      ...
-//    </div>
-//  </div>
-//</body>
+// structure:
+// <body>
+//   <div class="print">
+//     <div class="markdown-preview-view markdown-rendered show-properties">
+//     </div>
+//   </div>
+// </body>
+
+body.export-pdf-transparent .print {
+  --background-primary: transparent;
+}
+
 .print {
   code {
     white-space: pre-wrap !important;
@@ -26,9 +27,5 @@
     code {
       tab-size: 4;
     }
-  }
-
-  .markdown-preview-view table {
-    resize: initial;
   }
 }

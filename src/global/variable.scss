@@ -2,9 +2,7 @@
 
 @mixin var-color($name, $r, $g, $b) {
   --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity)) !important;
-  --color-#{$name}-rgb: #{$r},
-  #{$g},
-  #{$b} !important;
+  --color-#{$name}-rgb: #{$r},#{$g},#{$b} !important;
 }
 
 #{utils.with-print('body')} {

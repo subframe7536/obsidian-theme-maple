@@ -478,4 +478,16 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: export-pdf
+        title: PDF export
+        title.zh: PDF 导出
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: export-pdf-transparent
+        title: transparent page background color
+        title.zh: 透明页面背景色
+        type: class-toggle
 */
