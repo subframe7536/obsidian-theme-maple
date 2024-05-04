@@ -508,7 +508,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.36'"
+        default: "'maple 0.7.37'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -642,6 +642,18 @@ settings:
         opacity: true
         default-light: '#'
         default-dark: '#'
+    -
+        id: export-pdf
+        title: PDF export
+        title.zh: PDF 导出
+        type: heading
+        collapsed: true
+        level: 2
+    -
+        id: export-pdf-transparent
+        title: transparent page background color
+        title.zh: 透明页面背景色
+        type: class-toggle
 */
 /* @settings
 
@@ -1630,7 +1642,7 @@ settings:
     -
         id: canvas
         title: canvas
-        title.zh: 画布 canvas
+        title.zh: 白板
         type: heading
         collapsed: true
         level: 2
@@ -1662,8 +1674,8 @@ settings:
         default: true
     -
         id: prop
-        title: property
-        title.zh: 属性 property
+        title: properties
+        title.zh: 文档属性
         type: heading
         collapsed: true
         level: 2
@@ -2033,33 +2045,19 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 
 :is(.theme-light, .theme-light .print) {
   --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
-  --color-red-rgb: 210,
-  75,
-  75 !important;
+  --color-red-rgb: 210,75,75 !important;
   --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
-  --color-green-rgb: 94,
-  179,
-  77 !important;
+  --color-green-rgb: 94,179,77 !important;
   --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
-  --color-yellow-rgb: 226,
-  178,
-  18 !important;
+  --color-yellow-rgb: 226,178,18 !important;
   --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
-  --color-orange-rgb: 228,
-  163,
-  12 !important;
+  --color-orange-rgb: 228,163,12 !important;
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
-  --color-blue-rgb: 24,
-  168,
-  220 !important;
+  --color-blue-rgb: 24,168,220 !important;
   --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
-  --color-cyan-rgb: 54,
-  181,
-  134 !important;
+  --color-cyan-rgb: 54,181,134 !important;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity)) !important;
-  --color-purple-rgb: 128,
-  120,
-  186 !important;
+  --color-purple-rgb: 128,120,186 !important;
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
   --background-primary: hsl(var(--background-primary-hsl));
   --background-secondary-hsl: calc(var(--accent-h) - 18), calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
@@ -2077,33 +2075,19 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 
 :is(.theme-dark, .theme-dark .print) {
   --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
-  --color-red-rgb: 244,
-  154,
-  154 !important;
+  --color-red-rgb: 244,154,154 !important;
   --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
-  --color-green-rgb: 154,
-  214,
-  164 !important;
+  --color-green-rgb: 154,214,164 !important;
   --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
-  --color-yellow-rgb: 244,
-  208,
-  154 !important;
+  --color-yellow-rgb: 244,208,154 !important;
   --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
-  --color-orange-rgb: 244,
-  184,
-  154 !important;
+  --color-orange-rgb: 244,184,154 !important;
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
-  --color-blue-rgb: 133,
-  194,
-  255 !important;
+  --color-blue-rgb: 133,194,255 !important;
   --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
-  --color-cyan-rgb: 168,
-  240,
-  240 !important;
+  --color-cyan-rgb: 168,240,240 !important;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity)) !important;
-  --color-purple-rgb: 197,
-  190,
-  249 !important;
+  --color-purple-rgb: 197,190,249 !important;
   --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-hsl: var(--accent-h), 5%, 5%;
   --background-secondary: hsl(var(--background-secondary-hsl));
@@ -2118,10 +2102,6 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
   --text-on-accent: #eaeaea !important;
   --md-container-bg: var(--setting-md-container-bg, hsl(calc(var(--accent-h) - 4), 18%, 9%));
   --color-opacity: 0.85;
-  --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
-  --color-red-rgb: 255,
-  70,
-  70 !important;
 }
 
 :is(.theme-light.color-use-custom:not(.color-active-default-light), .theme-light.color-use-custom:not(.color-active-default-light) .print) {
@@ -2233,7 +2213,7 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 /* #endregion editor line height */
 /* #region current line highlight */
 .theme-light {
-  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 24%, 94%));
+  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 24%, 92%));
 }
 
 .theme-dark {
@@ -5169,7 +5149,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.36");
+  content: var(--setting-header-title, "maple 0.7.37");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5700,6 +5680,10 @@ body.titlebar-colorful :is(.document-search-close-button, .modal-close-button)::
 
 /* #endregion titlebar */
 /* #region print */
+body.export-pdf-transparent .print {
+  --background-primary: transparent;
+}
+
 .print code {
   white-space: pre-wrap !important;
 }
@@ -5711,9 +5695,6 @@ body.titlebar-colorful :is(.document-search-close-button, .modal-close-button)::
 }
 .print pre code {
   tab-size: 4;
-}
-.print .markdown-preview-view table {
-  resize: initial;
 }
 
 /* #endregion print */
