@@ -1,6 +1,5 @@
 import { spawn } from 'child_process'
-import { basename, extname, dirname, resolve, join } from 'path'
-import { fileURLToPath } from 'url'
+import { basename, extname, resolve, join } from 'path'
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import which from 'which'
 

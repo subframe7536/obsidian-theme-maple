@@ -1,5 +1,5 @@
-import packageJson from '../package.json' assert { type: 'json' }
-import manifestJson from '../manifest.json' assert { type: 'json' }
+import packageJson from '../package.json' with { type: 'json' }
+import manifestJson from '../manifest.json' with { type: 'json' }
 import { readFileSync, writeFileSync } from "fs";
 
 const currentVersion = manifestJson.version
