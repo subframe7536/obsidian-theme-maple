@@ -3160,7 +3160,7 @@ body.list-enable .markdown-source-view.mod-cm6 .cm-indent::before {
   transform: translateX(10px);
 }
 body.list-enable .markdown-source-view.mod-cm6 .collapse-indicator {
-  padding-right: 1.25rem !important;
+  padding-right: 1.4rem !important;
   transform: translateX(1.25rem) !important;
 }
 body.list-enable li .list-collapse-indicator {
