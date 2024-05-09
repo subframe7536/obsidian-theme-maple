@@ -357,19 +357,6 @@ settings:
         type: class-toggle
         default: true
     -
-        id: search-internal-expand-on-focus
-        title: search/replace input expand on search/replace input focus
-        title.zh: 文档内搜索框获得焦点时扩大宽度
-        type: class-toggle
-    -
-        id: search-internal-disable-select-all
-        title: hide select all button
-        description: display it maybe seems to be too long
-        title.zh: 文档内搜索框隐藏选择全部按钮
-        description.zh: 显示会过长
-        type: class-toggle
-        default: true
-    -
         id: tab
         title: tab
         title.zh: 标签页
@@ -508,7 +495,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.37'"
+        default: "'maple 0.7.38'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -3173,7 +3160,8 @@ body.list-enable .markdown-source-view.mod-cm6 .cm-indent::before {
   transform: translateX(10px);
 }
 body.list-enable .markdown-source-view.mod-cm6 .collapse-indicator {
-  right: 0.15rem !important;
+  padding-right: 1.25rem !important;
+  transform: translateX(1.25rem) !important;
 }
 body.list-enable li .list-collapse-indicator {
   margin-inline-start: 0 !important;
@@ -3750,23 +3738,23 @@ body.tag-outline {
   --tag-color: var(--setting-tag-color, var(--accent-active)) !important;
 }
 body.tag-outline :is(.cm-tag-obsidian, .tag[href="#obsidian"]) {
-  --tag-border-color: var(--setting-tag-obsidian, var(--color-purple)) !important;
+  --tag-border-color: var(--color-purple) !important;
   --tag-color: var(--tag-border-color);
 }
 body.tag-outline :is(.cm-tag-todo, .tag[href="#todo"]) {
-  --tag-border-color: var(--setting-tag-todo, var(--color-green)) !important;
+  --tag-border-color: var(--color-green) !important;
   --tag-color: var(--tag-border-color);
 }
 body.tag-outline :is(.cm-tag-important, .tag[href="#important"]) {
-  --tag-border-color: var(--setting-tag-important, var(--color-red)) !important;
+  --tag-border-color: var(--color-red) !important;
   --tag-color: var(--tag-border-color);
 }
 body.tag-outline :is(.cm-tag-progress, .tag[href="#progress"]) {
-  --tag-border-color: var(--setting-tag-progress, var(--color-blue)) !important;
+  --tag-border-color: var(--color-blue) !important;
   --tag-color: var(--tag-border-color);
 }
 body.tag-outline :is(.cm-tag-complete, .tag[href="#complete"]) {
-  --tag-border-color: var(--setting-tag-complete, var(--color-orange)) !important;
+  --tag-border-color: var(--color-orange) !important;
   --tag-color: var(--tag-border-color);
 }
 
@@ -3777,19 +3765,19 @@ body.tag-fill {
   --tag-color-hover: var(--tag-color);
 }
 body.tag-fill :is(.cm-tag-obsidian, .tag[href="#obsidian"]) {
-  --tag-background: var(--setting-tag-obsidian, var(--color-purple)) !important ;
+  --tag-background: var(--color-purple) !important ;
 }
 body.tag-fill :is(.cm-tag-todo, .tag[href="#todo"]) {
-  --tag-background: var(--setting-tag-todo, var(--color-green)) !important ;
+  --tag-background: var(--color-green) !important ;
 }
 body.tag-fill :is(.cm-tag-important, .tag[href="#important"]) {
-  --tag-background: var(--setting-tag-important, var(--color-red)) !important ;
+  --tag-background: var(--color-red) !important ;
 }
 body.tag-fill :is(.cm-tag-progress, .tag[href="#progress"]) {
-  --tag-background: var(--setting-tag-progress, var(--color-blue)) !important ;
+  --tag-background: var(--color-blue) !important ;
 }
 body.tag-fill :is(.cm-tag-complete, .tag[href="#complete"]) {
-  --tag-background: var(--setting-tag-complete, var(--color-orange)) !important ;
+  --tag-background: var(--color-orange) !important ;
 }
 
 /* #endregion tag */
@@ -4946,44 +4934,44 @@ body.search-internal-enable .document-search-container {
   position: absolute;
   top: var(--size-4-2);
   right: var(--size-4-4);
-  border-radius: var(--size-4-2);
-  padding: var(--size-2-3);
-  padding-left: 0;
+  border-radius: var(--radius-m);
   height: fit-content;
   border: var(--size-2-1) solid var(--frame-outline-color);
   box-shadow: var(--shadow-s);
   margin: 0;
 }
-body.search-internal-enable .document-search-container :is(.document-search, .document-replace, .document-replace-buttons, .document-search-buttons) {
-  gap: var(--size-2-3);
+body.search-internal-enable .document-search-container .document-search-buttons .document-search-button {
+  font-size: 0;
+  background-color: transparent !important;
+  color: var(--text-muted);
+  cursor: var(--cursor);
+  height: var(--input-height);
+  width: var(--input-height);
+  padding: var(--size-4-1);
+  box-shadow: unset !important;
 }
-body.search-internal-enable .document-search-container :is(.document-search, .document-replace) {
-  align-items: center;
-  padding: 0;
+body.search-internal-enable .document-search-container .document-search-buttons .document-search-button:hover {
+  background-color: var(--background-modifier-hover) !important;
+  color: var(--text-normal);
 }
-body.search-internal-enable .document-search-container :is(.document-search-input, .document-replace-input) {
-  margin-left: var(--size-2-3);
+body.search-internal-enable .document-search-container .document-search-buttons button::before {
+  content: " " !important;
+  display: block;
+  height: var(--size-4-6);
+  width: var(--size-4-6);
+  background-color: currentColor;
+}
+body.search-internal-enable .document-search-container .document-search-buttons button:nth-child(1)::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M12 18V6m0 0-6 6m6-6 6 6'/%3e%3c/svg%3e");
+}
+body.search-internal-enable .document-search-container .document-search-buttons button:nth-child(2)::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M12 6v12m0 0 6-6m-6 6-6-6'/%3e%3c/svg%3e");
+}
+body.search-internal-enable .document-search-container .document-search-buttons button:nth-child(3)::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='black' d='M5.647 17H3.819l3.328-9.455h2.114L12.595 17h-1.829L8.241 9.484h-.074L5.647 17Zm.06-3.707h4.986v1.376H5.707v-1.376Zm9.73-5.748V17h-1.671V7.545h1.671Zm3.39 0V17h-1.672V7.545h1.672Z'/%3e%3c/svg%3e");
 }
 body.search-internal-enable .document-search-container .document-search-close-button {
-  position: relative;
   top: 0;
-}
-body.search-internal-enable .document-search-container.back-blur-title-bar .document-search-container {
-  top: calc(var(--header-height) + var(--size-4-4));
-}
-body.search-internal-enable .document-search-container.search-internal-disable-select-all .document-search-container .document-search-buttons button:nth-child(3) {
-  display: none;
-}
-body.search-internal-enable .document-search-container.search-internal-expand-on-focus :is(.document-search-input, .document-replace-input) {
-  margin-left: var(--size-2-3);
-  width: 100px;
-  transition: var(--animation);
-}
-body.search-internal-enable .document-search-container.search-internal-expand-on-focus .document-search-input:focus {
-  width: 180px;
-}
-body.search-internal-enable .document-search-container.search-internal-expand-on-focus .document-replace-input:focus {
-  width: 220px;
 }
 
 .markdown-source-view,
@@ -5019,17 +5007,15 @@ body {
   height: var(--input-height);
   width: var(--input-height);
   transition: var(--animation);
+  padding: 3px;
 }
 :is(.document-search-close-button, .modal-close-button)::before {
-  content: "";
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30"><g transform="matrix(0.7071067094802856,-0.7071067094802856,0.7071067094802856,0.7071067094802856,-3.5424977926304564,6.277729735826142)"><rect x="5.806640625" y="7.4150390625" width="2" height="24" rx="1" fill="currentColor"/></g><g style="mix-blend-mode:passthrough" transform="matrix(0.7071067094802856,0.7071067094802856,-0.7071067094802856,0.7071067094802856,10.914602712669875,-14.349200366239529)"><rect x="22.7783203125" y="6.00048828125" width="2" height="24" rx="1" fill="currentColor"/></g></svg>');
-  position: absolute;
-  background-color: var(--text-normal);
-  width: calc(var(--input-height) * 2 / 3);
-  height: calc(var(--input-height) * 2 / 3);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  content: " " !important;
+  display: block;
+  height: var(--size-4-6);
+  width: var(--size-4-6);
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M17.25 17.25 6.75 6.75m10.5 0-10.5 10.5'/%3e%3c/svg%3e");
 }
 :is(.document-search-close-button, .modal-close-button):hover {
   background-color: var(--frame-outline-color);
@@ -5144,12 +5130,13 @@ body.modal-toggle-thin .checkbox-container.is-enabled:active::after {
 
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container {
   --modal-header-height: var(--size-4-12);
+  --top-search-right: var(--size-4-12);
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.37");
+  content: var(--setting-header-title, "maple 0.7.38");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5208,7 +5195,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:has(.search-input-container.mod-hotkey) .setting-item-control {
   top: calc(var(--size-2-1) * -1);
   transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
-  right: var(--size-4-16);
+  right: var(--top-search-right);
   position: absolute;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:has(.search-input-container.mod-hotkey) + .setting-filter-container {
@@ -5225,19 +5212,19 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   position: absolute;
   top: calc(var(--size-2-1) * -1);
   transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
-  right: var(--size-4-16);
+  right: var(--top-search-right);
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item-name:has(.search-input-container) {
   position: absolute;
   top: calc(var(--size-2-1) * -1);
   transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
-  right: var(--size-4-16);
+  right: var(--top-search-right);
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type=search]) {
   position: absolute;
   top: calc(var(--size-2-1) * -1);
   transform: translateY(calc(var(--modal-header-height) / 2 - var(--input-height) + var(--size-4-1)));
-  right: var(--size-4-16);
+  right: var(--top-search-right);
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type=search]) .setting-item-info {
   display: none;
