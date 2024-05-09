@@ -29,27 +29,27 @@ body.tag-outline {
   --tag-color: var(--setting-tag-color, var(--accent-active)) !important;
 
   :is(.cm-tag-obsidian, .tag[href='#obsidian']) {
-    --tag-border-color: var(--setting-tag-obsidian, var(--color-purple)) !important;
+    --tag-border-color: var(--color-purple) !important;
     --tag-color: var(--tag-border-color);
   }
 
   :is(.cm-tag-todo, .tag[href='#todo']) {
-    --tag-border-color: var(--setting-tag-todo, var(--color-green)) !important;
+    --tag-border-color: var(--color-green) !important;
     --tag-color: var(--tag-border-color);
   }
 
   :is(.cm-tag-important, .tag[href='#important']) {
-    --tag-border-color: var(--setting-tag-important, var(--color-red)) !important;
+    --tag-border-color: var(--color-red) !important;
     --tag-color: var(--tag-border-color);
   }
 
   :is(.cm-tag-progress, .tag[href='#progress']) {
-    --tag-border-color: var(--setting-tag-progress, var(--color-blue)) !important;
+    --tag-border-color: var(--color-blue) !important;
     --tag-color: var(--tag-border-color);
   }
 
   :is(.cm-tag-complete, .tag[href='#complete']) {
-    --tag-border-color: var(--setting-tag-complete, var(--color-orange)) !important;
+    --tag-border-color: var(--color-orange) !important;
     --tag-color: var(--tag-border-color);
   }
 }
@@ -61,22 +61,22 @@ body.tag-fill {
   --tag-color-hover: var(--tag-color);
 
   :is(.cm-tag-obsidian, .tag[href='#obsidian']) {
-    --tag-background: var(--setting-tag-obsidian, var(--color-purple)) !important
+    --tag-background: var(--color-purple) !important
   }
 
   :is(.cm-tag-todo, .tag[href='#todo']) {
-    --tag-background: var(--setting-tag-todo, var(--color-green)) !important
+    --tag-background: var(--color-green) !important
   }
 
   :is(.cm-tag-important, .tag[href='#important']) {
-    --tag-background: var(--setting-tag-important, var(--color-red)) !important
+    --tag-background: var(--color-red) !important
   }
 
   :is(.cm-tag-progress, .tag[href='#progress']) {
-    --tag-background: var(--setting-tag-progress, var(--color-blue)) !important
+    --tag-background: var(--color-blue) !important
   }
 
   :is(.cm-tag-complete, .tag[href='#complete']) {
-    --tag-background: var(--setting-tag-complete, var(--color-orange)) !important
+    --tag-background: var(--color-orange) !important
   }
 }
