@@ -42,7 +42,8 @@ body.list-enable {
     }
 
     .collapse-indicator {
-      right: 0.15rem !important;
+      padding-right: 1.25rem !important;
+      transform: translateX(1.25rem) !important;
     }
   }
 
