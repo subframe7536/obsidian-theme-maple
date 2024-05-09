@@ -193,19 +193,6 @@ settings:
         type: class-toggle
         default: true
     -
-        id: search-internal-expand-on-focus
-        title: search/replace input expand on search/replace input focus
-        title.zh: 文档内搜索框获得焦点时扩大宽度
-        type: class-toggle
-    -
-        id: search-internal-disable-select-all
-        title: hide select all button
-        description: display it maybe seems to be too long
-        title.zh: 文档内搜索框隐藏选择全部按钮
-        description.zh: 显示会过长
-        type: class-toggle
-        default: true
-    -
         id: tab
         title: tab
         title.zh: 标签页
