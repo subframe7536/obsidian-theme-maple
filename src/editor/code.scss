@@ -14,7 +14,7 @@
   --code-value: var(--color-orange);
   --code-comment: var(--text-faint);
   --code-normal: var(--code-preview-base);
-  --code-bg-radius: var(--setting-code-bg-radius, var(--radius-l));
+  --code-bg-radius: var(--radius-m);
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
 }
 
@@ -371,6 +371,7 @@ body .markdown-rendered pre {
   }
 }
 
+// todo))
 .code-preview-bg {
   --code-bg-s: 50%;
   --code-bg-l: 85%;
@@ -379,7 +380,7 @@ body .markdown-rendered pre {
     div:has(>pre:not([class*="frontmatter"])) {
       padding: var(--size-4-4) var(--size-4-8);
       margin-block: var(--size-4-4);
-      border-radius: var(--radius-l);
+      border-radius: var(--setting-code-bg-radius);
       background-image: var(--setting-code-bg-outer, linear-gradient(-30deg,
             hsl(calc(var(--accent-h) + 145), var(--code-bg-s), var(--code-bg-l)),
             hsl(calc(var(--accent-h) + 115), var(--code-bg-s), var(--code-bg-l)),

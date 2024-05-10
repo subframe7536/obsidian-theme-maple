@@ -90,7 +90,7 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 
 .workspace-split.mod-root,
 .markdown-rendered {
-  --line-height-normal: var(--setting-line-height, 2) !important;
+  --line-height-normal: var(--setting-line-height, 1.8) !important;
 }
 
 /* #endregion editor line height */

@@ -6,11 +6,10 @@
 }
 
 #{utils.with-print('body')} {
-
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
-  --line-height-normal: 2.1;
+  --line-height-normal: 1.8;
   --background-modifier-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%), 20%);
   --background-modifier-border: var(--accent-inactive);
   --background-modifier-border-focus: var(--accent-inactive);
