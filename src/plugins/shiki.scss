@@ -1,0 +1,15 @@
+body {
+  --shiki-code-background: var(--setting-code-bg, var(--md-container-bg));
+  --shiki-code-function: var(--color-orange);
+  --shiki-code-important: var(--color-purple);
+  --shiki-code-keyword: var(--color-purple);
+  --shiki-code-property: var(--color-orange);
+  --shiki-code-punctuation: var(--color-blue);
+  --shiki-code-string: var(--color-green);
+  --shiki-code-tag: var(--color-red);
+  --shiki-code-value: var(--color-orange);
+  --shiki-code-comment: var(--text-faint);
+  --shiki-code-normal: var(--code-preview-base);
+  --shiki-code-bg-radius: var(--setting-code-bg-radius, var(--radius-l));
+  --shiki-code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
+}
