@@ -495,7 +495,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.39'"
+        default: "'maple 0.7.40'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -3129,7 +3129,7 @@ body.list-enable {
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
   --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 }
-body.list-enable .cm-formatting-list-ol,
+body.list-enable .cm-formatting-list,
 body.list-enable li::marker {
   font-family: var(--font-monospace);
 }
@@ -4912,6 +4912,24 @@ body.search-internal-enable :is(.cMenuToolbarpopover + .document-search-containe
 }
 
 /* #endregion edit-toolbar */
+/* #region shiki */
+body {
+  --shiki-code-background: var(--setting-code-bg, var(--md-container-bg));
+  --shiki-code-function: var(--color-orange);
+  --shiki-code-important: var(--color-purple);
+  --shiki-code-keyword: var(--color-purple);
+  --shiki-code-property: var(--color-orange);
+  --shiki-code-punctuation: var(--color-blue);
+  --shiki-code-string: var(--color-green);
+  --shiki-code-tag: var(--color-red);
+  --shiki-code-value: var(--color-orange);
+  --shiki-code-comment: var(--text-faint);
+  --shiki-code-normal: var(--code-preview-base);
+  --shiki-code-bg-radius: var(--setting-code-bg-radius, var(--radius-l));
+  --shiki-code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
+}
+
+/* #endregion shiki */
 /* #endregion [plugins] */
 /* #region [workspace] */
 /* #region document-search */
@@ -5126,7 +5144,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.39");
+  content: var(--setting-header-title, "maple 0.7.40");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5519,8 +5537,7 @@ body.tab-title-bar-round.tab-title-bar-shadow .workspace-leaf.mod-active .worksp
 }
 
 /* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body.tab-slide-up .workspace-split .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=pdf]) .view-content,
-.workspace-leaf-content:not(:has(.view-content)) {
+body.tab-slide-up :is(.workspace-split .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=pdf]) .view-content, .workspace-leaf-content:not(:has(.view-content))) {
   animation: slide-up var(--animation) forwards;
 }
 
