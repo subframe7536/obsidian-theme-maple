@@ -1,4 +1,6 @@
-body.embed-enable {
+@use '../utils.scss';
+
+#{utils.with-no-plugin('.embed-enable')} {
 
   .internal-embed.is-loaded:not(.image-embed) {
     --embed-background: var(--background-primary);
