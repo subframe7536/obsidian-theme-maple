@@ -146,10 +146,11 @@ body.list-enable {
   }
 
   .callout-content ul {
-    --list-indent: 1.6em;
-
     &.contains-task-list {
       --list-indent: 0.4em;
+    }
+    .task-list-item {
+      margin-inline-start: var(--size-4-2);
     }
 
     &::before {
@@ -160,7 +161,7 @@ body.list-enable {
       --list-marker-color: transparent !important;
     }
 
-    li::before {
+    li:not(.task-list-item)::before {
       content: '';
       position: absolute;
       width: var(--list-bullet-size);
