@@ -54,13 +54,13 @@ body.tab-float {
 }
 
 .view-header-title-parent {
-  &:empty+.view-header-title {
+  &:empty + .view-header-title {
     max-width: 70%;
     text-align: center;
     cursor: text;
   }
 
-  &:not(:empty)+.view-header-title:after {
+  &:not(:empty) + .view-header-title:after {
     content: "";
     width: 20%;
     inset-block: 0;
@@ -123,8 +123,7 @@ body.tab-title-bar-round {
 }
 
 /* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body.tab-slide-up .workspace-split .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type='pdf']) .view-content,
-.workspace-leaf-content:not(:has(.view-content)) {
+body.tab-slide-up :is(.workspace-split .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type='pdf']) .view-content, .workspace-leaf-content:not(:has(.view-content))) {
   animation: slide-up var(--animation) forwards;
 }
 
