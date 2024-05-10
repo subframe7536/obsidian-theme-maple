@@ -12,7 +12,7 @@ body.list-enable {
   --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
 
-  .cm-formatting-list-ol,
+  .cm-formatting-list,
   li::marker {
     font-family: var(--font-monospace);
   }
