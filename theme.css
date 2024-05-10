@@ -495,7 +495,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.7.40'"
+        default: "'maple 0.7.41'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2841,13 +2841,13 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
 
 /* #endregion code */
 /* #region embed */
-body.embed-enable .internal-embed.is-loaded:not(.image-embed) {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) {
   --embed-background: var(--background-primary);
   --embed-max-height: initial;
   transition: var(--animation);
   padding: var(--size-4-1) var(--size-2-1) !important;
 }
-body.embed-enable .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link) {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link) {
   padding: var(--size-2-3);
   border-radius: var(--radius-m);
   transition: var(--animation);
@@ -2855,46 +2855,46 @@ body.embed-enable .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embe
   top: 0.2rem;
   right: 0.2rem;
 }
-body.embed-enable .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link):hover {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link):hover {
   background-color: var(--nav-item-background-hover);
 }
-body.embed-enable .internal-embed.is-loaded:not(.image-embed).mod-empty {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed).mod-empty {
   border: var(--size-2-1) dotted var(--accent-inactive);
 }
-body.embed-enable .internal-embed.is-loaded:not(.image-embed) .markdown-embed-title {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) .markdown-embed-title {
   text-align: center;
   line-height: 2.8;
 }
-body.embed-enable .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) {
   border-radius: var(--radius-xl);
   transition: var(--animation);
   margin-block: var(--size-4-1) !important;
   padding: 0;
   border: var(--block-outline-width) solid var(--accent-inactive);
 }
-body.embed-enable .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) .markdown-preview-view {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) .markdown-preview-view {
   padding: calc(var(--font-text-size) * 1.2) calc(var(--font-text-size) * 1.5);
   position: initial;
 }
-body.embed-enable .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) .markdown-preview-view .markdown-preview-section {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) .markdown-preview-view .markdown-preview-section {
   min-height: fit-content !important;
 }
-body.embed-enable .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed):hover {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed):hover {
   border-color: var(--accent-active);
 }
-body.embed-enable .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) .frontmatter + div {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) .frontmatter + div {
   display: none;
 }
-body.embed-enable .internal-embed.is-loaded:not(.image-embed) svg.link {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) svg.link {
   transform: rotate(90deg);
 }
-body.embed-enable.scrollbar-gutter-reserve.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
+body:is(:not(.css-settings-manager), .embed-enable).scrollbar-gutter-reserve.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
   right: var(--size-4-3);
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .obsidian-metatable {
+body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .obsidian-metatable {
   display: none;
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
+body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
   position: absolute;
   right: var(--size-4-9);
   top: var(--size-4-2);
@@ -2902,15 +2902,15 @@ body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"])
   opacity: 0;
   transition: var(--animation);
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) * {
+body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) * {
   font-size: 1rem;
   cursor: pointer;
   line-height: 1rem;
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) *::after {
+body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) *::after {
   content: none;
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-title {
+body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-title {
   opacity: 0;
   position: absolute;
   z-index: 99;
@@ -2926,14 +2926,14 @@ body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"])
   transition: var(--animation);
   cursor: pointer;
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
+body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
   opacity: 1;
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover :is(.markdown-embed-title, .markdown-embed-link, .file-embed-link:hover svg) {
+body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover :is(.markdown-embed-title, .markdown-embed-link, .file-embed-link:hover svg) {
   opacity: 1;
   color: var(--text-normal);
 }
-body.embed-enable.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) :is(.markdown-embed, .file-embed) .markdown-preview-view {
+body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) :is(.markdown-embed, .file-embed) .markdown-preview-view {
   padding: calc(var(--font-text-size) * 1.5);
   padding-bottom: calc(var(--font-text-size) * 1.2);
 }
@@ -3116,12 +3116,7 @@ body.link-click-to-edit-in-live-preview :is(.cm-url, .cm-link, .cm-hmd-internal-
 
 /* #endregion link */
 /* #region list */
-.cm-formatting-list-ul,
-.cm-formatting-list-ol {
-  padding-inline-start: 0.4rem;
-}
-
-body.list-enable {
+body:is(:not(.css-settings-manager), .list-enable) {
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
   --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
   --checkbox-marker-color: var(--text-on-accent);
@@ -3129,115 +3124,118 @@ body.list-enable {
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
   --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 }
-body.list-enable .cm-formatting-list,
-body.list-enable li::marker {
+body:is(:not(.css-settings-manager), .list-enable) .cm-formatting-list {
+  padding-inline-start: 0.25rem;
+}
+body:is(:not(.css-settings-manager), .list-enable) .cm-formatting-list,
+body:is(:not(.css-settings-manager), .list-enable) li::marker {
   font-family: var(--font-monospace);
 }
-body.list-enable :is(.markdown-source-view, .markdown-preview-view) .task-list-item-checkbox {
+body:is(:not(.css-settings-manager), .list-enable) :is(.markdown-source-view, .markdown-preview-view) .task-list-item-checkbox {
   border-width: var(--size-2-1);
 }
-body.list-enable .markdown-source-view .task-list-item-checkbox {
-  margin-inline-start: 0.7rem;
+body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .task-list-item-checkbox {
+  margin-inline-start: 0.3rem;
   margin-inline-end: var(--size-4-1);
 }
-body.list-enable .markdown-preview-view .task-list-item-checkbox {
+body:is(:not(.css-settings-manager), .list-enable) .markdown-preview-view .task-list-item-checkbox {
   margin-inline-start: calc(var(--checkbox-size) * -1.3);
 }
-body.list-enable .collapse-indicator {
+body:is(:not(.css-settings-manager), .list-enable) .collapse-indicator {
   --cursor: pointer;
 }
-body.list-enable .markdown-source-view.mod-cm6 .cm-indent::before {
-  transform: translateX(10px);
+body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 .cm-indent::before {
+  transform: translateX(0.45rem);
 }
-body.list-enable .markdown-source-view.mod-cm6 .collapse-indicator {
-  padding-right: 1.4rem !important;
-  transform: translateX(1.25rem) !important;
+body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 .collapse-indicator {
+  padding-right: 1.6rem !important;
+  transform: translateX(1.3rem) !important;
 }
-body.list-enable li .list-collapse-indicator {
+body:is(:not(.css-settings-manager), .list-enable) li .list-collapse-indicator {
   margin-inline-start: 0 !important;
   padding-inline-end: 1.2rem !important;
   transform: translateX(-2.25rem);
 }
-body.list-enable ol li .list-collapse-indicator {
+body:is(:not(.css-settings-manager), .list-enable) ol li .list-collapse-indicator {
   transform: translateX(-3rem);
 }
-body.list-enable .contains-task-list .list-collapse-indicator {
+body:is(:not(.css-settings-manager), .list-enable) .contains-task-list .list-collapse-indicator {
   transform: translateX(-2.4rem);
 }
-body.list-enable .markdown-rendered ul > li {
+body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ul > li {
   margin-inline-start: calc(var(--font-text-size) * 2 + 0.25rem);
 }
-body.list-enable .markdown-rendered div > ul:is(.has-list-bullet, .contains-task-list) {
+body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered div > ul:is(.has-list-bullet, .contains-task-list) {
   margin-inline-start: calc(var(--size-4-3) * -1);
 }
-body.list-enable .markdown-rendered ol {
+body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol {
   --list-indent: calc(var(--font-text-size) - 0.25rem);
 }
-body.list-enable .markdown-rendered ol > li {
+body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol > li {
   margin-inline-start: calc(var(--font-text-size) + 0.25rem);
 }
-body.list-enable .markdown-rendered ol li > ol {
+body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol li > ol {
   padding-left: calc(var(--font-text-size));
 }
-body.list-enable .markdown-rendered ol li > ol::before {
+body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol li > ol::before {
   left: calc(var(--font-text-size) * -1.5);
 }
-body.list-enable :is(.markdown-rendered, div) > ul {
+body:is(:not(.css-settings-manager), .list-enable) :is(.markdown-rendered, div) > ul {
   --list-indent: 0;
 }
-body.list-enable .HyperMD-list-line-2 .list-bullet {
+body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-2 .list-bullet {
   --list-marker-color: transparent;
   --list-bullet-border: var(--setting-list-marker, var(--accent-active)) var(--size-2-1) solid;
   --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) - var(--size-2-1));
 }
-body.list-enable .HyperMD-list-line-3 .list-bullet {
+body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-3 .list-bullet {
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
   --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.95);
   transform: rotate(45deg);
 }
-body.list-enable .HyperMD-list-line-4 .list-bullet {
+body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-4 .list-bullet {
   --list-marker-color: transparent;
   --list-bullet-border: var(--list-marker-color-alt) var(--size-2-1) solid;
   --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.9 - var(--size-2-1));
   --list-bullet-radius: 0;
   transform: rotate(45deg);
 }
-body.list-enable ul > li > ul > li {
+body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li {
   --list-marker-color: transparent;
   --list-bullet-border: var(--setting-list-marker, var(--accent-active)) var(--size-2-1) solid;
   --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) - var(--size-2-1));
 }
-body.list-enable ul > li > ul > li > ul > li {
+body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li {
   --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.5);
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
   --deg: 45deg;
 }
-body.list-enable ul > li > ul > li > ul > li .list-bullet {
+body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li .list-bullet {
   transform: rotate(var(--deg));
 }
-body.list-enable ul > li > ul > li > ul > li > ul > li {
+body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li > ul > li {
   --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.9 - var(--size-2-1));
   --list-marker-color: transparent;
 }
-body.list-enable ul > li > ul > li > ul > li > ul > li ul > li {
+body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li > ul > li ul > li {
   --list-bullet-radius: var(--radius-s);
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
 }
-body.list-enable .callout-content ul.contains-task-list {
+body:is(:not(.css-settings-manager), .list-enable) .callout-content ul.contains-task-list {
   --list-indent: 0.4em;
 }
-body.list-enable .callout-content ul .task-list-item {
+body:is(:not(.css-settings-manager), .list-enable) .callout-content ul .task-list-item {
   margin-inline-start: var(--size-4-2);
 }
-body.list-enable .callout-content ul::before {
+body:is(:not(.css-settings-manager), .list-enable) .callout-content ul::before {
   left: -0.7em;
 }
-body.list-enable .callout-content ul li::marker {
+body:is(:not(.css-settings-manager), .list-enable) .callout-content ul li::marker {
   --list-marker-color: transparent !important;
 }
-body.list-enable .callout-content ul li:not(.task-list-item)::before {
+body:is(:not(.css-settings-manager), .list-enable) .callout-content ul li:not(.task-list-item)::before {
   content: "";
   position: absolute;
   width: var(--list-bullet-size);
@@ -5144,7 +5142,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.7.40");
+  content: var(--setting-header-title, "maple 0.7.41");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
