@@ -1,8 +1,3 @@
-.cm-formatting-list-ul,
-.cm-formatting-list-ol {
-  padding-inline-start: 0.4rem;
-}
-
 body.list-enable {
   $marker-color: var(--setting-list-marker, var(--accent-active));
   $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
@@ -11,6 +6,11 @@ body.list-enable {
   --checkbox-marker-color: var(--text-on-accent);
   --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
+
+  .cm-formatting-list-ul,
+  .cm-formatting-list-ol {
+    padding-inline-start: 0.4rem;
+  }
 
   .cm-formatting-list,
   li::marker {
@@ -149,6 +149,7 @@ body.list-enable {
     &.contains-task-list {
       --list-indent: 0.4em;
     }
+
     .task-list-item {
       margin-inline-start: var(--size-4-2);
     }
