@@ -9,9 +9,8 @@
   --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
 
-  .cm-formatting-list-ul,
-  .cm-formatting-list-ol {
-    padding-inline-start: 0.4rem;
+  .cm-formatting-list {
+    padding-inline-start: 0.25rem;
   }
 
   .cm-formatting-list,
@@ -24,7 +23,7 @@
   }
 
   .markdown-source-view .task-list-item-checkbox {
-    margin-inline-start: 0.7rem;
+    margin-inline-start: 0.3rem;
     margin-inline-end: var(--size-4-1);
   }
 
@@ -40,12 +39,12 @@
   .markdown-source-view.mod-cm6 {
 
     .cm-indent::before {
-      transform: translateX(10px);
+      transform: translateX(0.45rem);
     }
 
     .collapse-indicator {
-      padding-right: 1.4rem !important;
-      transform: translateX(1.25rem) !important;
+      padding-right: 1.6rem !important;
+      transform: translateX(1.3rem) !important;
     }
   }
 
