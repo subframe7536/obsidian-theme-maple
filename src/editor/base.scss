@@ -47,9 +47,11 @@ code *,
 /* #region editor background */
 
 body {
-  --file-line-width: var(--setting-file-line-width, clamp(600px, 72%, 850px));
+  --file-line-width: var(--setting-file-line-width, clamp(600px, 72%, 820px));
 }
-
+.markdown-source-view.mod-cm6.is-readable-line-width :is(.cm-content, .cm-line) {
+  max-width: 100%;
+}
 .workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] {
   background-color: hsla(var(--editor-bg), var(--bg-opacity));
 
