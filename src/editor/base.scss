@@ -30,14 +30,8 @@ mjx-stretchy-h > mjx-ext > mjx-c::before {
 
 /* #region monospace */
 
-body {
-  --font-monospace-theme: 'Maple Mono SC NF', 'Maple Mono', var(--font-text);
-}
-
-body.font-maple {
-  --font-monospace: var(--monospace-custom, 'maplemono'),
-    var(--font-monospace-override), var(--font-monospace-theme),
-    var(--font-monospace-default);
+#{utils.with-no-plugin('.font-maple')} {
+  --font-monospace-theme: 'maplemono';
 }
 
 code,

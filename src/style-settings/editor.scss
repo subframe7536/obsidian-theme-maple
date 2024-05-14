@@ -92,7 +92,9 @@ settings:
     -
         id: setting-file-line-width
         title: editor line width
+        description: dynamic width — clamp(MinWidth, WidthPercent, MaxWidth)
         title.zh: 编辑器行宽
+        description.zh: 动态宽度 — clamp(最小值, 宽度百分比, 最大值)
         type: variable-text
         default: clamp(600px, 72%, 850px)
     -
