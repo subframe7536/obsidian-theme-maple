@@ -1,4 +1,4 @@
-@use '../utils.scss';
+@use './utils.scss';
 
 @mixin var-color($name, $r, $g, $b) {
   --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity)) !important;

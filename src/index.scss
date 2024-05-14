@@ -2,9 +2,13 @@
 @use './style-settings';
 /* #endregion [style settings] */
 
-/* #region [global] */
-@use './global';
-/* #endregion [global] */
+/* #region built-in fonts */
+@use './fonts.scss';
+/* #endregion built-in fonts */
+
+/* #region global variables */
+@use './variable.scss';
+/* #endregion global variables */
 
 /* #region [editor] */
 @use './editor';

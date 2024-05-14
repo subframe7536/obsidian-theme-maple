@@ -3,7 +3,7 @@
   "version": "0.7.41",
   "description": "elegant theme for Obsidian",
   "scripts": {
-    "dev": "node scripts/dev.mjs",
+    "dev": "node scripts/dev.mjs src/dev.scss",
     "dev:test": "node scripts/dev.mjs src/snippets/test.scss",
     "build": "sass src/index.scss theme.css --no-source-map && node scripts/move.mjs",
     "replace-version": "node scripts/version.mjs && npm run build",
