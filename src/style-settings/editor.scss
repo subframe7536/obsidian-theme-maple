@@ -90,15 +90,11 @@ settings:
         max: 2.4
         step: 0.1
     -
-        id: setting-editor-width
-        title: editor line width (px)
-        title.zh: 编辑器行宽（px）
-        type: variable-number-slider
-        default: 700
-        format: 'px'
-        min: 400
-        max: 1000
-        step: 50
+        id: setting-file-line-width
+        title: editor line width
+        title.zh: 编辑器行宽
+        type: variable-text
+        default: clamp(600px, 72%, 850px)
     -
         id: line-indicator-enable
         title: enable hover line indicator
@@ -762,6 +758,14 @@ settings:
         description: ❗no support for list or task items inside callout
         title.zh: 启用列表样式
         description.zh: ❗精力有限，不打算适配 callout 中的列表或者代办项
+        type: class-toggle
+        default: true
+    -
+        id: list-bullet-thread-style
+        title: enable logseq bullet thread list
+        description: ❗
+        title.zh: 启用 logseq bullet thread 样式的列表
+        description.zh: ❗
         type: class-toggle
         default: true
     -

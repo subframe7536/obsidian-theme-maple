@@ -53,7 +53,7 @@ code *,
 /* #region editor background */
 
 body {
-  --file-line-width: var(--setting-editor-width, 700px);
+  --file-line-width: var(--setting-file-line-width, clamp(600px, 72%, 850px));
 }
 
 .workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] {
