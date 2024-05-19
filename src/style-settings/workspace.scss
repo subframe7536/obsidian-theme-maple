@@ -128,17 +128,12 @@ settings:
         level: 2
     -
         id: outline-enable
-        title: enable bullet style
-        description: reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
-        title.zh: 开启引导线样式
-        description.zh: 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+        title: enable logseq bullet thread style outline
+        description: please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+        title.zh: 启用 logseq bullet thread 样式的文档视图
+        description.zh: 启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         type: class-toggle
         default: true
-    -
-        id: outline-item-animation
-        title: enable item animation
-        title.zh: 开启鼠标经过动画
-        type: class-toggle
     -
         id: status-bar
         title: status bar

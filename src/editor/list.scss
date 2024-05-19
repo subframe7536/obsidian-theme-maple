@@ -10,12 +10,15 @@
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
 
   .cm-formatting-list {
-    padding-inline-start: 0.25rem;
+    padding-inline-start: var(--size-4-1);
   }
 
-  .cm-formatting-list,
-  li::marker {
+  :is(.cm-formatting-list, li::marker) {
     font-family: var(--font-monospace);
+  }
+
+  .HyperMD-list-line-nobullet>.cm-hmd-list-indent {
+    margin-inline-end: var(--size-4-1);
   }
 
   :is(.markdown-source-view, .markdown-preview-view) .task-list-item-checkbox {

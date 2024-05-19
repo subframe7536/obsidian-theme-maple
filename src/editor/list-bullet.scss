@@ -1,0 +1,168 @@
+// .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5, .HyperMD-list-line-4, .HyperMD-list-line-3, .HyperMD-list-line-2).cm-active)::after,
+// .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-2.cm-active, ~ .HyperMD-list-line-2 ~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6).cm-active)::before,
+// .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6).cm-active))::before {
+//   --list-threading-color: var(--color-red);
+//   --list-threading-offset: calc(var(--size-4-1) + 0.25rem);
+// }
+
+// .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5, .HyperMD-list-line-4, .HyperMD-list-line-3).cm-active)::after,
+// .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-3.cm-active, ~ .HyperMD-list-line-3 ~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6).cm-active)::before,
+// .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6).cm-active))::before {
+//   --list-threading-color: var(--color-yellow);
+//   --list-threading-offset: calc(5px + 0.15em + var(--list-indent));
+// }
+
+// .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5, .HyperMD-list-line-4).cm-active)::after,
+// .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-4.cm-active, ~ .HyperMD-list-line-4 ~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6).cm-active)::before,
+// .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6).cm-active))::before {
+//   --list-threading-color: var(--color-green);
+//   --list-threading-offset: calc(5px + 0.15em + 2 * var(--list-indent));
+// }
+
+// .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5).cm-active)::after,
+// .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-5.cm-active, ~ .HyperMD-list-line-5 ~ :is(.HyperMD-list-line-6).cm-active)::before,
+// .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6).cm-active))::before {
+//   --list-threading-color: var(--color-blue);
+//   --list-threading-offset: calc(5px + 0.15em + 3 * var(--list-indent));
+// }
+
+// .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6).cm-active)::after,
+// .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-6.cm-active)::before,
+// .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):is(.cm-active)::before {
+//   --list-threading-color: var(--color-purple);
+//   --list-threading-offset: calc(4px + 0.15em + 4 * var(--list-indent));
+// }
+
+// /* tails */
+// .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5, .HyperMD-list-line-4, .HyperMD-list-line-3, .HyperMD-list-line-2).cm-active)::after,
+// .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5, .HyperMD-list-line-4, .HyperMD-list-line-3).cm-active)::after,
+// .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5, .HyperMD-list-line-4).cm-active)::after,
+// .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5).cm-active)::after,
+// .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6).cm-active)::after {
+//   content: "";
+//   position: absolute;
+//   left: var(--list-threading-offset);
+//   bottom: 0;
+//   /* priority to wrapped text */
+//   height: calc(100% - 0.75em);
+//   /* priority to images */
+//   // height: 0.8em;
+//   width: var(--size-2-1);
+//   background-color: var(--list-threading-color);
+// }
+
+// // .HyperMD-list-line.HyperMD-task-line::after {
+// //   /* priority to wrapped text */
+// //   max-height: calc(100% - 1.3em);
+// //   /* priority to images */
+// //   // max-height: 0.275em;
+// // }
+
+// /* in-between lines */
+// .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-2.cm-active, ~ .HyperMD-list-line-2 ~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5, .HyperMD-list-line-4, .HyperMD-list-line-3).cm-active)::before,
+// .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-3.cm-active, ~ .HyperMD-list-line-3 ~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5, .HyperMD-list-line-4).cm-active)::before,
+// .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-4.cm-active, ~ .HyperMD-list-line-4 ~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5).cm-active)::before,
+// .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-5.cm-active, ~ .HyperMD-list-line-5 ~ :is(.HyperMD-list-line-6).cm-active)::before,
+// .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-6.cm-active)::before {
+//   content: "";
+//   position: absolute;
+//   left: var(--list-threading-offset);
+//   top: 0;
+//   height: 100%;
+//   width: var(--size-2-1);
+//   background-color: var(--list-threading-color);
+// }
+
+// /* elbows */
+// .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5, .HyperMD-list-line-4, .HyperMD-list-line-3).cm-active))::before,
+// .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5, .HyperMD-list-line-4).cm-active))::before,
+// .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-5).cm-active))::before,
+// .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6).cm-active))::before,
+// .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):is(.cm-active)::before {
+//   content: "";
+//   position: absolute;
+//   left: var(--list-threading-offset);
+//   width: var(--list-indent);
+//   top: 0;
+//   /* priority to wrapped text */
+//   // height: calc(0.75em);
+//   /* priority to images */
+//   height: calc(100% - var(--line-height-normal) * var(--font-text-size) / 2 - var(--size-2-1) / 2);
+//   border-bottom-left-radius: var(--radius-m);
+//   border-bottom: var(--size-2-1) solid var(--list-threading-color);
+//   border-left: var(--size-2-1) solid var(--list-threading-color);
+// }
+
+// .HyperMD-list-line.HyperMD-task-line::before {
+//   max-width: calc(var(--list-indent) - 0.35em);
+// }
+
+// body.list-bullet-thread-style {
+.cm-hmd-list-indent {
+  position: relative;
+
+  &::before {
+    content: var(--bullet-thread-content-3, '');
+    position: absolute;
+    right: calc(-0.4rem - (var(--list-bullet-size) + var(--bullet-thread-guideline-width)) / 2);
+    width: var(--list-indent);
+    height: 50%;
+    border: var(--bullet-thread-guideline-width) solid var(--bullet-thread-guideline-color);
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: var(--radius-m)
+  }
+}
+
+.cm-line {
+  position: relative;
+  --bullet-thread-gap-size: calc(var(--list-bullet-size) / 2 - 0.5px);
+
+  .cm-formatting-list::before {
+    content: var(--bullet-thread-content-1, '');
+    position: absolute;
+    z-index: 2;
+    height: calc(100% - var(--bullet-thread-gap-size));
+    translate: var(--bullet-thread-gap-size) calc(var(--font-text-size) * var(--line-height-normal) / 2);
+    width: var(--bullet-thread-guideline-width);
+    background-color: var(--bullet-thread-guideline-color);
+  }
+
+  &:not(.HyperMD-list-line-1) .cm-formatting-list::after {
+    content: var(--bullet-thread-content-2, '');
+    z-index: 2;
+    position: absolute;
+    width: var(--bullet-thread-guideline-width);
+    top: -50%;
+    bottom: 0;
+    translate: calc(-1 * var(--list-indent) - 0.4rem - var(--bullet-thread-gap-size));
+    background-color: var(--bullet-thread-guideline-color);
+  }
+}
+
+@for $i from 2 through 6 {
+  .HyperMD-list-line-#{$i} {
+    &:has(~:is(.HyperMD-list-line-#{$i})~.cm-active) {
+      --bullet-thread-content-1: none;
+      --bullet-thread-content-2: none;
+      --bullet-thread-content-3: none;
+    }
+
+    &:not(:has(+.HyperMD-list-line-#{$i + 1})) {
+      --bullet-thread-content-1: none;
+    }
+
+    &:not(:has(+.HyperMD-list-line-#{$i})) {
+      --bullet-thread-content-2: none;
+    }
+  }
+
+  .HyperMD-list-line.cm-active ~ .HyperMD-list-line {
+    --bullet-thread-content-1: none;
+    --bullet-thread-content-2: none;
+    --bullet-thread-content-3: none;
+  }
+
+}
+
+// }
