@@ -236,7 +236,7 @@ settings:
         title.zh: 仓库名称位置
         type: class-select
         allowEmpty: false
-        default: explorer-vault-name-default
+        default: default
         options:
             -   label: default
                 value: explorer-vault-name-default
@@ -292,17 +292,12 @@ settings:
         level: 2
     -
         id: outline-enable
-        title: enable bullet style
-        description: reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
-        title.zh: 开启引导线样式
-        description.zh: 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+        title: enable logseq bullet thread style outline
+        description: please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+        title.zh: 启用 logseq bullet thread 样式的文档视图
+        description.zh: 启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         type: class-toggle
         default: true
-    -
-        id: outline-item-animation
-        title: enable item animation
-        title.zh: 开启鼠标经过动画
-        type: class-toggle
     -
         id: status-bar
         title: status bar
@@ -3127,11 +3122,13 @@ body:is(:not(.css-settings-manager), .list-enable) {
   --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 }
 body:is(:not(.css-settings-manager), .list-enable) .cm-formatting-list {
-  padding-inline-start: 0.25rem;
+  padding-inline-start: var(--size-4-1);
 }
-body:is(:not(.css-settings-manager), .list-enable) .cm-formatting-list,
-body:is(:not(.css-settings-manager), .list-enable) li::marker {
+body:is(:not(.css-settings-manager), .list-enable) :is(.cm-formatting-list, li::marker) {
   font-family: var(--font-monospace);
+}
+body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-nobullet > .cm-hmd-list-indent {
+  margin-inline-end: var(--size-4-1);
 }
 body:is(:not(.css-settings-manager), .list-enable) :is(.markdown-source-view, .markdown-preview-view) .task-list-item-checkbox {
   border-width: var(--size-2-1);
