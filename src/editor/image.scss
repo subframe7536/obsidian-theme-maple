@@ -48,7 +48,7 @@ body.image-zoom {
 
     &:active {
       overflow: hidden;
-      position: fixed;
+      position: relative;
       object-fit: contain;
       height: 100%;
       width: 100%;
