@@ -706,6 +706,12 @@ settings:
         type: class-toggle
         default: true
     -
+        id: image-zoom-out
+        title: zoom out the image to full screen
+        title.zh: 图片放大到全屏
+        type: class-toggle
+        default: true
+    -
         id: image-dark-hover
         title: decrease brightness in dark mode
         description: hover will increase brightness

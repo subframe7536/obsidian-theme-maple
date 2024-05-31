@@ -48,7 +48,7 @@ body.image-zoom {
 
     &:active {
       overflow: hidden;
-      position: fixed;
+      position: relative;
       object-fit: contain;
       height: 100%;
       width: 100%;
@@ -58,5 +58,9 @@ body.image-zoom {
       z-index: 200;
       background-image: linear-gradient(to right, hsl(var(--background-primary-hsl)), hsl(var(--background-secondary-hsl)), hsl(var(--background-primary-hsl)));
     }
+  }
+
+  &.image-zoom-out :is(.markdown-preview-view, .workspace-leaf-content[data-type="image"]) img:not([class*="emoji"], .banner-image):active {
+    position: fixed;
   }
 }
