@@ -490,7 +490,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.1'"
+        default: "'maple 0.8.2'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1345,6 +1345,12 @@ settings:
         type: class-toggle
         default: true
     -
+        id: image-zoom-out
+        title: zoom out the image to full screen
+        title.zh: 图片放大到全屏
+        type: class-toggle
+        default: true
+    -
         id: image-dark-hover
         title: decrease brightness in dark mode
         description: hover will increase brightness
@@ -1845,6 +1851,7 @@ body:not(.color-use-custom) .setting-item[data-id^=accent-hue],
 body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light],
 body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-active-custom-dark],
 body:not(.message-modify) .setting-item[data-id^=setting-message],
+body:not(.image-zoom) .setting-item[data-id^=image-zoom-out],
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix],
 body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
 body:not(.table-colorful) .setting-item[data-id^=setting-table],
@@ -1874,6 +1881,7 @@ body:not(.color-use-custom) .setting-item[data-id^=accent-hue] + .style-settings
 body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light] + .style-settings-container,
 body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-active-custom-dark] + .style-settings-container,
 body:not(.message-modify) .setting-item[data-id^=setting-message] + .style-settings-container,
+body:not(.image-zoom) .setting-item[data-id^=image-zoom-out] + .style-settings-container,
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix] + .style-settings-container,
 body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom] + .style-settings-container,
 body:not(.table-colorful) .setting-item[data-id^=setting-table] + .style-settings-container,
@@ -4179,7 +4187,7 @@ body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=im
 }
 body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=image]) img:not([class*=emoji], .banner-image):active {
   overflow: hidden;
-  position: fixed;
+  position: relative;
   object-fit: contain;
   height: 100%;
   width: 100%;
@@ -4188,6 +4196,9 @@ body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=im
   inset: 0;
   z-index: 200;
   background-image: linear-gradient(to right, hsl(var(--background-primary-hsl)), hsl(var(--background-secondary-hsl)), hsl(var(--background-primary-hsl)));
+}
+body.image-zoom.image-zoom-out :is(.markdown-preview-view, .workspace-leaf-content[data-type=image]) img:not([class*=emoji], .banner-image):active {
+  position: fixed;
 }
 
 /* #endregion image */
@@ -5141,7 +5152,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.1");
+  content: var(--setting-header-title, "maple 0.8.2");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
