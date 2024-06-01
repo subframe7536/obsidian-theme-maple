@@ -17,7 +17,7 @@
     font-family: var(--font-monospace);
   }
 
-  .HyperMD-list-line-nobullet>.cm-hmd-list-indent {
+  .HyperMD-list-line-nobullet > .cm-hmd-list-indent {
     margin-inline-end: var(--size-4-1);
   }
 
@@ -176,5 +176,9 @@
       border: var(--list-bullet-border);
       transform: translate(-0.9em, calc(var(--font-text-size) * var(--line-height-normal) / 2.5)) rotate(var(--deg, 0)); // only 3 or 4 will have --deg
     }
+  }
+
+  &.list-checkbox-line {
+    --checklist-done-decoration: none;
   }
 }

@@ -771,9 +771,9 @@ settings:
     -
         id: list-bullet-thread-style
         title: enable logseq bullet thread list
-        description: ❗
+        description: ❗WIP
         title.zh: 启用 logseq bullet thread 样式的列表
-        description.zh: ❗
+        description.zh: ❗待完成
         type: class-toggle
         default: true
     -
@@ -796,11 +796,16 @@ settings:
         default-dark: '#'
     -
         id: list-checkbox
-        title: checkbox
-        title.zh: 勾选框
+        title: task list
+        title.zh: 代办事项
         type: heading
         collapsed: true
         level: 3
+    -
+        id: list-checkbox-line
+        title: remove middle line in completed item
+        title.zh: 移除已完成事项上的删除线
+        type: class-toggle
     -
         id: setting-list-checkbox-color
         title: checkbox marker color
