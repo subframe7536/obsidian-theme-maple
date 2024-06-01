@@ -490,7 +490,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.2'"
+        default: "'maple 0.8.3'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1410,9 +1410,9 @@ settings:
     -
         id: list-bullet-thread-style
         title: enable logseq bullet thread list
-        description: ❗
+        description: ❗WIP
         title.zh: 启用 logseq bullet thread 样式的列表
-        description.zh: ❗
+        description.zh: ❗待完成
         type: class-toggle
         default: true
     -
@@ -1435,11 +1435,16 @@ settings:
         default-dark: '#'
     -
         id: list-checkbox
-        title: checkbox
-        title.zh: 勾选框
+        title: task list
+        title.zh: 代办事项
         type: heading
         collapsed: true
         level: 3
+    -
+        id: list-checkbox-line
+        title: remove middle line in completed item
+        title.zh: 移除已完成事项上的删除线
+        type: class-toggle
     -
         id: setting-list-checkbox-color
         title: checkbox marker color
@@ -3251,6 +3256,9 @@ body:is(:not(.css-settings-manager), .list-enable) .callout-content ul li:not(.t
   border-radius: var(--list-bullet-radius);
   border: var(--list-bullet-border);
   transform: translate(-0.9em, calc(var(--font-text-size) * var(--line-height-normal) / 2.5)) rotate(var(--deg, 0));
+}
+body:is(:not(.css-settings-manager), .list-enable).list-checkbox-line {
+  --checklist-done-decoration: none;
 }
 
 /* #endregion list */
@@ -5152,7 +5160,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.2");
+  content: var(--setting-header-title, "maple 0.8.3");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
