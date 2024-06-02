@@ -1,10 +1,12 @@
 @use '../utils.scss';
 
+$marker-color: var(--setting-list-marker, var(--accent-active));
+$marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
+
 #{utils.with-no-plugin('.list-enable')} {
-  $marker-color: var(--setting-list-marker, var(--accent-active));
-  $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
   --list-marker-color: #{$marker-color};
   --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
+  --list-marker-color-alt-render: transparent;
   --checkbox-marker-color: var(--text-on-accent);
   --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
@@ -123,7 +125,7 @@
   }
 
   ul > li > ul > li {
-    --list-marker-color: transparent;
+    --list-marker-color: var(--list-marker-color-alt-render);
     --list-bullet-border: #{$marker-color} var(--size-2-1) solid;
     --list-bullet-size: calc(#{$marker-size} - var(--size-2-1));
 
@@ -139,7 +141,7 @@
 
       & > ul > li {
         --list-bullet-size: calc(#{$marker-size} * #{$optical-factor} - var(--size-2-1));
-        --list-marker-color: transparent;
+        --list-marker-color: var(--list-marker-color-alt-render);
 
         ul > li {
           --list-bullet-radius: var(--radius-s);
@@ -163,7 +165,7 @@
     }
 
     li::marker {
-      --list-marker-color: transparent !important;
+      --list-marker-color: var(--list-marker-color-alt-render) !important;
     }
 
     li:not(.task-list-item)::before {
@@ -181,4 +183,8 @@
   &.list-checkbox-line {
     --checklist-done-decoration: none;
   }
+}
+
+body.list-enable .print {
+  --list-marker-color-alt-render: var(--list-marker-color-alt);
 }

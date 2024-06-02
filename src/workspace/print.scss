@@ -5,6 +5,8 @@
 //     </div>
 //   </div>
 // </body>
+//
+// ❗NO `.list-bullet` in list, only contains `::marker`
 
 body.export-pdf-transparent .print {
   --background-primary: transparent;
