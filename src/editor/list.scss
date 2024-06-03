@@ -15,7 +15,8 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     padding-inline-start: var(--size-4-1);
   }
 
-  :is(.cm-formatting-list, li::marker) {
+  .cm-formatting-list,
+  li::marker {
     font-family: var(--font-monospace);
   }
 
