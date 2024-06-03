@@ -490,7 +490,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.3'"
+        default: "'maple 0.8.4'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -3129,6 +3129,7 @@ body.link-click-to-edit-in-live-preview :is(.cm-url, .cm-link, .cm-hmd-internal-
 body:is(:not(.css-settings-manager), .list-enable) {
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
   --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
+  --list-marker-color-alt-render: transparent;
   --checkbox-marker-color: var(--text-on-accent);
   --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
@@ -3137,7 +3138,8 @@ body:is(:not(.css-settings-manager), .list-enable) {
 body:is(:not(.css-settings-manager), .list-enable) .cm-formatting-list {
   padding-inline-start: var(--size-4-1);
 }
-body:is(:not(.css-settings-manager), .list-enable) :is(.cm-formatting-list, li::marker) {
+body:is(:not(.css-settings-manager), .list-enable) .cm-formatting-list,
+body:is(:not(.css-settings-manager), .list-enable) li::marker {
   font-family: var(--font-monospace);
 }
 body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-nobullet > .cm-hmd-list-indent {
@@ -3214,7 +3216,7 @@ body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-4 .list-bu
   transform: rotate(45deg);
 }
 body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li {
-  --list-marker-color: transparent;
+  --list-marker-color: var(--list-marker-color-alt-render);
   --list-bullet-border: var(--setting-list-marker, var(--accent-active)) var(--size-2-1) solid;
   --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) - var(--size-2-1));
 }
@@ -3229,7 +3231,7 @@ body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li .
 }
 body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li > ul > li {
   --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.9 - var(--size-2-1));
-  --list-marker-color: transparent;
+  --list-marker-color: var(--list-marker-color-alt-render);
 }
 body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li > ul > li ul > li {
   --list-bullet-radius: var(--radius-s);
@@ -3245,7 +3247,7 @@ body:is(:not(.css-settings-manager), .list-enable) .callout-content ul::before {
   left: -0.7em;
 }
 body:is(:not(.css-settings-manager), .list-enable) .callout-content ul li::marker {
-  --list-marker-color: transparent !important;
+  --list-marker-color: var(--list-marker-color-alt-render) !important;
 }
 body:is(:not(.css-settings-manager), .list-enable) .callout-content ul li:not(.task-list-item)::before {
   content: "";
@@ -3259,6 +3261,10 @@ body:is(:not(.css-settings-manager), .list-enable) .callout-content ul li:not(.t
 }
 body:is(:not(.css-settings-manager), .list-enable).list-checkbox-line {
   --checklist-done-decoration: none;
+}
+
+body.list-enable .print {
+  --list-marker-color-alt-render: var(--list-marker-color-alt);
 }
 
 /* #endregion list */
@@ -5160,7 +5166,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.3");
+  content: var(--setting-header-title, "maple 0.8.4");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
