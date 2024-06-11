@@ -48,6 +48,7 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     }
 
     --list-bullet-end-padding: 1.6rem;
+
     .collapse-indicator {
       transform: translateX(-0.3rem) !important;
     }
@@ -151,37 +152,18 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     }
   }
 
-  .callout-content ul {
-    &.contains-task-list {
-      --list-indent: 0.4em;
+  &.list-checkbox-line {
+    --checklist-done-decoration: none;
+  }
+
+  .markdown-source-view .callout {
+    ul > li > ul > li {
+      --list-marker-color: #{$marker-color};
     }
 
     .task-list-item {
-      margin-inline-start: var(--size-4-2);
+      margin-inline-start: calc(var(--font-text-size) / 1.5);
     }
-
-    &::before {
-      left: -0.7em;
-    }
-
-    li::marker {
-      --list-marker-color: var(--list-marker-color-alt-render) !important;
-    }
-
-    li:not(.task-list-item)::before {
-      content: '';
-      position: absolute;
-      width: var(--list-bullet-size);
-      height: var(--list-bullet-size);
-      background-color: var(--list-marker-color);
-      border-radius: var(--list-bullet-radius);
-      border: var(--list-bullet-border);
-      transform: translate(-0.9em, calc(var(--font-text-size) * var(--line-height-normal) / 2.5)) rotate(var(--deg, 0)); // only 3 or 4 will have --deg
-    }
-  }
-
-  &.list-checkbox-line {
-    --checklist-done-decoration: none;
   }
 }
 
