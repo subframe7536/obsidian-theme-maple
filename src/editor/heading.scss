@@ -1,23 +1,21 @@
 @use '../utils';
 
 $headings: ':is(h1, h2, h3, h4, h5, h6)';
-$cm-headings: '.HyperMD-header-1', '.HyperMD-header-2', '.HyperMD-header-3',
-  '.HyperMD-header-4', '.HyperMD-header-5', '.HyperMD-header-6';
+$cm-headings: '.HyperMD-header-1', '.HyperMD-header-2', '.HyperMD-header-3', '.HyperMD-header-4', '.HyperMD-header-5', '.HyperMD-header-6';
 
 body {
-  --font-bold: bold;
   --h1-size: calc(var(--font-text-size) * var(--setting-h1-size, 1.6));
   --h2-size: calc(var(--font-text-size) * var(--setting-h2-size, 1.5));
   --h3-size: calc(var(--font-text-size) * var(--setting-h3-size, 1.4));
   --h4-size: calc(var(--font-text-size) * var(--setting-h4-size, 1.3));
   --h5-size: calc(var(--font-text-size) * var(--setting-h5-size, 1.2));
   --h6-size: calc(var(--font-text-size) * var(--setting-h6-size, 1.1));
-  --h1-weight: var(--font-bold);
-  --h2-weight: var(--font-bold);
-  --h3-weight: var(--font-bold);
-  --h4-weight: var(--font-bold);
-  --h5-weight: var(--font-bold);
-  --h6-weight: var(--font-bold);
+  --h1-weight: 750;
+  --h2-weight: 700;
+  --h3-weight: 650;
+  --h4-weight: 650;
+  --h5-weight: 600;
+  --h6-weight: 600;
   --h1-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h1-size));
   --h2-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h2-size));
   --h3-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h3-size));
@@ -203,9 +201,7 @@ body.heading-h1-center h1 {
         width: 100%;
         bottom: calc(var(--h#{$i}-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
         border-radius: var(--size-2-1);
-        background-image: linear-gradient(to right,
-          var(--h#{$i}-color) 30%,
-          transparent 70%);
+        background-image: linear-gradient(to right, var(--h#{$i}-color) 30%, transparent 70%);
       }
     }
 
