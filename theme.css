@@ -231,20 +231,6 @@ settings:
         collapsed: true
         level: 2
     -
-        id: explorer-vault-name-position
-        title: vault name position
-        title.zh: 仓库名称位置
-        type: class-select
-        allowEmpty: false
-        default: default
-        options:
-            -   label: default
-                value: explorer-vault-name-default
-            -   label: compact
-                value: explorer-vault-name-compact
-            -   label: hidden
-                value: explorer-vault-name-hidden
-    -
         id: explorer-nav-decoration
         title: styled active file
         description: reference from https://github.com/Akifyss/obsidian-border
@@ -490,7 +476,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.4'"
+        default: "'maple 0.8.5'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1436,7 +1422,7 @@ settings:
     -
         id: list-checkbox
         title: task list
-        title.zh: 代办事项
+        title.zh: 待办事项
         type: heading
         collapsed: true
         level: 3
@@ -1781,7 +1767,7 @@ settings:
   font-family: inherit;
   font-weight: var(--input-font-weight);
   color: var(--text-normal) !important;
-  line-height: var(--line-height-normal);
+  line-height: var(--input-height);
   padding: 0 0.8em;
   max-width: 100%;
   box-sizing: border-box;
@@ -3158,12 +3144,14 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-preview-view .task-
 body:is(:not(.css-settings-manager), .list-enable) .collapse-indicator {
   --cursor: pointer;
 }
+body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 {
+  --list-bullet-end-padding: 1.6rem;
+}
 body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 .cm-indent::before {
-  transform: translateX(0.45rem);
+  transform: translateX(-0.4rem);
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 .collapse-indicator {
-  padding-right: 1.6rem !important;
-  transform: translateX(1.3rem) !important;
+  transform: translateX(-0.3rem) !important;
 }
 body:is(:not(.css-settings-manager), .list-enable) li .list-collapse-indicator {
   margin-inline-start: 0 !important;
@@ -3183,7 +3171,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered div > ul:i
   margin-inline-start: calc(var(--size-4-3) * -1);
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol {
-  --list-indent: calc(var(--font-text-size) - 0.25rem);
+  padding-left: calc(var(--font-text-size) - 0.1rem);
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol > li {
   margin-inline-start: calc(var(--font-text-size) + 0.25rem);
@@ -3792,19 +3780,18 @@ body.tag-fill :is(.cm-tag-complete, .tag[href="#complete"]) {
 /* #endregion tag */
 /* #region heading */
 body {
-  --font-bold: bold;
   --h1-size: calc(var(--font-text-size) * var(--setting-h1-size, 1.6));
   --h2-size: calc(var(--font-text-size) * var(--setting-h2-size, 1.5));
   --h3-size: calc(var(--font-text-size) * var(--setting-h3-size, 1.4));
   --h4-size: calc(var(--font-text-size) * var(--setting-h4-size, 1.3));
   --h5-size: calc(var(--font-text-size) * var(--setting-h5-size, 1.2));
   --h6-size: calc(var(--font-text-size) * var(--setting-h6-size, 1.1));
-  --h1-weight: var(--font-bold);
-  --h2-weight: var(--font-bold);
-  --h3-weight: var(--font-bold);
-  --h4-weight: var(--font-bold);
-  --h5-weight: var(--font-bold);
-  --h6-weight: var(--font-bold);
+  --h1-weight: 750;
+  --h2-weight: 700;
+  --h3-weight: 650;
+  --h4-weight: 650;
+  --h5-weight: 600;
+  --h6-weight: 600;
   --h1-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h1-size));
   --h2-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h2-size));
   --h3-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h3-size));
@@ -5166,7 +5153,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.4");
+  content: var(--setting-header-title, "maple 0.8.5");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6309,68 +6296,27 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
   --line-height-tight: var(--explorer-item-height, 1.6);
 }
 
-body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-header {
-  position: absolute;
-  width: fit-content;
-  right: 0;
-  background-color: hsl(var(--background-secondary-hsl));
-  z-index: calc(var(--layer-cover) + 1);
-}
-body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-buttons-container {
-  justify-content: flex-end;
-}
-body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root {
-  padding-top: var(--size-4-12);
-}
-body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title {
-  position: fixed;
-  height: calc(var(--header-height) + var(--size-2-1));
-  line-height: 2;
-  top: var(--header-height);
-  left: var(--size-4-3);
-  right: 0;
-  transform: translate(calc(-1 * var(--size-4-5)), calc(-1 * var(--size-4-10)));
-  z-index: var(--layer-cover);
-  color: var(--color-accent-2);
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: hsl(var(--background-secondary-hsl));
-}
-body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title:hover {
-  background-color: hsl(var(--background-secondary-hsl)) !important;
-}
-body.explorer-vault-name-compact .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title > .tree-item-inner {
-  padding-left: 0;
-}
-
-body.explorer-vault-name-hidden .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root {
-  padding-top: var(--size-4-2);
-}
-body.explorer-vault-name-hidden .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root > .nav-folder-title {
-  display: none;
-}
-
 body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title:hover {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title:hover {
   background-color: var(--folder-hover-color);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-title-content {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title-content {
   padding-left: var(--size-2-1);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder > .nav-folder-children {
   transition: var(--animation);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder > .nav-folder-children:hover {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder > .nav-folder-children:hover {
   --nav-indentation-guide-color: var(--accent-inactive);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-collapse-indicator {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-collapse-indicator {
   cursor: pointer;
   height: fit-content;
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder-collapse-indicator svg {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-collapse-indicator svg {
   line-height: var(--line-height-tight);
   width: 1rem;
   height: 1rem;
@@ -6378,15 +6324,15 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
   display: inline-block;
   translate: 0 calc(-1 * var(--size-2-1));
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-folder.is-collapsed .collapse-icon svg.svg-icon {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder.is-collapsed .collapse-icon svg.svg-icon {
   transform: none;
   filter: brightness(var(--folder-inactive));
   transition: var(--animation);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title-content {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title-content {
   padding-left: var(--size-2-1);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title:not([data-path$="excalidraw.md"]):not([data-path$=excalidraw])::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title:not([data-path$="excalidraw.md"]):not([data-path$=excalidraw])::before {
   content: "";
   position: absolute;
   width: 1rem;
@@ -6396,35 +6342,35 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
   translate: calc(1px - var(--size-4-5)) 15%;
   background-color: var(--accent-active);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title:is([data-path$="excalidraw.md"], [data-path$=excalidraw]) .nav-file-tag {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title:is([data-path$="excalidraw.md"], [data-path$=excalidraw]) .nav-file-tag {
   position: absolute;
   translate: calc(-1 * var(--size-4-5));
   top: var(--size-2-3);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active:not(.is-selected) {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-active:not(.is-selected) {
   color: var(--text-on-accent);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active:not(.is-selected):first-child::before {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-active:not(.is-selected):first-child::before {
   background-color: var(--text-on-accent);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active:not(.is-selected) .nav-file-title-content {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-active:not(.is-selected) .nav-file-title-content {
   color: var(--text-on-accent);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-tag {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-tag {
   font-size: 0.6rem;
   margin-left: 0;
   margin-right: var(--size-4-2);
   line-height: 2;
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title .nav-file-tag {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title .nav-file-tag {
   background-color: var(--accent-active);
   color: var(--text-on-accent);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title.is-active .nav-file-tag {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-active .nav-file-tag {
   background-color: hsl(var(--background-secondary-hsl), 0.9);
   color: var(--nav-item-background-active);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .mod-root .nav-file-title-content + .nav-file-tag {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title-content + .nav-file-tag {
   margin-left: var(--size-2-3);
 }
 
