@@ -43,14 +43,13 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
   }
 
   .markdown-source-view.mod-cm6 {
-
     .cm-indent::before {
-      transform: translateX(0.45rem);
+      transform: translateX(-0.4rem);
     }
 
+    --list-bullet-end-padding: 1.6rem;
     .collapse-indicator {
-      padding-right: 1.6rem !important;
-      transform: translateX(1.3rem) !important;
+      transform: translateX(-0.3rem) !important;
     }
   }
 
@@ -80,7 +79,7 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     }
 
     ol {
-      --list-indent: calc(var(--font-text-size) - 0.25rem);
+      padding-left: calc(var(--font-text-size) - 0.1rem);
 
       & > li {
         margin-inline-start: calc(var(--font-text-size) + 0.25rem);
