@@ -67,20 +67,6 @@ settings:
         collapsed: true
         level: 2
     -
-        id: explorer-vault-name-position
-        title: vault name position
-        title.zh: 仓库名称位置
-        type: class-select
-        allowEmpty: false
-        default: default
-        options:
-            -   label: default
-                value: explorer-vault-name-default
-            -   label: compact
-                value: explorer-vault-name-compact
-            -   label: hidden
-                value: explorer-vault-name-hidden
-    -
         id: explorer-nav-decoration
         title: styled active file
         description: reference from https://github.com/Akifyss/obsidian-border

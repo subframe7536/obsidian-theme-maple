@@ -35,61 +35,12 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
   --line-height-tight: var(--explorer-item-height, 1.6);
 }
 
-body.explorer-vault-name-compact .workspace-leaf-content[data-type='file-explorer'] {
-  .nav-header {
-    position: absolute;
-    width: fit-content;
-    right: 0;
-    background-color: hsl(var(--background-secondary-hsl));
-    z-index: calc(var(--layer-cover) + 1);
-  }
-
-  .nav-buttons-container {
-    justify-content: flex-end;
-  }
-
-  .nav-files-container .mod-root {
-    padding-top: var(--size-4-12);
-
-    & > .nav-folder-title {
-      position: fixed;
-      height: calc(var(--header-height) + var(--size-2-1));
-      line-height: 2;
-      top: var(--header-height);
-      left: var(--size-4-3);
-      right: 0;
-      transform: translate(calc(-1 * var(--size-4-5)), calc(-1 * var(--size-4-10)));
-      z-index: var(--layer-cover);
-      color: var(--color-accent-2);
-      font-size: 1rem;
-      font-weight: bold;
-      background-color: hsl(var(--background-secondary-hsl));
-
-      &:hover {
-        background-color: hsl(var(--background-secondary-hsl)) !important;
-      }
-
-      & > .tree-item-inner {
-        padding-left: 0;
-      }
-    }
-  }
-}
-
-body.explorer-vault-name-hidden .workspace-leaf-content[data-type='file-explorer'] .nav-files-container .mod-root {
-  padding-top: var(--size-4-2);
-
-  & > .nav-folder-title {
-    display: none;
-  }
-}
-
 body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
 #{utils.with-no-plugin('.explorer-icon')} {
-  .workspace-leaf-content[data-type='file-explorer'] .nav-files-container .mod-root {
+  .workspace-leaf-content[data-type='file-explorer'] .nav-files-container {
     .nav-folder {
 
       &-title {
