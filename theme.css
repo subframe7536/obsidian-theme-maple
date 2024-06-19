@@ -476,7 +476,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.7'"
+        default: "'maple 0.8.8'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -3972,6 +3972,9 @@ body.heading-h1-center h1 {
   text-align: center;
 }
 
+body.heading-h1-underline {
+  --h1-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h1-size) * 1.2);
+}
 body.heading-h1-underline :is(h1, .HyperMD-header-1) {
   position: relative;
 }
@@ -3980,7 +3983,8 @@ body.heading-h1-underline :is(h1, .HyperMD-header-1)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--h1-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
+  top: 50%;
+  transform: translateY(max(var(--h1-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h1-color) 30%, transparent 70%);
 }
@@ -3998,6 +4002,9 @@ body.heading-h1-underline.heading-underline-thin :is(h1, .HyperMD-header-1)::aft
   height: var(--size-2-1);
 }
 
+body.heading-h2-underline {
+  --h2-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h2-size) * 1.2);
+}
 body.heading-h2-underline :is(h2, .HyperMD-header-2) {
   position: relative;
 }
@@ -4006,7 +4013,8 @@ body.heading-h2-underline :is(h2, .HyperMD-header-2)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--h2-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
+  top: 50%;
+  transform: translateY(max(var(--h2-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h2-color) 30%, transparent 70%);
 }
@@ -4024,6 +4032,9 @@ body.heading-h2-underline.heading-underline-thin :is(h2, .HyperMD-header-2)::aft
   height: var(--size-2-1);
 }
 
+body.heading-h3-underline {
+  --h3-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h3-size) * 1.2);
+}
 body.heading-h3-underline :is(h3, .HyperMD-header-3) {
   position: relative;
 }
@@ -4032,7 +4043,8 @@ body.heading-h3-underline :is(h3, .HyperMD-header-3)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--h3-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
+  top: 50%;
+  transform: translateY(max(var(--h3-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h3-color) 30%, transparent 70%);
 }
@@ -4050,6 +4062,9 @@ body.heading-h3-underline.heading-underline-thin :is(h3, .HyperMD-header-3)::aft
   height: var(--size-2-1);
 }
 
+body.heading-h4-underline {
+  --h4-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h4-size) * 1.2);
+}
 body.heading-h4-underline :is(h4, .HyperMD-header-4) {
   position: relative;
 }
@@ -4058,7 +4073,8 @@ body.heading-h4-underline :is(h4, .HyperMD-header-4)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--h4-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
+  top: 50%;
+  transform: translateY(max(var(--h4-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h4-color) 30%, transparent 70%);
 }
@@ -4076,6 +4092,9 @@ body.heading-h4-underline.heading-underline-thin :is(h4, .HyperMD-header-4)::aft
   height: var(--size-2-1);
 }
 
+body.heading-h5-underline {
+  --h5-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h5-size) * 1.2);
+}
 body.heading-h5-underline :is(h5, .HyperMD-header-5) {
   position: relative;
 }
@@ -4084,7 +4103,8 @@ body.heading-h5-underline :is(h5, .HyperMD-header-5)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--h5-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
+  top: 50%;
+  transform: translateY(max(var(--h5-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h5-color) 30%, transparent 70%);
 }
@@ -4102,6 +4122,9 @@ body.heading-h5-underline.heading-underline-thin :is(h5, .HyperMD-header-5)::aft
   height: var(--size-2-1);
 }
 
+body.heading-h6-underline {
+  --h6-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h6-size) * 1.2);
+}
 body.heading-h6-underline :is(h6, .HyperMD-header-6) {
   position: relative;
 }
@@ -4110,7 +4133,8 @@ body.heading-h6-underline :is(h6, .HyperMD-header-6)::after {
   position: absolute;
   height: var(--size-4-1);
   width: 100%;
-  bottom: calc(var(--h6-size) * var(--line-height-normal) * 0.3 - var(--size-4-3));
+  top: 50%;
+  transform: translateY(max(var(--h6-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h6-color) 30%, transparent 70%);
 }
@@ -5137,7 +5161,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.7");
+  content: var(--setting-header-title, "maple 0.8.8");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
