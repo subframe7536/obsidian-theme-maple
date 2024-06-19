@@ -191,6 +191,8 @@ body.heading-h1-center h1 {
 
 @for $i from 1 through 6 {
   body.heading-h#{$i}-underline {
+    --h#{$i}-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h#{$i}-size) * 1.2);
+
     :is(h#{$i}, .HyperMD-header-#{$i}) {
       position: relative;
 
