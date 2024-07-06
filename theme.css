@@ -476,7 +476,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.8'"
+        default: "'maple 0.8.9'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -1635,7 +1635,7 @@ settings:
         type: class-toggle
     -
         id: pdf
-        title: pdf
+        title: PDF
         type: heading
         collapsed: true
         level: 2
@@ -4979,25 +4979,6 @@ body.search-internal-enable .document-search-container .document-search-buttons 
   background-color: var(--background-modifier-hover) !important;
   color: var(--text-normal);
 }
-body.search-internal-enable .document-search-container .document-search-buttons button::before {
-  content: " " !important;
-  display: block;
-  height: var(--size-4-6);
-  width: var(--size-4-6);
-  background-color: currentColor;
-}
-body.search-internal-enable .document-search-container .document-search-buttons button:nth-child(1)::before {
-  -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M12 18V6m0 0-6 6m6-6 6 6'/%3e%3c/svg%3e");
-}
-body.search-internal-enable .document-search-container .document-search-buttons button:nth-child(2)::before {
-  -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M12 6v12m0 0 6-6m-6 6-6-6'/%3e%3c/svg%3e");
-}
-body.search-internal-enable .document-search-container .document-search-buttons button:nth-child(3)::before {
-  -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='black' d='M5.647 17H3.819l3.328-9.455h2.114L12.595 17h-1.829L8.241 9.484h-.074L5.647 17Zm.06-3.707h4.986v1.376H5.707v-1.376Zm9.73-5.748V17h-1.671V7.545h1.671Zm3.39 0V17h-1.672V7.545h1.672Z'/%3e%3c/svg%3e");
-}
-body.search-internal-enable .document-search-container .document-search-close-button {
-  top: 0;
-}
 
 .markdown-source-view,
 .markdown-reading-view {
@@ -5028,13 +5009,13 @@ body {
   background-color: var(--nav-item-background-active) !important;
 }
 
-:is(.document-search-close-button, .modal-close-button) {
+.modal-close-button {
   height: var(--input-height);
   width: var(--input-height);
   transition: var(--animation);
   padding: 3px;
 }
-:is(.document-search-close-button, .modal-close-button)::before {
+.modal-close-button::before {
   content: " " !important;
   display: block;
   height: var(--size-4-6);
@@ -5042,7 +5023,7 @@ body {
   background-color: currentColor;
   -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M17.25 17.25 6.75 6.75m10.5 0-10.5 10.5'/%3e%3c/svg%3e");
 }
-:is(.document-search-close-button, .modal-close-button):hover {
+.modal-close-button:hover {
   background-color: var(--frame-outline-color);
 }
 
@@ -5161,7 +5142,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.8");
+  content: var(--setting-header-title, "maple 0.8.9");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
