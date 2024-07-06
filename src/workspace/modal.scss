@@ -9,7 +9,7 @@ body {
   background-color: var(--nav-item-background-active) !important;
 }
 
-:is(.document-search-close-button, .modal-close-button) {
+.modal-close-button {
   height: var(--input-height);
   width: var(--input-height);
   transition: var(--animation);
