@@ -4,8 +4,7 @@ body {
   --file-folding-offset: 28px;
   --folder-color-rgb: 245, 180, 0;
   --folder-color: rgb(var(--setting-color-dirs, var(--folder-color-rgb)));
-  --folder-hover-color: rgba(var(--setting-color-dirs, var(--folder-color-rgb)),
-      0.24);
+  --folder-hover-color: rgba(var(--setting-color-dirs, var(--folder-color-rgb)), 0.24);
   --nav-item-size: 0.9rem;
   --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);

@@ -68,12 +68,11 @@ settings:
         level: 2
     -
         id: explorer-nav-decoration
-        title: styled active file
+        title: add tail decorator on active file
         description: reference from https://github.com/Akifyss/obsidian-border
-        title.zh: 当前文件美化
+        title.zh: 在当前文件末尾添加装饰
         description.zh: 参考 https://github.com/Akifyss/obsidian-border
         type: class-toggle
-        default: true
     -
         id: explorer-title-wrap
         title: title wrap
