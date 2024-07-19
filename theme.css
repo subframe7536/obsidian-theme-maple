@@ -232,12 +232,11 @@ settings:
         level: 2
     -
         id: explorer-nav-decoration
-        title: styled active file
+        title: add tail decorator on active file
         description: reference from https://github.com/Akifyss/obsidian-border
-        title.zh: 当前文件美化
+        title.zh: 在当前文件末尾添加装饰
         description.zh: 参考 https://github.com/Akifyss/obsidian-border
         type: class-toggle
-        default: true
     -
         id: explorer-title-wrap
         title: title wrap
@@ -476,7 +475,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.9'"
+        default: "'maple 0.8.10'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2119,8 +2118,7 @@ body {
 body.font-latex-text mjx-container mjx-utext {
   font-family: var(--font-text) !important;
 }
-
-body.font-fix-latex mjx-container .TEX-I {
+body.font-latex-text mjx-container .TEX-I {
   font-family: MJXZERO, EMBED-TEX-I;
 }
 
@@ -5142,7 +5140,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.9");
+  content: var(--setting-header-title, "maple 0.8.10");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6254,8 +6252,7 @@ body {
   --file-folding-offset: 28px;
   --folder-color-rgb: 245, 180, 0;
   --folder-color: rgb(var(--setting-color-dirs, var(--folder-color-rgb)));
-  --folder-hover-color: rgba(var(--setting-color-dirs, var(--folder-color-rgb)),
-      0.24);
+  --folder-hover-color: rgba(var(--setting-color-dirs, var(--folder-color-rgb)), 0.24);
   --nav-item-size: 0.9rem;
   --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
@@ -6295,11 +6292,11 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title-content {
   padding-left: var(--size-2-1);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder > .nav-folder-children {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder .nav-folder-children {
   transition: var(--animation);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder > .nav-folder-children:hover {
-  --nav-indentation-guide-color: var(--accent-inactive);
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder .nav-folder-children:hover {
+  border-color: var(--accent-inactive);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-collapse-indicator {
   cursor: pointer;
