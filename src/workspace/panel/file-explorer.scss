@@ -52,11 +52,11 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         }
       }
 
-      & > .nav-folder-children {
+      .nav-folder-children {
         transition: var(--animation);
 
         &:hover {
-          --nav-indentation-guide-color: var(--accent-inactive);
+          border-color: var(--accent-inactive);
         }
       }
 
