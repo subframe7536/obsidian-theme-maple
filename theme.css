@@ -475,7 +475,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.10'"
+        default: "'maple 0.8.11'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -5140,7 +5140,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.10");
+  content: var(--setting-header-title, "maple 0.8.11");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5442,6 +5442,7 @@ body.tab-float {
 }
 body.tab-float .workspace-tab-header-container {
   --tab-outline-width: 0 !important;
+  padding-left: 0;
 }
 body.tab-float .mod-root .workspace-tab-header-container-inner {
   margin-top: var(--size-4-1);
@@ -5567,6 +5568,10 @@ body.tab-slide-up :is(.workspace-split .workspace-tabs:not(.mod-stacked) .worksp
 
 .search-result-file-matches {
   border-radius: var(--radius-m);
+}
+
+body {
+  --divider-color: #8883;
 }
 
 /* #endregion tab */
