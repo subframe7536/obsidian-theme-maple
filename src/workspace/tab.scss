@@ -3,6 +3,7 @@ body.tab-float {
 
   .workspace-tab-header-container {
     --tab-outline-width: 0 !important;
+    padding-left: 0;
   }
 
   .mod-root .workspace-tab-header-container-inner {
@@ -163,4 +164,8 @@ body.tab-slide-up :is(.workspace-split .workspace-tabs:not(.mod-stacked) .worksp
 
 .search-result-file-matches {
   border-radius: var(--radius-m);
+}
+
+body {
+  --divider-color: #8883;
 }
