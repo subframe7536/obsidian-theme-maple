@@ -180,7 +180,7 @@ body .markdown-rendered pre {
     transition: var(--animation);
     margin: 0;
     display: block !important;
-    top: var(--size-4-1);
+    top: var(--size-2-1);
     right: var(--size-4-1);
     z-index: 9;
 
@@ -214,7 +214,7 @@ body .markdown-rendered pre {
     $height: 2rem;
 
     pre {
-      padding: $height 1rem;
+      padding: $height 0.8rem;
       position: relative;
 
       &[class*='language-']::before {
@@ -243,6 +243,15 @@ body .markdown-rendered pre {
       pre[class~='language-#{to-lower-case($lan)}']::before {
         content: quote($lan);
       }
+    }
+    pre[class~='language-c++']::before {
+      content: "C++";
+    }
+    pre[class~='language-c#']::before {
+      content: "C#";
+    }
+    pre[class~='language-sh']::before {
+      content: "Shell";
     }
   }
 }
@@ -329,13 +338,13 @@ body .markdown-rendered pre {
     width: $light-size;
     height: $light-size;
     position: absolute;
-    left: var(--size-4-4);
+    left: 0.8rem;
     top: calc($light-size * var(--line-height-normal) * 0.7 - var(--code-size) / 3);
     border-radius: 50%;
     z-index: 9;
     background-color: rgba(255, 94, 92, var(--color-opacity));
-    box-shadow: var(--size-4-5) 0 0 0 rgba(255, 187, 78, var(--color-opacity)),
-      calc(var(--size-4-5) * 2) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
+    box-shadow: var(--size-4-4) 0 0 0 rgba(255, 187, 78, var(--color-opacity)),
+      calc(var(--size-4-4) * 2) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
   }
 
   .copy-code-button:hover {
