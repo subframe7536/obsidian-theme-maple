@@ -475,7 +475,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.12'"
+        default: "'maple 0.8.13'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2541,7 +2541,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre {
   padding: 2rem 0.8rem;
   position: relative;
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class*=language-]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class*=language-]::before {
   content: "unkown language";
   font-family: var(--font-text);
   color: var(--setting-code-language-color, var(--inline-code));
@@ -2555,172 +2555,172 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   line-height: var(--line-height-normal);
   z-index: 9;
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-c]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-c]::before {
   content: "C";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-properties]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-properties]::before {
   content: "Properties";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-python]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-python]::before {
   content: "Python";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-nginx]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-nginx]::before {
   content: "Nginx";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-css]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-css]::before {
   content: "CSS";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-javascript]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-javascript]::before {
   content: "Javascript";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-js]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-js]::before {
   content: "JS";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-typescript]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-typescript]::before {
   content: "Typescript";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-ts]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-ts]::before {
   content: "TS";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-jsp]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-jsp]::before {
   content: "JSP";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-php]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-php]::before {
   content: "PHP";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-lua]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-lua]::before {
   content: "Lua";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-shell]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-shell]::before {
   content: "Shell";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-powershell]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-powershell]::before {
   content: "PowerShell";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-flow]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-flow]::before {
   content: "Flow";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-sequence]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-sequence]::before {
   content: "Sequence";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-sql]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-sql]::before {
   content: "SQL";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-yaml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-yaml]::before {
   content: "YAML";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-yml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-yml]::before {
   content: "YML";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-ini]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-ini]::before {
   content: "ini";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-xml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-xml]::before {
   content: "XML";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-cs]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-cs]::before {
   content: "CS";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-cpp]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-cpp]::before {
   content: "CPP";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-java]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-java]::before {
   content: "Java";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-html]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-html]::before {
   content: "HTML";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-txt]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-txt]::before {
   content: "TXT";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-md]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-md]::before {
   content: "MD";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-markdown]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-markdown]::before {
   content: "Markdown";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-bat]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-bat]::before {
   content: "Bat";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-json]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-json]::before {
   content: "Json";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-groovy]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-groovy]::before {
   content: "Groovy";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-scss]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-scss]::before {
   content: "SCSS";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-bash]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-bash]::before {
   content: "Bash";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-cmd]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-cmd]::before {
   content: "Cmd";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-latex]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-latex]::before {
   content: "Latex";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-zig]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-zig]::before {
   content: "Zig";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-ssml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-ssml]::before {
   content: "SSML";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-jsx]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-jsx]::before {
   content: "JSX";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-tsx]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-tsx]::before {
   content: "TSX";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-tsconfig]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-tsconfig]::before {
   content: "tsconfig";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-git]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-git]::before {
   content: "Git";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-csharp]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-csharp]::before {
   content: "CSharp";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-csv]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-csv]::before {
   content: "CSV";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-cue]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-cue]::before {
   content: "cue";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-toml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-toml]::before {
   content: "TOML";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-kt]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-kt]::before {
   content: "kt";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-kotlin]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-kotlin]::before {
   content: "Kotlin";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-go]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-go]::before {
   content: "Go";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-rust]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-rust]::before {
   content: "Rust";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-regex]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-regex]::before {
   content: "Regex";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-swift]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-swift]::before {
   content: "Swift";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-abap]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-abap]::before {
   content: "ABAP";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~="language-pl/sql"]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~="language-pl/sql"]::before {
   content: "PL/SQL";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~="language-c++"]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~="language-c++"]::before {
   content: "C++";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~="language-c#"]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~="language-c#"]::before {
   content: "C#";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class~=language-sh]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-sh]::before {
   content: "Shell";
 }
 
@@ -2772,7 +2772,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5) !important;
 }
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview)[class*=language-]::before {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) code[class*=language-]::before {
   color: var(--setting-code-language-color, var(--accent-active));
 }
 .code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview)::after {
@@ -2784,17 +2784,17 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   left: 0;
   position: absolute;
 }
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) code::before {
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview)::before {
   content: "";
   width: calc(var(--code-size) - var(--size-2-1));
   height: calc(var(--code-size) - var(--size-2-1));
   position: absolute;
   left: 0.8rem;
-  top: calc((var(--code-size) - var(--size-2-1)) * var(--line-height-normal) * 0.7 - var(--code-size) / 3);
+  top: calc((var(--code-size) - var(--size-2-1)) * var(--line-height-normal) * 0.6 - var(--code-size) / 3);
   border-radius: 50%;
   z-index: 9;
   background-color: rgba(255, 94, 92, var(--color-opacity));
-  box-shadow: var(--size-4-4) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-4) * 2) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
+  box-shadow: calc(var(--size-4-5) * 0.9) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-5) * 1.8) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
 }
 .code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) .copy-code-button:hover {
   background-color: var(--accent-inactive);
@@ -5149,7 +5149,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.12");
+  content: var(--setting-header-title, "maple 0.8.13");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
