@@ -475,7 +475,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.15'"
+        default: "'maple 0.8.16'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -726,7 +726,7 @@ settings:
         title: underline offset
         title.zh: 下划线间距
         type: variable-number-slider
-        default: 0
+        default: 2
         format: 'px'
         min: 0
         max: 8
@@ -2306,11 +2306,6 @@ body {
   --italic-color: var(--setting-text-italic-color, var(--color-red)) !important;
 }
 
-:is(em, .cm-em, strong, .cm-strong) {
-  text-underline-offset: var(--size-2-1);
-  transition: var(--animation);
-}
-
 body :is(.cm-highlight.cm-strong, mark > strong) {
   color: var(--setting-text-highlight-color, var(--bold-color));
 }
@@ -2332,11 +2327,8 @@ strong,
   font-family: var(--setting-text-bold-font, var(--font-text));
 }
 
-em,
-.cm-em strong,
-.cm-strong,
-u {
-  text-underline-offset: var(--setting-underline-offset, auto);
+:is(em, .cm-em, strong, .cm-strong, u) {
+  text-underline-offset: var(--setting-underline-offset, 2);
 }
 
 a :is(em, strong) {
@@ -5166,7 +5158,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.15");
+  content: var(--setting-header-title, "maple 0.8.16");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
