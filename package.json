@@ -15,11 +15,11 @@
   "author": "subframe7536",
   "license": "MIT",
   "dependencies": {
-    "sass": "^1.69.7",
+    "sass": "1.69.7",
     "which": "^4.0.0"
   },
   "type": "module",
   "devDependencies": {
-    "bumpp": "^9.2.1"
+    "bumpp": "^9.5.2"
   }
 }

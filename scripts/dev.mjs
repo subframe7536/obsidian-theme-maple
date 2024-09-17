@@ -1,11 +1,12 @@
 import { spawn } from 'child_process'
 import { basename, extname, resolve, join } from 'path'
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
+import { homedir,platform } from "os";
 import which from 'which'
 
 // const __dirname = dirname(fileURLToPath(import.meta.url))
 // const devVaultRoot = resolve(__dirname, '..', 'vault')
-const devVaultRoot = 'D:/note/dev-vault'
+const devVaultRoot = platform() === 'win32' ? 'D:/note/dev-vault' : homedir() + '/Desktop/note/dev-vault'
 
 const baseDir = resolve(devVaultRoot, 'test')
 if (!existsSync(baseDir)) {
