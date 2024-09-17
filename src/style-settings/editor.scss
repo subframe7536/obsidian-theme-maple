@@ -98,6 +98,16 @@ settings:
         type: variable-text
         default: clamp(600px, 72%, 850px)
     -
+        id: setting-underline-offset
+        title: underline offset
+        title.zh: 下划线间距
+        type: variable-number-slider
+        default: 0
+        format: 'px'
+        min: 0
+        max: 8
+        step: 0.5
+    -
         id: line-indicator-enable
         title: enable hover line indicator
         description: reference from https://github.com/Akifyss/obsidian-border, need install version>=1.1.9

@@ -257,6 +257,13 @@ strong,
   font-family: var(--setting-text-bold-font, var(--font-text));
 }
 
+em,
+.cm-em
+strong,
+.cm-strong {
+  text-underline-offset: var(--setting-underline-offset, auto);
+}
+
 a :is(em, strong) {
   text-decoration: none;
 
