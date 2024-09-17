@@ -260,7 +260,8 @@ strong,
 em,
 .cm-em
 strong,
-.cm-strong {
+.cm-strong,
+u {
   text-underline-offset: var(--setting-underline-offset, auto);
 }
 
