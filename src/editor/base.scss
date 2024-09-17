@@ -228,11 +228,6 @@ body {
   --italic-color: var(--setting-text-italic-color, var(--color-red)) !important;
 }
 
-:is(em, .cm-em, strong, .cm-strong) {
-  text-underline-offset: var(--size-2-1);
-  transition: var(--animation);
-}
-
 body {
   :is(.cm-highlight.cm-strong, mark>strong) {
     color: var(--setting-text-highlight-color, var(--bold-color));
@@ -257,12 +252,8 @@ strong,
   font-family: var(--setting-text-bold-font, var(--font-text));
 }
 
-em,
-.cm-em
-strong,
-.cm-strong,
-u {
-  text-underline-offset: var(--setting-underline-offset, auto);
+:is(em, .cm-em, strong, .cm-strong, u) {
+  text-underline-offset: var(--setting-underline-offset, 2);
 }
 
 a :is(em, strong) {
