@@ -31,7 +31,7 @@ $plugins: $calendar, $janitor, $excalidraw, $kanban;
 /* !Chrome >= 121 no longer support `-webkit-scrollbar-*`, no effect currently */
 /* usage of `@property`: https://stackoverflow.com/a/74050413/20058211 */
 /* usage of `-webkit-text-fill-color`: https://stackoverflow.com/a/46304690/20058211 */
-body:not(.is-mobile) {
+body:not(.is-mobile):not(.mod-macos) {
 
   $base-color: hsla(var(--color-accent-hsl), 24%);
   $hover-color: hsla(var(--color-accent-hsl), 40%);
