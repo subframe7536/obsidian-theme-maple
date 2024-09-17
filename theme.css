@@ -475,7 +475,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.13'"
+        default: "'maple 0.8.14'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -721,6 +721,16 @@ settings:
         description.zh: 动态宽度 — clamp(最小值, 宽度百分比, 最大值)
         type: variable-text
         default: clamp(600px, 72%, 850px)
+    -
+        id: setting-underline-offset
+        title: underline offset
+        title.zh: 下划线间距
+        type: variable-number-slider
+        default: 0
+        format: 'px'
+        min: 0
+        max: 8
+        step: 0.5
     -
         id: line-indicator-enable
         title: enable hover line indicator
@@ -2320,6 +2330,12 @@ strong,
   --blockquote-color: var(--bold-color);
   text-decoration: var(--setting-text-bold-style, underline dotted);
   font-family: var(--setting-text-bold-font, var(--font-text));
+}
+
+em,
+.cm-em strong,
+.cm-strong {
+  text-underline-offset: var(--setting-underline-offset, auto);
 }
 
 a :is(em, strong) {
@@ -5149,7 +5165,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.13");
+  content: var(--setting-header-title, "maple 0.8.14");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5384,56 +5400,56 @@ body.modal-blur .modal-bg {
 /* !Chrome >= 121 no longer support `-webkit-scrollbar-*`, no effect currently */
 /* usage of `@property`: https://stackoverflow.com/a/74050413/20058211 */
 /* usage of `-webkit-text-fill-color`: https://stackoverflow.com/a/46304690/20058211 */
-body:not(.is-mobile) .mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
+body:not(.is-mobile):not(.mod-macos) .mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
   scrollbar-gutter: stable;
 }
-body:not(.is-mobile).scrollbar-hover-accent {
+body:not(.is-mobile):not(.mod-macos).scrollbar-hover-accent {
   --setting-scrollbar-hover: hsla(var(--color-accent-hsl), 40%);
 }
-body:not(.is-mobile).scrollbar-hover-expand ::-webkit-scrollbar-thumb:hover, body:not(.is-mobile).scrollbar-hover-expand ::-webkit-scrollbar-thumb:active {
+body:not(.is-mobile):not(.mod-macos).scrollbar-hover-expand ::-webkit-scrollbar-thumb:hover, body:not(.is-mobile):not(.mod-macos).scrollbar-hover-expand ::-webkit-scrollbar-thumb:active {
   border-width: var(--size-2-1) !important;
 }
-body:not(.is-mobile) ::-webkit-scrollbar {
+body:not(.is-mobile):not(.mod-macos) ::-webkit-scrollbar {
   width: var(--size-4-3) !important;
   height: var(--size-4-3) !important;
   background-color: transparent !important;
 }
-body:not(.is-mobile) ::-webkit-scrollbar-track {
+body:not(.is-mobile):not(.mod-macos) ::-webkit-scrollbar-track {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-body:not(.is-mobile) ::-webkit-scrollbar-thumb {
+body:not(.is-mobile):not(.mod-macos) ::-webkit-scrollbar-thumb {
   border-radius: var(--size-2-3) !important;
   border: 3.6px solid transparent !important;
   background-color: var(--scrollbar-color) !important;
 }
-body:not(.is-mobile) ::-webkit-scrollbar-thumb:hover {
+body:not(.is-mobile):not(.mod-macos) ::-webkit-scrollbar-thumb:hover {
   --scrollbar-color: var(--setting-scrollbar-hover);
 }
-body:not(.is-mobile) ::-webkit-scrollbar-thumb:active {
+body:not(.is-mobile):not(.mod-macos) ::-webkit-scrollbar-thumb:active {
   --scrollbar-color: hsla(var(--color-accent-hsl), 64%);
 }
-body:not(.is-mobile):not(.scrollbar-movein-animation-enable) {
+body:not(.is-mobile):not(.mod-macos):not(.scrollbar-movein-animation-enable) {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
+body:not(.is-mobile):not(.mod-macos).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
   transition: --scrollbar-color var(--animation);
 }
-body:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete):hover {
+body:not(.is-mobile):not(.mod-macos).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete):hover {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body:not(.is-mobile).scrollbar-movein-animation-enable textarea {
+body:not(.is-mobile):not(.mod-macos).scrollbar-movein-animation-enable textarea {
   color: transparent;
   transition: color var(--animation);
   -webkit-text-fill-color: var(--text-normal);
 }
-body:not(.is-mobile).scrollbar-movein-animation-enable textarea:hover {
+body:not(.is-mobile):not(.mod-macos).scrollbar-movein-animation-enable textarea:hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body:not(.is-mobile).scrollbar-movein-animation-enable textarea * {
+body:not(.is-mobile):not(.mod-macos).scrollbar-movein-animation-enable textarea * {
   -webkit-text-fill-color: initial;
 }
-body:not(.is-mobile).scrollbar-movein-animation-enable textarea::-webkit-scrollbar-thumb {
+body:not(.is-mobile):not(.mod-macos).scrollbar-movein-animation-enable textarea::-webkit-scrollbar-thumb {
   box-shadow: 0 0 0 10px inset;
   border-width: 3.2px;
   background-clip: content-box;
