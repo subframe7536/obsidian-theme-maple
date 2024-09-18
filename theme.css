@@ -475,7 +475,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.16'"
+        default: "'maple 0.8.17'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -3541,7 +3541,7 @@ body.quote-theme .markdown-rendered blockquote {
 }
 body.quote-theme .markdown-rendered blockquote :is(p, h1, h2, h3, h4, h5, h6) {
   padding-left: var(--blockquote-border-thickness);
-  padding-right: var(--size-4-1);
+  padding-right: var(--size-4-3);
 }
 body.quote-theme .markdown-rendered blockquote::after {
   content: "";
@@ -3555,7 +3555,7 @@ body.quote-theme .markdown-rendered blockquote::after {
 }
 body.quote-theme .markdown-rendered blockquote blockquote {
   box-shadow: none;
-  margin: 0;
+  margin-inline-end: var(--size-4-3) !important;
 }
 body.quote-theme.quote-shadow .markdown-rendered blockquote {
   box-shadow: var(--shadow-s);
@@ -3586,7 +3586,7 @@ body.quote-theme.quote-mark.quote-theme blockquote::before {
   transform: translateX(-1.32rem);
 }
 body.quote-theme :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote {
-  padding-left: var(--size-4-8);
+  padding-left: var(--size-4-6);
 }
 body.quote-theme :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote :is(p, h1, h2, h3, h4, h5, h6) {
   padding-left: calc(var(--blockquote-border-thickness) * 2);
@@ -5158,7 +5158,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.16");
+  content: var(--setting-header-title, "maple 0.8.17");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
