@@ -6,7 +6,8 @@ body {
   --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1))
 }
 
-.p-indent :is([class="cm-line"], [class="cm-active cm-line"]) {
+// only match plain line
+.p-indent :is([class="cm-line"], [class="cm-active cm-line"], p) {
   text-indent: calc(var(--font-text-size) * var(--setting-editor-p-indent, 2));
 }
 
