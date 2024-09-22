@@ -475,7 +475,7 @@ settings:
         title: set modal header title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.18'"
+        default: "'maple 0.8.19'"
     -
         id: setting-group-title
         title: add style for left navigation group title
@@ -2119,8 +2119,19 @@ body {
   --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1)) ;
 }
 
+.p-indent {
+  --indent: calc(var(--font-text-size) * var(--setting-editor-p-indent, 2));
+}
 .p-indent :is([class=cm-line], [class="cm-active cm-line"], p) {
-  text-indent: calc(var(--font-text-size) * var(--setting-editor-p-indent, 2));
+  text-indent: var(--indent);
+}
+.p-indent p > br {
+  content: "";
+  white-space: pre;
+}
+.p-indent p > br::after {
+  content: "\a​";
+  margin-inline-end: var(--indent);
 }
 
 /* #endregion paragraph */
@@ -5158,7 +5169,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.18");
+  content: var(--setting-header-title, "maple 0.8.19");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
