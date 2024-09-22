@@ -7,8 +7,21 @@ body {
 }
 
 // only match plain line
-.p-indent :is([class="cm-line"], [class="cm-active cm-line"], p) {
-  text-indent: calc(var(--font-text-size) * var(--setting-editor-p-indent, 2));
+.p-indent {
+  --indent: calc(var(--font-text-size) * var(--setting-editor-p-indent, 2));
+  :is([class="cm-line"], [class="cm-active cm-line"], p) {
+    text-indent: var(--indent);
+  }
+
+  p > br {
+    content: '';
+    white-space: pre;
+
+    &::after {
+      content: '\000A\200B';
+      margin-inline-end: var(--indent);
+    }
+  }
 }
 
 /* #endregion paragraph */
