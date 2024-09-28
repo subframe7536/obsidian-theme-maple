@@ -9,6 +9,7 @@ body {
 // only match plain line
 .p-indent {
   --indent: calc(var(--font-text-size) * var(--setting-editor-p-indent, 2));
+
   :is([class="cm-line"], [class="cm-active cm-line"], p) {
     text-indent: var(--indent);
   }
@@ -255,7 +256,7 @@ body {
 em,
 .cm-em {
   --blockquote-color: var(--italic-color);
-  text-decoration-style: var(--setting-text-italic-style, underline dotted);
+  text-decoration: var(--setting-text-italic-style, underline dotted);
   font-family: var(--setting-text-italic-font, var(--font-text));
 }
 
