@@ -806,8 +806,8 @@ settings:
         default-dark: '#'
     -
         id: list-checkbox
-        title: task list
-        title.zh: 待办事项
+        title: task list (checkbox)
+        title.zh: 待办事项（勾选框）
         type: heading
         collapsed: true
         level: 3
@@ -815,6 +815,13 @@ settings:
         id: list-checkbox-line
         title: remove middle line in completed item
         title.zh: 移除已完成事项上的删除线
+        type: class-toggle
+    -
+        id: list-checkbox-alternative
+        title: Enable Alternative Checkboxes
+        description: Disable this if you are using your own implementation via a CSS Snippet.
+        title.zh: 增加勾选框样式
+        description.zh: 如果你用了其他勾选框 CSS 片段，可以关闭
         type: class-toggle
     -
         id: setting-list-checkbox-color
