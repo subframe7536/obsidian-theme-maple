@@ -84,7 +84,7 @@ body.quote-theme {
 
     :is(p, h1, h2, h3, h4, h5, h6) {
       padding-left: var(--blockquote-border-thickness);
-      padding-right: var(--size-4-1);
+      padding-right: var(--size-4-3);
     }
 
     &::after {
@@ -100,7 +100,7 @@ body.quote-theme {
 
     blockquote {
       box-shadow: none;
-      margin: 0;
+      margin-inline-end: var(--size-4-3) !important;
     }
   }
 
@@ -141,7 +141,7 @@ body.quote-theme {
   }
 
   :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote {
-    padding-left: var(--size-4-8);
+    padding-left: var(--size-4-6);
 
     :is(p, h1, h2, h3, h4, h5, h6) {
       padding-left: calc(var(--blockquote-border-thickness) * 2);
