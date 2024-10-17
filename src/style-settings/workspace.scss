@@ -5,30 +5,30 @@ id: maple-workspace
 settings:
     -
         id: titlebar
-        title: obsidian titlebar
+        title: Obsidian Titlebar
         title.zh: obsidian 标题栏
         type: heading
         collapsed: true
         level: 2
     -
         id: titlebar-button-style
-        title: styled window buttons
-        description: for Windows and Linux
+        title: Styled Window Buttons
+        description: For Windows and Linux
         title.zh: 窗体按钮美化
         description.zh: 在 Windows 和 Linux 中生效
         type: class-toggle
         default: true
     -
         id: titlebar-colorful
-        title: colorful titlebar
-        description: reference from https://github.com/kepano/obsidian-minimal
+        title: Colorful Titlebar
+        description: Reference from https://github.com/kepano/obsidian-minimal
         title.zh: 多彩 Obsidian 标题栏
         description.zh: 参考 https://github.com/kepano/obsidian-minimal
         type: class-toggle
     -
         id: bg
-        title: wave background
-        description: will also add in canvas card when card width > 768px
+        title: Wave Background
+        description: Will also add in canvas card when card width > 768px
         title.zh: 波浪背景图
         description.zh: 白板的卡片宽度 >768px 时编辑卡片也会添加
         type: heading
@@ -36,8 +36,8 @@ settings:
         level: 2
     -
         id: bg-enable
-        title: background wave image
-        description: static style reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow, ❗live style will increase CPU/GPU use
+        title: Background Wave Image
+        description: Static style reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow, ❗live style will increase CPU/GPU use
         title.zh: 背景波浪图
         description.zh: 静态图（static）参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow，❗动态图（live）将提高 CPU/GPU 占用率
         type: class-select
@@ -52,7 +52,7 @@ settings:
                 value: bg-live
     -
         id: setting-bg-color
-        title: wave color
+        title: Wave Color
         title.zh: 波浪颜色
         type: variable-themed-color
         format: rgb
@@ -61,26 +61,26 @@ settings:
         default-dark: '#'
     -
         id: explorer
-        title: file explorer
+        title: File Explorer
         title.zh: 文件管理器
         type: heading
         collapsed: true
         level: 2
     -
         id: explorer-nav-decoration
-        title: add tail decorator on active file
-        description: reference from https://github.com/Akifyss/obsidian-border
+        title: Add Tail Decorator On Active File
+        description: Reference from https://github.com/Akifyss/obsidian-border
         title.zh: 在当前文件末尾添加装饰
         description.zh: 参考 https://github.com/Akifyss/obsidian-border
         type: class-toggle
     -
         id: explorer-title-wrap
-        title: title wrap
+        title: Title Wrap
         title.zh: 标题换行
         type: class-toggle
     -
         id: explorer-item-height
-        title: item line height
+        title: Item Line Height
         title.zh: 行高
         type: variable-number-slider
         default: 1.6
@@ -89,15 +89,15 @@ settings:
         step: 0.1
     -
         id: explorer-icon
-        title: enable prefix icon
-        description: if the tree indent is weird, please collpase all the directory and restart Obsidian
+        title: Enable Prefix Icon
+        description: If the tree indent is weird, please collpase all the directory and restart Obsidian
         title.zh: 开启前置图标
         description.zh: 如果缩进出现问题，请折叠全部文件夹并重启 Obsidian
         type: class-toggle
         default: true
     -
         id: setting-color-dirs
-        title: dir color
+        title: Dir Color
         title.zh: 文件夹颜色
         type: variable-themed-color
         format: rgb-values
@@ -106,41 +106,41 @@ settings:
         default-dark: rgb(245, 180, 0)
     -
         id: outline-panel
-        title: outline panel
+        title: Outline Panel
         title.zh: 文档大纲
         type: heading
         collapsed: true
         level: 2
     -
         id: outline-enable
-        title: enable logseq bullet thread style outline
-        description: please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+        title: Enable Logseq Bullet Thread Style Outline
+        description: Please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         title.zh: 启用 logseq bullet thread 样式的文档视图
         description.zh: 启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         type: class-toggle
         default: true
     -
         id: status-bar
-        title: status bar
+        title: Status Bar
         title.zh: 状态栏
         type: heading
         collapsed: true
         level: 2
     -
         id: status-bar-enable
-        title: enable status bar style
+        title: Enable Status Bar Style
         title.zh: 启用状态栏样式
         type: class-toggle
         default: true
     -
         id: status-bar-style-float
-        title: round style status bar
+        title: Round Style Status Bar
         title.zh: 圆角风格的状态栏
         type: class-toggle
         default: true
     -
         id: status-bar-style
-        title: status bar animation
+        title: Status Bar Animation
         description: ❗last style only valid when turn on “round status bar”
         title.zh: 状态栏样式
         description.zh: ❗最后一种样式只在开启“圆角风格的状态栏”才生效
@@ -156,37 +156,37 @@ settings:
                 value: status-bar-scroll
     -
         id: status-bar-style-center
-        title: center status bar
+        title: Center Status Bar
         title.zh: 状态栏居中
         type: class-toggle
     -
         id: search-internal
-        title: document search panel
+        title: Document Search Panel
         title.zh: 文档内搜索框
         type: heading
         collapsed: true
         level: 2
     -
         id: search-internal-enable
-        title: enable VSCode style search/replace panel
+        title: Enable VSCode Style Search/replace Panel
         title.zh: 启用 VSCode 样式的搜索框
         type: class-toggle
         default: true
     -
         id: tab
-        title: tab
+        title: Tab
         title.zh: 标签页
         type: heading
         collapsed: true
         level: 2
     -
         id: tab-float
-        title: float tabs style like firefox / Microsoft Edge
+        title: Float Tabs Style Like Firefox / Microsoft Edge
         title.zh: 仿 Firefox / Microsoft Edge 的标签页
         type: class-toggle
     -
         id: tab-slide-up
-        title: slide up animation on tab switch
+        title: Slide Up Animation On Tab Switch
         description: ❗will prevent outline panel update instantly on switch articles
         title.zh: 标签页切换动画
         description.zh: ❗会导致切换文章时无法立即更新大纲面板
@@ -194,14 +194,14 @@ settings:
         default: true
     -
         id: labeled-nav
-        title: text labels for primary navigation
-        description: reference from https://github.com/kepano/obsidian-minimal
+        title: Text Labels For Primary Navigation
+        description: Reference from https://github.com/kepano/obsidian-minimal
         title.zh: 主导航栏添加文字
         description.zh: 参考自 https://github.com/kepano/obsidian-minimal
         type: class-toggle
     -
         id: tab-show-close
-        title: when to show close button on tabs
+        title: When To Show Close Button On Tabs
         title.zh: 何时显示标签页的关闭按钮
         type: class-select
         allowEmpty: false
@@ -215,23 +215,23 @@ settings:
                 value: tab-show-close-part
     -
         id: tab-title
-        title: tab title bar
+        title: Tab Title Bar
         title.zh: 标签页标题栏
         type: heading
         level: 3
     -
         id: tab-title-bar-round
-        title: enable tab title bar round style
+        title: Enable Tab Title Bar Round Style
         title.zh: 开启标签页标题栏圆角样式
         type: class-toggle
     -
         id: tab-title-bar-shadow
-        title: add shadow for active tab title bar
+        title: Add Shadow For Active Tab Title Bar
         title.zh: 为当前标签页标题栏添加阴影
         type: class-toggle
     -
         id: tab-title-bar-text
-        title: file name on tab title bar
+        title: File Name On Tab Title Bar
         title.zh: 标签页标题栏的文件名
         type: class-select
         allowEmpty: false
@@ -245,30 +245,30 @@ settings:
                 value: tab-title-bar-text-hidden
     -
         id: message
-        title: tooltip & notice
+        title: Tooltip & Notice
         title.zh: 气泡提示框 & 通知
         type: heading
         collapsed: true
         level: 2
     -
         id: message-tooltip-hide-arrow
-        title: hide tooltip arrow
+        title: Hide Tooltip Arrow
         title.zh: 隐藏气泡提示框箭头
         type: class-toggle
     -
         id: message-tooltip-hide
-        title: always hide tooltip
+        title: Always Hide Tooltip
         title.zh: 永久隐藏气泡提示框
         type: class-toggle
     -
         id: message-modify
-        title: change tooltip & notice color
+        title: Change Tooltip & Notice Color
         title.zh: 修改气泡提示框和消息的颜色
         type: class-toggle
         default: true
     -
         id: setting-message-bg
-        title: background color
+        title: Background Color
         title.zh: 背景色
         type: variable-themed-color
         format: hsl-values
@@ -277,7 +277,7 @@ settings:
         default-dark: '#'
     -
         id: setting-message-fg
-        title: foreground color
+        title: Foreground Color
         title.zh: 文字色
         type: variable-themed-color
         format: rgb-values
@@ -286,14 +286,14 @@ settings:
         default-dark: '#'
     -
         id: modal
-        title: modal & setting panel
+        title: Modal & Setting Panel
         title.zh: 弹出框 & 设置面板
         type: heading
         collapsed: true
         level: 2
     -
         id: modal-blur
-        title: enable modal background blur
+        title: Enable Modal Background Blur
         description: If there is a delay in scrolling, try turning this option off
         title.zh: 开启弹出框背景模糊
         description.zh: 如果滚动时有卡顿，尝试关闭该选项
@@ -301,38 +301,38 @@ settings:
         default: true
     -
         id: modal-header
-        title: add header for setting panel
-        description: better with plugin “setting search”, invalid in mobile
+        title: Add Header For Setting Panel
+        description: Better with plugin “setting search”, invalid in mobile
         title.zh: 为设置面板添加顶部框
         description.zh: 配合 setting search 插件使用更佳，移动端无效
         type: class-toggle
     -
         id: setting-modal-header-title
-        title: set modal header title
+        title: Set Modal Header Title
         title.zh: 设置面板标题
         type: variable-text
         default: "'maple 0.8.20'"
     -
         id: setting-group-title
-        title: add style for left navigation group title
+        title: Add Style For Left Navigation Group Title
         title.zh: 为左侧选项组标题添加样式
         type: class-toggle
         default: true
     -
         id: setting-nav-decoration
-        title: styled active nav item
+        title: Styled Active Nav Item
         title.zh: 左侧当前设置项美化
         type: class-toggle
         default: true
     -
         id: modal-slider
-        title: styled slider thumb
+        title: Styled Slider Thumb
         title.zh: 滑动条按钮美化
         type: class-toggle
         default: true
     -
         id: modal-toggle
-        title: styled toggle button
+        title: Styled Toggle Button
         title.zh: 开关按钮美化
         type: class-select
         allowEmpty: false
@@ -346,7 +346,7 @@ settings:
                 value: modal-toggle-round
     -
         id: modal-animation
-        title: modal bounce animation
+        title: Modal Bounce Animation
         desciption: reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow
         title.zh: 弹出框抖动动画
         desciption.zh: 参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow
@@ -354,44 +354,44 @@ settings:
         default: true
     -
         id: menu-blur
-        title: menu blur
+        title: Menu Blur
         title.zh: 菜单模糊
         type: heading
         collapsed: true
         level: 2
     -
         id: menu-normal
-        title: normal menu
+        title: Normal Menu
         title.zh: 普通菜单
         type: class-toggle
         default: true
     -
         id: menu-suggestion
-        title: suggestion menu
+        title: Suggestion Menu
         title.zh: 提示菜单
         type: class-toggle
         default: true
     -
         id: menu-graph
-        title: graph menu
+        title: Graph Menu
         title.zh: 图谱菜单
         type: class-toggle
         default: true
     -
         id: scrollbar
-        title: scrollbar
+        title: Scrollbar
         title.zh: 滚动条
         type: heading
         collapsed: true
         level: 2
     -
         id: scrollbar-hide
-        title: always hide scrollbar
+        title: Always Hide Scrollbar
         title.zh: 不显示滚动条
         type: class-toggle
     -
         id: scrollbar-hover
-        title: scrollbar hover action
+        title: Scrollbar Hover Action
         title.zh: 鼠标经过时滚动条变化
         type: class-select
         allowEmpty: false
@@ -405,22 +405,22 @@ settings:
                 value: scrollbar-hover-expand
     -
         id: scrollbar-movein-animation-enable
-        title: enable scrollbar animation
-        description: when disabled, always show scrollbar; when enabled, hide scrollbar when the mouse move outside the container
+        title: Enable Scrollbar Animation
+        description: When disabled, always show scrollbar; when enabled, hide scrollbar when the mouse move outside the container
         title.zh: 启用滚动条动画
         description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
         type: class-toggle
         default: true
     -
         id: graph
-        title: graph
+        title: Graph
         title.zh: 关系图谱
         type: heading
         collapsed: true
         level: 2
     -
         id: setting-graph-node
-        title: node color
+        title: Node Color
         title.zh: 普通节点颜色
         type: variable-themed-color
         format: rgb-values
@@ -429,7 +429,7 @@ settings:
         default-dark: '#'
     -
         id: setting-graph-node-unresolved
-        title: unresolved node color
+        title: Unresolved Node Color
         title.zh: 未连接节点颜色
         type: variable-themed-color
         format: rgb-values
@@ -438,7 +438,7 @@ settings:
         default-dark: '#'
     -
         id: setting-graph-node-focus
-        title: focused node color
+        title: Focused Node Color
         title.zh: 聚焦节点颜色
         type: variable-themed-color
         format: rgb-values
@@ -447,14 +447,14 @@ settings:
         default-dark: '#'
     -
         id: export-pdf
-        title: PDF export
+        title: PDF Export
         title.zh: PDF 导出
         type: heading
         collapsed: true
         level: 2
     -
         id: export-pdf-transparent
-        title: transparent page background color
+        title: Transparent Page Background Color
         title.zh: 透明页面背景色
         type: class-toggle
 */

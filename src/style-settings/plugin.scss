@@ -5,45 +5,45 @@ id: maple-plugin
 settings:
     -
         id: calendar
-        title: calendar
+        title: Calendar
         title.zh: 日历
         type: heading
         collapsed: true
         level: 2
     -
         id: calendar-weekend
-        title: highlight weekend
+        title: Highlight Weekend
         title.zh: 突显周末
         type: class-toggle
         default: true
     -
         id: calendar-swap-year-month
-        title: swap year & month
+        title: Swap Year & Month
         title.zh: 交换年和月的位置
         type: class-toggle
     -
         id: setting-calendar-year-suffix
-        title: year suffix
+        title: Year Suffix
         title.zh: 年份后缀
         type: variable-text
         default: "'年'"
     -
         id: setting-calendar-max-width
-        title: max width
-        description: support any css max-width property
+        title: Max Width
+        description: Support any css max-width property
         title.zh: 最大宽度
         description.zh: 支持任何 css 的 max-width 属性值
         type: variable-text
         default: "500px"
     -
         id: kanban
-        title: kanban
+        title: Kanban
         type: heading
         collapsed: true
         level: 2
     -
         id: setting-kanban-item-color
-        title: kanban item font color
+        title: Kanban Item Font Color
         title.zh: kanban 项 文字颜色
         type: variable-themed-color
         format: hex
@@ -52,7 +52,7 @@ settings:
         default-dark: '#'
     -
         id: setting-kanban-item-bg
-        title: kanban item background color
+        title: Kanban Item Background Color
         title.zh: kanban 项 背景色
         type: variable-themed-color
         format: hex
@@ -61,7 +61,7 @@ settings:
         default-dark: '#'
     -
         id: setting-kanban-board-bg
-        title: kanban board backgound color
+        title: Kanban Board Backgound Color
         title.zh: kanban 版面 背景色
         type: variable-themed-color
         format: hex
@@ -77,8 +77,8 @@ settings:
         level: 2
     -
         id: dv-enable
-        title: enable dataview style
-        description: need install version >= 1.1.9
+        title: Enable Dataview Style
+        description: Need install version >= 1.1.9
         title.zh: 启用 dataview 样式
         description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
