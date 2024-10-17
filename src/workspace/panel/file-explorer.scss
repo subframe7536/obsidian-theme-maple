@@ -43,6 +43,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
     .nav-folder {
 
       &-title {
+        cursor: pointer;
+
         &:hover {
           background-color: var(--folder-hover-color);
         }
@@ -60,19 +62,14 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         }
       }
 
-      &-collapse-indicator {
-        cursor: pointer;
-        height: fit-content;
-
-        svg {
-          line-height: var(--line-height-tight);
-          width: 1rem;
-          height: 1rem;
-          background-color: var(--folder-color);
-          display: inline-block;
-          translate: 0 calc(-1 * var(--size-2-1));
-          // add icon in icons.scss
-        }
+      .collapse-icon svg.svg-icon {
+        line-height: var(--line-height-tight);
+        width: 1rem;
+        height: 1rem;
+        background-color: var(--folder-color);
+        display: inline-block;
+        translate: 0 calc(-1 * var(--size-2-1));
+        // add icon in icons.scss
       }
 
       &.is-collapsed .collapse-icon svg.svg-icon {
