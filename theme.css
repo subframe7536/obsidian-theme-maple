@@ -7,7 +7,7 @@ id: maple-basic
 settings:
     -
         id: setting-animation-time
-        title: animation duration (ms)
+        title: Animation Duration (ms)
         title.zh: 动画持续时间（毫秒）
         type: variable-number-slider
         format: ms
@@ -17,21 +17,21 @@ settings:
         step: 50
     -
         id: color-use-custom
-        title: use custom accent color
-        description: use style setting accent color instead of Obsidian's accent color
+        title: Use Custom Accent Color
+        description: Use style setting accent color instead of Obsidian's accent color
         title.zh: 自定义 accent color
         description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
         type: class-toggle
     -
         id: color-accent-light
-        title: light mode
+        title: Light Mode
         title.zh: 浅色模式
         type: heading
         collapsed: true
         level: 2
     -
         id: setting-accent-h-light
-        title: base color
+        title: Base Color
         title.zh: 基础颜色
         type: variable-number-slider
         default: 35
@@ -40,7 +40,7 @@ settings:
         step: 5
     -
         id: color-active-light
-        title: highlight color
+        title: Highlight Color
         title.zh: 高亮颜色
         type: class-select
         allowEmpty: false
@@ -54,7 +54,7 @@ settings:
                 value: color-active-custom-light
     -
         id: setting-color-active-custom-light
-        title: custom highlight color
+        title: Custom Highlight Color
         title.zh: 自定义高亮颜色
         type: variable-color
         format: rgb
@@ -62,15 +62,15 @@ settings:
         opacity: false
     -
         id: color-more-light
-        title: more configuration
+        title: More Configuration
         title.zh: 更多设置
         type: heading
         collapsed: true
         level: 3
     -
         id: setting-accent-s-light
-        title: accent color saturation
-        description: s of hsl
+        title: Accent Color Saturation
+        description: S of hsl
         title.zh: 高亮颜色饱和度
         description.zh: hsl中的s
         type: variable-number-slider
@@ -81,8 +81,8 @@ settings:
         step: 1
     -
         id: setting-accent-l-light
-        title: accent color lightness
-        description: l of hsl
+        title: Accent Color Lightness
+        description: L of hsl
         title.zh: 高亮颜色亮度
         description.zh: hsl中的l
         type: variable-number-slider
@@ -93,14 +93,14 @@ settings:
         step: 1
     -
         id: color-accent-dark
-        title: dark mode
+        title: Dark Mode
         title.zh: 暗色模式
         type: heading
         collapsed: true
         level: 2
     -
         id: setting-accent-h-dark
-        title: base color
+        title: Base Color
         title.zh: 基础颜色
         type: variable-number-slider
         default: 207
@@ -109,7 +109,7 @@ settings:
         step: 5
     -
         id: color-active-dark
-        title: highlight color
+        title: Highlight Color
         title.zh: 高亮颜色
         type: class-select
         allowEmpty: false
@@ -123,7 +123,7 @@ settings:
                 value: color-active-custom-dark
     -
         id: setting-color-active-custom-dark
-        title: custom highlight color
+        title: Custom Highlight Color
         title.zh: 自定义高亮颜色
         type: variable-color
         default: '#'
@@ -131,15 +131,15 @@ settings:
         opacity: false
     -
         id: color-more-dark
-        title: more configuration
+        title: More Configuration
         title.zh: 更多设置
         type: heading
         collapsed: true
         level: 3
     -
         id: setting-accent-s-dark
-        title: accent color saturation
-        description: s of hsl
+        title: Accent Color Saturation
+        description: S of hsl
         title.zh: 高亮颜色饱和度
         description.zh: hsl中的s
         type: variable-number-slider
@@ -150,8 +150,8 @@ settings:
         step: 1
     -
         id: setting-accent-l-dark
-        title: accent color lightness
-        description: l of hsl
+        title: Accent Color Lightness
+        description: L of hsl
         title.zh: 高亮颜色亮度
         description.zh: hsl中的l
         type: variable-number-slider
@@ -169,30 +169,30 @@ id: maple-workspace
 settings:
     -
         id: titlebar
-        title: obsidian titlebar
+        title: Obsidian Titlebar
         title.zh: obsidian 标题栏
         type: heading
         collapsed: true
         level: 2
     -
         id: titlebar-button-style
-        title: styled window buttons
-        description: for Windows and Linux
+        title: Styled Window Buttons
+        description: For Windows and Linux
         title.zh: 窗体按钮美化
         description.zh: 在 Windows 和 Linux 中生效
         type: class-toggle
         default: true
     -
         id: titlebar-colorful
-        title: colorful titlebar
-        description: reference from https://github.com/kepano/obsidian-minimal
+        title: Colorful Titlebar
+        description: Reference from https://github.com/kepano/obsidian-minimal
         title.zh: 多彩 Obsidian 标题栏
         description.zh: 参考 https://github.com/kepano/obsidian-minimal
         type: class-toggle
     -
         id: bg
-        title: wave background
-        description: will also add in canvas card when card width > 768px
+        title: Wave Background
+        description: Will also add in canvas card when card width > 768px
         title.zh: 波浪背景图
         description.zh: 白板的卡片宽度 >768px 时编辑卡片也会添加
         type: heading
@@ -200,8 +200,8 @@ settings:
         level: 2
     -
         id: bg-enable
-        title: background wave image
-        description: static style reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow, ❗live style will increase CPU/GPU use
+        title: Background Wave Image
+        description: Static style reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow, ❗live style will increase CPU/GPU use
         title.zh: 背景波浪图
         description.zh: 静态图（static）参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow，❗动态图（live）将提高 CPU/GPU 占用率
         type: class-select
@@ -216,7 +216,7 @@ settings:
                 value: bg-live
     -
         id: setting-bg-color
-        title: wave color
+        title: Wave Color
         title.zh: 波浪颜色
         type: variable-themed-color
         format: rgb
@@ -225,26 +225,26 @@ settings:
         default-dark: '#'
     -
         id: explorer
-        title: file explorer
+        title: File Explorer
         title.zh: 文件管理器
         type: heading
         collapsed: true
         level: 2
     -
         id: explorer-nav-decoration
-        title: add tail decorator on active file
-        description: reference from https://github.com/Akifyss/obsidian-border
+        title: Add Tail Decorator On Active File
+        description: Reference from https://github.com/Akifyss/obsidian-border
         title.zh: 在当前文件末尾添加装饰
         description.zh: 参考 https://github.com/Akifyss/obsidian-border
         type: class-toggle
     -
         id: explorer-title-wrap
-        title: title wrap
+        title: Title Wrap
         title.zh: 标题换行
         type: class-toggle
     -
         id: explorer-item-height
-        title: item line height
+        title: Item Line Height
         title.zh: 行高
         type: variable-number-slider
         default: 1.6
@@ -253,15 +253,15 @@ settings:
         step: 0.1
     -
         id: explorer-icon
-        title: enable prefix icon
-        description: if the tree indent is weird, please collpase all the directory and restart Obsidian
+        title: Enable Prefix Icon
+        description: If the tree indent is weird, please collpase all the directory and restart Obsidian
         title.zh: 开启前置图标
         description.zh: 如果缩进出现问题，请折叠全部文件夹并重启 Obsidian
         type: class-toggle
         default: true
     -
         id: setting-color-dirs
-        title: dir color
+        title: Dir Color
         title.zh: 文件夹颜色
         type: variable-themed-color
         format: rgb-values
@@ -270,41 +270,41 @@ settings:
         default-dark: rgb(245, 180, 0)
     -
         id: outline-panel
-        title: outline panel
+        title: Outline Panel
         title.zh: 文档大纲
         type: heading
         collapsed: true
         level: 2
     -
         id: outline-enable
-        title: enable logseq bullet thread style outline
-        description: please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+        title: Enable Logseq Bullet Thread Style Outline
+        description: Please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         title.zh: 启用 logseq bullet thread 样式的文档视图
         description.zh: 启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         type: class-toggle
         default: true
     -
         id: status-bar
-        title: status bar
+        title: Status Bar
         title.zh: 状态栏
         type: heading
         collapsed: true
         level: 2
     -
         id: status-bar-enable
-        title: enable status bar style
+        title: Enable Status Bar Style
         title.zh: 启用状态栏样式
         type: class-toggle
         default: true
     -
         id: status-bar-style-float
-        title: round style status bar
+        title: Round Style Status Bar
         title.zh: 圆角风格的状态栏
         type: class-toggle
         default: true
     -
         id: status-bar-style
-        title: status bar animation
+        title: Status Bar Animation
         description: ❗last style only valid when turn on “round status bar”
         title.zh: 状态栏样式
         description.zh: ❗最后一种样式只在开启“圆角风格的状态栏”才生效
@@ -320,37 +320,37 @@ settings:
                 value: status-bar-scroll
     -
         id: status-bar-style-center
-        title: center status bar
+        title: Center Status Bar
         title.zh: 状态栏居中
         type: class-toggle
     -
         id: search-internal
-        title: document search panel
+        title: Document Search Panel
         title.zh: 文档内搜索框
         type: heading
         collapsed: true
         level: 2
     -
         id: search-internal-enable
-        title: enable VSCode style search/replace panel
+        title: Enable VSCode Style Search/replace Panel
         title.zh: 启用 VSCode 样式的搜索框
         type: class-toggle
         default: true
     -
         id: tab
-        title: tab
+        title: Tab
         title.zh: 标签页
         type: heading
         collapsed: true
         level: 2
     -
         id: tab-float
-        title: float tabs style like firefox / Microsoft Edge
+        title: Float Tabs Style Like Firefox / Microsoft Edge
         title.zh: 仿 Firefox / Microsoft Edge 的标签页
         type: class-toggle
     -
         id: tab-slide-up
-        title: slide up animation on tab switch
+        title: Slide Up Animation On Tab Switch
         description: ❗will prevent outline panel update instantly on switch articles
         title.zh: 标签页切换动画
         description.zh: ❗会导致切换文章时无法立即更新大纲面板
@@ -358,14 +358,14 @@ settings:
         default: true
     -
         id: labeled-nav
-        title: text labels for primary navigation
-        description: reference from https://github.com/kepano/obsidian-minimal
+        title: Text Labels For Primary Navigation
+        description: Reference from https://github.com/kepano/obsidian-minimal
         title.zh: 主导航栏添加文字
         description.zh: 参考自 https://github.com/kepano/obsidian-minimal
         type: class-toggle
     -
         id: tab-show-close
-        title: when to show close button on tabs
+        title: When To Show Close Button On Tabs
         title.zh: 何时显示标签页的关闭按钮
         type: class-select
         allowEmpty: false
@@ -379,23 +379,23 @@ settings:
                 value: tab-show-close-part
     -
         id: tab-title
-        title: tab title bar
+        title: Tab Title Bar
         title.zh: 标签页标题栏
         type: heading
         level: 3
     -
         id: tab-title-bar-round
-        title: enable tab title bar round style
+        title: Enable Tab Title Bar Round Style
         title.zh: 开启标签页标题栏圆角样式
         type: class-toggle
     -
         id: tab-title-bar-shadow
-        title: add shadow for active tab title bar
+        title: Add Shadow For Active Tab Title Bar
         title.zh: 为当前标签页标题栏添加阴影
         type: class-toggle
     -
         id: tab-title-bar-text
-        title: file name on tab title bar
+        title: File Name On Tab Title Bar
         title.zh: 标签页标题栏的文件名
         type: class-select
         allowEmpty: false
@@ -409,30 +409,30 @@ settings:
                 value: tab-title-bar-text-hidden
     -
         id: message
-        title: tooltip & notice
+        title: Tooltip & Notice
         title.zh: 气泡提示框 & 通知
         type: heading
         collapsed: true
         level: 2
     -
         id: message-tooltip-hide-arrow
-        title: hide tooltip arrow
+        title: Hide Tooltip Arrow
         title.zh: 隐藏气泡提示框箭头
         type: class-toggle
     -
         id: message-tooltip-hide
-        title: always hide tooltip
+        title: Always Hide Tooltip
         title.zh: 永久隐藏气泡提示框
         type: class-toggle
     -
         id: message-modify
-        title: change tooltip & notice color
+        title: Change Tooltip & Notice Color
         title.zh: 修改气泡提示框和消息的颜色
         type: class-toggle
         default: true
     -
         id: setting-message-bg
-        title: background color
+        title: Background Color
         title.zh: 背景色
         type: variable-themed-color
         format: hsl-values
@@ -441,7 +441,7 @@ settings:
         default-dark: '#'
     -
         id: setting-message-fg
-        title: foreground color
+        title: Foreground Color
         title.zh: 文字色
         type: variable-themed-color
         format: rgb-values
@@ -450,14 +450,14 @@ settings:
         default-dark: '#'
     -
         id: modal
-        title: modal & setting panel
+        title: Modal & Setting Panel
         title.zh: 弹出框 & 设置面板
         type: heading
         collapsed: true
         level: 2
     -
         id: modal-blur
-        title: enable modal background blur
+        title: Enable Modal Background Blur
         description: If there is a delay in scrolling, try turning this option off
         title.zh: 开启弹出框背景模糊
         description.zh: 如果滚动时有卡顿，尝试关闭该选项
@@ -465,38 +465,38 @@ settings:
         default: true
     -
         id: modal-header
-        title: add header for setting panel
-        description: better with plugin “setting search”, invalid in mobile
+        title: Add Header For Setting Panel
+        description: Better with plugin “setting search”, invalid in mobile
         title.zh: 为设置面板添加顶部框
         description.zh: 配合 setting search 插件使用更佳，移动端无效
         type: class-toggle
     -
         id: setting-modal-header-title
-        title: set modal header title
+        title: Set Modal Header Title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.20'"
+        default: "'maple 0.8.21'"
     -
         id: setting-group-title
-        title: add style for left navigation group title
+        title: Add Style For Left Navigation Group Title
         title.zh: 为左侧选项组标题添加样式
         type: class-toggle
         default: true
     -
         id: setting-nav-decoration
-        title: styled active nav item
+        title: Styled Active Nav Item
         title.zh: 左侧当前设置项美化
         type: class-toggle
         default: true
     -
         id: modal-slider
-        title: styled slider thumb
+        title: Styled Slider Thumb
         title.zh: 滑动条按钮美化
         type: class-toggle
         default: true
     -
         id: modal-toggle
-        title: styled toggle button
+        title: Styled Toggle Button
         title.zh: 开关按钮美化
         type: class-select
         allowEmpty: false
@@ -510,7 +510,7 @@ settings:
                 value: modal-toggle-round
     -
         id: modal-animation
-        title: modal bounce animation
+        title: Modal Bounce Animation
         desciption: reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow
         title.zh: 弹出框抖动动画
         desciption.zh: 参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow
@@ -518,44 +518,44 @@ settings:
         default: true
     -
         id: menu-blur
-        title: menu blur
+        title: Menu Blur
         title.zh: 菜单模糊
         type: heading
         collapsed: true
         level: 2
     -
         id: menu-normal
-        title: normal menu
+        title: Normal Menu
         title.zh: 普通菜单
         type: class-toggle
         default: true
     -
         id: menu-suggestion
-        title: suggestion menu
+        title: Suggestion Menu
         title.zh: 提示菜单
         type: class-toggle
         default: true
     -
         id: menu-graph
-        title: graph menu
+        title: Graph Menu
         title.zh: 图谱菜单
         type: class-toggle
         default: true
     -
         id: scrollbar
-        title: scrollbar
+        title: Scrollbar
         title.zh: 滚动条
         type: heading
         collapsed: true
         level: 2
     -
         id: scrollbar-hide
-        title: always hide scrollbar
+        title: Always Hide Scrollbar
         title.zh: 不显示滚动条
         type: class-toggle
     -
         id: scrollbar-hover
-        title: scrollbar hover action
+        title: Scrollbar Hover Action
         title.zh: 鼠标经过时滚动条变化
         type: class-select
         allowEmpty: false
@@ -569,22 +569,22 @@ settings:
                 value: scrollbar-hover-expand
     -
         id: scrollbar-movein-animation-enable
-        title: enable scrollbar animation
-        description: when disabled, always show scrollbar; when enabled, hide scrollbar when the mouse move outside the container
+        title: Enable Scrollbar Animation
+        description: When disabled, always show scrollbar; when enabled, hide scrollbar when the mouse move outside the container
         title.zh: 启用滚动条动画
         description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
         type: class-toggle
         default: true
     -
         id: graph
-        title: graph
+        title: Graph
         title.zh: 关系图谱
         type: heading
         collapsed: true
         level: 2
     -
         id: setting-graph-node
-        title: node color
+        title: Node Color
         title.zh: 普通节点颜色
         type: variable-themed-color
         format: rgb-values
@@ -593,7 +593,7 @@ settings:
         default-dark: '#'
     -
         id: setting-graph-node-unresolved
-        title: unresolved node color
+        title: Unresolved Node Color
         title.zh: 未连接节点颜色
         type: variable-themed-color
         format: rgb-values
@@ -602,7 +602,7 @@ settings:
         default-dark: '#'
     -
         id: setting-graph-node-focus
-        title: focused node color
+        title: Focused Node Color
         title.zh: 聚焦节点颜色
         type: variable-themed-color
         format: rgb-values
@@ -611,14 +611,14 @@ settings:
         default-dark: '#'
     -
         id: export-pdf
-        title: PDF export
+        title: PDF Export
         title.zh: PDF 导出
         type: heading
         collapsed: true
         level: 2
     -
         id: export-pdf-transparent
-        title: transparent page background color
+        title: Transparent Page Background Color
         title.zh: 透明页面背景色
         type: class-toggle
 */
@@ -629,14 +629,14 @@ id: maple-editor
 settings:
     -
         id: bg
-        title: background
+        title: Background
         title.zh: 背景
         type: heading
         collapsed: true
         level: 2
     -
         id: setting-editor-bg
-        title: editor background color
+        title: Editor Background Color
         title.zh: 编辑器背景色
         type: variable-themed-color
         format: hsl-values
@@ -644,8 +644,8 @@ settings:
         default-dark: '#'
     -
         id: setting-md-container-bg
-        title: editor container background color
-        description: quote, code block, table and so on
+        title: Editor Container Background Color
+        description: Quote, code block, table and so on
         title.zh: 编辑器容器背景色
         description.zh: 引用、代码块、表格等
         type: variable-themed-color
@@ -654,14 +654,14 @@ settings:
         default-dark: '#'
     -
         id: text-line-font
-        title: text & font & line
+        title: Text & Font & Line
         title.zh: 文字 & 字体 & 行
         type: heading
         collapsed: true
         level: 2
     -
         id: font-maple
-        title: use "Maple Mono" as monospace
+        title: Use "Maple Mono" As Monospace
         description: https://github.com/subframe7536/Maple-font
         title.zh: 使用 Maple Mono 作为等宽字体
         description.zh: https://github.com/subframe7536/Maple-font
@@ -669,21 +669,21 @@ settings:
         default: true
     -
         id: font-fix-latex
-        title: fix latex italic absent
-        description: latex in my vault often wrong rendered, so i make this setting. If wrong rendered, just toggle it
+        title: Fix Latex Italic Absent
+        description: Latex in my vault often wrong rendered, so i make this setting. If wrong rendered, just toggle it
         title.zh: 修复 latex 斜体问题
         description.zh: 在我的仓库里经常渲染失败，只能自己打包一份字体进主题了。只要字体不正常，开关一次即可
         type: class-toggle
     -
         id: font-latex-text
-        title: use “text font” in non-formula parts of latex
+        title: Use "Text Font" In Non-formula Parts Of Latex
         description: ❗only tested in CJK font, maybe not reconcile with latin characters
         title.zh: 在 latex 非公式部分使用正文字体
         description.zh: 默认的字体比较丑
         type: class-toggle
     -
         id: setting-editor-p-spacing
-        title: editor paragraph spacing (px)
+        title: Editor Paragraph Spacing (px)
         title.zh: 编辑器段落间隔（px）
         type: variable-number-slider
         default: 4
@@ -693,8 +693,8 @@ settings:
         step: 1
     -
         id: setting-editor-p-indent
-        title: editor paragraph indent
-        description: if 'p-indent' exist in properties.cssclasses, all paragraph will add indent(n times of font size)
+        title: Editor Paragraph Indent
+        description: If 'p-indent' exist in properties.cssclasses, all paragraph will add indent(n times of font size)
         title.zh: 编辑器段落缩进
         description.zh: 在文档属性的cssclasses中存在 'p-indent' 类时，会为段落添加缩进（字体大小的倍数）
         type: variable-number-slider
@@ -704,8 +704,8 @@ settings:
         step: 0.2
     -
         id: setting-line-height
-        title: editor line height
-        description: multiple of the text size
+        title: Editor Line Height
+        description: Multiple of the text size
         title.zh: 编辑器行高
         description.zh: 文字大小的倍数
         type: variable-number-slider
@@ -715,15 +715,15 @@ settings:
         step: 0.1
     -
         id: setting-file-line-width
-        title: editor line width
-        description: dynamic width — clamp(MinWidth, WidthPercent, MaxWidth)
+        title: Editor Line Width
+        description: Dynamic width — clamp(MinWidth, WidthPercent, MaxWidth)
         title.zh: 编辑器行宽
         description.zh: 动态宽度 — clamp(最小值, 宽度百分比, 最大值)
         type: variable-text
         default: clamp(600px, 72%, 850px)
     -
         id: setting-underline-offset
-        title: underline offset
+        title: Underline Offset
         title.zh: 下划线间距
         type: variable-number-slider
         default: 2
@@ -733,21 +733,21 @@ settings:
         step: 0.5
     -
         id: line-indicator-enable
-        title: enable hover line indicator
-        description: reference from https://github.com/Akifyss/obsidian-border, need install version>=1.1.9
+        title: Enable Hover Line Indicator
+        description: Reference from https://github.com/Akifyss/obsidian-border, need install version>=1.1.9
         title.zh: 启用鼠标经过行指示器
         description.zh: 参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9
         type: class-toggle
         default: true
     -
         id: line-active-enable
-        title: enable active line hightlight
+        title: Enable Active Line Hightlight
         title.zh: 启用当前行高亮
         type: class-toggle
         default: true
     -
         id: setting-line-active-color
-        title: active line color
+        title: Active Line Color
         title.zh: 高亮行颜色
         type: variable-themed-color
         format: hex
@@ -756,7 +756,7 @@ settings:
         default-dark: '#'
     -
         id: setting-text-normal
-        title: editor text color
+        title: Editor Text Color
         title.zh: 编辑器文字颜色
         type: variable-themed-color
         format: hex
@@ -765,14 +765,14 @@ settings:
         default-dark: '#'
     -
         id: text-highlight
-        title: highlight
+        title: Highlight
         title.zh: 高亮
         type: heading
         collapsed: true
         level: 3
     -
         id: setting-text-highlight-bg
-        title: highlight text background color
+        title: Highlight Text Background Color
         description: The value can be the value of any background attribute in css
         title.zh: 文本高亮背景色
         description.zh: 填写的值可以为css中任意 background 属性的值
@@ -780,7 +780,7 @@ settings:
         default: 'rgba(255, 208, 0, 0.4)'
     -
         id: setting-text-highlight-color
-        title: highlight text color
+        title: Highlight Text Color
         title.zh: 文本高亮文字颜色
         type: variable-themed-color
         format: hex
@@ -789,8 +789,8 @@ settings:
         default-dark: '#'
     -
         id: setting-text-highlight-radius
-        title: highlight background radius
-        description: format px
+        title: Highlight Background Radius
+        description: Format px
         title.zh: 高亮背景色圆角大小
         description.zh: 单位 px
         type: variable-number-slider
@@ -800,27 +800,27 @@ settings:
         step: 1
     -
         id: text-highlight-all-round
-        title: keep radius when wrap
-        description: except when edit
+        title: Keep Radius When Wrap
+        description: Except when edit
         title.zh: 换行时保持圆角
         description.zh: 除了编辑的时候
         type: class-toggle
         default: true
     -
         id: text-highlight-margin
-        title: add spacing around highlight
+        title: Add Spacing Around Highlight
         title.zh: 增加高亮周围边距
         type: class-toggle
     -
         id: text-bold
-        title: bold
+        title: Bold
         title.zh: 粗体
         type: heading
         collapsed: true
         level: 3
     -
         id: setting-text-bold-color
-        title: bold text color
+        title: Bold Text Color
         title.zh: 粗体颜色
         type: variable-themed-color
         format: hex
@@ -829,28 +829,28 @@ settings:
         default-dark: '#'
     -
         id: setting-text-bold-style
-        title: bold style
-        description: support any css text-decoration property
+        title: Bold Style
+        description: Support any css text-decoration property
         title.zh: 粗体样式
         description.zh: 支持任何 css 的 text-decoration 属性值
         type: variable-text
         default: "underline dotted"
     -
         id: setting-text-bold-font
-        title: bold font
+        title: Bold Font
         title.zh: 粗体字体
         type: variable-text
         default: "''"
     -
         id: text-italic
-        title: italic
+        title: Italic
         title.zh: 斜体
         type: heading
         collapsed: true
         level: 3
     -
         id: setting-text-italic-color
-        title: italic text color
+        title: Italic Text Color
         title.zh: 斜体颜色
         type: variable-themed-color
         format: hex
@@ -859,60 +859,60 @@ settings:
         default-dark: '#'
     -
         id: setting-text-italic-style
-        title: italic style
-        description: support any css text-decoration property
+        title: Italic Style
+        description: Support any css text-decoration property
         title.zh: 斜体样式
         description.zh: 支持任何 css 的 text-decoration 属性值
         type: variable-text
         default: "underline dotted"
     -
         id: setting-text-italic-font
-        title: italic font
+        title: Italic Font
         title.zh: 斜体字体
         type: variable-text
         default: "''"
     -
         id: links
-        title: link
+        title: Link
         title.zh: 链接
         type: heading
         collapsed: true
         level: 2
     -
         id: link-hover-expand
-        title: use underline animation on hover
+        title: Use Underline Animation On Hover
         title.zh: 鼠标经过时开启下划线动画
         type: class-toggle
     -
         id: link-icon
-        title: add icon before link in editor
+        title: Add Icon Before Link In Editor
         title.zh: 编辑器内链接前添加图标
         type: class-toggle
         default: true
     -
         id: link-heading
-        title: Compatible with heading style
-        description: keep link color with heading, but keep icon
+        title: Compatible With Heading Style
+        description: Keep link color with heading, but keep icon
         title.zh: 兼容标题样式
         description.zh: 链接颜色改为标题颜色，保留图标
         type: class-toggle
     -
         id: link-click-to-edit-in-live-preview
-        title: click to edit link in Live-Preview
+        title: Click To Edit Link In Live-Preview
         description: ❗will disable hover animation, external link prefix icon will be diabled
         title.zh: 实时预览 模式时点击链接进行编辑而不是跳转
         description.zh: ❗鼠标经过动画会消失，外部链接的前置图标会消失
         type: class-toggle
     -
         id: link-color
-        title: link color
+        title: Link Color
         title.zh: 链接颜色
         type: heading
         collapsed: true
         level: 3
     -
         id: setting-link-internal-color
-        title: internal link color
+        title: Internal Link Color
         title.zh: 内部链接颜色
         type: variable-themed-color
         format: rgb-value
@@ -921,7 +921,7 @@ settings:
         default-dark: '#'
     -
         id: setting-link-internal-color-underline
-        title: internal link underline color
+        title: Internal Link Underline Color
         title.zh: 内部链接下划线颜色
         type: variable-themed-color
         format: rgb
@@ -930,7 +930,7 @@ settings:
         default-dark: '#'
     -
         id: setting-link-external-color
-        title: external link color
+        title: External Link Color
         title.zh: 外部链接颜色
         type: variable-themed-color
         format: rgb-value
@@ -939,7 +939,7 @@ settings:
         default-dark: '#'
     -
         id: setting-link-external-color-underline
-        title: external link underline color
+        title: External Link Underline Color
         title.zh: 外部链接下划线颜色
         type: variable-themed-color
         format: rgb
@@ -948,22 +948,22 @@ settings:
         default-dark: '#'
     -
         id: heading
-        title: heading
+        title: Heading
         title.zh: 标题
         type: heading
         collapsed: true
         level: 2
     -
         id: fix-line-number
-        title: fix line number movement
-        description: will increase '#' size
+        title: Fix Line Number Movement
+        description: Will increase '#' size
         title.zh: 修复行号的移动
         description.zh: 将增加 '#' 的大小
         type: class-toggle
     -
         id: heading-level
-        title: heading level icon
-        description: add prefix icon for heading, click to collapse title if you open setting “Fold heading”
+        title: Heading Level Icon
+        description: Add prefix icon for heading, click to collapse title if you open setting “Fold heading”
         title.zh: 标题等级图标
         description.zh: 为标题添加前置图标，如果你开启了“折叠图标”选项，点击图标可以收起标题
         type: heading
@@ -971,52 +971,52 @@ settings:
         level: 3
     -
         id: heading-level-enable
-        title: enable level heading icon
+        title: Enable Level Heading Icon
         title.zh: 启用标题等级图标
         type: class-toggle
     -
         id: heading-level-fix
-        title: always show heading icon
-        description: highlight on hover
+        title: Always Show Heading Icon
+        description: Highlight on hover
         title.zh: 总是显示图标
         description.zh: 鼠标经过时高亮
         type: class-toggle
     -
         id: heading-level
-        title: heading style preference
+        title: Heading Style Preference
         title.zh: 标题样式设置
         type: heading
         collapsed: true
         level: 3
     -
         id: heading-h1-center
-        title: center h1
+        title: Center H1
         title.zh: h1 居中
         type: class-toggle
         default: true
     -
         id: heading-underline-thin
-        title: thinner heading underline
+        title: Thinner Heading Underline
         title.zh: 标题下划线变细
         type: class-toggle
     -
         id: heading-h6-variant
-        title: set font small-caps for h6
-        description: always capital style
+        title: Set Font Small-caps For H6
+        description: Always capital style
         title.zh: 添加 h6 small-caps
         description.zh: 全大写
         type: class-toggle
         default: true
     -
         id: heading-color
-        title: heading color
+        title: Heading Color
         title.zh: 标题颜色
         type: heading
         collapsed: true
         level: 3
     -
         id: heading-color-style
-        title: heading color style
+        title: Heading Color Style
         title.zh: 标题颜色样式
         type: class-select
         allowEmpty: false
@@ -1030,13 +1030,13 @@ settings:
                 value: heading-color-colorful
     -
         id: heading-color-custom
-        title: custom heading color
+        title: Custom Heading Color
         title.zh: 自定义标题颜色
         type: heading
         level: 4
     -
         id: setting-h1-color
-        title: h1 color
+        title: H1 Color
         title.zh: 标题 1 颜色
         type: variable-themed-color
         format: hex
@@ -1045,7 +1045,7 @@ settings:
         default-dark: '#'
     -
         id: setting-h2-color
-        title: h2 color
+        title: H2 Color
         title.zh: 标题 2 颜色
         type: variable-themed-color
         format: hex
@@ -1054,7 +1054,7 @@ settings:
         default-dark: '#'
     -
         id: setting-h3-color
-        title: h3 color
+        title: H3 Color
         title.zh: 标题 3 颜色
         type: variable-themed-color
         format: hex
@@ -1063,7 +1063,7 @@ settings:
         default-dark: '#'
     -
         id: setting-h4-color
-        title: h4 color
+        title: H4 Color
         title.zh: 标题 4 颜色
         type: variable-themed-color
         format: hex
@@ -1072,7 +1072,7 @@ settings:
         default-dark: '#'
     -
         id: setting-h5-color
-        title: h5 color
+        title: H5 Color
         title.zh: 标题 5 颜色
         type: variable-themed-color
         format: hex
@@ -1081,7 +1081,7 @@ settings:
         default-dark: '#'
     -
         id: setting-h6-color
-        title: h6 color
+        title: H6 Color
         title.zh: 标题 6 颜色
         type: variable-themed-color
         format: hex
@@ -1090,8 +1090,8 @@ settings:
         default-dark: '#'
     -
         id: heading-size
-        title: heading size
-        description: compare to normal text
+        title: Heading Size
+        description: Compare to normal text
         title.zh: 标题大小
         description.zh: 相对于正文字体
         type: heading
@@ -1099,7 +1099,7 @@ settings:
         level: 3
     -
         id: setting-h1-size
-        title: h1 font size
+        title: H1 Font Size
         title.zh: 标题 1 字体大小
         type: variable-number-slider
         default: 1.6
@@ -1108,7 +1108,7 @@ settings:
         step: 0.1
     -
         id: setting-h2-size
-        title: h2 font size
+        title: H2 Font Size
         title.zh: 标题 2 字体大小
         type: variable-number-slider
         default: 1.5
@@ -1117,7 +1117,7 @@ settings:
         step: 0.1
     -
         id: setting-h3-size
-        title: h3 font size
+        title: H3 Font Size
         title.zh: 标题 3 字体大小
         type: variable-number-slider
         default: 1.4
@@ -1126,7 +1126,7 @@ settings:
         step: 0.1
     -
         id: setting-h4-size
-        title: h4 font size
+        title: H4 Font Size
         title.zh: 标题 4 字体大小
         type: variable-number-slider
         default: 1.3
@@ -1135,7 +1135,7 @@ settings:
         step: 0.1
     -
         id: setting-h5-size
-        title: h5 font size
+        title: H5 Font Size
         title.zh: 标题 5 字体大小
         type: variable-number-slider
         default: 1.2
@@ -1144,7 +1144,7 @@ settings:
         step: 0.1
     -
         id: setting-h6-size
-        title: h6 font size
+        title: H6 Font Size
         title.zh: 标题 6 字体大小
         type: variable-number-slider
         default: 1.1
@@ -1153,8 +1153,8 @@ settings:
         step: 0.1
     -
         id: heading-underline
-        title: heading underline
-        description: with line-gredient
+        title: Heading Underline
+        description: With line-gredient
         title.zh: 标题下划线
         description.zh: 渐变色
         type: heading
@@ -1162,115 +1162,115 @@ settings:
         level: 3
     -
         id: heading-h1-underline
-        title: add underline for h1
+        title: Add Underline For H1
         title.zh: 添加 h1 下划线
         type: class-toggle
     -
         id: heading-h2-underline
-        title: add underline for h2
+        title: Add Underline For H2
         title.zh: 添加 h2 下划线
         type: class-toggle
         default: true
     -
         id: heading-h3-underline
-        title: add underline for h3
+        title: Add Underline For H3
         title.zh: 添加 h3 下划线
         type: class-toggle
     -
         id: heading-h4-underline
-        title: add underline for h4
+        title: Add Underline For H4
         title.zh: 添加 h4 下划线
         type: class-toggle
     -
         id: heading-h5-underline
-        title: add underline for h5
+        title: Add Underline For H5
         title.zh: 添加 h5 下划线
         type: class-toggle
     -
         id: heading-h6-underline
-        title: add underline for h6
+        title: Add Underline For H6
         title.zh: 添加 h6 下划线
         type: class-toggle
     -
         id: heading-font
-        title: heading font
+        title: Heading Font
         title.zh: 标题字体
         type: heading
         collapsed: true
         level: 3
     -
         id: setting-h1-font
-        title: h1 font
+        title: H1 Font
         title.zh: 标题 1 字体
         type: variable-text
         default: "''"
     -
         id: setting-h2-font
-        title: h2 font
+        title: H2 Font
         title.zh: 标题 2 字体
         type: variable-text
         default: "''"
     -
         id: setting-h3-font
-        title: h3 font
+        title: H3 Font
         title.zh: 标题 3 字体
         type: variable-text
         default: "''"
     -
         id: setting-h4-font
-        title: h4 font
+        title: H4 Font
         title.zh: 标题 4 字体
         type: variable-text
         default: "''"
     -
         id: setting-h5-font
-        title: h5 font
+        title: H5 Font
         title.zh: 标题 5 字体
         type: variable-text
         default: "''"
     -
         id: setting-h6-font
-        title: h6 font
+        title: H6 Font
         title.zh: 标题 6 字体
         type: variable-text
         default: "''"
     -
         id: hr
-        title: hr
+        title: Hr
         title.zh: 分隔行
         type: heading
         collapsed: true
         level: 2
     -
         id: hr-enable
-        title: enable hr style
+        title: Enable Hr Style
         title.zh: 开启分割线样式
         type: class-toggle
         default: true
     -
         id: setting-hr-icon
-        title: set icon in the center of hr
+        title: Set Icon In The Center Of Hr
         title.zh: 分割行中部图标
         type: variable-text
         default: "'⭐'"
     -
         id: table
-        title: table
+        title: Table
         title.zh: 表格
         type: heading
         collapsed: true
         level: 2
     -
         id: table-colorful
-        title: colorful table
-        description: accent header and line color
+        title: Colorful Table
+        description: Accent header and line color
         title.zh: 多彩表格
         description.zh: 添加表头和行的颜色
         type: class-toggle
         default: true
     -
         id: setting-table-header-text
-        title: header text color
+        title: Header Text Color
         title.zh: 表头文字色
         type: variable-themed-color
         format: hex
@@ -1279,7 +1279,7 @@ settings:
         default-dark: '#'
     -
         id: setting-table-header-bg
-        title: header background color
+        title: Header Background Color
         title.zh: 表头背景色
         type: variable-themed-color
         format: hex
@@ -1288,7 +1288,7 @@ settings:
         default-dark: '#'
     -
         id: setting-table-line-bg
-        title: alt line color
+        title: Alt Line Color
         title.zh: 交错行背景色
         type: variable-themed-color
         format: hex
@@ -1297,85 +1297,85 @@ settings:
         default-dark: '#'
     -
         id: embed
-        title: embed
+        title: Embed
         title.zh: 内嵌文档
         type: heading
         collapsed: true
         level: 2
     -
         id: embed-enable
-        title: enable embed file style
+        title: Enable Embed File Style
         title.zh: 启用内嵌文档样式
         type: class-toggle
         default: true
     -
         id: embed-title-right-top
-        title: move embed title to right top
-        description: visiable on hover, disabled when alias is '#', Example ![[FileName|#]]
+        title: Move Embed Title To Right Top
+        description: Visiable on hover, disabled when alias is '#', Example ![[FileName|#]]
         title.zh: 内嵌文档标题移至右上角
         description.zh: 鼠标经过时显示；别名为'#'时禁用，例：![[文件名|#]]
         type: class-toggle
         default: true
     -
         id: image
-        title: image
+        title: Image
         title.zh: 图片
         type: heading
         collapsed: true
         level: 2
     -
         id: image-alt
-        title: add alt text below and center the image
-        description: example ![[image.jpg|alt text]]
+        title: Add Alt Text Below And Center The Image
+        description: Example ![[image.jpg|alt text]]
         title.zh: 在图片底部添加提示文本并居中图片
         description.zh: 样例 ![[图片.jpg|提示文本]]
         type: class-toggle
         default: true
     -
         id: image-zoom
-        title: click to zoom out image
-        description: invalid in source view or Live-Preview
+        title: Click To Zoom Out Image
+        description: Invalid in source view or Live-Preview
         title.zh: 鼠标按下时放大图片
         description.zh: 在 源码模式 或者 实时预览 模式不生效
         type: class-toggle
         default: true
     -
         id: image-zoom-out
-        title: zoom out the image to full screen
+        title: Zoom Out The Image To Full Screen
         title.zh: 图片放大到全屏
         type: class-toggle
         default: true
     -
         id: image-dark-hover
-        title: decrease brightness in dark mode
-        description: hover will increase brightness
+        title: Decrease Brightness In Dark Mode
+        description: Hover will increase brightness
         title.zh: 黑暗模式下降低图片亮度
         description.zh: 鼠标经过时会增加亮度
         type: class-toggle
         default: true
     -
         id: quote
-        title: quote
+        title: Quote
         title.zh: 引言
         type: heading
         collapsed: true
         level: 2
     -
         id: quote-theme
-        title: enable quote theme
-        description: with thick guide line
+        title: Enable Quote Theme
+        description: With thick guide line
         title.zh: 启用引言块主题
         description.zh: 宽引导线
         type: class-toggle
         default: true
     -
         id: quote-mark
-        title: add front quote mark in preview mode
+        title: Add Front Quote Mark In Preview Mode
         title.zh: 阅读模式 引言块添加前置引号
         type: class-toggle
     -
         id: quote-outline-style
-        title: Preview mode outline style
+        title: Preview Mode Outline Style
         title.zh: 阅读模式 外部样式
         type: class-select
         allowEmpty: false
@@ -1389,14 +1389,14 @@ settings:
                 value: quote-shadow
     -
         id: list
-        title: list
+        title: List
         title.zh: 列表
         type: heading
         collapsed: true
         level: 2
     -
         id: list-enable
-        title: enable list style
+        title: Enable List Style
         description: ❗no support for list or task items inside callout
         title.zh: 启用列表样式
         description.zh: ❗精力有限，不打算适配 callout 中的列表或者代办项
@@ -1404,7 +1404,7 @@ settings:
         default: true
     -
         id: list-bullet-thread-style
-        title: enable logseq bullet thread list
+        title: Enable Logseq Bullet Thread List
         description: ❗WIP
         title.zh: 启用 logseq bullet thread 样式的列表
         description.zh: ❗待完成
@@ -1412,7 +1412,7 @@ settings:
         default: true
     -
         id: setting-list-marker
-        title: list marker color
+        title: List Marker Color
         title.zh: 列表标号颜色
         type: variable-themed-color
         format: hex
@@ -1421,7 +1421,7 @@ settings:
         default-dark: '#'
     -
         id: setting-list-marker-alt
-        title: list marker alt color
+        title: List Marker Alt Color
         title.zh: 列表标号颜色 2
         type: variable-themed-color
         format: hex
@@ -1430,19 +1430,26 @@ settings:
         default-dark: '#'
     -
         id: list-checkbox
-        title: task list
-        title.zh: 待办事项
+        title: Task List (checkbox)
+        title.zh: 待办事项（勾选框）
         type: heading
         collapsed: true
         level: 3
     -
         id: list-checkbox-line
-        title: remove middle line in completed item
+        title: Remove Middle Line In Completed Item
         title.zh: 移除已完成事项上的删除线
         type: class-toggle
     -
+        id: list-checkbox-alternative
+        title: Enable Alternative Checkboxes
+        description: Disable this if you are using your own implementation via a CSS Snippet.
+        title.zh: 增加勾选框样式
+        description.zh: 如果你用了其他勾选框 CSS 片段，可以关闭
+        type: class-toggle
+    -
         id: setting-list-checkbox-color
-        title: checkbox marker color
+        title: Checkbox Marker Color
         title.zh: 勾选框颜色
         type: variable-themed-color
         format: hex
@@ -1451,7 +1458,7 @@ settings:
         default-dark: '#'
     -
         id: setting-list-checkbox-color-hover
-        title: checkbox marker hover color
+        title: Checkbox Marker Hover Color
         title.zh: 勾选框鼠标经过色
         type: variable-themed-color
         format: hex
@@ -1460,7 +1467,7 @@ settings:
         default-dark: '#'
     -
         id: setting-list-checkbox-border
-        title: checkbox marker border
+        title: Checkbox Marker Border
         title.zh: 勾选框边框
         type: variable-themed-color
         format: hex
@@ -1469,14 +1476,14 @@ settings:
         default-dark: '#'
     -
         id: code
-        title: code
+        title: Code
         title.zh: 代码
         type: heading
         collapsed: true
         level: 2
     -
         id: setting-code-inline
-        title: inline code color
+        title: Inline Code Color
         title.zh: 行内代码文字色
         type: variable-themed-color
         format: hex
@@ -1485,7 +1492,7 @@ settings:
         default-dark: '#'
     -
         id: setting-code-bg
-        title: code block background color
+        title: Code Block Background Color
         title.zh: 代码块背景色
         type: variable-themed-color
         format: hex
@@ -1494,57 +1501,57 @@ settings:
         default-dark: '#'
     -
         id: code-line-number
-        title: add code block line number in live Preview mode
-        description: if the code block lines are too large, the line number will have error
+        title: Add Code Block Line Number In Live Preview Mode
+        description: If the code block lines are too large, the line number will have error
         title.zh: 为 实时预览模式 代码块添加行号
         description.zh: 如果代码块行数太多，行号会出现错误
         type: class-toggle
         default: true
     -
         id: code-language
-        title: add code block language indicator in Preview mode
+        title: Add Code Block Language Indicator In Preview Mode
         title.zh: 为 阅读模式 代码块添加语言标识
         type: class-toggle
         default: true
     -
         id: code-nowrap
-        title: no wrap in Preview mode
+        title: No Wrap In Preview Mode
         title.zh: 阅读模式 代码块不换行
         type: class-toggle
         default: true
     -
         id: setting-code-ligature
-        title: monospace font feature
-        description: if you use “Maple Mono” as monospace, recommend to set 'calt','cv02'
+        title: Monospace Font Feature
+        description: If you use “Maple Mono” as monospace, recommend to set 'calt','cv02'
         title.zh: 等宽字体字体特性
         description.zh: 如果你使用“Maple Mono”作为等宽字体，推荐设置为 'calt','cv02'
         type: variable-text
         default: "'calt'"
     -
         id: code-preview-bg
-        title: enable codeblock background in Preview mode
-        description: need install version >= 1.1.9
+        title: Enable Codeblock Background In Preview Mode
+        description: Need install version >= 1.1.9
         title.zh: 在 阅读模式 开启代码块背景
         description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
     -
         id: setting-code-bg-outer
-        title: custom codeblock background in Preview mode
-        description: need install version >= 1.1.9, image is supported(eg. 'url("/your/image/uri")'), it can be all the css value that supported by background-image
+        title: Custom Codeblock Background In Preview Mode
+        description: Need install version >= 1.1.9, image is supported(eg. 'url("/your/image/uri")'), it can be all the css value that supported by background-image
         title.zh: 修改 阅读模式 代码块背景
         description.zh: 需要安装程序版本 >= 1.1.9，支持图片（'url("图片地址")'），可以是 css background-image 支持的所有的值
         type: variable-text
         default: "''"
     -
         id: code-mac-style-header
-        title: add mac style code block header in Preview mode
-        description: no code block border
+        title: Add Mac Style Code Block Header In Preview Mode
+        description: No code block border
         title.zh: 为 阅读模式 代码块添加mac的标题栏
         description.zh: 没有代码块边框
         type: class-toggle
     -
         id: setting-code-language-color
-        title: language indicator color
+        title: Language Indicator Color
         title.zh: 语言标识颜色
         type: variable-themed-color
         format: hex
@@ -1553,28 +1560,28 @@ settings:
         default-dark: '#'
     -
         id: code-theme
-        title: use theme's color schema
+        title: Use Theme's Color Schema
         title.zh: 使用主题的代码高亮
         type: class-toggle
         default: true
     -
         id: tag
-        title: tag
+        title: Tag
         title.zh: 标签
         type: heading
         collapsed: true
         level: 2
     -
         id: tag-click-to-edit
-        title: click to edit tags in Live-Preview mode
-        description: click '#' to jump
+        title: Click To Edit Tags In Live-Preview Mode
+        description: Click '#' to jump
         title.zh: 点击标签进行编辑
         description.zh: 点击'#'跳转
         type: class-toggle
     -
         id: tag-style
-        title: tag style
-        description: tags of obsidian / todo / important / progress / complete will be colorized when use outline or fill
+        title: Tag Style
+        description: Tags of obsidian / todo / important / progress / complete will be colorized when use outline or fill
         title.zh: 标签样式
         description.zh: 当选择 outline 或者 fill 时，obsidian / todo / important / progress / complete 标签会有额外颜色
         type: class-select
@@ -1591,7 +1598,7 @@ settings:
                 value: tag-fill
     -
         id: setting-tag-bg
-        title: tag background color
+        title: Tag Background Color
         title.zh: 标签背景颜色
         type: variable-themed-color
         format: hex
@@ -1600,14 +1607,14 @@ settings:
         default-dark: '#'
     -
         id: tag-outline-setting
-        title: outline style setting
+        title: Outline Style Setting
         title.zh: 边框模式设置
         type: heading
         collapsed: true
         level: 3
     -
         id: setting-tag-color
-        title: tag text color
+        title: Tag Text Color
         title.zh: 标签文字颜色
         type: variable-themed-color
         format: hex
@@ -1616,7 +1623,7 @@ settings:
         default-dark: '#'
     -
         id: setting-tag-border
-        title: tag border color
+        title: Tag Border Color
         title.zh: 标签边框颜色
         type: variable-themed-color
         format: hex
@@ -1625,21 +1632,21 @@ settings:
         default-dark: '#'
     -
         id: canvas
-        title: canvas
+        title: Canvas
         title.zh: 白板
         type: heading
         collapsed: true
         level: 2
     -
         id: canvas-group-hide
-        title: hide left canvas control buttons
-        description: show on hover
+        title: Hide Left Canvas Control Buttons
+        description: Show on hover
         title.zh: 隐藏左侧的控制按钮
         description.zh: 鼠标移入时显示
         type: class-toggle
     -
         id: canvas-center
-        title: center text in card when blur focus
+        title: Center Text In Card When Blur Focus
         title.zh: 卡片失去焦点时居中文本
         type: class-toggle
     -
@@ -1650,22 +1657,22 @@ settings:
         level: 2
     -
         id: pdf-dark-hover
-        title: decrease brightness in dark mode
-        description: hover will increase brightness
+        title: Decrease Brightness In Dark Mode
+        description: Hover will increase brightness
         title.zh: 黑暗模式下降低图片亮度
         description.zh: 鼠标经过时会增加亮度
         type: class-toggle
         default: true
     -
         id: prop
-        title: properties
+        title: Properties
         title.zh: 文档属性
         type: heading
         collapsed: true
         level: 2
     -
         id: prop-outline
-        title: add outlint for property panel
+        title: Add Outlint For Property Panel
         title.zh: 属性面板添加边框
         type: class-toggle
         default: true
@@ -1677,45 +1684,45 @@ id: maple-plugin
 settings:
     -
         id: calendar
-        title: calendar
+        title: Calendar
         title.zh: 日历
         type: heading
         collapsed: true
         level: 2
     -
         id: calendar-weekend
-        title: highlight weekend
+        title: Highlight Weekend
         title.zh: 突显周末
         type: class-toggle
         default: true
     -
         id: calendar-swap-year-month
-        title: swap year & month
+        title: Swap Year & Month
         title.zh: 交换年和月的位置
         type: class-toggle
     -
         id: setting-calendar-year-suffix
-        title: year suffix
+        title: Year Suffix
         title.zh: 年份后缀
         type: variable-text
         default: "'年'"
     -
         id: setting-calendar-max-width
-        title: max width
-        description: support any css max-width property
+        title: Max Width
+        description: Support any css max-width property
         title.zh: 最大宽度
         description.zh: 支持任何 css 的 max-width 属性值
         type: variable-text
         default: "500px"
     -
         id: kanban
-        title: kanban
+        title: Kanban
         type: heading
         collapsed: true
         level: 2
     -
         id: setting-kanban-item-color
-        title: kanban item font color
+        title: Kanban Item Font Color
         title.zh: kanban 项 文字颜色
         type: variable-themed-color
         format: hex
@@ -1724,7 +1731,7 @@ settings:
         default-dark: '#'
     -
         id: setting-kanban-item-bg
-        title: kanban item background color
+        title: Kanban Item Background Color
         title.zh: kanban 项 背景色
         type: variable-themed-color
         format: hex
@@ -1733,7 +1740,7 @@ settings:
         default-dark: '#'
     -
         id: setting-kanban-board-bg
-        title: kanban board backgound color
+        title: Kanban Board Backgound Color
         title.zh: kanban 版面 背景色
         type: variable-themed-color
         format: hex
@@ -1749,8 +1756,8 @@ settings:
         level: 2
     -
         id: dv-enable
-        title: enable dataview style
-        description: need install version >= 1.1.9
+        title: Enable Dataview Style
+        description: Need install version >= 1.1.9
         title.zh: 启用 dataview 样式
         description.zh: 需要安装程序版本 >= 1.1.9
         type: class-toggle
@@ -3269,60 +3276,60 @@ body.list-enable .print {
 /* #endregion list */
 /* #region checkbox */
 /* https://github.com/Akifyss/obsidian-border/blob/main/theme.css#L7738C1-L7953C2 */
-input[data-task="<"]:checked,
-li[data-task="<"] > input:checked,
-li[data-task="<"] > p > input:checked,
-input[data-task=">"]:checked,
-li[data-task=">"] > input:checked,
-li[data-task=">"] > p > input:checked,
-input[data-task=d]:checked,
-li[data-task=d] > input:checked,
-li[data-task=d] > p > input:checked,
-input[data-task=u]:checked,
-li[data-task=u] > input:checked,
-li[data-task=u] > p > input:checked,
-input[data-task=S]:checked,
-li[data-task=S] > input:checked,
-li[data-task=S] > p > input:checked,
-input[data-task=“]:checked,
-li[data-task=“] > input:checked,
-li[data-task=“] > p > input:checked,
-input[data-task=c]:checked,
-li[data-task=c] > input:checked,
-li[data-task=c] > p > input:checked,
-input[data-task=p]:checked,
-li[data-task=p] > input:checked,
-li[data-task=p] > p > input:checked,
-input[data-task=n]:checked,
-li[data-task=n] > input:checked,
-li[data-task=n] > p > input:checked,
-input[data-task=b]:checked,
-li[data-task=b] > input:checked,
-li[data-task=b] > p > input:checked,
-input[data-task="-"]:checked,
-li[data-task="-"] > input:checked,
-li[data-task="-"] > p > input:checked,
-input[data-task=l]:checked,
-li[data-task=l] > input:checked,
-li[data-task=l] > p > input:checked,
-input[data-task=I]:checked,
-li[data-task=I] > input:checked,
-li[data-task=I] > p > input:checked,
-input[data-task="/"]:checked,
-li[data-task="/"] > input:checked,
-li[data-task="/"] > p > input:checked,
-input[data-task=i]:checked,
-li[data-task=i] > input:checked,
-li[data-task=i] > p > input:checked,
-input[data-task="*"]:checked,
-li[data-task="*"] > input:checked,
-li[data-task="*"] > p > input:checked,
-input[data-task="?"]:checked,
-li[data-task="?"] > input:checked,
-li[data-task="?"] > p > input:checked,
-input[data-task="!"]:checked,
-li[data-task="!"] > input:checked,
-li[data-task="!"] > p > input:checked {
+.list-checkbox-alternative input[data-task="<"]:checked,
+.list-checkbox-alternative li[data-task="<"] > input:checked,
+.list-checkbox-alternative li[data-task="<"] > p > input:checked,
+.list-checkbox-alternative input[data-task=">"]:checked,
+.list-checkbox-alternative li[data-task=">"] > input:checked,
+.list-checkbox-alternative li[data-task=">"] > p > input:checked,
+.list-checkbox-alternative input[data-task=d]:checked,
+.list-checkbox-alternative li[data-task=d] > input:checked,
+.list-checkbox-alternative li[data-task=d] > p > input:checked,
+.list-checkbox-alternative input[data-task=u]:checked,
+.list-checkbox-alternative li[data-task=u] > input:checked,
+.list-checkbox-alternative li[data-task=u] > p > input:checked,
+.list-checkbox-alternative input[data-task=S]:checked,
+.list-checkbox-alternative li[data-task=S] > input:checked,
+.list-checkbox-alternative li[data-task=S] > p > input:checked,
+.list-checkbox-alternative input[data-task=“]:checked,
+.list-checkbox-alternative li[data-task=“] > input:checked,
+.list-checkbox-alternative li[data-task=“] > p > input:checked,
+.list-checkbox-alternative input[data-task=c]:checked,
+.list-checkbox-alternative li[data-task=c] > input:checked,
+.list-checkbox-alternative li[data-task=c] > p > input:checked,
+.list-checkbox-alternative input[data-task=p]:checked,
+.list-checkbox-alternative li[data-task=p] > input:checked,
+.list-checkbox-alternative li[data-task=p] > p > input:checked,
+.list-checkbox-alternative input[data-task=n]:checked,
+.list-checkbox-alternative li[data-task=n] > input:checked,
+.list-checkbox-alternative li[data-task=n] > p > input:checked,
+.list-checkbox-alternative input[data-task=b]:checked,
+.list-checkbox-alternative li[data-task=b] > input:checked,
+.list-checkbox-alternative li[data-task=b] > p > input:checked,
+.list-checkbox-alternative input[data-task="-"]:checked,
+.list-checkbox-alternative li[data-task="-"] > input:checked,
+.list-checkbox-alternative li[data-task="-"] > p > input:checked,
+.list-checkbox-alternative input[data-task=l]:checked,
+.list-checkbox-alternative li[data-task=l] > input:checked,
+.list-checkbox-alternative li[data-task=l] > p > input:checked,
+.list-checkbox-alternative input[data-task=I]:checked,
+.list-checkbox-alternative li[data-task=I] > input:checked,
+.list-checkbox-alternative li[data-task=I] > p > input:checked,
+.list-checkbox-alternative input[data-task="/"]:checked,
+.list-checkbox-alternative li[data-task="/"] > input:checked,
+.list-checkbox-alternative li[data-task="/"] > p > input:checked,
+.list-checkbox-alternative input[data-task=i]:checked,
+.list-checkbox-alternative li[data-task=i] > input:checked,
+.list-checkbox-alternative li[data-task=i] > p > input:checked,
+.list-checkbox-alternative input[data-task="*"]:checked,
+.list-checkbox-alternative li[data-task="*"] > input:checked,
+.list-checkbox-alternative li[data-task="*"] > p > input:checked,
+.list-checkbox-alternative input[data-task="?"]:checked,
+.list-checkbox-alternative li[data-task="?"] > input:checked,
+.list-checkbox-alternative li[data-task="?"] > p > input:checked,
+.list-checkbox-alternative input[data-task="!"]:checked,
+.list-checkbox-alternative li[data-task="!"] > input:checked,
+.list-checkbox-alternative li[data-task="!"] > p > input:checked {
   --checkbox-marker-color: transparent;
   border: none;
   background-image: none;
@@ -3330,153 +3337,134 @@ li[data-task="!"] > p > input:checked {
   -webkit-mask-size: var(--checkbox-icon);
   -webkit-mask-position: 50% 50%;
 }
-
-input[data-task="!"]:checked,
-li[data-task="!"] > input:checked,
-li[data-task="!"] > p > input:checked {
+.list-checkbox-alternative input[data-task="!"]:checked,
+.list-checkbox-alternative li[data-task="!"] > input:checked,
+.list-checkbox-alternative li[data-task="!"] > p > input:checked {
   --checkbox-color-hover: var(--color-orange);
   color: var(--color-orange);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M8 16c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zM6.07 3.55c-.08.29-.09.6-.03.9l.86 4.56c.05.28.2.52.42.7.22.18.49.28.77.28s.55-.1.77-.28c.22-.18.36-.43.42-.7l.86-4.56c.06-.3.04-.61-.03-.9-.08-.29-.22-.57-.41-.8A2.094 2.094 0 0 0 8.11 2c-.3 0-.61.07-.88.2-.28.13-.52.32-.71.55-.19.23-.34.51-.41.8zm3.07 10.01a1.499 1.499 0 1 0-2.12-2.12 1.499 1.499 0 1 0 2.12 2.12z" fill-rule="evenodd" /></svg>');
 }
-
-input[data-task="?"]:checked,
-li[data-task="?"] > input:checked,
-li[data-task="?"] > p > input:checked {
+.list-checkbox-alternative input[data-task="?"]:checked,
+.list-checkbox-alternative li[data-task="?"] > input:checked,
+.list-checkbox-alternative li[data-task="?"] > p > input:checked {
   --checkbox-color-hover: var(--color-pink);
   color: var(--color-pink);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M8 16c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zM4.84 3.66c-.32.48-.09 1.14.44 1.37.23.1.49.1.72 0 .17-.07.31-.18.41-.34.31-.49.82-.89 1.6-.89 1.72 0 2.06 1.61 1.45 2.47-.36.51-.87.91-1.33 1.37-.28.28-.55.58-.74.93-.19.33-.27.69-.31 1.03-.04.31.08.59.28.79.18.18.43.29.71.29.49 0 .89-.38.95-.87.04-.3.1-.45.2-.63.41-.76 1.18-1.12 1.98-2.3.72-1.07.45-2.5-.02-3.27C10.63 2.72 9.56 2 7.99 2c-1.43 0-2.51.7-3.15 1.66zM8 14.67c.73 0 1.33-.6 1.33-1.33s-.6-1.33-1.33-1.33-1.33.6-1.33 1.33.6 1.33 1.33 1.33z" fill-rule="evenodd" /></svg>');
 }
-
-input[data-task="*"]:checked,
-li[data-task="*"] > input:checked,
-li[data-task="*"] > p > input:checked {
+.list-checkbox-alternative input[data-task="*"]:checked,
+.list-checkbox-alternative li[data-task="*"] > input:checked,
+.list-checkbox-alternative li[data-task="*"] > p > input:checked {
   --checkbox-color-hover: var(--color-yellow);
   color: var(--color-yellow);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M8.91.58C8.83.41 8.7.26 8.54.16 8.38.05 8.19 0 8 0s-.38.05-.54.16c-.16.1-.29.25-.37.42L5.16 4.7l-4.31.66c-.18.03-.35.1-.49.22s-.25.27-.3.45a.99.99 0 0 0 .23 1.02l3.15 3.23-.75 4.57c-.03.19 0 .38.06.55.07.17.19.32.35.43.15.11.33.17.52.18.19 0 .37-.03.54-.12L8 13.76l3.84 2.13c.16.09.35.13.54.12.19-.01.37-.07.52-.18.15-.11.27-.26.35-.43.07-.17.09-.36.06-.55l-.75-4.57 3.15-3.23a.99.99 0 0 0 .23-1.02.99.99 0 0 0-.31-.45.914.914 0 0 0-.49-.22l-4.31-.66L8.91.58z" /></svg>');
 }
-
-input[data-task=i]:checked,
-li[data-task=i] > input:checked,
-li[data-task=i] > p > input:checked {
+.list-checkbox-alternative input[data-task=i]:checked,
+.list-checkbox-alternative li[data-task=i] > input:checked,
+.list-checkbox-alternative li[data-task=i] > p > input:checked {
   --checkbox-color-hover: var(--color-cyan);
   color: var(--color-cyan);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.cls-1{fill:none}</style></defs><path class="cls-1" d="M0 0h16v16H0z"/><path class="cls-1" d="M0 0h16v16H0z"/><path d="M10.67 13v-1.67c0-.1-.03-.18-.09-.24s-.14-.09-.24-.09h-1V5.67c0-.1-.03-.18-.09-.24s-.14-.09-.24-.09H5.68c-.1 0-.18.03-.24.09s-.09.14-.09.24v1.67c0 .1.03.18.09.24s.14.09.24.09h1V11h-1c-.1 0-.18.03-.24.09s-.09.14-.09.24V13c0 .1.03.18.09.24s.14.09.24.09h4.67c.1 0 .18-.03.24-.09s.09-.14.09-.24zM9.34 3.67V2c0-.1-.03-.18-.09-.24s-.14-.09-.24-.09h-2c-.1 0-.18.03-.24.09s-.09.14-.09.24v1.67c0 .1.03.18.09.24s.14.09.24.09h2c.1 0 .18-.03.24-.09s.09-.14.09-.24zM16.01 8c0 1.45-.36 2.79-1.07 4.02a7.962 7.962 0 0 1-2.91 2.91C10.8 15.65 9.47 16 8.01 16s-2.79-.36-4.02-1.07a7.962 7.962 0 0 1-2.91-2.91C.36 10.79.01 9.46.01 8s.35-2.79 1.06-4.02c.72-1.23 1.69-2.2 2.91-2.91C5.21.35 6.54 0 8 0s2.79.36 4.02 1.07c1.23.72 2.2 1.69 2.91 2.91C15.65 5.21 16 6.54 16 8z"/></svg>');
 }
-
-input[data-task="/"]:checked,
-li[data-task="/"] > input:checked,
-li[data-task="/"] > p > input:checked {
+.list-checkbox-alternative input[data-task="/"]:checked,
+.list-checkbox-alternative li[data-task="/"] > input:checked,
+.list-checkbox-alternative li[data-task="/"] > p > input:checked {
   --checkbox-color-hover: var(--color-yellow);
   color: var(--color-yellow);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.cls-1{fill:none;}.cls-2{fill-rule:evenodd;}</style></defs><rect class="cls-1" width="16" height="16"/><path class="cls-2" d="M13.66,13.66c-1.45,1.45-3.45,2.34-5.66,2.34C3.58,16,0,12.42,0,8S3.58,0,8,0c2.17,0,4.15,.87,5.59,2.28,.06,.06,.12,.12,.18,.18,1.37,1.43,2.22,3.36,2.23,5.5,0,.03,0,.07,0,.1-.01,2.19-.91,4.17-2.34,5.6Zm-1.41-1.41c-1.09,1.09-2.59,1.76-4.24,1.76-3.31,0-6-2.69-6-6S4.69,2,8,2v6l4.24,4.24Z"/></svg>');
 }
-
-input[data-task=I]:checked,
-li[data-task=I] > input:checked,
-li[data-task=I] > p > input:checked {
+.list-checkbox-alternative input[data-task=I]:checked,
+.list-checkbox-alternative li[data-task=I] > input:checked,
+.list-checkbox-alternative li[data-task=I] > p > input:checked {
   --checkbox-color-hover: var(--color-orange);
   color: var(--color-orange);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.cls-1{fill:none}</style></defs><path class="cls-1" d="M0 0h16v16H0z"/><path class="cls-1" d="M0 0h16v16H0z"/><path d="M9 1c0-.27-.11-.52-.29-.71C8.52.1 8.27 0 8 0s-.52.11-.71.29A.99.99 0 0 0 7 1v1c0 .27.11.52.29.71.19.19.44.29.71.29s.52-.11.71-.29A.99.99 0 0 0 9 2V1zm4.66 2.76c.18-.19.28-.44.28-.7 0-.26-.11-.51-.29-.7s-.44-.29-.7-.29c-.26 0-.51.1-.7.28l-.71.71c-.18.19-.28.44-.28.7 0 .26.11.51.29.7s.44.29.7.29c.26 0 .51-.1.7-.28l.71-.71zM16 8c0 .27-.11.52-.29.71A.99.99 0 0 1 15 9h-1c-.27 0-.52-.11-.71-.29C13.1 8.52 13 8.27 13 8s.11-.52.29-.71A.99.99 0 0 1 14 7h1c.27 0 .52.11.71.29.19.19.29.44.29.71zM3.05 4.46c.09.1.2.17.32.22.12.05.25.08.39.08.13 0 .26-.02.39-.07a1.004 1.004 0 0 0 .55-.55c.05-.12.08-.25.07-.39 0-.13-.03-.26-.08-.39-.05-.12-.13-.23-.22-.32l-.71-.71c-.19-.18-.44-.28-.7-.28-.26 0-.51.11-.7.29s-.29.44-.29.7c0 .26.1.51.28.7l.71.71zM3 8c0 .27-.11.52-.29.71A.99.99 0 0 1 2 9H1c-.27 0-.52-.11-.71-.29C.1 8.52 0 8.27 0 8s.11-.52.29-.71A.99.99 0 0 1 1 7h1c.27 0 .52.11.71.29.19.19.29.44.29.71zm3 6v-1h4v1c0 .53-.21 1.04-.59 1.41a1.983 1.983 0 0 1-2.82 0C6.21 15.03 6 14.53 6 14zm4-2c.02-.34.21-.65.48-.86.65-.51 1.13-1.22 1.36-2.02.23-.8.21-1.65-.06-2.43-.27-.79-.78-1.47-1.46-1.95C9.64 4.26 8.83 4 8 4s-1.64.26-2.32.74C5 5.22 4.49 5.9 4.22 6.69s-.29 1.64-.06 2.43c.23.8.71 1.5 1.36 2.02.27.21.46.52.48.86h4z"/></svg>');
 }
-
-input[data-task=l]:checked,
-li[data-task=l] > input:checked,
-li[data-task=l] > p > input:checked {
+.list-checkbox-alternative input[data-task=l]:checked,
+.list-checkbox-alternative li[data-task=l] > input:checked,
+.list-checkbox-alternative li[data-task=l] > p > input:checked {
   --checkbox-color-hover: var(--color-red);
   color: var(--color-red);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M8 .12A6.176 6.176 0 0 0 1.82 6.3a6.144 6.144 0 0 0 1.45 3.96l4.74 5.6 4.75-5.6.19-.25A6.144 6.144 0 0 0 14.2 6.3c0-1.64-.65-3.21-1.81-4.37A6.345 6.345 0 0 0 8 .12zm0 8.44c-.45 0-.88-.13-1.25-.38s-.66-.6-.83-1.01c-.17-.41-.21-.86-.13-1.3.09-.44.3-.84.62-1.15.31-.31.72-.53 1.15-.62.44-.09.89-.04 1.3.13.41.17.76.46 1.01.83a2.24 2.24 0 0 1-.28 2.84c-.42.42-.99.66-1.59.66z" /></svg>');
 }
-
-input[data-task="-"]:checked,
-li[data-task="-"] > input:checked,
-li[data-task="-"] > p > input:checked {
+.list-checkbox-alternative input[data-task="-"]:checked,
+.list-checkbox-alternative li[data-task="-"] > input:checked,
+.list-checkbox-alternative li[data-task="-"] > p > input:checked {
   --checkbox-color-hover: var(--text-faint);
   color: var(--text-faint);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z"/><path fill="none" d="M0 0h16v16H0z"/><path d="M8 16c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zM3.5 7c-.55 0-1 .45-1 1s.45 1 1 1h9c.55 0 1-.45 1-1s-.45-1-1-1h-9z" fill-rule="evenodd"/></svg>');
 }
-
-body:not(.tasks) .markdown-preview-view ul li[data-task="-"].task-list-item.is-checked,
-body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task]:is([data-task="-"]),
-body:not(.tasks) li[data-task="-"].task-list-item.is-checked {
+.list-checkbox-alternative body:not(.tasks) .markdown-preview-view ul li[data-task="-"].task-list-item.is-checked,
+.list-checkbox-alternative body:not(.tasks) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task]:is([data-task="-"]),
+.list-checkbox-alternative body:not(.tasks) li[data-task="-"].task-list-item.is-checked {
   color: var(--text-faint);
   text-decoration: line-through solid var(--text-faint) 1px;
 }
-
-input[data-task=b]:checked,
-li[data-task=b] > input:checked,
-li[data-task=b] > p > input:checked {
+.list-checkbox-alternative input[data-task=b]:checked,
+.list-checkbox-alternative li[data-task=b] > input:checked,
+.list-checkbox-alternative li[data-task=b] > p > input:checked {
   --checkbox-color-hover: var(--color-blue);
   color: var(--color-blue);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M4.25.5c-.6 0-1.17.24-1.59.66-.42.42-.66.99-.66 1.59V14.1c0 .2.05.39.15.56.1.17.24.31.41.41.17.1.36.15.56.15.2 0 .39-.05.56-.15l3.94-2.25c.11-.06.24-.1.37-.1s.26.03.37.1l3.95 2.25c.17.1.36.15.56.15.2 0 .39-.05.56-.15.17-.1.31-.24.41-.41s.15-.36.15-.56V2.75c0-.6-.24-1.17-.66-1.59-.42-.42-.99-.66-1.59-.66H4.25z" fill-rule="evenodd" /></svg>');
 }
-
-input[data-task=n]:checked,
-li[data-task=n] > input:checked,
-li[data-task=n] > p > input:checked {
+.list-checkbox-alternative input[data-task=n]:checked,
+.list-checkbox-alternative li[data-task=n] > input:checked,
+.list-checkbox-alternative li[data-task=n] > p > input:checked {
   --checkbox-color-hover: var(--color-cyan);
   color: var(--color-cyan);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M2.75 14.75c-.41 0-.77-.15-1.06-.44-.29-.29-.44-.65-.44-1.06V2.75c0-.41.15-.77.44-1.06.29-.29.65-.44 1.06-.44h10.5c.41 0 .77.15 1.06.44.29.29.44.65.44 1.06v7.5l-4.5 4.5h-7.5zm4.5-5.25c.21 0 .39-.07.53-.22.14-.14.22-.32.22-.53s-.07-.39-.22-.53A.732.732 0 0 0 7.25 8H5c-.21 0-.39.07-.53.22-.14.14-.22.32-.22.53s.07.39.22.53c.14.14.32.22.53.22h2.25zm3.75-3c.21 0 .39-.07.53-.22.14-.14.22-.32.22-.53s-.07-.39-.22-.53A.732.732 0 0 0 11 5H5c-.21 0-.39.07-.53.22-.14.14-.22.32-.22.53s.07.39.22.53.32.22.53.22h6zm-1.5 6.75l3.75-3.75h-3c-.21 0-.39.07-.53.22s-.22.32-.22.53v3z" /></svg>');
 }
-
-input[data-task=p]:checked,
-li[data-task=p] > input:checked,
-li[data-task=p] > p > input:checked {
+.list-checkbox-alternative input[data-task=p]:checked,
+.list-checkbox-alternative li[data-task=p] > input:checked,
+.list-checkbox-alternative li[data-task=p] > p > input:checked {
   --checkbox-color-hover: var(--color-green);
   color: var(--color-green);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 16h16V0H0v16z" fill="none" /><path d="M3.33 15h-.72c-.33 0-.66-.13-.9-.35-.25-.23-.4-.54-.43-.87L.73 7.11c-.02-.18 0-.37.07-.54.06-.18.16-.34.28-.47.13-.14.28-.25.45-.32.17-.07.35-.11.54-.11h1.27A1.333 1.333 0 0 1 4.67 7v6.67A1.333 1.333 0 0 1 3.34 15zM15.4 7.69l-1.79 6.34c-.08.28-.25.53-.48.7-.23.17-.52.27-.81.27H6.67a1.333 1.333 0 0 1-1.33-1.33V7.13c0-.53.32-1.02.81-1.25.79-.37 1.38-.82 1.62-1.22.36-.6.53-1.78.57-2.65 0-.06 0-.12.01-.18.06-.41.34-.72.73-.8.07-.01.14-.02.21-.02.8 0 1.73.83 2.12 1.48.29.48.41 1.09.36 1.84-.03.55-.18 1.05-.33 1.55L11.4 6h2.72c.21 0 .41.05.6.14.18.09.34.23.47.39.12.17.21.35.24.55.04.2.03.41-.03.61zM9 1.94z" /></svg>');
 }
-
-input[data-task=c]:checked,
-li[data-task=c] > input:checked,
-li[data-task=c] > p > input:checked {
+.list-checkbox-alternative input[data-task=c]:checked,
+.list-checkbox-alternative li[data-task=c] > input:checked,
+.list-checkbox-alternative li[data-task=c] > p > input:checked {
   --checkbox-color-hover: var(--color-red);
   color: var(--color-red);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 0h16v16H0V0z" fill="none" /><path d="M3.33 1h-.72c-.33 0-.66.13-.9.35-.25.23-.4.54-.43.87L.72 8.89c-.02.18 0 .37.07.54.06.18.16.34.28.47.13.14.28.25.45.32.17.07.35.11.54.11h1.27A1.333 1.333 0 0 0 4.66 9V2.33A1.333 1.333 0 0 0 3.33 1zM15.4 8.31l-1.79-6.34c-.08-.28-.25-.53-.48-.7-.23-.17-.52-.27-.81-.27H6.67a1.333 1.333 0 0 0-1.33 1.33v6.54c0 .53.32 1.02.81 1.25.79.37 1.38.82 1.62 1.22.36.6.53 1.78.57 2.65 0 .06 0 .12.01.18.06.41.34.72.73.8.07.01.14.02.21.02.8 0 1.73-.83 2.12-1.48.29-.48.41-1.09.36-1.84-.03-.55-.18-1.05-.33-1.55L11.4 10h2.72c.21 0 .41-.05.6-.14.18-.09.34-.23.47-.39.12-.17.21-.35.24-.55.04-.2.03-.41-.03-.61zM9 14.06z" /></svg>');
 }
-
-input[data-task=“]:checked,
-li[data-task=“] > input:checked,
-li[data-task=“] > p > input:checked {
+.list-checkbox-alternative input[data-task=“]:checked,
+.list-checkbox-alternative li[data-task=“] > input:checked,
+.list-checkbox-alternative li[data-task=“] > p > input:checked {
   --checkbox-color-hover: var(--color-purple);
   color: var(--color-purple);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M2.46 4.19c.94-1.01 2.35-1.53 4.21-1.53h.67v1.88l-.54.11c-.91.18-1.55.54-1.89 1.07-.18.28-.28.61-.29.94h2.05c.18 0 .35.07.47.2.13.13.2.29.2.47V12c0 .74-.6 1.33-1.33 1.33H2c-.18 0-.35-.07-.47-.2a.634.634 0 0 1-.2-.47V7.39c0-.07-.13-1.83 1.13-3.19zm10.87 9.14h-4c-.18 0-.35-.07-.47-.2a.634.634 0 0 1-.2-.47V7.39c0-.07-.13-1.83 1.13-3.19.94-1.01 2.35-1.53 4.21-1.53h.67v1.88l-.54.11c-.91.18-1.55.54-1.89 1.07-.18.28-.28.61-.29.94H14c.18 0 .35.07.47.2s.2.29.2.47v4.67c0 .74-.6 1.33-1.33 1.33z" /></svg>');
 }
-
-input[data-task=S]:checked,
-li[data-task=S] > input:checked,
-li[data-task=S] > p > input:checked {
+.list-checkbox-alternative input[data-task=S]:checked,
+.list-checkbox-alternative li[data-task=S] > input:checked,
+.list-checkbox-alternative li[data-task=S] > p > input:checked {
   --checkbox-color-hover: var(--color-green);
   color: var(--color-green);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M6.43 5.42c.15-.1.35-.2.57-.27v1.7c-.2-.06-.39-.15-.57-.27C6.07 6.34 6 6.11 6 6s.07-.34.43-.58zM9 10.85v-1.7c.22.07.41.16.57.27.36.24.43.47.43.58s-.07.34-.43.58c-.18.11-.37.2-.57.27z" /><path d="M8 16c2.12 0 4.16-.84 5.66-2.34S16 10.12 16 8s-.84-4.16-2.34-5.66S10.12 0 8 0 3.84.84 2.34 2.34 0 5.88 0 8s.84 4.16 2.34 5.66S5.88 16 8 16zM9 3c0-.27-.11-.52-.29-.71C8.52 2.1 8.27 2 8 2s-.52.11-.71.29A.99.99 0 0 0 7 3v.09c-.6.11-1.17.33-1.68.66C4.6 4.23 4 5 4 6s.6 1.76 1.32 2.25c.48.32 1.05.55 1.68.66v1.94c-.39-.13-.68-.32-.84-.5a.95.95 0 0 0-.31-.25c-.12-.06-.25-.1-.38-.11s-.27 0-.4.05a.94.94 0 0 0-.35.2 1.02 1.02 0 0 0-.34.7c0 .13.01.27.06.39.05.13.12.24.21.34.56.65 1.41 1.08 2.35 1.25v.09c0 .27.11.52.29.71.19.19.44.29.71.29s.52-.11.71-.29a.99.99 0 0 0 .29-.71v-.09c.6-.11 1.17-.33 1.68-.66C11.4 11.78 12 11 12 10.01s-.6-1.77-1.32-2.25C10.17 7.43 9.6 7.2 9 7.1V5.16c.39.13.68.32.84.5.09.1.19.18.31.25.12.06.25.1.38.11.13.01.26 0 .39-.05.13-.04.24-.11.34-.19.1-.09.18-.19.24-.31s.09-.25.1-.38c0-.13 0-.26-.05-.39a.9.9 0 0 0-.2-.34C10.79 3.71 9.94 3.28 9 3.11v-.09z" fill-rule="evenodd" /></svg>');
 }
-
-input[data-task=u]:checked,
-li[data-task=u] > input:checked,
-li[data-task=u] > p > input:checked {
+.list-checkbox-alternative input[data-task=u]:checked,
+.list-checkbox-alternative li[data-task=u] > input:checked,
+.list-checkbox-alternative li[data-task=u] > p > input:checked {
   --checkbox-color-hover: var(--color-green);
   color: var(--color-green);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M10 5c-.27 0-.52-.11-.71-.29C9.1 4.52 9 4.27 9 4s.11-.52.29-.71A.99.99 0 0 1 10 3h5c.27 0 .52.11.71.29.19.19.29.44.29.71v5c0 .27-.11.52-.29.71-.19.19-.44.29-.71.29s-.52-.11-.71-.29A.99.99 0 0 1 14 9V6.41L9.71 10.7c-.19.19-.44.29-.71.29s-.52-.11-.71-.29L6 8.41l-4.29 4.3c-.19.18-.44.28-.7.28-.26 0-.51-.11-.7-.29s-.3-.44-.3-.7c0-.26.1-.51.28-.7l5-5.01C5.48 6.1 5.73 6 6 6s.52.11.71.29L9 8.58l3.59-3.59H10z" fill-rule="evenodd" /></svg>');
 }
-
-input[data-task=d]:checked,
-li[data-task=d] > input:checked,
-li[data-task=d] > p > input:checked {
+.list-checkbox-alternative input[data-task=d]:checked,
+.list-checkbox-alternative li[data-task=d] > input:checked,
+.list-checkbox-alternative li[data-task=d] > p > input:checked {
   --checkbox-color-hover: var(--color-red);
   color: var(--color-red);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M10 11c-.27 0-.52.11-.71.29-.19.19-.29.44-.29.71s.11.52.29.71c.19.19.44.29.71.29h5c.27 0 .52-.11.71-.29A.99.99 0 0 0 16 12V7c0-.27-.11-.52-.29-.71C15.52 6.1 15.27 6 15 6s-.52.11-.71.29A.99.99 0 0 0 14 7v2.59L9.71 5.3c-.19-.19-.44-.29-.71-.29s-.52.11-.71.29L6 7.59l-4.29-4.3c-.19-.18-.44-.28-.7-.28-.26 0-.51.11-.7.29s-.3.44-.3.7c0 .26.1.51.28.7l5 5c.19.19.44.29.71.29s.52-.11.71-.29L9 7.41 12.59 11H10z" fill-rule="evenodd" /></svg>');
 }
-
-input[data-task=">"]:checked,
-li[data-task=">"] > input:checked,
-li[data-task=">"] > p > input:checked {
+.list-checkbox-alternative input[data-task=">"]:checked,
+.list-checkbox-alternative li[data-task=">"] > input:checked,
+.list-checkbox-alternative li[data-task=">"] > p > input:checked {
   --checkbox-color-hover: var(--color-pink);
   color: var(--color-pink);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M1.72 1.05A.503.503 0 0 0 1.45 1c-.09 0-.18.04-.26.1a.503.503 0 0 0-.18.49l1.4 4.85a.513.513 0 0 0 .4.35l5.69.95c.27.05.27.44 0 .49l-5.69.95a.513.513 0 0 0-.4.35l-1.4 4.85a.492.492 0 0 0 .18.49c.07.06.16.09.26.1.09 0 .19 0 .27-.05l13-6.5c.08-.04.15-.11.2-.18.05-.08.07-.17.07-.26s-.03-.18-.07-.26a.494.494 0 0 0-.2-.18l-13-6.49z" /></svg>');
 }
-
-input[data-task="<"]:checked,
-li[data-task="<"] > input:checked,
-li[data-task="<"] > p > input:checked {
+.list-checkbox-alternative input[data-task="<"]:checked,
+.list-checkbox-alternative li[data-task="<"] > input:checked,
+.list-checkbox-alternative li[data-task="<"] > p > input:checked {
   --checkbox-color-hover: var(--color-blue);
   color: var(--color-blue);
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" d="M0 0h16v16H0z" /><path d="M2.75 15.5h10.5c.83 0 1.5-.67 1.5-1.5V3.5c0-.83-.67-1.5-1.5-1.5h-1.5V.5h-1.5V2h-4.5V.5h-1.5V2h-1.5c-.83 0-1.5.67-1.5 1.5V14c0 .83.67 1.5 1.5 1.5zm0-11.25h10.5v1.5H2.75v-1.5z" /></svg>');
@@ -5169,7 +5157,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.20");
+  content: var(--setting-header-title, "maple 0.8.21");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5817,6 +5805,10 @@ svg.database-folder-icon {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"><path d="M44 31c0 5.523-4.477 10-10 10c-1.79 0-3.472-.47-4.926-1.295A10.01 10.01 0 0 1 24 31c0-2.568.968-4.91 2.558-6.68A9.975 9.975 0 0 1 34 21c5.523 0 10 4.477 10 10Z"/><path d="M34 12v9a9.975 9.975 0 0 0-7.442 3.32A9.963 9.963 0 0 0 24 31a10.01 10.01 0 0 0 5.074 8.705C26.412 40.51 22.878 41 19 41c-8.284 0-15-2.239-15-5V12"/><path d="M34 12c0 2.761-6.716 5-15 5c-8.284 0-15-2.239-15-5s6.716-5 15-5c8.284 0 15 2.239 15 5ZM4 28c0 2.761 6.716 5 15 5c1.807 0 3.54-.106 5.144-.302M4 20c0 2.761 6.716 5 15 5c2.756 0 5.339-.248 7.558-.68M34 41s-3.5-5.862-3.5-10c0-4.137 3.5-10 3.5-10m0 20s3.5-5.862 3.5-10c0-4.137-3.5-10-3.5-10m10 10H24"/></g></svg>');
 }
 
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content:is([data-type=file-explorer]) .nav-files-container svg.right-triangle {
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42"><path d="M24.833 12.5H40.25a3.75 3.75 0 0 1 3.745 3.55l.005.2v19a3.75 3.75 0 0 1-3.55 3.745l-.2.005H7.75a3.75 3.75 0 0 1-3.745-3.55L4 35.25V18.999L17.804 19l.226-.007a3.75 3.75 0 0 0 2.547-1.219l.147-.172 4.109-5.102zM17.061 9c.832 0 1.639.277 2.294.784l.175.144 2.444 2.138-3.197 3.968-.094.105c-.2.197-.46.322-.739.353l-.14.008L4 16.499V12.75a3.75 3.75 0 0 1 3.55-3.745L7.75 9h9.31z" fill="currentColor"/></svg>');
+}
+
 body.titlebar-button-style .mod-maximize svg {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><rect x="2" y="2" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="0.8" fill="none"/></svg>');
 }
@@ -5825,15 +5817,11 @@ body.titlebar-button-style.is-maximized .mod-maximize svg {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><g fill="none" stroke="currentColor" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"><path d="M602 932H234c-77.3 0-140-62.7-140-140V424c0-77.3 62.7-140 140-140h368c77.3 0 140 62.7 140 140v368c0 77.3-62.7 140-140 140z" /><path d="M284 284v-50c0-77.3 62.7-140 140-140h368c77.3 0 140 62.7 140 140v368c0 77.3-62.7 140-140 140h-50" /></g></svg>');
 }
 
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content:is([data-type=file-explorer]) .nav-folder-collapse-indicator svg {
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42"><path d="M24.833 12.5H40.25a3.75 3.75 0 0 1 3.745 3.55l.005.2v19a3.75 3.75 0 0 1-3.55 3.745l-.2.005H7.75a3.75 3.75 0 0 1-3.745-3.55L4 35.25V18.999L17.804 19l.226-.007a3.75 3.75 0 0 0 2.547-1.219l.147-.172 4.109-5.102zM17.061 9c.832 0 1.639.277 2.294.784l.175.144 2.444 2.138-3.197 3.968-.094.105c-.2.197-.46.322-.739.353l-.14.008L4 16.499V12.75a3.75 3.75 0 0 1 3.55-3.745L7.75 9h9.31z" fill="currentColor"/></svg>');
-}
-
-:is(:is(body.titlebar-button-style .mod-maximize, body.titlebar-button-style.is-maximized .mod-maximize, body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content:is([data-type=file-explorer]) .nav-folder-collapse-indicator) svg, svg:is(.excalidraw-icon, .spreadsheet, [class*=lucide-folder], .lucide-sticky-note, .lucide-image, .lucide-file, .lucide-copy, .database-folder-icon)) {
+:is(:is(body.titlebar-button-style .mod-maximize, body.titlebar-button-style.is-maximized .mod-maximize, body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content:is([data-type=file-explorer]) .nav-files-container) svg, svg:is(.excalidraw-icon, .spreadsheet, [class*=lucide-folder], .lucide-sticky-note, .lucide-image, .lucide-file, .lucide-copy, .database-folder-icon)) {
   background-color: currentColor;
   -webkit-mask-size: 100% 100%;
 }
-:is(:is(body.titlebar-button-style .mod-maximize, body.titlebar-button-style.is-maximized .mod-maximize, body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content:is([data-type=file-explorer]) .nav-folder-collapse-indicator) svg, svg:is(.excalidraw-icon, .spreadsheet, [class*=lucide-folder], .lucide-sticky-note, .lucide-image, .lucide-file, .lucide-copy, .database-folder-icon)) path {
+:is(:is(body.titlebar-button-style .mod-maximize, body.titlebar-button-style.is-maximized .mod-maximize, body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content:is([data-type=file-explorer]) .nav-files-container) svg, svg:is(.excalidraw-icon, .spreadsheet, [class*=lucide-folder], .lucide-sticky-note, .lucide-image, .lucide-file, .lucide-copy, .database-folder-icon)) path {
   display: none;
 }
 
@@ -6320,6 +6308,9 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title {
+  cursor: pointer;
+}
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title:hover {
   background-color: var(--folder-hover-color);
 }
@@ -6332,11 +6323,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder .nav-folder-children:hover {
   border-color: var(--accent-inactive);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-collapse-indicator {
-  cursor: pointer;
-  height: fit-content;
-}
-body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-collapse-indicator svg {
+body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder .collapse-icon svg.svg-icon {
   line-height: var(--line-height-tight);
   width: 1rem;
   height: 1rem;
