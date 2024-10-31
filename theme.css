@@ -475,7 +475,7 @@ settings:
         title: Set Modal Header Title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.21'"
+        default: "'maple 0.8.22'"
     -
         id: setting-group-title
         title: Add Style For Left Navigation Group Title
@@ -1260,6 +1260,12 @@ settings:
         type: heading
         collapsed: true
         level: 2
+    -
+        id: table-full
+        title: Full Width Table
+        title.zh: 全宽表格
+        type: class-toggle
+        default: true
     -
         id: table-colorful
         title: Colorful Table
@@ -3610,13 +3616,14 @@ body {
   border-spacing: 0;
 }
 
-:is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
+body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
   --table-white-space: break-all;
   width: 100%;
 }
-:is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) .table-editor {
+body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) .table-editor {
   width: 100%;
 }
+
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) .table-col-btn {
   border-top-right-radius: var(--table-radius);
   border-bottom-right-radius: var(--table-radius);
@@ -5157,7 +5164,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.21");
+  content: var(--setting-header-title, "maple 0.8.22");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
