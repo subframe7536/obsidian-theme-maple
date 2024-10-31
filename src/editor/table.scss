@@ -1,3 +1,5 @@
+@use '../utils';
+
 body {
   --table-radius: var(--size-2-3);
   --table-btn-color: var(--text-on-accent);
@@ -13,7 +15,7 @@ body {
   border-spacing: 0;
 }
 
-:is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
+#{utils.with-no-plugin('.table-full')} :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
   // expand width
   --table-white-space: break-all;
   width: 100%;
@@ -21,9 +23,10 @@ body {
   .table-editor {
     width: 100%;
   }
+}
 
+:is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
   // table drag handler
-
   .table-col-btn {
     border-top-right-radius: var(--table-radius);
     border-bottom-right-radius: var(--table-radius);

@@ -637,6 +637,12 @@ settings:
         collapsed: true
         level: 2
     -
+        id: table-full
+        title: Full Width Table
+        title.zh: 全宽表格
+        type: class-toggle
+        default: true
+    -
         id: table-colorful
         title: Colorful Table
         description: Accent header and line color
