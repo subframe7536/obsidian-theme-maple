@@ -70,9 +70,9 @@ settings:
     -
         id: setting-accent-s-light
         title: Accent Color Saturation
-        description: S of hsl
+        description: S(aturation) of HSL
         title.zh: 高亮颜色饱和度
-        description.zh: hsl中的s
+        description.zh: HSL 中的 S
         type: variable-number-slider
         default: 32
         format: '%'
@@ -82,9 +82,9 @@ settings:
     -
         id: setting-accent-l-light
         title: Accent Color Lightness
-        description: L of hsl
+        description: L(ight) of HSL
         title.zh: 高亮颜色亮度
-        description.zh: hsl中的l
+        description.zh: HSL 中的 L
         type: variable-number-slider
         default: 58
         format: '%'
@@ -139,9 +139,9 @@ settings:
     -
         id: setting-accent-s-dark
         title: Accent Color Saturation
-        description: S of hsl
+        description: S(aturation) of hsl
         title.zh: 高亮颜色饱和度
-        description.zh: hsl中的s
+        description.zh: HSL 中的 S
         type: variable-number-slider
         default: 32
         format: '%'
@@ -151,9 +151,9 @@ settings:
     -
         id: setting-accent-l-dark
         title: Accent Color Lightness
-        description: L of hsl
+        description: L(ight) of hsl
         title.zh: 高亮颜色亮度
-        description.zh: hsl中的l
+        description.zh: HSL 中的 L
         type: variable-number-slider
         default: 58
         format: '%'
@@ -170,7 +170,7 @@ settings:
     -
         id: titlebar
         title: Obsidian Titlebar
-        title.zh: obsidian 标题栏
+        title.zh: Obsidian 标题栏
         type: heading
         collapsed: true
         level: 2
@@ -239,8 +239,8 @@ settings:
         type: class-toggle
     -
         id: explorer-title-wrap
-        title: Title Wrap
-        title.zh: 标题换行
+        title: Auto Wrap For Long File Name
+        title.zh: 为长文件名自动换行
         type: class-toggle
     -
         id: explorer-item-height
@@ -261,7 +261,7 @@ settings:
         default: true
     -
         id: setting-color-dirs
-        title: Dir Color
+        title: Directory Color
         title.zh: 文件夹颜色
         type: variable-themed-color
         format: rgb-values
@@ -277,9 +277,9 @@ settings:
         level: 2
     -
         id: outline-enable
-        title: Enable Logseq Bullet Thread Style Outline
+        title: Logseq Bullet Thread Style Outline
         description: Please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
-        title.zh: 启用 logseq bullet thread 样式的文档视图
+        title.zh: logseq bullet thread 样式的文档视图
         description.zh: 启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         type: class-toggle
         default: true
@@ -292,8 +292,8 @@ settings:
         level: 2
     -
         id: status-bar-enable
-        title: Enable Status Bar Style
-        title.zh: 启用状态栏样式
+        title: Custom Status Bar Style
+        title.zh: 自定义状态栏样式
         type: class-toggle
         default: true
     -
@@ -325,15 +325,15 @@ settings:
         type: class-toggle
     -
         id: search-internal
-        title: Document Search Panel
+        title: Document Search / Replace Panel
         title.zh: 文档内搜索框
         type: heading
         collapsed: true
         level: 2
     -
         id: search-internal-enable
-        title: Enable VSCode Style Search/replace Panel
-        title.zh: 启用 VSCode 样式的搜索框
+        title: Minimal Document Search / Replace Panel (Like VSCode)
+        title.zh: 精简的文档内搜索框（和 VSCode 类似）
         type: class-toggle
         default: true
     -
@@ -345,8 +345,8 @@ settings:
         level: 2
     -
         id: tab-float
-        title: Float Tabs Style Like Firefox / Microsoft Edge
-        title.zh: 仿 Firefox / Microsoft Edge 的标签页
+        title: Float Style Tab (Like Firefox / Microsoft Edge)
+        title.zh: 浮动的标签页（和 Firefox / Microsoft Edge 类似）
         type: class-toggle
     -
         id: tab-slide-up
@@ -475,7 +475,7 @@ settings:
         title: Set Modal Header Title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.22'"
+        default: "'maple 0.8.23'"
     -
         id: setting-group-title
         title: Add Style For Left Navigation Group Title
@@ -733,16 +733,16 @@ settings:
         step: 0.5
     -
         id: line-indicator-enable
-        title: Enable Hover Line Indicator
+        title: Hover Line Indicator
         description: Reference from https://github.com/Akifyss/obsidian-border, need install version>=1.1.9
-        title.zh: 启用鼠标经过行指示器
+        title.zh: 鼠标经过行指示器
         description.zh: 参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9
         type: class-toggle
         default: true
     -
         id: line-active-enable
-        title: Enable Active Line Hightlight
-        title.zh: 启用当前行高亮
+        title: Active Line Hightlight
+        title.zh: 当前行高亮
         type: class-toggle
         default: true
     -
@@ -971,8 +971,8 @@ settings:
         level: 3
     -
         id: heading-level-enable
-        title: Enable Level Heading Icon
-        title.zh: 启用标题等级图标
+        title: Level Heading Icon
+        title.zh: 标题等级图标
         type: class-toggle
     -
         id: heading-level-fix
@@ -1303,15 +1303,15 @@ settings:
         default-dark: '#'
     -
         id: embed
-        title: Embed
+        title: Embed File
         title.zh: 内嵌文档
         type: heading
         collapsed: true
         level: 2
     -
         id: embed-enable
-        title: Enable Embed File Style
-        title.zh: 启用内嵌文档样式
+        title: Block Style Embed File
+        title.zh: 块状的内嵌文档
         type: class-toggle
         default: true
     -
@@ -1368,9 +1368,9 @@ settings:
         level: 2
     -
         id: quote-theme
-        title: Enable Quote Theme
+        title: Alternative Quote Style
         description: With thick guide line
-        title.zh: 启用引言块主题
+        title.zh: 另一种引言样式
         description.zh: 宽引导线
         type: class-toggle
         default: true
@@ -1402,17 +1402,17 @@ settings:
         level: 2
     -
         id: list-enable
-        title: Enable List Style
+        title: Optimize List Style
         description: ❗no support for list or task items inside callout
-        title.zh: 启用列表样式
+        title.zh: 优化列表样式
         description.zh: ❗精力有限，不打算适配 callout 中的列表或者代办项
         type: class-toggle
         default: true
     -
         id: list-bullet-thread-style
-        title: Enable Logseq Bullet Thread List
+        title: Logseq Bullet Thread Style List
         description: ❗WIP
-        title.zh: 启用 logseq bullet thread 样式的列表
+        title.zh: logseq bullet thread 样式的列表
         description.zh: ❗待完成
         type: class-toggle
         default: true
@@ -5164,7 +5164,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.22");
+  content: var(--setting-header-title, "maple 0.8.23");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
