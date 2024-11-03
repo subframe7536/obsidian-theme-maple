@@ -68,9 +68,9 @@ settings:
     -
         id: setting-accent-s-light
         title: Accent Color Saturation
-        description: S of hsl
+        description: S(aturation) of HSL
         title.zh: 高亮颜色饱和度
-        description.zh: hsl中的s
+        description.zh: HSL 中的 S
         type: variable-number-slider
         default: 32
         format: '%'
@@ -80,9 +80,9 @@ settings:
     -
         id: setting-accent-l-light
         title: Accent Color Lightness
-        description: L of hsl
+        description: L(ight) of HSL
         title.zh: 高亮颜色亮度
-        description.zh: hsl中的l
+        description.zh: HSL 中的 L
         type: variable-number-slider
         default: 58
         format: '%'
@@ -137,9 +137,9 @@ settings:
     -
         id: setting-accent-s-dark
         title: Accent Color Saturation
-        description: S of hsl
+        description: S(aturation) of hsl
         title.zh: 高亮颜色饱和度
-        description.zh: hsl中的s
+        description.zh: HSL 中的 S
         type: variable-number-slider
         default: 32
         format: '%'
@@ -149,9 +149,9 @@ settings:
     -
         id: setting-accent-l-dark
         title: Accent Color Lightness
-        description: L of hsl
+        description: L(ight) of hsl
         title.zh: 高亮颜色亮度
-        description.zh: hsl中的l
+        description.zh: HSL 中的 L
         type: variable-number-slider
         default: 58
         format: '%'

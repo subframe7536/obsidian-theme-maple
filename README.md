@@ -2,6 +2,8 @@
 
 an Obsidian theme for desktop with some awesome components, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/Maple-font)
 
+- my plugin to beautify devtools: [repo](https://github.com/subframe7536/obsidian-devtools-font-and-scrollbar)
+
 ![](img/screenshot_source.webp)
 
 <a href="https://www.buymeacoffee.com/subframe753"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=subframe753&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" /></a>

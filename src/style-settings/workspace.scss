@@ -6,7 +6,7 @@ settings:
     -
         id: titlebar
         title: Obsidian Titlebar
-        title.zh: obsidian 标题栏
+        title.zh: Obsidian 标题栏
         type: heading
         collapsed: true
         level: 2
@@ -75,8 +75,8 @@ settings:
         type: class-toggle
     -
         id: explorer-title-wrap
-        title: Title Wrap
-        title.zh: 标题换行
+        title: Auto Wrap For Long File Name
+        title.zh: 为长文件名自动换行
         type: class-toggle
     -
         id: explorer-item-height
@@ -97,7 +97,7 @@ settings:
         default: true
     -
         id: setting-color-dirs
-        title: Dir Color
+        title: Directory Color
         title.zh: 文件夹颜色
         type: variable-themed-color
         format: rgb-values
@@ -113,9 +113,9 @@ settings:
         level: 2
     -
         id: outline-enable
-        title: Enable Logseq Bullet Thread Style Outline
+        title: Logseq Bullet Thread Style Outline
         description: Please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
-        title.zh: 启用 logseq bullet thread 样式的文档视图
+        title.zh: logseq bullet thread 样式的文档视图
         description.zh: 启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
         type: class-toggle
         default: true
@@ -128,8 +128,8 @@ settings:
         level: 2
     -
         id: status-bar-enable
-        title: Enable Status Bar Style
-        title.zh: 启用状态栏样式
+        title: Custom Status Bar Style
+        title.zh: 自定义状态栏样式
         type: class-toggle
         default: true
     -
@@ -161,15 +161,15 @@ settings:
         type: class-toggle
     -
         id: search-internal
-        title: Document Search Panel
+        title: Document Search / Replace Panel
         title.zh: 文档内搜索框
         type: heading
         collapsed: true
         level: 2
     -
         id: search-internal-enable
-        title: Enable VSCode Style Search/replace Panel
-        title.zh: 启用 VSCode 样式的搜索框
+        title: Minimal Document Search / Replace Panel (Like VSCode)
+        title.zh: 精简的文档内搜索框（和 VSCode 类似）
         type: class-toggle
         default: true
     -
@@ -181,8 +181,8 @@ settings:
         level: 2
     -
         id: tab-float
-        title: Float Tabs Style Like Firefox / Microsoft Edge
-        title.zh: 仿 Firefox / Microsoft Edge 的标签页
+        title: Float Style Tab (Like Firefox / Microsoft Edge)
+        title.zh: 浮动的标签页（和 Firefox / Microsoft Edge 类似）
         type: class-toggle
     -
         id: tab-slide-up

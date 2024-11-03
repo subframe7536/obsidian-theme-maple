@@ -109,16 +109,16 @@ settings:
         step: 0.5
     -
         id: line-indicator-enable
-        title: Enable Hover Line Indicator
+        title: Hover Line Indicator
         description: Reference from https://github.com/Akifyss/obsidian-border, need install version>=1.1.9
-        title.zh: 启用鼠标经过行指示器
+        title.zh: 鼠标经过行指示器
         description.zh: 参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9
         type: class-toggle
         default: true
     -
         id: line-active-enable
-        title: Enable Active Line Hightlight
-        title.zh: 启用当前行高亮
+        title: Active Line Hightlight
+        title.zh: 当前行高亮
         type: class-toggle
         default: true
     -
@@ -347,8 +347,8 @@ settings:
         level: 3
     -
         id: heading-level-enable
-        title: Enable Level Heading Icon
-        title.zh: 启用标题等级图标
+        title: Level Heading Icon
+        title.zh: 标题等级图标
         type: class-toggle
     -
         id: heading-level-fix
@@ -679,15 +679,15 @@ settings:
         default-dark: '#'
     -
         id: embed
-        title: Embed
+        title: Embed File
         title.zh: 内嵌文档
         type: heading
         collapsed: true
         level: 2
     -
         id: embed-enable
-        title: Enable Embed File Style
-        title.zh: 启用内嵌文档样式
+        title: Block Style Embed File
+        title.zh: 块状的内嵌文档
         type: class-toggle
         default: true
     -
@@ -744,9 +744,9 @@ settings:
         level: 2
     -
         id: quote-theme
-        title: Enable Quote Theme
+        title: Alternative Quote Style
         description: With thick guide line
-        title.zh: 启用引言块主题
+        title.zh: 另一种引言样式
         description.zh: 宽引导线
         type: class-toggle
         default: true
@@ -778,17 +778,17 @@ settings:
         level: 2
     -
         id: list-enable
-        title: Enable List Style
+        title: Optimize List Style
         description: ❗no support for list or task items inside callout
-        title.zh: 启用列表样式
+        title.zh: 优化列表样式
         description.zh: ❗精力有限，不打算适配 callout 中的列表或者代办项
         type: class-toggle
         default: true
     -
         id: list-bullet-thread-style
-        title: Enable Logseq Bullet Thread List
+        title: Logseq Bullet Thread Style List
         description: ❗WIP
-        title.zh: 启用 logseq bullet thread 样式的列表
+        title.zh: logseq bullet thread 样式的列表
         description.zh: ❗待完成
         type: class-toggle
         default: true
