@@ -366,8 +366,8 @@ settings:
         level: 3
     -
         id: heading-h1-center
-        title: Center H1
-        title.zh: h1 居中
+        title: Centered Heading 1
+        title.zh: 居中一级标题
         type: class-toggle
         default: true
     -
@@ -377,10 +377,10 @@ settings:
         type: class-toggle
     -
         id: heading-h6-variant
-        title: Set Font Small-caps For H6
-        description: Always capital style
-        title.zh: 添加 h6 small-caps
-        description.zh: 全大写
+        title: Set Font Small-caps For Heading 6
+        description: All characters are capitalized
+        title.zh: 为六级标题设置 small-caps 样式
+        description.zh: 所有字母都是大写
         type: class-toggle
         default: true
     -

@@ -29,14 +29,12 @@ body {
 
 /* #region fix latex */
 
-body.font-latex-text mjx-container {
-  mjx-utext {
-    font-family: var(--font-text) !important;
-  }
+.font-latex-text mjx-container mjx-utext {
+  font-family: var(--font-text) !important;
+}
 
-  .TEX-I {
-    font-family: MJXZERO, EMBED-TEX-I;
-  }
+.font-fix-latex mjx-container .TEX-I {
+  font-family: MJXZERO, EMBED-TEX-I;
 }
 
 mjx-stretchy-h > mjx-ext > mjx-c::before {
