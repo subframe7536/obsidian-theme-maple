@@ -1,7 +1,10 @@
 @use '../utils.scss';
 
 #{utils.with-no-plugin('.embed-enable')} {
-
+  .cm-embed-block {
+    border-radius: var(--radius-l) !important;
+    transition: var(--animation);
+  }
   .internal-embed.is-loaded:not(.image-embed) {
     --embed-background: var(--background-primary);
     --embed-max-height: initial;
