@@ -475,7 +475,7 @@ settings:
         title: Set Modal Header Title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.23'"
+        default: "'maple 0.8.24'"
     -
         id: setting-group-title
         title: Add Style For Left Navigation Group Title
@@ -990,8 +990,8 @@ settings:
         level: 3
     -
         id: heading-h1-center
-        title: Center H1
-        title.zh: h1 居中
+        title: Centered Heading 1
+        title.zh: 居中一级标题
         type: class-toggle
         default: true
     -
@@ -1001,10 +1001,10 @@ settings:
         type: class-toggle
     -
         id: heading-h6-variant
-        title: Set Font Small-caps For H6
-        description: Always capital style
-        title.zh: 添加 h6 small-caps
-        description.zh: 全大写
+        title: Set Font Small-caps For Heading 6
+        description: All characters are capitalized
+        title.zh: 为六级标题设置 small-caps 样式
+        description.zh: 所有字母都是大写
         type: class-toggle
         default: true
     -
@@ -2149,10 +2149,11 @@ body {
 
 /* #endregion paragraph */
 /* #region fix latex */
-body.font-latex-text mjx-container mjx-utext {
+.font-latex-text mjx-container mjx-utext {
   font-family: var(--font-text) !important;
 }
-body.font-latex-text mjx-container .TEX-I {
+
+.font-fix-latex mjx-container .TEX-I {
   font-family: MJXZERO, EMBED-TEX-I;
 }
 
@@ -2492,16 +2493,16 @@ input[type=checkbox]:checked::after {
   margin-bottom: var(--size-2-1) !important;
 }
 
-.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget) {
+.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):not(.cm-callout) {
   box-shadow: none !important;
   border: var(--block-outline-width) solid transparent;
   border-radius: var(--radius-l) !important;
   transition: var(--animation);
 }
-.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):hover {
+.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):not(.cm-callout):hover {
   border-color: var(--accent-active);
 }
-.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget) .edit-block-button {
+.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):not(.cm-callout) .edit-block-button {
   border-radius: var(--radius-m) !important;
   transition: var(--animation);
   inset-block: 0.2rem;
@@ -2877,6 +2878,10 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
 
 /* #endregion code */
 /* #region embed */
+body:is(:not(.css-settings-manager), .embed-enable) .cm-embed-block {
+  border-radius: var(--radius-l) !important;
+  transition: var(--animation);
+}
 body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) {
   --embed-background: var(--background-primary);
   --embed-max-height: initial;
@@ -4287,18 +4292,6 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
 
 /* #endregion canvas */
 /* #region callout */
-body {
-  --callout-padding: var(--size-4-3) var(--size-4-6);
-}
-
-.callout-icon {
-  margin-block: auto;
-}
-
-.callout-fold {
-  margin: auto 0 !important;
-}
-
 /* #endregion callout */
 /* #region pdf */
 body.theme-dark.pdf-dark-hover .pdf-viewer {
@@ -5164,7 +5157,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.23");
+  content: var(--setting-header-title, "maple 0.8.24");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
