@@ -183,7 +183,6 @@ mark {
 
 .is-flashing {
   transition: var(--animation);
-  border-radius: var(--radius-s);
 }
 
 .theme-dark .is-flashing {
@@ -202,7 +201,7 @@ body {
 .markdown-rendered mark {
   border-radius: calc(var(--setting-text-highlight-radius, 4) * 1px);
   color: var(--setting-text-highlight-color);
-  background: var(--text-highlight-bg) !important;
+  background: var(--text-highlight-bg);
 }
 
 body.text-highlight-margin :is(.markdown-source-view span.cm-highlight, .markdown-rendered mark) {
