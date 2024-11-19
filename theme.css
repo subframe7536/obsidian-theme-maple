@@ -475,7 +475,7 @@ settings:
         title: Set Modal Header Title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.25'"
+        default: "'maple 0.8.26'"
     -
         id: setting-group-title
         title: Add Style For Left Navigation Group Title
@@ -661,12 +661,18 @@ settings:
         level: 2
     -
         id: font-maple
-        title: Use "Maple Mono" As Monospace
+        title: Use "Maple Mono" As Monospace Font
         description: https://github.com/subframe7536/Maple-font
         title.zh: 使用 Maple Mono 作为等宽字体
         description.zh: https://github.com/subframe7536/Maple-font
         type: class-toggle
         default: true
+    -
+        id: setting-code-ligature
+        title: OpenType Feature Config For Monospace Font
+        title.zh: 等宽字体的 OpenType 特性配置
+        type: variable-text
+        default: '"calt"'
     -
         id: font-fix-latex
         title: Fix Latex Italic Absent
@@ -915,7 +921,7 @@ settings:
         title: Internal Link Color
         title.zh: 内部链接颜色
         type: variable-themed-color
-        format: rgb-value
+        format: rgb-values
         opacity: false
         default-light: '#'
         default-dark: '#'
@@ -933,7 +939,7 @@ settings:
         title: External Link Color
         title.zh: 外部链接颜色
         type: variable-themed-color
-        format: rgb-value
+        format: rgb-values
         opacity: false
         default-light: '#'
         default-dark: '#'
@@ -5156,7 +5162,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.25");
+  content: var(--setting-header-title, "maple 0.8.26");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
