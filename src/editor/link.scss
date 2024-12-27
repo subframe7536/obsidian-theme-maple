@@ -9,7 +9,7 @@
   --link-external-color-underline: var(--setting-link-external-color-underline, var(--link-external-color));
   --link-unresolved-decoration-color: var(--link-unresolve-color);
   --link-footnote: var(--color-purple);
-  --link-text-size: var(--font-text-size)
+  --link-text-size: var(--font-text-size);
 }
 
 @mixin hover-underline($color, $underline) {

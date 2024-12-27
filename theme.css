@@ -475,7 +475,7 @@ settings:
         title: Set Modal Header Title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.26'"
+        default: "'maple 0.8.27'"
     -
         id: setting-group-title
         title: Add Style For Left Navigation Group Title
@@ -3029,7 +3029,7 @@ body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr::after 
   --link-external-color-underline: var(--setting-link-external-color-underline, var(--link-external-color));
   --link-unresolved-decoration-color: var(--link-unresolve-color);
   --link-footnote: var(--color-purple);
-  --link-text-size: var(--font-text-size) ;
+  --link-text-size: var(--font-text-size);
 }
 
 .cm-hmd-footnote .cm-underline {
@@ -5070,7 +5070,7 @@ body.modal-slider input[type=range]::-webkit-slider-thumb:hover {
 
 body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
-  height: 1rem;
+  height: var(--size-4-4);
   transition: var(--animation-slow);
   border: var(--size-2-1) solid var(--text-faint);
   background-color: var(--color-base-20);
@@ -5122,7 +5122,7 @@ body.modal-toggle-thin .checkbox-container::before {
 }
 body.modal-toggle-thin .checkbox-container::after {
   left: var(--toggle-border-width);
-  height: 0.8rem;
+  height: var(--size-4-3);
   bottom: 50%;
   border-radius: var(--radius-m) var(--radius-m) 0 0;
   border: var(--toggle-border-width) solid var(--text-faint);
@@ -5133,7 +5133,7 @@ body.modal-toggle-thin .checkbox-container::after {
   transition: var(--animation-slow);
 }
 body.modal-toggle-thin .checkbox-container:hover::after {
-  height: 0.6rem;
+  height: var(--size-4-2);
 }
 body.modal-toggle-thin .checkbox-container:active::after {
   width: calc(100% - var(--toggle-border-width) * 6);
@@ -5162,12 +5162,12 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.26");
+  content: var(--setting-header-title, "maple 0.8.27");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
   transform: translate(-50%, -50%);
-  font-size: 1.4rem;
+  font-size: calc(1.4 * var(--size-4-4));
   font-weight: bold;
   color: var(--setting-color-logo, var(--text-accent));
   transition: var(--animation);
@@ -5272,8 +5272,8 @@ button {
 }
 
 :is(select, .dropdown) {
-  background-size: 1.2rem;
-  background-position: right 0.4rem top 56%, 0 0;
+  background-size: calc(1.2 * var(--size-4-4));
+  background-position: right calc(0.4 * var(--size-4-4)) top 56%, 0 0;
   background-image: var(--select-bg-img) !important;
 }
 
@@ -5292,11 +5292,11 @@ button {
   border: 2px solid var(--accent-inactive);
   border-radius: var(--size-2-3);
   font-size: var(--font-ui-smaller);
-  padding: 0.05rem 0.5rem;
+  padding: 1px var(--size-4-2);
   transition: var(--animation);
 }
 .modal-container .mod-settings .modal-content .setting-hotkey .setting-hotkey-icon {
-  margin-right: -0.25rem;
+  margin-right: calc(-1 * var(--size-4-1));
 }
 .modal-container .mod-settings .modal-content .setting-hotkey:hover {
   border-color: var(--accent-active);
@@ -5322,7 +5322,7 @@ body.setting-group-title .modal-container .mod-settings .modal-content .vertical
 }
 body.setting-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group-title {
   color: var(--accent-active);
-  font-size: var(--font-text-size);
+  font-size: var(--size-4-4);
   position: relative;
 }
 body.setting-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group-title::before {
@@ -5566,11 +5566,11 @@ body.tab-slide-up :is(.workspace-split .workspace-tabs:not(.mod-stacked) .worksp
     opacity: 0;
   }
   15% {
-    transform: translateY(0.1rem);
+    transform: translateY(1px);
     opacity: 0;
   }
   25% {
-    transform: translateY(0.15rem);
+    transform: translateY(2px);
   }
   45% {
     opacity: 0.5;
@@ -6108,8 +6108,8 @@ body {
 .workspace-leaf-content[data-type=tag] .tree-item-self::before {
   background-color: var(--accent-active);
   line-height: var(--line-height-tight);
-  width: 1rem;
-  height: 1rem;
+  width: var(--size-4-4);
+  height: var(--size-4-4);
   margin-left: calc(-1 * var(--size-4-5));
   margin-right: var(--size-4-3);
   transform: translateY(var(--size-4-1));
@@ -6138,7 +6138,7 @@ body {
 .workspace-leaf-content[data-type=bookmarks] .tree-item-self:not(.mod-collapsible) .tree-item-icon {
   transform: translateY(var(--size-2-1));
   color: var(--accent-active);
-  width: 1.3rem;
+  width: calc(1.3 * var(--size-4-4));
 }
 .workspace-leaf-content[data-type=bookmarks] .tree-item-self.is-active .tree-item-icon {
   color: var(--nav-item-color-active);
@@ -6280,7 +6280,7 @@ body {
   --folder-color-rgb: 245, 180, 0;
   --folder-color: rgb(var(--setting-color-dirs, var(--folder-color-rgb)));
   --folder-hover-color: rgba(var(--setting-color-dirs, var(--folder-color-rgb)), 0.24);
-  --nav-item-size: 0.9rem;
+  --nav-item-size: calc(var(--size-4-4) * 0.9);
   --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
   --nav-indentation-guide-width: 1.8px;
@@ -6330,8 +6330,8 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder .collapse-icon svg.svg-icon {
   line-height: var(--line-height-tight);
-  width: 1rem;
-  height: 1rem;
+  width: var(--size-4-4);
+  height: var(--size-4-4);
   background-color: var(--folder-color);
   display: inline-block;
   translate: 0 calc(-1 * var(--size-2-1));
@@ -6347,8 +6347,8 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title:not([data-path$="excalidraw.md"]):not([data-path$=excalidraw])::before {
   content: "";
   position: absolute;
-  width: 1rem;
-  height: 1rem;
+  width: var(--size-4-4);
+  height: var(--size-4-4);
   opacity: 0.8;
   flex-shrink: 0;
   translate: calc(1px - var(--size-4-5)) 15%;
@@ -6369,7 +6369,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
   color: var(--text-on-accent);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-tag {
-  font-size: 0.6rem;
+  font-size: var(--size-4-2);
   margin-left: 0;
   margin-right: var(--size-4-2);
   line-height: 2;
