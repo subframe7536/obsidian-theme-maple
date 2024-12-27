@@ -5,7 +5,7 @@ body {
   --folder-color-rgb: 245, 180, 0;
   --folder-color: rgb(var(--setting-color-dirs, var(--folder-color-rgb)));
   --folder-hover-color: rgba(var(--setting-color-dirs, var(--folder-color-rgb)), 0.24);
-  --nav-item-size: 0.9rem;
+  --nav-item-size: calc(var(--size-4-4) * 0.9);
   --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
   --nav-indentation-guide-width: 1.8px;
@@ -64,8 +64,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 
       .collapse-icon svg.svg-icon {
         line-height: var(--line-height-tight);
-        width: 1rem;
-        height: 1rem;
+        width: var(--size-4-4);
+        height: var(--size-4-4);
         background-color: var(--folder-color);
         display: inline-block;
         translate: 0 calc(-1 * var(--size-2-1));
@@ -88,8 +88,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw'])::before {
           content: '';
           position: absolute;
-          width: 1rem;
-          height: 1rem;
+          width: var(--size-4-4);
+          height: var(--size-4-4);
           opacity: 0.8;
           flex-shrink: 0;
           translate: calc(1px - var(--size-4-5)) 15%;
@@ -117,7 +117,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       }
 
       &-tag {
-        font-size: 0.6rem;
+        font-size: var(--size-4-2);
         margin-left: 0;
         margin-right: var(--size-4-2);
         line-height: 2;

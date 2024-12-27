@@ -135,12 +135,12 @@ body.tab-slide-up :is(.workspace-split .workspace-tabs:not(.mod-stacked) .worksp
   }
 
   15% {
-    transform: translateY(0.1rem);
+    transform: translateY(1px);
     opacity: 0;
   }
 
   25% {
-    transform: translateY(0.15rem);
+    transform: translateY(2px);
   }
 
   45% {

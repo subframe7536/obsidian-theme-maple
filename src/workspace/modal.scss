@@ -53,7 +53,7 @@ body.modal-slider input[type='range']::-webkit-slider-thumb {
 
 body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
-  height: 1rem;
+  height: var(--size-4-4);
   transition: var(--animation-slow);
   border: var(--size-2-1) solid var(--text-faint);
   background-color: var(--color-base-20);
@@ -112,7 +112,7 @@ body.modal-toggle-thin .checkbox-container {
 
   &::after {
     left: var(--toggle-border-width);
-    height: 0.8rem;
+    height: var(--size-4-3);
     bottom: 50%;
     border-radius: var(--radius-m) var(--radius-m) 0 0;
     border: var(--toggle-border-width) solid var(--text-faint);
@@ -124,7 +124,7 @@ body.modal-toggle-thin .checkbox-container {
   }
 
   &:hover::after {
-    height: 0.6rem;
+    height: var(--size-4-2);
   }
 
   &:active::after {
@@ -165,7 +165,7 @@ body.modal-toggle-thin .checkbox-container {
         left: 50%;
         top: var(--size-4-6);
         transform: translate(-50%, -50%);
-        font-size: 1.4rem;
+        font-size: calc(1.4 * var(--size-4-4));
         font-weight: bold;
         color: var(--setting-color-logo, var(--text-accent));
         transition: var(--animation);
@@ -293,8 +293,8 @@ button {
 }
 
 :is(select, .dropdown) {
-  background-size: 1.2rem;
-  background-position: right 0.4rem top 56%, 0 0;
+  background-size: calc(1.2 * var(--size-4-4));
+  background-position: right calc(0.4 * var(--size-4-4)) top 56%, 0 0;
   background-image: var(--select-bg-img) !important;
 }
 
@@ -318,11 +318,11 @@ button {
       border: 2px solid var(--accent-inactive);
       border-radius: var(--size-2-3);
       font-size: var(--font-ui-smaller);
-      padding: 0.05rem 0.5rem;
+      padding: 1px var(--size-4-2);
       transition: var(--animation);
 
       .setting-hotkey-icon {
-        margin-right: -0.25rem;
+        margin-right: calc(-1 * var(--size-4-1));
       }
 
       &:hover {
@@ -355,7 +355,7 @@ body.setting-group-title .modal-container .mod-settings .modal-content .vertical
 
   &-title {
     color: var(--accent-active);
-    font-size: var(--font-text-size);
+    font-size: var(--size-4-4);
     position: relative;
 
     &::before {
