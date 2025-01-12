@@ -92,7 +92,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
           height: var(--size-4-4);
           opacity: 0.8;
           flex-shrink: 0;
-          translate: calc(1px - var(--size-4-5)) 15%;
+          translate: calc(2px - var(--size-4-5)) 25%;
           background-color: var(--accent-active);
           // add icon in icons.scss
         }
