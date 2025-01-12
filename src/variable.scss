@@ -1,8 +1,10 @@
 @use './utils.scss';
+@use "sass:color";
 
-@mixin var-color($name, $r, $g, $b) {
+@mixin var-color($name, $color) {
+  $rgb: color.red($color), color.green($color), color.blue($color);
   --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity)) !important;
-  --color-#{$name}-rgb: #{$r},#{$g},#{$b} !important;
+  --color-#{$name}-rgb: #{$rgb} !important;
 }
 
 #{utils.with-print('body')} {
@@ -38,23 +40,30 @@ html #{utils.with-print('body.obsidian-app')} {
 
 @mixin setup-hsl($theme, $h, $s, $l) {
   #{utils.with-print('body.color-use-custom.theme-#{$theme}.css-settings-manager')} {
- --accent-h: var(--setting-accent-h-#{$theme}, #{$h}) !important;
-  --accent-s: var(--setting-accent-s-#{$theme}, #{$s}) !important;
-  --accent-l: var(--setting-accent-l-#{$theme}, #{$l}) !important;
-}
+    --accent-h: var(--setting-accent-h-#{$theme}, #{$h}) !important;
+    --accent-s: var(--setting-accent-s-#{$theme}, #{$s}) !important;
+    --accent-l: var(--setting-accent-l-#{$theme}, #{$l}) !important;
+  }
 }
 
 @include setup-hsl('light', 35, 32%, 58%);
 @include setup-hsl('dark', 207, 32%, 58%);
 
 #{utils.with-print('.theme-light')} {
-  @include var-color('red', 210, 75, 75);
-  @include var-color('green', 94, 179, 77);
-  @include var-color('yellow', 226, 178, 18);
-  @include var-color('orange', 228, 163, 12);
-  @include var-color('blue', 24, 168, 220);
-  @include var-color('cyan', 54, 181, 134);
-  @include var-color('purple', 128, 120, 186);
+  // @include var-color('red', 210, 75, 75);
+  // @include var-color('orange', 228, 163, 12);
+  // @include var-color('yellow', 226, 178, 18);
+  // @include var-color('green', 94, 179, 77);
+  // @include var-color('cyan', 54, 181, 134);
+  // @include var-color('blue', 24, 168, 220);
+  // @include var-color('purple', 128, 120, 186);
+  @include var-color('red', hsl(0, 45%, 53%));
+  @include var-color('orange', hsl(32, 70%, 50%));
+  @include var-color('yellow', hsl(46, 96%, 40%));
+  @include var-color('green', hsl(95, 75%, 38%));
+  @include var-color('cyan', hsl(156, 75%, 33%));
+  @include var-color('blue', hsl(193, 94%, 38%));
+  @include var-color('purple', hsl(260, 30%, 57%));
 
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
   --background-primary: hsl(var(--background-primary-hsl));
@@ -72,13 +81,13 @@ html #{utils.with-print('body.obsidian-app')} {
 }
 
 #{utils.with-print('.theme-dark')} {
-  @include var-color('red', 244, 154, 154);
-  @include var-color('green', 154, 214, 164);
-  @include var-color('yellow', 244, 208, 154);
-  @include var-color('orange', 244, 184, 154);
-  @include var-color('blue', 133, 194, 255);
-  @include var-color('cyan', 168, 240, 240);
-  @include var-color('purple', 197, 190, 249);
+  @include var-color('red', hsl(0, 72%, 80%));
+  @include var-color('orange', hsl(20, 70%, 80%));
+  @include var-color('yellow', hsl(36, 70%, 78%));
+  @include var-color('green', hsl(130, 48%, 76%));
+  @include var-color('cyan', hsl(178, 60%, 77%));
+  @include var-color('blue', hsl(210, 100%, 78%));
+  @include var-color('purple', hsl(247, 90%, 90%));
 
   --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-hsl: var(--accent-h), 5%, 5%;
