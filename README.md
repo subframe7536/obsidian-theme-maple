@@ -1,6 +1,6 @@
 # Maple
 
-an Obsidian theme for desktop with some awesome components, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/Maple-font)
+An Obsidian theme for desktop with some awesome components, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/maple-font)
 
 - my plugin to beautify devtools: [repo](https://github.com/subframe7536/obsidian-devtools-font-and-scrollbar)
 
@@ -12,7 +12,7 @@ an Obsidian theme for desktop with some awesome components, using `Style Setting
 
 ## Quick Start
 
-### Install theme
+### Install Theme
 
 1. Open Obsidian and go to Settings.
 2. Click on the Appearance tab.
@@ -20,7 +20,7 @@ an Obsidian theme for desktop with some awesome components, using `Style Setting
 4. In the Filter... Search Box, search "Maple".
 5. Click the Install and use button.
 
-### Customize (⚠️Recommend):
+### Customize (👍 Recommend)
 
 by community plugin: Style Settings
 
@@ -33,7 +33,7 @@ by community plugin: Style Settings
 
 ## Components
 
-### Dynamic theme
+### Dynamic Theme
 
 dynamic theme with customable accent color
 
@@ -45,17 +45,17 @@ in outline panel
 
 ![](./img/outline.gif)
 
-### Document search
+### Document Search
 
 ![](img/container-query.gif)
 
-### Scrollbar style
+### Scrollbar Style
 
 background color transition and overlay
 
 ![](img/scrollbar.gif)
 
-### Code block
+### Code Block
 
 ![](img/code.png)
 
@@ -65,19 +65,19 @@ live preview
 
 ![](img/quote.png)
 
-### Toggle button style
+### Toggle Button Style
 
 ![](img/toggle.gif)
 
-### Blur menu
+### Blur Menu
 
 ![](img/blur.png)
 
-### Modal panel title
+### Modal Panel Title
 
 ![](img/input.gif)
 
-### Style settings
+### Style Settings
 
 **more** options can be configured in Style Settings plugin
 
