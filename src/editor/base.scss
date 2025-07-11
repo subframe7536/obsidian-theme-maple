@@ -111,16 +111,16 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 /* #region current line highlight */
 
 .theme-light {
-  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 24%, 92%));
+  --active-line: var(--setting-line-active-color, var(--accent-h), 24%, 92%);
 }
 
 .theme-dark {
-  --active-line: var(--setting-line-active-color, hsl(var(--accent-h), 18%, 14%));
+  --active-line: var(--setting-line-active-color, var(--accent-h), 18%, 14%);
 }
 
 #{utils.with-no-plugin('.line-active-enable')} {
   .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
-    background-color: var(--active-line);
+    background-color: hsl(var(--active-line));
     border-radius: var(--size-2-3);
   }
 }
@@ -144,6 +144,18 @@ body.line-indicator-enable {
     left: calc(var(--size-4-3) * -1);
     background-color: var(--accent-active);
     border-radius: var(--size-2-1);
+  }
+}
+
+body.line-indicator-full {
+  .cm-line {
+    border-radius: var(--size-2-1) !important;
+    &:not(.HyperMD-codeblock):hover {
+      background-color: hsl(var(--active-line), 50%);
+    }
+    &.HyperMD-codeblock:hover {
+      --code-background: hsl(var(--active-line), 80%);
+    }
   }
 }
 

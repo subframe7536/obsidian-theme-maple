@@ -119,8 +119,16 @@ settings:
         description: Reference from https://github.com/Akifyss/obsidian-border, need install version>=1.1.9
         title.zh: 鼠标经过行指示器
         description.zh: 参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9
-        type: class-toggle
-        default: true
+        type: class-select
+        allowEmpty: false
+        default: line-indicator-disable
+        options:
+            -   label: none
+                value: line-indicator-disable
+            -   label: left
+                value: line-indicator-enable
+            -   label: full line
+                value: line-indicator-full
     -
         id: line-active-enable
         title: Active Line Hightlight
@@ -132,8 +140,7 @@ settings:
         title: Active Line Color
         title.zh: 高亮行颜色
         type: variable-themed-color
-        format: hex
-        opacity: true
+        format: hex-values
         default-light: '#'
         default-dark: '#'
     -
