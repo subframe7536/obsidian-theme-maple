@@ -475,7 +475,7 @@ settings:
         title: Set Modal Header Title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.31'"
+        default: "'maple 0.8.32'"
     -
         id: setting-group-title
         title: Add Style For Left Navigation Group Title
@@ -754,11 +754,19 @@ settings:
             -   label: full line
                 value: line-indicator-full
     -
-        id: line-active-enable
+        id: line-active
         title: Active Line Hightlight
         title.zh: 当前行高亮
-        type: class-toggle
-        default: true
+        type: class-select
+        allowEmpty: false
+        default: line-active-enable
+        options:
+            -   label: none
+                value: line-active-disable
+            -   label: left
+                value: line-active-left
+            -   label: full line
+                value: line-active-enable
     -
         id: setting-line-active-color
         title: Active Line Color
@@ -2244,9 +2252,25 @@ body:is(:not(.css-settings-manager), .line-active-enable) .workspace-leaf.mod-ac
   border-radius: var(--size-2-3);
 }
 
+body.line-active-left {
+  --indicator-color: var(--accent-inactive) !important;
+}
+body.line-active-left .markdown-source-view .cm-line.cm-active:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator))::after {
+  content: "";
+  width: var(--size-4-1);
+  position: absolute;
+  inset-block: var(--size-4-1);
+  left: calc(var(--size-4-3) * -1);
+  background-color: var(--accent-active) !important;
+  border-radius: var(--size-2-1);
+}
+
 /* #endregion current line highlight */
 /* #region line indicator */
 /* reference from https://github.com/Akifyss/obsidian-border */
+body.line-indicator-enable {
+  --indicator-color: var(--accent-active);
+}
 body.line-indicator-enable .markdown-preview-sizer > div:not(.search-highlight) {
   position: relative;
 }
@@ -2257,7 +2281,7 @@ body.line-indicator-enable :is(.markdown-reading-view .markdown-preview-sizer > 
   position: absolute;
   inset-block: var(--size-4-1);
   left: calc(var(--size-4-3) * -1);
-  background-color: var(--accent-active);
+  background-color: var(--indicator-color);
   border-radius: var(--size-2-1);
 }
 
@@ -2268,7 +2292,7 @@ body.line-indicator-full .cm-line:not(.HyperMD-codeblock):hover {
   background-color: hsl(var(--active-line), 50%);
 }
 body.line-indicator-full .cm-line.HyperMD-codeblock:hover {
-  --code-background: hsl(var(--active-line), 80%);
+  --code-background: hsl(var(--active-line), 70%);
 }
 
 /* #endregion line indicator */
@@ -4017,6 +4041,28 @@ body:is(:not(.css-settings-manager), .heading-level-enable) .HyperMD-header .cm-
   transform: translateY(-50%) !important;
 }
 
+body.line-active-left .cm-active.HyperMD-header::before {
+  opacity: 1 !important;
+}
+body.line-active-left .cm-active.HyperMD-header-1::before {
+  color: var(--h1-color) !important;
+}
+body.line-active-left .cm-active.HyperMD-header-2::before {
+  color: var(--h2-color) !important;
+}
+body.line-active-left .cm-active.HyperMD-header-3::before {
+  color: var(--h3-color) !important;
+}
+body.line-active-left .cm-active.HyperMD-header-4::before {
+  color: var(--h4-color) !important;
+}
+body.line-active-left .cm-active.HyperMD-header-5::before {
+  color: var(--h5-color) !important;
+}
+body.line-active-left .cm-active.HyperMD-header-6::before {
+  color: var(--h6-color) !important;
+}
+
 body.heading-h1-center h1 {
   text-align: center;
 }
@@ -5179,7 +5225,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.31");
+  content: var(--setting-header-title, "maple 0.8.32");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
