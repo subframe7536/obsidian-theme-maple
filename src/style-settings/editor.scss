@@ -130,11 +130,19 @@ settings:
             -   label: full line
                 value: line-indicator-full
     -
-        id: line-active-enable
+        id: line-active
         title: Active Line Hightlight
         title.zh: 当前行高亮
-        type: class-toggle
-        default: true
+        type: class-select
+        allowEmpty: false
+        default: line-active-enable
+        options:
+            -   label: none
+                value: line-active-disable
+            -   label: left
+                value: line-active-left
+            -   label: full line
+                value: line-active-enable
     -
         id: setting-line-active-color
         title: Active Line Color

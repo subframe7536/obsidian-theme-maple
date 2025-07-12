@@ -124,6 +124,18 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
     border-radius: var(--size-2-3);
   }
 }
+body.line-active-left {
+  --indicator-color: var(--accent-inactive) !important;
+  .markdown-source-view .cm-line.cm-active:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator))::after {
+    content: '';
+    width: var(--size-4-1);
+    position: absolute;
+    inset-block: var(--size-4-1);
+    left: calc(var(--size-4-3) * -1);
+    background-color: var(--accent-active) !important;
+    border-radius: var(--size-2-1);
+  }
+}
 
 /* #endregion current line highlight */
 
@@ -131,6 +143,7 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 
 /* reference from https://github.com/Akifyss/obsidian-border */
 body.line-indicator-enable {
+  --indicator-color: var(--accent-active);
   .markdown-preview-sizer > div:not(.search-highlight) {
     position: relative;
   }
@@ -142,7 +155,7 @@ body.line-indicator-enable {
     position: absolute;
     inset-block: var(--size-4-1);
     left: calc(var(--size-4-3) * -1);
-    background-color: var(--accent-active);
+    background-color: var(--indicator-color);
     border-radius: var(--size-2-1);
   }
 }
@@ -154,7 +167,7 @@ body.line-indicator-full {
       background-color: hsl(var(--active-line), 50%);
     }
     &.HyperMD-codeblock:hover {
-      --code-background: hsl(var(--active-line), 80%);
+      --code-background: hsl(var(--active-line), 70%);
     }
   }
 }

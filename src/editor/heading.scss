@@ -185,6 +185,17 @@ body {
 
 }
 
+body.line-active-left .cm-active.HyperMD-header {
+  &::before {
+    opacity: 1 !important;
+  }
+  @for $i from 1 through 6 {
+    &-#{$i}::before {
+      color: var(--h#{$i}-color) !important;
+    }
+  }
+}
+
 body.heading-h1-center h1 {
   text-align: center;
 }
