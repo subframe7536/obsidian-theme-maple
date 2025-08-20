@@ -475,7 +475,7 @@ settings:
         title: Set Modal Header Title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.32'"
+        default: "'maple 0.8.33'"
     -
         id: setting-group-title
         title: Add Style For Left Navigation Group Title
@@ -2147,7 +2147,7 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 
 /* #endregion global variables */
 /* #region [editor] */
-/* #region base */
+/* #region basic */
 /* #region paragraph */
 body {
   --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1)) ;
@@ -2432,7 +2432,7 @@ input[type=checkbox]:checked::after {
 }
 
 /* #endregion others */
-/* #endregion base */
+/* #endregion basic */
 /* #region code */
 :is(body, .print .markdown-rendered) {
   --inline-code: var(--setting-code-inline, var(--color-red));
@@ -5225,7 +5225,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.32");
+  content: var(--setting-header-title, "maple 0.8.33");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5915,6 +5915,10 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is(.is-unsu
 
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=png], [data-path$=svg], [data-path$=jpeg], [data-path$=jpg], [data-path$=bmp], [data-path$=gif], [data-path$=webp], [data-path$=tiff])::before {
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><path d="M14 2v6h6" /><circle cx="10" cy="13" r="2" /><path d="m20 17l-1.09-1.09a2 2 0 0 0-2.82 0L10 22" /></g></svg>');
+}
+
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=base])::before {
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>');
 }
 
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=pdf])::before {
