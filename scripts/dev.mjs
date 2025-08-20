@@ -1,8 +1,7 @@
 import { spawn } from 'child_process'
 import { basename, extname, resolve, join } from 'path'
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
-import { homedir,platform } from "os";
-import which from 'which'
+import { homedir, platform } from 'os'
 
 // const __dirname = dirname(fileURLToPath(import.meta.url))
 // const devVaultRoot = resolve(__dirname, '..', 'vault')
@@ -52,10 +51,10 @@ tags:
 const input = process.argv?.[2] ?? 'src/index.scss'
 const output = basename(input).replace(extname(input), '.css')
 
-const command = which.sync('pnpm')
+const command = process.platform === 'win32' ? 'cmd.exe' : join(process.cwd(), 'node_modules', '.bin', 'sass');
 
 const args = [
-  'sass',
+  ...(process.platform === 'win32' ? ['/c', join(process.cwd(), 'node_modules', '.bin', 'sass.CMD')] : []),
   `${input}:${devVaultRoot}/.obsidian/snippets/${output}`,
   '--watch',
   '--no-source-map',

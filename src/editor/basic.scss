@@ -1,0 +1,329 @@
+@use '../utils';
+
+/* #region paragraph */
+
+body {
+  --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1))
+}
+
+// only match plain line
+.p-indent {
+  --indent: calc(var(--font-text-size) * var(--setting-editor-p-indent, 2));
+
+  :is([class="cm-line"], [class="cm-active cm-line"], p) {
+    text-indent: var(--indent);
+  }
+
+  p > br {
+    content: '';
+    white-space: pre;
+
+    &::after {
+      content: '\000A\200B';
+      margin-inline-end: var(--indent);
+    }
+  }
+}
+
+/* #endregion paragraph */
+
+/* #region fix latex */
+
+.font-latex-text mjx-container mjx-utext {
+  font-family: var(--font-text) !important;
+}
+
+.font-fix-latex mjx-container .TEX-I {
+  font-family: MJXZERO, EMBED-TEX-I;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scaleX(200) !important;
+}
+
+/* #endregion fix latex */
+
+/* #region monospace */
+
+#{utils.with-no-plugin('.font-maple')} {
+  --font-monospace-theme: 'maplemono';
+}
+
+code,
+code *,
+.HyperMD-codeblock *,
+.cm-inline-code {
+  font-family: var(--font-monospace);
+  font-feature-settings: var(--setting-code-ligature, "calt");
+}
+
+/* #endregion monospace */
+
+/* #region editor background */
+
+body {
+  --file-line-width: var(--setting-file-line-width, clamp(600px, 72%, 820px));
+}
+
+.markdown-source-view.mod-cm6.is-readable-line-width :is(.cm-content, .cm-line) {
+  max-width: 100%;
+}
+
+.workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] {
+  background-color: hsla(var(--editor-bg), var(--bg-opacity));
+
+  .view-content {
+    background-color: transparent;
+  }
+}
+
+/* #endregion editor background */
+
+/* #region text */
+
+body {
+  --text-selection: hsla(var(--color-accent-hsl), 0.25);
+}
+
+.markdown-source-view,
+.markdown-rendered,
+.markdown-preview-view,
+.community-modal-readme {
+  color: var(--setting-text-normal, var(--text-normal));
+}
+
+
+body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
+  padding-inline: var(--size-4-1);
+}
+
+/* #endregion text */
+
+/* #region editor line height */
+
+.workspace-split.mod-root,
+.markdown-rendered {
+  --line-height-normal: var(--setting-line-height, 1.8) !important;
+}
+
+/* #endregion editor line height */
+
+/* #region current line highlight */
+
+.theme-light {
+  --active-line: var(--setting-line-active-color, var(--accent-h), 24%, 92%);
+}
+
+.theme-dark {
+  --active-line: var(--setting-line-active-color, var(--accent-h), 18%, 14%);
+}
+
+#{utils.with-no-plugin('.line-active-enable')} {
+  .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
+    background-color: hsl(var(--active-line));
+    border-radius: var(--size-2-3);
+  }
+}
+body.line-active-left {
+  --indicator-color: var(--accent-inactive) !important;
+  .markdown-source-view .cm-line.cm-active:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator))::after {
+    content: '';
+    width: var(--size-4-1);
+    position: absolute;
+    inset-block: var(--size-4-1);
+    left: calc(var(--size-4-3) * -1);
+    background-color: var(--accent-active) !important;
+    border-radius: var(--size-2-1);
+  }
+}
+
+/* #endregion current line highlight */
+
+/* #region line indicator */
+
+/* reference from https://github.com/Akifyss/obsidian-border */
+body.line-indicator-enable {
+  --indicator-color: var(--accent-active);
+  .markdown-preview-sizer > div:not(.search-highlight) {
+    position: relative;
+  }
+
+  :is(.markdown-reading-view .markdown-preview-sizer>div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
+    .markdown-source-view .cm-line:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator))):hover::after {
+    content: '';
+    width: var(--size-4-1);
+    position: absolute;
+    inset-block: var(--size-4-1);
+    left: calc(var(--size-4-3) * -1);
+    background-color: var(--indicator-color);
+    border-radius: var(--size-2-1);
+  }
+}
+
+body.line-indicator-full {
+  .cm-line {
+    border-radius: var(--size-2-1) !important;
+    &:not(.HyperMD-codeblock):hover {
+      background-color: hsl(var(--active-line), 50%);
+    }
+    &.HyperMD-codeblock:hover {
+      --code-background: hsl(var(--active-line), 70%);
+    }
+  }
+}
+
+/* #endregion line indicator */
+
+/* #region keyboard */
+
+.cm-hmd-html-begin,
+.cm-hmd-html-begin ~ .cm-tag,
+.cm-hmd-html-end,
+.cm-line:has(.cm-hmd-html-begin) {
+  font-family: var(--font-monospace);
+}
+
+kbd {
+  user-select: none;
+  text-transform: capitalize;
+  border: var(--size-2-1) solid var(--accent-inactive);
+  box-shadow: var(--shadow-s);
+  border-radius: var(--size-2-3);
+  transition: var(--animation);
+  font-family: var(--font-monospace) !important;
+  color: var(--text-normal) !important;
+
+  &:hover {
+    border-color: var(--accent-active);
+  }
+}
+
+/* #endregion keyboard */
+
+/* #region highlight */
+
+mark {
+  color: var(--text-normal)
+}
+
+.is-flashing {
+  transition: var(--animation);
+}
+
+.theme-dark .is-flashing {
+  --text-faint: #aaa;
+}
+
+body {
+  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(var(--color-yellow-rgb), 0.3));
+}
+
+.text-highlight-all-round :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
+  -webkit-box-decoration-break: clone;
+}
+
+.markdown-source-view span.cm-highlight,
+.markdown-rendered mark {
+  border-radius: calc(var(--setting-text-highlight-radius, 4) * 1px);
+  color: var(--setting-text-highlight-color);
+  background: var(--text-highlight-bg);
+}
+
+body.text-highlight-margin :is(.markdown-source-view span.cm-highlight, .markdown-rendered mark) {
+  margin: 0 var(--size-2-1);
+  padding: var(--size-2-1) var(--size-4-1);
+}
+
+.markdown-source-view {
+  :is(:not(.cm-highlight)+.cm-formatting-highlight, .cm-formatting-highlight:first-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .cm-formatting-highlight + .cm-highlight {
+    border-radius: 0;
+    padding-inline: 0;
+    margin: 0;
+  }
+
+  .cm-highlight + .cm-formatting-highlight {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+/* #endregion highlight */
+
+/* #region bold & italic */
+
+body {
+  --bold-color: var(--setting-text-bold-color, var(--color-red)) !important;
+  --italic-color: var(--setting-text-italic-color, var(--color-red)) !important;
+}
+
+body {
+  :is(.cm-highlight.cm-strong, mark>strong) {
+    color: var(--setting-text-highlight-color, var(--bold-color));
+  }
+
+  :is(.cm-highlight.cm-em, mark>em) {
+    color: var(--setting-text-highlight-color, var(--bold-color));
+  }
+}
+
+em,
+.cm-em {
+  --blockquote-color: var(--italic-color);
+  text-decoration: var(--setting-text-italic-style, underline dotted);
+  font-family: var(--setting-text-italic-font, var(--font-text));
+}
+
+strong,
+.cm-strong {
+  --blockquote-color: var(--bold-color);
+  text-decoration: var(--setting-text-bold-style, underline dotted);
+  font-family: var(--setting-text-bold-font, var(--font-text));
+}
+
+:is(em, .cm-em, strong, .cm-strong, u) {
+  text-underline-offset: var(--setting-underline-offset, 2);
+}
+
+a :is(em, strong) {
+  text-decoration: none;
+
+  &:hover {
+    --bold-color: var(--text-on-accent);
+    --italic-color: var(--text-on-accent);
+  }
+}
+
+/* #endregion bold & italic */
+
+/* #region others */
+
+.workspace-leaf-content[data-type='markdown'] .view-header .clickable-icon:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+.cm-hmd-frontmatter {
+  font-size: var(--font-small);
+}
+
+.view-header-title-container:not(.mod-at-end):after {
+  content: none;
+}
+
+input[type=checkbox] {
+  transition: var(--animation);
+
+  &:checked::after {
+    -webkit-mask-position: 47% 52%;
+  }
+}
+
+/* #endregion others */
