@@ -475,7 +475,7 @@ settings:
         title: Set Modal Header Title
         title.zh: 设置面板标题
         type: variable-text
-        default: "'maple 0.8.33'"
+        default: "'maple 0.8.34'"
     -
         id: setting-group-title
         title: Add Style For Left Navigation Group Title
@@ -2884,7 +2884,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   counter-reset: code-line;
 }
 .code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock {
-  padding-left: var(--size-4-12);
+  padding-left: var(--size-4-12) !important;
 }
 .code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end)::before {
   counter-increment: code-line;
@@ -5225,7 +5225,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-header-title, "maple 0.8.33");
+  content: var(--setting-header-title, "maple 0.8.34");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
