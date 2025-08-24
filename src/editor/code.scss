@@ -355,7 +355,7 @@ body .markdown-rendered pre {
   counter-reset: code-line;
 
   .cm-line.HyperMD-codeblock {
-    padding-left: var(--size-4-12);
+    padding-left: var(--size-4-12) !important;
 
     &:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
       &::before {
