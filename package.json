@@ -1,25 +1,23 @@
 {
   "name": "maple",
   "version": "0.8.34",
+  "type": "module",
+  "author": "subframe7536",
   "description": "elegant theme for Obsidian",
   "scripts": {
-    "dev": "node scripts/dev.mjs src/dev.scss",
-    "dev:test": "node scripts/dev.mjs src/snippets/test.scss",
-    "build": "sass src/index.scss theme.css --no-source-map && node scripts/move.mjs",
-    "replace-version": "node scripts/version.mjs && npm run build",
+    "dev": "bun scripts/compile.ts src/dev.scss",
+    "dev:test": "bun scripts/compile.ts src/snippets/test.scss",
+    "build": "bun scripts/compile.ts --build && bun scripts/move.ts",
+    "replace-version": "bun scripts/version.ts && bun run build",
     "release": "bumpp -x \"npm run replace-version\" --all"
   },
   "keywords": [
     "Obsidian"
   ],
-  "author": "subframe7536",
   "license": "MIT",
-  "dependencies": {
-    "sass": "1.69.7",
-    "which": "^4.0.0"
-  },
-  "type": "module",
   "devDependencies": {
-    "bumpp": "^9.5.2"
+    "bumpp": "^10.2.3",
+    "bun-types": "^1.2.21",
+    "sass": "^1.91.0"
   }
 }
