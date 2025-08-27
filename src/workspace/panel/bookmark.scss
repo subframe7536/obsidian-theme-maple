@@ -1,4 +1,6 @@
-.workspace-leaf-content[data-type="bookmarks"] {
+@use '../../utils.scss' as *;
+
+@include use-panel('bookmarks') {
   --nav-item-color-active: var(--text-on-accent);
 
   .tree-item-self {

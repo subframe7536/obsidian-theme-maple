@@ -1,10 +1,11 @@
-@use '../../utils';
+@use '../../utils' as *;
 
 body {
   --file-folding-offset: 28px;
   --folder-color-rgb: 245, 180, 0;
-  --folder-color: rgb(var(--setting-color-dirs, var(--folder-color-rgb)));
-  --folder-hover-color: rgba(var(--setting-color-dirs, var(--folder-color-rgb)), 0.24);
+  $folder-color: use-opt(color-dirs, var(--folder-color-rgb));
+  --folder-color: rgb(#{$folder-color});
+  --folder-hover-color: rgba(#{$folder-color}, 0.24);
   --nav-item-size: calc(var(--size-4-4) * 0.9);
   --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
@@ -30,7 +31,7 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
   color: var(--text-normal);
 }
 
-.workspace-leaf-content[data-type='file-explorer'] {
+@include use-panel('file-explorer') {
   --line-height-tight: var(--explorer-item-height, 1.6);
 }
 
@@ -38,8 +39,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
-@include utils.use-no-plugin('.explorer-icon') {
-  .workspace-leaf-content[data-type='file-explorer'] .nav-files-container {
+@include use-no-plugin('.explorer-icon') {
+  @include use-panel('file-explorer', '.nav-files-container') {
     .nav-folder {
 
       &-title {

@@ -1,4 +1,6 @@
-.workspace-leaf-content[data-type="tag"] {
+@use '../../utils.scss' as *;
+
+@include use-panel(tag) {
   .tree-item-self {
     &::before {
       background-color: var(--accent-active);

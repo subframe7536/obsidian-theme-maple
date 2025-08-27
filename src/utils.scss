@@ -9,11 +9,14 @@
     @content;
   }
 }
-
-@mixin use-setting($selector) {
-  body#{$selector} {
+@mixin use-panel($name, $child: '') {
+  .workspace-leaf-content[data-type=#{$name}] #{string.unquote($child)} {
     @content;
   }
+}
+
+@function use-opt($name, $fallback) {
+  @return var(--setting-#{string.unquote($name)}, $fallback)
 }
 
 @mixin use-print($selector) {
