@@ -1,7 +1,8 @@
-import { execSync, spawn } from 'child_process'
+import { spawn } from 'child_process'
 import { basename, extname, resolve, join } from 'path'
-import { existsSync, mkdirSync, writeFileSync } from 'fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
 import { homedir, platform } from 'os'
+import { compile } from "sass";
 
 function dev(args: string[]) {
   const [command, ...rest] = args
@@ -20,8 +21,17 @@ function dev(args: string[]) {
   });
 }
 
-function build(args: string[]) {
-  execSync(args.join(' '))
+function build(src: string, out: string, fontDir: string) {
+  const { css } = compile(src)
+  const mapleRegular = readFileSync(join(fontDir, 'MapleMono-Regular.woff2')).toBase64()
+  const mapleItalic = readFileSync(join(fontDir, 'MapleMono-Italic.woff2')).toBase64()
+  writeFileSync(
+    out,
+    css
+      .replace('$regular$', 'data:font/woff2;base64,' + mapleRegular)
+      .replace('$italic$', 'data:font/woff2;base64,' + mapleItalic),
+    'utf-8'
+  )
 }
 
 function setup(baseDir: string) {
@@ -76,26 +86,22 @@ function main() {
   const isBuild = process.argv?.includes('--build')
   const moduleBinDir = join(process.cwd(), 'node_modules', '.bin')
 
+  if (isBuild) {
+    build('src/index.scss', 'theme.css', 'fonts')
+    return
+  }
+
   const args = process.platform === 'win32'
     ? ['cmd.exe', '/c', join(moduleBinDir, 'sass.exe')]
     : [join(moduleBinDir, 'sass')]
+  args.push(
+    `${input}:${devVaultRoot}/.obsidian/snippets/${output}`,
+    '--watch',
+    '--no-source-map',
+    '--update'
+  )
+  dev(args)
 
-  if (isBuild) {
-    build([
-      ...args,
-      'src/index.scss',
-      'theme.css',
-      '--no-source-map',
-    ])
-  } else {
-    dev([
-      ...args,
-      `${input}:${devVaultRoot}/.obsidian/snippets/${output}`,
-      '--watch',
-      '--no-source-map',
-      '--update'
-    ])
-  }
 }
 
 main()
