@@ -53,7 +53,7 @@ body {
   }
 }
 
-#{utils.with-no-plugin('.heading-color-colorful')} {
+@include utils.use-no-plugin('.heading-color-colorful') {
   --h1-color: var(--setting-h1-color, var(--color-red));
   --h2-color: var(--setting-h2-color, var(--color-orange));
   --h3-color: var(--setting-h3-color, var(--color-green));
@@ -76,7 +76,7 @@ body {
   padding-block: 0;
 }
 
-#{utils.with-no-plugin('.heading-level-enable')} {
+@include utils.use-no-plugin('.heading-level-enable') {
 
   :is(div.markdown-reading-view > div > div > div > #{$headings}, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header) {
     position: relative;

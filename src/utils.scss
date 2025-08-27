@@ -1,13 +1,25 @@
+@use 'sass:string';
+
 @function with-no-plugin($selector) {
-  @return unquote('body:is(:not(.css-settings-manager),#{$selector})');
+  @return string.unquote('body:is(:not(.css-settings-manager),#{$selector})');
 }
 
-@function use-setting($selector) {
-  @return unquote('body#{$selector}');
+@mixin use-no-plugin($selector, $suffix: '') {
+  body:is(:not(.css-settings-manager), #{string.unquote($selector)})#{string.unquote($suffix)} {
+    @content;
+  }
 }
 
-@function with-print($selector) {
-  @return ":is(#{$selector}, #{$selector} .print)"
+@mixin use-setting($selector) {
+  body#{$selector} {
+    @content;
+  }
+}
+
+@mixin use-print($selector) {
+  :is(#{$selector}, #{$selector} .print) {
+    @content;
+  }
 }
 
 @mixin icon-have-class($class, $svg) {

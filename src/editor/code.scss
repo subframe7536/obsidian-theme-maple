@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'sass:string';
 @use '../utils';
 
 :is(body, .print .markdown-rendered) {
@@ -18,14 +19,14 @@
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
 }
 
-#{utils.with-print('.theme-light')} {
+@include utils.use-print('.theme-light') {
   --code-preview-base: hsl(var(--accent-h),
       var(--accent-s),
       calc(var(--accent-l) - 30%));
   --code-mac-style-header-bg: #333;
 }
 
-#{utils.with-print('.theme-dark')} {
+@include utils.use-print('.theme-dark') {
   --code-preview-base: hsl(var(--accent-h),
       var(--accent-s),
       85%);
@@ -209,7 +210,7 @@ body .markdown-rendered pre {
   }
 }
 
-#{utils.with-no-plugin('.code-language')} {
+@include utils.use-no-plugin('.code-language') {
   .markdown-rendered {
     $height: 2rem;
 
@@ -238,8 +239,8 @@ body .markdown-rendered pre {
         Go, Rust, Regex, Swift, ABAP, PL/SQL;
 
       @each $lan in $language {
-        code[class~='language-#{to-lower-case($lan)}']::before {
-          content: quote($lan);
+        code[class~='language-#{string.to-lower-case($lan)}']::before {
+          content: string.quote($lan);
         }
       }
       code[class~='language-c++']::before {

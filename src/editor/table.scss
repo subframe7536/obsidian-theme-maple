@@ -15,17 +15,20 @@ body {
   border-spacing: 0;
 }
 
-#{utils.with-no-plugin('.table-full')} :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
-  // expand width
-  --table-white-space: break-all;
-  width: 100%;
-
-  .table-editor {
+@include utils.use-no-plugin('.table-full') {
+  :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
+    // expand width
+    --table-white-space: break-all;
     width: 100%;
+
+    .table-editor {
+      width: 100%;
+    }
   }
 }
 
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
+
   // table drag handler
   .table-col-btn {
     border-top-right-radius: var(--table-radius);
@@ -111,6 +114,7 @@ body {
   // center image
 
   .table-cell-wrapper {
+
     // debounce cell
     &:has(>.cm-s-obsidian):not(:has(.image-embed)) {
       padding-inline: var(--size-4-1);
@@ -143,6 +147,7 @@ body.table-colorful {
     --table-header-color: var(--setting-table-header-text, var(--text-on-accent));
     --table-header-bg: var(--setting-table-header-bg, var(--accent-active));
   }
+
   .markdown-source-view table thead .cm-s-obsidian {
     color: var(--setting-table-header-text, var(--text-normal));
   }

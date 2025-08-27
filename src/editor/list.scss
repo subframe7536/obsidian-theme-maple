@@ -3,7 +3,7 @@
 $marker-color: var(--setting-list-marker, var(--accent-active));
 $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 
-#{utils.with-no-plugin('.list-enable')} {
+@include utils.use-no-plugin('.list-enable') {
   --list-marker-color: #{$marker-color};
   --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
   --list-marker-color-alt-render: transparent;

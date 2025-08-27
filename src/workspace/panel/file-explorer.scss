@@ -38,7 +38,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
-#{utils.with-no-plugin('.explorer-icon')} {
+@include utils.use-no-plugin('.explorer-icon') {
   .workspace-leaf-content[data-type='file-explorer'] .nav-files-container {
     .nav-folder {
 

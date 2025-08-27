@@ -2045,7 +2045,7 @@ body.modal-item-animation .style-settings-heading:hover {
   --nav-item-background-selected: var(--frame-outline-color);
 }
 
-html :is(body.obsidian-app, body.obsidian-app .print) {
+:is(body.obsidian-app, body.obsidian-app .print) {
   --accent-s: 32% !important;
   --accent-l: 58% !important;
 }
@@ -2064,19 +2064,19 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 
 :is(.theme-light, .theme-light .print) {
   --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
-  --color-red-rgb: 189, 81, 81 !important;
+  --color-red-rgb: 189.0825, 81.2175, 81.2175 !important;
   --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
-  --color-orange-rgb: 217, 133, 38 !important;
+  --color-orange-rgb: 216.75, 133.45, 38.25 !important;
   --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
-  --color-yellow-rgb: 200, 154, 4 !important;
+  --color-yellow-rgb: 199.92, 154.224, 4.08 !important;
   --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
-  --color-green-rgb: 85, 170, 24 !important;
+  --color-green-rgb: 84.7875, 169.575, 24.225 !important;
   --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
-  --color-cyan-rgb: 21, 147, 97 !important;
+  --color-cyan-rgb: 21.0375, 147.2625, 96.7725 !important;
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
-  --color-blue-rgb: 6, 149, 188 !important;
+  --color-blue-rgb: 5.814, 148.5154, 187.986 !important;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity)) !important;
-  --color-purple-rgb: 134, 112, 178 !important;
+  --color-purple-rgb: 134.385, 112.455, 178.245 !important;
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
   --background-primary: hsl(var(--background-primary-hsl));
   --background-secondary-hsl: calc(var(--accent-h) - 18), calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
@@ -2094,19 +2094,19 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 
 :is(.theme-dark, .theme-dark .print) {
   --color-red: rgba(var(--color-red-rgb), var(--color-opacity)) !important;
-  --color-red-rgb: 241, 167, 167 !important;
+  --color-red-rgb: 240.72, 167.28, 167.28 !important;
   --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity)) !important;
-  --color-orange-rgb: 240, 192, 168 !important;
+  --color-orange-rgb: 239.7, 192.1, 168.3 !important;
   --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity)) !important;
-  --color-yellow-rgb: 238, 207, 160 !important;
+  --color-yellow-rgb: 238.17, 206.754, 159.63 !important;
   --color-green: rgba(var(--color-green-rgb), var(--color-opacity)) !important;
-  --color-green-rgb: 164, 223, 174 !important;
+  --color-green-rgb: 164.424, 223.176, 174.216 !important;
   --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity)) !important;
-  --color-cyan-rgb: 161, 232, 229 !important;
+  --color-cyan-rgb: 161.16, 231.54, 229.194 !important;
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity)) !important;
-  --color-blue-rgb: 143, 199, 255 !important;
+  --color-blue-rgb: 142.8, 198.9, 255 !important;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity)) !important;
-  --color-purple-rgb: 212, 207, 252 !important;
+  --color-purple-rgb: 211.905, 206.55, 252.45 !important;
   --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-hsl: var(--accent-h), 5%, 5%;
   --background-secondary: hsl(var(--background-secondary-hsl));
@@ -2125,9 +2125,9 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 
 :is(.theme-light.color-use-custom:not(.color-active-default-light), .theme-light.color-use-custom:not(.color-active-default-light) .print) {
   --accent-active: var(--setting-color-active-custom-light,
-     hsl(calc(var(--accent-h) + 60),
-       calc(var(--accent-s) + -12%),
-       calc(var(--accent-l) + 4%)));
+    hsl(calc(var(--accent-h) + 60),
+      calc(var(--accent-s) + -12%),
+      calc(var(--accent-l) + 4%)));
   --accent-inactive: var(--setting-color-active-custom-dark,
     hsl(calc(var(--accent-h) + 60),
       calc(var(--accent-s) + -12%),
@@ -2136,9 +2136,9 @@ html :is(body.obsidian-app, body.obsidian-app .print) {
 
 :is(.theme-dark.color-use-custom:not(.color-active-default-dark), .theme-dark.color-use-custom:not(.color-active-default-dark) .print) {
   --accent-active: var(--setting-color-active-custom-light,
-     hsl(calc(var(--accent-h) + 60),
-       calc(var(--accent-s) + -12%),
-       calc(var(--accent-l) + -12%)));
+    hsl(calc(var(--accent-h) + 60),
+      calc(var(--accent-s) + -12%),
+      calc(var(--accent-l) + -12%)));
   --accent-inactive: var(--setting-color-active-custom-dark,
     hsl(calc(var(--accent-h) + 60),
       calc(var(--accent-s) + -12%),

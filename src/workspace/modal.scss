@@ -151,7 +151,7 @@ body.modal-toggle-thin .checkbox-container {
   }
 }
 
-#{utils.with-no-plugin(".modal-header")}:not(.is-mobile) {
+@include utils.use-no-plugin(".modal-header", ':not(.is-mobile)') {
   .modal-container {
     --modal-header-height: var(--size-4-12);
     --top-search-right: var(--size-4-12);

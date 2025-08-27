@@ -1,6 +1,6 @@
 @use '../utils.scss';
 
-#{utils.with-no-plugin('.embed-enable')} {
+@include utils.use-no-plugin('.embed-enable') {
   .cm-embed-block {
     border-radius: var(--radius-l) !important;
     transition: var(--animation);

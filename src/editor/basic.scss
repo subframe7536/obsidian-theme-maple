@@ -45,7 +45,7 @@ mjx-stretchy-h > mjx-ext > mjx-c::before {
 
 /* #region monospace */
 
-#{utils.with-no-plugin('.font-maple')} {
+@include utils.use-no-plugin('.font-maple') {
   --font-monospace-theme: 'maplemono';
 }
 
@@ -118,7 +118,7 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   --active-line: var(--setting-line-active-color, var(--accent-h), 18%, 14%);
 }
 
-#{utils.with-no-plugin('.line-active-enable')} {
+@include utils.use-no-plugin('.line-active-enable') {
   .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
     background-color: hsl(var(--active-line));
     border-radius: var(--size-2-3);
