@@ -1,8 +1,3 @@
-@use './basic.scss';
-@use './workspace.scss';
-@use './editor.scss';
-@use './plugin.scss';
-
 .mod-settings .vertical-tab-content>.setting-item:nth-child(2)>.setting-item-control>input[type=color] {
   position: relative;
 

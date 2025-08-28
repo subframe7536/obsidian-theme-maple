@@ -1,10 +1,10 @@
-/* #region [style settings] */
-@use './style-settings';
-/* #endregion [style settings] */
-
 /* #region built-in fonts */
 @use './fonts.scss';
 /* #endregion built-in fonts */
+
+/* #region [style settings] */
+@use './style-settings';
+/* #endregion [style settings] */
 
 /* #region global variables */
 @use './variable.scss';

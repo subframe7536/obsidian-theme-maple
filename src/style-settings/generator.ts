@@ -70,15 +70,44 @@ function flattenDoc(doc: Doc) {
   return result
 }
 
+/**
+ * Generate Style-Settings yaml content
+ *
+ * Example:
+ * ```ts
+ * Settings.create('my-style-id', 'My Style').children([
+ *   Settings.ofLevel(1, { title: { en: 'Calendar', zh: '日历' } })
+ *     .addClassToggle(
+ *       'calendar-weekend',
+ *       {
+ *         title: { en: 'Highlight Weekend', zh: '突显周末' },
+ *         desc: { en: 'This is a description', zh: '这是一段描述' },
+ *       },
+ *       { enable: true },
+ *     )
+ *     .children([
+ *       Settings.ofLevel(2, { title: { en: 'Year', zh: '年份' } })
+ *         .addVarText(
+ *           'setting-calendar-year-suffix',
+ *           {
+ *             title: { en: 'Year Suffix', zh: '年份后缀' },
+ *           },
+ *           { default: "'年'" },
+ *         )
+ *     ])
+ * ])
+ * ```
+ */
 export class Settings {
   private items: any[]
   private constructor(public level: number, public doc: Doc) {
+    const id = doc.title.en
+      .split(' ')
+      .map((s) => s.toLowerCase())
+      .join('-')
     this.items = [
       {
-        id: `title-${doc.title.en
-          .split('-')
-          .map((s) => s.toLowerCase())
-          .join('')}`,
+        id: `title-${id}`,
         ...flattenDoc(doc),
         type: 'heading',
         level,
@@ -87,6 +116,21 @@ export class Settings {
     ]
   }
 
+  static create(id: string, name: string) {
+    return {
+      children(items: Settings[]) {
+        const data = stringify(
+          convertKeysToKebabCase({
+            id,
+            name,
+            settings: items.flatMap((i) => i.items),
+          }),
+          { indent: 4 },
+        )
+        return `/* @settings\n${data}*/`
+      },
+    }
+  }
   static ofLevel(level: number, doc: Doc) {
     return new Settings(level, doc)
   }
@@ -106,7 +150,7 @@ export class Settings {
     })
     return this
   }
-  addClassToggle(id: string, doc: Doc, opt: { enable?: boolean }) {
+  addClassToggle(id: string, doc: Doc, opt?: { enable?: boolean }) {
     this.items.push({
       id,
       type: 'class-toggle',
@@ -239,16 +283,5 @@ export class Settings {
       ...opt,
     })
     return this
-  }
-  build(id: string, name: string) {
-    const data = stringify(
-      convertKeysToKebabCase({
-        id,
-        name,
-        settings: this.items,
-      }),
-      { indent: 4 },
-    )
-    return `/* @settings\n${data}*/`
   }
 }

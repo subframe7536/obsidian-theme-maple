@@ -3,39 +3,34 @@ import { basename, extname, resolve, join } from 'path'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
 import { homedir, platform } from 'os'
 import { compile } from 'sass'
-
-function dev(args: string[]) {
-  const [command, ...rest] = args
-  const childProcess = spawn(command, rest, { env: process.env })
-
-  childProcess.stdout.on('data', (data) => {
-    console.log(data.toString())
-  })
-
-  childProcess.stderr.on('data', (data) => {
-    console.error(data.toString())
-  })
-
-  childProcess.on('error', (error) => {
-    console.error('Error:', error)
-  })
-}
+import settings from '../src/style-settings/index'
+import { watch } from 'chokidar'
 
 function build(src: string, out: string, fontDir: string) {
-  const { css } = compile(src)
+  const { css } = compile(src, {
+    sourceMap: false,
+    importers: [
+      {
+        findFileUrl(url) {
+          if (url.includes('dev-variable')) {
+            return new URL('data:,')
+          }
+          return null
+        },
+      },
+    ],
+  })
   const mapleRegular = readFileSync(
     join(fontDir, 'MapleMono-Regular.woff2'),
   ).toBase64()
   const mapleItalic = readFileSync(
     join(fontDir, 'MapleMono-Italic.woff2'),
   ).toBase64()
-  writeFileSync(
-    out,
-    css
-      .replace('$regular$', 'data:font/woff2;base64,' + mapleRegular)
-      .replace('$italic$', 'data:font/woff2;base64,' + mapleItalic),
-    'utf-8',
-  )
+  const result = css
+    .replace('$regular$', 'data:font/woff2;base64,' + mapleRegular)
+    .replace('$italic$', 'data:font/woff2;base64,' + mapleItalic)
+    .replace('@charset "UTF-8";\n', '')
+  writeFileSync(out, settings + '\n' + result, 'utf-8')
 }
 
 function setup(baseDir: string) {
@@ -82,6 +77,11 @@ tags:
   }
 }
 
+async function updateSettings(outputStyleSettings: string) {
+  await Bun.$`bun ${process.cwd()}/src/style-settings/index.ts -- -- > ${outputStyleSettings}`
+  console.log('Update Style Settings')
+}
+
 function main() {
   const devVaultRoot =
     platform() === 'win32'
@@ -91,27 +91,33 @@ function main() {
   const baseDir = resolve(devVaultRoot, 'test')
   setup(baseDir)
   const input = process.argv?.[2] ?? 'src/index.scss'
-  const output = basename(input).replace(extname(input), '.css')
-
+  const output =
+    `${devVaultRoot}/.obsidian/snippets/` +
+    basename(input).replace(extname(input), '.css')
+  const outputStyleSettings = output.replace(/\.css$/g, '-settings.css')
   const isBuild = process.argv?.includes('--build')
-  const moduleBinDir = join(process.cwd(), 'node_modules', '.bin')
 
   if (isBuild) {
     build('src/index.scss', 'theme.css', 'fonts')
     return
   }
 
+  void updateSettings(outputStyleSettings)
+  watch(join(process.cwd(), 'src', 'style-settings')).on('change', () =>
+    updateSettings(outputStyleSettings),
+  )
+
+  const moduleBinDir = join(process.cwd(), 'node_modules', '.bin')
   const args =
     process.platform === 'win32'
       ? ['cmd.exe', '/c', join(moduleBinDir, 'sass.exe')]
       : [join(moduleBinDir, 'sass')]
-  args.push(
-    `${input}:${devVaultRoot}/.obsidian/snippets/${output}`,
-    '--watch',
-    '--no-source-map',
-    '--update',
-  )
-  dev(args)
+  args.push(`${input}:${output}`, '--watch', '--no-source-map', '--update')
+  const [command, ...rest] = args
+  spawn(command, rest, {
+    env: process.env,
+    stdio: 'inherit',
+  })
 }
 
 main()
