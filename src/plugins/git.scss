@@ -1,7 +1,9 @@
-.workspace-leaf-content[data-type="diff-view"] .d2h-diff-table {
+.workspace-leaf-content[data-type='diff-view'] .d2h-diff-table {
   font-family: var(--font-monospace);
 }
 
-body.back-blur-title-bar .workspace-leaf-content[data-type="diff-view"] .d2h-file-diff {
+body.back-blur-title-bar
+  .workspace-leaf-content[data-type='diff-view']
+  .d2h-file-diff {
   padding-top: var(--size-4-8);
 }

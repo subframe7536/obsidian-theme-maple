@@ -31,7 +31,8 @@ body.tab-float {
       }
     }
 
-    .workspace-tabs:not(.mod-stacked):not(.mod-active) .workspace-tab-header.is-active {
+    .workspace-tabs:not(.mod-stacked):not(.mod-active)
+      .workspace-tab-header.is-active {
       --tab-background-active: hsla(var(--background-primary-hsl), 0.5);
     }
   }
@@ -41,7 +42,6 @@ body.tab-float {
   }
 
   .workspace-split.mod-root .workspace-tab-header.is-active {
-
     &::before,
     &::after {
       box-shadow: none;
@@ -62,7 +62,7 @@ body.tab-float {
   }
 
   &:not(:empty) + .view-header-title:after {
-    content: "";
+    content: '';
     width: 20%;
     inset-block: 0;
     position: absolute;
@@ -85,7 +85,9 @@ body.tab-title-bar-text-small .view-header {
   --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
 }
 
-body.tab-title-bar-text-hidden .workspace-leaf-content:not([data-type='excalidraw']) .view-header-title-container {
+body.tab-title-bar-text-hidden
+  .workspace-leaf-content:not([data-type='excalidraw'])
+  .view-header-title-container {
   opacity: 0;
   transition: var(--animation);
   transition-delay: var(--animation-delay);
@@ -114,17 +116,29 @@ body.tab-title-bar-round {
     }
   }
 
-  .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
+  .workspace-leaf.mod-active
+    .workspace-leaf-content:not([data-type='excalidraw'])
+    .view-header {
     background-color: var(--md-container-bg);
   }
 
-  &.tab-title-bar-shadow .workspace-leaf.mod-active .workspace-leaf-content:not([data-type='excalidraw']) .view-header {
+  &.tab-title-bar-shadow
+    .workspace-leaf.mod-active
+    .workspace-leaf-content:not([data-type='excalidraw'])
+    .view-header {
     box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
   }
 }
 
 /* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body.tab-slide-up :is(.workspace-split .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type='pdf']) .view-content, .workspace-leaf-content:not(:has(.view-content))) {
+body.tab-slide-up
+  :is(
+    .workspace-split
+      .workspace-tabs:not(.mod-stacked)
+      .workspace-leaf-content:not([data-type='pdf'])
+      .view-content,
+    .workspace-leaf-content:not(:has(.view-content))
+  ) {
   animation: slide-up var(--animation) forwards;
 }
 

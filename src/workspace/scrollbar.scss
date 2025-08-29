@@ -1,17 +1,19 @@
 $base-panel: '.vertical-tab-header', '.vertical-tab-content',
-  '.nav-files-container', '.workspace-leaf-content:not([data-type*="graph"],[data-type*="pdf"]) .view-content', '.search-result-container',
-  '.git-view-body', '.suggestion-container .suggestion', '.prompt-results',
+  '.nav-files-container',
+  '.workspace-leaf-content:not([data-type*="graph"],[data-type*="pdf"]) .view-content',
+  '.search-result-container', '.git-view-body',
+  '.suggestion-container .suggestion', '.prompt-results',
   '.community-modal-search-results-wrapper', '.community-modal-info',
   '.modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin)',
   '.tag-container', '.backlink-pane';
 
-$editor: ".markdown-source-view .cm-scroller",
-  '.markdown-preview-view';
+$editor: '.markdown-source-view .cm-scroller', '.markdown-preview-view';
 
 $horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
   '.markdown-embed-content .markdown-rendered', 'pre code';
 
-$kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items', '.kanban-plugin__autocomplete';
+$kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items',
+  '.kanban-plugin__autocomplete';
 
 $excalidraw: '.excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left,.scrollbar)',
   '.excalidraw-contextMenuContainer .popover';
@@ -32,12 +34,11 @@ $plugins: $calendar, $janitor, $excalidraw, $kanban;
 /* usage of `@property`: https://stackoverflow.com/a/74050413/20058211 */
 /* usage of `-webkit-text-fill-color`: https://stackoverflow.com/a/46304690/20058211 */
 body:not(.is-mobile):not(.mod-macos) {
-
   $base-color: hsla(var(--color-accent-hsl), 24%);
   $hover-color: hsla(var(--color-accent-hsl), 40%);
   $active-color: hsla(var(--color-accent-hsl), 64%);
 
-  .mod-settings :is(.vertical-tab-content, .vertical-tab-header){
+  .mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
     scrollbar-gutter: stable;
   }
   &.scrollbar-hover-accent {
@@ -45,7 +46,6 @@ body:not(.is-mobile):not(.mod-macos) {
   }
 
   &.scrollbar-hover-expand ::-webkit-scrollbar-thumb {
-
     &:hover,
     &:active {
       border-width: var(--size-2-1) !important;
@@ -116,6 +116,6 @@ body:not(.is-mobile):not(.mod-macos) {
   }
 }
 
-body.scrollbar-hide :not([style="overflow-x: auto;"])::-webkit-scrollbar {
+body.scrollbar-hide :not([style='overflow-x: auto;'])::-webkit-scrollbar {
   display: none !important;
 }

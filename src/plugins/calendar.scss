@@ -34,15 +34,21 @@ body.calendar-swap-year-month #calendar-container .nav {
 }
 
 .theme-light {
-  --calendar-weekend-bg: hsla(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) + 24%), 24%);
+  --calendar-weekend-bg: hsla(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 24%),
+    24%
+  );
 }
 
 .theme-dark {
-  --calendar-weekend-bg: hsla(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) - 24%), 24%);
+  --calendar-weekend-bg: hsla(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) - 24%),
+    24%
+  );
 }
 
 #calendar-container {
@@ -56,7 +62,7 @@ body.calendar-swap-year-month #calendar-container .nav {
   th {
     padding: 2px 0 4px;
     font-weight: bold;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
   }
 
   .nav {
@@ -111,18 +117,16 @@ body.calendar-swap-year-month #calendar-container .nav {
   .dot-container {
     translate: 0 calc(-1 * var(--size-2-1));
   }
-
 }
 
 body.calendar-weekend #calendar-container {
-
   tbody tr td:nth-last-child(2),
   tbody tr td:nth-last-child(1) {
     background-color: var(--calendar-weekend-bg);
   }
 }
 
-.workspace-leaf-content[data-type=calendar] .view-content {
+.workspace-leaf-content[data-type='calendar'] .view-content {
   padding-inline: var(--size-4-1);
   padding-block: 0;
 }

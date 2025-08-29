@@ -38,7 +38,8 @@ input.metadata-property-key-input,
   padding-block: var(--size-2-1);
 }
 
-.metadata-property:not([data-property-key="tags"]) .metadata-property-key-input {
+.metadata-property:not([data-property-key='tags'])
+  .metadata-property-key-input {
   padding-block: var(--size-2-3);
 }
 
@@ -46,7 +47,7 @@ input.metadata-property-key-input,
   transition: var(--animation);
 }
 
-.metadata-property[data-property-key="cssclasses"] {
+.metadata-property[data-property-key='cssclasses'] {
   --pill-padding-x: 0.4em;
 
   .multi-select-pill {

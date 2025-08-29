@@ -1,12 +1,15 @@
 @use './utils.scss' as *;
-@use "sass:color";
+@use 'sass:color';
 
 @mixin var-color($name, $color) {
-  $rgb: color.channel($color, "red", $space: rgb),
-    color.channel($color, "green", $space: rgb),
-    color.channel($color, "blue", $space: rgb);
+  $rgb: color.channel($color, 'red', $space: rgb),
+    color.channel($color, 'green', $space: rgb),
+    color.channel($color, 'blue', $space: rgb);
 
-  --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity)) !important;
+  --color-#{$name}: rgba(
+    var(--color-#{$name}-rgb),
+    var(--color-opacity)
+  ) !important;
   --color-#{$name}-rgb: #{$rgb} !important;
 }
 
@@ -15,7 +18,12 @@
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
   --line-height-normal: 1.8;
-  --background-modifier-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%), 20%);
+  --background-modifier-hover: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 4%),
+    20%
+  );
   --background-modifier-border: var(--accent-inactive);
   --background-modifier-border-focus: var(--accent-inactive);
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
@@ -24,7 +32,8 @@
   --radius-xl: var(--size-4-3);
 
   --animation: var(--setting-animation-time, 200ms) var(--anim-motion-smooth);
-  --animation-slow: calc(var(--setting-animation-time, 200ms) * 2) var(--anim-motion-smooth);
+  --animation-slow: calc(var(--setting-animation-time, 200ms) * 2)
+    var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
   --bg-opacity: 1;
   --block-outline-width: 3px;
@@ -42,7 +51,9 @@
 }
 
 @mixin setup-hsl($theme, $h, $s, $l) {
-  @include use-print('body.color-use-custom.theme-#{$theme}.css-settings-manager') {
+  @include use-print(
+    'body.color-use-custom.theme-#{$theme}.css-settings-manager'
+  ) {
     --accent-h: var(--setting-accent-h-#{$theme}, #{$h}) !important;
     --accent-s: var(--setting-accent-s-#{$theme}, #{$s}) !important;
     --accent-l: var(--setting-accent-l-#{$theme}, #{$l}) !important;
@@ -63,16 +74,49 @@
 
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
   --background-primary: hsl(var(--background-primary-hsl));
-  --background-secondary-hsl: calc(var(--accent-h) - 18), calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
+  --background-secondary-hsl: calc(var(--accent-h) - 18),
+    calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
   --background-secondary: hsl(var(--background-secondary-hsl));
-  --background-modifier-hover: hsl(var(--accent-h), calc(var(--accent-s) * 1.2), min(var(--accent-l) * 2, 90%));
-  --accent-active: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%));
-  --accent-inactive: hsl(var(--accent-h), calc(var(--accent-s) - 4%), calc(var(--accent-l) + 24%));
+  --background-modifier-hover: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) * 1.2),
+    min(var(--accent-l) * 2, 90%)
+  );
+  --accent-active: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 4%)
+  );
+  --accent-inactive: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) - 4%),
+    calc(var(--accent-l) + 24%)
+  );
   --text-on-accent: #fafafa !important;
-  --frame-background-color: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 32%));
-  --frame-outline-color: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 23.5%));
-  --frame-muted-color: hsl(var(--accent-h), calc(var(--accent-s) - 20%), calc(var(--accent-l) - 10%));
-  --md-container-bg: var(--setting-md-container-bg, hsla(calc(var(--accent-h) + 8), calc(var(--accent-s) / 1.2), calc(100% - (100% - var(--accent-l)) / 6), 70%));
+  --frame-background-color: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 32%)
+  );
+  --frame-outline-color: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 23.5%)
+  );
+  --frame-muted-color: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) - 20%),
+    calc(var(--accent-l) - 10%)
+  );
+  --md-container-bg: var(
+    --setting-md-container-bg,
+    hsla(
+      calc(var(--accent-h) + 8),
+      calc(var(--accent-s) / 1.2),
+      calc(100% - (100% - var(--accent-l)) / 6),
+      70%
+    )
+  );
   --color-opacity: 1;
 }
 
@@ -88,29 +132,71 @@
   --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-hsl: var(--accent-h), 5%, 5%;
   --background-secondary: hsl(var(--background-secondary-hsl));
-  --background-secondary-hsl: calc(var(--accent-h) + 8), calc(var(--accent-s) / 6), calc(var(--accent-l) / 5);
-  --background-modifier-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) / 3));
-  --accent-active: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 16%));
-  --accent-inactive: hsl(var(--accent-h), calc(var(--accent-s) + 24%), calc(var(--accent-l) - 32%));
+  --background-secondary-hsl: calc(var(--accent-h) + 8),
+    calc(var(--accent-s) / 6), calc(var(--accent-l) / 5);
+  --background-modifier-hover: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) / 3)
+  );
+  --accent-active: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) - 16%)
+  );
+  --accent-inactive: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) + 24%),
+    calc(var(--accent-l) - 32%)
+  );
   --frame-background-color: hsl(var(--accent-h), 12%, 16%);
-  --frame-outline-color: hsl(calc(var(--accent-h) - 24), calc(var(--accent-s) + 6%), 24%);
-  --frame-muted-color: hsl(var(--accent-h), calc(var(--accent-s) - 20%), calc(var(--accent-l) + 10%));
+  --frame-outline-color: hsl(
+    calc(var(--accent-h) - 24),
+    calc(var(--accent-s) + 6%),
+    24%
+  );
+  --frame-muted-color: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) - 20%),
+    calc(var(--accent-l) + 10%)
+  );
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
-  --md-container-bg: var(--setting-md-container-bg, hsl(calc(var(--accent-h) - 4), 18%, 9%));
+  --md-container-bg: var(
+    --setting-md-container-bg,
+    hsl(calc(var(--accent-h) - 4), 18%, 9%)
+  );
   --color-opacity: 0.85;
 }
 
-@mixin setup-custom($theme, $active-h, $active-s, $active-l, $inactive-h, $inactive-s, $inactive-l) {
-  @include use-print(".theme-#{$theme}.color-use-custom:not(.color-active-default-#{$theme})") {
-    --accent-active: var(--setting-color-active-custom-light,
-      hsl(calc(var(--accent-h) + #{$active-h}),
+@mixin setup-custom(
+  $theme,
+  $active-h,
+  $active-s,
+  $active-l,
+  $inactive-h,
+  $inactive-s,
+  $inactive-l
+) {
+  @include use-print(
+    '.theme-#{$theme}.color-use-custom:not(.color-active-default-#{$theme})'
+  ) {
+    --accent-active: var(
+      --setting-color-active-custom-light,
+      hsl(
+        calc(var(--accent-h) + #{$active-h}),
         calc(var(--accent-s) + #{$active-s}),
-        calc(var(--accent-l) + #{$active-l})));
-    --accent-inactive: var(--setting-color-active-custom-dark,
-      hsl(calc(var(--accent-h) + #{$inactive-h}),
+        calc(var(--accent-l) + #{$active-l})
+      )
+    );
+    --accent-inactive: var(
+      --setting-color-active-custom-dark,
+      hsl(
+        calc(var(--accent-h) + #{$inactive-h}),
         calc(var(--accent-s) + #{$inactive-s}),
-        calc(var(--accent-l) + #{$inactive-l})));
+        calc(var(--accent-l) + #{$inactive-l})
+      )
+    );
   }
 }
 

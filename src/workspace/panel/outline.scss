@@ -7,9 +7,15 @@ body {
   /* 引导线颜色 */
   --outline-guideline-color: use-opt(outline-color, var(--accent-inactive));
   /* 引导线颜色 */
-  --outline-guideline-color-alt: use-opt(outline-color-alt, var(--accent-active));
+  --outline-guideline-color-alt: use-opt(
+    outline-color-alt,
+    var(--accent-active)
+  );
   /* 一行高度 */
-  --outline-item-height: use-opt(outline-height, calc(var(--nav-item-size) * 1.8));
+  --outline-item-height: use-opt(
+    outline-height,
+    calc(var(--nav-item-size) * 1.8)
+  );
 }
 
 @include use-panel('outline') {
@@ -57,7 +63,7 @@ body.outline-enable {
         }
 
         &.is-active .tree-item-inner::before {
-          border-color: var(--outline-guideline-color)
+          border-color: var(--outline-guideline-color);
         }
 
         .tree-item-icon ~ .tree-item-inner {
@@ -121,7 +127,6 @@ body.outline-enable {
       }
 
       > .tree-item-children > .tree-item:hover {
-
         &::after,
         & ~ .tree-item::after {
           background-color: transparent;
@@ -132,11 +137,15 @@ body.outline-enable {
           position: absolute;
           top: calc(var(--outline-item-height) / 2 * -1);
           left: $indent-width;
-          bottom: calc(100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px);
+          bottom: calc(
+            100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px
+          );
           width: var(--size-4-6);
           border-bottom-left-radius: var(--radius-m);
-          border-bottom: var(--outline-guideline-width) solid var(--outline-guideline-color);
-          border-left: var(--outline-guideline-width) solid var(--outline-guideline-color);
+          border-bottom: var(--outline-guideline-width) solid
+            var(--outline-guideline-color);
+          border-left: var(--outline-guideline-width) solid
+            var(--outline-guideline-color);
           z-index: 9;
         }
       }

@@ -20,16 +20,16 @@
 }
 
 @include utils.use-print('.theme-light') {
-  --code-preview-base: hsl(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) - 30%));
+  --code-preview-base: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) - 30%)
+  );
   --code-mac-style-header-bg: #333;
 }
 
 @include utils.use-print('.theme-dark') {
-  --code-preview-base: hsl(var(--accent-h),
-      var(--accent-s),
-      85%);
+  --code-preview-base: hsl(var(--accent-h), var(--accent-s), 85%);
   --code-mac-style-header-bg: #000;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .cm-formatting-code {
-  &:has(+.cm-inline-code) {
+  &:has(+ .cm-inline-code) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0;
@@ -117,7 +117,8 @@
   }
 }
 
-.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):not(.cm-callout) {
+.markdown-source-view.mod-cm6
+  .cm-embed-block:not(.cm-table-widget):not(.cm-callout) {
   box-shadow: none !important;
   border: var(--block-outline-width) solid transparent;
   border-radius: var(--radius-l) !important;
@@ -133,7 +134,6 @@
     inset-block: 0.2rem;
     height: fit-content;
   }
-
 }
 
 .cm-hmd-codeblock .cm-indent::before {
@@ -195,7 +195,9 @@ body .markdown-rendered pre {
 .code-nowrap {
   &.scrollbar-gutter-overlay {
     &:not(.code-mac-style-header) .app-container div pre {
-      padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.8) !important;
+      padding-bottom: calc(
+        var(--code-size) * var(--line-height-normal) * 0.8
+      ) !important;
     }
 
     pre code {
@@ -232,11 +234,11 @@ body .markdown-rendered pre {
         line-height: var(--line-height-normal);
         z-index: 9;
       }
-      $language: C, Properties, Python, Nginx, CSS, Javascript, JS, Typescript, TS,
-        JSP, PHP, Lua, Shell, PowerShell, Flow, Sequence, SQL, YAML, YML, ini, XML,
-        CS, CPP, Java, HTML, TXT, MD, Markdown, Bat, Json, Groovy, SCSS, Bash, Cmd,
-        Latex, Zig, SSML, JSX, TSX, tsconfig, Git, CSharp, CSV, cue, TOML, kt, Kotlin,
-        Go, Rust, Regex, Swift, ABAP, PL/SQL;
+      $language: C, Properties, Python, Nginx, CSS, Javascript, JS, Typescript,
+        TS, JSP, PHP, Lua, Shell, PowerShell, Flow, Sequence, SQL, YAML, YML,
+        ini, XML, CS, CPP, Java, HTML, TXT, MD, Markdown, Bat, Json, Groovy,
+        SCSS, Bash, Cmd, Latex, Zig, SSML, JSX, TSX, tsconfig, Git, CSharp, CSV,
+        cue, TOML, kt, Kotlin, Go, Rust, Regex, Swift, ABAP, PL/SQL;
 
       @each $lan in $language {
         code[class~='language-#{string.to-lower-case($lan)}']::before {
@@ -244,13 +246,13 @@ body .markdown-rendered pre {
         }
       }
       code[class~='language-c++']::before {
-        content: "C++";
+        content: 'C++';
       }
       code[class~='language-c#']::before {
-        content: "C#";
+        content: 'C#';
       }
       code[class~='language-sh']::before {
-        content: "Shell";
+        content: 'Shell';
       }
     }
   }
@@ -271,7 +273,18 @@ body .markdown-rendered pre {
     color: var(--code-comment);
   }
 
-  :is(.token:is(.tag, .constant, .symbol, .deleted, .class-name, .maybe-class-name), .cm-tag, .cm-operator) {
+  :is(
+      .token:is(
+          .tag,
+          .constant,
+          .symbol,
+          .deleted,
+          .class-name,
+          .maybe-class-name
+        ),
+      .cm-tag,
+      .cm-operator
+    ) {
     color: var(--code-tag);
   }
 
@@ -283,19 +296,47 @@ body .markdown-rendered pre {
     color: var(--code-value);
   }
 
-  :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted), .cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta:not(.cm-hashtag)) {
+  :is(
+      .token:is(.selector, .attr-name, .string, .char, .builtin, .inserted),
+      .cm-qualifier,
+      .cm-string:not(.cm-url),
+      .cm-string-2,
+      .cm-meta:not(.cm-hashtag)
+    ) {
     color: var(--code-string);
   }
 
-  :is(.token:is(.entity, .parameter, .property, .property-access, .url, .variable), :is(.language-css, .style) .token.string, .cm-def, .cm-number + .cm-variable) {
+  :is(
+      .token:is(
+          .entity,
+          .parameter,
+          .property,
+          .property-access,
+          .url,
+          .variable
+        ),
+      :is(.language-css, .style) .token.string,
+      .cm-def,
+      .cm-number + .cm-variable
+    ) {
     color: var(--code-property);
   }
 
-  :is(.token:is(.attr-value, .function, .class-name), .cm-property, .cm-attribute) {
+  :is(
+      .token:is(.attr-value, .function, .class-name),
+      .cm-property,
+      .cm-attribute
+    ) {
     color: var(--code-function);
   }
 
-  :is(.token:is(.keyword, .constant, .unit, .builtin, .atrule), .cm-keyword, .cm-builtin, .cm-type, .cm-atom) {
+  :is(
+      .token:is(.keyword, .constant, .unit, .builtin, .atrule),
+      .cm-keyword,
+      .cm-builtin,
+      .cm-type,
+      .cm-atom
+    ) {
     color: var(--code-keyword);
   }
 
@@ -315,7 +356,9 @@ body .markdown-rendered pre {
 .code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
-  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5) !important;
+  padding-bottom: calc(
+    var(--code-size) * var(--line-height-normal) * 0.5
+  ) !important;
 
   code[class*='language-']::before {
     color: var(--setting-code-language-color, var(--accent-active));
@@ -339,11 +382,14 @@ body .markdown-rendered pre {
     height: $light-size;
     position: absolute;
     left: 0.8rem;
-    top: calc($light-size * var(--line-height-normal) * 0.6 - var(--code-size) / 3);
+    top: calc(
+      $light-size * var(--line-height-normal) * 0.6 - var(--code-size) / 3
+    );
     border-radius: 50%;
     z-index: 9;
     background-color: rgba(255, 94, 92, var(--color-opacity));
-    box-shadow: calc(var(--size-4-5) * 0.9) 0 0 0 rgba(255, 187, 78, var(--color-opacity)),
+    box-shadow: calc(var(--size-4-5) * 0.9) 0 0 0
+        rgba(255, 187, 78, var(--color-opacity)),
       calc(var(--size-4-5) * 1.8) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
   }
 
@@ -386,26 +432,37 @@ body .markdown-rendered pre {
   --code-bg-l: 85%;
 
   .markdown-preview-view .markdown-preview-section {
-    div:has(>pre:not([class*="frontmatter"])) {
+    div:has(> pre:not([class*='frontmatter'])) {
       padding: var(--size-4-4) var(--size-4-8);
       margin-block: var(--size-4-4);
       border-radius: var(--setting-code-bg-radius);
-      background-image: var(--setting-code-bg-outer, linear-gradient(-30deg,
-            hsl(calc(var(--accent-h) + 145), var(--code-bg-s), var(--code-bg-l)),
-            hsl(calc(var(--accent-h) + 115), var(--code-bg-s), var(--code-bg-l)),
-            hsl(calc(var(--accent-h) + 90), var(--code-bg-s), var(--code-bg-l)),
-            hsl(calc(var(--accent-h) + 65), var(--code-bg-s), var(--code-bg-l)),
-            hsl(calc(var(--accent-h) + 35), var(--code-bg-s), var(--code-bg-l))));
+      background-image: var(
+        --setting-code-bg-outer,
+        linear-gradient(
+          -30deg,
+          hsl(calc(var(--accent-h) + 145), var(--code-bg-s), var(--code-bg-l)),
+          hsl(calc(var(--accent-h) + 115), var(--code-bg-s), var(--code-bg-l)),
+          hsl(calc(var(--accent-h) + 90), var(--code-bg-s), var(--code-bg-l)),
+          hsl(calc(var(--accent-h) + 65), var(--code-bg-s), var(--code-bg-l)),
+          hsl(calc(var(--accent-h) + 35), var(--code-bg-s), var(--code-bg-l))
+        )
+      );
     }
 
-    pre:not([class*="frontmatter"]) {
-      --code-background: var(--setting-code-bg, hsl(var(--background-secondary-hsl)));
+    pre:not([class*='frontmatter']) {
+      --code-background: var(
+        --setting-code-bg,
+        hsl(var(--background-secondary-hsl))
+      );
       border-width: 0;
     }
   }
 }
 
-.theme-dark .markdown-preview-view .markdown-preview-section div:has(>pre:not([class*="frontmatter"])) {
+.theme-dark
+  .markdown-preview-view
+  .markdown-preview-section
+  div:has(> pre:not([class*='frontmatter'])) {
   --code-bg-s: 20%;
   --code-bg-l: 45%;
 }

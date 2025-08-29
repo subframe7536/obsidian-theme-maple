@@ -24,7 +24,8 @@ body {
   color: var(--text-on-accent);
 }
 
-body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.is-being-dragged),
+body:not(.is-grabbing)
+  :is(.nav-file-title.is-being-dragged, .nav-folder-title.is-being-dragged),
 .nav-file-title.is-being-dragged,
 .nav-folder-title.is-being-dragged {
   background-color: var(--accent-inactive);
@@ -42,7 +43,6 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 @include use-no-plugin('.explorer-icon') {
   @include use-panel('file-explorer', '.nav-files-container') {
     .nav-folder {
-
       &-title {
         cursor: pointer;
 
@@ -86,7 +86,9 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
           padding-left: var(--size-2-1);
         }
 
-        &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw'])::before {
+        &:not([data-path$='excalidraw.md']):not(
+            [data-path$='excalidraw']
+          )::before {
           content: '';
           position: absolute;
           width: var(--size-4-4);
@@ -98,7 +100,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
           // add icon in icons.scss
         }
 
-        &:is([data-path$='excalidraw.md'], [data-path$='excalidraw']) .nav-file-tag {
+        &:is([data-path$='excalidraw.md'], [data-path$='excalidraw'])
+          .nav-file-tag {
           position: absolute;
           translate: calc(-1 * var(--size-4-5));
           top: var(--size-2-3);
@@ -142,7 +145,10 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 }
 
 /* 参考 https://github.com/Akifyss/obsidian-border */
-:is(body.explorer-nav-decoration .nav-file-title, body.setting-nav-decoration .vertical-tab-nav-item) {
+:is(
+    body.explorer-nav-decoration .nav-file-title,
+    body.setting-nav-decoration .vertical-tab-nav-item
+  ) {
   position: relative;
 
   &.is-active::after {
@@ -151,7 +157,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     right: 4px;
     top: 50%;
@@ -162,7 +168,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   }
 }
 
-body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content) {
+body.explorer-title-wrap
+  :is(.nav-file-title-content, .nav-folder-title-content) {
   overflow: visible;
   white-space: pre-wrap;
 }

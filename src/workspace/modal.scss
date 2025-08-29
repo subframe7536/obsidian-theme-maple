@@ -16,7 +16,7 @@ body {
   padding: 3px;
 
   &::before {
-    content: " " !important;
+    content: ' ' !important;
     display: block;
     height: var(--size-4-6);
     width: var(--size-4-6);
@@ -92,7 +92,9 @@ body.modal-toggle-round .checkbox-container {
     &::after {
       border-color: var(--accent-active);
       transform: none;
-      left: calc(100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width));
+      left: calc(
+        100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width)
+      );
     }
   }
 }
@@ -151,7 +153,7 @@ body.modal-toggle-thin .checkbox-container {
   }
 }
 
-@include use-no-plugin(".modal-header", ':not(.is-mobile)') {
+@include use-no-plugin('.modal-header', ':not(.is-mobile)') {
   .modal-container {
     --modal-header-height: var(--size-4-12);
     --top-search-right: var(--size-4-12);
@@ -211,8 +213,15 @@ body.modal-toggle-thin .checkbox-container {
           position: absolute;
           top: calc(var(--size-2-1) * -1);
           left: var(--size-4-2);
-          transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 - var(--size-2-1)));
-          width: calc(clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-3) * 1);
+          transform: translateY(
+            calc(
+              (var(--modal-header-height) - var(--input-height)) / 2 -
+                var(--size-2-1)
+            )
+          );
+          width: calc(
+            clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-3) * 1
+          );
         }
       }
 
@@ -229,7 +238,12 @@ body.modal-toggle-thin .checkbox-container {
 
         .setting-item-control {
           top: calc(var(--size-2-1) * -1);
-          transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
+          transform: translateY(
+            calc(
+              (var(--modal-header-height) - var(--input-height)) / 2 +
+                var(--size-2-1)
+            )
+          );
           right: var(--top-search-right);
           position: absolute;
         }
@@ -250,7 +264,12 @@ body.modal-toggle-thin .checkbox-container {
           display: block;
           position: absolute;
           top: calc(var(--size-2-1) * -1);
-          transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
+          transform: translateY(
+            calc(
+              (var(--modal-header-height) - var(--input-height)) / 2 +
+                var(--size-2-1)
+            )
+          );
           right: var(--top-search-right);
         }
       }
@@ -258,21 +277,33 @@ body.modal-toggle-thin .checkbox-container {
       .setting-item-name:has(.search-input-container) {
         position: absolute;
         top: calc(var(--size-2-1) * -1);
-        transform: translateY(calc((var(--modal-header-height) - var(--input-height)) / 2 + var(--size-2-1)));
+        transform: translateY(
+          calc(
+            (var(--modal-header-height) - var(--input-height)) / 2 +
+              var(--size-2-1)
+          )
+        );
         right: var(--top-search-right);
       }
 
-      .vertical-tab-content > :nth-child(5):not(.style-settings-container):has(input[type="search"]) {
+      .vertical-tab-content
+        > :nth-child(5):not(.style-settings-container):has(
+          input[type='search']
+        ) {
         position: absolute;
         top: calc(var(--size-2-1) * -1);
-        transform: translateY(calc(var(--modal-header-height) / 2 - var(--input-height) + var(--size-4-1)));
+        transform: translateY(
+          calc(
+            var(--modal-header-height) / 2 - var(--input-height) +
+              var(--size-4-1)
+          )
+        );
         right: var(--top-search-right);
 
         .setting-item-info {
           display: none;
         }
       }
-
     }
   }
 }
@@ -308,7 +339,9 @@ button {
     right: 9px !important;
   }
 
-  :is(.mod-community-plugin, .mod-community-theme) .modal-sidebar .setting-item:first-child {
+  :is(.mod-community-plugin, .mod-community-theme)
+    .modal-sidebar
+    .setting-item:first-child {
     max-width: var(--modal-community-sidebar-width);
   }
 
@@ -346,11 +379,19 @@ button {
   }
 }
 
-body.setting-group-title.theme-dark .modal-container .mod-settings .modal-content .vertical-tab-header-group-title {
+body.setting-group-title.theme-dark
+  .modal-container
+  .mod-settings
+  .modal-content
+  .vertical-tab-header-group-title {
   filter: brightness(1.4);
 }
 
-body.setting-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group {
+body.setting-group-title
+  .modal-container
+  .mod-settings
+  .modal-content
+  .vertical-tab-header-group {
   padding-bottom: 0;
 
   &-title {
@@ -372,7 +413,15 @@ body.setting-group-title .modal-container .mod-settings .modal-content .vertical
 }
 
 //==============================
-:is(.menu, .prompt, :not(.excalidraw) .popover, .modal, .modal-bg, .document-search-container, .suggestion-container) {
+:is(
+    .menu,
+    .prompt,
+    :not(.excalidraw) .popover,
+    .modal,
+    .modal-bg,
+    .document-search-container,
+    .suggestion-container
+  ) {
   animation: op var(--animation);
 }
 
@@ -412,12 +461,15 @@ body.modal-animation :is(.prompt, .popover, .modal) {
   }
 }
 
-:is(.menu-normal .menu, .menu-suggestion .suggestion-container, .menu-graph .graph-control-section) {
+:is(
+    .menu-normal .menu,
+    .menu-suggestion .suggestion-container,
+    .menu-graph .graph-control-section
+  ) {
   background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
   backdrop-filter: blur(var(--size-4-8));
   will-change: backdrop-filter;
 }
-
 
 body.modal-blur .modal-bg {
   opacity: 1 !important;

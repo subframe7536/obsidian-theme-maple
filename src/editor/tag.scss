@@ -24,7 +24,10 @@ body.tag-plain {
 }
 
 body.tag-outline {
-  --tag-border-color: var(--setting-tag-outline, var(--accent-inactive)) !important;
+  --tag-border-color: var(
+    --setting-tag-outline,
+    var(--accent-inactive)
+  ) !important;
   --tag-border-width: var(--size-2-1) !important;
   --tag-color: var(--setting-tag-color, var(--accent-active)) !important;
 
@@ -61,22 +64,22 @@ body.tag-fill {
   --tag-color-hover: var(--tag-color);
 
   :is(.cm-tag-obsidian, .tag[href='#obsidian']) {
-    --tag-background: var(--color-purple) !important
+    --tag-background: var(--color-purple) !important;
   }
 
   :is(.cm-tag-todo, .tag[href='#todo']) {
-    --tag-background: var(--color-green) !important
+    --tag-background: var(--color-green) !important;
   }
 
   :is(.cm-tag-important, .tag[href='#important']) {
-    --tag-background: var(--color-red) !important
+    --tag-background: var(--color-red) !important;
   }
 
   :is(.cm-tag-progress, .tag[href='#progress']) {
-    --tag-background: var(--color-blue) !important
+    --tag-background: var(--color-blue) !important;
   }
 
   :is(.cm-tag-complete, .tag[href='#complete']) {
-    --tag-background: var(--color-orange) !important
+    --tag-background: var(--color-orange) !important;
   }
 }

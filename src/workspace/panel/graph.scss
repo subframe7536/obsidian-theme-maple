@@ -1,6 +1,9 @@
 body {
   --graph-node: var(--setting-graph-node, var(--text-muted));
-  --graph-node-unresolved: var(--setting-graph-node-unresolved, var(--text-faint));
+  --graph-node-unresolved: var(
+    --setting-graph-node-unresolved,
+    var(--text-faint)
+  );
   --graph-node-focused: var(--setting-graph-node-focus, var(--accent-active));
 }
 

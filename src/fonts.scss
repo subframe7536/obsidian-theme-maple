@@ -1,4 +1,4 @@
-@mixin font-family($name, $src, $style: normal ) {
+@mixin font-family($name, $src, $style: normal) {
   @font-face {
     font-family: $name;
     font-display: swap;
@@ -7,9 +7,13 @@
   }
 }
 
-$_mono-src: local('Maple Mono NF CN Regular'), local('Maple Mono CN Regular'), local('Maple Mono NF Regular'), local('Maple Mono Regular'), url('$regular$') format('woff2');
+$_mono-src: local('Maple Mono NF CN Regular'), local('Maple Mono CN Regular'),
+  local('Maple Mono NF Regular'), local('Maple Mono Regular'),
+  url('$regular$') format('woff2');
 
-$_mono-italic-src: local('Maple Mono NF CN Italic'), local('Maple Mono CN Italic'), local('Maple Mono NF Italic'), local('Maple Mono Italic'), url('$italic$') format('woff2');
+$_mono-italic-src: local('Maple Mono NF CN Italic'),
+  local('Maple Mono CN Italic'), local('Maple Mono NF Italic'),
+  local('Maple Mono Italic'), url('$italic$') format('woff2');
 
 @include font-family('maplemono', $_mono-src);
 @include font-family('maplemono', $_mono-italic-src, italic);

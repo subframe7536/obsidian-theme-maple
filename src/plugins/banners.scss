@@ -8,7 +8,9 @@ img.banner-image {
 
 .markdown-source-view {
   .cm-content:has(.cm-line.has-banner) {
-    padding-top: calc(var(--banner-height) - var(--size-4-8) + 1.5rem) !important;
+    padding-top: calc(
+      var(--banner-height) - var(--size-4-8) + 1.5rem
+    ) !important;
   }
 
   .obsidian-banner-spacer {
@@ -16,7 +18,7 @@ img.banner-image {
   }
 }
 
-.markdown-preview-sizer>div.obsidian-banner-wrapper {
+.markdown-preview-sizer > div.obsidian-banner-wrapper {
   position: initial !important;
   margin-top: var(--banner-height);
 }

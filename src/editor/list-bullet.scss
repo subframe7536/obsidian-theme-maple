@@ -104,13 +104,18 @@
   &::before {
     content: var(--bullet-thread-content-3, '');
     position: absolute;
-    right: calc(-0.4rem - (var(--list-bullet-size) + var(--bullet-thread-guideline-width)) / 2);
+    right: calc(
+      -0.4rem - (
+          var(--list-bullet-size) + var(--bullet-thread-guideline-width)
+        ) / 2
+    );
     width: var(--list-indent);
     height: 50%;
-    border: var(--bullet-thread-guideline-width) solid var(--bullet-thread-guideline-color);
+    border: var(--bullet-thread-guideline-width) solid
+      var(--bullet-thread-guideline-color);
     border-right: none;
     border-top: none;
-    border-bottom-left-radius: var(--radius-m)
+    border-bottom-left-radius: var(--radius-m);
   }
 }
 
@@ -123,7 +128,8 @@
     position: absolute;
     z-index: 2;
     height: calc(100% - var(--bullet-thread-gap-size));
-    translate: var(--bullet-thread-gap-size) calc(var(--font-text-size) * var(--line-height-normal) / 2);
+    translate: var(--bullet-thread-gap-size)
+      calc(var(--font-text-size) * var(--line-height-normal) / 2);
     width: var(--bullet-thread-guideline-width);
     background-color: var(--bullet-thread-guideline-color);
   }
@@ -135,24 +141,26 @@
     width: var(--bullet-thread-guideline-width);
     top: -50%;
     bottom: 0;
-    translate: calc(-1 * var(--list-indent) - 0.4rem - var(--bullet-thread-gap-size));
+    translate: calc(
+      -1 * var(--list-indent) - 0.4rem - var(--bullet-thread-gap-size)
+    );
     background-color: var(--bullet-thread-guideline-color);
   }
 }
 
 @for $i from 2 through 6 {
   .HyperMD-list-line-#{$i} {
-    &:has(~:is(.HyperMD-list-line-#{$i})~.cm-active) {
+    &:has(~ :is(.HyperMD-list-line-#{$i}) ~ .cm-active) {
       --bullet-thread-content-1: none;
       --bullet-thread-content-2: none;
       --bullet-thread-content-3: none;
     }
 
-    &:not(:has(+.HyperMD-list-line-#{$i + 1})) {
+    &:not(:has(+ .HyperMD-list-line-#{$i + 1})) {
       --bullet-thread-content-1: none;
     }
 
-    &:not(:has(+.HyperMD-list-line-#{$i})) {
+    &:not(:has(+ .HyperMD-list-line-#{$i})) {
       --bullet-thread-content-2: none;
     }
   }
@@ -162,7 +170,6 @@
     --bullet-thread-content-2: none;
     --bullet-thread-content-3: none;
   }
-
 }
 
 // }
