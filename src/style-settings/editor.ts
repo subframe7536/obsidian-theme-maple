@@ -1,7 +1,7 @@
 import { Settings } from './generator'
 
 export default Settings.create('maple-editor', '✏️ Maple Editor').children([
-  Settings.ofLevel(2, { title: { en: 'Background', zh: '背景' } })
+  Settings.ofLevel(1, { title: { en: 'Background', zh: '背景' } })
     .addVarThemedColor(
       'setting-editor-bg',
       {
@@ -31,7 +31,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
         defaultDark: '#',
       },
     ),
-  Settings.ofLevel(2, {
+  Settings.ofLevel(1, {
     title: { en: 'Text & Font & Line', zh: '文字 & 字体 & 行' },
   })
     .addClassToggle(
@@ -180,7 +180,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
       },
     )
     .children([
-      Settings.ofLevel(3, { title: { en: 'Highlight', zh: '高亮' } })
+      Settings.ofLevel(2, { title: { en: 'Highlight', zh: '高亮' } })
         .addVarText(
           'setting-text-highlight-bg',
           {
@@ -229,7 +229,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
         .addClassToggle('text-highlight-margin', {
           title: { en: 'Add Spacing Around Highlight', zh: '增加高亮周围边距' },
         }),
-      Settings.ofLevel(3, { title: { en: 'Bold', zh: '粗体' } })
+      Settings.ofLevel(2, { title: { en: 'Bold', zh: '粗体' } })
         .addVarThemedColor(
           'setting-text-bold-color',
           {
@@ -260,7 +260,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           },
           { default: "''" },
         ),
-      Settings.ofLevel(3, { title: { en: 'Italic', zh: '斜体' } })
+      Settings.ofLevel(2, { title: { en: 'Italic', zh: '斜体' } })
         .addVarThemedColor(
           'setting-text-italic-color',
           {
@@ -292,7 +292,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           { default: "''" },
         ),
     ]),
-  Settings.ofLevel(2, { title: { en: 'Link', zh: '链接' } })
+  Settings.ofLevel(1, { title: { en: 'Link', zh: '链接' } })
     .addClassToggle('link-hover-expand', {
       title: {
         en: 'Use Underline Animation On Hover',
@@ -327,7 +327,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
       },
     })
     .children([
-      Settings.ofLevel(3, { title: { en: 'Link Color', zh: '链接颜色' } })
+      Settings.ofLevel(2, { title: { en: 'Link Color', zh: '链接颜色' } })
         .addVarThemedColor(
           'setting-link-internal-color',
           {
@@ -383,13 +383,13 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           },
         ),
     ]),
-  Settings.ofLevel(2, { title: { en: 'Heading', zh: '标题' } })
+  Settings.ofLevel(1, { title: { en: 'Heading', zh: '标题' } })
     .addClassToggle('fix-line-number', {
       title: { en: 'Fix Line Number Movement', zh: '修复行号的移动' },
       desc: { en: "Will increase '#' size", zh: "将增加 '#' 的大小" },
     })
     .children([
-      Settings.ofLevel(3, {
+      Settings.ofLevel(2, {
         title: { en: 'Heading Level Icon', zh: '标题等级图标' },
       })
         .addClassToggle('heading-level-enable', {
@@ -399,7 +399,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           title: { en: 'Always Show Heading Icon', zh: '总是显示图标' },
           desc: { en: 'Highlight on hover', zh: '鼠标经过时高亮' },
         }),
-      Settings.ofLevel(3, {
+      Settings.ofLevel(2, {
         title: { en: 'Heading Style Preference', zh: '标题样式设置' },
       })
         .addClassToggle(
@@ -426,7 +426,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           },
           { enable: true },
         ),
-      Settings.ofLevel(3, { title: { en: 'Heading Color', zh: '标题颜色' } })
+      Settings.ofLevel(2, { title: { en: 'Heading Color', zh: '标题颜色' } })
         .addClassSelect(
           'heading-color-style',
           {
@@ -443,7 +443,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           },
         )
         .children([
-          Settings.ofLevel(4, {
+          Settings.ofLevel(3, {
             title: { en: 'Custom Heading Color', zh: '自定义标题颜色' },
           })
             .addVarThemedColor(
@@ -519,7 +519,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
               },
             ),
         ]),
-      Settings.ofLevel(3, { title: { en: 'Heading Size', zh: '标题大小' } })
+      Settings.ofLevel(2, { title: { en: 'Heading Size', zh: '标题大小' } })
         .addVarNumSlider(
           'setting-h1-size',
           {
@@ -562,7 +562,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           },
           { default: 1.1, min: 1, max: 2.4, step: 0.1 },
         ),
-      Settings.ofLevel(3, {
+      Settings.ofLevel(2, {
         title: { en: 'Heading Underline', zh: '标题下划线' },
       })
         .addClassToggle('heading-h1-underline', {
@@ -587,7 +587,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
         .addClassToggle('heading-h6-underline', {
           title: { en: 'Add Underline For H6', zh: '添加 h6 下划线' },
         }),
-      Settings.ofLevel(3, { title: { en: 'Heading Font', zh: '标题字体' } })
+      Settings.ofLevel(2, { title: { en: 'Heading Font', zh: '标题字体' } })
         .addVarText(
           'setting-h1-font',
           {
@@ -631,7 +631,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           { default: "''" },
         ),
     ]),
-  Settings.ofLevel(2, { title: { en: 'Hr', zh: '分隔行' } })
+  Settings.ofLevel(1, { title: { en: 'Hr', zh: '分隔行' } })
     .addClassToggle(
       'hr-enable',
       {
@@ -646,7 +646,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
       },
       { default: "'⭐'" },
     ),
-  Settings.ofLevel(2, { title: { en: 'Table', zh: '表格' } })
+  Settings.ofLevel(1, { title: { en: 'Table', zh: '表格' } })
     .addClassToggle(
       'table-full',
       {
@@ -698,7 +698,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
         defaultDark: '#',
       },
     ),
-  Settings.ofLevel(2, { title: { en: 'Embed File', zh: '内嵌文档' } })
+  Settings.ofLevel(1, { title: { en: 'Embed File', zh: '内嵌文档' } })
     .addClassToggle(
       'embed-enable',
       {
@@ -720,7 +720,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
       },
       { enable: true },
     ),
-  Settings.ofLevel(2, { title: { en: 'Image', zh: '图片' } })
+  Settings.ofLevel(1, { title: { en: 'Image', zh: '图片' } })
     .addClassToggle(
       'image-alt',
       {
@@ -770,7 +770,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
       },
       { enable: true },
     ),
-  Settings.ofLevel(2, { title: { en: 'Quote', zh: '引言' } })
+  Settings.ofLevel(1, { title: { en: 'Quote', zh: '引言' } })
     .addClassToggle(
       'quote-theme',
       {
@@ -800,7 +800,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
         ],
       },
     ),
-  Settings.ofLevel(2, { title: { en: 'List', zh: '列表' } })
+  Settings.ofLevel(1, { title: { en: 'List', zh: '列表' } })
     .addClassToggle(
       'list-enable',
       {
@@ -848,7 +848,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
       },
     )
     .children([
-      Settings.ofLevel(3, {
+      Settings.ofLevel(2, {
         title: { en: 'Task List (checkbox)', zh: '待办事项（勾选框）' },
       })
         .addClassToggle('list-checkbox-line', {
@@ -904,7 +904,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           },
         ),
     ]),
-  Settings.ofLevel(2, { title: { en: 'Code', zh: '代码' } })
+  Settings.ofLevel(1, { title: { en: 'Code', zh: '代码' } })
     .addVarThemedColor(
       'setting-code-inline',
       {
@@ -1021,7 +1021,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
       },
       { enable: true },
     ),
-  Settings.ofLevel(2, { title: { en: 'Tag', zh: '标签' } })
+  Settings.ofLevel(1, { title: { en: 'Tag', zh: '标签' } })
     .addClassToggle('tag-click-to-edit', {
       title: {
         en: 'Click To Edit Tags In Live-Preview Mode',
@@ -1062,7 +1062,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
       },
     )
     .children([
-      Settings.ofLevel(3, {
+      Settings.ofLevel(2, {
         title: { en: 'Outline Style Setting', zh: '边框模式设置' },
       })
         .addVarThemedColor(
@@ -1090,7 +1090,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           },
         ),
     ]),
-  Settings.ofLevel(2, { title: { en: 'Canvas', zh: '白板' } })
+  Settings.ofLevel(1, { title: { en: 'Canvas', zh: '白板' } })
     .addClassToggle('canvas-group-hide', {
       title: {
         en: 'Hide Left Canvas Control Buttons',
@@ -1104,7 +1104,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
         zh: '卡片失去焦点时居中文本',
       },
     }),
-  Settings.ofLevel(2, { title: { en: 'PDF', zh: 'PDF' } }).addClassToggle(
+  Settings.ofLevel(1, { title: { en: 'PDF', zh: 'PDF' } }).addClassToggle(
     'pdf-dark-hover',
     {
       title: {
@@ -1118,7 +1118,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
     },
     { enable: true },
   ),
-  Settings.ofLevel(2, {
+  Settings.ofLevel(1, {
     title: { en: 'Properties', zh: '文档属性' },
   }).addClassToggle(
     'prop-outline',

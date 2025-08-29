@@ -36,6 +36,10 @@ function convertKeysToKebabCase(obj: any): any {
   return newObj
 }
 
+function flatten(items: Settings[]) {
+  return items.flatMap((i) => i.items)
+}
+
 type Translate = {
   en: string
   zh: string
@@ -99,7 +103,7 @@ function flattenDoc(doc: Doc) {
  * ```
  */
 export class Settings {
-  private items: any[]
+  public items: any[]
   private constructor(public level: number, public doc: Doc) {
     const id = doc.title.en
       .split(' ')
@@ -123,7 +127,7 @@ export class Settings {
           convertKeysToKebabCase({
             id,
             name,
-            settings: items.flatMap((i) => i.items),
+            settings: flatten(items),
           }),
           { indent: 4 },
         )
@@ -136,7 +140,7 @@ export class Settings {
   }
 
   children(items: Settings[]) {
-    this.items.push(...items.flatMap((i) => i.items))
+    this.items.push(...flatten(items))
     return this
   }
 
