@@ -19,12 +19,17 @@ https://github.com/sponsors/kepano
   --labeled-nav-top-margin: var(--header-height);
 
   &.is-translucent {
-    .mod-left-split .mod-top .workspace-tab-header-container .workspace-tab-header-container-inner {
+    .mod-left-split
+      .mod-top
+      .workspace-tab-header-container
+      .workspace-tab-header-container-inner {
       background-color: transparent;
     }
   }
 
-  &.is-hidden-frameless:not(.is-fullscreen) .mod-left-split .workspace-tabs.mod-top-left-space {
+  &.is-hidden-frameless:not(.is-fullscreen)
+    .mod-left-split
+    .workspace-tabs.mod-top-left-space {
     .workspace-tab-header-container {
       padding-left: 0;
     }
@@ -68,25 +73,30 @@ https://github.com/sponsors/kepano
       &:before {
         position: absolute;
         top: 0;
-        content: " ";
+        content: ' ';
       }
     }
   }
 
-  &.hider-ribbon.mod-macos.is-hidden-frameless:not(.is-fullscreen):not(.is-popout-window) {
-    .mod-left-split:not(.is-sidedock-collapsed) .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
+  &.hider-ribbon.mod-macos.is-hidden-frameless:not(.is-fullscreen):not(
+      .is-popout-window
+    ) {
+    .mod-left-split:not(.is-sidedock-collapsed)
+      .workspace-tabs.mod-top-left-space
+      .workspace-tab-header-container {
       padding-left: 0;
     }
   }
 
-  &:not(.is-grabbing):not(.is-fullscreen).is-hidden-frameless .mod-top .workspace-tab-header-container {
+  &:not(.is-grabbing):not(.is-fullscreen).is-hidden-frameless
+    .mod-top
+    .workspace-tab-header-container {
     -webkit-app-region: no-drag;
   }
 
   .mod-left-split .mod-top {
-
     .workspace-tab-header-spacer {
-      display: none
+      display: none;
     }
 
     .workspace-tab-header-inner-title {
@@ -153,7 +163,6 @@ https://github.com/sponsors/kepano
         box-shadow: none;
         border: none;
       }
-
     }
 
     .workspace-tab-header.has-active-menu:hover,
@@ -175,16 +184,14 @@ https://github.com/sponsors/kepano
       border: none;
       padding: 0;
     }
-
   }
-
 }
 
 // ====== modify ======
 
 .labeled-nav {
   .workspace-tab-header-container-inner {
-    --background-secondary: hsl(var(--background-secondary-hsl))
+    --background-secondary: hsl(var(--background-secondary-hsl));
   }
 
   .nav-buttons-container {

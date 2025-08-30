@@ -3,14 +3,14 @@
 /* #region paragraph */
 
 body {
-  --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1))
+  --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1));
 }
 
 // only match plain line
 .p-indent {
   --indent: calc(var(--font-text-size) * var(--setting-editor-p-indent, 2));
 
-  :is([class="cm-line"], [class="cm-active cm-line"], p) {
+  :is([class='cm-line'], [class='cm-active cm-line'], p) {
     text-indent: var(--indent);
   }
 
@@ -45,7 +45,7 @@ mjx-stretchy-h > mjx-ext > mjx-c::before {
 
 /* #region monospace */
 
-#{utils.with-no-plugin('.font-maple')} {
+@include utils.use-no-plugin('.font-maple') {
   --font-monospace-theme: 'maplemono';
 }
 
@@ -54,7 +54,7 @@ code *,
 .HyperMD-codeblock *,
 .cm-inline-code {
   font-family: var(--font-monospace);
-  font-feature-settings: var(--setting-code-ligature, "calt");
+  font-feature-settings: var(--setting-code-ligature, 'calt');
 }
 
 /* #endregion monospace */
@@ -65,11 +65,12 @@ body {
   --file-line-width: var(--setting-file-line-width, clamp(600px, 72%, 820px));
 }
 
-.markdown-source-view.mod-cm6.is-readable-line-width :is(.cm-content, .cm-line) {
+.markdown-source-view.mod-cm6.is-readable-line-width
+  :is(.cm-content, .cm-line) {
   max-width: 100%;
 }
 
-.workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] {
+.workspace-split.mod-root .workspace-leaf-content[data-type='markdown'] {
   background-color: hsla(var(--editor-bg), var(--bg-opacity));
 
   .view-content {
@@ -91,7 +92,6 @@ body {
 .community-modal-readme {
   color: var(--setting-text-normal, var(--text-normal));
 }
-
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   padding-inline: var(--size-4-1);
@@ -118,15 +118,23 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   --active-line: var(--setting-line-active-color, var(--accent-h), 18%, 14%);
 }
 
-#{utils.with-no-plugin('.line-active-enable')} {
-  .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
+@include utils.use-no-plugin('.line-active-enable') {
+  .workspace-leaf.mod-active
+    .markdown-source-view
+    .cm-scroller
+    .cm-line.cm-active {
     background-color: hsl(var(--active-line));
     border-radius: var(--size-2-3);
   }
 }
 body.line-active-left {
   --indicator-color: var(--accent-inactive) !important;
-  .markdown-source-view .cm-line.cm-active:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator))::after {
+  .markdown-source-view
+    .cm-line.cm-active:not(
+      .HyperMD-header,
+      .HyperMD-quote,
+      .HyperMD-list-line-1:has(.collapse-indicator)
+    )::after {
     content: '';
     width: var(--size-4-1);
     position: absolute;
@@ -148,8 +156,30 @@ body.line-indicator-enable {
     position: relative;
   }
 
-  :is(.markdown-reading-view .markdown-preview-sizer>div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
-    .markdown-source-view .cm-line:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator))):hover::after {
+  :is(
+      .markdown-reading-view
+        .markdown-preview-sizer
+        > div:not(
+          :has(
+              :is(
+                  .collapse-indicator,
+                  hr,
+                  pre,
+                  blockquote,
+                  table,
+                  p img,
+                  audio,
+                  video
+                )
+            )
+        ),
+      .markdown-source-view
+        .cm-line:not(
+          .HyperMD-header,
+          .HyperMD-quote,
+          .HyperMD-list-line-1:has(.collapse-indicator)
+        )
+    ):hover::after {
     content: '';
     width: var(--size-4-1);
     position: absolute;
@@ -203,7 +233,7 @@ kbd {
 /* #region highlight */
 
 mark {
-  color: var(--text-normal)
+  color: var(--text-normal);
 }
 
 .is-flashing {
@@ -215,10 +245,14 @@ mark {
 }
 
 body {
-  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(var(--color-yellow-rgb), 0.3));
+  --text-highlight-bg: var(
+    --setting-text-highlight-bg,
+    rgba(var(--color-yellow-rgb), 0.3)
+  );
 }
 
-.text-highlight-all-round :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
+.text-highlight-all-round
+  :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
   -webkit-box-decoration-break: clone;
 }
 
@@ -229,13 +263,17 @@ body {
   background: var(--text-highlight-bg);
 }
 
-body.text-highlight-margin :is(.markdown-source-view span.cm-highlight, .markdown-rendered mark) {
+body.text-highlight-margin
+  :is(.markdown-source-view span.cm-highlight, .markdown-rendered mark) {
   margin: 0 var(--size-2-1);
   padding: var(--size-2-1) var(--size-4-1);
 }
 
 .markdown-source-view {
-  :is(:not(.cm-highlight)+.cm-formatting-highlight, .cm-formatting-highlight:first-child) {
+  :is(
+      :not(.cm-highlight) + .cm-formatting-highlight,
+      .cm-formatting-highlight:first-child
+    ) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     margin-right: 0;
@@ -266,11 +304,11 @@ body {
 }
 
 body {
-  :is(.cm-highlight.cm-strong, mark>strong) {
+  :is(.cm-highlight.cm-strong, mark > strong) {
     color: var(--setting-text-highlight-color, var(--bold-color));
   }
 
-  :is(.cm-highlight.cm-em, mark>em) {
+  :is(.cm-highlight.cm-em, mark > em) {
     color: var(--setting-text-highlight-color, var(--bold-color));
   }
 }
@@ -306,7 +344,9 @@ a :is(em, strong) {
 
 /* #region others */
 
-.workspace-leaf-content[data-type='markdown'] .view-header .clickable-icon:hover {
+.workspace-leaf-content[data-type='markdown']
+  .view-header
+  .clickable-icon:hover {
   background-color: var(--background-modifier-hover);
 }
 
@@ -318,7 +358,7 @@ a :is(em, strong) {
   content: none;
 }
 
-input[type=checkbox] {
+input[type='checkbox'] {
   transition: var(--animation);
 
   &:checked::after {

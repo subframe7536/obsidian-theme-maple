@@ -8,7 +8,9 @@ body.titlebar-button-style {
     }
   }
 
-  &.is-frameless:not(.is-hidden-frameless):is(.mod-windows, .mod-linux) .titlebar-button svg:not([class*="logo"]) {
+  &.is-frameless:not(.is-hidden-frameless):is(.mod-windows, .mod-linux)
+    .titlebar-button
+    svg:not([class*='logo']) {
     width: 100%;
     height: 42%;
   }
@@ -23,17 +25,21 @@ body.titlebar-button-style {
 }
 
 .theme-light {
-  --ribbon-background: hsla(calc(var(--accent-h) + 16),
-      calc(var(--accent-s) / 1.2),
-      calc(100% - (100% - var(--accent-l)) / 4),
-      60%);
+  --ribbon-background: hsla(
+    calc(var(--accent-h) + 16),
+    calc(var(--accent-s) / 1.2),
+    calc(100% - (100% - var(--accent-l)) / 4),
+    60%
+  );
 }
 
 .theme-dark {
-  --ribbon-background: hsla(calc(var(--accent-h) + 16),
-      calc(var(--accent-s) / 1.5),
-      calc(var(--accent-l) - 40%),
-      60%);
+  --ribbon-background: hsla(
+    calc(var(--accent-h) + 16),
+    calc(var(--accent-s) / 1.5),
+    calc(var(--accent-l) - 40%),
+    60%
+  );
 }
 
 .workspace-ribbon.mod-left {
@@ -48,8 +54,11 @@ body.titlebar-button-style {
 
 /* 参考 minimal theme */
 :is(body, body.is-focused) {
-
-  :is(.mod-top .workspace-tab-header-container, .sidebar-toggle-button.mod-left, .titlebar),
+  :is(
+      .mod-top .workspace-tab-header-container,
+      .sidebar-toggle-button.mod-left,
+      .titlebar
+    ),
   .workspace-ribbon.mod-left::before {
     --titlebar-container: var(--frame-outline-color);
     --frame-divider-color: var(--frame-outline-color);
@@ -73,36 +82,54 @@ body.titlebar-button-style {
   }
 }
 
-.workspace.is-left-sidedock-open .sidebar-toggle-button.mod-left .clickable-icon,
-.workspace.is-right-sidedock-open .sidebar-toggle-button.mod-right .clickable-icon {
+.workspace.is-left-sidedock-open
+  .sidebar-toggle-button.mod-left
+  .clickable-icon,
+.workspace.is-right-sidedock-open
+  .sidebar-toggle-button.mod-right
+  .clickable-icon {
   color: var(--color-accent);
 }
 
 body.titlebar-colorful {
   &.theme-light {
-    --frame-background-color: hsl(var(--accent-h),
-        var(--accent-s),
-        calc(var(--accent-l) + 18%));
-    --frame-outline-color: hsl(var(--accent-h),
-        var(--accent-s),
-        calc(var(--accent-l) + 23.5%));
-    --frame-muted-color: hsl(var(--accent-h),
-        calc(var(--accent-s) - 20%),
-        ar(--accent-l));
+    --frame-background-color: hsl(
+      var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 18%)
+    );
+    --frame-outline-color: hsl(
+      var(--accent-h),
+      var(--accent-s),
+      calc(var(--accent-l) + 23.5%)
+    );
+    --frame-muted-color: hsl(
+      var(--accent-h),
+      calc(var(--accent-s) - 20%),
+      ar(--accent-l)
+    );
   }
 
   &.theme-dark {
     --frame-background-color: hsl(var(--accent-h), 12%, 38%);
-    --frame-outline-color: hsl(calc(var(--accent-h) - 6),
-        calc(var(--accent-s) + 12%),
-        40%);
-    --frame-muted-color: hsl(var(--accent-h),
-        calc(var(--accent-s) - 20%),
-        calc(var(--accent-l) + 20%));
+    --frame-outline-color: hsl(
+      calc(var(--accent-h) - 6),
+      calc(var(--accent-s) + 12%),
+      40%
+    );
+    --frame-muted-color: hsl(
+      var(--accent-h),
+      calc(var(--accent-s) - 20%),
+      calc(var(--accent-l) + 20%)
+    );
   }
 
-  .workspace.is-left-sidedock-open .sidebar-toggle-button.mod-left .clickable-icon,
-  .workspace.is-right-sidedock-open .sidebar-toggle-button.mod-right .clickable-icon {
+  .workspace.is-left-sidedock-open
+    .sidebar-toggle-button.mod-left
+    .clickable-icon,
+  .workspace.is-right-sidedock-open
+    .sidebar-toggle-button.mod-right
+    .clickable-icon {
     color: var(--text-on-accent);
   }
 

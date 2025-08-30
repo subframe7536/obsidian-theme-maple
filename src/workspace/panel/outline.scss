@@ -1,145 +1,160 @@
+@use '../../utils.scss' as *;
+
 // todo)) full version: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1
 body {
   /* 引导线粗细 */
-  --outline-guideline-width: var(--size-2-1);
+  --outline-guideline-width: use-opt(outline-width, var(--size-2-1));
   /* 引导线颜色 */
-  --outline-guideline-color: var(--accent-inactive);
+  --outline-guideline-color: use-opt(outline-color, var(--accent-inactive));
   /* 引导线颜色 */
-  --outline-guideline-color-alt: var(--accent-active);
+  --outline-guideline-color-alt: use-opt(
+    outline-color-alt,
+    var(--accent-active)
+  );
   /* 一行高度 */
-  --outline-item-height: calc(var(--nav-item-size) * 1.8);
+  --outline-item-height: use-opt(
+    outline-height,
+    calc(var(--nav-item-size) * 1.8)
+  );
 }
 
-.workspace-leaf-content[data-type='outline'] .tree-item-inner {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  height: var(--outline-item-height);
-  line-height: var(--outline-item-height);
-}
+@include use-panel('outline') {
+  .tree-item-inner {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: var(--outline-item-height);
+    line-height: var(--outline-item-height);
+  }
 
-.workspace-leaf-content[data-type=outline] .tree-item-self.is-active > .tree-item-inner {
-  color: var(--text-on-accent);
+  .tree-item-self.is-active > .tree-item-inner {
+    color: var(--text-on-accent);
+  }
 }
 
 $indent-width: -14px;
 
-body.outline-enable .workspace-leaf-content[data-type='outline'] {
-  .tree-item {
-    position: relative;
-
-    &-self {
+body.outline-enable {
+  @include use-panel(outline) {
+    .tree-item {
       position: relative;
-      margin-bottom: 0;
-      white-space: nowrap;
-      margin-top: -1px;
 
-      // fix item gap
-      .tree-item-inner {
-        padding-left: var(--size-4-1);
+      &-self {
+        position: relative;
+        margin-bottom: 0;
+        white-space: nowrap;
+        margin-top: -1px;
+
+        // fix item gap
+        .tree-item-inner {
+          padding-left: var(--size-4-1);
+
+          &::before {
+            $size: calc(var(--size-4-1) * 1.2);
+            content: '';
+            width: $size;
+            height: $size;
+            border: var(--size-2-1) solid var(--outline-guideline-color-alt);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(calc(-1 * var(--size-4-5)), -50%);
+          }
+        }
+
+        &.is-active .tree-item-inner::before {
+          border-color: var(--outline-guideline-color);
+        }
+
+        .tree-item-icon ~ .tree-item-inner {
+          padding-left: var(--size-4-1);
+
+          &::before {
+            content: none;
+          }
+        }
+      }
+
+      &.is-collapsed .tree-item-icon::before {
+        box-shadow: 0 0 0 var(--size-4-1) var(--background-modifier-hover);
+      }
+
+      &::after {
+        content: '';
+        width: var(--outline-guideline-width);
+        position: absolute;
+        background-color: transparent;
+        top: calc(var(--outline-item-height) / 2 * -1);
+        left: $indent-width;
+        height: calc(100% - var(--outline-item-height) + var(--size-4-8));
+      }
+
+      &-icon {
+        cursor: pointer;
+        transform: translateY(8px);
 
         &::before {
-          $size: calc(var(--size-4-1) * 1.2);
-          content: '';
-          width: $size;
-          height: $size;
-          border: var(--size-2-1) solid var(--outline-guideline-color-alt);
+          width: var(--size-4-2);
+          height: var(--size-4-2);
+          background-color: var(--outline-guideline-color-alt);
           border-radius: 50%;
           position: absolute;
+          left: 3px;
           top: 50%;
-          transform: translate(calc(-1 * var(--size-4-5)), -50%);
+          transform: translateY(-50%);
+          z-index: 10;
+        }
+
+        svg path {
+          display: none;
         }
       }
 
-      &.is-active .tree-item-inner::before {
-        border-color: var(--outline-guideline-color)
-      }
-
-      .tree-item-icon ~ .tree-item-inner {
-        padding-left: var(--size-4-1);
-
-        &::before {
-          content: none;
+      &-self.is-active {
+        .tree-item-icon::before {
+          background-color: var(--outline-guideline-color);
         }
       }
     }
 
-    &.is-collapsed .tree-item-icon::before {
-      box-shadow: 0 0 0 var(--size-4-1) var(--background-modifier-hover);
-    }
-
-    &::after {
-      content: '';
-      width: var(--outline-guideline-width);
-      position: absolute;
-      background-color: transparent;
-      top: calc(var(--outline-item-height) / 2 * -1);
-      left: $indent-width;
-      height: calc(100% - var(--outline-item-height) + var(--size-4-8));
-    }
-
-    &-icon {
-      cursor: pointer;
-      transform: translateY(8px);
-
-      &::before {
-        width: var(--size-4-2);
-        height: var(--size-4-2);
-        background-color: var(--outline-guideline-color-alt);
-        border-radius: 50%;
-        position: absolute;
-        left: 3px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-      }
-
-      svg path {
-        display: none;
-      }
-    }
-
-    &-self.is-active {
-      .tree-item-icon::before {
+    .tree-item:hover {
+      > .tree-item-children > .tree-item::after {
         background-color: var(--outline-guideline-color);
       }
-    }
-  }
 
-  .tree-item:hover {
-    > .tree-item-children > .tree-item::after {
-      background-color: var(--outline-guideline-color);
-    }
-
-    > .tree-item-self:hover + .tree-item-children .tree-item::after {
-      background-color: transparent;
-    }
-
-    > .tree-item-children > .tree-item:hover {
-
-      &::after,
-      & ~ .tree-item::after {
+      > .tree-item-self:hover + .tree-item-children .tree-item::after {
         background-color: transparent;
       }
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: calc(var(--outline-item-height) / 2 * -1);
-        left: $indent-width;
-        bottom: calc(100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px);
-        width: var(--size-4-6);
-        border-bottom-left-radius: var(--radius-m);
-        border-bottom: var(--outline-guideline-width) solid var(--outline-guideline-color);
-        border-left: var(--outline-guideline-width) solid var(--outline-guideline-color);
-        z-index: 9;
+      > .tree-item-children > .tree-item:hover {
+        &::after,
+        & ~ .tree-item::after {
+          background-color: transparent;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: calc(var(--outline-item-height) / 2 * -1);
+          left: $indent-width;
+          bottom: calc(
+            100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px
+          );
+          width: var(--size-4-6);
+          border-bottom-left-radius: var(--radius-m);
+          border-bottom: var(--outline-guideline-width) solid
+            var(--outline-guideline-color);
+          border-left: var(--outline-guideline-width) solid
+            var(--outline-guideline-color);
+          z-index: 9;
+        }
       }
     }
-  }
 
-  :is(.tree-item-children, .tree-item-self) {
-    padding-left: 28px !important;
-    margin-left: 0 !important;
-    border-left: none;
+    :is(.tree-item-children, .tree-item-self) {
+      padding-left: 28px !important;
+      margin-left: 0 !important;
+      border-left: none;
+    }
   }
 }

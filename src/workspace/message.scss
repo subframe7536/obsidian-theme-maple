@@ -11,8 +11,12 @@ body.message-tooltip-hide-arrow .tooltip-arrow {
 }
 
 body.message-modify {
-  --background-modifier-message: hsl(var(--setting-message-bg,
-        calc(var(--accent-h) - 30) var(--accent-s) calc(var(--accent-l) - 20%)));
+  --background-modifier-message: hsl(
+    var(
+      --setting-message-bg,
+      calc(var(--accent-h) - 30) var(--accent-s) calc(var(--accent-l) - 20%)
+    )
+  );
 
   :is(.tooltip, .notice) {
     color: var(--setting-message-fg, var(--text-on-accent));
@@ -20,13 +24,15 @@ body.message-modify {
 
   &:not(.color-active-default) {
     &.theme-light {
-      --background-modifier-message: hsl(var(--setting-message-bg,
-            calc(var(--accent-h) + 60) calc(var(--accent-s) - 12%) calc(var(--accent-l) + 4%)));
+      $rgb: calc(var(--accent-h) + 60) calc(var(--accent-s) - 12%)
+        calc(var(--accent-l) + 4%);
+      --background-modifier-message: hsl(var(--setting-message-bg, $rgb));
     }
 
     &.theme-dark {
-      --background-modifier-message: hsl(var(--setting-message-bg,
-            calc(var(--accent-h) + 60) calc(var(--accent-s) - 12%) calc(var(--accent-l) - 12%)));
+      $rgb: calc(var(--accent-h) + 60) calc(var(--accent-s) - 12%)
+        calc(var(--accent-l) - 12%);
+      --background-modifier-message: hsl(var(--setting-message-bg, $rgb));
     }
   }
 }

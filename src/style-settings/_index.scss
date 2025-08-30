@@ -1,9 +1,8 @@
-@use './basic.scss';
-@use './workspace.scss';
-@use './editor.scss';
-@use './plugin.scss';
-
-.mod-settings .vertical-tab-content>.setting-item:nth-child(2)>.setting-item-control>input[type=color] {
+.mod-settings
+  .vertical-tab-content
+  > .setting-item:nth-child(2)
+  > .setting-item-control
+  > input[type='color'] {
   position: relative;
 
   &::before {
@@ -17,7 +16,13 @@
   }
 }
 
-:is(.style-settings-import, .style-settings-export, .style-settings-copy, .style-settings-download, .style-settings-import-label) {
+:is(
+    .style-settings-import,
+    .style-settings-export,
+    .style-settings-copy,
+    .style-settings-download,
+    .style-settings-import-label
+  ) {
   transition: var(--animation);
   text-decoration: none !important;
   height: var(--input-height);
@@ -42,21 +47,20 @@
 }
 
 .themed-color-wrapper {
-  &>.theme-light {
+  & > .theme-light {
     background-color: #eee;
   }
 
-  &>.theme-dark {
+  & > .theme-dark {
     background-color: #111;
   }
 
-  .pickr-reset>button {
+  .pickr-reset > button {
     padding: var(--size-2-3);
   }
 }
 
 .pickr .pcr-button {
-
   &::before,
   &::after {
     border-radius: var(--radius-s);
@@ -64,26 +68,27 @@
 }
 
 .style-settings-container {
-
   .setting-item:is([data-id^='setting-accent-h']) {
     input.slider {
       height: 0.8em;
       --hue-slider-sat: 70%;
       --hue-slider-br: 60%;
-      background: linear-gradient(to right,
-          hsl(0 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(30 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(60 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(90 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(120 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(150 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(180 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(210 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(240 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(270 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(300 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(330 var(--hue-slider-sat) var(--hue-slider-br)),
-          hsl(360 var(--hue-slider-sat) var(--hue-slider-br)));
+      background: linear-gradient(
+        to right,
+        hsl(0 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(30 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(60 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(90 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(120 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(150 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(180 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(210 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(240 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(270 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(300 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(330 var(--hue-slider-sat) var(--hue-slider-br)),
+        hsl(360 var(--hue-slider-sat) var(--hue-slider-br))
+      );
       border-radius: var(--size-2-1);
     }
 
@@ -108,26 +113,42 @@
 }
 
 /* hide option */
-body:not(.line-active-enable) .setting-item[data-id='setting-line-active-color'],
-body:not(.calendar-swap-year-month) .setting-item[data-id='setting-calendar-year-suffix'],
-body:not(.quote-theme) .setting-item:is([data-id='quote-mark'], [data-id='quote-shadow']),
+body:not(.line-active-enable)
+  .setting-item[data-id='setting-line-active-color'],
+body:not(.calendar-swap-year-month)
+  .setting-item[data-id='setting-calendar-year-suffix'],
+body:not(.quote-theme)
+  .setting-item:is([data-id='quote-mark'], [data-id='quote-shadow']),
 body:not(.scrollbar-smooth) .setting-item[data-id='scrollbar-smooth-editor'],
 body.bg-default .setting-item[data-id='setting-bg-color'],
-body.scrollbar-hide .setting-item:is([data-id*='scrollbar-hover'], [data-id='scrollbar-movein-animation'], [data-id='scrollbar-gutter']),
+body.scrollbar-hide
+  .setting-item:is(
+    [data-id*='scrollbar-hover'],
+    [data-id='scrollbar-movein-animation'],
+    [data-id='scrollbar-gutter']
+  ),
 body:not(.status-bar-enable) .setting-item[data-id*='status-bar-style'],
-:is(body.status-bar-scroll, body:not(.status-bar-style-float)) .setting-item[data-id='status-bar-style-center'],
+:is(body.status-bar-scroll, body:not(.status-bar-style-float))
+  .setting-item[data-id='status-bar-style-center'],
 body:not(.tab-title-bar-round) .setting-item[data-id='tab-title-bar-shadow'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
 body:not(.explorer-icon) .setting-item[data-id='setting-color-dirs'],
-body:not(.search-internal-enable) .setting-item:is([data-id='search-internal-expand-on-focus'], [data-id="search-internal-disable-select-all"]),
+body:not(.search-internal-enable)
+  .setting-item:is(
+    [data-id='search-internal-expand-on-focus'],
+    [data-id='search-internal-disable-select-all']
+  ),
 body:not(.color-use-custom) .setting-item[data-id*='color-accent-'],
-body:not(.list-enable) .setting-item:is([data-id*='setting-list-'], [data-id='list-checkbox']),
+body:not(.list-enable)
+  .setting-item:is([data-id*='setting-list-'], [data-id='list-checkbox']),
 body:not(.code-language) .setting-item[data-id='setting-code-language-color'],
 body:not(.code-preview-bg) .setting-item[data-id='setting-code-bg-outer'],
 body:not(.modal-header) .setting-item[data-id='setting-modal-header-title'],
 body:not(.color-use-custom) .setting-item[data-id^='accent-hue'],
-body:not(.color-active-custom-light) .setting-item[data-id='setting-color-active-custom-light'],
-body:not(.color-active-custom-dark) .setting-item[data-id='setting-color-active-custom-dark'],
+body:not(.color-active-custom-light)
+  .setting-item[data-id='setting-color-active-custom-light'],
+body:not(.color-active-custom-dark)
+  .setting-item[data-id='setting-color-active-custom-dark'],
 body:not(.message-modify) .setting-item[data-id^='setting-message'],
 body:not(.image-zoom) .setting-item[data-id^='image-zoom-out'],
 body:not(.heading-level-enable) .setting-item[data-id^='heading-level-fix'],
@@ -138,13 +159,13 @@ body:not(.hr-enable) .setting-item[data-id^='setting-hr-icon'],
 body:not(.tag-outline) .setting-item[data-id='tag-outline-setting'] {
   display: none;
 
-  &+.style-settings-container {
+  & + .style-settings-container {
     display: none;
   }
 }
 
 /* 参考 https://github.com/damiankorcz/Prism-Theme */
-div.workspace-leaf-content[data-type="style-settings"] {
+div.workspace-leaf-content[data-type='style-settings'] {
   div.view-content {
     padding: var(--file-margins);
 
@@ -153,7 +174,9 @@ div.workspace-leaf-content[data-type="style-settings"] {
     }
   }
 
-  .view-content .style-settings-container .setting-item:not(.setting-item-heading) {
+  .view-content
+    .style-settings-container
+    .setting-item:not(.setting-item-heading) {
     body:not(.is-mobile) & {
       flex-direction: row;
     }
@@ -185,18 +208,20 @@ div.workspace-leaf-content[data-type="style-settings"] {
   }
 }
 
-.style-settings-heading[data-level="0"] {
+.style-settings-heading[data-level='0'] {
   background-color: var(--md-container-bg);
-  border: 1px solid hsla(var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) + 4%), 16%) !important;
+  border: 1px solid
+    hsla(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%), 16%) !important;
 
-  &+.style-settings-container .style-settings-collapse-indicator {
+  & + .style-settings-container .style-settings-collapse-indicator {
     margin-left: unset;
   }
 }
 
-:is(.setting-item.setting-item-heading.style-settings-heading, .style-settings-container .style-settings-heading) {
+:is(
+    .setting-item.setting-item-heading.style-settings-heading,
+    .style-settings-container .style-settings-heading
+  ) {
   border-bottom: unset;
 }
 
@@ -208,15 +233,19 @@ div.workspace-leaf-content[data-type="style-settings"] {
   margin-bottom: unset;
 }
 
-.style-settings-container>.setting-item:last-of-type {
+.style-settings-container > .setting-item:last-of-type {
   padding-bottom: unset;
   margin-bottom: var(--size-4-4);
 }
 
-:is(.style-settings-heading[data-level="0"] + .style-settings-container, .style-settings-container) {
+:is(
+    .style-settings-heading[data-level='0'] + .style-settings-container,
+    .style-settings-container
+  ) {
   padding-left: var(--size-2-1);
   margin-left: var(--size-4-4);
-  border-left: var(--nav-indentation-guide-width) solid var(--nav-indentation-guide-color);
+  border-left: var(--nav-indentation-guide-width) solid
+    var(--nav-indentation-guide-color);
   transition: var(--animation);
 
   &:hover {

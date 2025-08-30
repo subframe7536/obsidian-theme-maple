@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'sass:list';
 $level-max: 8;
 $indent: 0.6rem;
 $mark-size: 3rem;
@@ -33,7 +34,7 @@ body.quote-theme {
       border-radius: 0 !important;
 
       &.cm-active {
-        &:not(:has(+.HyperMD-quote:not(.HyperMD-callout))) {
+        &:not(:has(+ .HyperMD-quote:not(.HyperMD-callout))) {
           border-bottom-left-radius: var(--blockquote-radius) !important;
           border-bottom-right-radius: var(--blockquote-radius) !important;
         }
@@ -53,7 +54,10 @@ body.quote-theme {
       }
     }
 
-    :is(div:not(.HyperMD-quote) + .HyperMD-quote, .cm-content :first-child:is(.HyperMD-quote)) {
+    :is(
+        div:not(.HyperMD-quote) + .HyperMD-quote,
+        .cm-content :first-child:is(.HyperMD-quote)
+      ) {
       border-top-left-radius: var(--blockquote-radius) !important;
       border-top-right-radius: var(--blockquote-radius) !important;
 
@@ -134,27 +138,33 @@ body.quote-theme {
         content: '“' !important;
         background-color: transparent;
         color: var(--text-muted);
-        top: calc(var(--font-text-size) * var(--line-height-normal) - math.div($mark-size, 1.4));
+        top: calc(
+          var(--font-text-size) * var(--line-height-normal) -
+            math.div($mark-size, 1.4)
+        );
         transform: translateX($indent * -2.2);
       }
     }
   }
 
-  :is(.markdown-preview-view, .community-modal-readme.markdown-rendered) blockquote {
+  :is(.markdown-preview-view, .community-modal-readme.markdown-rendered)
+    blockquote {
     padding-left: var(--size-4-6);
 
     :is(p, h1, h2, h3, h4, h5, h6) {
       padding-left: calc(var(--blockquote-border-thickness) * 2);
     }
   }
-  $items: (
-  );
+  $items: ();
 
   @for $i from 2 through $level-max {
     @for $j from 2 through $level-max {
-      $items: append($list: $items,
-          $val: '.HyperMD-quote-#{$j}:not(.cm-active)+.HyperMD-quote-#{$i} .cm-blockquote-border:nth-of-type(-n + #{$j})',
-          $separator: comma);
+      $items: list.append(
+        $list: $items,
+        $val:
+          '.HyperMD-quote-#{$j}:not(.cm-active)+.HyperMD-quote-#{$i} .cm-blockquote-border:nth-of-type(-n + #{$j})',
+        $separator: comma,
+      );
     }
   }
 

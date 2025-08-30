@@ -50,7 +50,12 @@ body.search-internal-enable .document-search-container {
 }
 
 @container (max-width: 320px) {
-  body.search-internal-enable .document-search-container :is(.document-search-buttons [aria-label="Shift + F3"], .document-replace-buttons [aria-label="Ctrl + Alt + Enter"]) {
+  body.search-internal-enable
+    .document-search-container
+    :is(
+      .document-search-buttons [aria-label='Shift + F3'],
+      .document-replace-buttons [aria-label='Ctrl + Alt + Enter']
+    ) {
     display: none;
   }
 }

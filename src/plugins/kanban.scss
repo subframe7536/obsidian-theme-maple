@@ -2,12 +2,17 @@ $border: 1px solid var(--background-modifier-border-hover);
 
 body {
   --kanban-item-color: var(--setting-kanban-item-color, var(--text-normal));
-  --kanban-item-bg: var(--setting-kanban-item-bg, hsl(var(--background-primary-hsl)));
-  --kanban-board-bg: var(--setting-kanban-board-bg, hsl(var(--background-secondary-hsl)));
+  --kanban-item-bg: var(
+    --setting-kanban-item-bg,
+    hsl(var(--background-primary-hsl))
+  );
+  --kanban-board-bg: var(
+    --setting-kanban-board-bg,
+    hsl(var(--background-secondary-hsl))
+  );
 }
 
 .kanban-plugin {
-
   :is(&, &__item, &__lane) button {
     line-height: normal;
     padding-block: 0;
@@ -34,10 +39,9 @@ body {
         padding: var(--size-4-1) var(--size-2-3);
       }
     }
-
   }
 
-  &__grow-wrap>textarea,
+  &__grow-wrap > textarea,
   &__grow-wrap:after {
     border-radius: var(--radius-s);
     // line-height: var(--line-height-normal);
@@ -93,7 +97,7 @@ body {
       padding-inline: var(--size-2-3);
     }
 
-    a[aria-label="Close"] {
+    a[aria-label='Close'] {
       padding: var(--size-4-1);
       margin-left: var(--size-2-3);
       margin-right: calc(var(--size-2-1) * -1);
@@ -108,7 +112,6 @@ body {
         margin: 0 !important;
         line-height: var(--line-height-tight) !important;
       }
-
     }
 
     img {
@@ -152,7 +155,6 @@ body {
   }
 }
 
-
 .kanban-plugin__board-settings-modal {
   :is(.is-open .choices__list--dropdown, .choices__list--dropdown) {
     background-color: var(--interactive-normal);
@@ -166,7 +168,6 @@ body {
 
     &__inner {
       border-radius: var(--input-radius);
-
     }
 
     &__list {
@@ -195,7 +196,7 @@ body {
       translate: 0 -50%;
     }
 
-    &[data-type*=select-one].is-open:after {
+    &[data-type*='select-one'].is-open:after {
       margin-top: 0;
     }
   }
@@ -212,7 +213,7 @@ body.search-internal-enable .kanban-plugin__search-wrapper {
   top: var(--size-2-3);
   right: var(--size-2-3);
 
-  a[aria-label="Cancel"] {
+  a[aria-label='Cancel'] {
     padding: var(--size-4-1);
     margin-left: var(--size-2-2);
   }

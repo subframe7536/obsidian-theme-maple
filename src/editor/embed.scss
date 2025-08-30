@@ -1,6 +1,6 @@
 @use '../utils.scss';
 
-#{utils.with-no-plugin('.embed-enable')} {
+@include utils.use-no-plugin('.embed-enable') {
   .cm-embed-block {
     border-radius: var(--radius-l) !important;
     transition: var(--animation);
@@ -41,7 +41,8 @@
       border: var(--block-outline-width) solid var(--accent-inactive);
 
       .markdown-preview-view {
-        padding: calc(var(--font-text-size) * 1.2) calc(var(--font-text-size) * 1.5);
+        padding: calc(var(--font-text-size) * 1.2)
+          calc(var(--font-text-size) * 1.5);
         position: initial;
 
         .markdown-preview-section {
@@ -63,7 +64,11 @@
     }
   }
 
-  &.scrollbar-gutter-reserve.embed-title-right-top .internal-embed.is-loaded:not([alt='#']) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
+  &.scrollbar-gutter-reserve.embed-title-right-top
+    .internal-embed.is-loaded:not([alt='#'])
+    .markdown-embed-heading
+    .markdown-preview-section
+    > div:nth-child(2) {
     right: var(--size-4-3);
   }
 
@@ -72,7 +77,11 @@
       display: none;
     }
 
-    &:not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
+    &:not([src*='#^'])
+      .embed-title:empty
+      + .markdown-embed-content
+      .markdown-preview-section
+      > div:nth-child(3) {
       position: absolute;
       right: var(--size-4-9);
       top: var(--size-4-2);
@@ -109,11 +118,18 @@
     }
 
     &:hover {
-      .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
+      .embed-title:empty
+        + .markdown-embed-content
+        .markdown-preview-section
+        > div:nth-child(3) {
         opacity: 1;
       }
 
-      :is(.markdown-embed-title, .markdown-embed-link, .file-embed-link:hover svg) {
+      :is(
+          .markdown-embed-title,
+          .markdown-embed-link,
+          .file-embed-link:hover svg
+        ) {
         opacity: 1;
         color: var(--text-normal);
       }

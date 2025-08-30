@@ -1,7 +1,8 @@
 @use '../utils';
 
 $headings: ':is(h1, h2, h3, h4, h5, h6)';
-$cm-headings: '.HyperMD-header-1', '.HyperMD-header-2', '.HyperMD-header-3', '.HyperMD-header-4', '.HyperMD-header-5', '.HyperMD-header-6';
+$cm-headings: '.HyperMD-header-1', '.HyperMD-header-2', '.HyperMD-header-3',
+  '.HyperMD-header-4', '.HyperMD-header-5', '.HyperMD-header-6';
 
 body {
   --h1-size: calc(var(--font-text-size) * var(--setting-h1-size, 1.6));
@@ -16,12 +17,24 @@ body {
   --h4-weight: 650;
   --h5-weight: 600;
   --h6-weight: 600;
-  --h1-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h1-size));
-  --h2-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h2-size));
-  --h3-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h3-size));
-  --h4-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h4-size));
-  --h5-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h5-size));
-  --h6-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h6-size));
+  --h1-line-height: calc(
+    var(--setting-line-height, var(--line-height-normal)) * var(--h1-size)
+  );
+  --h2-line-height: calc(
+    var(--setting-line-height, var(--line-height-normal)) * var(--h2-size)
+  );
+  --h3-line-height: calc(
+    var(--setting-line-height, var(--line-height-normal)) * var(--h3-size)
+  );
+  --h4-line-height: calc(
+    var(--setting-line-height, var(--line-height-normal)) * var(--h4-size)
+  );
+  --h5-line-height: calc(
+    var(--setting-line-height, var(--line-height-normal)) * var(--h5-size)
+  );
+  --h6-line-height: calc(
+    var(--setting-line-height, var(--line-height-normal)) * var(--h6-size)
+  );
   --h1-font: var(--setting-h1-font, var(--font-text));
   --h2-font: var(--setting-h2-font, var(--font-text));
   --h3-font: var(--setting-h3-font, var(--font-text));
@@ -47,13 +60,12 @@ body {
     --h6-color: var(--accent-active);
   }
 
-
   #{$headings} {
     margin: 0 !important;
   }
 }
 
-#{utils.with-no-plugin('.heading-color-colorful')} {
+@include utils.use-no-plugin('.heading-color-colorful') {
   --h1-color: var(--setting-h1-color, var(--color-red));
   --h2-color: var(--setting-h2-color, var(--color-orange));
   --h3-color: var(--setting-h3-color, var(--color-green));
@@ -76,9 +88,11 @@ body {
   padding-block: 0;
 }
 
-#{utils.with-no-plugin('.heading-level-enable')} {
-
-  :is(div.markdown-reading-view > div > div > div > #{$headings}, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header) {
+@include utils.use-no-plugin('.heading-level-enable') {
+  :is(
+      div.markdown-reading-view > div > div > div > #{$headings},
+      .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header
+    ) {
     position: relative;
 
     &::before {
@@ -107,14 +121,25 @@ body {
     }
   }
 
-  :is(div.markdown-reading-view > div > div > div.is-collapsed > #{$headings},
-    .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(>.cm-foldPlaceholder))::before {
+  :is(
+      div.markdown-reading-view > div > div > div.is-collapsed > #{$headings},
+      .markdown-source-view.mod-cm6.is-live-preview
+        .HyperMD-header:has(> .cm-foldPlaceholder)
+    )::before {
     opacity: 0.9;
     text-decoration: underline 0.1rem;
   }
 
-  &.heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > #{$headings},
-    .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(>.cm-foldPlaceholder))) {
+  &.heading-level-fix
+    :is(
+      div.markdown-reading-view
+        > div
+        > div
+        > div:not(.is-collapsed)
+        > #{$headings},
+      .markdown-source-view.mod-cm6.is-live-preview
+        .HyperMD-header:not(:has(> .cm-foldPlaceholder))
+    ) {
     &::before {
       opacity: 0.4;
     }
@@ -182,7 +207,6 @@ body {
       transform: translateY(-50%) !important;
     }
   }
-
 }
 
 body.line-active-left .cm-active.HyperMD-header {
@@ -202,7 +226,11 @@ body.heading-h1-center h1 {
 
 @for $i from 1 through 6 {
   body.heading-h#{$i}-underline {
-    --h#{$i}-line-height: calc(var(--setting-line-height, var(--line-height-normal)) * var(--h#{$i}-size) * 1.2);
+    --h#{$i}-line-height: calc(
+      var(--setting-line-height, var(--line-height-normal)) *
+        var(--h#{$i}-size) *
+        1.2
+    );
 
     :is(h#{$i}, .HyperMD-header-#{$i}) {
       position: relative;
@@ -213,9 +241,18 @@ body.heading-h1-center h1 {
         height: var(--size-4-1);
         width: 100%;
         top: 50%;
-        transform: translateY(max(calc(var(--h#{$i}-size) * var(--line-height-normal) * 0.3), var(--size-4-3)));
+        transform: translateY(
+          max(
+            calc(var(--h#{$i}-size) * var(--line-height-normal) * 0.3),
+            var(--size-4-3)
+          )
+        );
         border-radius: var(--size-2-1);
-        background-image: linear-gradient(to right, var(--h#{$i}-color) 30%, transparent 70%);
+        background-image: linear-gradient(
+          to right,
+          var(--h#{$i}-color) 30%,
+          transparent 70%
+        );
       }
     }
 

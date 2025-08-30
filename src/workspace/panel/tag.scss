@@ -1,4 +1,6 @@
-.workspace-leaf-content[data-type="tag"] {
+@use '../../utils.scss' as *;
+
+@include use-panel(tag) {
   .tree-item-self {
     &::before {
       background-color: var(--accent-active);
@@ -10,7 +12,7 @@
       transform: translateY(var(--size-4-1));
       // add icon in icons.scss
     }
-    &:has(.tree-item-icon)::before{
+    &:has(.tree-item-icon)::before {
       background-color: var(--folder-color);
     }
   }

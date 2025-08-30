@@ -1,10 +1,11 @@
-@use '../../utils';
+@use '../../utils' as *;
 
 body {
   --file-folding-offset: 28px;
   --folder-color-rgb: 245, 180, 0;
-  --folder-color: rgb(var(--setting-color-dirs, var(--folder-color-rgb)));
-  --folder-hover-color: rgba(var(--setting-color-dirs, var(--folder-color-rgb)), 0.24);
+  $folder-color: use-opt(color-dirs, var(--folder-color-rgb));
+  --folder-color: rgb(#{$folder-color});
+  --folder-hover-color: rgba(#{$folder-color}, 0.24);
   --nav-item-size: calc(var(--size-4-4) * 0.9);
   --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
@@ -23,14 +24,15 @@ body {
   color: var(--text-on-accent);
 }
 
-body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.is-being-dragged),
+body:not(.is-grabbing)
+  :is(.nav-file-title.is-being-dragged, .nav-folder-title.is-being-dragged),
 .nav-file-title.is-being-dragged,
 .nav-folder-title.is-being-dragged {
   background-color: var(--accent-inactive);
   color: var(--text-normal);
 }
 
-.workspace-leaf-content[data-type='file-explorer'] {
+@include use-panel('file-explorer') {
   --line-height-tight: var(--explorer-item-height, 1.6);
 }
 
@@ -38,10 +40,9 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
-#{utils.with-no-plugin('.explorer-icon')} {
-  .workspace-leaf-content[data-type='file-explorer'] .nav-files-container {
+@include use-no-plugin('.explorer-icon') {
+  @include use-panel('file-explorer', '.nav-files-container') {
     .nav-folder {
-
       &-title {
         cursor: pointer;
 
@@ -85,7 +86,9 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
           padding-left: var(--size-2-1);
         }
 
-        &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw'])::before {
+        &:not([data-path$='excalidraw.md']):not(
+            [data-path$='excalidraw']
+          )::before {
           content: '';
           position: absolute;
           width: var(--size-4-4);
@@ -97,7 +100,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
           // add icon in icons.scss
         }
 
-        &:is([data-path$='excalidraw.md'], [data-path$='excalidraw']) .nav-file-tag {
+        &:is([data-path$='excalidraw.md'], [data-path$='excalidraw'])
+          .nav-file-tag {
           position: absolute;
           translate: calc(-1 * var(--size-4-5));
           top: var(--size-2-3);
@@ -141,7 +145,10 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 }
 
 /* 参考 https://github.com/Akifyss/obsidian-border */
-:is(body.explorer-nav-decoration .nav-file-title, body.setting-nav-decoration .vertical-tab-nav-item) {
+:is(
+    body.explorer-nav-decoration .nav-file-title,
+    body.setting-nav-decoration .vertical-tab-nav-item
+  ) {
   position: relative;
 
   &.is-active::after {
@@ -150,7 +157,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     right: 4px;
     top: 50%;
@@ -161,7 +168,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   }
 }
 
-body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content) {
+body.explorer-title-wrap
+  :is(.nav-file-title-content, .nav-folder-title-content) {
   overflow: visible;
   white-space: pre-wrap;
 }

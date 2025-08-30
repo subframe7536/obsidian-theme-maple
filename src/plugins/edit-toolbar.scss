@@ -1,7 +1,8 @@
 body.search-internal-enable {
-
-  :is(.cMenuToolbarpopover + .document-search-container.top,
-    .document-search-container:has(+#cMenuToolbarModalBar.top)) {
+  :is(
+      .cMenuToolbarpopover + .document-search-container.top,
+      .document-search-container:has(+ #cMenuToolbarModalBar.top)
+    ) {
     top: var(--size-4-12);
     right: var(--size-2-2);
   }

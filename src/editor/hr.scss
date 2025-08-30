@@ -8,15 +8,17 @@ body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
   border: none;
   position: relative;
   height: var(--size-4-1);
-  background-image: linear-gradient(to right,
-      transparent 0%,
-      hsla(var(--color-accent-hsl), 40%) 16%,
-      hsla(var(--color-accent-hsl), 90%) 44%,
-      transparent 44%,
-      transparent 56%,
-      hsla(var(--color-accent-hsl), 90%) 56%,
-      hsla(var(--color-accent-hsl), 40%) 84%,
-      transparent 100%);
+  background-image: linear-gradient(
+    to right,
+    transparent 0%,
+    hsla(var(--color-accent-hsl), 40%) 16%,
+    hsla(var(--color-accent-hsl), 90%) 44%,
+    transparent 44%,
+    transparent 56%,
+    hsla(var(--color-accent-hsl), 90%) 56%,
+    hsla(var(--color-accent-hsl), 40%) 84%,
+    transparent 100%
+  );
 
   &::after {
     content: var(--setting-hr-icon, '⭐');

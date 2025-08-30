@@ -15,17 +15,25 @@ body {
   border-spacing: 0;
 }
 
-#{utils.with-no-plugin('.table-full')} :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
-  // expand width
-  --table-white-space: break-all;
-  width: 100%;
-
-  .table-editor {
+@include utils.use-no-plugin('.table-full') {
+  :is(
+      .markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
+      .markdown-rendered table
+    ) {
+    // expand width
+    --table-white-space: break-all;
     width: 100%;
+
+    .table-editor {
+      width: 100%;
+    }
   }
 }
 
-:is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
+:is(
+    .markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
+    .markdown-rendered table
+  ) {
   // table drag handler
   .table-col-btn {
     border-top-right-radius: var(--table-radius);
@@ -39,7 +47,12 @@ body {
     color: var(--table-btn-color);
   }
 
-  :is(.table-col-btn, .table-row-btn, .table-col-drag-handle:hover, .table-row-drag-handle:hover) {
+  :is(
+      .table-col-btn,
+      .table-row-btn,
+      .table-col-drag-handle:hover,
+      .table-row-drag-handle:hover
+    ) {
     transition: var(--animation);
     background-color: var(--table-btn-bg);
     --table-drag-handle-color: var(--table-btn-color);
@@ -55,7 +68,9 @@ body {
 
   // table radius
 
-  th:first-child:not(:has(:is(.table-row-drag-handle, .table-col-drag-handle):hover)) {
+  th:first-child:not(
+      :has(:is(.table-row-drag-handle, .table-col-drag-handle):hover)
+    ) {
     border-top-left-radius: var(--table-radius);
   }
 
@@ -103,7 +118,7 @@ body {
       background-color: var(--table-alt-line-bg);
     }
 
-    tr:nth-of-type(2n+1) {
+    tr:nth-of-type(2n + 1) {
       background-color: var(--background-primary);
     }
   }
@@ -112,11 +127,11 @@ body {
 
   .table-cell-wrapper {
     // debounce cell
-    &:has(>.cm-s-obsidian):not(:has(.image-embed)) {
+    &:has(> .cm-s-obsidian):not(:has(.image-embed)) {
       padding-inline: var(--size-4-1);
     }
 
-    &:has(>.image-embed) {
+    &:has(> .image-embed) {
       display: table-cell;
     }
 
@@ -130,19 +145,22 @@ body {
       justify-content: center;
       align-items: center;
 
-      [class=cm-line] {
+      [class='cm-line'] {
         display: none;
       }
     }
   }
-
 }
 
 body.table-colorful {
   table {
-    --table-header-color: var(--setting-table-header-text, var(--text-on-accent));
+    --table-header-color: var(
+      --setting-table-header-text,
+      var(--text-on-accent)
+    );
     --table-header-bg: var(--setting-table-header-bg, var(--accent-active));
   }
+
   .markdown-source-view table thead .cm-s-obsidian {
     color: var(--setting-table-header-text, var(--text-normal));
   }
