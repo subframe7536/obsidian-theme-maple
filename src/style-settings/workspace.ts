@@ -164,7 +164,10 @@ export default Settings.create(
     .addClassToggle(
       'tab-slide-up',
       {
-        title: { en: 'Slide Up Animation On Tab Switch', zh: '标签页切换动画' },
+        title: {
+          en: 'Also Apply Tab Slide Up Animation In Editor',
+          zh: '标签页切换动画也作用于编辑器中',
+        },
         desc: {
           en: '❗will prevent outline panel update instantly on switch articles',
           zh: '❗会导致切换文章时无法立即更新大纲面板',

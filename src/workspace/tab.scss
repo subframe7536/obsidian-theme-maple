@@ -141,14 +141,18 @@ body.tab-title-bar-round {
 }
 
 /* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body.tab-slide-up
-  :is(
+
+:is(
     .workspace-split
       .workspace-tabs:not(.mod-stacked)
-      .workspace-leaf-content:not([data-type='pdf'])
+      .workspace-leaf-content:not([data-type='pdf']):not([data-type='markdown'])
       .view-content,
     .workspace-leaf-content:not(:has(.view-content))
   ) {
+  animation: slide-up var(--animation) forwards;
+}
+
+body.tab-slide-up .workspace-leaf-content[data-type='markdown'] .view-content {
   animation: slide-up var(--animation) forwards;
 }
 
