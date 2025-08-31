@@ -379,7 +379,7 @@ button {
   }
 }
 
-body.setting-group-title.theme-dark
+body.enable-group-title.theme-dark
   .modal-container
   .mod-settings
   .modal-content
@@ -387,7 +387,7 @@ body.setting-group-title.theme-dark
   filter: brightness(1.4);
 }
 
-body.setting-group-title
+body.enable-group-title
   .modal-container
   .mod-settings
   .modal-content
@@ -426,7 +426,7 @@ body.setting-group-title
 }
 
 body.modal-animation :is(.prompt, .popover, .modal) {
-  animation: op var(--animation), bounce var(--animation);
+  animation: op var(--animation), slide-up var(--animation);
 }
 
 @keyframes op {
@@ -444,20 +444,6 @@ body.modal-animation :is(.prompt, .popover, .modal) {
 
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes bounce {
-  0% {
-    transform: scale(0.99);
-  }
-
-  70% {
-    transform: scale(1.01);
-  }
-
-  100% {
-    transform: scale(1);
   }
 }
 

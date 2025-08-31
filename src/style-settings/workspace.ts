@@ -301,7 +301,7 @@ export default Settings.create(
       { default: "'maple 0.8.34'" },
     )
     .addClassToggle(
-      'setting-group-title',
+      'enable-group-title',
       {
         title: {
           en: 'Add Style For Left Navigation Group Title',
@@ -311,7 +311,7 @@ export default Settings.create(
       { enable: true },
     )
     .addClassToggle(
-      'setting-nav-decoration',
+      'enable-nav-decoration',
       { title: { en: 'Styled Active Nav Item', zh: '左侧当前设置项美化' } },
       { enable: true },
     )
@@ -336,7 +336,7 @@ export default Settings.create(
     .addClassToggle(
       'modal-animation',
       {
-        title: { en: 'Modal Bounce Animation', zh: '弹出框抖动动画' },
+        title: { en: 'Modal Show Up Animation', zh: '弹出框进入动画' },
         desc: {
           en: 'reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow',
           zh: '参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow',

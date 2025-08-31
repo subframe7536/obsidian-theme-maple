@@ -313,13 +313,13 @@ settings:
         type: variable-text
         default: "'maple 0.8.34'"
     -
-        id: setting-group-title
+        id: enable-group-title
         title: Add Style For Left Navigation Group Title
         title.zh: 为左侧选项组标题添加样式
         type: class-toggle
         default: true
     -
-        id: setting-nav-decoration
+        id: enable-nav-decoration
         title: Styled Active Nav Item
         title.zh: 左侧当前设置项美化
         type: class-toggle
