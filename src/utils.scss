@@ -49,7 +49,7 @@
   }
 }
 
-@mixin use-override-svg($svg-class, $icon-name) {
+@mixin use-icon-override($svg-class, $icon-name) {
   #{$svg-class} {
     -webkit-mask: icon($icon-name) no-repeat;
     -webkit-mask-size: 100% 100%;
