@@ -59,7 +59,6 @@ body {
   --file-folding-offset: 28px;
   $folder-color: use-opt(color-dirs, to-rgb(hsl(46, 81%, 45%)));
   --folder-color: rgb(#{$folder-color});
-  --folder-hover-color: rgba(#{$folder-color}, 0.2);
   --nav-item-size: calc(var(--size-4-4) * 0.9);
   --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
@@ -100,10 +99,6 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       &-title {
         cursor: pointer;
 
-        &:hover {
-          background-color: var(--folder-hover-color);
-        }
-
         &-content {
           padding-left: var(--size-2-1);
         }
@@ -131,6 +126,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 
     .nav-file {
       &-title {
+        @include create-icons();
+
         .nav-file-tag {
           background-color: var(--accent-active);
           color: var(--text-on-accent);
@@ -144,8 +141,6 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         &-content + .nav-file-tag {
           margin-left: var(--size-2-3);
         }
-
-        @include create-icons();
 
         &.is-active:not(.is-selected) {
           color: var(--text-on-accent);
