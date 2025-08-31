@@ -28,9 +28,12 @@ body.image-alt {
         [alt$='.png'],
         [alt$='.jpg'],
         [alt$='.jpeg'],
-        [alt$='.tiff'],
+        [alt$='.svg'],
         [alt$='.webp'],
-        [alt$='.bmp']
+        [alt$='.gif'],
+        [alt$='.tiff'],
+        [alt$='.bmp'],
+        [alt$='.tiff']
       )::after {
       content: attr(alt);
       font-size: var(--font-smaller);
