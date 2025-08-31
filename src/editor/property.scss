@@ -1,3 +1,5 @@
+@use '../utils.scss' as *;
+
 .metadata-container {
   margin-block-end: var(--size-4-2);
   transition: var(--animation);
@@ -19,6 +21,19 @@
     padding: var(--size-4-1);
     margin-top: var(--size-4-2);
     gap: var(--size-2-3);
+  }
+
+  [data-property-key='tag'] {
+    @include use-icon-override('.lucide-list', 'tags');
+  }
+  [data-property-key='date'] {
+    @include use-icon-override('.lucide-text', 'calendar');
+  }
+  [data-property-key='alias'] {
+    @include use-icon-override('.lucide-text', 'forward');
+  }
+  [data-property-key='cssclasses'] {
+    @include use-icon-override('.lucide-list', 'toggle-left');
   }
 }
 
