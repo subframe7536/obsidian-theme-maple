@@ -1,6 +1,6 @@
 @use 'sass:math';
 @use 'sass:string';
-@use '../utils';
+@use '../utils' as *;
 
 :is(body, .print .markdown-rendered) {
   --inline-code: var(--setting-code-inline, var(--color-red));
@@ -19,7 +19,7 @@
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
 }
 
-@include utils.use-print('.theme-light') {
+@include use-print('.theme-light') {
   --code-preview-base: hsl(
     var(--accent-h),
     var(--accent-s),
@@ -28,7 +28,7 @@
   --code-mac-style-header-bg: #333;
 }
 
-@include utils.use-print('.theme-dark') {
+@include use-print('.theme-dark') {
   --code-preview-base: hsl(var(--accent-h), var(--accent-s), 85%);
   --code-mac-style-header-bg: #000;
 }
@@ -171,24 +171,14 @@ body .markdown-rendered pre {
   }
 
   .copy-code-button {
-    // add icon in icons.scss
-    width: 1.5rem;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    opacity: 0;
-    color: transparent;
-    background-color: var(--setting-code-language-color, var(--accent-active));
-    transition: var(--animation);
-    margin: 0;
+    --icon-size: var(--size-4-4);
+    margin: var(--size-4-1);
+    margin-bottom: var(--size-2-1);
+    padding: var(--size-4-1);
     display: block !important;
-    top: var(--size-2-1);
-    right: var(--size-4-1);
-    z-index: 9;
-
-    &:hover {
-      opacity: 1;
-      background-color: var(--text-normal);
-    }
+    opacity: 0;
+    transition: opacity var(--animation);
+    cursor: pointer;
   }
 }
 
@@ -212,7 +202,7 @@ body .markdown-rendered pre {
   }
 }
 
-@include utils.use-no-plugin('.code-language') {
+@include use-no-plugin('.code-language') {
   .markdown-rendered {
     $height: 2rem;
 
@@ -367,7 +357,7 @@ body .markdown-rendered pre {
   &::after {
     content: '';
     width: 100%;
-    height: calc(var(--code-size) * var(--line-height-normal) * 1.1);
+    height: calc(var(--code-size) * var(--line-height-normal) * 1.2);
     background-color: var(--code-mac-style-header-bg);
     top: 0;
     left: 0;
@@ -383,7 +373,7 @@ body .markdown-rendered pre {
     position: absolute;
     left: 0.8rem;
     top: calc(
-      $light-size * var(--line-height-normal) * 0.6 - var(--code-size) / 3
+      $light-size * var(--line-height-normal) * 0.7 - var(--code-size) / 3
     );
     border-radius: 50%;
     z-index: 9;
@@ -393,8 +383,12 @@ body .markdown-rendered pre {
       calc(var(--size-4-5) * 1.8) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
   }
 
-  .copy-code-button:hover {
-    background-color: var(--accent-inactive);
+  .copy-code-button {
+    position: absolute;
+    z-index: 10;
+    &:hover {
+      background-color: transparent;
+    }
   }
 }
 
