@@ -9,7 +9,7 @@ $mark-size: 3rem;
   --callout-radius: var(--radius-l);
 }
 
-body.quote-theme {
+body {
   --blockquote-border-color: var(--accent-active);
 
   :is(.markdown-source-view, .markdown-rendered) {
@@ -17,57 +17,7 @@ body.quote-theme {
     --blockquote-radius: var(--size-2-3);
   }
 
-  .markdown-source-view.mod-cm6 {
-    :is(.HyperMD-quote, .cm-blockquote-border)::before {
-      width: var(--blockquote-border-thickness);
-      border-left: none;
-      background-color: var(--blockquote-border-color);
-      border-radius: var(--blockquote-radius);
-      inset-block: var(--blockquote-radius);
-    }
-
-    :is(.HyperMD-quote, .cm-blockquote-border) :not(:first-child)::before {
-      transform: translateX(var(--size-2-1));
-    }
-
-    .HyperMD-quote {
-      border-radius: 0 !important;
-
-      &.cm-active {
-        &:not(:has(+ .HyperMD-quote:not(.HyperMD-callout))) {
-          border-bottom-left-radius: var(--blockquote-radius) !important;
-          border-bottom-right-radius: var(--blockquote-radius) !important;
-        }
-
-        .cm-blockquote-border::before {
-          background-color: transparent;
-        }
-      }
-
-      &::before {
-        left: calc(var(--blockquote-border-thickness) / 2);
-        z-index: 10;
-      }
-
-      & + .HyperMD-quote::before {
-        top: calc(var(--blockquote-radius) * -2);
-      }
-    }
-
-    :is(
-        div:not(.HyperMD-quote) + .HyperMD-quote,
-        .cm-content :first-child:is(.HyperMD-quote)
-      ) {
-      border-top-left-radius: var(--blockquote-radius) !important;
-      border-top-right-radius: var(--blockquote-radius) !important;
-
-      &::after,
-      .cm-quote.cm-formatting::after {
-        content: none !important;
-      }
-    }
-  }
-
+  // Adapt headings
   .markdown-rendered blockquote {
     --h1-size: var(--font-text-size);
     --h2-size: var(--font-text-size);
@@ -140,36 +90,10 @@ body.quote-theme {
         color: var(--text-muted);
         top: calc(
           var(--font-text-size) * var(--line-height-normal) -
-            math.div($mark-size, 1.4)
+            math.div($mark-size, 1.6)
         );
-        transform: translateX($indent * -2.2);
+        transform: translateX($indent * -2.7);
       }
     }
-  }
-
-  :is(.markdown-preview-view, .community-modal-readme.markdown-rendered)
-    blockquote {
-    padding-left: var(--size-4-6);
-
-    :is(p, h1, h2, h3, h4, h5, h6) {
-      padding-left: calc(var(--blockquote-border-thickness) * 2);
-    }
-  }
-  $items: ();
-
-  @for $i from 2 through $level-max {
-    @for $j from 2 through $level-max {
-      $items: list.append(
-        $list: $items,
-        $val:
-          '.HyperMD-quote-#{$j}:not(.cm-active)+.HyperMD-quote-#{$i} .cm-blockquote-border:nth-of-type(-n + #{$j})',
-        $separator: comma,
-      );
-    }
-  }
-
-  /* 引导线高度修复 */
-  :is(#{$items})::before {
-    top: calc(var(--blockquote-radius) * -2);
   }
 }

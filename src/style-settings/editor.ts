@@ -771,14 +771,6 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
       { enable: true },
     ),
   Settings.ofLevel(1, { title: { en: 'Quote', zh: '引言' } })
-    .addClassToggle(
-      'quote-theme',
-      {
-        title: { en: 'Alternative Quote Style', zh: '另一种引言样式' },
-        desc: { en: 'With thick guide line', zh: '宽引导线' },
-      },
-      { enable: true },
-    )
     .addClassToggle('quote-mark', {
       title: {
         en: 'Add Front Quote Mark In Preview Mode',
