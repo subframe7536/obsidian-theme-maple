@@ -56,12 +56,12 @@
 
 @include use-print('.theme-light') {
   @include var-color('red', hsl(0, 45%, 53%));
-  @include var-color('orange', hsl(32, 70%, 50%));
-  @include var-color('yellow', hsl(46, 96%, 40%));
-  @include var-color('green', hsl(95, 75%, 38%));
-  @include var-color('cyan', hsl(156, 75%, 33%));
-  @include var-color('blue', hsl(193, 94%, 38%));
-  @include var-color('purple', hsl(260, 30%, 57%));
+  @include var-color('orange', hsl(31, 70%, 45%));
+  @include var-color('yellow', hsl(48, 80%, 38%));
+  @include var-color('green', hsl(95, 75%, 32%));
+  @include var-color('cyan', hsl(156, 75%, 28%));
+  @include var-color('blue', hsl(193, 94%, 34%));
+  @include var-color('purple', hsl(260, 20%, 48%));
 
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
   --background-primary: hsl(var(--background-primary-hsl));
@@ -113,13 +113,13 @@
 }
 
 @include use-print('.theme-dark') {
-  @include var-color('red', hsl(0, 72%, 80%));
-  @include var-color('orange', hsl(20, 70%, 80%));
+  @include var-color('red', hsl(0, 64%, 80%));
+  @include var-color('orange', hsl(20, 60%, 75%));
   @include var-color('yellow', hsl(36, 70%, 78%));
   @include var-color('green', hsl(130, 48%, 76%));
   @include var-color('cyan', hsl(178, 60%, 77%));
   @include var-color('blue', hsl(210, 100%, 78%));
-  @include var-color('purple', hsl(247, 90%, 90%));
+  @include var-color('purple', hsl(247, 100%, 90%));
 
   --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-hsl: var(--accent-h), 5%, 5%;

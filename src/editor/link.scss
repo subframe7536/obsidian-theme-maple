@@ -1,10 +1,10 @@
 @use '../utils.scss' as *;
 
 :is(body, .print .markdown-rendered) {
-  --link-color-rgb: var(--setting-link-internal-color, var(--color-blue-rgb));
+  --link-color-rgb: var(--setting-link-internal-color, var(--color-cyan-rgb));
   --link-external-color-rgb: var(
     --setting-link-external-color,
-    var(--color-orange-rgb)
+    var(--color-yellow-rgb)
   );
   --link-color: rgba(var(--link-color-rgb), var(--color-opacity));
   --link-color-hover: var(--link-color);
