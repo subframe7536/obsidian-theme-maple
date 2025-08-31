@@ -11,11 +11,13 @@
   --code-important: var(--color-purple);
   --code-keyword: var(--color-purple);
   --code-property: var(--color-orange);
-  --code-punctuation: var(--color-blue);
+  --code-punctuation: rgb(var(--color-blue-rgb), 0.7);
+  --code-operator: var(--code-punctuation);
   --code-string: var(--color-green);
   --code-tag: var(--color-red);
   --code-value: var(--color-orange);
   --code-comment: var(--text-faint);
+  --code-variable: var(--color-yellow);
   --code-normal: var(--code-preview-base);
   --code-bg-radius: var(--radius-m);
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
@@ -45,7 +47,7 @@
 }
 
 .markdown-preview-view pre code {
-  color: var(--code-preview-base);
+  color: var(--code-normal);
   border: none;
   border-radius: 0;
 }
@@ -91,7 +93,7 @@
 
 .cm-s-obsidian .cm-line.HyperMD-codeblock {
   line-height: calc(var(--line-height-normal) - 0.2);
-  color: var(--color-blue) !important;
+  color: var(--code-normal) !important;
   border-left: var(--code-bg-border);
   border-right: var(--code-bg-border);
   border-radius: 0 !important;
@@ -123,7 +125,7 @@
   .cm-embed-block:not(.cm-table-widget):not(.cm-callout) {
   box-shadow: none !important;
   border: var(--block-outline-width) solid transparent;
-  border-radius: var(--radius-l) !important;
+  border-radius: var(--radius-m) !important;
   transition: var(--animation);
 
   &:hover {
@@ -273,8 +275,7 @@ body .markdown-rendered pre {
           .class-name,
           .maybe-class-name
         ),
-      .cm-tag,
-      .cm-operator
+      .cm-tag
     ) {
     color: var(--code-tag);
   }
@@ -336,11 +337,15 @@ body .markdown-rendered pre {
   }
 
   :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
-    color: var(--code-normal);
+    color: var(--code-variable);
   }
 
-  :is(.cm-variable-2, .cm-variable-3) {
-    opacity: 0.7;
+  .cm-variable-2 {
+    filter: hue-rotate(20deg) saturate(1.1);
+  }
+
+  .cm-variable-3 {
+    filter: hue-rotate(40deg);
   }
 }
 

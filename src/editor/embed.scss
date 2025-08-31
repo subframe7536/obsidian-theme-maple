@@ -2,7 +2,7 @@
 
 @include utils.use-no-plugin('.embed-enable') {
   .cm-embed-block {
-    border-radius: var(--radius-l) !important;
+    border-radius: var(--radius-m) !important;
     transition: var(--animation);
   }
   .internal-embed.is-loaded:not(.image-embed) {
