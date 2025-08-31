@@ -175,8 +175,8 @@ body .markdown-rendered pre {
   .copy-code-button {
     --icon-size: var(--size-4-4);
     margin: var(--size-4-1);
-    margin-bottom: var(--size-2-1);
     padding: var(--size-4-1);
+    padding-bottom: var(--size-2-1) !important;
     display: block !important;
     opacity: 0;
     transition: opacity var(--animation);
@@ -219,7 +219,7 @@ body .markdown-rendered pre {
         font-weight: bold;
         position: absolute;
         text-align: right;
-        right: calc(1.3rem + 2 * var(--size-4-1));
+        right: calc(1.4rem + 2 * var(--size-4-1));
         top: math.div($height, 15);
         line-height: $height * 0.8;
         z-index: 9;
