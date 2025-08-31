@@ -1,10 +1,7 @@
 @use './utils.scss' as *;
-@use 'sass:color';
 
 @mixin var-color($name, $color) {
-  $rgb: color.channel($color, 'red', $space: rgb),
-    color.channel($color, 'green', $space: rgb),
-    color.channel($color, 'blue', $space: rgb);
+  $rgb: to-rgb($color);
 
   --color-#{$name}: rgba(
     var(--color-#{$name}-rgb),
@@ -18,12 +15,6 @@
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
   --line-height-normal: 1.8;
-  --background-modifier-hover: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 4%),
-    20%
-  );
   --background-modifier-border: var(--accent-inactive);
   --background-modifier-border-focus: var(--accent-inactive);
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
@@ -79,8 +70,9 @@
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(
     var(--accent-h),
-    calc(var(--accent-s) * 1.2),
-    min(var(--accent-l) * 2, 90%)
+    calc(var(--accent-s) * 1.5),
+    min(var(--accent-l) * 2, 60%),
+    20%
   );
   --accent-active: hsl(
     var(--accent-h),
@@ -137,7 +129,8 @@
   --background-modifier-hover: hsl(
     var(--accent-h),
     var(--accent-s),
-    calc(var(--accent-l) / 3)
+    calc(var(--accent-l) / 2),
+    20%
   );
   --accent-active: hsl(
     var(--accent-h),

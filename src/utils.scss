@@ -1,4 +1,5 @@
 @use 'sass:string';
+@use 'sass:color';
 
 @function with-no-plugin($selector) {
   @return string.unquote('body:is(:not(.css-settings-manager),#{$selector})');
@@ -12,6 +13,7 @@
     @content;
   }
 }
+
 @mixin use-panel($name, $child: '') {
   .workspace-leaf-content[data-type='#{$name}'] #{string.unquote($child)} {
     @content;
@@ -22,15 +24,39 @@
   @return var(--setting-#{string.unquote($name)}, $fallback);
 }
 
+@function to-rgb($color) {
+  @return color.channel($color, 'red', $space: rgb),
+    color.channel($color, 'green', $space: rgb),
+    color.channel($color, 'blue', $space: rgb);
+}
+
 @mixin use-print($selector) {
   :is(#{$selector}, #{$selector} .print) {
     @content;
   }
 }
 
-@mixin use-icon($icon-name, $bg: currentColor) {
+@mixin use-icon($icon-name, $color: none, $size: none) {
   -webkit-mask: icon($icon-name) no-repeat;
   -webkit-mask-size: 100% 100%;
-  background-color: $bg;
-  color: inherit;
+  @if $size != none {
+    background-color: currentColor;
+    color: $color;
+  }
+  @if $size != none {
+    width: $size;
+    height: $size;
+  }
+}
+
+@mixin use-override-svg($svg-class, $icon-name) {
+  #{$svg-class} {
+    -webkit-mask: icon($icon-name) no-repeat;
+    -webkit-mask-size: 100% 100%;
+    background-color: currentColor;
+
+    path {
+      display: none;
+    }
+  }
 }
