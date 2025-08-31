@@ -1,3 +1,5 @@
+@use '../utils.scss' as *;
+
 :is(body, .print .markdown-rendered) {
   --link-color-rgb: var(--setting-link-internal-color, var(--color-blue-rgb));
   --link-external-color-rgb: var(
@@ -163,11 +165,12 @@ body.link-icon {
     display: inline-block;
     transition: var(--animation);
     transform: translateY(var(--size-2-1));
-    width: calc(var(--link-text-size) - var(--size-2-1));
-    height: calc(var(--link-text-size) - var(--size-2-1));
     margin-inline: var(--size-2-1);
-    background-color: var(--link-color);
-    // add icon in icons.scss
+    @include use-icon(
+      'file-text',
+      var(--link-color),
+      calc(var(--link-text-size) - var(--size-2-1))
+    );
   }
 
   &:not(.link-click-to-edit-in-live-preview) {
@@ -179,12 +182,13 @@ body.link-icon {
       content: '';
       display: inline-block;
       transition: var(--animation);
-      width: calc(var(--link-text-size) - var(--size-4-1));
-      height: calc(var(--link-text-size) - var(--size-4-1));
       margin-left: var(--size-2-1);
       margin-right: var(--size-2-1);
-      background-color: var(--link-external-color);
-      // add icon in icons.scss
+      @include use-icon(
+        'link',
+        var(--link-external-color),
+        calc(var(--link-text-size) - var(--size-2-1))
+      );
     }
 
     a.external-link {

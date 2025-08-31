@@ -1,11 +1,65 @@
 @use '../../utils' as *;
+@use 'sass:list';
+
+$file-icon: (
+  (pdf, 'book-open-text'),
+  (png, svg, jpeg, jpg, bmp, gif, webp, tiff, 'image'),
+  (mp3, flac, wav, ape, alac, aac, m4a, 'music-4'),
+  (mkv, mp4, flv, webm, avi, mov, 'film'),
+  (canvas, 'layout-dashboard'),
+  (base, 'database')
+);
+
+@mixin create-icons() {
+  &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw']) {
+    &::before {
+      content: '';
+      position: absolute;
+      opacity: 0.8;
+      flex-shrink: 0;
+      translate: calc(-1 * var(--size-4-5)) 25%;
+      @include use-icon('file-text', var(--accent-active), var(--size-4-4));
+    }
+    @each $i in $file-icon {
+      $arr: '[data-path$="#{list.nth($i, 1)}"]';
+      $svg: list.nth($i, list.length($i));
+
+      @if list.length($i) >2 {
+        @for $item from 2 through list.length($i) - 1 {
+          $arr: list.append(
+            $arr,
+            '[data-path$=".#{list.nth($i, $item)}"]',
+            comma
+          );
+        }
+      }
+
+      &:is(#{$arr})::before {
+        @include use-icon(#{$svg});
+      }
+    }
+
+    &.is-unsupported::before {
+      @include use-icon(
+        'file-question-mark',
+        var(--accent-active),
+        var(--size-4-4)
+      );
+    }
+  }
+
+  &:is([data-path$='excalidraw.md'], [data-path$='excalidraw']) .nav-file-tag {
+    position: absolute;
+    translate: calc(-1 * var(--size-4-5));
+    top: var(--size-2-3);
+  }
+}
 
 body {
   --file-folding-offset: 28px;
-  --folder-color-rgb: 245, 180, 0;
-  $folder-color: use-opt(color-dirs, var(--folder-color-rgb));
+  $folder-color: use-opt(color-dirs, to-rgb(hsl(46, 81%, 45%)));
   --folder-color: rgb(#{$folder-color});
-  --folder-hover-color: rgba(#{$folder-color}, 0.24);
+  --folder-hover-color: rgba(#{$folder-color}, 0.2);
   --nav-item-size: calc(var(--size-4-4) * 0.9);
   --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
@@ -64,48 +118,34 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       }
 
       .collapse-icon svg.svg-icon {
-        line-height: var(--line-height-tight);
-        width: var(--size-4-4);
-        height: var(--size-4-4);
-        background-color: var(--folder-color);
         display: inline-block;
-        translate: 0 calc(-1 * var(--size-2-1));
-        // add icon in icons.scss
+        @include use-icon('folder-open', var(--folder-color), var(--size-4-4));
       }
 
       &.is-collapsed .collapse-icon svg.svg-icon {
         transform: none;
-        filter: brightness(var(--folder-inactive));
+        @include use-icon('folder-closed', var(--folder-color));
         transition: var(--animation);
       }
     }
 
     .nav-file {
       &-title {
-        &-content {
-          padding-left: var(--size-2-1);
-        }
-
-        &:not([data-path$='excalidraw.md']):not(
-            [data-path$='excalidraw']
-          )::before {
-          content: '';
-          position: absolute;
-          width: var(--size-4-4);
-          height: var(--size-4-4);
-          opacity: 0.8;
-          flex-shrink: 0;
-          translate: calc(2px - var(--size-4-5)) 25%;
+        .nav-file-tag {
           background-color: var(--accent-active);
-          // add icon in icons.scss
+          color: var(--text-on-accent);
         }
 
-        &:is([data-path$='excalidraw.md'], [data-path$='excalidraw'])
-          .nav-file-tag {
-          position: absolute;
-          translate: calc(-1 * var(--size-4-5));
-          top: var(--size-2-3);
+        &.is-active .nav-file-tag {
+          background-color: hsl(var(--background-secondary-hsl), 0.9);
+          color: var(--nav-item-background-active);
         }
+
+        &-content + .nav-file-tag {
+          margin-left: var(--size-2-3);
+        }
+
+        @include create-icons();
 
         &.is-active:not(.is-selected) {
           color: var(--text-on-accent);
@@ -127,18 +167,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         line-height: 2;
       }
 
-      &-title .nav-file-tag {
-        background-color: var(--accent-active);
-        color: var(--text-on-accent);
-      }
-
-      &-title.is-active .nav-file-tag {
-        background-color: hsl(var(--background-secondary-hsl), 0.9);
-        color: var(--nav-item-background-active);
-      }
-
-      &-title-content + .nav-file-tag {
-        margin-left: var(--size-2-3);
+      &-content {
+        padding-left: var(--size-2-1);
       }
     }
   }

@@ -1,3 +1,13 @@
+@use '../utils.scss' as *;
+@include use-no-plugin('.explorer-icon') {
+  .workspace-tab-header-inner-icon {
+    @include use-override-svg('.lucide-file-audio', 'music-4');
+    @include use-override-svg('.lucide-file', 'film');
+    @include use-override-svg('.lucide-file-text', 'book-open-text');
+    @include use-override-svg('.lucide-table', 'database');
+  }
+}
+
 body.tab-float {
   --tab-radius: var(--size-2-3);
 

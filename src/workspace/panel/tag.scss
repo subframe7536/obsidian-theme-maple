@@ -3,14 +3,11 @@
 @include use-panel(tag) {
   .tree-item-self {
     &::before {
-      background-color: var(--accent-active);
       line-height: var(--line-height-tight);
-      width: var(--size-4-4);
-      height: var(--size-4-4);
-      margin-left: calc(-1 * var(--size-4-5));
+      margin-left: calc(-1 * var(--size-4-4));
       margin-right: var(--size-4-3);
       transform: translateY(var(--size-4-1));
-      // add icon in icons.scss
+      @include use-icon('tag', var(--accent-active), var(--size-4-4));
     }
     &:has(.tree-item-icon)::before {
       background-color: var(--folder-color);
