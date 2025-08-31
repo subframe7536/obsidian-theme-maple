@@ -47,7 +47,22 @@ export default Settings.create(
         )
         .addVarColor(
           'setting-color-active-custom-light',
-          { title: { en: 'Custom Highlight Color', zh: '自定义高亮颜色' } },
+          {
+            title: {
+              en: 'Custom Highlight Color For Active State',
+              zh: '自定义激活状态的高亮颜色',
+            },
+          },
+          { default: '#', format: 'rgb', opacity: false },
+        )
+        .addVarColor(
+          'setting-color-inactive-custom-light',
+          {
+            title: {
+              en: 'Custom Highlight Color For Inactive State',
+              zh: '自定义非激活状态高亮颜色',
+            },
+          },
           { default: '#', format: 'rgb', opacity: false },
         )
         .children([
@@ -92,7 +107,22 @@ export default Settings.create(
         )
         .addVarColor(
           'setting-color-active-custom-dark',
-          { title: { en: 'Custom Highlight Color', zh: '自定义高亮颜色' } },
+          {
+            title: {
+              en: 'Custom Highlight Color For Active State',
+              zh: '自定义激活状态的高亮颜色',
+            },
+          },
+          { default: '#', format: 'rgb', opacity: false },
+        )
+        .addVarColor(
+          'setting-color-inactive-custom-dark',
+          {
+            title: {
+              en: 'Custom Highlight Color For Inactive State',
+              zh: '自定义非激活状态的高亮颜色',
+            },
+          },
           { default: '#', format: 'rgb', opacity: false },
         )
         .children([

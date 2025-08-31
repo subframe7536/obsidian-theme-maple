@@ -147,8 +147,12 @@ body:not(.modal-header) .setting-item[data-id='setting-modal-header-title'],
 body:not(.color-use-custom) .setting-item[data-id^='accent-hue'],
 body:not(.color-active-custom-light)
   .setting-item[data-id='setting-color-active-custom-light'],
+body:not(.color-active-custom-light)
+  .setting-item[data-id='setting-color-inactive-custom-light'],
 body:not(.color-active-custom-dark)
   .setting-item[data-id='setting-color-active-custom-dark'],
+body:not(.color-active-custom-dark)
+  .setting-item[data-id='setting-color-inactive-custom-dark'],
 body:not(.message-modify) .setting-item[data-id^='setting-message'],
 body:not(.image-zoom) .setting-item[data-id^='image-zoom-out'],
 body:not(.heading-level-enable) .setting-item[data-id^='heading-level-fix'],
@@ -259,6 +263,20 @@ body.modal-item-animation {
 
     &:hover {
       transition: none;
+    }
+  }
+}
+
+.modal-style-settings {
+  padding: var(--size-4-2) var(--size-4-3) !important;
+  .modal-header {
+    margin: 0;
+  }
+  .setting-item {
+    align-items: center;
+    width: calc(100% - var(--input-height) - var(--size-4-1));
+    &-info {
+      margin-right: 0;
     }
   }
 }

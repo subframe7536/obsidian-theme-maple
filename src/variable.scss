@@ -172,10 +172,24 @@
   $inactive-l
 ) {
   @include use-print(
-    '.theme-#{$theme}.color-use-custom:not(.color-active-default-#{$theme})'
+    '.theme-#{$theme}.color-use-custom.color-active-alt-#{$theme}'
+  ) {
+    --accent-active: hsl(
+      calc(var(--accent-h) + #{$active-h}),
+      calc(var(--accent-s) + #{$active-s}),
+      calc(var(--accent-l) + #{$active-l})
+    );
+    --accent-inactive: hsl(
+      calc(var(--accent-h) + #{$inactive-h}),
+      calc(var(--accent-s) + #{$inactive-s}),
+      calc(var(--accent-l) + #{$inactive-l})
+    );
+  }
+  @include use-print(
+    '.theme-#{$theme}.color-use-custom.color-active-custom-#{$theme}'
   ) {
     --accent-active: var(
-      --setting-color-active-custom-light,
+      --setting-color-active-custom-#{$theme},
       hsl(
         calc(var(--accent-h) + #{$active-h}),
         calc(var(--accent-s) + #{$active-s}),
@@ -183,7 +197,7 @@
       )
     );
     --accent-inactive: var(
-      --setting-color-active-custom-dark,
+      --setting-color-inactive-custom-#{$theme},
       hsl(
         calc(var(--accent-h) + #{$inactive-h}),
         calc(var(--accent-s) + #{$inactive-s}),
