@@ -214,7 +214,7 @@ body .markdown-rendered pre {
 
       code[class*='language-']::before {
         content: 'unkown language';
-        font-family: var(--font-mono);
+        font-family: var(--font-text);
         color: var(--setting-code-language-color, var(--inline-code));
         font-weight: bold;
         position: absolute;
@@ -414,7 +414,7 @@ body .markdown-rendered pre {
     }
 
     &-end {
-      counter-reset: code-line;
+      counter-set: code-line;
     }
   }
 }
