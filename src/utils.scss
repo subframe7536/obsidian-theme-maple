@@ -39,7 +39,7 @@
 @mixin use-icon($icon-name, $color: none, $size: none) {
   -webkit-mask: icon($icon-name) no-repeat;
   -webkit-mask-size: 100% 100%;
-  @if $size != none {
+  @if $color != none {
     background-color: currentColor;
     color: $color;
   }

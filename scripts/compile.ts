@@ -127,6 +127,7 @@ function main() {
 
   void dev(input, output)
   watch(join(process.cwd(), 'src')).on('change', () => dev(input, output))
+  watch(join(process.cwd(), 'script')).on('change', () => dev(input, output))
 }
 
 main()

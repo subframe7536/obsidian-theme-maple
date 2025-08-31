@@ -849,13 +849,20 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
             zh: '移除已完成事项上的删除线',
           },
         })
-        .addClassToggle('list-checkbox-alternative', {
-          title: { en: 'Enable Alternative Checkboxes', zh: '增加勾选框样式' },
-          desc: {
-            en: 'Disable this if you are using your own implementation via a CSS Snippet.',
-            zh: '如果你用了其他勾选框 CSS 片段，可以关闭',
+        .addClassToggle(
+          'list-checkbox-alternative',
+          {
+            title: {
+              en: 'Enable Alternative Checkboxes',
+              zh: '增加勾选框样式',
+            },
+            desc: {
+              en: 'Disable this if you are using your own implementation via a CSS Snippet.',
+              zh: '如果你用了其他勾选框 CSS 片段，可以关闭',
+            },
           },
-        })
+          { enable: true },
+        )
         .addVarThemedColor(
           'setting-list-checkbox-color',
           {

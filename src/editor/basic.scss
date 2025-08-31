@@ -358,7 +358,7 @@ input[type='checkbox'] {
   transition: var(--animation);
 
   &:checked::after {
-    -webkit-mask-position: 47% 52%;
+    -webkit-mask-position: 40% 45%;
   }
 }
 

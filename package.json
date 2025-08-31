@@ -16,7 +16,9 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@iconify-json/bi": "^1.2.6",
     "@iconify-json/lucide": "^1.2.65",
+    "@iconify-json/tabler": "^1.2.22",
     "bumpp": "^10.2.3",
     "bun-types": "^1.2.21",
     "sass": "^1.91.0"

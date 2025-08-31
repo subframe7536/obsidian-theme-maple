@@ -4,7 +4,9 @@
     "": {
       "name": "maple",
       "devDependencies": {
+        "@iconify-json/bi": "^1.2.6",
         "@iconify-json/lucide": "^1.2.65",
+        "@iconify-json/tabler": "^1.2.22",
         "bumpp": "^10.2.3",
         "bun-types": "^1.2.21",
         "sass": "^1.91.0",
@@ -12,7 +14,11 @@
     },
   },
   "packages": {
+    "@iconify-json/bi": ["@iconify-json/bi@1.2.6", "https://registry.npmmirror.com/@iconify-json/bi/-/bi-1.2.6.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-fWfLr1/+DJDe8+rIUXxMwvmWBZFlxRtM59sYnrezJ2xX87QKyXVw3QuforJ4kF2Orrz85J+JTRG6305vaJ7flA=="],
+
     "@iconify-json/lucide": ["@iconify-json/lucide@1.2.65", "https://registry.npmmirror.com/@iconify-json/lucide/-/lucide-1.2.65.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-Ur5I3dZyLW8bZLTEtsMKQ9lkl8u5HIiwO79pYxlvAzKQ0Mc4milB+G04CxnFqlB15x/lRq2rTPSi7ep1utDXrg=="],
+
+    "@iconify-json/tabler": ["@iconify-json/tabler@1.2.22", "https://registry.npmmirror.com/@iconify-json/tabler/-/tabler-1.2.22.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-KmCtTzZyz7dtszdQGJ5wbWqko6exhI38e4aCQqWZE1Z2wGUqBsMXrRWawXkAp6/XNBebt54h0lcxFCaTYBwFJg=="],
 
     "@iconify/types": ["@iconify/types@2.0.0", "https://registry.npmmirror.com/@iconify/types/-/types-2.0.0.tgz", {}, "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="],
 
