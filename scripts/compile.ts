@@ -1,4 +1,4 @@
-import { basename, extname, resolve, join } from 'path'
+import { basename, extname, resolve, join, parse } from 'path'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
 import { homedir, platform } from 'os'
 import { compile, SassString } from 'sass'
@@ -9,32 +9,44 @@ function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 export function compileCss(src: string) {
-  const { css } = compile(src, {
-    sourceMap: false,
-    functions: {
-      'icon($icon-name)': ([name]) => {
-        return new SassString(getIconUrl(name.assertString().text), {
-          quotes: false,
-        })
+  try {
+    const { css } = compile(src, {
+      sourceMap: false,
+      functions: {
+        'icon($icon-name)': ([name]) => {
+          return new SassString(getIconUrl(name.assertString().text), {
+            quotes: false,
+          })
+        },
+        'font($style)': ([name]) => {
+          const style = capitalize(name.assertString().text)
+          if (style !== 'Regular' && style !== 'Italic') {
+            throw new Error('style must be regular or italic')
+          }
+          const source = readFileSync(
+            `fonts/MapleMono-${style}.woff2`,
+          ).toBase64()
+          return new SassString(`url("data:font/woff2;base64,${source}")`, {
+            quotes: false,
+          })
+        },
       },
-      'font($style)': ([name]) => {
-        const style = capitalize(name.assertString().text)
-        if (style !== 'Regular' && style !== 'Italic') {
-          throw new Error('style must be regular or italic')
-        }
-        const source = readFileSync(`fonts/MapleMono-${style}.woff2`).toBase64()
-        return new SassString(`url("data:font/woff2;base64,${source}")`, {
-          quotes: false,
-        })
-      },
-    },
-    charset: false,
-  })
-  return css
+      charset: false,
+    })
+    return css
+  } catch (err) {
+    console.error(err)
+    return err instanceof Error ? err.message : 'Unknown Error'
+  }
 }
 
 function build(src: string, out: string) {
   writeFileSync(out, settings + '\n' + compileCss(src), 'utf-8')
+}
+
+function test(src: string) {
+  const p = parse(src)
+  writeFileSync(p.dir + '/' + p.name + '.css', compileCss(src), 'utf-8')
 }
 
 async function dev(src: string, out: string) {
@@ -96,14 +108,20 @@ function main() {
 
   const baseDir = resolve(devVaultRoot, 'test')
   setup(baseDir)
-  const input = process.argv?.[2] ?? 'src/index.scss'
+  const input =
+    process.argv?.filter((s) => !s.startsWith('--'))[2] ?? 'src/index.scss'
   const output =
     `${devVaultRoot}/.obsidian/snippets/` +
     basename(input).replace(extname(input), '.css')
   const isBuild = process.argv?.includes('--build')
+  const isTest = process.argv?.includes('--test')
 
   if (isBuild) {
-    build('src/index.scss', 'theme.css')
+    build(input, 'theme.css')
+    return
+  }
+  if (isTest) {
+    test(input)
     return
   }
 

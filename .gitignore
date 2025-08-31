@@ -9,3 +9,4 @@ src/snippet.scss
 vault
 
 *.local
+src/snippets/test.css
