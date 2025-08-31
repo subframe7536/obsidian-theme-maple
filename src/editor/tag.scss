@@ -28,7 +28,7 @@ body.tag-outline {
     --setting-tag-outline,
     var(--accent-inactive)
   ) !important;
-  --tag-border-width: var(--size-2-1) !important;
+  --tag-border-width: 1px !important;
   --tag-color: var(--setting-tag-color, var(--accent-active)) !important;
 
   :is(.cm-tag-obsidian, .tag[href='#obsidian']) {
