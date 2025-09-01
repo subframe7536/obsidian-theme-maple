@@ -20,7 +20,6 @@
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
   --background-modifier-cover: hsla(var(--background-secondary-hsl), 0.6);
   --interactive-accent: var(--accent-active);
-  --radius-xl: var(--size-4-3);
 
   --animation: var(--setting-animation-time, 200ms) var(--anim-motion-smooth);
   --animation-slow: calc(var(--setting-animation-time, 200ms) * 2)
