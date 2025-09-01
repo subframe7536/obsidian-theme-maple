@@ -10,6 +10,9 @@ $file-icon: (
   (base, 'database')
 );
 
+svg.lucide-layout-dashboard rect {
+  rx: 2;
+}
 @mixin create-icons() {
   &:not([data-path$='excalidraw.md']):not([data-path$='excalidraw']) {
     &::before {
