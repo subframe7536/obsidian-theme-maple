@@ -8,9 +8,9 @@
   body.prop-outline & {
     transform: none;
     --metadata-border-width: var(--block-outline-width);
-    --metadata-border-radius: var(--radius-l);
+    --metadata-border-radius: var(--radius-m);
     --metadata-border-color: var(--accent-inactive);
-    --metadata-padding: var(--radius-l);
+    --metadata-padding: var(--radius-m);
 
     &:hover {
       --metadata-border-color: var(--accent-active);

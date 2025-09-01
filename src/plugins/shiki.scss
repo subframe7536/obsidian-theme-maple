@@ -10,6 +10,6 @@ body {
   --shiki-code-value: var(--color-orange);
   --shiki-code-comment: var(--text-faint);
   --shiki-code-normal: var(--code-preview-base);
-  --shiki-code-bg-radius: var(--setting-code-bg-radius, var(--radius-l));
+  --shiki-code-bg-radius: var(--setting-code-bg-radius, var(--radius-m));
   --shiki-code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
 }

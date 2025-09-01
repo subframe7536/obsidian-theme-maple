@@ -6,7 +6,7 @@ $mark-size: 3rem;
 
 :is(body, .print .markdown-rendered) {
   --blockquote-background-color: var(--md-container-bg);
-  --callout-radius: var(--radius-l);
+  --callout-radius: var(--radius-m);
 }
 
 body {
