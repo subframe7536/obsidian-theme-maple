@@ -24,21 +24,21 @@
       }
     }
 
-    &.mod-empty {
-      border: var(--size-2-1) dotted var(--accent-inactive);
-    }
-
     .markdown-embed-title {
       text-align: center;
       line-height: 2.8;
     }
 
     &:is(.markdown-embed, .file-embed) {
-      border-radius: var(--radius-xl);
+      border-radius: var(--radius-m);
       transition: var(--animation);
       margin-block: var(--size-4-1) !important;
       padding: 0;
       border: var(--block-outline-width) solid var(--accent-inactive);
+
+      &.mod-empty-attachment {
+        border-style: dotted;
+      }
 
       .markdown-preview-view {
         padding: calc(var(--font-text-size) * 1.2)
