@@ -156,6 +156,9 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
             color: var(--text-on-accent);
           }
         }
+        &-content {
+          padding-left: var(--size-2-1);
+        }
       }
 
       &-tag {
@@ -163,10 +166,6 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         margin-left: 0;
         margin-right: var(--size-4-2);
         line-height: 2;
-      }
-
-      &-content {
-        padding-left: var(--size-2-1);
       }
     }
   }
