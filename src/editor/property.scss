@@ -35,6 +35,9 @@
   [data-property-key='cssclasses'] {
     @include use-icon-override('.lucide-list', 'toggle-left');
   }
+  [data-property-key='markmap'] {
+    @include use-icon-override('.lucide-file-question', 'git-fork');
+  }
 }
 
 .metadata-properties-heading .collapse-indicator {
