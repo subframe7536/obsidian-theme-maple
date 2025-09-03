@@ -1,11 +1,24 @@
 @use '../utils.scss' as *;
+@use 'sass:meta';
+@use 'sass:list';
+
+@function create-selector($mark) {
+  $result: ();
+  @if meta.type-of($mark) != list {
+    $mark: ($mark);
+  }
+  @each $single-mark in $mark {
+    $l: "input[data-task='#{$single-mark}']",
+      "li[data-task='#{$single-mark}'] > input",
+      "li[data-task='#{$single-mark}'] > p > input";
+    $result: list.append($result, $l, 'comma');
+  }
+  @return $result;
+}
 
 @mixin create-symbol($mark, $icon-name, $color) {
-  :is(
-      input[data-task='#{$mark}'],
-      li[data-task='#{$mark}'] > input,
-      li[data-task='#{$mark}'] > p > input
-    ):checked {
+  $sel: create-selector($mark);
+  :is(#{$sel}):checked {
     --checkbox-color: #{$color};
     border: none;
     &::after {
@@ -16,11 +29,8 @@
 }
 
 @mixin create-symbol-override($mark, $icon-name, $color) {
-  :is(
-      input[data-task='#{$mark}'],
-      li[data-task='#{$mark}'] > input,
-      li[data-task='#{$mark}'] > p > input
-    ):checked {
+  $sel: create-selector($mark);
+  :is(#{$sel}):checked {
     --checkbox-marker-color: transparent;
     border: none;
     @include use-icon($icon-name, $color);
@@ -30,9 +40,23 @@
 @include use-no-plugin('.list-checkbox-alternative') {
   @include create-symbol('!', 'bi:exclamation-lg', var(--color-orange));
   @include create-symbol('?', 'bi:question-lg', var(--color-red));
+  @include create-symbol('+', 'bi:plus-lg', var(--color-pink));
   @include create-symbol-override('*', 'bi:star-fill', var(--color-yellow));
   @include create-symbol('i', 'bi:info-lg', var(--color-blue));
   @include create-symbol-override('/', 'bi:circle-half', var(--color-yellow));
+  @include create-symbol-override('a', 'bi:alarm-fill', var(--color-orange));
+  @include create-symbol-override('B', 'tb:bug', var(--color-red));
+  @include create-symbol-override(
+    '<',
+    'bi:calendar-plus-fill',
+    var(--color-blue)
+  );
+  @include create-symbol-override(
+    '>',
+    'tb:arrow-big-right-filled',
+    var(--color-cyan)
+  );
+  @include create-symbol('R', 'tb:letter-r', var(--color-blue));
   @include create-symbol('-', 'bi:dash', #666);
   [data-task='-'] {
     color: var(--text-faint);
@@ -41,18 +65,19 @@
   @include create-symbol-override('I', 'tb:bulb-filled', var(--color-yellow));
   @include create-symbol-override('l', 'tb:map-pin-filled', var(--color-red));
   @include create-symbol-override('b', 'bi:bookmark-fill', var(--color-blue));
-  @include create-symbol-override('n', 'tb:note', var(--color-cyan));
+  @include create-symbol-override(('n', 'N'), 'tb:note', var(--color-cyan));
   @include create-symbol-override(
-    'p',
+    ('P', 'p'),
     'tb:thumb-up-filled',
     var(--color-green)
   );
   @include create-symbol-override(
-    'c',
+    ('C', 'c'),
     'tb:thumb-down-filled',
-    var(--color-yellow)
+    var(--color-red)
   );
   @include create-symbol-override('“', 'bi:quote', var(--color-purple));
+  @include create-symbol-override('W', 'tb:trophy-filled', var(--color-yellow));
   @include create-symbol('S', 'bi:currency-dollar', var(--color-green));
   @include create-symbol-override('u', 'tb:trending-up', var(--color-green));
   @include create-symbol-override('d', 'tb:trending-down', var(--color-red));
