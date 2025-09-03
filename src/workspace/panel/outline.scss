@@ -5,17 +5,17 @@ body {
   /* 引导线粗细 */
   --outline-guideline-width: #{use-opt(outline-width, 2px)};
   /* 引导线颜色 */
-  --outline-guideline-color: #{use-opt(outline-color, var(--accent-inactive))};
+  --outline-guideline-color: #{use-opt(
+      outline-line-color,
+      var(--accent-inactive)
+    )};
   /* 引导线颜色 */
   --outline-guideline-color-alt: #{use-opt(
-      outline-color-alt,
+      outline-dot-color,
       var(--accent-active)
     )};
   /* 一行高度 */
-  --outline-item-height: #{use-opt(
-      outline-height,
-      calc(var(--nav-item-size) * 1.8)
-    )};
+  --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
 
 @include use-panel('outline') {

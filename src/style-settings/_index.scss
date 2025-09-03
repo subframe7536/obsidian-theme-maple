@@ -136,6 +136,12 @@ body:not(.search-internal-enable)
     [data-id='search-internal-expand-on-focus'],
     [data-id='search-internal-disable-select-all']
   ),
+body:not(.outline-enable)
+  .setting-item:is(
+    [data-id='setting-outline-width'],
+    [data-id='setting-outline-line-color'],
+    [data-id='setting-outline-dot-color']
+  ),
 body:not(.color-use-custom) .setting-item[data-id*='color-accent-'],
 body:not(.list-enable)
   .setting-item:is([data-id*='setting-list-'], [data-id='list-checkbox']),

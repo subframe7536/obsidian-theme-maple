@@ -95,16 +95,63 @@ export default Settings.create(
     ),
   Settings.ofLevel(1, {
     title: { en: 'Outline Panel', zh: '文档大纲' },
-  }).addClassToggle('outline-enable', {
-    title: {
-      en: 'Logseq Bullet Thread Style Outline',
-      zh: 'logseq bullet thread 样式的文档视图',
-    },
-    desc: {
-      en: '(NO LONGER MAINTAINED)Please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
-      zh: '（不再维护）启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
-    },
-  }),
+  })
+    .addClassToggle('outline-enable', {
+      title: {
+        en: 'Logseq Bullet Thread Style Outline',
+        zh: 'logseq bullet thread 样式的文档视图',
+      },
+      desc: {
+        en: 'Please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
+        zh: '启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
+      },
+    })
+    .addVarNumSlider(
+      'setting-outline-width',
+      {
+        title: {
+          en: 'Guide Line Width',
+          zh: '引导线宽度',
+        },
+      },
+      {
+        default: 2,
+        min: 1,
+        max: 4,
+        step: 0.5,
+        format: 'px',
+      },
+    )
+    .addVarThemedColor(
+      'setting-outline-line-color',
+      {
+        title: {
+          en: 'Guide Line Color',
+          zh: '引导线颜色',
+        },
+      },
+      {
+        defaultLight: '#',
+        defaultDark: '#',
+        format: 'hsl',
+        opacity: true,
+      },
+    )
+    .addVarThemedColor(
+      'setting-outline-dot-color',
+      {
+        title: {
+          en: 'Guide Dot Color',
+          zh: '引导点的颜色',
+        },
+      },
+      {
+        defaultDark: '#',
+        defaultLight: '#',
+        format: 'hsl',
+        opacity: true,
+      },
+    ),
   Settings.ofLevel(1, { title: { en: 'Status Bar', zh: '状态栏' } })
     .addClassToggle(
       'status-bar-enable',
