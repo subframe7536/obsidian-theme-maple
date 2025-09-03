@@ -118,7 +118,7 @@
   @include var-color('green', hsl(130, 48%, 76%));
   @include var-color('cyan', hsl(178, 60%, 77%));
   @include var-color('blue', hsl(210, 100%, 78%));
-  @include var-color('purple', hsl(247, 100%, 90%));
+  @include var-color('purple', hsl(247, 96%, 88%));
 
   --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-hsl: var(--accent-h), 5%, 5%;
