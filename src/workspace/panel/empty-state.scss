@@ -1,12 +1,12 @@
 @use '../../utils.scss' as *;
 
-@mixin prepend-icon($idx, $name) {
-  :nth-child(#{$idx})::before {
+@mixin prepend-icon($selector, $name) {
+  #{$selector}::before {
     content: '';
     display: inline-block;
-    margin-inline-end: var(--size-4-1);
+    margin-inline-end: var(--size-4-3);
     translate: 0 var(--size-4-1);
-    @include use-icon($name, var(--text-normal), var(--size-4-5));
+    @include use-icon($name, var(--accent-active), var(--size-4-5));
   }
 }
 .empty-state-action-list {
@@ -18,17 +18,19 @@
   &::before {
     content: '';
     position: absolute;
-    background: icon('obsidian-icon') no-repeat;
+    @include use-icon(
+      'obsidian-icon',
+      var(--accent-inactive),
+      calc(2 * var(--size-4-12))
+    );
     margin-inline-start: 50%;
     translate: -50%;
-    width: var(--size-4-18);
-    height: var(--size-4-18);
-    top: calc(-1 * var(--size-4-18) - var(--size-4-8));
+    top: calc(-2 * var(--size-4-12) - var(--size-4-8));
   }
 
-  @include prepend-icon(1, 'square-pen');
-  @include prepend-icon(2, 'forward');
-  @include prepend-icon(3, 'search');
-  @include prepend-icon(4, 'globe');
-  @include prepend-icon(5, 'x');
+  @include prepend-icon(':nth-child(1)', 'square-pen');
+  @include prepend-icon(':nth-child(2)', 'forward');
+  @include prepend-icon(':nth-child(3)', 'search');
+  @include prepend-icon(':nth-child(4)', 'globe');
+  @include prepend-icon('.mod-close', 'x');
 }
