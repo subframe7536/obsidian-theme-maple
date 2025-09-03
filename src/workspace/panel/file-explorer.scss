@@ -20,7 +20,7 @@ svg.lucide-layout-dashboard rect {
       position: absolute;
       opacity: 0.8;
       flex-shrink: 0;
-      translate: calc(-1 * var(--size-4-5)) 25%;
+      translate: calc(var(--size-2-1) - var(--size-4-5)) 25%;
       @include use-icon('file-text', var(--accent-active), var(--size-4-4));
     }
     @each $i in $file-icon {
@@ -103,7 +103,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         cursor: pointer;
 
         &-content {
-          padding-left: var(--size-2-1);
+          padding-left: var(--size-4-1);
         }
       }
 
@@ -115,9 +115,16 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         }
       }
 
-      .collapse-icon svg.svg-icon {
-        display: inline-block;
-        @include use-icon('folder-open', var(--folder-color), var(--size-4-4));
+      .collapse-icon {
+        margin-inline-start: calc(var(--size-2-1) - var(--size-4-5));
+        svg.svg-icon {
+          display: inline-block;
+          @include use-icon(
+            'folder-open',
+            var(--folder-color),
+            var(--size-4-4)
+          );
+        }
       }
 
       &.is-collapsed .collapse-icon svg.svg-icon {
@@ -157,7 +164,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
           }
         }
         &-content {
-          padding-left: var(--size-2-1);
+          padding-left: var(--size-4-1);
         }
       }
 
