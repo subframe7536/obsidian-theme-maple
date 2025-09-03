@@ -216,7 +216,7 @@ body .markdown-rendered pre {
 
       code[class*='language-']::before {
         content: 'unkown language';
-        font-family: var(--font-text);
+        font-family: var(--font-mono);
         color: var(--setting-code-language-color, var(--inline-code));
         font-weight: bold;
         position: absolute;
@@ -253,8 +253,10 @@ body .markdown-rendered pre {
 
 .markdown-source-view.mod-cm6 .code-block-flair {
   padding-block: 0;
-  color: var(--color-red);
+  color: var(--inline-code);
   transition: var(--animation);
+  font-family: var(--font-mono);
+  font-weight: bold;
 
   &:hover {
     background-color: var(--nav-item-background-hover);
