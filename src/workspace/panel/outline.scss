@@ -47,7 +47,7 @@ body.outline-enable {
 
         // fix item gap
         .tree-item-inner {
-          padding-left: var(--size-2-3);
+          padding-left: var(--size-4-1);
 
           &::before {
             $size: calc(var(--size-4-1) * 1.2);

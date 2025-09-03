@@ -8,7 +8,7 @@ import { getIconUrl } from './icon'
 function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
-export function compileCss(src: string) {
+export function compileCss(src: string, prepend?: string) {
   try {
     const { css } = compile(src, {
       sourceMap: false,
@@ -33,7 +33,7 @@ export function compileCss(src: string) {
       },
       charset: false,
     })
-    return css
+    return prepend ? prepend + '\n' + css : css
   } catch (err) {
     console.error(err)
     return err instanceof Error ? err.message : 'Unknown Error'
@@ -41,7 +41,7 @@ export function compileCss(src: string) {
 }
 
 function build(src: string, out: string) {
-  writeFileSync(out, settings + '\n' + compileCss(src), 'utf-8')
+  writeFileSync(out, compileCss(src, settings), 'utf-8')
 }
 
 function test(src: string) {
@@ -50,9 +50,9 @@ function test(src: string) {
 }
 
 async function dev(src: string, out: string) {
-  const settings =
+  const latestSettings =
     await Bun.$`bun ${process.cwd()}/src/style-settings/index.ts`.text()
-  writeFileSync(out, settings + '\n' + compileCss(src), 'utf-8')
+  writeFileSync(out, compileCss(src, latestSettings), 'utf-8')
   console.log('File Updated')
 }
 
