@@ -21,6 +21,7 @@
   --code-normal: var(--code-preview-base);
   --code-bg-radius: var(--radius-m);
   --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
+  --code-border-width: 1px;
 }
 
 @include use-print('.theme-light') {
