@@ -142,18 +142,24 @@ body.tab-title-bar-round {
 
 /* 切换标签动画，参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
 
-:is(
-    .workspace-split
-      .workspace-tabs:not(.mod-stacked)
-      .workspace-leaf-content:not([data-type='pdf']):not([data-type='markdown'])
-      .view-content,
-    .workspace-leaf-content:not(:has(.view-content))
-  ) {
-  animation: slide-up var(--animation) forwards;
-}
+body:not(.is-mobile):not(.is-tablet) {
+  :is(
+      .workspace-split
+        .workspace-tabs:not(.mod-stacked)
+        .workspace-leaf-content:not([data-type='pdf']):not(
+          [data-type='markdown']
+        )
+        .view-content,
+      .workspace-leaf-content:not(:has(.view-content))
+    ) {
+    animation: slide-up var(--animation) forwards;
+  }
 
-body.tab-slide-up .workspace-leaf-content[data-type='markdown'] .view-content {
-  animation: slide-up var(--animation) forwards;
+  &.tab-slide-up {
+    @include use-panel('markdown', '.view-content') {
+      animation: slide-up var(--animation) forwards;
+    }
+  }
 }
 
 @keyframes slide-up {

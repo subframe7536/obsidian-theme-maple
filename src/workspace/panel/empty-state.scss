@@ -9,6 +9,7 @@
     @include use-icon($name, var(--accent-active), var(--size-4-5));
   }
 }
+
 .empty-state-action-list {
   display: flex;
   flex-direction: column;
@@ -33,4 +34,9 @@
   @include prepend-icon(':nth-child(3)', 'search');
   @include prepend-icon(':nth-child(4)', 'globe');
   @include prepend-icon('.mod-close', 'x');
+
+  .empty-state-action {
+    width: 100%;
+    text-align: start;
+  }
 }
