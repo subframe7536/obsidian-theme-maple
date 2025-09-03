@@ -6,10 +6,8 @@
 }
 
 @mixin use-no-plugin($selector, $suffix: '') {
-  body:is(
-      :not(.css-settings-manager),
-      #{string.unquote($selector)}
-    )#{string.unquote($suffix)} {
+  // prettier-ignore
+  body:is(:not(.css-settings-manager),#{string.unquote($selector)})#{string.unquote($suffix)} {
     @content;
   }
 }
