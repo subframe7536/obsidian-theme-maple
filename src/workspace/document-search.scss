@@ -2,6 +2,13 @@
   background-color: var(--background-secondary);
 }
 
+.search-suggest-item.mod-group {
+  color: var(--accent-active);
+  &:not(:first-child) {
+    padding-inline-start: var(--size-4-2);
+  }
+}
+
 body.search-internal-enable .document-search-container {
   background-color: hsl(var(--background-secondary-hsl)) !important;
   position: absolute;
