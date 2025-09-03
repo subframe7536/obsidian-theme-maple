@@ -1,0 +1,34 @@
+@use '../../utils.scss' as *;
+
+@mixin prepend-icon($idx, $name) {
+  :nth-child(#{$idx})::before {
+    content: '';
+    display: inline-block;
+    margin-inline-end: var(--size-4-1);
+    translate: 0 var(--size-4-1);
+    @include use-icon($name, var(--text-normal), var(--size-4-5));
+  }
+}
+.empty-state-action-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: icon('obsidian-icon') no-repeat;
+    margin-inline-start: 50%;
+    translate: -50%;
+    width: var(--size-4-18);
+    height: var(--size-4-18);
+    top: calc(-1 * var(--size-4-18) - var(--size-4-8));
+  }
+
+  @include prepend-icon(1, 'square-pen');
+  @include prepend-icon(2, 'forward');
+  @include prepend-icon(3, 'search');
+  @include prepend-icon(4, 'globe');
+  @include prepend-icon(5, 'x');
+}

@@ -24,7 +24,7 @@ export function compileCss(src: string, prepend?: string) {
             throw new Error('style must be regular or italic')
           }
           const source = readFileSync(
-            `fonts/MapleMono-${style}.woff2`,
+            `resource/font/MapleMono-${style}.woff2`,
           ).toBase64()
           return new SassString(`url("data:font/woff2;base64,${source}")`, {
             quotes: false,
