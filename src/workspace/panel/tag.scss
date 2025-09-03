@@ -1,6 +1,6 @@
 @use '../../utils.scss' as *;
 
-@include use-panel(tag) {
+@include use-panel('tag') {
   .tree-item-self {
     &::before {
       line-height: var(--line-height-tight);

@@ -97,12 +97,12 @@ export default Settings.create(
     title: { en: 'Outline Panel', zh: '文档大纲' },
   }).addClassToggle('outline-enable', {
     title: {
-      en: '(DEPRECATED) Logseq Bullet Thread Style Outline',
-      zh: '（弃用）logseq bullet thread 样式的文档视图',
+      en: 'Logseq Bullet Thread Style Outline',
+      zh: 'logseq bullet thread 样式的文档视图',
     },
     desc: {
-      en: 'Please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
-      zh: '启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
+      en: '(NO LONGER MAINTAINED)Please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
+      zh: '（不再维护）启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
     },
   }),
   Settings.ofLevel(1, { title: { en: 'Status Bar', zh: '状态栏' } })
