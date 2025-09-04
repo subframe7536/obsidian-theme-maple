@@ -33,6 +33,27 @@
   --nav-item-background-hover: var(--background-modifier-hover);
   --nav-item-background-active: var(--accent-active);
   --nav-item-background-selected: var(--frame-outline-color);
+
+  --alt-light-accent-active: hsl(
+    calc(var(--accent-h) + 60),
+    calc(var(--accent-s) - 12%),
+    calc(var(--accent-l) + 4%)
+  );
+  --alt-light-accent-inactive: hsl(
+    calc(var(--accent-h) + 60),
+    calc(var(--accent-s) - 12%),
+    calc(var(--accent-l) + 20%)
+  );
+  --alt-dark-accent-active: hsl(
+    calc(var(--accent-h) + 60),
+    calc(var(--accent-s) - 12%),
+    calc(var(--accent-l) - 12%)
+  );
+  --alt-dark-accent-inactive: hsl(
+    calc(var(--accent-h) + 60),
+    calc(var(--accent-s) - 12%),
+    calc(var(--accent-l) - 28%)
+  );
 }
 
 @include use-print('body.obsidian-app') {
@@ -138,8 +159,8 @@
   );
   --accent-inactive: hsl(
     var(--accent-h),
-    calc(var(--accent-s) + 24%),
-    calc(var(--accent-l) - 32%)
+    calc(var(--accent-s) - 4%),
+    calc(var(--accent-l) - 40%)
   );
   --frame-background-color: hsl(var(--accent-h), 12%, 16%);
   --frame-outline-color: hsl(
@@ -161,50 +182,31 @@
   --color-opacity: 0.85;
 }
 
-@mixin setup-custom(
-  $theme,
-  $active-h,
-  $active-s,
-  $active-l,
-  $inactive-h,
-  $inactive-s,
-  $inactive-l
-) {
-  @include use-print(
-    '.theme-#{$theme}.color-use-custom.color-active-alt-#{$theme}'
-  ) {
-    --accent-active: hsl(
-      calc(var(--accent-h) + #{$active-h}),
-      calc(var(--accent-s) + #{$active-s}),
-      calc(var(--accent-l) + #{$active-l})
-    );
-    --accent-inactive: hsl(
-      calc(var(--accent-h) + #{$inactive-h}),
-      calc(var(--accent-s) + #{$inactive-s}),
-      calc(var(--accent-l) + #{$inactive-l})
-    );
-  }
-  @include use-print(
-    '.theme-#{$theme}.color-use-custom.color-active-custom-#{$theme}'
-  ) {
-    --accent-active: var(
-      --setting-color-active-custom-#{$theme},
-      hsl(
-        calc(var(--accent-h) + #{$active-h}),
-        calc(var(--accent-s) + #{$active-s}),
-        calc(var(--accent-l) + #{$active-l})
-      )
-    );
-    --accent-inactive: var(
-      --setting-color-inactive-custom-#{$theme},
-      hsl(
-        calc(var(--accent-h) + #{$inactive-h}),
-        calc(var(--accent-s) + #{$inactive-s}),
-        calc(var(--accent-l) + #{$inactive-l})
-      )
-    );
-  }
+@include use-print('.theme-light.color-use-custom.color-active-alt-light') {
+  --accent-active: var(--alt-light-accent-active);
+  --accent-inactive: var(--alt-light-accent-inactive);
 }
-
-@include setup-custom('light', 60, -12%, 4%, 60, -12%, 20%);
-@include setup-custom('dark', 60, -12%, -12%, 60, -12%, -28%);
+@include use-print('.theme-light.color-use-custom.color-active-custom-light') {
+  --accent-active: var(
+    --setting-color-active-custom-light,
+    var(--alt-light-accent-active)
+  );
+  --accent-inactive: var(
+    --setting-color-inactive-custom-light,
+    var(--alt-light-accent-inactive)
+  );
+}
+@include use-print('.theme-dark.color-use-custom.color-active-alt-dark') {
+  --accent-active: var(--alt-dark-accent-active);
+  --accent-inactive: var(--alt-dark-accent-inactive);
+}
+@include use-print('.theme-dark.color-use-custom.color-active-custom-dark') {
+  --accent-active: var(
+    --setting-color-active-custom-dark,
+    var(--alt-dark-accent-active)
+  );
+  --accent-inactive: var(
+    --setting-color-inactive-custom-dark,
+    var(--alt-dark-accent-inactive)
+  );
+}

@@ -180,8 +180,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 
 /* 参考 https://github.com/Akifyss/obsidian-border */
 :is(
-    body.explorer-nav-decoration .nav-file-title,
-    body.enable-nav-decoration .vertical-tab-nav-item
+    body:not(.is-mobile).explorer-nav-decoration .nav-file-title,
+    body:not(.is-mobile).enable-nav-decoration .vertical-tab-nav-item
   ) {
   position: relative;
 
