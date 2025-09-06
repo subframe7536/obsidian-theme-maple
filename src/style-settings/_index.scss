@@ -1,3 +1,33 @@
+html[lang='zh'] {
+  --system-accent-override-text: '由 Style Settings 插件控制';
+}
+.color-use-custom {
+  .mod-settings
+    .vertical-tab-content-container
+    > .vertical-tab-content
+    > .setting-item:nth-child(2)
+    > .setting-item-control:has(> input[type='color']) {
+    position: relative;
+    :is(div, input) {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    &::before {
+      content: var(
+        --system-accent-override-text,
+        'Controlled by Style Settings Plugin'
+      );
+      font-family: var(--font-interface);
+      font-size: var(--font-ui-smaller);
+      position: absolute;
+      width: max-content;
+      top: 50%;
+      translate: 0 -50%;
+      pointer-events: none;
+    }
+  }
+}
+
 .mod-settings
   .vertical-tab-content
   > .setting-item:nth-child(2)
