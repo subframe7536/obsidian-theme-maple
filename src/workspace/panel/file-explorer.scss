@@ -178,30 +178,6 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   }
 }
 
-/* 参考 https://github.com/Akifyss/obsidian-border */
-:is(
-    body:not(.is-mobile).explorer-nav-decoration .nav-file-title,
-    body:not(.is-mobile).enable-nav-decoration .vertical-tab-nav-item
-  ) {
-  position: relative;
-
-  &.is-active::after {
-    height: calc(100% - var(--size-4-2));
-    transform: translateY(-50%);
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    right: 4px;
-    top: 50%;
-    width: var(--size-4-1);
-    height: 0%;
-    border-radius: var(--radius-s);
-    background: var(--accent-inactive);
-  }
-}
-
 body.explorer-title-wrap
   :is(.nav-file-title-content, .nav-folder-title-content) {
   overflow: visible;
