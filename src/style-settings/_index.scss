@@ -144,7 +144,13 @@ body:not(.outline-enable)
   ),
 body:not(.color-use-custom) .setting-item[data-id*='color-accent-'],
 body:not(.list-enable)
-  .setting-item:is([data-id*='setting-list-'], [data-id='list-checkbox']),
+  .setting-item:is(
+    [data-id*='setting-list-'],
+    [data-id='list-checkbox'],
+    [data-id='list-bullet-thread-style']
+  ),
+body:not(.list-bullet-thread-style)
+  .setting-item[data-id='setting-list-guide-color'],
 body:not(.code-language) .setting-item[data-id='setting-code-language-color'],
 body:not(.code-preview-bg) .setting-item[data-id='setting-code-bg-outer'],
 body:not(.modal-header) .setting-item[data-id='setting-modal-header-title'],

@@ -811,7 +811,10 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           en: 'Logseq Bullet Thread Style List',
           zh: 'logseq bullet thread 样式的列表',
         },
-        desc: { en: '❗WIP', zh: '❗待完成' },
+        desc: {
+          en: 'Reference from https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1. No support for task list and numbered list',
+          zh: '参考自 https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1，不支持任务列表和序号列表',
+        },
       },
       { enable: true },
     )
@@ -831,6 +834,18 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
       'setting-list-marker-alt',
       {
         title: { en: 'List Marker Alt Color', zh: '列表标号颜色 2' },
+      },
+      {
+        format: 'hex',
+        opacity: false,
+        defaultLight: '#',
+        defaultDark: '#',
+      },
+    )
+    .addVarThemedColor(
+      'setting-list-guide-color',
+      {
+        title: { en: 'List Guide Line Color', zh: '列表引导线颜色' },
       },
       {
         format: 'hex',

@@ -43,6 +43,7 @@ function flatten(items: Settings[]) {
 type Translate = {
   en: string
   zh: string
+  [x: string]: string
 }
 type Doc = {
   title: Translate
