@@ -3,7 +3,7 @@ import { stringify } from 'yaml'
 function kebabCase(str: string): string {
   return str
     .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/[^a-zA-Z0-9\.]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .toLowerCase()
 }
