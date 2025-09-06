@@ -42,24 +42,30 @@ body.list-enable.list-bullet-thread-style {
     );
 
     .HyperMD-list-line-#{$current-level}:not(
-        :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line:hover)
-      ):has(~ :is(#{$levels-up-for-current}):hover),
+        :has(
+            ~ .HyperMD-list-line-#{$current-level}
+              ~ .HyperMD-list-line.cm-active
+          )
+      ):has(~ :is(#{$levels-up-for-current}).cm-active),
     .HyperMD-list-line-#{$current-level}:not(
-        :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line:hover)
+        :has(
+            ~ .HyperMD-list-line-#{$current-level}
+              ~ .HyperMD-list-line.cm-active
+          )
       )
       ~ .HyperMD-list-line:has(
-        ~ .HyperMD-list-line-#{$next-level}:hover#{if(
+        ~ .HyperMD-list-line-#{$next-level}.cm-active#{if(
             $levels-down-for-next != (),
-            ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$levels-down-for-next}):hover',
+            ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$levels-down-for-next}).cm-active',
             ''
           )}
       ),
     .HyperMD-list-line-#{$next-level}:not(
-        :has(~ .HyperMD-list-line-#{$next-level} ~ .HyperMD-list-line:hover)
+        :has(~ .HyperMD-list-line-#{$next-level} ~ .HyperMD-list-line.cm-active)
       ):is(
-        :hover#{if(
+        .cm-active#{if(
             $levels-for-target != (),
-            ', :has(~ :is(#{$levels-for-target}):hover)',
+            ', :has(~ :is(#{$levels-for-target}).cm-active)',
             ''
           )}
       )
@@ -90,8 +96,11 @@ body.list-enable.list-bullet-thread-style {
     );
 
     .HyperMD-list-line-#{$current-level}:not(
-        :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line:hover)
-      )#{$exclude-selector}:has(~ :is(#{$hover-levels}):hover) {
+        :has(
+            ~ .HyperMD-list-line-#{$current-level}
+              ~ .HyperMD-list-line.cm-active
+          )
+      )#{$exclude-selector}:has(~ :is(#{$hover-levels}).cm-active) {
       &::after {
         content: '';
         position: absolute;
@@ -118,12 +127,15 @@ body.list-enable.list-bullet-thread-style {
     );
 
     .HyperMD-list-line-#{$current-level}:not(
-        :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line:hover)
+        :has(
+            ~ .HyperMD-list-line-#{$current-level}
+              ~ .HyperMD-list-line.cm-active
+          )
       )#{$exclude-selector}
       ~ .HyperMD-list-line:has(
-        ~ .HyperMD-list-line-#{$next-level}:hover#{if(
+        ~ .HyperMD-list-line-#{$next-level}.cm-active#{if(
             $levels-down-for-next != (),
-            ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$levels-down-for-next}):hover',
+            ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$levels-down-for-next}).cm-active',
             ''
           )}
       ) {
@@ -142,17 +154,20 @@ body.list-enable.list-bullet-thread-style {
   // Elbows
   @for $i from 2 through $supported-level {
     $current-level: $i;
-    $hover-levels-for-target: generate-line-selector-list(
+    $levels-for-target: generate-line-selector-list(
       $current-level + 1,
       $supported-level
     );
 
     .HyperMD-list-line-#{$current-level}:not(
-        :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line:hover)
+        :has(
+            ~ .HyperMD-list-line-#{$current-level}
+              ~ .HyperMD-list-line.cm-active
+          )
       )#{$exclude-selector}:is(
-        :hover#{if(
-            $hover-levels-for-target != (),
-            ', :has(~ :is(#{$hover-levels-for-target}):hover)',
+        .cm-active#{if(
+            $levels-for-target != (),
+            ', :has(~ :is(#{$levels-for-target}).cm-active)',
             ''
           )}
       ) {
