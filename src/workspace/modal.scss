@@ -19,10 +19,7 @@ body:not(.is-mobile)
   &::before {
     content: ' ' !important;
     display: block;
-    height: var(--size-4-6);
-    width: var(--size-4-6);
-    background-color: currentColor;
-    -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M17.25 17.25 6.75 6.75m10.5 0-10.5 10.5'/%3e%3c/svg%3e");
+    @include use-icon('x', var(--text-normal), var(--size-4-6));
   }
 
   &:hover {
