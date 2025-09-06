@@ -18,7 +18,10 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
 
 body.list-enable.list-bullet-thread-style {
   --list-threading-width: var(--size-2-1);
-  --list-threading-color: var(--setting-list-guide-color, var(--accent-active));
+  --list-threading-color: var(
+    --setting-list-guide-color,
+    var(--accent-inactive)
+  );
   .list-bullet::after {
     --list-bullet-radius: 50%;
     --list-bullet-border: 0;
@@ -110,7 +113,13 @@ body.list-enable.list-bullet-thread-style {
         bottom: 0;
         width: var(--list-threading-width);
         background-color: var(--list-threading-color);
-        height: calc(100% - var(--size-4-4));
+        height: calc(
+          100% -
+            var(--line-height-normal) *
+            var(--font-text-size) +
+            var(--list-bullet-size) +
+            var(--size-2-1)
+        );
 
         &:is(.HyperMD-task-line) {
           max-height: calc(100% - 1.3em);
@@ -190,8 +199,8 @@ body.list-enable.list-bullet-thread-style {
           var(--line-height-normal) *
             var(--font-text-size) /
             2 +
-            var(--list-threading-width) /
-            2
+            var(--list-bullet-size) /
+            8
         );
       }
     }
