@@ -5,10 +5,11 @@ import { compile, SassString } from 'sass'
 import settings from '../src/style-settings/index'
 import { watch } from 'chokidar'
 import { getIconUrl } from './icon'
+import { styleText } from 'util'
 function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
-export function compileCss(src: string, prepend?: string) {
+export function compileCss(output: string, src: string, prepend?: string) {
   try {
     const { css } = compile(src, {
       sourceMap: false,
@@ -33,27 +34,29 @@ export function compileCss(src: string, prepend?: string) {
       },
       charset: false,
     })
-    return prepend ? prepend + '\n' + css : css
+    writeFileSync(output, prepend ? prepend + '\n' + css : css, 'utf-8')
+    console.log(
+      styleText('gray', new Date().toLocaleTimeString(['zh'])),
+      styleText('greenBright', 'Compile to ' + output),
+    )
   } catch (err) {
     console.error(err)
-    return err instanceof Error ? err.message : 'Unknown Error'
   }
 }
 
 function build(src: string, out: string) {
-  writeFileSync(out, compileCss(src, settings), 'utf-8')
+  compileCss(out, src, settings)
 }
 
 function test(src: string) {
   const p = parse(src)
-  writeFileSync(p.dir + '/' + p.name + '.css', compileCss(src), 'utf-8')
+  compileCss(p.dir + '/' + p.name + '.css', src)
 }
 
 async function dev(src: string, out: string) {
   const latestSettings =
     await Bun.$`bun ${process.cwd()}/src/style-settings/index.ts`.text()
-  writeFileSync(out, compileCss(src, latestSettings), 'utf-8')
-  console.log('File Updated')
+  compileCss(out, src, latestSettings)
 }
 
 function setup(baseDir: string) {
