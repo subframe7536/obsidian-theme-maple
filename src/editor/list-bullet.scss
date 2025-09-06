@@ -28,29 +28,29 @@ body.list-enable.list-bullet-thread-style {
     $current-level: $i;
     $next-level: $i + 1;
 
-    $hover-levels-up-for-current: generate-line-selector-list(
+    $levels-up-for-current: generate-line-selector-list(
       $next-level,
       $supported-level
     );
-    $hover-levels-down-for-next: generate-line-selector-list(
+    $levels-down-for-next: generate-line-selector-list(
       $next-level + 1,
       $supported-level
     );
-    $hover-levels-for-target: generate-line-selector-list(
+    $levels-for-target: generate-line-selector-list(
       $next-level + 1,
       $supported-level
     );
 
     .HyperMD-list-line-#{$current-level}:not(
         :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line:hover)
-      ):has(~ :is(#{$hover-levels-up-for-current}):hover),
+      ):has(~ :is(#{$levels-up-for-current}):hover),
     .HyperMD-list-line-#{$current-level}:not(
         :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line:hover)
       )
       ~ .HyperMD-list-line:has(
         ~ .HyperMD-list-line-#{$next-level}:hover#{if(
-            $hover-levels-down-for-next != (),
-            ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$hover-levels-down-for-next}):hover',
+            $levels-down-for-next != (),
+            ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$levels-down-for-next}):hover',
             ''
           )}
       ),
@@ -58,8 +58,8 @@ body.list-enable.list-bullet-thread-style {
         :has(~ .HyperMD-list-line-#{$next-level} ~ .HyperMD-list-line:hover)
       ):is(
         :hover#{if(
-            $hover-levels-for-target != (),
-            ', :has(~ :is(#{$hover-levels-for-target}):hover)',
+            $levels-for-target != (),
+            ', :has(~ :is(#{$levels-for-target}):hover)',
             ''
           )}
       )
@@ -112,7 +112,7 @@ body.list-enable.list-bullet-thread-style {
   @for $i from 1 through $supported-level - 1 {
     $current-level: $i;
     $next-level: $i + 1;
-    $hover-levels-down-for-next: generate-line-selector-list(
+    $levels-down-for-next: generate-line-selector-list(
       $next-level + 1,
       $supported-level
     );
@@ -122,8 +122,8 @@ body.list-enable.list-bullet-thread-style {
       )#{$exclude-selector}
       ~ .HyperMD-list-line:has(
         ~ .HyperMD-list-line-#{$next-level}:hover#{if(
-            $hover-levels-down-for-next != (),
-            ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$hover-levels-down-for-next}):hover',
+            $levels-down-for-next != (),
+            ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$levels-down-for-next}):hover',
             ''
           )}
       ) {
