@@ -155,7 +155,7 @@ body:not(.is-mobile):not(.is-tablet) {
     animation: slide-up var(--animation) forwards;
   }
 
-  &.tab-slide-up {
+  &.tab-editor-slide-up {
     @include use-panel('markdown', '.view-content') {
       animation: slide-up var(--animation) forwards;
     }

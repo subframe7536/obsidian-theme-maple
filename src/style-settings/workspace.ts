@@ -204,20 +204,16 @@ export default Settings.create(
         zh: '浮动的标签页（和 Firefox / Microsoft Edge 类似）',
       },
     })
-    .addClassToggle(
-      'tab-slide-up',
-      {
-        title: {
-          en: 'Also Apply Tab Slide Up Animation In Editor',
-          zh: '标签页切换动画也作用于编辑器中',
-        },
-        desc: {
-          en: '❗will prevent outline panel update instantly on switch articles',
-          zh: '❗会导致切换文章时无法立即更新大纲面板',
-        },
+    .addClassToggle('tab-editor-slide-up', {
+      title: {
+        en: 'Enable Tab Slide Up Animation In Text Editor',
+        zh: '在文本编辑器中启用标签页切换动画',
       },
-      { enable: true },
-    )
+      desc: {
+        en: '❗Turning on will prevent outline panel updating instantly while switching tabs',
+        zh: '❗开启后会导致切换标签页时无法立即更新大纲面板',
+      },
+    })
     .addClassToggle('labeled-nav', {
       title: {
         en: 'Text Labels For Primary Navigation',
