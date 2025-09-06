@@ -357,7 +357,7 @@ a :is(em, strong) {
 input[type='checkbox'] {
   transition: var(--animation);
 
-  &:checked::after {
+  .task-list-label &:checked::after {
     -webkit-mask-position: 40% 45%;
   }
 }
