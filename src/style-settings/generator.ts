@@ -105,14 +105,16 @@ function flattenDoc(doc: Doc) {
  */
 export class Settings {
   public items: any[]
-  private constructor(public level: number, public doc: Doc) {
-    const id = doc.title.en
-      .split(' ')
-      .map((s) => s.toLowerCase())
-      .join('-')
+  private constructor(public level: number, public doc: Doc, id?: string) {
+    id ??=
+      'title' +
+      doc.title.en
+        .split(' ')
+        .map((s) => s.toLowerCase())
+        .join('-')
     this.items = [
       {
-        id: `title-${id}`,
+        id,
         ...flattenDoc(doc),
         type: 'heading',
         level,
@@ -136,8 +138,8 @@ export class Settings {
       },
     }
   }
-  static ofLevel(level: number, doc: Doc) {
-    return new Settings(level, doc)
+  static ofLevel(level: number, doc: Doc & { id?: string }) {
+    return new Settings(level, doc, doc.id)
   }
 
   children(items: Settings[]) {

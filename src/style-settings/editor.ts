@@ -812,8 +812,8 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
           zh: 'logseq bullet thread 样式的列表',
         },
         desc: {
-          en: 'Reference from https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1. No support for task list and numbered list',
-          zh: '参考自 https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1，不支持任务列表和序号列表',
+          en: 'No support for task list and numbered list. Reference from https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1.',
+          zh: '不支持任务列表和序号列表，参考自 https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1',
         },
       },
       { enable: true },
@@ -1077,6 +1077,7 @@ export default Settings.create('maple-editor', '✏️ Maple Editor').children([
     )
     .children([
       Settings.ofLevel(2, {
+        id: 'tag-outline-setting',
         title: { en: 'Outline Style Setting', zh: '边框模式设置' },
       })
         .addVarThemedColor(

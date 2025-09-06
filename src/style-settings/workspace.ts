@@ -102,8 +102,8 @@ export default Settings.create(
         zh: 'logseq bullet thread 样式的文档视图',
       },
       desc: {
-        en: 'Please reload Obsidian after enable it, reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
-        zh: '启用后请重启应用 参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
+        en: 'Please reload Obsidian after enable it. Reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
+        zh: '启用后请重启应用。参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
       },
     })
     .addVarNumSlider(
