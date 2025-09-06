@@ -152,42 +152,13 @@ body:not(.is-mobile):not(.is-tablet) {
         .view-content,
       .workspace-leaf-content:not(:has(.view-content))
     ) {
-    animation: slide-up var(--animation) forwards;
+    animation: use-animation('slide-up');
   }
 
   &.tab-editor-slide-up {
     @include use-panel('markdown', '.view-content') {
-      animation: slide-up var(--animation) forwards;
+      animation: use-animation('slide-up');
     }
-  }
-}
-
-@keyframes slide-up {
-  0% {
-    transform: translateY(0%);
-    opacity: 0;
-  }
-
-  15% {
-    transform: translateY(1px);
-    opacity: 0;
-  }
-
-  25% {
-    transform: translateY(2px);
-  }
-
-  45% {
-    opacity: 0.5;
-  }
-
-  65% {
-    opacity: 0.7;
-  }
-
-  100% {
-    transform: translateY(0%);
-    opacity: 1;
   }
 }
 

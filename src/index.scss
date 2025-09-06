@@ -10,6 +10,10 @@
 @use './variable.scss';
 /* #endregion global variables */
 
+/* #region animation */
+@use './animation.scss';
+/* #endregion animation */
+
 /* #region [editor] */
 @use './editor';
 /* #endregion [editor] */

@@ -58,3 +58,13 @@
     }
   }
 }
+
+@function use-animation($name) {
+  @if $name == 'op' {
+    @return op var(--animation);
+  }
+  @if $name == 'slide-up' {
+    @return slide-up var(--animation);
+  }
+  @error "No such animation" + $name;
+}

@@ -1,7 +1,12 @@
+@use '../utils.scss' as *;
 //<div class="tooltip">
 //  content
 //  <div class="tooltip-arrow"></div>
 //</div>
+.tooltip {
+  animation: use-animation('op') !important;
+}
+
 body.message-tooltip-hide .tooltip {
   display: none;
 }
@@ -35,8 +40,4 @@ body.message-modify {
       --background-modifier-message: hsl(var(--setting-message-bg, #{$rgb}));
     }
   }
-}
-
-body.message-tooltip-hide-arrow .tooltip-arrow {
-  display: none;
 }

@@ -423,29 +423,11 @@ body.enable-group-title
     .document-search-container,
     .suggestion-container
   ) {
-  animation: op var(--animation);
+  animation: use-animation('op');
 }
 
 body.modal-animation :is(.prompt, .popover, .modal) {
-  animation: op var(--animation), slide-up var(--animation);
-}
-
-@keyframes op {
-  0% {
-    opacity: 0;
-  }
-
-  30% {
-    opacity: 0.7;
-  }
-
-  70% {
-    opacity: 0.95;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  animation: use-animation('op'), use-animation('slide-up');
 }
 
 :is(
