@@ -185,16 +185,27 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     }),
   Settings.ofLevel(1, {
     title: { en: 'Document Search / Replace Panel', zh: '文档内搜索框' },
-  }).addClassToggle(
-    'search-internal-enable',
-    {
-      title: {
-        en: 'Minimal Document Search / Replace Panel (Like VSCode)',
-        zh: '精简的文档内搜索框（和 VSCode 类似）',
+  })
+    .addClassToggle(
+      'search-internal-enable',
+      {
+        title: {
+          en: 'Minimal Document Search / Replace Panel (Like VSCode)',
+          zh: '精简的文档内搜索框（和 VSCode 类似）',
+        },
       },
-    },
-    { enable: true },
-  ),
+      { enable: true },
+    )
+    .addClassToggle('search-remove-button', {
+      title: {
+        en: 'Remove Some Buttons In Document Search Panel',
+        zh: '移除一些搜索框中的按钮',
+      },
+      desc: {
+        en: 'Removed buttons: Find All',
+        zh: '移除的按钮：查找全部',
+      },
+    }),
   Settings.ofLevel(1, { title: { en: 'Tab', zh: '标签页' } })
     .addClassToggle('tab-float', {
       title: {
@@ -344,15 +355,10 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       'enable-group-title',
       {
         title: {
-          en: 'Add Style For Left Navigation Group Title',
+          en: 'Add Icons For Left Navigation Group Title',
           zh: '为左侧选项组标题添加样式',
         },
       },
-      { enable: true },
-    )
-    .addClassToggle(
-      'enable-nav-decoration',
-      { title: { en: 'Styled Active Nav Item', zh: '左侧当前设置项美化' } },
       { enable: true },
     )
     .addClassToggle(
@@ -377,10 +383,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       'modal-animation',
       {
         title: { en: 'Modal Show Up Animation', zh: '弹出框进入动画' },
-        desc: {
-          en: 'reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow',
-          zh: '参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow',
-        },
       },
       { enable: true },
     ),

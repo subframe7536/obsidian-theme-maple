@@ -15,12 +15,26 @@ body.search-internal-enable .document-search-container {
   top: var(--size-4-2);
   right: var(--size-4-4);
   border-radius: var(--radius-m);
-  // padding: var(--size-2-3);
-  // padding-left: 0;
   height: fit-content;
   border: var(--size-2-1) solid var(--frame-outline-color);
   box-shadow: var(--shadow-s);
   margin: 0;
+
+  .search-input-container {
+    input {
+      padding-inline-start: var(--size-4-8);
+      &:focus + .document-search-count {
+        background-color: var(--background-secondary);
+      }
+    }
+    .document-search-count {
+      height: calc(var(--input-height) - var(--size-2-3));
+      line-height: calc(var(--input-height) - var(--size-2-3));
+      padding-inline: var(--size-4-1);
+      right: var(--size-4-1);
+      border-radius: var(--radius-s);
+    }
+  }
 
   .document-search-buttons {
     .document-search-button {
@@ -46,7 +60,13 @@ body.search-internal-enable .document-search-container {
   container-type: inline-size;
 }
 
-@container (max-width: 390px) {
+body.search-remove-button {
+  .document-search-buttons > :last-child {
+    display: none;
+  }
+}
+
+@container (max-width: 400px) {
   body.search-internal-enable .document-search-container {
     width: calc(100% - 2 * var(--size-4-3));
 
