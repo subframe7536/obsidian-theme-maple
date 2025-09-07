@@ -272,7 +272,8 @@ body.modal-toggle-thin .checkbox-container {
 
       .setting-item-name:has(.search-input-container) {
         position: absolute;
-        top: calc(var(--size-2-1) * -1);
+        padding: var(--size-2-1);
+        top: calc(var(--size-2-1) * -2);
         transform: translateY(
           calc(
             (var(--modal-header-height) - var(--input-height)) / 2 +
