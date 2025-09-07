@@ -1,7 +1,8 @@
 .is-mobile {
-  --interactive-normal: var(--base-20);
   --interactive-hover: var(--background-modifier-hover);
-
+  input[type='search'] {
+    background-color: var(--background-primary);
+  }
   .modal-close-button::before {
     transform: translate(20%, 20%);
   }
