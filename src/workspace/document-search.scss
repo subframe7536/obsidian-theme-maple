@@ -3,7 +3,7 @@
 }
 
 .search-suggest-item.mod-group {
-  color: var(--accent-active);
+  color: var(--text-accent);
   &:not(:first-child) {
     padding-inline-start: var(--size-4-2);
   }
