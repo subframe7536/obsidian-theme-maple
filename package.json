@@ -3,16 +3,12 @@
   "version": "0.8.34",
   "type": "module",
   "author": "subframe7536",
-  "description": "elegant theme for Obsidian",
   "scripts": {
-    "dev": "bun scripts/compile.ts src/dev.scss",
-    "build": "bun scripts/compile.ts --build && bun scripts/move.ts",
-    "test": "bun scripts/compile.ts --test src/snippets/test.scss",
+    "dev": "bun compile.ts src/dev.scss",
+    "build": "bun compile.ts --build",
+    "test": "bun compile.ts --test src/snippets/test.scss",
     "release": "bumpp -x \"bun run build\" --all"
   },
-  "keywords": [
-    "Obsidian"
-  ],
   "license": "MIT",
   "devDependencies": {
     "@iconify-json/bi": "^1.2.6",
