@@ -33,11 +33,15 @@ $plugins: $calendar, $janitor, $excalidraw, $kanban;
 /* !Chrome >= 121 no longer support `-webkit-scrollbar-*`, no effect currently */
 /* usage of `@property`: https://stackoverflow.com/a/74050413/20058211 */
 /* usage of `-webkit-text-fill-color`: https://stackoverflow.com/a/46304690/20058211 */
-body:not(.is-mobile):not(.mod-macos) {
+body:not(.is-mobile) {
   $base-color: hsla(var(--color-accent-hsl), 24%);
   $hover-color: hsla(var(--color-accent-hsl), 40%);
   $active-color: hsla(var(--color-accent-hsl), 64%);
+  --scrollbar-width: var(--size-4-3);
 
+  &.mod-macos {
+    --scrollbar-width: var(--size-4-2);
+  }
   .mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
     scrollbar-gutter: stable;
   }
@@ -53,8 +57,8 @@ body:not(.is-mobile):not(.mod-macos) {
   }
 
   ::-webkit-scrollbar {
-    width: var(--size-4-3) !important;
-    height: var(--size-4-3) !important;
+    width: var(--scrollbar-width) !important;
+    height: var(--scrollbar-width) !important;
     background-color: transparent !important;
 
     &-track {

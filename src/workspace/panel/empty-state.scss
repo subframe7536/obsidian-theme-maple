@@ -1,10 +1,5 @@
 @use '../../utils.scss' as *;
 
-@mixin prepend-icon($selector, $name) {
-  #{$selector}::before {
-  }
-}
-
 .empty-state-action-list {
   display: flex;
   flex-direction: column;
