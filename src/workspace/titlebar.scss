@@ -1,3 +1,5 @@
+@use '../utils.scss' as *;
+
 body.titlebar-button-style {
   &.is-hidden-frameless:is(.mod-windows, .mod-linux) .titlebar-button {
     padding: 0 14px;
@@ -6,6 +8,14 @@ body.titlebar-button-style {
       width: 100%;
       height: 32%;
     }
+  }
+
+  .mod-maximize svg {
+    @include use-icon('square');
+  }
+
+  &.is-maximized .mod-maximize svg {
+    @include use-icon('max-to-win');
   }
 
   &.is-frameless:not(.is-hidden-frameless):is(.mod-windows, .mod-linux)
