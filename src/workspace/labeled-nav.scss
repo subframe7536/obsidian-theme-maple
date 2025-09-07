@@ -105,11 +105,11 @@ https://github.com/sponsors/kepano
       display: inline-block;
       font-weight: bold;
       font-size: var(--font-ui-smaller);
-      color: var(--text-faint);
+      color: var(--text-muted);
     }
 
     .workspace-tab-header.is-active .workspace-tab-header-inner-title {
-      color: var(--text-muted) !important;
+      color: var(--text-normal) !important;
     }
 
     .workspace-tab-header-container {
@@ -183,7 +183,12 @@ https://github.com/sponsors/kepano
 
     :is(.workspace-tab-header:hover, .workspace-tab-header.is-active)
       .workspace-tab-header-inner-icon {
-      color: var(--icon-color-active);
+      color: var(--text-accent);
+    }
+    .workspace-tab-header.is-active
+      .workspace-tab-header-inner-icon
+      :is(path, circle) {
+      stroke-width: 2.2;
     }
 
     .workspace-tab-header-container {
