@@ -18,7 +18,10 @@ import { icons as lucide } from '@iconify-json/lucide'
 import { icons as bootstrap } from '@iconify-json/bi'
 import { icons as tb } from '@iconify-json/tabler'
 
-function parseSvgUrl(svg: string) {
+function parseSvgUrl(svg: string, color?: string) {
+  if (color) {
+    svg = svg.replaceAll('currentColor', Bun.color(color, 'HEX') || '#0000')
+  }
   svg = svg
     .replace(/"/g, "'")
     .replace(/%/g, '%25')
@@ -26,10 +29,11 @@ function parseSvgUrl(svg: string) {
     .replace(/</g, '%3C')
     .replace(/>/g, '%3E')
     .replace(/\s+/g, ' ')
+
   return 'url("data:image/svg+xml,' + svg + '")'
 }
 
-function getIconUrl(name: string) {
+function getIconUrl(name: string, color?: string) {
   let data
   let set
   if (name.startsWith('bi:')) {
@@ -47,7 +51,7 @@ function getIconUrl(name: string) {
   if (!data) {
     if (fileIcons.some((i) => i.startsWith(name))) {
       const svg = readFileSync(fileIconDir + '/' + name + '.svg', 'utf-8')
-      return parseSvgUrl(svg)
+      return parseSvgUrl(svg, color)
     }
     throw new Error(`No such icon: ${name}`)
   }
@@ -55,7 +59,7 @@ function getIconUrl(name: string) {
   const w = set.width || '1em'
   const h = set.height || '1em'
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" width="${w}" height="${h}">${data.body}</svg>`
-  return parseSvgUrl(svg)
+  return parseSvgUrl(svg, color)
 }
 
 function setup(baseDir: string) {
@@ -111,10 +115,13 @@ function compileCss(output: string, src: string, prepend?: string) {
         'version()': () => {
           return new SassString(`Maple ${version}`)
         },
-        'icon($icon-name)': ([name]) => {
-          return new SassString(getIconUrl(name.assertString().text), {
-            quotes: false,
-          })
+        'icon($icon-name, $color: "")': ([name, color]) => {
+          return new SassString(
+            getIconUrl(name.assertString().text, color.assertString().text),
+            {
+              quotes: false,
+            },
+          )
         },
         'font($style)': ([name]) => {
           const styleVar = name.assertString().text
@@ -220,7 +227,9 @@ function main() {
 
   void dev(input, output)
   watch(join(process.cwd(), 'src')).on('change', () => dev(input, output))
-  watch(join(process.cwd(), 'script')).on('change', () => dev(input, output))
+  watch(join(process.cwd(), 'compile.ts')).on('change', () =>
+    dev(input, output),
+  )
 }
 
 main()
