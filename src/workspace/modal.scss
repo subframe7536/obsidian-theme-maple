@@ -19,7 +19,7 @@ body:not(.is-mobile)
   &::before {
     content: ' ' !important;
     display: block;
-    @include use-icon('x', var(--text-normal), var(--size-4-6));
+    @include use-icon('x', var(--text-muted), var(--size-4-6));
   }
 
   &:hover {
