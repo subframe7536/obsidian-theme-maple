@@ -56,9 +56,11 @@ https://github.com/sponsors/kepano
     }
   }
 
-  &:not(.is-hidden-frameless),
-  &.mod-macos:not(.hider-ribbon),
-  &.colorful-frame.is-hidden-frameless:not(.is-fullscreen) {
+  &:is(
+      :not(.is-hidden-frameless),
+      .mod-macos:not(.hider-ribbon),
+      .colorful-frame.is-hidden-frameless:not(.is-fullscreen)
+    ) {
     .mod-left-split .mod-top .workspace-tab-header-container:before {
       border-bottom: var(--tab-outline-width) solid var(--tab-outline-color);
     }
@@ -101,13 +103,13 @@ https://github.com/sponsors/kepano
 
     .workspace-tab-header-inner-title {
       display: inline-block;
-      font-weight: 500;
+      font-weight: bold;
       font-size: var(--font-ui-smaller);
       color: var(--text-faint);
     }
 
-    .workspace-tab-header.mod-active .workspace-tab-header-inner-title {
-      color: var(--text-accent) !important;
+    .workspace-tab-header.is-active .workspace-tab-header-inner-title {
+      color: var(--text-muted) !important;
     }
 
     .workspace-tab-header-container {
@@ -171,18 +173,16 @@ https://github.com/sponsors/kepano
       }
     }
 
-    .workspace-tab-header.has-active-menu:hover,
-    .workspace-tab-header.is-active:hover {
+    .workspace-tab-header:is(.has-active-menu, .is-active):hover {
       background-color: transparent;
     }
 
-    .workspace-tab-header.is-active:hover .workspace-tab-header-inner,
-    .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
+    .workspace-tab-header:hover .workspace-tab-header-inner {
       background-color: var(--nav-item-background-hover);
     }
 
-    .workspace-tab-header:hover .workspace-tab-header-inner-icon,
-    .workspace-tab-header.is-active .workspace-tab-header-inner-icon {
+    :is(.workspace-tab-header:hover, .workspace-tab-header.is-active)
+      .workspace-tab-header-inner-icon {
       color: var(--icon-color-active);
     }
 
