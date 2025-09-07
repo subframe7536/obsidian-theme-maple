@@ -102,7 +102,12 @@ https://github.com/sponsors/kepano
     .workspace-tab-header-inner-title {
       display: inline-block;
       font-weight: 500;
-      font-size: var(--font-adaptive-smaller);
+      font-size: var(--font-ui-smaller);
+      color: var(--text-faint);
+    }
+
+    .workspace-tab-header.mod-active .workspace-tab-header-inner-title {
+      color: var(--text-accent) !important;
     }
 
     .workspace-tab-header-container {
@@ -123,7 +128,7 @@ https://github.com/sponsors/kepano
         padding-top: var(--size-4-2);
         margin-top: var(--labeled-nav-top-margin);
         flex-direction: column !important;
-        background-color: var(--background-secondary);
+        background-color: hsl(var(--background-secondary-hsl));
       }
 
       .workspace-tab-container-inner {
@@ -160,6 +165,7 @@ https://github.com/sponsors/kepano
       .workspace-tab-header-inner {
         gap: var(--size-2-3);
         padding: var(--size-4-1) var(--size-4-2);
+        margin: 0 var(--size-4-2);
         box-shadow: none;
         border: none;
       }
@@ -184,14 +190,6 @@ https://github.com/sponsors/kepano
       border: none;
       padding: 0;
     }
-  }
-}
-
-// ====== modify ======
-
-.labeled-nav {
-  .workspace-tab-header-container-inner {
-    --background-secondary: hsl(var(--background-secondary-hsl));
   }
 
   .nav-buttons-container {
