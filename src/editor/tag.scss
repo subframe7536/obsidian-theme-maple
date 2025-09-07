@@ -1,5 +1,5 @@
 body {
-  --tag-color: var(--accent-active);
+  --tag-color: var(--text-accent);
 }
 
 .HyperMD-header .cm-hashtag {
@@ -26,10 +26,10 @@ body.tag-plain {
 body.tag-outline {
   --tag-border-color: var(
     --setting-tag-outline,
-    var(--accent-inactive)
+    var(--accent-active)
   ) !important;
   --tag-border-width: 1px !important;
-  --tag-color: var(--setting-tag-color, var(--accent-active)) !important;
+  --tag-color: var(--setting-tag-color, var(--text-accent)) !important;
 
   :is(.cm-tag-obsidian, .tag[href='#obsidian']) {
     --tag-border-color: var(--color-purple) !important;
@@ -58,7 +58,7 @@ body.tag-outline {
 }
 
 body.tag-fill {
-  --tag-background: var(--setting-tag-bg, var(--accent-active)) !important;
+  --tag-background: var(--setting-tag-bg, var(--text-accent)) !important;
   --tag-background-hover: var(--tag-background);
   --tag-color: var(--text-on-accent);
   --tag-color-hover: var(--tag-color);
