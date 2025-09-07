@@ -5,7 +5,10 @@ body {
   --table-btn-color: var(--text-on-accent);
   --table-btn-bg: var(--accent-inactive);
   --table-header-bg: var(--setting-table-header-bg, var(--md-container-bg));
-  --table-alt-line-bg: var(--setting-table-line-bg, var(--md-container-bg));
+  --table-alt-line-bg: var(
+    --setting-table-line-bg,
+    hsl(var(--background-secondary-hsl), 30%)
+  );
   --table-cell-vertical-alignment: middle;
 }
 
