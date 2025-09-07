@@ -24,10 +24,7 @@ body.tag-plain {
 }
 
 body.tag-outline {
-  --tag-border-color: var(
-    --setting-tag-outline,
-    var(--accent-active)
-  ) !important;
+  --tag-border-color: var(--setting-tag-outline, var(--text-accent)) !important;
   --tag-border-width: 1px !important;
   --tag-color: var(--setting-tag-color, var(--text-accent)) !important;
 
