@@ -1,4 +1,5 @@
 .is-mobile {
+  --interactive-normal: var(--base-20);
   --interactive-hover: var(--background-modifier-hover);
 
   .modal-close-button::before {
