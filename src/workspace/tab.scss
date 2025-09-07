@@ -9,6 +9,10 @@
   }
 }
 
+.is-focused .workspace-leaf.mod-active .view-header {
+  background-color: var(--editor-bg);
+}
+
 body.tab-float {
   --tab-radius: var(--size-2-3);
 
