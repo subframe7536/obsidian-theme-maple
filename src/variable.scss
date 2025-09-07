@@ -16,7 +16,8 @@
   --font-ui-medium: 16px;
   --line-height-normal: 1.8;
   --background-modifier-border: var(--accent-inactive);
-  --background-modifier-border-focus: var(--accent-inactive);
+  --background-modifier-border-hover: var(--accent-active);
+  --background-modifier-border-focus: var(--accent-active);
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
   --background-modifier-cover: hsla(var(--background-secondary-hsl), 0.6);
   --interactive-accent: var(--accent-active);
