@@ -320,26 +320,11 @@ div.workspace-leaf-content[data-type='style-settings'] {
   }
 }
 
-body.modal-item-animation {
-  .style-settings-heading {
-    transition: var(--animation);
-
-    &:hover {
-      transition: none;
-    }
-  }
-}
-
 .modal-style-settings {
-  padding: var(--size-4-2) var(--size-4-3) !important;
   .modal-header {
     margin: 0;
   }
-  .setting-item {
-    align-items: center;
-    width: calc(100% - var(--input-height) - var(--size-4-1));
-    &-info {
-      margin-right: 0;
-    }
+  .style-settings-download {
+    margin-right: var(--size-4-8);
   }
 }
