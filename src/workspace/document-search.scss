@@ -28,6 +28,7 @@ body.search-internal-enable .document-search-container {
         opacity: 0;
         pointer-events: none;
         cursor: none;
+        transition: var(--animation);
       }
     }
 
@@ -40,6 +41,7 @@ body.search-internal-enable .document-search-container {
       border-radius: var(--radius-s);
       opacity: 1;
       transition: var(--animation);
+      transition-delay: 0.5s;
     }
   }
 
