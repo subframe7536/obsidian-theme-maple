@@ -1,5 +1,7 @@
 .is-mobile {
   --interactive-hover: var(--background-modifier-hover);
+  --system-access-override-text-width: auto;
+
   input[type='search'] {
     background-color: var(--background-primary);
   }
