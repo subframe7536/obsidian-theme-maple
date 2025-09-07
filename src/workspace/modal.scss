@@ -75,12 +75,10 @@ body.modal-toggle-round .checkbox-container {
     background-color: var(--text-on-accent);
     margin: 0;
     transition: var(--animation-slow);
-    box-shadow: 0 4px 2px 0 var(--toggle-shadow);
   }
 
   :is(&:hover, &:focus)::after {
     bottom: 10%;
-    box-shadow: 0 2px 2px 0 var(--toggle-shadow);
   }
 
   &.is-enabled {
@@ -310,6 +308,21 @@ select,
 .dropdown,
 button {
   transition: var(--animation);
+}
+
+:is(select, .combobox-button, .dropdown):focus {
+  box-shadow: var(--input-shadow-hover);
+}
+
+:is(
+    button,
+    select,
+    .clickable-icon,
+    .dropdown,
+    .metadata-add-button,
+    .vertical-tab-nav-item
+  ) {
+  -electron-corner-smoothing: 60%;
 }
 
 .theme-light {
