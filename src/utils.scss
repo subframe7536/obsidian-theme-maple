@@ -36,7 +36,7 @@
 
 @mixin use-icon($icon-name, $color: none, $size: none) {
   @if string.slice($icon-name, 1, 2) == '--' {
-    -webkit-mask: #{$icon-name} no-repeat;
+    -webkit-mask: var(#{$icon-name}) no-repeat;
   } @else {
     -webkit-mask: icon($icon-name) no-repeat;
   }

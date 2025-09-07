@@ -385,26 +385,28 @@ body.enable-group-title
   padding-bottom: 0;
 
   &-title {
+    $title-size: var(--size-4-4);
     color: var(--text-accent);
-    font-size: var(--size-4-4);
+    font-size: $title-size;
     &::before {
       content: '';
       display: inline-block;
       translate: 0 var(--size-2-1);
       margin-right: var(--size-2-1);
+      @include use-icon(--settings-icon, inherit, $title-size);
     }
   }
 
   &:nth-last-of-type(3) > .vertical-tab-header-group-title::before {
-    @include use-icon('settings', inherit, var(--size-4-4));
+    --settings-icon: #{icon('settings')};
   }
 
   &:nth-last-of-type(2) > .vertical-tab-header-group-title::before {
-    @include use-icon('box', inherit, var(--size-4-4));
+    --settings-icon: #{icon('box')};
   }
 
   &:nth-last-of-type(1) > .vertical-tab-header-group-title::before {
-    @include use-icon('users-round', inherit, var(--size-4-4));
+    --settings-icon: #{icon('users-round')};
   }
 }
 
