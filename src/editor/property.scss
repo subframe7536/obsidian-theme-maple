@@ -9,11 +9,14 @@
     transform: none;
     --metadata-border-width: var(--block-outline-width);
     --metadata-border-radius: var(--radius-m);
-    --metadata-border-color: var(--accent-inactive);
     --metadata-padding: var(--radius-m);
 
     &:hover {
-      --metadata-border-color: var(--accent-active);
+      --metadata-border-color: var(--background-modifier-border-hover);
+    }
+
+    &:active {
+      --metadata-border-color: var(--background-modifier-border-focus);
     }
   }
 

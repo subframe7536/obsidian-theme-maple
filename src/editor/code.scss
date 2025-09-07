@@ -130,7 +130,11 @@
   transition: var(--animation);
 
   &:hover {
-    border-color: var(--accent-active);
+    border-color: var(--background-modifier-border-hover);
+  }
+
+  &:active {
+    border-color: var(--background-modifier-border-focus);
   }
 
   .edit-block-button {
@@ -163,16 +167,19 @@ pre {
 
 body .markdown-rendered pre {
   border-radius: var(--code-bg-radius);
-  border: var(--block-outline-width) solid var(--accent-inactive);
+  border: var(--block-outline-width) solid var(--background-modifier-border);
   transition: var(--animation);
   overflow-x: hidden;
 
   &:hover {
-    border-color: var(--accent-active);
+    border-color: var(--background-modifier-border-hover);
 
     button.copy-code-button {
       opacity: 1;
     }
+  }
+  &:active {
+    border-color: var(--background-modifier-border-focus);
   }
 
   .copy-code-button {

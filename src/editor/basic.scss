@@ -226,6 +226,23 @@ kbd {
 
 /* #endregion keyboard */
 
+// #region media
+
+audio,
+video {
+  border: var(--background-modifier-border) solid 1px;
+  border-radius: var(--radius-m);
+  transition: border var(--animation);
+  &:hover {
+    border-color: var(--background-modifier-border-hover);
+  }
+  &:active {
+    border-color: var(--background-modifier-border-focus);
+  }
+}
+
+// #endregion media
+
 /* #region highlight */
 
 mark {

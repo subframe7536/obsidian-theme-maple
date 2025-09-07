@@ -34,7 +34,7 @@
       transition: var(--animation);
       margin-block: var(--size-4-1) !important;
       padding: 0;
-      border: var(--block-outline-width) solid var(--accent-inactive);
+      border: var(--block-outline-width) solid var(--background-modifier-border);
 
       &.mod-empty-attachment {
         border-style: dotted;
@@ -51,7 +51,11 @@
       }
 
       &:hover {
-        border-color: var(--accent-active);
+        border-color: var(--background-modifier-border-hover);
+      }
+
+      &:active {
+        border-color: var(--background-modifier-border-focus);
       }
 
       .frontmatter + div {

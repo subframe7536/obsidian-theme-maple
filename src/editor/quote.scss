@@ -62,12 +62,16 @@ body {
   }
 
   &.quote-border .markdown-rendered blockquote {
-    border: var(--block-outline-width) solid var(--accent-inactive);
+    border: var(--block-outline-width) solid var(--background-modifier-border);
     transition: var(--animation);
     box-shadow: none;
 
     &:hover {
-      border-color: var(--accent-active);
+      border-color: var(--background-modifier-border-hover);
+    }
+
+    &:active {
+      border-color: var(--background-modifier-border-focus);
     }
 
     blockquote {
