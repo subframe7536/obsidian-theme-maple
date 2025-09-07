@@ -1,6 +1,6 @@
 import { Settings } from './generator'
 
-export default Settings.create('maple-plugin', '🔌 Maple Plugin').children([
+export default Settings.create('maple-plugin', 'Maple Plugin').children([
   Settings.ofLevel(1, { title: { en: 'Calendar', zh: '日历' } })
     .addClassToggle(
       'calendar-weekend',

@@ -2,7 +2,7 @@ import { Settings } from './generator'
 
 export default Settings.create(
   'maple-basic',
-  '🛠️ Maple Color And Animation',
+  'Maple Color And Animation',
 ).children([
   Settings.ofLevel(1, {
     title: { en: 'Animation', zh: '动画' },

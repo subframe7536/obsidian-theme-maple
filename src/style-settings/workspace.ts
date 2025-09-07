@@ -1,10 +1,7 @@
 import { Settings } from './generator'
 import { version } from '../../package.json'
 
-export default Settings.create(
-  'maple-workspace',
-  '🌏 Maple Workspace',
-).children([
+export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, {
     title: { en: 'Obsidian Titlebar', zh: 'Obsidian 标题栏' },
   })

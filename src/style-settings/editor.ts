@@ -1,6 +1,6 @@
 import { Settings } from './generator'
 
-export default Settings.create('maple-editor', '✏️ Maple Editor').children([
+export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, { title: { en: 'Background', zh: '背景' } })
     .addVarThemedColor(
       'setting-editor-bg',
