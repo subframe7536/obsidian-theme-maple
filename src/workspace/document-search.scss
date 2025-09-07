@@ -22,17 +22,24 @@ body.search-internal-enable .document-search-container {
 
   .search-input-container {
     input {
-      padding-inline-start: var(--size-4-8);
-      &:focus + .document-search-count {
-        background-color: var(--background-secondary);
+      padding-inline: var(--size-4-8) var(--size-4-1);
+
+      &:hover + .document-search-count {
+        opacity: 0;
+        pointer-events: none;
+        cursor: none;
       }
     }
+
     .document-search-count {
+      background-color: var(--background-secondary);
       height: calc(var(--input-height) - var(--size-2-3));
       line-height: calc(var(--input-height) - var(--size-2-3));
       padding-inline: var(--size-4-1);
       right: var(--size-4-1);
       border-radius: var(--radius-s);
+      opacity: 1;
+      transition: var(--animation);
     }
   }
 
