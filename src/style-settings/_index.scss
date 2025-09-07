@@ -170,7 +170,11 @@ body:not(.line-active-enable)
   .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month)
   .setting-item[data-id='setting-calendar-year-suffix'],
-body:not(.scrollbar-smooth) .setting-item[data-id='scrollbar-smooth-editor'],
+body:not(.scrollbar-enable)
+  .setting-item:is(
+    [data-id='scrollbar-hover'],
+    [data-id='scrollbar-movein-animation-enable']
+  ),
 body.bg-default .setting-item[data-id='setting-bg-color'],
 body.scrollbar-hide
   .setting-item:is(

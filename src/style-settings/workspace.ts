@@ -404,14 +404,19 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addClassToggle('scrollbar-hide', {
       title: { en: 'Always Hide Scrollbar', zh: '不显示滚动条' },
     })
+    .addClassToggle(
+      'scrollbar-enable',
+      { title: { en: 'Enable Styled Scrollbar', zh: '使用美化的滚动条' } },
+      { enable: true },
+    )
     .addClassSelect(
       'scrollbar-hover',
       { title: { en: 'Scrollbar Hover Action', zh: '鼠标经过时滚动条变化' } },
       {
         allowEmpty: false,
-        default: 'scrollbar-hover-default',
+        default: 'scrollbar-hover-accent',
         options: [
-          { label: 'default', value: 'scrollbar-hover-default' },
+          { label: 'none', value: 'scrollbar-hover-default' },
           { label: 'accent', value: 'scrollbar-hover-accent' },
           { label: 'expand', value: 'scrollbar-hover-expand' },
         ],
