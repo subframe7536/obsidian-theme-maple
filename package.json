@@ -8,8 +8,7 @@
     "dev": "bun scripts/compile.ts src/dev.scss",
     "build": "bun scripts/compile.ts --build && bun scripts/move.ts",
     "test": "bun scripts/compile.ts --test src/snippets/test.scss",
-    "replace-version": "bun scripts/version.ts && bun run build",
-    "release": "bumpp -x \"npm run replace-version\" --all"
+    "release": "bumpp -x \"bun run build\" --all"
   },
   "keywords": [
     "Obsidian"

@@ -6,6 +6,8 @@ import settings from '../src/style-settings/index'
 import { watch } from 'chokidar'
 import { getIconUrl } from './icon'
 import { styleText } from 'util'
+import { version } from '../package.json'
+
 function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
@@ -14,6 +16,9 @@ export function compileCss(output: string, src: string, prepend?: string) {
     const { css } = compile(src, {
       sourceMap: false,
       functions: {
+        'version()': () => {
+          return new SassString(`Maple ${version}`)
+        },
         'icon($icon-name)': ([name]) => {
           return new SassString(getIconUrl(name.assertString().text), {
             quotes: false,
@@ -45,6 +50,19 @@ export function compileCss(output: string, src: string, prepend?: string) {
 }
 
 function build(src: string, out: string) {
+  const manifestPath = 'manifest.json'
+  const manifest = readFileSync(manifestPath, 'utf-8')
+  writeFileSync(
+    manifestPath,
+    JSON.stringify(
+      {
+        ...JSON.parse(manifest),
+        version,
+      },
+      null,
+      2,
+    ),
+  )
   compileCss(out, src, settings)
 }
 

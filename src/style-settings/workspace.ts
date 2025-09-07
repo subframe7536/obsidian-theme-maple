@@ -1,4 +1,5 @@
 import { Settings } from './generator'
+import { version } from '../../package.json'
 
 export default Settings.create(
   'maple-workspace',
@@ -340,7 +341,7 @@ export default Settings.create(
     .addVarText(
       'setting-modal-header-title',
       { title: { en: 'Set Modal Header Title', zh: '设置面板标题' } },
-      { default: "'maple 0.8.34'" },
+      { default: `'maple ${version}'` },
     )
     .addClassToggle(
       'enable-group-title',
