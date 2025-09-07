@@ -2,11 +2,6 @@
 
 @mixin prepend-icon($selector, $name) {
   #{$selector}::before {
-    content: '';
-    display: inline-block;
-    margin-inline-end: var(--size-4-3);
-    translate: 0 var(--size-4-1);
-    @include use-icon($name, var(--accent-active), var(--size-4-5));
   }
 }
 
@@ -28,12 +23,28 @@
     translate: -50%;
     top: calc(-2 * var(--size-4-12) - var(--size-4-8));
   }
-
-  @include prepend-icon(':nth-child(1)', 'square-pen');
-  @include prepend-icon(':nth-child(2)', 'forward');
-  @include prepend-icon(':nth-child(3)', 'search');
-  @include prepend-icon(':nth-child(4)', 'globe');
-  @include prepend-icon('.mod-close', 'x');
+  & > ::before {
+    content: '';
+    display: inline-block;
+    margin-inline-end: var(--size-4-3);
+    translate: 0 var(--size-4-1);
+    @include use-icon(--empty-icon, var(--text-accent), var(--size-4-5));
+  }
+  :nth-child(1)::before {
+    --empty-icon: #{icon('square-pen')};
+  }
+  :nth-child(2)::before {
+    --empty-icon: #{icon('forward')};
+  }
+  :nth-child(3)::before {
+    --empty-icon: #{icon('search')};
+  }
+  :nth-child(4)::before {
+    --empty-icon: #{icon('globe')};
+  }
+  .mod-close::before {
+    --empty-icon: #{icon('x')};
+  }
 
   .empty-state-action {
     width: 100%;
