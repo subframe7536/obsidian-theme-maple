@@ -4,9 +4,13 @@
   .style-settings-collapse-indicator::after {
   content: '';
   display: inline-block;
-  translate: 0 var(--size-2-3);
+  translate: 0 var(--size-4-1);
   margin-left: var(--size-4-2);
-  @include use-icon(--style-settings-icon, var(--text-muted), var(--icon-size));
+  @include use-icon(
+    --style-settings-icon,
+    var(--text-muted),
+    var(--font-ui-medium)
+  );
 }
 .style-settings-heading[data-id='maple-basic'] {
   --style-settings-icon: #{icon('palette')};

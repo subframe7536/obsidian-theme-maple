@@ -20,12 +20,13 @@ svg.lucide-layout-dashboard rect {
       position: absolute;
       opacity: 0.8;
       flex-shrink: 0;
-      translate: calc(var(--size-2-1) - var(--size-4-5)) 25%;
-      @include use-icon('file-text', var(--accent-active), var(--size-4-4));
+      translate: calc(var(--size-2-1) - var(--size-4-5)) 20%;
+      --file-icon: #{icon('file-text')};
+      @include use-icon(--file-icon, var(--accent-active), var(--size-4-4));
     }
     @each $i in $file-icon {
       $arr: '[data-path$="#{list.nth($i, 1)}"]';
-      $svg: list.nth($i, list.length($i));
+      $icon-name: list.nth($i, list.length($i));
 
       @if list.length($i) >2 {
         @for $item from 2 through list.length($i) - 1 {
@@ -38,16 +39,12 @@ svg.lucide-layout-dashboard rect {
       }
 
       &:is(#{$arr})::before {
-        @include use-icon(#{$svg});
+        --file-icon: #{icon($icon-name)};
       }
     }
 
     &.is-unsupported::before {
-      @include use-icon(
-        'file-question-mark',
-        var(--accent-active),
-        var(--size-4-4)
-      );
+      --file-icon: #{icon('file-question-mark')};
     }
   }
 

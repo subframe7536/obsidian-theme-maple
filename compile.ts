@@ -26,9 +26,8 @@ function parseSvgUrl(svg: string, color?: string) {
     .replace(/"/g, "'")
     .replace(/%/g, '%25')
     .replace(/#/g, '%23')
-    .replace(/</g, '%3C')
-    .replace(/>/g, '%3E')
     .replace(/\s+/g, ' ')
+    .replace(/> </g, '><')
 
   return 'url("data:image/svg+xml,' + svg + '")'
 }
