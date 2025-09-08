@@ -1135,11 +1135,18 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
   ),
   Settings.ofLevel(1, {
     title: { en: 'Properties', zh: '文档属性' },
-  }).addClassToggle(
-    'prop-outline',
-    {
-      title: { en: 'Add Outlint For Property Panel', zh: '属性面板添加边框' },
-    },
-    { enable: true },
-  ),
+  })
+    .addClassToggle(
+      'prop-outline',
+      {
+        title: { en: 'Add Outline For Property Panel', zh: '属性面板添加边框' },
+      },
+      { enable: true },
+    )
+    .addClassToggle('prop-hide-preview', {
+      title: {
+        en: 'Hide Property Panel In Preview Mode',
+        zh: '预览模式下隐藏属性面板',
+      },
+    }),
 ])
