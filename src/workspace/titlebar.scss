@@ -14,13 +14,7 @@ body.titlebar-button-style {
     rx: 1.8;
   }
 
-  &.is-maximized .mod-maximize svg {
-    @include use-icon('max-to-win', inherit);
-
-    path {
-      display: none;
-    }
-  }
+  @include use-icon-override('&.is-maximized .mod-maximize svg', 'max-to-win');
 
   &.is-frameless:not(.is-hidden-frameless):is(.mod-windows, .mod-linux)
     .titlebar-button

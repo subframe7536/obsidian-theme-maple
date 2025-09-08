@@ -108,7 +108,7 @@ tags:
 
 function compileCss(output: string, src: string, prepend?: string) {
   try {
-    const { css } = compile(src, {
+    let { css } = compile(src, {
       sourceMap: false,
       functions: {
         'version()': () => {
@@ -138,6 +138,9 @@ function compileCss(output: string, src: string, prepend?: string) {
       },
       charset: false,
     })
+
+    css = css.replace(/\s+[\w-]+\b:\s*ignore;/g, '')
+
     writeFileSync(output, prepend ? prepend + '\n' + css : css, 'utf-8')
     console.log(
       styleText('gray', new Date().toLocaleTimeString(['zh'])),
