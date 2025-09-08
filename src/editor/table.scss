@@ -2,8 +2,8 @@
 
 body {
   --table-radius: var(--size-2-3);
-  --table-btn-color: var(--text-on-accent);
-  --table-btn-bg: var(--accent-inactive);
+  --table-btn-color: var(--text-muted);
+  --table-btn-bg: var(--background-modifier-hover);
   --table-header-bg: var(--setting-table-header-bg, var(--md-container-bg));
   --table-alt-line-bg: var(
     --setting-table-line-bg,
