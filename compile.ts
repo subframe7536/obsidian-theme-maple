@@ -178,9 +178,9 @@ async function dev(src: string, out: string) {
 }
 
 function move() {
-  const vaultRoots = process.env.VAULT_DIRS?.split(',')
-  if (!vaultRoots) {
-    console.log('No chosen vault, skip')
+  const vaultRoots = process.env.VAULT_DIRS?.split(',').filter(Boolean)
+  if (!vaultRoots?.length) {
+    console.log('No chosen vault, skip moving')
     return
   }
   console.log(`choose ${vaultRoots?.length ?? 0} vaults`)
