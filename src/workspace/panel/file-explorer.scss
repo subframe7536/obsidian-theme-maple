@@ -55,6 +55,15 @@ svg.lucide-layout-dashboard rect {
   }
 }
 
+@mixin override-stack-menu() {
+  .menu.mod-tab-list {
+    @include use-icon-override('.lucide-file', 'file-text');
+    @include use-icon-override('.lucide-file-text', 'book-open-text');
+    @include use-icon-override('.lucide-file-audio', 'music-4');
+    @include use-icon-override('.lucide-table', 'database');
+  }
+}
+
 body {
   --file-folding-offset: 28px;
   --folder-color: rgb(var(--setting-color-dirs, #{to-rgb(hsl(46, 81%, 45%))}));
@@ -93,6 +102,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 }
 
 @include use-no-plugin('.explorer-icon') {
+  @include override-stack-menu();
+
   @include use-panel('file-explorer', '.nav-files-container') {
     .nav-folder {
       &-title {
