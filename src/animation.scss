@@ -18,17 +18,17 @@
 
 @keyframes slide-up {
   0% {
-    transform: translateY(0%);
+    transform: translateY(0%) translateZ(0);
     opacity: 0;
   }
 
   15% {
-    transform: translateY(1px);
+    transform: translateY(1px) translateZ(0);
     opacity: 0;
   }
 
   25% {
-    transform: translateY(2px);
+    transform: translateY(2px) translateZ(0);
   }
 
   45% {
