@@ -3,17 +3,14 @@
 // todo)) full version: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1
 body {
   /* 引导线粗细 */
-  --outline-guideline-width: #{use-opt(outline-width, 2px)};
+  --outline-guideline-width: var(--setting-outline-width, 2px);
   /* 引导线颜色 */
-  --outline-guideline-color: #{use-opt(
-      outline-line-color,
-      var(--accent-inactive)
-    )};
+  --outline-guideline-color: var(
+    --settingoutline-line-color,
+    var(--accent-inactive)
+  );
   /* 引导线颜色 */
-  --outline-guideline-color-alt: #{use-opt(
-      outline-dot-color,
-      var(--accent-active)
-    )};
+  --outline-guideline-color-alt: var(--outline-dot-color, var(--accent-active));
   /* 一行高度 */
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }

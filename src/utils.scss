@@ -18,10 +18,6 @@
   }
 }
 
-@function use-opt($name, $fallback) {
-  @return var(--setting-#{string.unquote($name)}, $fallback);
-}
-
 @function to-rgb($color) {
   @return color.channel($color, 'red', $space: rgb),
     color.channel($color, 'green', $space: rgb),

@@ -57,8 +57,7 @@ svg.lucide-layout-dashboard rect {
 
 body {
   --file-folding-offset: 28px;
-  $folder-color: use-opt(color-dirs, to-rgb(hsl(46, 81%, 45%)));
-  --folder-color: rgb(#{$folder-color});
+  --folder-color: rgb(var(--setting-color-dirs, #{to-rgb(hsl(46, 81%, 45%))}));
   --nav-item-size: calc(var(--size-4-4) * 0.9);
   --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
