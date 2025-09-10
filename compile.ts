@@ -130,7 +130,7 @@ function compileCss(output: string, src: string, prepend?: string) {
           const buffer = readFileSync(
             join('./resource/image', imageName + '.webp'),
           )
-          const url = 'url("data:image/webp,' + buffer.toBase64() + '")'
+          const url = 'url("data:image/webp;base64,' + buffer.toBase64() + '")'
           return new SassString(url, { quotes: false })
         },
         'font($style)': ([name]) => {

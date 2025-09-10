@@ -30,9 +30,9 @@
 @use './message.scss';
 /* #endregion message */
 
-// /* #region background image */
-// @use './bg.scss';
-// /* #endregion background */
+/* #region background image */
+@use './bg.scss';
+/* #endregion background */
 
 /* #region labeled-navigator */
 @use './labeled-nav.scss';

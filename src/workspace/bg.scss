@@ -1,67 +1,49 @@
-$op1: 0.3;
-$op2: 0.4;
-$op3: 0.6;
-$op4: 0.5;
-$speed: 1.2;
+body {
+  --bg-opacity: 1;
+  --app-bg-image-url: var(--setting-app-bg-image-url, #{img('default-bg')});
+}
 
-$delay-1: $speed * -28;
-$duration-1: abs($delay-1) + $speed * 35;
-$delay-2: $speed * 2;
-$duration-2: abs($delay-2) + $speed * 55;
-$delay-3: $speed * -5;
-$duration-3: abs($delay-3) + $speed * 15;
-$delay-4: $speed * 16;
-$duration-4: abs($delay-4) + $speed * 45;
+.app-bg-image-enable {
+  --bg-opacity: var(--setting-app-bg-opacity, 0.8);
 
-@media screen and (min-width: 768px) {
-  body:is(.bg-static, .bg-live) {
-    --bg-opacity: 0.75;
-
-    .workspace-split.mod-root,
-    .workspace-split.mod-root .workspace-leaf-content {
-      background-color: hsla(var(--editor-bg), calc(var(--bg-opacity) / 2));
-    }
-
-    .workspace-split:not(.mod-root) .workspace-leaf {
-      background-color: hsla(
-        var(--background-secondary-hsl),
-        calc(var(--bg-opacity) / 2)
-      );
-    }
-
-    .workspace::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: ignore;
-      background-color: var(--setting-bg-color, var(--text-accent));
-      opacity: 0.5;
-    }
+  .workspace-tab-header-container {
+    background-color: var(--background-secondary-hsl),
+      calc(var(--bg-opacity) / 2);
   }
 
-  /* 参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-  body {
-    --bg-image-url: var(--setting-bg-image-url, #{img('default-bg')});
+  .horizontal-main-container {
+    background-image: var(--app-bg-image-url);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  body.bg-static .workspace::before {
-    -webkit-mask-image: var(--setting-bg-static);
-    -webkit-mask-size: 300% 300px;
-    -webkit-mask-position: 88.5% -73px;
-    mask-image: ignore;
-    mask-size: ignore;
-    mask-position: ignore;
-    transform: rotateZ(180deg);
+  :is(
+      .sidebar-toggle-button,
+      .workspace-tabs .workspace-leaf,
+      .workspace-fake-target-overlay:not(.is-in-sidebar)
+        .workspace-tabs
+        .workspace-leaf,
+      .mod-root .workspace-tabs .workspace-leaf,
+      .workspace-split.mod-root .view-content
+    ) {
+    background-color: transparent;
   }
 
-  /* 参考 https://www.cssscript.com/animated-waves-svg */
-  body.bg-live .workspace::before {
-    -webkit-mask-image: var(--setting-bg-live);
-    -webkit-mask-size: 100% 160px;
-    mask-image: ignore;
-    mask-size: ignore;
-    -webkit-mask-position-y: 100%;
+  .workspace-split {
+    background-color: hsl(var(--background-secondary-hsl), var(--bg-opacity));
+  }
+
+  :is(.workspace-split.mod-root, .view-header) {
+    background-color: hsl(var(--background-primary-hsl), var(--bg-opacity));
+  }
+
+  &:not(.is-mobile)
+    .workspace-split.mod-left-split
+    .workspace-sidedock-vault-profile {
+    background-color: hsl(
+      var(--background-secondary-hsl),
+      calc(var(--bg-opacity) / 2)
+    );
   }
 }
