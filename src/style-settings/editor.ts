@@ -1,7 +1,24 @@
 import { Settings } from './generator'
 
 export default Settings.create('maple-editor', 'Maple Editor').children([
-  Settings.ofLevel(1, { title: { en: 'Background', zh: '背景' } })
+  Settings.ofLevel(1, {
+    title: { en: 'Editor Background Image', zh: '编辑器背景图' },
+  })
+    .addClassSelect(
+      'editor-bg-type',
+      {
+        title: { en: 'Background Image Type', zh: '背景图类型' },
+      },
+      {
+        allowEmpty: false,
+        default: 'editor-bg-pure',
+        options: [
+          { label: 'pure color', value: 'editor-bg-pure' },
+          { label: 'dots', value: 'editor-bg-dots' },
+          { label: 'grid', value: 'editor-bg-grid' },
+        ],
+      },
+    )
     .addVarThemedColor(
       'setting-editor-bg',
       {
@@ -12,6 +29,21 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         defaultLight: '#',
         defaultDark: '#',
       },
+    )
+    .addVarThemedColor(
+      'setting-editor-bg-dot',
+      { title: { en: 'Dot Color', zh: '点的颜色' } },
+      { format: 'rgb', opacity: false, defaultLight: '#', defaultDark: '#' },
+    )
+    .addVarThemedColor(
+      'setting-editor-bg-grid',
+      { title: { en: 'Grid Line Color 1', zh: '网格颜色 1' } },
+      { format: 'rgb', opacity: false, defaultLight: '#', defaultDark: '#' },
+    )
+    .addVarThemedColor(
+      'setting-editor-bg-grid-alt',
+      { title: { en: 'Grid Line Color 2', zh: '网格颜色 2' } },
+      { format: 'rgb', opacity: false, defaultLight: '#', defaultDark: '#' },
     )
     .addVarThemedColor(
       'setting-md-container-bg',

@@ -3,7 +3,7 @@ import { version } from '../../package.json'
 
 export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, {
-    title: { en: 'Obsidian Titlebar', zh: 'Obsidian 标题栏' },
+    title: { en: 'Titlebar And Background Image', zh: '标题栏和背景图' },
   })
     .addClassToggle(
       'titlebar-button-style',
@@ -19,37 +19,17 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         en: 'Reference from https://github.com/kepano/obsidian-minimal',
         zh: '参考 https://github.com/kepano/obsidian-minimal',
       },
-    }),
-  Settings.ofLevel(1, {
-    title: { en: 'Wave Background', zh: '波浪背景图' },
-    desc: {
-      en: 'Will also add in canvas card when card width > 768px',
-      zh: '白板的卡片宽度 >768px 时编辑卡片也会添加',
-    },
-  })
-    .addClassSelect(
-      'bg-enable',
-      {
-        title: { en: 'Background Wave Image', zh: '背景波浪图' },
-        desc: {
-          en: 'Static style reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow, ❗live style will increase CPU/GPU use',
-          zh: '静态图（static）参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow，❗动态图（live）将提高 CPU/GPU 占用率',
-        },
+    })
+    .addClassToggle('app-bg-image-enable', {
+      title: {
+        en: 'Add Background Image In Workspace',
+        zh: '在应用中添加背景图',
       },
-      {
-        allowEmpty: false,
-        default: 'bg-static',
-        options: [
-          { label: 'disable', value: 'bg-default' },
-          { label: 'static', value: 'bg-static' },
-          { label: 'live', value: 'bg-live' },
-        ],
-      },
-    )
-    .addVarThemedColor(
-      'setting-bg-color',
-      { title: { en: 'Wave Color', zh: '波浪颜色' } },
-      { format: 'rgb', opacity: false, defaultLight: '#', defaultDark: '#' },
+    })
+    .addVarText(
+      'setting-app-bg-image-url',
+      { title: { en: 'Image URL', zh: '图片地址' } },
+      { default: 'url()' },
     ),
   Settings.ofLevel(1, { title: { en: 'File Explorer', zh: '文件管理器' } })
     .addClassToggle('explorer-nav-decoration', {

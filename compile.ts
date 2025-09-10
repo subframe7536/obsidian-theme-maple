@@ -125,6 +125,14 @@ function compileCss(output: string, src: string, prepend?: string) {
             },
           )
         },
+        'img($image-name)': ([name]) => {
+          const imageName = name.assertString().text
+          const buffer = readFileSync(
+            join('./resource/image', imageName + '.webp'),
+          )
+          const url = 'url("data:image/webp,' + buffer.toBase64() + '")'
+          return new SassString(url, { quotes: false })
+        },
         'font($style)': ([name]) => {
           const styleVar = name.assertString().text
           const style = styleVar.charAt(0).toUpperCase() + styleVar.slice(1)

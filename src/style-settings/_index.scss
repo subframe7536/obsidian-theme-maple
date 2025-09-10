@@ -174,6 +174,15 @@ body:not(.line-active-enable)
   .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month)
   .setting-item[data-id='setting-calendar-year-suffix'],
+body:not(.app-bg-image-enable)
+  .setting-item[data-id='setting-app-bg-image-url'],
+body:not(.editor-bg-pure) .setting-item[data-id='setting-editor-bg'],
+body:not(.editor-bg-dots) .setting-item[data-id='setting-editor-bg-dot'],
+body:not(.editor-bg-grid)
+  .setting-item:is(
+    [data-id='setting-editor-bg-grid'],
+    [data-id='setting-editor-bg-grid-alt']
+  ),
 body:not(.scrollbar-enable)
   .setting-item:is(
     [data-id='scrollbar-hover'],
