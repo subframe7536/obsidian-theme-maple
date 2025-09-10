@@ -216,21 +216,21 @@ body .markdown-rendered pre {
 /* https://prismjs.com/#supported-languages */
 @include use-no-plugin('.code-language') {
   .markdown-rendered {
-    --code-block-padding: var(--font-text-size);
+    --code-block-padding: calc(var(--font-text-size) * 1.2);
 
     pre {
       padding: var(--code-block-padding);
       position: relative;
 
       code[class*='language-']::before {
-        content: 'unkown language';
+        content: 'Unkown';
         font-family: var(--font-mono);
         color: var(--setting-code-language-color, var(--inline-code));
         font-weight: bold;
         position: absolute;
         text-align: right;
         right: var(--size-4-8);
-        top: calc(var(--code-block-padding) * 0.6);
+        top: calc(var(--code-block-padding) * 0.4);
         line-height: calc(var(--code-block-padding) * 0.8);
         z-index: 9;
       }
@@ -238,7 +238,7 @@ body .markdown-rendered pre {
         (JavaScript, js), (Typescript, ts), JSX, (TypeScript-JSX, tsx), Ada,
         Apex, AppleScript, AQL, (Arduino, ino), (ArmAsm, arm-asm),
         (AsciiDoc, adoc), AspNet, Asm6502, AutoHotKey, (AWK, gawk),
-        (bash, sh, shell), basic, batch, Bison, c, ('C\\#', csharp, cs, dotnet),
+        (bash, sh, shell), basic, batch, Bison, C, ('C\\#', csharp, cs, dotnet),
         ('C\\+\\+', cpp), Clojure, CMake, COBOL, (CoffeeScript, coffee), CSP,
         Crystal, CSV, CUE, D, Dart, Diff, Django, Jinja2, Docker, Dockerfile,
         EBNF, EditorConfig, EJS, Elixir, Elm, ERB, (Excel-Formula, xlsx, xls),
@@ -247,14 +247,14 @@ body .markdown-rendered pre {
         (Handlebars, hbs, mustache), (Haskell, hs), HCL, HLSL, HTTP, Icon,
         ICU-Message-Format, gitignore, Ini, Java, JavaDoc, JQ, JSDoc, JSON,
         JSON5, JSONP, Julia, (Kotlin, kt, kts), (Latex, tex), Less, Liquid,
-        (Lisp, emacs, elisp, emacs-lisp), LLVM, Log, Lua, Makefile, MATLAB,
-        Mermaid, MongoDB, Monkey, Neon, Nginx, Nim, Nix, NSIS, (ObjectC, objc),
-        OCaml, odin, OpenCL, Pascal, Perl, PHP, PHPDoc, PowerShell, Properties,
-        ProtoBuf, Pug, (Python, py), QML, R, Regex, (ReScript, res), Rip,
-        (Ruby, rb), (Rust, rs), Sass, Scss, Scala, Solidity, SQL, stylus, Swift,
-        TCL, TOML, (URI, url), (UnrealScript, uscript, uc), V, VBNet, Velocity,
-        VHDL, Vim, (Visual-Basic, vb, vba), WASM, WGSL, WIKI, Wren, (YAML, yml),
-        Zig;
+        (Lisp, emacs, elisp, emacs-lisp), LLVM, Log, Lua, Makefile,
+        (Markdown, md), MATLAB, Mermaid, MongoDB, Monkey, Neon, Nginx, Nim, Nix,
+        NSIS, (ObjectC, objc), OCaml, odin, OpenCL, Pascal, Perl, PHP, PHPDoc,
+        PowerShell, Properties, ProtoBuf, Pug, (Python, py), QML, R, Regex,
+        (ReScript, res), Rip, (Ruby, rb), (Rust, rs), Sass, Scss, Scala,
+        Solidity, SQL, stylus, Swift, TCL, TOML, (URI, url),
+        (UnrealScript, uscript, uc), V, VBNet, Velocity, VHDL, Vim,
+        (Visual-Basic, vb, vba), WASM, WGSL, WIKI, Wren, (YAML, yml), Zig;
 
       @each $lan in $language {
         @if meta.type-of($lan) == list {
