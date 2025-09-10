@@ -148,7 +148,7 @@ body.tab-title-bar-round {
 
 body:not(.is-mobile):not(.is-tablet) {
   :is(
-      .workspace-split
+      .workspace-split:not(.is-sidedock-collapsed)
         .workspace-tabs:not(.mod-stacked)
         .workspace-leaf-content:not([data-type='pdf']):not(
           [data-type='markdown']
