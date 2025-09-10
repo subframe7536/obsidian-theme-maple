@@ -22,10 +22,10 @@ $duration-4: abs($delay-4) + $speed * 45;
       background-color: hsla(var(--editor-bg), calc(var(--bg-opacity) / 2));
     }
 
-    :not(.mod-root) .workspace-leaf {
+    .workspace-split:not(.mod-root) .workspace-leaf {
       background-color: hsla(
         var(--background-secondary-hsl),
-        var(--bg-opacity)
+        calc(var(--bg-opacity) / 2)
       );
     }
 

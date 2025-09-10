@@ -66,14 +66,6 @@ body {
   max-width: 100%;
 }
 
-.workspace-split.mod-root .workspace-leaf-content[data-type='markdown'] {
-  background-color: hsla(var(--editor-bg), var(--bg-opacity));
-
-  .view-content {
-    background-color: transparent;
-  }
-}
-
 /* #endregion editor background */
 
 /* #region text */

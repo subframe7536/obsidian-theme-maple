@@ -10,7 +10,7 @@
 }
 
 .is-focused .workspace-leaf.mod-active .view-header {
-  background-color: var(--editor-bg);
+  background-color: hsla(var(--background-secondary-hsl), 50%);
 }
 
 body.tab-float {
