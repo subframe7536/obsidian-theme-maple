@@ -1,5 +1,11 @@
 @use '../utils.scss' as *;
 
+.external-link {
+  background-image: linear-gradient(transparent, transparent),
+    #{icon('arrow-up-right')};
+  background-size: var(--font-text-size);
+  padding-inline-end: var(--size-4-4);
+}
 :is(body, .print .markdown-rendered) {
   --link-color-rgb: var(--setting-link-internal-color, var(--color-cyan-rgb));
   --link-external-color-rgb: var(
