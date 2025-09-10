@@ -83,8 +83,8 @@
 
 @include use-print('.theme-light') {
   @include var-color('red', hsl(0, 45%, 53%));
-  @include var-color('orange', hsl(31, 70%, 45%));
-  @include var-color('yellow', hsl(48, 80%, 38%));
+  @include var-color('orange', hsl(36, 70%, 45%));
+  @include var-color('yellow', hsl(45, 60%, 48%));
   @include var-color('green', hsl(95, 75%, 32%));
   @include var-color('cyan', hsl(156, 75%, 28%));
   @include var-color('blue', hsl(193, 94%, 34%));
