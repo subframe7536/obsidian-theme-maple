@@ -43,5 +43,9 @@ body.message-modify {
 }
 
 .flair.mod-pop {
-  --interactive-accent: var(--text-accent);
+  --interactive-accent: var(--accent-active);
+  border: var(--accent-inactive) 1px solid;
+  .community-modal-info-name & {
+    --interactive-accent: var(--text-accent);
+  }
 }

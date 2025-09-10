@@ -39,7 +39,7 @@
 }
 
 .cm-hmd-codeblock.cm-formatting,
-.markdown-rendered code {
+.markdown-rendered :not(pre) code {
   color: var(--inline-code);
 }
 
@@ -216,10 +216,10 @@ body .markdown-rendered pre {
 
 @include use-no-plugin('.code-language') {
   .markdown-rendered {
-    $height: 2rem;
+    --code-block-padding: var(--font-text-size);
 
     pre {
-      padding: $height 0.8rem;
+      padding: var(--code-block-padding);
       position: relative;
 
       code[class*='language-']::before {
@@ -229,9 +229,9 @@ body .markdown-rendered pre {
         font-weight: bold;
         position: absolute;
         text-align: right;
-        right: calc(1.4rem + 2 * var(--size-4-1));
-        top: math.div($height, 15);
-        line-height: $height * 0.8;
+        right: var(--size-4-8);
+        top: calc(var(--code-block-padding) * 0.6);
+        line-height: calc(var(--code-block-padding) * 0.8);
         z-index: 9;
       }
       $language: C, Properties, (Python, py), Nginx, CSS, (JavaScript, JS),
