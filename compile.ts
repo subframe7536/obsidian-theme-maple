@@ -114,6 +114,9 @@ function compileCss(output: string, src: string, prepend?: string) {
         'version()': () => {
           return new SassString(`Maple ${version}`)
         },
+        'unescape($str)': ([str]) => {
+          return new SassString(str.assertString().text.replace(/\\/g, ''))
+        },
         'icon($icon-name, $color: "")': ([name, color]) => {
           return new SassString(
             getIconUrl(name.assertString().text, color.assertString().text),

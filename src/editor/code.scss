@@ -214,6 +214,7 @@ body .markdown-rendered pre {
   }
 }
 
+/* https://prismjs.com/#supported-languages */
 @include use-no-plugin('.code-language') {
   .markdown-rendered {
     --code-block-padding: var(--font-text-size);
@@ -234,23 +235,44 @@ body .markdown-rendered pre {
         line-height: calc(var(--code-block-padding) * 0.8);
         z-index: 9;
       }
-      $language: C, Properties, (Python, py), Nginx, CSS, (JavaScript, JS),
-        (TypeScript, TS), JSX, TSX, JSP, PHP, Lua, (Shell, sh), PowerShell, Flow,
-        Sequence, SQL, YAML, TOML, YML, ini, XML, (CPP, 'c++'), Java, HTML, TXT,
-        (Markdown, md), Bat, JSON, Groovy, SCSS, Bash, Cmd, Latex, Zig, SSML,
-        Git, (CSharp, cs, 'c#'), CSV, cue, (Kotlin, kt), Go, (Rust, rs), Regex,
-        Swift, ABAP, PL/SQL;
+      $language: Markup, HTML, XML, SVG, MathML, SSML, Atom, RSS, CSS,
+        (JavaScript, js), (Typescript, ts), JSX, (TypeScript-JSX, tsx), Ada,
+        Apex, AppleScript, AQL, (Arduino, ino), (ArmAsm, arm-asm),
+        (AsciiDoc, adoc), AspNet, Asm6502, AutoHotKey, (AWK, gawk),
+        (bash, sh, shell), basic, batch, Bison, c, ('C\\#', csharp, cs, dotnet),
+        ('C\\+\\+', cpp), Clojure, CMake, COBOL, (CoffeeScript, coffee), CSP,
+        Crystal, CSV, CUE, D, Dart, Diff, Django, Jinja2, Docker, Dockerfile,
+        EBNF, EditorConfig, EJS, Elixir, Elm, ERB, (Excel-Formula, xlsx, xls),
+        ('F\\#', fsharp), Flow, Fortran, GDScript, Git, GLSL, Go,
+        (Go-Module, go-mod), Gradle, GraphQL, Groovy, HAML,
+        (Handlebars, hbs, mustache), (Haskell, hs), HCL, HLSL, HTTP, Icon,
+        ICU-Message-Format, gitignore, Ini, Java, JavaDoc, JQ, JSDoc, JSON,
+        JSON5, JSONP, Julia, (Kotlin, kt, kts), (Latex, tex), Less, Liquid,
+        (Lisp, emacs, elisp, emacs-lisp), LLVM, Log, Lua, Makefile, MATLAB,
+        Mermaid, MongoDB, Monkey, Neon, Nginx, Nim, Nix, NSIS, (ObjectC, objc),
+        OCaml, odin, OpenCL, Pascal, Perl, PHP, PHPDoc, PowerShell, Properties,
+        ProtoBuf, Pug, (Python, py), QML, R, Regex, (ReScript, res), Rip,
+        (Ruby, rb), (Rust, rs), Sass, Scss, Scala, Solidity, SQL, stylus, Swift,
+        TCL, TOML, (URI, url), (UnrealScript, uscript, uc), V, VBNet, Velocity,
+        VHDL, Vim, (Visual-Basic, vb, vba), WASM, WGSL, WIKI, Wren, (YAML, yml),
+        Zig;
 
       @each $lan in $language {
         @if meta.type-of($lan) == list {
           $name: list.nth($lan, 1);
-          $alias: list.nth($lan, 2);
-          code[class~='language-#{string.to-lower-case($name)}']::before,
-          code[class~='language-#{string.to-lower-case($alias)}']::before {
-            content: string.quote($name);
+          $aliases: ();
+          @each $l in $lan {
+            $aliases: list.append(
+              $aliases,
+              '.language-' + string.to-lower-case($l),
+              comma
+            );
+          }
+          code:is(#{$aliases})::before {
+            content: unescape($name);
           }
         } @else {
-          code[class~='language-#{string.to-lower-case($lan)}']::before {
+          code.language-#{string.to-lower-case($lan)}::before {
             content: string.quote($lan);
           }
         }
