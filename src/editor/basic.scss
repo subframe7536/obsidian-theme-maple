@@ -113,8 +113,10 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
     .cm-line.cm-active {
     background-color: hsl(var(--active-line));
   }
-  .workspace-leaf .markdown-source-view .cm-scroller .cm-line {
-    border-radius: var(--radius-s);
+  .workspace-leaf .markdown-source-view .cm-scroller {
+    .cm-line:is(.cm-active, :hover):not(.HyperMD-quote) {
+      border-radius: var(--radius-s);
+    }
   }
 }
 body.line-active-left {
