@@ -13,7 +13,15 @@
 }
 
 .theme-dark {
-  --app-bg-image: var(--setting-app-bg-image-dark, #{img('default-bg')});
+  --app-bg-image: var(
+    --setting-app-bg-image-dark,
+    linear-gradient(
+      120deg,
+      hsl(calc(var(--accent-h) - 60), calc(var(--accent-s) * 1.1), 20%),
+      hsl(var(--accent-h), calc(var(--accent-s) * 1.1), 20%),
+      hsl(calc(var(--accent-h) + 60), calc(var(--accent-s) * 1.1), 20%)
+    )
+  );
   --bg-opacity: var(--setting-app-bg-opacity-dark, 0.6);
   --editor-min-opacity: 0.4;
 }
@@ -44,6 +52,9 @@ body.app-bg-image-enable {
         var(--background-primary-hsl),
         max(var(--bg-opacity), var(--editor-min-opacity))
       );
+    }
+    &-container-inner {
+      padding-bottom: var(--size-2-1) !important;
     }
   }
 

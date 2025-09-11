@@ -20,7 +20,7 @@ body:is(.tab-float, .app-bg-image-enable) {
       --tab-curve: 0;
 
       &.is-active {
-        --tab-radius-active: var(--size-2-3);
+        --tab-radius-active: var(--radius-m);
         box-shadow: var(--tab-active-shadow);
       }
       &-container {

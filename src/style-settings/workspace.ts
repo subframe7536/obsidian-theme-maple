@@ -33,6 +33,10 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           en: 'Light Theme Background Image URL',
           zh: '浅色主题背景图片地址',
         },
+        desc: {
+          en: 'Any valid value of CSS backgroud-image property, e.g. url(image-url)',
+          zh: '任何一个合法的 CSS background-image 值，例如 url(图片链接地址)',
+        },
       },
       { default: '' },
     )
@@ -52,6 +56,10 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         title: {
           en: 'Dark Theme Background Image URL',
           zh: '深色主题背景图片地址',
+        },
+        desc: {
+          en: 'Any valid value of CSS backgroud-image property, e.g. url(image-url)',
+          zh: '任何一个合法的 CSS background-image 值，例如 url(图片链接地址)',
         },
       },
       { default: '' },
