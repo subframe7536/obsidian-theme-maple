@@ -27,13 +27,43 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
     })
     .addVarText(
-      'setting-app-bg-image-url',
-      { title: { en: 'Background Image URL', zh: '背景图片地址' } },
-      { default: 'url()' },
+      'setting-app-bg-image-light',
+      {
+        title: {
+          en: 'Light Theme Background Image URL',
+          zh: '浅色主题背景图片地址',
+        },
+      },
+      { default: '' },
     )
     .addVarNumSlider(
-      'setting-app-bg-opacity',
-      { title: { en: 'Background Opacity', zh: '背景不透明度' } },
+      'setting-app-bg-opacity-light',
+      {
+        title: {
+          en: 'Light Theme Background Opacity',
+          zh: '浅色主题背景不透明度',
+        },
+      },
+      { default: 0.5, max: 0.9, min: 0.1, step: 0.05 },
+    )
+    .addVarText(
+      'setting-app-bg-image-dark',
+      {
+        title: {
+          en: 'Dark Theme Background Image URL',
+          zh: '深色主题背景图片地址',
+        },
+      },
+      { default: '' },
+    )
+    .addVarNumSlider(
+      'setting-app-bg-opacity-dark',
+      {
+        title: {
+          en: 'Dark Theme Background Opacity',
+          zh: '深色主题背景不透明度',
+        },
+      },
       { default: 0.5, max: 0.9, min: 0.1, step: 0.05 },
     ),
   Settings.ofLevel(1, { title: { en: 'File Explorer', zh: '文件管理器' } })
@@ -236,41 +266,24 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         ],
       },
     )
-    .children([
-      Settings.ofLevel(2, {
-        title: { en: 'Tab Title Bar', zh: '标签页标题栏' },
-      })
-        .addClassToggle('tab-title-bar-round', {
-          title: {
-            en: 'Enable Tab Title Bar Round Style',
-            zh: '开启标签页标题栏圆角样式',
-          },
-        })
-        .addClassToggle('tab-title-bar-shadow', {
-          title: {
-            en: 'Add Shadow For Active Tab Title Bar',
-            zh: '为当前标签页标题栏添加阴影',
-          },
-        })
-        .addClassSelect(
-          'tab-title-bar-text',
-          {
-            title: {
-              en: 'File Name On Tab Title Bar',
-              zh: '标签页标题栏的文件名',
-            },
-          },
-          {
-            allowEmpty: false,
-            default: 'tab-title-bar-text-default',
-            options: [
-              { label: 'default', value: 'tab-title-bar-text-default' },
-              { label: 'small size', value: 'tab-title-bar-text-small' },
-              { label: 'show on hover', value: 'tab-title-bar-text-hidden' },
-            ],
-          },
-        ),
-    ]),
+    .addClassSelect(
+      'tab-title-bar-text',
+      {
+        title: {
+          en: 'File Name On Tab Title Bar',
+          zh: '标签页标题栏的文件名',
+        },
+      },
+      {
+        allowEmpty: false,
+        default: 'tab-title-bar-text-default',
+        options: [
+          { label: 'default', value: 'tab-title-bar-text-default' },
+          { label: 'small size', value: 'tab-title-bar-text-small' },
+          { label: 'show on hover', value: 'tab-title-bar-text-hidden' },
+        ],
+      },
+    ),
   Settings.ofLevel(1, {
     title: { en: 'Tooltip & Notice', zh: '气泡提示框 & 通知' },
   })

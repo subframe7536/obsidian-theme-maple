@@ -1,49 +1,90 @@
-body {
-  --bg-opacity: 1;
-  --app-bg-image-url: var(--setting-app-bg-image-url, #{img('default-bg')});
+.theme-light {
+  --app-bg-image: var(
+    --setting-app-bg-image-light,
+    linear-gradient(
+      120deg,
+      hsl(calc(var(--accent-h) - 60), calc(var(--accent-s) * 0.9), 85%),
+      hsl(var(--accent-h), calc(var(--accent-s) * 0.9), 85%),
+      hsl(calc(var(--accent-h) + 60), calc(var(--accent-s) * 0.9), 85%)
+    )
+  );
+  --bg-opacity: var(--setting-app-bg-opacity-light, 0.6);
+  --editor-min-opacity: 0.8;
 }
 
-.app-bg-image-enable {
-  --bg-opacity: var(--setting-app-bg-opacity, 0.8);
+.theme-dark {
+  --app-bg-image: var(--setting-app-bg-image-dark, #{img('default-bg')});
+  --bg-opacity: var(--setting-app-bg-opacity-dark, 0.6);
+  --editor-min-opacity: 0.4;
+}
 
-  .workspace-tab-header-container {
-    background-color: var(--background-secondary-hsl),
-      calc(var(--bg-opacity) / 2);
+body.app-bg-image-enable {
+  --bg-opacity: var(--setting-app-bg-opacity, 0.4);
+  --divider-color: transparent;
+
+  .mod-root .workspace-tab-container {
+    padding: var(--size-4-1);
+    .workspace-leaf-content {
+      border-radius: var(--radius-m);
+    }
+  }
+  .workspace {
+    --frame-outline-color: transparent;
+    --tab-active-shadow: none;
+    background-image: var(--app-bg-image);
   }
 
-  .horizontal-main-container {
-    background-image: var(--app-bg-image-url);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  .workspace-tab-header {
+    --background-modifier-hover: hsla(
+      var(--background-primary-hsl),
+      var(--bg-opacity)
+    );
+    &.is-active {
+      --tab-background-active: hsla(
+        var(--background-primary-hsl),
+        max(var(--bg-opacity), var(--editor-min-opacity))
+      );
+    }
   }
 
   :is(
+      .workspace-tab-header-container,
+      .titlebar-button-container,
       .sidebar-toggle-button,
-      .workspace-tabs .workspace-leaf,
       .workspace-fake-target-overlay:not(.is-in-sidebar)
         .workspace-tabs
         .workspace-leaf,
-      .mod-root .workspace-tabs .workspace-leaf,
-      .workspace-split.mod-root .view-content
+      .workspace-split:not(.mod-root) .workspace-tabs .workspace-leaf,
+      .workspace-split.mod-root
+        .workspace-tabs:not(.mod-stacked)
+        .workspace-leaf
     ) {
     background-color: transparent;
   }
 
   .workspace-split {
-    background-color: hsl(var(--background-secondary-hsl), var(--bg-opacity));
+    background-color: hsla(var(--background-secondary-hsl), var(--bg-opacity));
+    &.mod-root {
+      background-color: hsla(
+        var(--background-secondary-hsl),
+        var(--bg-opacity)
+      );
+    }
   }
 
-  :is(.workspace-split.mod-root, .view-header) {
-    background-color: hsl(var(--background-primary-hsl), var(--bg-opacity));
+  :is(.workspace-split.mod-root .view-content, .view-header) {
+    background-color: hsla(
+      var(--background-primary-hsl),
+      max(var(--bg-opacity), var(--editor-min-opacity))
+    );
   }
 
   &:not(.is-mobile)
     .workspace-split.mod-left-split
     .workspace-sidedock-vault-profile {
-    background-color: hsl(
+    background-color: hsla(
       var(--background-secondary-hsl),
-      calc(var(--bg-opacity) / 2)
+      calc(var(--bg-opacity) / 4)
     );
   }
 }

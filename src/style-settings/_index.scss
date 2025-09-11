@@ -176,8 +176,10 @@ body:not(.calendar-swap-year-month)
   .setting-item[data-id='setting-calendar-year-suffix'],
 body:not(.app-bg-image-enable)
   .setting-item:is(
-    [data-id='setting-app-bg-image-url'],
-    [data-id='setting-app-bg-opacity']
+    [data-id='setting-app-bg-image-light'],
+    [data-id='setting-app-bg-opacity-light'],
+    [data-id='setting-app-bg-image-dark'],
+    [data-id='setting-app-bg-opacity-dark']
   ),
 body:not(.editor-bg-pure) .setting-item[data-id='setting-editor-bg'],
 body:not(.editor-bg-dots) .setting-item[data-id='setting-editor-bg-dot'],

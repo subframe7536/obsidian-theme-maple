@@ -9,21 +9,19 @@
   }
 }
 
-.is-focused .workspace-leaf.mod-active .view-header {
-  background-color: hsla(var(--background-secondary-hsl), 50%);
-}
-
-body.tab-float {
+body:is(.tab-float, .app-bg-image-enable) {
   --tab-radius: var(--size-2-3);
+  --tab-active-shadow: var(--shadow-s);
 
   .mod-root {
     .workspace-tab-header {
       padding-block: 0 !important;
       transition: color var(--animation), width var(--animation);
+      --tab-curve: 0;
 
       &.is-active {
         --tab-radius-active: var(--size-2-3);
-        box-shadow: var(--shadow-s);
+        box-shadow: var(--tab-active-shadow);
       }
       &-container {
         --tab-outline-width: 0 !important;
@@ -48,17 +46,6 @@ body.tab-float {
     .workspace-tabs:not(.mod-stacked):not(.mod-active)
       .workspace-tab-header.is-active {
       --tab-background-active: hsla(var(--background-primary-hsl), 0.5);
-    }
-  }
-
-  &.theme-dark .mod-root .workspace-tab-header.is-active {
-    box-shadow: none;
-  }
-
-  .workspace-split.mod-root .workspace-tab-header.is-active {
-    &::before,
-    &::after {
-      box-shadow: none;
     }
   }
 
@@ -112,47 +99,13 @@ body.tab-title-bar-text-hidden
   }
 }
 
-body.tab-title-bar-round {
-  .workspace-leaf-content:not([data-type='excalidraw']) {
-    .view-header {
-      margin: var(--size-4-1);
-      margin-bottom: 0;
-      padding: 0 var(--size-2-3) !important;
-      border: var(--size-2-1) solid var(--background-modifier-hover);
-      border-radius: var(--radius-m);
-      transition: var(--animation);
-      width: calc(100% - var(--size-4-2)) !important;
-      background-color: hsl(var(--background-secondary-hsl));
-
-      .view-header-title-container:after {
-        content: none;
-      }
-    }
-  }
-
-  .workspace-leaf.mod-active
-    .workspace-leaf-content:not([data-type='excalidraw'])
-    .view-header {
-    background-color: var(--md-container-bg);
-  }
-
-  &.tab-title-bar-shadow
-    .workspace-leaf.mod-active
-    .workspace-leaf-content:not([data-type='excalidraw'])
-    .view-header {
-    box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
-  }
-}
-
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
 
 body:not(.is-mobile):not(.is-tablet) {
   :is(
-      .workspace-split:not(.is-sidedock-collapsed)
+      .workspace-split:not(.is-sidedock-collapsed):not(.mod-root)
         .workspace-tabs:not(.mod-stacked)
-        .workspace-leaf-content:not([data-type='pdf']):not(
-          [data-type='markdown']
-        )
+        .workspace-leaf-content
         .view-content,
       .workspace-leaf-content:not(:has(.view-content))
     ) {
@@ -160,7 +113,7 @@ body:not(.is-mobile):not(.is-tablet) {
   }
 
   &.tab-editor-slide-up {
-    @include use-panel('markdown', '.view-content') {
+    .workspace-split.mod-root .workspace-leaf-content .view-content {
       animation: use-animation('slide-up');
     }
   }

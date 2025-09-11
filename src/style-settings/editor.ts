@@ -721,7 +721,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-table-line-bg',
       {
-        title: { en: 'Alt Line Color', zh: '交错行背景色' },
+        title: { en: 'Stripped Background Color', zh: '斑马纹背景色' },
       },
       {
         format: 'hex',
