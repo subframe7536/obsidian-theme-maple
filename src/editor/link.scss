@@ -2,9 +2,13 @@
 
 .external-link {
   background-image: linear-gradient(transparent, transparent),
-    #{icon('arrow-up-right')};
+    #{icon('arrow-up-right', '#222')};
   background-size: var(--font-text-size);
   padding-inline-end: var(--size-4-4);
+}
+.theme-dark .external-link {
+  background-image: linear-gradient(transparent, transparent),
+    #{icon('arrow-up-right', '#ddd')};
 }
 :is(body, .print .markdown-rendered) {
   --link-color-rgb: var(--setting-link-internal-color, var(--color-cyan-rgb));

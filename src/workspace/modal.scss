@@ -332,7 +332,7 @@ button {
 
 .theme-dark {
   /* current color seems to be invalid for SVG in background-image */
-  --select-bg-img: #{icon('chevron-down', '#eee')};
+  --select-bg-img: #{icon('chevron-down', '#ddd')};
 }
 
 :is(select, .dropdown) {
