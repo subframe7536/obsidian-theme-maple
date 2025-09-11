@@ -15,7 +15,7 @@
     --metadata-padding: var(--radius-m);
   }
 
-  body.prop-hide-preview & {
+  .prop-hide-preview & {
     --metadata-display-reading: none;
   }
 
