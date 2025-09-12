@@ -2,10 +2,10 @@
   --app-bg-image: var(
     --setting-app-bg-image-light,
     linear-gradient(
-      120deg,
-      hsl(calc(var(--accent-h) - 60), calc(var(--accent-s) * 0.9), 85%),
+      30deg,
+      hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 0.95), 85%),
       hsl(var(--accent-h), calc(var(--accent-s) * 0.9), 85%),
-      hsl(calc(var(--accent-h) + 60), calc(var(--accent-s) * 0.9), 85%)
+      hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 0.95), 85%)
     )
   );
   --bg-opacity: var(--setting-app-bg-opacity-light, 0.6);
@@ -16,10 +16,10 @@
   --app-bg-image: var(
     --setting-app-bg-image-dark,
     linear-gradient(
-      120deg,
-      hsl(calc(var(--accent-h) - 60), calc(var(--accent-s) * 1.1), 20%),
+      30deg,
+      hsl(calc(var(--accent-h) - 60), calc(var(--accent-s) * 1.15), 25%),
       hsl(var(--accent-h), calc(var(--accent-s) * 1.1), 20%),
-      hsl(calc(var(--accent-h) + 60), calc(var(--accent-s) * 1.1), 20%)
+      hsl(calc(var(--accent-h) + 60), calc(var(--accent-s) * 1.15), 25%)
     )
   );
   --bg-opacity: var(--setting-app-bg-opacity-dark, 0.6);
@@ -32,6 +32,7 @@ body.app-bg-image-enable {
 
   .mod-root .workspace-tab-container {
     padding: var(--size-4-1);
+    padding-top: 0;
     .workspace-leaf-content {
       border-radius: var(--radius-m);
     }
@@ -54,9 +55,6 @@ body.app-bg-image-enable {
         var(--background-primary-hsl),
         max(var(--bg-opacity), var(--editor-min-opacity))
       );
-    }
-    &-container-inner {
-      padding-bottom: var(--size-2-1) !important;
     }
   }
 
