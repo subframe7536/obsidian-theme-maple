@@ -48,7 +48,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           zh: '浅色主题背景不透明度',
         },
       },
-      { default: 0.5, max: 0.9, min: 0.1, step: 0.05 },
+      { default: 0.6, max: 0.9, min: 0.1, step: 0.05 },
     )
     .addVarText(
       'setting-app-bg-image-dark',
@@ -72,7 +72,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           zh: '深色主题背景不透明度',
         },
       },
-      { default: 0.5, max: 0.9, min: 0.1, step: 0.05 },
+      { default: 0.6, max: 0.9, min: 0.1, step: 0.05 },
     ),
   Settings.ofLevel(1, { title: { en: 'File Explorer', zh: '文件管理器' } })
     .addClassToggle('explorer-nav-decoration', {

@@ -23,7 +23,7 @@
     )
   );
   --bg-opacity: var(--setting-app-bg-opacity-dark, 0.6);
-  --editor-min-opacity: 0.4;
+  --editor-min-opacity: 0.85;
 }
 
 body.app-bg-image-enable {
@@ -40,6 +40,8 @@ body.app-bg-image-enable {
     --frame-outline-color: transparent;
     --tab-active-shadow: none;
     background-image: var(--app-bg-image);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
 
   .workspace-tab-header {
