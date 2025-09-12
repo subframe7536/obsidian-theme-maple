@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.2 For Obsidian */
+/* Maple Theme v1.0.0-beta.3 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Color And Animation
@@ -174,9 +174,9 @@ settings:
 id: maple-workspace
 name: Maple Workspace
 settings:
-    - id: titleobsidian-titlebar
-      title: Obsidian Titlebar
-      title.zh: Obsidian 标题栏
+    - id: titletitlebar-and-background-image
+      title: Titlebar And Background Image
+      title.zh: 标题栏和背景图
       type: heading
       level: 1
       collapsed: true
@@ -193,41 +193,40 @@ settings:
       title.zh: 多彩 Obsidian 标题栏
       description: Reference from https://github.com/kepano/obsidian-minimal
       description.zh: 参考 https://github.com/kepano/obsidian-minimal
-    - id: titlewave-background
-      title: Wave Background
-      title.zh: 波浪背景图
-      description: Will also add in canvas card when card width > 768px
-      description.zh: 白板的卡片宽度 >768px 时编辑卡片也会添加
-      type: heading
-      level: 1
-      collapsed: true
-    - id: bg-enable
-      type: class-select
-      title: Background Wave Image
-      title.zh: 背景波浪图
-      description: Static style reference from
-          https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow, ❗live style
-          will increase CPU/GPU use
-      description.zh: 静态图（static）参考
-          https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow，❗动态图（live）将提高
-          CPU/GPU 占用率
-      allow-empty: false
-      default: bg-static
-      options:
-          - label: disable
-            value: bg-default
-          - label: static
-            value: bg-static
-          - label: live
-            value: bg-live
-    - id: setting-bg-color
-      type: variable-themed-color
-      title: Wave Color
-      title.zh: 波浪颜色
-      format: rgb
-      opacity: false
-      default-light: "#"
-      default-dark: "#"
+    - id: app-bg-image-enable
+      type: class-toggle
+      title: Add Background Image In Workspace
+      title.zh: 在应用中添加背景图
+    - id: setting-app-bg-image-light
+      type: variable-text
+      title: Light Theme Background Image URL
+      title.zh: 浅色主题背景图片地址
+      description: Any valid value of CSS backgroud-image property, e.g. url(image-url)
+      description.zh: 任何一个合法的 CSS background-image 值，例如 url(图片链接地址)
+      default: ""
+    - id: setting-app-bg-opacity-light
+      type: variable-number-slider
+      title: Light Theme Background Opacity
+      title.zh: 浅色主题背景不透明度
+      default: 0.6
+      max: 0.9
+      min: 0.1
+      step: 0.05
+    - id: setting-app-bg-image-dark
+      type: variable-text
+      title: Dark Theme Background Image URL
+      title.zh: 深色主题背景图片地址
+      description: Any valid value of CSS backgroud-image property, e.g. url(image-url)
+      description.zh: 任何一个合法的 CSS background-image 值，例如 url(图片链接地址)
+      default: ""
+    - id: setting-app-bg-opacity-dark
+      type: variable-number-slider
+      title: Dark Theme Background Opacity
+      title.zh: 深色主题背景不透明度
+      default: 0.6
+      max: 0.9
+      min: 0.1
+      step: 0.05
     - id: titlefile-explorer
       title: File Explorer
       title.zh: 文件管理器
@@ -395,20 +394,6 @@ settings:
             value: tab-show-close-all
           - label: on hover except active tab
             value: tab-show-close-part
-    - id: titletab-title-bar
-      title: Tab Title Bar
-      title.zh: 标签页标题栏
-      type: heading
-      level: 2
-      collapsed: true
-    - id: tab-title-bar-round
-      type: class-toggle
-      title: Enable Tab Title Bar Round Style
-      title.zh: 开启标签页标题栏圆角样式
-    - id: tab-title-bar-shadow
-      type: class-toggle
-      title: Add Shadow For Active Tab Title Bar
-      title.zh: 为当前标签页标题栏添加阴影
     - id: tab-title-bar-text
       type: class-select
       title: File Name On Tab Title Bar
@@ -480,7 +465,7 @@ settings:
       type: variable-text
       title: Set Modal Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.2'"
+      default: "'maple 1.0.0-beta.3'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -611,12 +596,25 @@ settings:
 id: maple-editor
 name: Maple Editor
 settings:
-    - id: titlebackground
-      title: Background
-      title.zh: 背景
+    - id: titleeditor-background-image
+      title: Editor Background Image
+      title.zh: 编辑器背景图
       type: heading
       level: 1
       collapsed: true
+    - id: editor-bg-type
+      type: class-select
+      title: Background Image Type
+      title.zh: 背景图类型
+      allow-empty: false
+      default: editor-bg-pure
+      options:
+          - label: pure color
+            value: editor-bg-pure
+          - label: dots
+            value: editor-bg-grid-dots
+          - label: grid
+            value: editor-bg-grid-line
     - id: setting-editor-bg
       type: variable-themed-color
       title: Editor Background Color
@@ -624,6 +622,31 @@ settings:
       format: hsl-values
       default-light: "#"
       default-dark: "#"
+    - id: setting-editor-bg-grid-dots
+      type: variable-themed-color
+      title: Editor Background Dot Color
+      title.zh: 编辑器背景点的颜色
+      format: rgb
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
+    - id: setting-editor-bg-grid-line
+      type: variable-themed-color
+      title: Editor Background Line Color
+      title.zh: 编辑器背景网格颜色
+      format: rgb
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
+    - id: setting-editor-bg-grid-spacing
+      type: variable-number-slider
+      title: Editor Background Grid Spacing
+      title.zh: 编辑器背景网格间距
+      format: px
+      default: 20
+      min: 10
+      max: 30
+      step: 1
     - id: setting-md-container-bg
       type: variable-themed-color
       title: Editor Container Background Color
@@ -1210,8 +1233,8 @@ settings:
       default-dark: "#"
     - id: setting-table-line-bg
       type: variable-themed-color
-      title: Alt Line Color
-      title.zh: 交错行背景色
+      title: Stripped Background Color
+      title.zh: 斑马纹背景色
       format: hex
       opacity: true
       default-light: "#"
@@ -1789,6 +1812,14 @@ html[lang=zh] {
 /* hide option */
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color],
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
+body:not(.app-bg-image-enable) .setting-item:is([data-id=setting-app-bg-image-light],
+[data-id=setting-app-bg-opacity-light],
+[data-id=setting-app-bg-image-dark],
+[data-id=setting-app-bg-opacity-dark]),
+body:not(.editor-bg-pure) .setting-item[data-id=setting-editor-bg],
+body.editor-bg-pure .setting-item[data-id=setting-editor-bg-grid-spacing],
+body:not(.editor-bg-grid-dots) .setting-item[data-id=setting-editor-bg-grid-dots],
+body:not(.editor-bg-grid-line) .setting-item[data-id=setting-editor-bg-grid-line],
 body:not(.scrollbar-enable) .setting-item:is([data-id=scrollbar-hover],
 [data-id=scrollbar-movein-animation-enable]),
 body.bg-default .setting-item[data-id=setting-bg-color],
@@ -1830,6 +1861,14 @@ body:not(.tag-outline) .setting-item[data-id=tag-outline-setting] {
 }
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
+body:not(.app-bg-image-enable) .setting-item:is([data-id=setting-app-bg-image-light],
+[data-id=setting-app-bg-opacity-light],
+[data-id=setting-app-bg-image-dark],
+[data-id=setting-app-bg-opacity-dark]) + .style-settings-container,
+body:not(.editor-bg-pure) .setting-item[data-id=setting-editor-bg] + .style-settings-container,
+body.editor-bg-pure .setting-item[data-id=setting-editor-bg-grid-spacing] + .style-settings-container,
+body:not(.editor-bg-grid-dots) .setting-item[data-id=setting-editor-bg-grid-dots] + .style-settings-container,
+body:not(.editor-bg-grid-line) .setting-item[data-id=setting-editor-bg-grid-line] + .style-settings-container,
 body:not(.scrollbar-enable) .setting-item:is([data-id=scrollbar-hover],
 [data-id=scrollbar-movein-animation-enable]) + .style-settings-container,
 body.bg-default .setting-item[data-id=setting-bg-color] + .style-settings-container,
@@ -1950,6 +1989,10 @@ body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-
 
 /* #endregion [style settings] */
 /* #region global variables */
+body {
+  --bg-opacity: 1;
+}
+
 :is(body, body .print) {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
@@ -1961,6 +2004,7 @@ body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
   --background-modifier-cover: hsla(var(--background-secondary-hsl), 0.6);
   --interactive-accent: var(--accent-active);
+  --input-radius: var(--size-2-3);
   --input-shadow: 0 0.125px 0 0.5px var(--color-base-10),
     inset 0 -0.125px 1px 0px var(--color-base-30),
     0 0.75px 2px 0.5px var(--color-base-50);
@@ -1971,9 +2015,7 @@ body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-
   --animation-slow: calc(var(--setting-animation-time, 200ms) * 2)
     var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
-  --bg-opacity: 1;
   --block-outline-width: 2px;
-  --editor-bg: var(--setting-editor-bg, var(--background-primary-hsl));
   --nav-item-background-hover: var(--background-modifier-hover);
   --nav-item-background-active: var(--accent-active);
   --nav-item-background-selected: var(--frame-outline-color);
@@ -2026,12 +2068,12 @@ body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-
     var(--color-orange-rgb),
     var(--color-opacity)
   ) !important;
-  --color-orange-rgb: 195.075, 117.4275, 34.425 !important;
+  --color-orange-rgb: 199.41, 122.774, 35.19 !important;
   --color-yellow: rgba(
     var(--color-yellow-rgb),
     var(--color-opacity)
   ) !important;
-  --color-yellow-rgb: 174.42, 143.412, 19.38 !important;
+  --color-yellow-rgb: 177.48, 139.74, 26.52 !important;
   --color-green: rgba(
     var(--color-green-rgb),
     var(--color-opacity)
@@ -2094,8 +2136,7 @@ body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-
     hsla(
       calc(var(--accent-h) + 8),
       calc(var(--accent-s) / 1.2),
-      calc(100% - (100% - var(--accent-l)) / 6),
-      70%
+      calc(100% - (100% - var(--accent-l)) / 8)
     )
   );
   --color-opacity: 1;
@@ -2138,7 +2179,8 @@ body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-
   ) !important;
   --color-purple-rgb: 201.8784, 195.024, 253.776 !important;
   --background-primary: hsl(var(--background-primary-hsl));
-  --background-primary-hsl: var(--accent-h), 5%, 5%;
+  --background-primary-hsl: var(--accent-h), calc(var(--accent-s) / 4),
+    calc(var(--accent-l) / 7);
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-secondary-hsl: calc(var(--accent-h) + 8),
     calc(var(--accent-s) / 6), calc(var(--accent-l) / 5);
@@ -2173,7 +2215,7 @@ body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-
   --text-on-accent: #eaeaea !important;
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsl(calc(var(--accent-h) - 4), 18%, 9%)
+    hsla(calc(var(--accent-h) - 4), 12%, 9%)
   );
   --color-opacity: 0.85;
 }
@@ -2228,15 +2270,15 @@ body:not(.is-mobile) div.workspace-leaf-content[data-type=style-settings] .view-
 }
 @keyframes slide-up {
   0% {
-    transform: translateY(0%);
+    transform: translateY(0%) translateZ(0);
     opacity: 0;
   }
   15% {
-    transform: translateY(1px);
+    transform: translateY(1px) translateZ(0);
     opacity: 0;
   }
   25% {
-    transform: translateY(2px);
+    transform: translateY(2px) translateZ(0);
   }
   45% {
     opacity: 0.5;
@@ -2306,13 +2348,6 @@ body {
   max-width: 100%;
 }
 
-.workspace-split.mod-root .workspace-leaf-content[data-type=markdown] {
-  background-color: hsla(var(--editor-bg), var(--bg-opacity));
-}
-.workspace-split.mod-root .workspace-leaf-content[data-type=markdown] .view-content {
-  background-color: transparent;
-}
-
 /* #endregion editor background */
 /* #region text */
 body {
@@ -2349,7 +2384,9 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 
 body:is(:not(.css-settings-manager), .line-active-enable) .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
   background-color: hsl(var(--active-line));
-  border-radius: var(--size-2-3);
+}
+body:is(:not(.css-settings-manager), .line-active-enable) .workspace-leaf .markdown-source-view .cm-scroller .cm-line:is(.cm-active, :hover):not(.HyperMD-quote) {
+  border-radius: var(--radius-s);
 }
 
 body.line-active-left {
@@ -2393,12 +2430,9 @@ video))),
   inset-block: var(--size-4-1);
   left: calc(var(--size-4-3) * -1);
   background-color: var(--indicator-color);
-  border-radius: var(--size-2-1);
+  border-radius: var(--radius-s);
 }
 
-body.line-indicator-full .cm-line {
-  border-radius: var(--size-2-1) !important;
-}
 body.line-indicator-full .cm-line:not(.HyperMD-codeblock):hover {
   background-color: hsl(var(--active-line), 50%);
 }
@@ -2563,6 +2597,29 @@ input[type=checkbox] {
 
 /* #endregion others */
 /* #endregion basic */
+/* #region background */
+/* Reference from https://forum-zh.obsidian.md/t/topic/42053 */
+body {
+  --grid-line-color: var(--setting-editor-bg-grid-line, var(--color-base-25));
+  --grid-dots-color: var(--setting-editor-bg-grid-dots, var(--color-base-35));
+  --grid-spacing: var(--setting-editor-bg-grid-spacing, var(--size-4-5));
+}
+
+:is(.markdown-reading-view .markdown-rendered,
+.markdown-source-view.mod-cm6 .cm-scroller) {
+  background-size: var(--grid-spacing) var(--grid-spacing);
+  background-position: center center;
+}
+.editor-bg-grid-dots :is(.markdown-reading-view .markdown-rendered,
+.markdown-source-view.mod-cm6 .cm-scroller) {
+  background-image: radial-gradient(circle, var(--grid-dots-color) 1px, var(--bg-editor) 1px);
+}
+.editor-bg-grid-line :is(.markdown-reading-view .markdown-rendered,
+.markdown-source-view.mod-cm6 .cm-scroller) {
+  background-image: linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+}
+
+/* #endregion background */
 /* #region code */
 :is(body, .print .markdown-rendered) {
   --inline-code: var(--setting-code-inline, var(--color-red));
@@ -2599,7 +2656,7 @@ input[type=checkbox] {
 }
 
 .cm-hmd-codeblock.cm-formatting,
-.markdown-rendered code {
+.markdown-rendered :not(pre) code {
   color: var(--inline-code);
 }
 
@@ -2748,171 +2805,457 @@ body .markdown-rendered pre .copy-code-button {
   white-space: pre;
 }
 
+/* https://prismjs.com/#supported-languages */
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered {
+  --code-block-padding: calc(var(--font-text-size) * 1.2);
+}
 body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre {
-  padding: 2rem 0.8rem;
+  padding: var(--code-block-padding);
   position: relative;
 }
 body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class*=language-]::before {
-  content: "unkown language";
+  content: "Unkown";
   font-family: var(--font-mono);
   color: var(--setting-code-language-color, var(--inline-code));
   font-weight: bold;
   position: absolute;
   text-align: right;
-  right: calc(1.4rem + 2 * var(--size-4-1));
-  top: 0.1333333333rem;
-  line-height: 1.6rem;
+  right: var(--size-4-8);
+  top: calc(var(--code-block-padding) * 0.4);
+  line-height: calc(var(--code-block-padding) * 0.8);
   z-index: 9;
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-c]::before {
-  content: "C";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-markup::before {
+  content: "Markup";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-properties]::before {
-  content: "Properties";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-python]::before,
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-py]::before {
-  content: "Python";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-nginx]::before {
-  content: "Nginx";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-css]::before {
-  content: "CSS";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-javascript]::before,
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-js]::before {
-  content: "JavaScript";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-typescript]::before,
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-ts]::before {
-  content: "TypeScript";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-jsx]::before {
-  content: "JSX";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-tsx]::before {
-  content: "TSX";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-jsp]::before {
-  content: "JSP";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-php]::before {
-  content: "PHP";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-lua]::before {
-  content: "Lua";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-shell]::before,
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-sh]::before {
-  content: "Shell";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-powershell]::before {
-  content: "PowerShell";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-flow]::before {
-  content: "Flow";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-sequence]::before {
-  content: "Sequence";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-sql]::before {
-  content: "SQL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-yaml]::before {
-  content: "YAML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-toml]::before {
-  content: "TOML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-yml]::before {
-  content: "YML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-ini]::before {
-  content: "ini";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-xml]::before {
-  content: "XML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-cpp]::before,
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~="language-c++"]::before {
-  content: "CPP";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-java]::before {
-  content: "Java";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-html]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-html::before {
   content: "HTML";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-txt]::before {
-  content: "TXT";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-xml::before {
+  content: "XML";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-markdown]::before,
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-md]::before {
-  content: "Markdown";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-svg::before {
+  content: "SVG";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-bat]::before {
-  content: "Bat";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-mathml::before {
+  content: "MathML";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-json]::before {
-  content: "JSON";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-groovy]::before {
-  content: "Groovy";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-scss]::before {
-  content: "SCSS";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-bash]::before {
-  content: "Bash";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-cmd]::before {
-  content: "Cmd";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-latex]::before {
-  content: "Latex";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-zig]::before {
-  content: "Zig";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-ssml]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ssml::before {
   content: "SSML";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-git]::before {
-  content: "Git";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-atom::before {
+  content: "Atom";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-csharp]::before,
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-cs]::before {
-  content: "CSharp";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-rss::before {
+  content: "RSS";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-csv]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-css::before {
+  content: "CSS";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-javascript, .language-js)::before {
+  content: "JavaScript";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-typescript, .language-ts)::before {
+  content: "Typescript";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-jsx::before {
+  content: "JSX";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-typescript-jsx, .language-tsx)::before {
+  content: "TypeScript-JSX";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ada::before {
+  content: "Ada";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-apex::before {
+  content: "Apex";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-applescript::before {
+  content: "AppleScript";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-aql::before {
+  content: "AQL";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-arduino, .language-ino)::before {
+  content: "Arduino";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-armasm, .language-arm-asm)::before {
+  content: "ArmAsm";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-asciidoc, .language-adoc)::before {
+  content: "AsciiDoc";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-aspnet::before {
+  content: "AspNet";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-asm6502::before {
+  content: "Asm6502";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-autohotkey::before {
+  content: "AutoHotKey";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-awk, .language-gawk)::before {
+  content: "AWK";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-bash, .language-sh, .language-shell)::before {
+  content: "bash";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-basic::before {
+  content: "basic";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-batch::before {
+  content: "batch";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-bison::before {
+  content: "Bison";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-c::before {
+  content: "C";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-c\#, .language-csharp, .language-cs, .language-dotnet)::before {
+  content: "C#";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-c\+\+, .language-cpp)::before {
+  content: "C++";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-clojure::before {
+  content: "Clojure";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-cmake::before {
+  content: "CMake";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-cobol::before {
+  content: "COBOL";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-coffeescript, .language-coffee)::before {
+  content: "CoffeeScript";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-csp::before {
+  content: "CSP";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-crystal::before {
+  content: "Crystal";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-csv::before {
   content: "CSV";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-cue]::before {
-  content: "cue";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-cue::before {
+  content: "CUE";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-kotlin]::before,
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-kt]::before {
-  content: "Kotlin";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-d::before {
+  content: "D";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-go]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-dart::before {
+  content: "Dart";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-diff::before {
+  content: "Diff";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-django::before {
+  content: "Django";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-jinja2::before {
+  content: "Jinja2";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-docker::before {
+  content: "Docker";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-dockerfile::before {
+  content: "Dockerfile";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ebnf::before {
+  content: "EBNF";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-editorconfig::before {
+  content: "EditorConfig";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ejs::before {
+  content: "EJS";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-elixir::before {
+  content: "Elixir";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-elm::before {
+  content: "Elm";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-erb::before {
+  content: "ERB";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-excel-formula, .language-xlsx, .language-xls)::before {
+  content: "Excel-Formula";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-f\#, .language-fsharp)::before {
+  content: "F#";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-flow::before {
+  content: "Flow";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-fortran::before {
+  content: "Fortran";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-gdscript::before {
+  content: "GDScript";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-git::before {
+  content: "Git";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-glsl::before {
+  content: "GLSL";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-go::before {
   content: "Go";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-rust]::before,
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-rs]::before {
-  content: "Rust";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-go-module, .language-go-mod)::before {
+  content: "Go-Module";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-regex]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-gradle::before {
+  content: "Gradle";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-graphql::before {
+  content: "GraphQL";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-groovy::before {
+  content: "Groovy";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-haml::before {
+  content: "HAML";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-handlebars, .language-hbs, .language-mustache)::before {
+  content: "Handlebars";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-haskell, .language-hs)::before {
+  content: "Haskell";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-hcl::before {
+  content: "HCL";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-hlsl::before {
+  content: "HLSL";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-http::before {
+  content: "HTTP";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-icon::before {
+  content: "Icon";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-icu-message-format::before {
+  content: "ICU-Message-Format";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-gitignore::before {
+  content: "gitignore";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ini::before {
+  content: "Ini";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-java::before {
+  content: "Java";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-javadoc::before {
+  content: "JavaDoc";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-jq::before {
+  content: "JQ";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-jsdoc::before {
+  content: "JSDoc";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-json::before {
+  content: "JSON";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-json5::before {
+  content: "JSON5";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-jsonp::before {
+  content: "JSONP";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-julia::before {
+  content: "Julia";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-kotlin, .language-kt, .language-kts)::before {
+  content: "Kotlin";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-latex, .language-tex)::before {
+  content: "Latex";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-less::before {
+  content: "Less";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-liquid::before {
+  content: "Liquid";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-lisp, .language-emacs, .language-elisp, .language-emacs-lisp)::before {
+  content: "Lisp";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-llvm::before {
+  content: "LLVM";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-log::before {
+  content: "Log";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-lua::before {
+  content: "Lua";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-makefile::before {
+  content: "Makefile";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-markdown, .language-md)::before {
+  content: "Markdown";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-matlab::before {
+  content: "MATLAB";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-mermaid::before {
+  content: "Mermaid";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-mongodb::before {
+  content: "MongoDB";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-monkey::before {
+  content: "Monkey";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-neon::before {
+  content: "Neon";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-nginx::before {
+  content: "Nginx";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-nim::before {
+  content: "Nim";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-nix::before {
+  content: "Nix";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-nsis::before {
+  content: "NSIS";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-objectc, .language-objc)::before {
+  content: "ObjectC";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ocaml::before {
+  content: "OCaml";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-odin::before {
+  content: "odin";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-opencl::before {
+  content: "OpenCL";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-pascal::before {
+  content: "Pascal";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-perl::before {
+  content: "Perl";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-php::before {
+  content: "PHP";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-phpdoc::before {
+  content: "PHPDoc";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-powershell::before {
+  content: "PowerShell";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-properties::before {
+  content: "Properties";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-protobuf::before {
+  content: "ProtoBuf";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-pug::before {
+  content: "Pug";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-python, .language-py)::before {
+  content: "Python";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-qml::before {
+  content: "QML";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-r::before {
+  content: "R";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-regex::before {
   content: "Regex";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-swift]::before {
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-rescript, .language-res)::before {
+  content: "ReScript";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-rip::before {
+  content: "Rip";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-ruby, .language-rb)::before {
+  content: "Ruby";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-rust, .language-rs)::before {
+  content: "Rust";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-sass::before {
+  content: "Sass";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-scss::before {
+  content: "Scss";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-scala::before {
+  content: "Scala";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-solidity::before {
+  content: "Solidity";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-sql::before {
+  content: "SQL";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-stylus::before {
+  content: "stylus";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-swift::before {
   content: "Swift";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~=language-abap]::before {
-  content: "ABAP";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-tcl::before {
+  content: "TCL";
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class~="language-pl/sql"]::before {
-  content: "PL/SQL";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-toml::before {
+  content: "TOML";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-uri, .language-url)::before {
+  content: "URI";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-unrealscript, .language-uscript, .language-uc)::before {
+  content: "UnrealScript";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-v::before {
+  content: "V";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-vbnet::before {
+  content: "VBNet";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-velocity::before {
+  content: "Velocity";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-vhdl::before {
+  content: "VHDL";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-vim::before {
+  content: "Vim";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-visual-basic, .language-vb, .language-vba)::before {
+  content: "Visual-Basic";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-wasm::before {
+  content: "WASM";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-wgsl::before {
+  content: "WGSL";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-wiki::before {
+  content: "WIKI";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-wren::before {
+  content: "Wren";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-yaml, .language-yml)::before {
+  content: "YAML";
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-zig::before {
+  content: "Zig";
 }
 
 .markdown-source-view.mod-cm6 .code-block-flair {
@@ -3209,6 +3552,16 @@ body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr::after 
 
 /* #endregion hr */
 /* #region link */
+.external-link {
+  background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23222222' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 7h10v10M7 17L17 7'/></svg>");
+  background-size: var(--font-text-size);
+  padding-inline-end: var(--size-4-4);
+}
+
+.theme-dark .external-link {
+  background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23DDDDDD' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 7h10v10M7 17L17 7'/></svg>");
+}
+
 :is(body, .print .markdown-rendered) {
   --link-color-rgb: var(--setting-link-internal-color, var(--color-cyan-rgb));
   --link-external-color-rgb: var(
@@ -4159,12 +4512,12 @@ body.quote-mark.quote-theme blockquote::before {
 /* #region table */
 body {
   --table-radius: var(--size-2-3);
-  --table-btn-color: var(--text-on-accent);
-  --table-btn-bg: var(--accent-inactive);
+  --table-btn-color: var(--text-muted);
+  --table-btn-bg: var(--background-modifier-hover);
   --table-header-bg: var(--setting-table-header-bg, var(--md-container-bg));
   --table-alt-line-bg: var(
     --setting-table-line-bg,
-    hsl(var(--background-secondary-hsl), 30%)
+    hsl(var(--background-secondary-hsl), calc(var(--bg-opacity) / 2))
   );
   --table-cell-vertical-alignment: middle;
 }
@@ -4259,7 +4612,7 @@ body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
 .markdown-rendered table) tbody tr:nth-of-type(2n + 1) {
-  background-color: var(--background-primary);
+  background-color: var(--bg-editor);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
 .markdown-rendered table) .table-cell-wrapper:has(> .cm-s-obsidian):not(:has(.image-embed)) {
@@ -4957,6 +5310,7 @@ body.theme-dark.pdf-dark-hover .pdf-viewer:hover {
 .metadata-container {
   margin-block-end: var(--size-4-2);
   transition: var(--animation);
+  --metadata-background: var(--md-container-bg);
   --metadata-property-background-hover: var(--md-container-bg);
   --metadata-label-background-active: var(--background-primary);
   --metadata-input-background-active: var(--background-primary);
@@ -4967,7 +5321,7 @@ body.prop-outline .metadata-container {
   --metadata-border-radius: var(--radius-m);
   --metadata-padding: var(--radius-m);
 }
-body.prop-hide-preview .metadata-container {
+.prop-hide-preview .metadata-container {
   --metadata-display-reading: none;
 }
 .metadata-container .metadata-add-button {
@@ -5765,7 +6119,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.2");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.3");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5793,7 +6147,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   padding-top: var(--modal-header-height);
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
-  background-color: hsl(var(--background-primary-hsl));
+  background-color: var(--background-primary);
   border-top: 1px solid var(--divider-color);
   padding-top: var(--size-4-6);
   padding-right: var(--size-4-8);
@@ -5885,7 +6239,7 @@ select,
 
 .theme-dark {
   /* current color seems to be invalid for SVG in background-image */
-  --select-bg-img: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23EEEEEE' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9l6 6l6-6'/></svg>");
+  --select-bg-img: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23DDDDDD' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9l6 6l6-6'/></svg>");
 }
 
 :is(select, .dropdown) {
@@ -6099,20 +6453,18 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-tab-header-inner
   display: none;
 }
 
-.is-focused .workspace-leaf.mod-active .view-header {
-  background-color: var(--editor-bg);
-}
-
 body.tab-float {
   --tab-radius: var(--size-2-3);
+  --tab-active-shadow: var(--shadow-s);
 }
 body.tab-float .mod-root .workspace-tab-header {
   padding-block: 0 !important;
   transition: color var(--animation), width var(--animation);
+  --tab-curve: 0;
 }
 body.tab-float .mod-root .workspace-tab-header.is-active {
-  --tab-radius-active: var(--size-2-3);
-  box-shadow: var(--shadow-s);
+  --tab-radius-active: var(--radius-m);
+  box-shadow: var(--tab-active-shadow);
 }
 body.tab-float .mod-root .workspace-tab-header-container {
   --tab-outline-width: 0 !important;
@@ -6131,12 +6483,6 @@ body.tab-float .mod-root .workspace-tab-header-container-inner-close-button:hove
 }
 body.tab-float .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-active) .workspace-tab-header.is-active {
   --tab-background-active: hsla(var(--background-primary-hsl), 0.5);
-}
-body.tab-float.theme-dark .mod-root .workspace-tab-header.is-active {
-  box-shadow: none;
-}
-body.tab-float .workspace-split.mod-root .workspace-tab-header.is-active::before, body.tab-float .workspace-split.mod-root .workspace-tab-header.is-active::after {
-  box-shadow: none;
 }
 body.tab-float .workspace-tab-header-new-tab {
   padding-top: var(--size-4-1);
@@ -6179,32 +6525,12 @@ body.tab-title-bar-text-hidden .workspace-leaf-content:not([data-type=excalidraw
   transition-delay: 0s;
 }
 
-body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  margin: var(--size-4-1);
-  margin-bottom: 0;
-  padding: 0 var(--size-2-3) !important;
-  border: var(--size-2-1) solid var(--background-modifier-hover);
-  border-radius: var(--radius-m);
-  transition: var(--animation);
-  width: calc(100% - var(--size-4-2)) !important;
-  background-color: hsl(var(--background-secondary-hsl));
-}
-body.tab-title-bar-round .workspace-leaf-content:not([data-type=excalidraw]) .view-header .view-header-title-container:after {
-  content: none;
-}
-body.tab-title-bar-round .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  background-color: var(--md-container-bg);
-}
-body.tab-title-bar-round.tab-title-bar-shadow .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=excalidraw]) .view-header {
-  box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
-}
-
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body:not(.is-mobile):not(.is-tablet) :is(.workspace-split .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=pdf]):not([data-type=markdown]) .view-content,
+body:not(.is-mobile):not(.is-tablet) :is(.workspace-split:not(.is-sidedock-collapsed):not(.mod-root) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content .view-content,
 .workspace-leaf-content:not(:has(.view-content))) {
   animation: slide-up var(--animation);
 }
-body:not(.is-mobile):not(.is-tablet).tab-editor-slide-up .workspace-leaf-content[data-type=markdown] .view-content {
+body:not(.is-mobile):not(.is-tablet).tab-editor-slide-up .workspace-split.mod-root .workspace-leaf-content .view-content {
   animation: slide-up var(--animation);
 }
 
@@ -6456,49 +6782,115 @@ body.message-modify:not(.color-active-default).theme-dark {
 }
 
 .flair.mod-pop {
+  --interactive-accent: var(--accent-active);
+  border: var(--accent-inactive) 1px solid;
+}
+.community-modal-info-name .flair.mod-pop {
   --interactive-accent: var(--text-accent);
 }
 
 /* #endregion message */
 /* #region background image */
-@media screen and (min-width: 768px) {
-  body:is(.bg-static, .bg-live) {
-    --bg-opacity: 0.75;
-  }
-  body:is(.bg-static, .bg-live) .workspace-split.mod-root,
-  body:is(.bg-static, .bg-live) .workspace-split.mod-root .workspace-leaf-content {
-    background-color: hsla(var(--editor-bg), calc(var(--bg-opacity) / 2));
-  }
-  body:is(.bg-static, .bg-live) :not(.mod-root) .workspace-leaf {
-    background-color: hsla(var(--background-secondary-hsl), var(--bg-opacity));
-  }
-  body:is(.bg-static, .bg-live) .workspace::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-mask-repeat: no-repeat;
-    background-color: var(--setting-bg-color, var(--text-accent));
-    opacity: 0.5;
-  }
-  /* 参考 https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-  body {
-    --setting-bg-static: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" xml:space="preserve"><path opacity="0.3" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"/><path opacity="0.4" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"/><path opacity="0.6" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
-    --setting-bg-live: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 24 150 28' preserveAspectRatio='none' shape-rendering='auto' style='position:relative;width:100%25;height:15vh;min-height:100px;max-height:150px'%3E%3Cstyle%3E.parallax>use%7Banimation:move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite%7D.parallax>use:nth-child(1)%7Banimation-delay:-33.6s;animation-duration:75.6s%7D.parallax>use:nth-child(2)%7Banimation-delay:2.4s;animation-duration:68.4s%7D.parallax>use:nth-child(3)%7Banimation-delay:-6s;animation-duration:24s%7D.parallax>use:nth-child(4)%7Banimation-delay:19.2s;animation-duration:73.2s%7D@keyframes move-forever%7B0%25%7Btransform:translate3d(-90px, 0, 0)%7D100%25%7Btransform:translate3d(85px, 0, 0)%7D%7D@media (max-width:768px)%7B.waves%7Bheight:40px;min-height:40px%7D%7D%3C/style%3E%3Cdefs%3E%3Cpath id='gentle-wave' d='M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z'/%3E%3C/defs%3E%3Cg class='parallax'%3E%3Cuse xlink:href='%23gentle-wave' x='48' opacity='0.3'/%3E%3Cuse xlink:href='%23gentle-wave' x='48' y='3' opacity='0.4'/%3E%3Cuse xlink:href='%23gentle-wave' x='48' y='8' opacity='0.6'/%3E%3Cuse xlink:href='%23gentle-wave' x='48' y='14' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E");
-  }
-  body.bg-static .workspace::before {
-    -webkit-mask-image: var(--setting-bg-static);
-    -webkit-mask-size: 300% 300px;
-    -webkit-mask-position: 88.5% -73px;
-    transform: rotateZ(180deg);
-  }
-  /* 参考 https://www.cssscript.com/animated-waves-svg */
-  body.bg-live .workspace::before {
-    -webkit-mask-image: var(--setting-bg-live);
-    -webkit-mask-size: 100% 160px;
-    -webkit-mask-position-y: 100%;
-  }
+.theme-light {
+  --app-bg-image: var(
+    --setting-app-bg-image-light,
+    linear-gradient(
+      30deg,
+      hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 0.95), 85%),
+      hsl(var(--accent-h), calc(var(--accent-s) * 0.9), 85%),
+      hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 0.95), 85%)
+    )
+  );
+  --bg-opacity: var(--setting-app-bg-opacity-light, 0.6);
+  --editor-min-opacity: 0.8;
 }
+
+.theme-dark {
+  --app-bg-image: var(
+    --setting-app-bg-image-dark,
+    linear-gradient(
+      30deg,
+      hsl(calc(var(--accent-h) - 15), calc(var(--accent-s) * 1.15), 25%),
+      hsl(var(--accent-h), calc(var(--accent-s) * 1.1), 20%),
+      hsl(calc(var(--accent-h) + 15), calc(var(--accent-s) * 1.15), 25%)
+    )
+  );
+  --bg-opacity: var(--setting-app-bg-opacity-dark, 0.6);
+  --editor-min-opacity: 0.85;
+}
+
+body {
+  --bg-editor: var(--background-primary);
+}
+
+body.app-bg-image-enable {
+  --bg-opacity: var(--setting-app-bg-opacity, 0.4);
+  --divider-color: transparent;
+  --bg-editor: hsla(
+    var(--background-primary-hsl),
+    max(var(--bg-opacity), var(--editor-min-opacity))
+  );
+}
+body.app-bg-image-enable.theme-light {
+  --md-container-bg: var(
+    --setting-md-container-bg,
+    hsla(
+      calc(var(--accent-h) + 8),
+      calc(var(--accent-s) / 1.2),
+      calc(100% - (100% - var(--accent-l)) / 7)
+    )
+  );
+}
+body.app-bg-image-enable.theme-dark {
+  --md-container-bg: var(
+    --setting-md-container-bg,
+    hsla(calc(var(--accent-h) - 4), 12%, 11%)
+  );
+}
+body.app-bg-image-enable .mod-root .workspace-tab-container {
+  padding: var(--size-4-1);
+  padding-top: 0;
+}
+body.app-bg-image-enable .mod-root .workspace-tab-container .workspace-leaf-content {
+  border-radius: var(--radius-m);
+}
+body.app-bg-image-enable .workspace {
+  --frame-outline-color: transparent;
+  --tab-active-shadow: none;
+  background-image: var(--app-bg-image);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+body.app-bg-image-enable .workspace-tab-header {
+  --background-modifier-hover: hsla(
+    var(--background-primary-hsl),
+    var(--bg-opacity)
+  );
+}
+body.app-bg-image-enable .workspace-tab-header.is-active {
+  --tab-background-active: var(--bg-editor);
+}
+body.app-bg-image-enable :is(.workspace-tab-header-container,
+.titlebar-button-container,
+.sidebar-toggle-button,
+.workspace-fake-target-overlay:not(.is-in-sidebar) .workspace-tabs .workspace-leaf,
+.workspace-split:not(.mod-root) .workspace-tabs .workspace-leaf,
+.workspace-split.mod-root .workspace-tabs:not(.mod-stacked) .workspace-leaf) {
+  background-color: transparent;
+}
+body.app-bg-image-enable .workspace-split {
+  background-color: hsla(var(--background-secondary-hsl), var(--bg-opacity));
+}
+body.app-bg-image-enable .workspace-split.mod-root {
+  background-color: hsla(var(--background-secondary-hsl), var(--bg-opacity));
+}
+body.app-bg-image-enable :is(.workspace-split.mod-root .view-content, .view-header) {
+  background-color: var(--bg-editor);
+}
+body.app-bg-image-enable:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+  background-color: hsla(var(--background-secondary-hsl), calc(var(--bg-opacity) / 4));
+}
+
 /* #endregion background */
 /* #region labeled-navigator */
 /* MIT License | Copyright (c) Stephan Ango (@kepano)
@@ -6721,9 +7113,12 @@ body {
   /* 引导线粗细 */
   --outline-guideline-width: var(--setting-outline-width, 2px);
   /* 引导线颜色 */
-  --outline-guideline-color: var(--setting-outline-line-color, var(--accent-inactive));
+  --outline-guideline-color: var(
+    --settingoutline-line-color,
+    var(--accent-inactive)
+  );
   /* 引导线颜色 */
-  --outline-guideline-color-alt: var(--setting-outline-dot-color, var(--accent-active));
+  --outline-guideline-color-alt: var(--outline-dot-color, var(--accent-active));
   /* 一行高度 */
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
@@ -6872,6 +7267,38 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
+body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-file {
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8'/></g></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-file path {
+  display: none;
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-file-text {
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 7v14m4-9h2m-2-4h2M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3zm3-6h2M6 8h2'/></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-file-text path {
+  display: none;
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-file-audio {
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M9 18V5l12-2v13M9 9l12-2'/><circle cx='6' cy='18' r='3'/><circle cx='18' cy='16' r='3'/></g></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-file-audio path {
+  display: none;
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-table {
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><ellipse cx='12' cy='5' rx='9' ry='3'/><path d='M3 5v14a9 3 0 0 0 18 0V5'/><path d='M3 12a9 3 0 0 0 18 0'/></g></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-table path {
+  display: none;
+}
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title {
   cursor: pointer;
 }
