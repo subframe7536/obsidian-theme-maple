@@ -188,7 +188,7 @@ body {
   --text-on-accent: #eaeaea !important;
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsla(calc(var(--accent-h) - 4), 18%, 9%)
+    hsla(calc(var(--accent-h) - 4), 12%, 9%)
   );
   --color-opacity: 0.85;
 }
