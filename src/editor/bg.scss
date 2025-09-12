@@ -1,0 +1,31 @@
+/* Reference from https://forum-zh.obsidian.md/t/topic/42053 */
+body {
+  --grid-line-color: var(--setting-editor-bg-grid-line, var(--color-base-25));
+  --grid-dots-color: var(--setting-editor-bg-grid-dots, var(--color-base-35));
+  --grid-spacing: var(--setting-editor-bg-grid-spacing, var(--size-4-5));
+}
+
+:is(
+    .markdown-reading-view .markdown-rendered,
+    .markdown-source-view.mod-cm6 .cm-scroller
+  ) {
+  background-size: var(--grid-spacing) var(--grid-spacing);
+  background-position: center center;
+
+  .editor-bg-grid-dots & {
+    background-image: radial-gradient(
+      circle,
+      var(--grid-dots-color) 1px,
+      var(--bg-editor) 1px
+    );
+  }
+
+  .editor-bg-grid-line & {
+    background-image: linear-gradient(
+        to right,
+        var(--grid-line-color) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+  }
+}

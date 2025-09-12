@@ -136,8 +136,7 @@ body {
     hsla(
       calc(var(--accent-h) + 8),
       calc(var(--accent-s) / 1.2),
-      calc(100% - (100% - var(--accent-l)) / 6),
-      calc(var(--bg-opacity) / 2)
+      calc(100% - (100% - var(--accent-l)) / 8)
     )
   );
   --color-opacity: 1;
@@ -189,7 +188,7 @@ body {
   --text-on-accent: #eaeaea !important;
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsla(calc(var(--accent-h) - 4), 18%, 9%, var(--bg-opacity))
+    hsla(calc(var(--accent-h) - 4), 18%, 9%)
   );
   --color-opacity: 0.85;
 }

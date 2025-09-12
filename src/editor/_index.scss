@@ -2,6 +2,10 @@
 @use './basic.scss';
 /* #endregion basic */
 
+/* #region background */
+@use './bg.scss';
+/* #endregion background */
+
 /* #region code */
 @use './code.scss';
 /* #endregion code */

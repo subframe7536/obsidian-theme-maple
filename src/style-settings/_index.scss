@@ -182,12 +182,11 @@ body:not(.app-bg-image-enable)
     [data-id='setting-app-bg-opacity-dark']
   ),
 body:not(.editor-bg-pure) .setting-item[data-id='setting-editor-bg'],
-body:not(.editor-bg-dots) .setting-item[data-id='setting-editor-bg-dot'],
-body:not(.editor-bg-grid)
-  .setting-item:is(
-    [data-id='setting-editor-bg-grid'],
-    [data-id='setting-editor-bg-grid-alt']
-  ),
+body.editor-bg-pure .setting-item[data-id='setting-editor-bg-grid-spacing'],
+body:not(.editor-bg-grid-dots)
+  .setting-item[data-id='setting-editor-bg-grid-dots'],
+body:not(.editor-bg-grid-line)
+  .setting-item[data-id='setting-editor-bg-grid-line'],
 body:not(.scrollbar-enable)
   .setting-item:is(
     [data-id='scrollbar-hover'],

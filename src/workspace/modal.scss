@@ -190,7 +190,7 @@ body.modal-toggle-thin .checkbox-container {
         padding-top: var(--modal-header-height);
 
         .vertical-tab-content {
-          background-color: hsl(var(--background-primary-hsl));
+          background-color: var(--background-primary);
           border-top: 1px solid var(--divider-color);
           padding-top: var(--size-4-6);
           padding-right: var(--size-4-8);

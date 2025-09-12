@@ -14,8 +14,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         default: 'editor-bg-pure',
         options: [
           { label: 'pure color', value: 'editor-bg-pure' },
-          { label: 'dots', value: 'editor-bg-dots' },
-          { label: 'grid', value: 'editor-bg-grid' },
+          { label: 'dots', value: 'editor-bg-grid-dots' },
+          { label: 'grid', value: 'editor-bg-grid-line' },
         ],
       },
     )
@@ -31,19 +31,28 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
     )
     .addVarThemedColor(
-      'setting-editor-bg-dot',
-      { title: { en: 'Dot Color', zh: '点的颜色' } },
-      { format: 'rgb', opacity: false, defaultLight: '#', defaultDark: '#' },
+      'setting-editor-bg-grid-dots',
+      {
+        title: { en: 'Editor Background Dot Color', zh: '编辑器背景点的颜色' },
+      },
+      { format: 'rgb', opacity: true, defaultLight: '#', defaultDark: '#' },
     )
     .addVarThemedColor(
-      'setting-editor-bg-grid',
-      { title: { en: 'Grid Line Color 1', zh: '网格颜色 1' } },
-      { format: 'rgb', opacity: false, defaultLight: '#', defaultDark: '#' },
+      'setting-editor-bg-grid-line',
+      {
+        title: { en: 'Editor Background Line Color', zh: '编辑器背景网格颜色' },
+      },
+      { format: 'rgb', opacity: true, defaultLight: '#', defaultDark: '#' },
     )
-    .addVarThemedColor(
-      'setting-editor-bg-grid-alt',
-      { title: { en: 'Grid Line Color 2', zh: '网格颜色 2' } },
-      { format: 'rgb', opacity: false, defaultLight: '#', defaultDark: '#' },
+    .addVarNumSlider(
+      'setting-editor-bg-grid-spacing',
+      {
+        title: {
+          en: 'Editor Background Grid Spacing',
+          zh: '编辑器背景网格间距',
+        },
+      },
+      { format: 'px', default: 20, min: 10, max: 30, step: 1 },
     )
     .addVarThemedColor(
       'setting-md-container-bg',

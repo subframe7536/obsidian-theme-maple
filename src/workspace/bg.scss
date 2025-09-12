@@ -26,9 +26,17 @@
   --editor-min-opacity: 0.85;
 }
 
+body {
+  --bg-editor: var(--background-primary);
+}
+
 body.app-bg-image-enable {
   --bg-opacity: var(--setting-app-bg-opacity, 0.4);
   --divider-color: transparent;
+  --bg-editor: hsla(
+    var(--background-primary-hsl),
+    max(var(--bg-opacity), var(--editor-min-opacity))
+  );
 
   .mod-root .workspace-tab-container {
     padding: var(--size-4-1);
@@ -51,10 +59,7 @@ body.app-bg-image-enable {
       var(--bg-opacity)
     );
     &.is-active {
-      --tab-background-active: hsla(
-        var(--background-primary-hsl),
-        max(var(--bg-opacity), var(--editor-min-opacity))
-      );
+      --tab-background-active: var(--bg-editor);
     }
   }
 
@@ -84,10 +89,7 @@ body.app-bg-image-enable {
   }
 
   :is(.workspace-split.mod-root .view-content, .view-header) {
-    background-color: hsla(
-      var(--background-primary-hsl),
-      max(var(--bg-opacity), var(--editor-min-opacity))
-    );
+    background-color: var(--bg-editor);
   }
 
   &:not(.is-mobile)
