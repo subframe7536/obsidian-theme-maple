@@ -34,12 +34,12 @@ body.app-bg-image-enable {
   background-image: var(--app-bg-image);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  --divider-color: transparent;
 
   :is(.workspace, .titlebar) {
     --frame-bg: transparent !important;
     --tab-active-shadow: none;
     --bg-opacity: var(--setting-app-bg-opacity, 0.4);
-    --divider-color: transparent;
     --bg-editor: hsla(
       var(--background-primary-hsl),
       max(var(--bg-opacity), var(--editor-min-opacity))

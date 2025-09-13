@@ -41,6 +41,8 @@ body {
   --block-outline-width: 2px;
 
   --divider-color: var(--color-base-30);
+  --divider-width: var(--size-4-1);
+  --divider-width-hover: var(--divider-width);
 
   // tree item color
   --nav-item-background-hover: var(--background-modifier-hover);
