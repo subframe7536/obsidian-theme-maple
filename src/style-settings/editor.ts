@@ -11,9 +11,9 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       {
         allowEmpty: false,
-        default: 'editor-bg-pure',
+        default: 'editor-bg-plain',
         options: [
-          { label: 'pure color', value: 'editor-bg-pure' },
+          { label: 'plain', value: 'editor-bg-plain' },
           { label: 'dots', value: 'editor-bg-grid-dots' },
           { label: 'grid', value: 'editor-bg-grid-line' },
         ],

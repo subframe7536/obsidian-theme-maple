@@ -181,8 +181,8 @@ body:not(.app-bg-image-enable)
     [data-id='setting-app-bg-image-dark'],
     [data-id='setting-app-bg-opacity-dark']
   ),
-body:not(.editor-bg-pure) .setting-item[data-id='setting-editor-bg'],
-body.editor-bg-pure .setting-item[data-id='setting-editor-bg-grid-spacing'],
+body:not(.editor-bg-plain) .setting-item[data-id='setting-editor-bg'],
+body.editor-bg-plain .setting-item[data-id='setting-editor-bg-grid-spacing'],
 body:not(.editor-bg-grid-dots)
   .setting-item[data-id='setting-editor-bg-grid-dots'],
 body:not(.editor-bg-grid-line)
