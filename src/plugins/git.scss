@@ -2,8 +2,28 @@
   font-family: var(--font-monospace);
 }
 
-body.back-blur-title-bar
-  .workspace-leaf-content[data-type='diff-view']
-  .d2h-file-diff {
-  padding-top: var(--size-4-8);
+.d2h-ins {
+  background-color: rgba(var(--color-green-rgb), 0.15) !important;
+}
+
+.d2h-del {
+  background-color: rgba(var(--color-red-rgb), 0.15) !important;
+}
+
+.git-tools .type {
+  &[data-type='D'] {
+    color: var(--color-red);
+  }
+  &[data-type='M'] {
+    color: var(--color-yellow);
+  }
+  &[data-type='U'] {
+    color: var(--color-blue);
+  }
+  &[data-type='A'] {
+    color: var(--color-green);
+  }
+  &[data-type='R'] {
+    color: var(--color-cyan);
+  }
 }
