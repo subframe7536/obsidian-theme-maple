@@ -44,9 +44,8 @@ body {
   --divider-width-hover: var(--size-4-1);
 
   // tree item color
-  --nav-item-background-hover: var(--background-modifier-hover);
   --nav-item-background-active: var(--accent-active);
-  --nav-item-background-selected: var(--frame-outline-color);
+  --nav-item-background-selected: var(--background-modifier-hover);
 
   --alt-light-accent-active: hsl(
     calc(var(--accent-h) + 60),
@@ -149,7 +148,7 @@ body {
     var(--accent-h),
     var(--accent-s),
     calc(var(--accent-l) / 2),
-    20%
+    50%
   );
   --accent-active: hsl(
     var(--accent-h),

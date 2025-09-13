@@ -105,83 +105,84 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   @include override-stack-menu();
   @include use-icon-override('.lucide-folder-closed', 'folder');
 
-  @include use-panel('file-explorer', '.nav-files-container') {
-    .nav-folder {
-      &-title {
-        cursor: pointer;
+  :is(.nav-file-title, .nav-folder-title).is-selected {
+    font-weight: bold !important;
+    & + .nav-folder-children :is(.nav-file-title, .nav-folder-title) {
+      font-weight: bold !important;
+    }
+  }
 
-        &-content {
-          padding-left: var(--size-4-1);
-        }
-      }
+  .nav-folder {
+    &-title {
+      cursor: pointer;
 
-      .nav-folder-children {
-        transition: var(--animation);
-
-        &:hover {
-          border-color: var(--accent-inactive);
-        }
-      }
-
-      .collapse-icon {
-        margin-inline-start: calc(var(--size-2-1) - var(--size-4-5));
-        svg.svg-icon {
-          display: inline-block;
-          @include use-icon(
-            'folder-open',
-            var(--folder-color),
-            var(--size-4-4)
-          );
-        }
-      }
-
-      &.is-collapsed .collapse-icon svg.svg-icon {
-        transform: none;
-        @include use-icon('folder', var(--folder-color));
-        transition: var(--animation);
+      &-content {
+        padding-left: var(--size-4-1);
       }
     }
 
-    .nav-file {
-      &-title {
-        @include create-icons();
+    .nav-folder-children {
+      transition: var(--animation);
 
-        .nav-file-tag {
-          background-color: var(--accent-active);
-          color: var(--text-on-accent);
-        }
+      &:hover {
+        border-color: var(--accent-inactive);
+      }
+    }
 
-        &.is-active .nav-file-tag {
-          background-color: hsl(var(--background-secondary-hsl), 0.9);
-          color: var(--nav-item-background-active);
-        }
+    .collapse-icon {
+      margin-inline-start: calc(var(--size-2-1) - var(--size-4-5));
+      svg.svg-icon {
+        display: inline-block;
+        @include use-icon('folder-open', var(--folder-color), var(--size-4-4));
+      }
+    }
 
-        &-content + .nav-file-tag {
-          margin-left: var(--size-2-3);
-        }
+    &.is-collapsed .collapse-icon svg.svg-icon {
+      transform: none;
+      @include use-icon('folder', var(--folder-color));
+      transition: var(--animation);
+    }
+  }
 
-        &.is-active:not(.is-selected) {
-          color: var(--text-on-accent);
+  .nav-file {
+    &-title {
+      @include create-icons();
 
-          &:first-child::before {
-            background-color: var(--text-on-accent);
-          }
-
-          .nav-file-title-content {
-            color: var(--text-on-accent);
-          }
-        }
-        &-content {
-          padding-left: var(--size-4-1);
-        }
+      .nav-file-tag {
+        background-color: var(--accent-active);
+        color: var(--text-on-accent);
       }
 
-      &-tag {
-        font-size: var(--size-4-2);
-        margin-left: 0;
-        margin-right: var(--size-4-2);
-        line-height: 2;
+      &.is-active .nav-file-tag {
+        background-color: hsl(var(--background-secondary-hsl), 0.9);
+        color: var(--nav-item-background-active);
       }
+
+      &-content + .nav-file-tag {
+        margin-left: var(--size-2-3);
+      }
+
+      &.is-active:not(.is-selected) {
+        color: var(--text-on-accent);
+
+        &:first-child::before {
+          background-color: var(--text-on-accent);
+        }
+
+        .nav-file-title-content {
+          color: var(--text-on-accent);
+        }
+      }
+      &-content {
+        padding-left: var(--size-4-1);
+      }
+    }
+
+    &-tag {
+      font-size: var(--size-4-2);
+      margin-left: 0;
+      margin-right: var(--size-4-2);
+      line-height: 2;
     }
   }
 }

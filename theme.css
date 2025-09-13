@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.4 For Obsidian */
+/* Maple Theme v1.0.0-beta.5 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Color And Animation
@@ -465,7 +465,7 @@ settings:
       type: variable-text
       title: Set Modal Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.4'"
+      default: "'maple 1.0.0-beta.5'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -2017,8 +2017,7 @@ body {
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
   --block-outline-width: 2px;
   --divider-color: var(--color-base-30);
-  --divider-width: var(--size-4-1);
-  --divider-width-hover: var(--divider-width);
+  --divider-width-hover: var(--size-4-1);
   --nav-item-background-hover: var(--background-modifier-hover);
   --nav-item-background-active: var(--accent-active);
   --nav-item-background-selected: var(--frame-outline-color);
@@ -6123,7 +6122,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.4");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.5");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
