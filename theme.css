@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.3 For Obsidian */
+/* Maple Theme v1.0.0-beta.4 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Color And Animation
@@ -368,13 +368,13 @@ settings:
       type: class-toggle
       title: Float Style Tab (Like Firefox / Microsoft Edge)
       title.zh: 浮动的标签页（和 Firefox / Microsoft Edge 类似）
-    - id: tab-editor-slide-up
+    - id: tab-slide-up
       type: class-toggle
-      title: Enable Tab Slide Up Animation In Text Editor
-      title.zh: 在文本编辑器中启用标签页切换动画
-      description: ❗Turning on will prevent outline panel updating instantly while
+      title: Enable Tab Slide Up Animation
+      title.zh: 启用标签页切换动画
+      description: ❗Turning on will prevent some panels updating instantly while
           switching tabs
-      description.zh: ❗开启后会导致切换标签页时无法立即更新大纲面板
+      description.zh: ❗开启后会导致部分面板无法立即更新
     - id: labeled-nav
       type: class-toggle
       title: Text Labels For Primary Navigation
@@ -465,7 +465,7 @@ settings:
       type: variable-text
       title: Set Modal Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.3'"
+      default: "'maple 1.0.0-beta.4'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -607,10 +607,10 @@ settings:
       title: Background Image Type
       title.zh: 背景图类型
       allow-empty: false
-      default: editor-bg-pure
+      default: editor-bg-plain
       options:
-          - label: pure color
-            value: editor-bg-pure
+          - label: plain
+            value: editor-bg-plain
           - label: dots
             value: editor-bg-grid-dots
           - label: grid
@@ -1816,8 +1816,8 @@ body:not(.app-bg-image-enable) .setting-item:is([data-id=setting-app-bg-image-li
 [data-id=setting-app-bg-opacity-light],
 [data-id=setting-app-bg-image-dark],
 [data-id=setting-app-bg-opacity-dark]),
-body:not(.editor-bg-pure) .setting-item[data-id=setting-editor-bg],
-body.editor-bg-pure .setting-item[data-id=setting-editor-bg-grid-spacing],
+body:not(.editor-bg-plain) .setting-item[data-id=setting-editor-bg],
+body.editor-bg-plain .setting-item[data-id=setting-editor-bg-grid-spacing],
 body:not(.editor-bg-grid-dots) .setting-item[data-id=setting-editor-bg-grid-dots],
 body:not(.editor-bg-grid-line) .setting-item[data-id=setting-editor-bg-grid-line],
 body:not(.scrollbar-enable) .setting-item:is([data-id=scrollbar-hover],
@@ -1865,8 +1865,8 @@ body:not(.app-bg-image-enable) .setting-item:is([data-id=setting-app-bg-image-li
 [data-id=setting-app-bg-opacity-light],
 [data-id=setting-app-bg-image-dark],
 [data-id=setting-app-bg-opacity-dark]) + .style-settings-container,
-body:not(.editor-bg-pure) .setting-item[data-id=setting-editor-bg] + .style-settings-container,
-body.editor-bg-pure .setting-item[data-id=setting-editor-bg-grid-spacing] + .style-settings-container,
+body:not(.editor-bg-plain) .setting-item[data-id=setting-editor-bg] + .style-settings-container,
+body.editor-bg-plain .setting-item[data-id=setting-editor-bg-grid-spacing] + .style-settings-container,
 body:not(.editor-bg-grid-dots) .setting-item[data-id=setting-editor-bg-grid-dots] + .style-settings-container,
 body:not(.editor-bg-grid-line) .setting-item[data-id=setting-editor-bg-grid-line] + .style-settings-container,
 body:not(.scrollbar-enable) .setting-item:is([data-id=scrollbar-hover],
@@ -2016,6 +2016,9 @@ body {
     var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
   --block-outline-width: 2px;
+  --divider-color: var(--color-base-30);
+  --divider-width: var(--size-4-1);
+  --divider-width-hover: var(--divider-width);
   --nav-item-background-hover: var(--background-modifier-hover);
   --nav-item-background-active: var(--accent-active);
   --nav-item-background-selected: var(--frame-outline-color);
@@ -2116,21 +2119,6 @@ body {
     calc(var(--accent-l) + 24%)
   );
   --text-on-accent: #fafafa !important;
-  --frame-background-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 32%)
-  );
-  --frame-outline-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 23.5%)
-  );
-  --frame-muted-color: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 20%),
-    calc(var(--accent-l) - 10%)
-  );
   --md-container-bg: var(
     --setting-md-container-bg,
     hsla(
@@ -2200,17 +2188,6 @@ body {
     calc(var(--accent-s) - 4%),
     calc(var(--accent-l) - 40%)
   );
-  --frame-background-color: hsl(var(--accent-h), 12%, 16%);
-  --frame-outline-color: hsl(
-    calc(var(--accent-h) - 24),
-    calc(var(--accent-s) + 6%),
-    24%
-  );
-  --frame-muted-color: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 20%),
-    calc(var(--accent-l) + 10%)
-  );
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
   --md-container-bg: var(
@@ -2266,6 +2243,23 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes fade-dock {
+  0% {
+    display: flex !important;
+    opacity: 1;
+  }
+  10% {
+    display: flex !important;
+    opacity: 0.5;
+  }
+  99% {
+    display: flex !important;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes slide-up {
@@ -2624,20 +2618,21 @@ body {
 :is(body, .print .markdown-rendered) {
   --inline-code: var(--setting-code-inline, var(--color-red));
   --code-background: var(--setting-code-bg, var(--md-container-bg));
-  --code-function: var(--color-orange);
+  --code-function: var(--color-blue);
   --code-important: var(--color-purple);
   --code-keyword: var(--color-purple);
-  --code-property: var(--color-orange);
-  --code-punctuation: rgb(var(--color-blue-rgb), 0.7);
+  --code-property: var(--color-yellow);
+  --code-punctuation: rgb(var(--color-blue-rgb), 0.6);
   --code-operator: var(--code-punctuation);
+  --code-class: var(--color-orange);
   --code-string: var(--color-green);
   --code-tag: var(--color-red);
-  --code-value: var(--color-orange);
+  --code-value: var(--color-cyan);
   --code-comment: var(--text-faint);
   --code-variable: var(--color-yellow);
   --code-normal: var(--code-preview-base);
   --code-bg-radius: var(--radius-m);
-  --code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
+  --code-bg-border: solid var(--accent-inactive);
   --code-border-width: 1px;
 }
 
@@ -3269,62 +3264,70 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   background-color: var(--nav-item-background-hover);
 }
 
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.comment, .prolog, .doctype, .cdata), .cm-comment) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token.script {
+  color: var(--code-normal);
+}
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token.imports {
+  color: var(--code-variable);
+}
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.builtin, .regex, .keyword) {
+  font-style: italic;
+  color: var(--code-important);
+}
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.selector, .inserted, .char, .attr-value) {
+  color: var(--color-cyan);
+}
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.class-name, .maybe-class-name, .color) {
+  color: var(--code-class);
+}
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.property-access,
+.attr-name,
+.annotation,
+.key,
+.entity,
+.parameter,
+.url) {
+  color: var(--code-variable);
+}
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.comment, .prolog, .doctype, .cdata) {
   color: var(--code-comment);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.tag,
-.constant,
-.symbol,
-.deleted,
-.class-name,
-.maybe-class-name),
-.cm-tag) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-tag {
   color: var(--code-tag);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
   color: var(--code-punctuation);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.boolean, .number), .cm-number) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-number {
   color: var(--code-value);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.selector, .attr-name, .string, .char, .builtin, .inserted),
-.cm-qualifier,
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-qualifier,
 .cm-string:not(.cm-url),
 .cm-string-2,
 .cm-meta:not(.cm-hashtag)) {
   color: var(--code-string);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.entity,
-.parameter,
-.property,
-.property-access,
-.url,
-.variable),
-:is(.language-css, .style) .token.string,
-.cm-def,
-.cm-number + .cm-variable) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-def,
+.cm-property,
+.cm-number + .cm-variable,
+.cm-attribute,
+.cm-atom) {
   color: var(--code-property);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.attr-value, .function, .class-name),
-.cm-property,
-.cm-attribute) {
-  color: var(--code-function);
-}
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.keyword, .constant, .unit, .builtin, .atrule),
-.cm-keyword,
-.cm-builtin,
-.cm-type,
-.cm-atom) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-type {
   color: var(--code-keyword);
+  font-weight: bold;
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.token:is(.regex, .important)) {
-  color: var(--code-important);
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-keyword {
+  font-style: italic;
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
-  color: var(--code-variable);
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable {
+  color: var(--code-normal);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable-2 {
+  color: var(--code-variable);
   filter: hue-rotate(20deg) saturate(1.1);
+  font-style: italic;
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable-3 {
   filter: hue-rotate(40deg);
@@ -5310,16 +5313,16 @@ body.theme-dark.pdf-dark-hover .pdf-viewer:hover {
 .metadata-container {
   margin-block-end: var(--size-4-2);
   transition: var(--animation);
-  --metadata-background: var(--md-container-bg);
   --metadata-property-background-hover: var(--md-container-bg);
   --metadata-label-background-active: var(--background-primary);
   --metadata-input-background-active: var(--background-primary);
 }
 body.prop-outline .metadata-container {
   transform: none;
+  --metadata-padding: var(--radius-m);
+  --metadata-background: var(--md-container-bg);
   --metadata-border-width: var(--block-outline-width);
   --metadata-border-radius: var(--radius-m);
-  --metadata-padding: var(--radius-m);
 }
 .prop-hide-preview .metadata-container {
   --metadata-display-reading: none;
@@ -5585,8 +5588,28 @@ body.link-icon .database-plugin__embed-link-wrapper a.internal-link[class*=datab
   font-family: var(--font-monospace);
 }
 
-body.back-blur-title-bar .workspace-leaf-content[data-type=diff-view] .d2h-file-diff {
-  padding-top: var(--size-4-8);
+.d2h-ins {
+  background-color: rgba(var(--color-green-rgb), 0.15) !important;
+}
+
+.d2h-del {
+  background-color: rgba(var(--color-red-rgb), 0.15) !important;
+}
+
+.git-tools .type[data-type=D] {
+  color: var(--color-red);
+}
+.git-tools .type[data-type=M] {
+  color: var(--color-yellow);
+}
+.git-tools .type[data-type=U] {
+  color: var(--color-blue);
+}
+.git-tools .type[data-type=A] {
+  color: var(--color-green);
+}
+.git-tools .type[data-type=R] {
+  color: var(--color-cyan);
 }
 
 /* #endregion git */
@@ -5875,20 +5898,8 @@ body.search-internal-enable :is(.cMenuToolbarpopover + .document-search-containe
 
 /* #endregion edit-toolbar */
 /* #region shiki */
-body {
-  --shiki-code-background: var(--setting-code-bg, var(--md-container-bg));
-  --shiki-code-function: var(--color-orange);
-  --shiki-code-important: var(--color-purple);
-  --shiki-code-keyword: var(--color-purple);
-  --shiki-code-property: var(--color-orange);
-  --shiki-code-punctuation: var(--color-blue);
-  --shiki-code-string: var(--color-green);
-  --shiki-code-tag: var(--color-red);
-  --shiki-code-value: var(--color-orange);
-  --shiki-code-comment: var(--text-faint);
-  --shiki-code-normal: var(--code-preview-base);
-  --shiki-code-bg-radius: var(--setting-code-bg-radius, var(--radius-m));
-  --shiki-code-bg-border: var(--size-2-1) solid var(--nav-item-background-hover);
+.code-mac-style-header .cm-preview-code-block[class*=cm-lang] .edit-block-button {
+  color: #ddd;
 }
 
 /* #endregion shiki */
@@ -6002,13 +6013,6 @@ body:not(.is-mobile) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-ac
   width: var(--size-4-6);
   height: var(--size-4-6);
 }
-.modal-close-button:hover {
-  background-color: var(--frame-outline-color);
-}
-
-body.titlebar-colorful .modal-container .mod-settings::before {
-  --setting-color-logo: var(--text-on-accent);
-}
 
 input {
   transition-duration: var(--setting-animation-time, 200ms) !important;
@@ -6119,7 +6123,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.3");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.4");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6135,7 +6139,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   }
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content {
-  background-color: var(--frame-background-color);
+  background-color: var(--titlebar-background);
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-header {
   background-color: hsl(var(--background-secondary-hsl));
@@ -6274,7 +6278,7 @@ select,
 }
 .modal-container .mod-settings .modal-content .setting-hotkey.mod-active {
   color: var(--text-faint);
-  background-color: var(--frame-background-color);
+  background-color: var(--titlebar-background);
 }
 .modal-container .mod-settings .modal-content .setting-hotkey:not(.has-conflict):not(.mod-active) {
   background-color: var(--code-background);
@@ -6526,25 +6530,16 @@ body.tab-title-bar-text-hidden .workspace-leaf-content:not([data-type=excalidraw
 }
 
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body:not(.is-mobile):not(.is-tablet) :is(.workspace-split:not(.is-sidedock-collapsed):not(.mod-root) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content .view-content,
-.workspace-leaf-content:not(:has(.view-content))) {
-  animation: slide-up var(--animation);
-}
-body:not(.is-mobile):not(.is-tablet).tab-editor-slide-up .workspace-split.mod-root .workspace-leaf-content .view-content {
+body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]) .view-content {
   animation: slide-up var(--animation);
 }
 
 .is-sidedock-collapsed {
-  opacity: 0;
-  transition: var(--animation);
+  animation: fade-dock var(--animation);
 }
 
 .search-result-file-matches {
   border-radius: var(--radius-m);
-}
-
-body {
-  --divider-color: #8883;
 }
 
 /* #endregion tab */
@@ -6579,98 +6574,34 @@ body.titlebar-button-style .workspace-tab-header-new-tab {
 }
 
 .theme-light {
-  --ribbon-background: hsla(
-    calc(var(--accent-h) + 16),
-    calc(var(--accent-s) / 1.2),
-    calc(100% - (100% - var(--accent-l)) / 4),
-    60%
+  --frame-bg: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    calc(var(--accent-l) + 32%)
   );
 }
 
 .theme-dark {
-  --ribbon-background: hsla(
-    calc(var(--accent-h) + 16),
-    calc(var(--accent-s) / 1.5),
-    calc(var(--accent-l) - 40%),
-    60%
-  );
+  --frame-bg: hsl(var(--accent-h), 20%, 12%);
 }
 
-.workspace-ribbon.mod-left {
-  border-right: 0;
-  --ribbon-background-collapsed: var(--ribbon-background);
-}
-.workspace-ribbon.mod-left::before {
-  height: var(--header-height);
-  border-bottom: 0;
-}
-
-/* 参考 minimal theme */
-:is(body, body.is-focused) :is(.mod-top .workspace-tab-header-container,
-.sidebar-toggle-button.mod-left,
-.titlebar),
-:is(body, body.is-focused) .workspace-ribbon.mod-left::before {
-  --titlebar-container: var(--frame-outline-color);
-  --frame-divider-color: var(--frame-outline-color);
-  --titlebar-background: var(--frame-background-color);
-  --titlebar-background-focused: var(--frame-background-color);
-  --tab-container-background: var(--frame-background-color);
-  --titlebar-text-color: var(--frame-muted-color);
-  --tab-outline-color: var(--frame-outline-color);
-  --tab-divider-color: var(--frame-outline-color);
-  --background-modifier-hover: var(--frame-outline-color);
-  --icon-color: var(--frame-muted-color);
-  --icon-color-hover: var(--frame-muted-color);
-  --icon-color-focused: var(--color-base-100);
-  --tab-text-color: var(--frame-muted-color);
-  --tab-text-color-hover: var(--frame-muted-color);
-  --tab-text-color-focused: var(--frame-muted-color);
-}
-:is(body, body.is-focused) .clickable-icon:active {
-  color: var(--text-normal);
-}
-
-.workspace.is-left-sidedock-open .sidebar-toggle-button.mod-left .clickable-icon,
-.workspace.is-right-sidedock-open .sidebar-toggle-button.mod-right .clickable-icon {
-  color: var(--color-accent);
+body {
+  --tab-container-background: var(--frame-bg);
+  --titlebar-background: var(--frame-bg);
+  --titlebar-background-focused: var(--frame-bg);
 }
 
 body.titlebar-colorful.theme-light {
-  --frame-background-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 18%)
-  );
-  --frame-outline-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 23.5%)
-  );
-  --frame-muted-color: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 20%),
-    ar(--accent-l)
-  );
+  --frame-bg: hsl(var(--accent-h), 40%, 82%);
+}
+body.titlebar-colorful.theme-light .workspace-tab-header {
+  --background-modifier-hover: hsl(var(--accent-h), 50%, 92%);
 }
 body.titlebar-colorful.theme-dark {
-  --frame-background-color: hsl(var(--accent-h), 12%, 38%);
-  --frame-outline-color: hsl(
-    calc(var(--accent-h) - 6),
-    calc(var(--accent-s) + 12%),
-    40%
-  );
-  --frame-muted-color: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 20%),
-    calc(var(--accent-l) + 20%)
-  );
+  --frame-bg: hsl(var(--accent-h), 24%, 22%);
 }
-body.titlebar-colorful .workspace.is-left-sidedock-open .sidebar-toggle-button.mod-left .clickable-icon,
-body.titlebar-colorful .workspace.is-right-sidedock-open .sidebar-toggle-button.mod-right .clickable-icon {
-  color: var(--text-on-accent);
-}
-body.titlebar-colorful :is(.document-search-close-button, .modal-close-button)::before {
-  background-color: var(--text-normal);
+body.titlebar-colorful.theme-dark .workspace-tab-header {
+  --background-modifier-hover: hsl(var(--accent-h), 45%, 32%);
 }
 
 /* #endregion titlebar */
@@ -6824,12 +6755,20 @@ body {
 }
 
 body.app-bg-image-enable {
-  --bg-opacity: var(--setting-app-bg-opacity, 0.4);
+  background-image: var(--app-bg-image);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   --divider-color: transparent;
+}
+body.app-bg-image-enable :is(.workspace, .titlebar) {
+  --frame-bg: transparent !important;
+  --tab-active-shadow: none;
+  --bg-opacity: var(--setting-app-bg-opacity, 0.4);
   --bg-editor: hsla(
     var(--background-primary-hsl),
     max(var(--bg-opacity), var(--editor-min-opacity))
   );
+  --bg-surface: hsla(var(--background-primary-hsl), var(--bg-opacity));
 }
 body.app-bg-image-enable.theme-light {
   --md-container-bg: var(
@@ -6854,13 +6793,6 @@ body.app-bg-image-enable .mod-root .workspace-tab-container {
 body.app-bg-image-enable .mod-root .workspace-tab-container .workspace-leaf-content {
   border-radius: var(--radius-m);
 }
-body.app-bg-image-enable .workspace {
-  --frame-outline-color: transparent;
-  --tab-active-shadow: none;
-  background-image: var(--app-bg-image);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
 body.app-bg-image-enable .workspace-tab-header {
   --background-modifier-hover: hsla(
     var(--background-primary-hsl),
@@ -6871,6 +6803,7 @@ body.app-bg-image-enable .workspace-tab-header.is-active {
   --tab-background-active: var(--bg-editor);
 }
 body.app-bg-image-enable :is(.workspace-tab-header-container,
+.workspace-tab-header-container-inner,
 .titlebar-button-container,
 .sidebar-toggle-button,
 .workspace-fake-target-overlay:not(.is-in-sidebar) .workspace-tabs .workspace-leaf,
@@ -6878,11 +6811,21 @@ body.app-bg-image-enable :is(.workspace-tab-header-container,
 .workspace-split.mod-root .workspace-tabs:not(.mod-stacked) .workspace-leaf) {
   background-color: transparent;
 }
+body.app-bg-image-enable .titlebar {
+  background-color: var(--bg-surface);
+}
+body.app-bg-image-enable .workspace-ribbon {
+  --ribbon-background: var(--bg-surface);
+  --ribbon-background-collapsed: var(--bg-surface);
+}
+body.app-bg-image-enable .workspace-ribbon::before {
+  background-color: var(--bg-surface);
+}
 body.app-bg-image-enable .workspace-split {
-  background-color: hsla(var(--background-secondary-hsl), var(--bg-opacity));
+  background-color: var(--bg-surface);
 }
 body.app-bg-image-enable .workspace-split.mod-root {
-  background-color: hsla(var(--background-secondary-hsl), var(--bg-opacity));
+  background-color: var(--bg-surface);
 }
 body.app-bg-image-enable :is(.workspace-split.mod-root .view-content, .view-header) {
   background-color: var(--bg-editor);
@@ -7024,8 +6967,8 @@ https://github.com/sponsors/kepano
 .labeled-nav .mod-left-split .mod-top :is(.workspace-tab-header:hover, .workspace-tab-header.is-active) .workspace-tab-header-inner-icon {
   color: var(--text-accent);
 }
-.labeled-nav .mod-left-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon :is(path, circle) {
-  stroke-width: 2.2;
+.labeled-nav .mod-left-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon svg * {
+  stroke-width: 2.5;
 }
 .labeled-nav .mod-left-split .mod-top .workspace-tab-header-container {
   border: none;
@@ -7299,6 +7242,14 @@ body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-
 body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-table path {
   display: none;
 }
+body:is(:not(.css-settings-manager), .explorer-icon) .lucide-folder-closed {
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z'/></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .lucide-folder-closed path {
+  display: none;
+}
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title {
   cursor: pointer;
 }
@@ -7325,7 +7276,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[dat
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder.is-collapsed .collapse-icon svg.svg-icon {
   transform: none;
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2ZM2 10h20'/></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--folder-color);
@@ -7420,7 +7371,7 @@ body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content)
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M17.133 40.912c3.155-6.394 3.071-10.982 1.722-14.24c-1.229-3.014-3.527-4.913-5.333-6.095a2.3 2.3 0 0 1-.167.503L9.11 30.526c-.44.975-.237 2.12.512 2.885l6.784 6.98c.214.213.466.39.726.52Zm8.581-12.973c.847.083 1.675.27 2.494.567c2.587.968 4.942 3.146 6.887 7.343c.14-.242.279-.474.428-.698a114 114 0 0 0 3.415-5.388a1.3 1.3 0 0 0-.093-1.461a28.2 28.2 0 0 1-3.322-5.445c-.894-2.14-1.024-5.481-1.033-7.1c0-.615-.196-1.22-.577-1.704l-6.747-8.561l-.112-.14c.493 1.629.465 2.931.158 4.113c-.28 1.099-.8 2.094-1.35 3.146c-.185.354-.372.717-.548 1.089a13 13 0 0 0-1.47 5.398c-.094 2.252.362 5.072 1.86 8.84z' /><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M25.704 27.939c-1.498-3.77-1.954-6.59-1.86-8.841c.092-2.234.744-3.91 1.47-5.398l.558-1.09c.54-1.05 1.052-2.047 1.34-3.145a7.3 7.3 0 0 0-.158-4.113a2.606 2.606 0 0 0-3.667-.186l-8.022 7.212c-.45.403-.746.949-.838 1.545L13.55 20.4c0 .065-.019.121-.028.186c1.806 1.173 4.095 3.072 5.333 6.078c.242.595.447 1.219.595 1.898a18.6 18.6 0 0 1 6.254-.633z' /><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M29.91 43.406c1.732.475 3.472-.912 3.714-2.699c.198-1.695.7-3.34 1.48-4.858c-1.954-4.197-4.309-6.375-6.887-7.343c-2.745-1.023-5.733-.68-8.767.056c.68 3.08.28 7.11-2.308 12.35c.289.149.615.232.94.26l4.086.307c2.215.159 5.519 1.303 7.743 1.927Z' /></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
-  color: var(--accent-inactive);
+  color: var(--accent-active);
   width: calc(2 * var(--size-4-12));
   height: calc(2 * var(--size-4-12));
   margin-inline-start: 50%;
