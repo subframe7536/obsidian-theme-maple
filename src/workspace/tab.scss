@@ -101,21 +101,12 @@ body.tab-title-bar-text-hidden
 
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
 
-body:not(.is-mobile):not(.is-tablet) {
-  :is(
-      .workspace-split:not(.is-sidedock-collapsed):not(.mod-root)
-        .workspace-tabs:not(.mod-stacked)
-        .workspace-leaf-content
-        .view-content,
-      .workspace-leaf-content:not(:has(.view-content))
-    ) {
+body.tab-slide-up:not(.is-mobile):not(.is-tablet) {
+  .workspace-split:not(.is-sidedock-collapsed)
+    .workspace-tabs:not(.mod-stacked)
+    .workspace-leaf-content:not([data-type='undefined'])
+    .view-content {
     animation: use-animation('slide-up');
-  }
-
-  &.tab-editor-slide-up {
-    .workspace-split.mod-root .workspace-leaf-content .view-content {
-      animation: use-animation('slide-up');
-    }
   }
 }
 

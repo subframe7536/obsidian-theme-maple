@@ -236,14 +236,14 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         zh: '浮动的标签页（和 Firefox / Microsoft Edge 类似）',
       },
     })
-    .addClassToggle('tab-editor-slide-up', {
+    .addClassToggle('tab-slide-up', {
       title: {
-        en: 'Enable Tab Slide Up Animation In Text Editor',
-        zh: '在文本编辑器中启用标签页切换动画',
+        en: 'Enable Tab Slide Up Animation',
+        zh: '启用标签页切换动画',
       },
       desc: {
-        en: '❗Turning on will prevent outline panel updating instantly while switching tabs',
-        zh: '❗开启后会导致切换标签页时无法立即更新大纲面板',
+        en: '❗Turning on will prevent some panels updating instantly while switching tabs',
+        zh: '❗开启后会导致部分面板无法立即更新',
       },
     })
     .addClassToggle('labeled-nav', {
