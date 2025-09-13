@@ -49,3 +49,19 @@ body {
   --titlebar-background: var(--frame-bg);
   --titlebar-background-focused: var(--frame-bg);
 }
+
+body.titlebar-colorful {
+  &.theme-light {
+    --frame-bg: hsl(var(--accent-h), 40%, 82%);
+    .workspace-tab-header {
+      --background-modifier-hover: hsl(var(--accent-h), 50%, 92%);
+    }
+  }
+
+  &.theme-dark {
+    --frame-bg: hsl(var(--accent-h), 24%, 22%);
+    .workspace-tab-header {
+      --background-modifier-hover: hsl(var(--accent-h), 45%, 32%);
+    }
+  }
+}
