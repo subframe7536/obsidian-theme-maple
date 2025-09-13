@@ -103,6 +103,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 
 @include use-no-plugin('.explorer-icon') {
   @include override-stack-menu();
+  @include use-icon-override('.lucide-folder-closed', 'folder');
 
   @include use-panel('file-explorer', '.nav-files-container') {
     .nav-folder {
@@ -136,7 +137,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 
       &.is-collapsed .collapse-icon svg.svg-icon {
         transform: none;
-        @include use-icon('folder-closed', var(--folder-color));
+        @include use-icon('folder', var(--folder-color));
         transition: var(--animation);
       }
     }
