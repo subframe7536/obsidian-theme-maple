@@ -21,10 +21,6 @@ body:not(.is-mobile)
     display: block;
     @include use-icon('x', var(--text-muted), var(--size-4-6));
   }
-
-  &:hover {
-    background-color: var(--frame-outline-color);
-  }
 }
 
 body.titlebar-colorful .modal-container .mod-settings::before {
@@ -177,7 +173,7 @@ body.modal-toggle-thin .checkbox-container {
     }
 
     .mod-settings .modal-content {
-      background-color: var(--frame-background-color);
+      background-color: var(--titlebar-background);
 
       .vertical-tab-header {
         background-color: hsl(var(--background-secondary-hsl));
@@ -376,7 +372,7 @@ button {
 
       &.mod-active {
         color: var(--text-faint);
-        background-color: var(--frame-background-color);
+        background-color: var(--titlebar-background);
       }
 
       &:not(.has-conflict):not(.mod-active) {

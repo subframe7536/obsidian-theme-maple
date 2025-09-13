@@ -40,6 +40,8 @@ body {
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
   --block-outline-width: 2px;
 
+  --divider-color: var(--color-base-30);
+
   // tree item color
   --nav-item-background-hover: var(--background-modifier-hover);
   --nav-item-background-active: var(--accent-active);
@@ -116,21 +118,6 @@ body {
     calc(var(--accent-l) + 24%)
   );
   --text-on-accent: #fafafa !important;
-  --frame-background-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 32%)
-  );
-  --frame-outline-color: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 23.5%)
-  );
-  --frame-muted-color: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 20%),
-    calc(var(--accent-l) - 10%)
-  );
   --md-container-bg: var(
     --setting-md-container-bg,
     hsla(
@@ -172,17 +159,6 @@ body {
     var(--accent-h),
     calc(var(--accent-s) - 4%),
     calc(var(--accent-l) - 40%)
-  );
-  --frame-background-color: hsl(var(--accent-h), 12%, 16%);
-  --frame-outline-color: hsl(
-    calc(var(--accent-h) - 24),
-    calc(var(--accent-s) + 6%),
-    24%
-  );
-  --frame-muted-color: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 20%),
-    calc(var(--accent-l) + 10%)
   );
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;

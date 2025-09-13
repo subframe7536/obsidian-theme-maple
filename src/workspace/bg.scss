@@ -31,6 +31,19 @@ body {
 }
 
 body.app-bg-image-enable {
+  --frame-bg: transparent !important;
+  --tab-active-shadow: none;
+  --bg-opacity: var(--setting-app-bg-opacity, 0.4);
+  --divider-color: transparent;
+  --bg-editor: hsla(
+    var(--background-primary-hsl),
+    max(var(--bg-opacity), var(--editor-min-opacity))
+  );
+  --bg-surface: hsla(var(--background-primary-hsl), var(--bg-opacity));
+  background-image: var(--app-bg-image);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
   &.theme-light {
     --md-container-bg: var(
       --setting-md-container-bg,
@@ -47,12 +60,6 @@ body.app-bg-image-enable {
       hsla(calc(var(--accent-h) - 4), 12%, 11%)
     );
   }
-  --bg-opacity: var(--setting-app-bg-opacity, 0.4);
-  --divider-color: transparent;
-  --bg-editor: hsla(
-    var(--background-primary-hsl),
-    max(var(--bg-opacity), var(--editor-min-opacity))
-  );
 
   .mod-root .workspace-tab-container {
     padding: var(--size-4-1);
@@ -60,13 +67,6 @@ body.app-bg-image-enable {
     .workspace-leaf-content {
       border-radius: var(--radius-m);
     }
-  }
-  .workspace {
-    --frame-outline-color: transparent;
-    --tab-active-shadow: none;
-    background-image: var(--app-bg-image);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
   }
 
   .workspace-tab-header {
@@ -81,6 +81,7 @@ body.app-bg-image-enable {
 
   :is(
       .workspace-tab-header-container,
+      .workspace-tab-header-container-inner,
       .titlebar-button-container,
       .sidebar-toggle-button,
       .workspace-fake-target-overlay:not(.is-in-sidebar)
@@ -93,14 +94,21 @@ body.app-bg-image-enable {
     ) {
     background-color: transparent;
   }
+  .titlebar {
+    background-color: var(--bg-surface);
+  }
+  .workspace-ribbon {
+    --ribbon-background: var(--bg-surface);
+    --ribbon-background-collapsed: var(--bg-surface);
+    &::before {
+      background-color: var(--bg-surface);
+    }
+  }
 
   .workspace-split {
-    background-color: hsla(var(--background-secondary-hsl), var(--bg-opacity));
+    background-color: var(--bg-surface);
     &.mod-root {
-      background-color: hsla(
-        var(--background-secondary-hsl),
-        var(--bg-opacity)
-      );
+      background-color: var(--bg-surface);
     }
   }
 
