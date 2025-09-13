@@ -111,8 +111,7 @@ body.tab-slide-up:not(.is-mobile):not(.is-tablet) {
 }
 
 .is-sidedock-collapsed {
-  opacity: 0;
-  transition: var(--animation);
+  animation: use-animation('fade-dock');
 }
 
 .search-result-file-matches {

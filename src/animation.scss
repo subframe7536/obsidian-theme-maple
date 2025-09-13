@@ -16,6 +16,27 @@
   }
 }
 
+@keyframes fade-dock {
+  0% {
+    display: flex !important;
+    opacity: 1;
+  }
+
+  10% {
+    display: flex !important;
+    opacity: 0.5;
+  }
+
+  99% {
+    display: flex !important;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes slide-up {
   0% {
     transform: translateY(0%) translateZ(0);
