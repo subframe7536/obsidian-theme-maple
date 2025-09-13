@@ -185,10 +185,8 @@ https://github.com/sponsors/kepano
       .workspace-tab-header-inner-icon {
       color: var(--text-accent);
     }
-    .workspace-tab-header.is-active
-      .workspace-tab-header-inner-icon
-      :is(path, circle) {
-      stroke-width: 2.2;
+    .workspace-tab-header.is-active .workspace-tab-header-inner-icon svg * {
+      stroke-width: 2.5;
     }
 
     .workspace-tab-header-container {
