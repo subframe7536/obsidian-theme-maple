@@ -1,9 +1,9 @@
-/* Maple Theme v1.0.0-beta.6 For Obsidian */
+/* Maple Theme v1.0.0-beta.7 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Color And Animation
 settings:
-    - id: titleanimation
+    - id: title-animation
       title: Animation
       title.zh: 动画
       type: heading
@@ -18,7 +18,7 @@ settings:
       max: 500
       step: 50
       format: ms
-    - id: titleaccent-color
+    - id: title-accent-color
       title: Accent Color
       title.zh: 高亮颜色
       type: heading
@@ -31,7 +31,7 @@ settings:
       description: Use style setting accent color instead of Obsidian's accent color
       description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
       default: false
-    - id: titlelight-mode
+    - id: title-light-mode
       title: Light Mode
       title.zh: 浅色模式
       type: heading
@@ -72,7 +72,7 @@ settings:
       default: "#"
       format: rgb
       opacity: false
-    - id: titlemore-configuration
+    - id: title-more-configuration
       title: More Configuration
       title.zh: 更多设置
       type: heading
@@ -100,7 +100,7 @@ settings:
       max: 100
       step: 1
       format: "%"
-    - id: titledark-mode
+    - id: title-dark-mode
       title: Dark Mode
       title.zh: 暗色模式
       type: heading
@@ -141,7 +141,7 @@ settings:
       default: "#"
       format: rgb
       opacity: false
-    - id: titlemore-configuration
+    - id: title-more-configuration
       title: More Configuration
       title.zh: 更多设置
       type: heading
@@ -174,7 +174,7 @@ settings:
 id: maple-workspace
 name: Maple Workspace
 settings:
-    - id: titletitlebar-and-background-image
+    - id: title-titlebar-and-background-image
       title: Titlebar And Background Image
       title.zh: 标题栏和背景图
       type: heading
@@ -227,7 +227,7 @@ settings:
       max: 0.9
       min: 0.1
       step: 0.05
-    - id: titlefile-explorer
+    - id: title-file-explorer
       title: File Explorer
       title.zh: 文件管理器
       type: heading
@@ -267,7 +267,7 @@ settings:
       opacity: false
       default-light: rgb(245, 180, 0)
       default-dark: rgb(245, 180, 0)
-    - id: titleoutline-panel
+    - id: title-outline-panel
       title: Outline Panel
       title.zh: 文档大纲
       type: heading
@@ -306,7 +306,7 @@ settings:
       default-light: "#"
       format: hsl
       opacity: true
-    - id: titlestatus-bar
+    - id: title-status-bar
       title: Status Bar
       title.zh: 状态栏
       type: heading
@@ -341,7 +341,7 @@ settings:
       type: class-toggle
       title: Center Status Bar
       title.zh: 状态栏居中
-    - id: titledocument-search-/-replace-panel
+    - id: title-document-search-/-replace-panel
       title: Document Search / Replace Panel
       title.zh: 文档内搜索框
       type: heading
@@ -358,7 +358,7 @@ settings:
       title.zh: 移除一些搜索框中的按钮
       description: "Removed buttons: Find All"
       description.zh: 移除的按钮：查找全部
-    - id: titletab
+    - id: title-tab
       title: Tab
       title.zh: 标签页
       type: heading
@@ -407,7 +407,7 @@ settings:
             value: tab-title-bar-text-small
           - label: show on hover
             value: tab-title-bar-text-hidden
-    - id: titletooltip-&-notice
+    - id: title-tooltip-&-notice
       title: Tooltip & Notice
       title.zh: 气泡提示框 & 通知
       type: heading
@@ -442,7 +442,7 @@ settings:
       opacity: false
       default-light: "#"
       default-dark: "#"
-    - id: titlemodal-&-setting-panel
+    - id: title-modal-&-setting-panel
       title: Modal & Setting Panel
       title.zh: 弹出框 & 设置面板
       type: heading
@@ -465,7 +465,7 @@ settings:
       type: variable-text
       title: Set Modal Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.6'"
+      default: "'maple 1.0.0-beta.7'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -494,7 +494,7 @@ settings:
       title: Modal Show Up Animation
       title.zh: 弹出框进入动画
       default: true
-    - id: titlemenu-blur
+    - id: title-menu-blur
       title: Menu Blur
       title.zh: 菜单模糊
       type: heading
@@ -515,7 +515,7 @@ settings:
       title: Graph Menu
       title.zh: 图谱菜单
       default: true
-    - id: titlescrollbar
+    - id: title-scrollbar
       title: Scrollbar
       title.zh: 滚动条
       type: heading
@@ -551,7 +551,7 @@ settings:
           when the mouse move outside the container
       description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
       default: true
-    - id: titlegraph
+    - id: title-graph
       title: Graph
       title.zh: 关系图谱
       type: heading
@@ -581,7 +581,7 @@ settings:
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: titlepdf-export
+    - id: title-pdf-export
       title: PDF Export
       title.zh: PDF 导出
       type: heading
@@ -596,7 +596,7 @@ settings:
 id: maple-editor
 name: Maple Editor
 settings:
-    - id: titleeditor-background-image
+    - id: title-editor-background-image
       title: Editor Background Image
       title.zh: 编辑器背景图
       type: heading
@@ -656,9 +656,9 @@ settings:
       format: hsl-values
       default-light: "#"
       default-dark: "#"
-    - id: titletext-&-font-&-line
-      title: Text & Font & Line
-      title.zh: 文字 & 字体 & 行
+    - id: title-font
+      title: Font
+      title.zh: 字体
       type: heading
       level: 1
       collapsed: true
@@ -674,56 +674,26 @@ settings:
       title: OpenType Feature Config For Monospace Font
       title.zh: 等宽字体的 OpenType 特性配置
       default: '"calt"'
-    - id: font-fix-latex
-      type: class-toggle
-      title: Fix Latex Italic Absent
-      title.zh: 修复 latex 斜体问题
-      description: Latex in my vault often wrong rendered, so i make this setting. If
-          wrong rendered, just toggle it
-      description.zh: 在我的仓库里经常渲染失败，只能自己打包一份字体进主题了。只要字体不正常，开关一次即可
     - id: font-latex-text
       type: class-toggle
       title: Use "Text Font" In Non-formula Parts Of Latex
       title.zh: 在 latex 非公式部分使用正文字体
       description: ❗only tested in CJK font, maybe not reconcile with latin characters
       description.zh: 默认的字体比较丑
-    - id: setting-editor-p-spacing
-      type: variable-number-slider
-      title: Editor Paragraph Spacing (px)
-      title.zh: 编辑器段落间隔（px）
-      default: 4
-      format: px
-      min: 0
-      max: 20
-      step: 1
-    - id: setting-editor-p-indent
-      type: variable-number-slider
-      title: Editor Paragraph Indent
-      title.zh: 编辑器段落缩进
-      description: If 'p-indent' exist in properties.cssclasses, all paragraph will
-          add indent(n times of font size)
-      description.zh: 在文档属性的cssclasses中存在 'p-indent' 类时，会为段落添加缩进（字体大小的倍数）
-      default: 2
-      min: 0
-      max: 4
-      step: 0.2
-    - id: setting-line-height
-      type: variable-number-slider
-      title: Editor Line Height
-      title.zh: 编辑器行高
-      description: Multiple of the text size
-      description.zh: 文字大小的倍数
-      default: 1.8
-      min: 1.2
-      max: 2.4
-      step: 0.1
-    - id: setting-file-line-width
-      type: variable-text
-      title: Editor Line Width
-      title.zh: 编辑器行宽
-      description: Dynamic width — clamp(MinWidth, WidthPercent, MaxWidth)
-      description.zh: 动态宽度 — clamp(最小值, 宽度百分比, 最大值)
-      default: clamp(600px, 72%, 850px)
+    - id: title-text
+      title: Text
+      title.zh: 文字
+      type: heading
+      level: 1
+      collapsed: true
+    - id: setting-text-normal
+      type: variable-themed-color
+      title: Editor Text Color
+      title.zh: 编辑器文字颜色
+      format: hex
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
     - id: setting-underline-offset
       type: variable-number-slider
       title: Underline Offset
@@ -733,51 +703,7 @@ settings:
       min: 0
       max: 8
       step: 0.5
-    - id: line-indicator-enable
-      type: class-select
-      title: Hover Line Indicator
-      title.zh: 鼠标经过行指示器
-      description: Reference from https://github.com/Akifyss/obsidian-border, need
-          install version>=1.1.9
-      description.zh: 参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9
-      allow-empty: false
-      default: line-indicator-disable
-      options:
-          - label: none
-            value: line-indicator-disable
-          - label: left
-            value: line-indicator-enable
-          - label: full line
-            value: line-indicator-full
-    - id: line-active
-      type: class-select
-      title: Active Line Hightlight
-      title.zh: 当前行高亮
-      allow-empty: false
-      default: line-active-enable
-      options:
-          - label: none
-            value: line-active-disable
-          - label: left
-            value: line-active-left
-          - label: full line
-            value: line-active-enable
-    - id: setting-line-active-color
-      type: variable-themed-color
-      title: Active Line Color
-      title.zh: 高亮行颜色
-      format: hsl-values
-      default-light: "#"
-      default-dark: "#"
-    - id: setting-text-normal
-      type: variable-themed-color
-      title: Editor Text Color
-      title.zh: 编辑器文字颜色
-      format: hex
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
-    - id: titlehighlight
+    - id: title-highlight
       title: Highlight
       title.zh: 高亮
       type: heading
@@ -819,7 +745,7 @@ settings:
       type: class-toggle
       title: Add Spacing Around Highlight
       title.zh: 增加高亮周围边距
-    - id: titlebold
+    - id: title-bold
       title: Bold
       title.zh: 粗体
       type: heading
@@ -845,7 +771,7 @@ settings:
       title: Bold Font
       title.zh: 粗体字体
       default: "''"
-    - id: titleitalic
+    - id: title-italic
       title: Italic
       title.zh: 斜体
       type: heading
@@ -871,7 +797,86 @@ settings:
       title: Italic Font
       title.zh: 斜体字体
       default: "''"
-    - id: titlelink
+    - id: title-line
+      title: Line
+      title.zh: 行
+      type: heading
+      level: 1
+      collapsed: true
+    - id: setting-editor-p-spacing
+      type: variable-number-slider
+      title: Editor Paragraph Spacing (px)
+      title.zh: 编辑器段落间隔（px）
+      default: 4
+      format: px
+      min: 0
+      max: 20
+      step: 1
+    - id: setting-editor-p-indent
+      type: variable-number-slider
+      title: Editor Paragraph Indent
+      title.zh: 编辑器段落缩进
+      description: If 'p-indent' exist in properties.cssclasses, all paragraph will
+          add indent(n times of font size)
+      description.zh: 在文档属性的cssclasses中存在 'p-indent' 类时，会为段落添加缩进（字体大小的倍数）
+      default: 2
+      min: 0
+      max: 4
+      step: 0.2
+    - id: setting-line-height
+      type: variable-number-slider
+      title: Editor Line Height
+      title.zh: 编辑器行高
+      description: Multiple of the text size
+      description.zh: 文字大小的倍数
+      default: 1.8
+      min: 1.2
+      max: 2.4
+      step: 0.1
+    - id: setting-file-line-width
+      type: variable-text
+      title: Editor Line Width
+      title.zh: 编辑器行宽
+      description: Dynamic width — clamp(MinWidth, WidthPercent, MaxWidth)
+      description.zh: 动态宽度 — clamp(最小值, 宽度百分比, 最大值)
+      default: clamp(600px, 72%, 850px)
+    - id: line-indicator-enable
+      type: class-select
+      title: Hover Line Indicator
+      title.zh: 鼠标经过行指示器
+      description: Reference from https://github.com/Akifyss/obsidian-border, need
+          install version>=1.1.9
+      description.zh: 参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9
+      allow-empty: false
+      default: line-indicator-disable
+      options:
+          - label: none
+            value: line-indicator-disable
+          - label: left
+            value: line-indicator-enable
+          - label: full line
+            value: line-indicator-full
+    - id: line-active
+      type: class-select
+      title: Active Line Hightlight
+      title.zh: 当前行高亮
+      allow-empty: false
+      default: line-active-enable
+      options:
+          - label: none
+            value: line-active-disable
+          - label: left
+            value: line-active-left
+          - label: full line
+            value: line-active-enable
+    - id: setting-line-active-color
+      type: variable-themed-color
+      title: Active Line Color
+      title.zh: 高亮行颜色
+      format: hsl-values
+      default-light: "#"
+      default-dark: "#"
+    - id: title-link
       title: Link
       title.zh: 链接
       type: heading
@@ -899,7 +904,7 @@ settings:
       description: ❗will disable hover animation, external link prefix icon will be
           diabled
       description.zh: ❗鼠标经过动画会消失，外部链接的前置图标会消失
-    - id: titlelink-color
+    - id: title-link-color
       title: Link Color
       title.zh: 链接颜色
       type: heading
@@ -937,7 +942,7 @@ settings:
       opacity: false
       default-light: "#"
       default-dark: "#"
-    - id: titleheading
+    - id: title-heading
       title: Heading
       title.zh: 标题
       type: heading
@@ -949,7 +954,7 @@ settings:
       title.zh: 修复行号的移动
       description: Will increase '#' size
       description.zh: 将增加 '#' 的大小
-    - id: titleheading-level-icon
+    - id: title-heading-level-icon
       title: Heading Level Icon
       title.zh: 标题等级图标
       type: heading
@@ -965,7 +970,7 @@ settings:
       title.zh: 总是显示图标
       description: Highlight on hover
       description.zh: 鼠标经过时高亮
-    - id: titleheading-style-preference
+    - id: title-heading-style-preference
       title: Heading Style Preference
       title.zh: 标题样式设置
       type: heading
@@ -987,7 +992,7 @@ settings:
       description: All characters are capitalized
       description.zh: 所有字母都是大写
       default: true
-    - id: titleheading-color
+    - id: title-heading-color
       title: Heading Color
       title.zh: 标题颜色
       type: heading
@@ -1006,7 +1011,7 @@ settings:
             value: heading-color-accent
           - label: colorful
             value: heading-color-colorful
-    - id: titlecustom-heading-color
+    - id: title-custom-heading-color
       title: Custom Heading Color
       title.zh: 自定义标题颜色
       type: heading
@@ -1060,7 +1065,7 @@ settings:
       opacity: false
       default-light: "#"
       default-dark: "#"
-    - id: titleheading-size
+    - id: title-heading-size
       title: Heading Size
       title.zh: 标题大小
       type: heading
@@ -1114,7 +1119,7 @@ settings:
       min: 1
       max: 2.4
       step: 0.1
-    - id: titleheading-underline
+    - id: title-heading-underline
       title: Heading Underline
       title.zh: 标题下划线
       type: heading
@@ -1145,7 +1150,7 @@ settings:
       type: class-toggle
       title: Add Underline For H6
       title.zh: 添加 h6 下划线
-    - id: titleheading-font
+    - id: title-heading-font
       title: Heading Font
       title.zh: 标题字体
       type: heading
@@ -1181,7 +1186,7 @@ settings:
       title: H6 Font
       title.zh: 标题 6 字体
       default: "''"
-    - id: titlehr
+    - id: title-hr
       title: Hr
       title.zh: 分隔行
       type: heading
@@ -1197,7 +1202,7 @@ settings:
       title: Set Icon In The Center Of Hr
       title.zh: 分割行中部图标
       default: "'⭐'"
-    - id: titletable
+    - id: title-table
       title: Table
       title.zh: 表格
       type: heading
@@ -1239,7 +1244,7 @@ settings:
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: titleembed-file
+    - id: title-embed-file
       title: Embed File
       title.zh: 内嵌文档
       type: heading
@@ -1257,7 +1262,7 @@ settings:
       description: Visiable on hover, disabled when alias is '#', Example ![[FileName|#]]
       description.zh: 鼠标经过时显示；别名为'#'时禁用，例：![[文件名|#]]
       default: true
-    - id: titleimage
+    - id: title-image
       title: Image
       title.zh: 图片
       type: heading
@@ -1289,7 +1294,7 @@ settings:
       description: Hover will increase brightness
       description.zh: 鼠标经过时会增加亮度
       default: true
-    - id: titlequote
+    - id: title-quote
       title: Quote
       title.zh: 引言
       type: heading
@@ -1312,7 +1317,7 @@ settings:
             value: quote-border
           - label: shadow
             value: quote-shadow
-    - id: titlelist
+    - id: title-list
       title: List
       title.zh: 列表
       type: heading
@@ -1358,7 +1363,7 @@ settings:
       opacity: false
       default-light: "#"
       default-dark: "#"
-    - id: titletask-list-(checkbox)
+    - id: title-task-list-(checkbox)
       title: Task List (checkbox)
       title.zh: 待办事项（勾选框）
       type: heading
@@ -1400,7 +1405,7 @@ settings:
       opacity: false
       default-light: "#"
       default-dark: "#"
-    - id: titlecode
+    - id: title-code
       title: Code
       title.zh: 代码
       type: heading
@@ -1480,7 +1485,7 @@ settings:
       title: Use Theme's Color Schema
       title.zh: 使用主题的代码高亮
       default: true
-    - id: titletag
+    - id: title-tag
       title: Tag
       title.zh: 标签
       type: heading
@@ -1541,7 +1546,7 @@ settings:
       opacity: false
       default-light: "#"
       default-dark: "#"
-    - id: titlecanvas
+    - id: title-canvas
       title: Canvas
       title.zh: 白板
       type: heading
@@ -1557,7 +1562,7 @@ settings:
       type: class-toggle
       title: Center Text In Card When Blur Focus
       title.zh: 卡片失去焦点时居中文本
-    - id: titlepdf
+    - id: title-pdf
       title: PDF
       title.zh: PDF
       type: heading
@@ -1570,7 +1575,7 @@ settings:
       description: Hover will increase brightness
       description.zh: 鼠标经过时会增加亮度
       default: true
-    - id: titleproperties
+    - id: title-properties
       title: Properties
       title.zh: 文档属性
       type: heading
@@ -1590,7 +1595,7 @@ settings:
 id: maple-plugin
 name: Maple Plugin
 settings:
-    - id: titlecalendar
+    - id: title-calendar
       title: Calendar
       title.zh: 日历
       type: heading
@@ -1617,7 +1622,7 @@ settings:
       description: Support any css max-width property
       description.zh: 支持任何 css 的 max-width 属性值
       default: 500px
-    - id: titlekanban
+    - id: title-kanban
       title: Kanban
       title.zh: 看板
       type: heading
@@ -1647,7 +1652,7 @@ settings:
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: titledataview(wip)
+    - id: title-dataview(wip)
       title: DataView(WIP)
       title.zh: DataView(待完工)
       type: heading
@@ -2440,18 +2445,20 @@ body.line-indicator-full .cm-line.HyperMD-codeblock:hover {
   font-family: var(--font-monospace);
 }
 
-kbd {
+kbd,
+.setting-hotkey,
+.prompt-instruction-command {
   user-select: none;
   text-transform: capitalize;
-  border: var(--size-2-1) solid var(--accent-inactive);
-  box-shadow: var(--shadow-s);
-  border-radius: var(--size-2-3);
-  transition: var(--animation);
+  box-shadow: var(--input-shadow);
+  border-radius: var(--radius-s);
+  background-color: var(--background-secondary);
   font-family: var(--font-monospace) !important;
-  color: var(--text-normal) !important;
+  padding: 0 var(--size-2-3) !important;
 }
-kbd:hover {
-  border-color: var(--accent-active);
+
+.setting-hotkey.mod-empty {
+  color: var(--text-faint);
 }
 
 /* #endregion keyboard */
@@ -3315,8 +3322,10 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
 .cm-atom) {
   color: var(--code-property);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-type {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-type, .cm-builtin) {
   color: var(--code-keyword);
+}
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-type {
   font-weight: bold;
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-keyword {
@@ -5448,11 +5457,74 @@ input.metadata-property-key-input,
 /* #endregion [editor] */
 /* #region [plugins] */
 /* #region better-command-palette */
-.better-command-palette p.better-command-palette-title {
-  margin: var(--size-4-3) var(--size-4-6);
+.better-command-palette {
+  --prompt-text: "Better Command Palette";
 }
-.better-command-palette .prompt-input {
-  font-size: var(--font-ui-large);
+.better-command-palette .prompt-instruction {
+  display: none;
+}
+.better-command-palette .prompt-instructions::before {
+  content: var(var(--prompt-text));
+  position: absolute;
+  left: var(--size-4-5);
+  color: var(--text-faint);
+}
+.better-command-palette .prompt-instructions:hover {
+  --prompt-text: none;
+}
+.better-command-palette .prompt-instructions:hover .prompt-instruction {
+  display: inline-block;
+}
+.better-command-palette[palette-mode=commands] {
+  --action: var(--action-text-command, "Command");
+}
+.better-command-palette[palette-mode=commands] .prompt-instructions :first-child {
+  display: inline-block;
+}
+.better-command-palette[palette-mode=files] {
+  --action: var(--action-text-file, "File");
+}
+.better-command-palette[palette-mode=files] .prompt-instructions :first-child,
+.better-command-palette[palette-mode=files] .prompt-instructions :nth-child(2),
+.better-command-palette[palette-mode=files] .prompt-instructions :nth-child(3) {
+  display: inline-block;
+}
+.better-command-palette[palette-mode=tags] {
+  --action: var(--action-text-tag, "Tag");
+}
+.better-command-palette[palette-mode=tags] .prompt-instructions :first-child {
+  display: inline-block;
+}
+.better-command-palette .better-command-palette-title {
+  visibility: hidden;
+}
+.better-command-palette .better-command-palette-title::before {
+  visibility: visible;
+  content: var(--action);
+  position: absolute;
+  font-size: var(--font-ui-small);
+  left: var(--size-4-5);
+  top: var(--size-4-3);
+  background-color: var(--background-secondary);
+  color: var(--text-accent);
+  border: var(--text-accent) 1px solid;
+  border-radius: var(--radius-s);
+  padding: 0 var(--size-4-1);
+}
+.better-command-palette .search-input-clear-button {
+  display: none;
+}
+.better-command-palette .hidden-items-header {
+  display: none;
+}
+.better-command-palette input.prompt-input {
+  padding: var(--size-4-6) var(--size-4-5);
+}
+
+html[lang=zh] {
+  --action-text-command: "命令";
+  --action-text-file: "文件";
+  --action-text-tag: "标签";
 }
 
 /* #endregion better-command-palette */
@@ -6127,7 +6199,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.6");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.7");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6266,27 +6338,6 @@ select,
 .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-sidebar .setting-item:first-child {
   max-width: var(--modal-community-sidebar-width);
 }
-.modal-container .mod-settings .modal-content .setting-hotkey {
-  box-shadow: var(--shadow-s);
-  border: 2px solid var(--accent-inactive);
-  border-radius: var(--size-2-3);
-  font-size: var(--font-ui-smaller);
-  padding: 1px var(--size-4-2);
-  transition: var(--animation);
-}
-.modal-container .mod-settings .modal-content .setting-hotkey .setting-hotkey-icon {
-  margin-right: calc(-1 * var(--size-4-1));
-}
-.modal-container .mod-settings .modal-content .setting-hotkey:hover {
-  border-color: var(--accent-active);
-}
-.modal-container .mod-settings .modal-content .setting-hotkey.mod-active {
-  color: var(--text-faint);
-  background-color: var(--titlebar-background);
-}
-.modal-container .mod-settings .modal-content .setting-hotkey:not(.has-conflict):not(.mod-active) {
-  background-color: var(--code-background);
-}
 .modal-container .mod-settings .modal-content .setting-item-heading .setting-item-name {
   font-weight: bold;
   font-size: var(--font-ui-medium);
@@ -6352,6 +6403,27 @@ body.modal-blur .modal-bg {
 
 .mod-search-suggestion .suggestion {
   background-color: transparent;
+}
+
+.prompt-input-container {
+  border-bottom: var(--divider-width) solid var(--divider-color);
+}
+.prompt-input-container input {
+  border: none;
+  background-color: transparent !important;
+}
+.prompt-input-container input:hover {
+  border: none;
+}
+
+.prompt-results {
+  padding: var(--size-4-2);
+}
+
+.prompt-instructions {
+  padding-inline: var(--size-4-5);
+  justify-content: flex-end;
+  gap: var(--size-2-3) var(--size-4-3);
 }
 
 /* #endregion modal */
@@ -7301,6 +7373,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder.is-collapsed .c
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title {
   justify-content: space-between;
+  padding-inline-end: 0;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title::before {
   content: "";
