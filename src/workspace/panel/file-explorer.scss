@@ -147,6 +147,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
     &-title {
       @include create-icons();
       justify-content: space-between;
+      padding-inline-end: 0;
 
       .nav-file-tag {
         background-color: var(--accent-active);
