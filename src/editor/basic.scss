@@ -204,19 +204,18 @@ body.line-indicator-full {
   font-family: var(--font-monospace);
 }
 
-kbd {
+kbd,
+.setting-hotkey {
   user-select: none;
   text-transform: capitalize;
-  border: var(--size-2-1) solid var(--accent-inactive);
-  box-shadow: var(--shadow-s);
-  border-radius: var(--size-2-3);
-  transition: var(--animation);
+  box-shadow: var(--input-shadow);
+  border-radius: var(--radius-s);
+  background-color: var(--background-secondary);
   font-family: var(--font-monospace) !important;
-  color: var(--text-normal) !important;
+}
 
-  &:hover {
-    border-color: var(--accent-active);
-  }
+.setting-hotkey.mod-empty {
+  color: var(--text-faint);
 }
 
 /* #endregion keyboard */
