@@ -293,6 +293,10 @@ body .markdown-rendered pre {
   }
 }
 
+:is(.cm-tag, .cm-attribute, .cm-string) {
+  font-family: var(--font-monospace);
+}
+
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) {
   .token {
     &.script {
