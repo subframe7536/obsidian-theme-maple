@@ -19,7 +19,7 @@
     }
   }
   &[palette-mode='commands'] {
-    --action: 'Command';
+    --action: var(--action-text-command, 'Command');
     .prompt-instructions {
       :first-child {
         display: inline-block;
@@ -27,7 +27,7 @@
     }
   }
   &[palette-mode='files'] {
-    --action: 'File';
+    --action: var(--action-text-file, 'File');
     .prompt-instructions {
       :first-child,
       :nth-child(2),
@@ -37,7 +37,7 @@
     }
   }
   &[palette-mode='tags'] {
-    --action: 'Tag';
+    --action: var(--action-text-tag, 'Tag');
     .prompt-instructions {
       :first-child {
         display: inline-block;
@@ -69,4 +69,10 @@
   input.prompt-input {
     padding: var(--size-4-6) var(--size-4-5);
   }
+}
+
+html[lang='zh'] {
+  --action-text-command: '命令';
+  --action-text-file: '文件';
+  --action-text-tag: '标签';
 }
