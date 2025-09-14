@@ -457,3 +457,24 @@ body.modal-blur .modal-bg {
 .mod-search-suggestion .suggestion {
   background-color: transparent;
 }
+
+.prompt-input-container {
+  border-bottom: var(--divider-width) solid var(--divider-color);
+  input {
+    border: none;
+    background-color: transparent !important;
+    &:hover {
+      border: none;
+    }
+  }
+}
+
+.prompt-results {
+  padding: var(--size-4-2);
+}
+
+.prompt-instructions {
+  padding-inline: var(--size-4-5);
+  justify-content: flex-end;
+  gap: var(--size-2-3) var(--size-4-3);
+}

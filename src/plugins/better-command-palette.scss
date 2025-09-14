@@ -1,9 +1,72 @@
 .better-command-palette {
-  p.better-command-palette-title {
-    margin: var(--size-4-3) var(--size-4-6);
-  }
+  --prompt-text: 'Better Command Palette';
+  .prompt-instruction {
+    display: none;
+    &s {
+      &::before {
+        content: var(var(--prompt-text));
+        position: absolute;
+        left: var(--size-4-5);
+        color: var(--text-faint);
+      }
+      &:hover {
+        --prompt-text: none;
 
-  .prompt-input {
-    font-size: var(--font-ui-large);
+        .prompt-instruction {
+          display: inline-block;
+        }
+      }
+    }
+  }
+  &[palette-mode='commands'] {
+    --action: 'Command';
+    .prompt-instructions {
+      :first-child {
+        display: inline-block;
+      }
+    }
+  }
+  &[palette-mode='files'] {
+    --action: 'File';
+    .prompt-instructions {
+      :first-child,
+      :nth-child(2),
+      :nth-child(3) {
+        display: inline-block;
+      }
+    }
+  }
+  &[palette-mode='tags'] {
+    --action: 'Tag';
+    .prompt-instructions {
+      :first-child {
+        display: inline-block;
+      }
+    }
+  }
+  & &-title {
+    visibility: hidden;
+    &::before {
+      visibility: visible;
+      content: var(--action);
+      position: absolute;
+      font-size: var(--font-ui-small);
+      left: var(--size-4-5);
+      top: var(--size-4-3);
+      background-color: var(--background-secondary);
+      color: var(--text-accent);
+      border: var(--text-accent) 1px solid;
+      border-radius: var(--radius-s);
+      padding: 0 var(--size-4-1);
+    }
+  }
+  .search-input-clear-button {
+    display: none;
+  }
+  .hidden-items-header {
+    display: none;
+  }
+  input.prompt-input {
+    padding: var(--size-4-6) var(--size-4-5);
   }
 }

@@ -205,13 +205,15 @@ body.line-indicator-full {
 }
 
 kbd,
-.setting-hotkey {
+.setting-hotkey,
+.prompt-instruction-command {
   user-select: none;
   text-transform: capitalize;
   box-shadow: var(--input-shadow);
   border-radius: var(--radius-s);
   background-color: var(--background-secondary);
   font-family: var(--font-monospace) !important;
+  padding: 0 var(--size-2-3) !important;
 }
 
 .setting-hotkey.mod-empty {
