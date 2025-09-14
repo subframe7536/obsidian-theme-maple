@@ -48,11 +48,17 @@ body {
   --tab-container-background: var(--frame-bg);
   --titlebar-background: var(--frame-bg);
   --titlebar-background-focused: var(--frame-bg);
+
+  .workspace-tabs:not(.mod-top) .workspace-tab-header-container {
+    background-color: var(--bg-surface);
+    border-bottom: none;
+  }
 }
 
 body.titlebar-colorful {
   &.theme-light {
     --frame-bg: hsl(var(--accent-h), 40%, 82%);
+    --logo-color-default: hsl(var(--accent-h), 35%, 50%);
     .workspace-tab-header {
       --background-modifier-hover: hsl(var(--accent-h), 50%, 92%);
     }
@@ -60,6 +66,7 @@ body.titlebar-colorful {
 
   &.theme-dark {
     --frame-bg: hsl(var(--accent-h), 24%, 22%);
+    --logo-color-default: hsl(var(--accent-h), 35%, 50%);
     .workspace-tab-header {
       --background-modifier-hover: hsl(var(--accent-h), 45%, 32%);
     }

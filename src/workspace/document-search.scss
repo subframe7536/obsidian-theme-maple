@@ -10,7 +10,7 @@
 }
 
 body.search-internal-enable .document-search-container {
-  background-color: hsl(var(--background-secondary-hsl)) !important;
+  background-color: var(--background-secondary) !important;
   position: absolute;
   top: var(--size-4-2);
   right: var(--size-4-4);

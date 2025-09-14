@@ -141,6 +141,10 @@ body.modal-toggle-thin .checkbox-container {
   }
 }
 
+body {
+  --logo-color-default: var(--text-accent);
+}
+
 @include use-no-plugin('.modal-header', ':not(.is-mobile)') {
   .modal-container {
     --modal-header-height: var(--size-4-12);
@@ -157,7 +161,7 @@ body.modal-toggle-thin .checkbox-container {
         transform: translate(-50%, -50%);
         font-size: calc(1.4 * var(--size-4-4));
         font-weight: bold;
-        color: var(--setting-color-logo, var(--text-accent));
+        color: var(--setting-color-logo, var(--logo-color-default));
         transition: var(--animation);
       }
 
