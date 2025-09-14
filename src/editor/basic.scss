@@ -262,6 +262,7 @@ body {
 .text-highlight-all-round
   :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
   -webkit-box-decoration-break: clone;
+  box-decoration-break: ignore;
 }
 
 .markdown-source-view span.cm-highlight,
@@ -371,6 +372,7 @@ input[type='checkbox'] {
 
   .task-list-label &:checked::after {
     -webkit-mask-position: 40% 45%;
+    mask-position: ignore;
   }
 }
 

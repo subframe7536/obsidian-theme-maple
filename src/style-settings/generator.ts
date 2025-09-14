@@ -106,12 +106,10 @@ function flattenDoc(doc: Doc) {
 export class Settings {
   public items: any[]
   private constructor(public level: number, public doc: Doc, id?: string) {
-    id ??=
-      'title' +
-      doc.title.en
-        .split(' ')
-        .map((s) => s.toLowerCase())
-        .join('-')
+    id ??= [
+      'title',
+      ...doc.title.en.split(' ').map((s) => s.toLowerCase()),
+    ].join('-')
     this.items = [
       {
         id,
