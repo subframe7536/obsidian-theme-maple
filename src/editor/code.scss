@@ -362,10 +362,14 @@ body .markdown-rendered pre {
     color: var(--code-property);
   }
 
-  .cm-type {
+  :is(.cm-type, .cm-builtin) {
     color: var(--code-keyword);
+  }
+
+  .cm-type {
     font-weight: bold;
   }
+
   .cm-keyword {
     font-style: italic;
   }
