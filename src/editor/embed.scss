@@ -36,7 +36,7 @@
       padding: 0;
       border: var(--block-outline-width) solid var(--background-modifier-border);
 
-      &.mod-empty-attachment {
+      &.mod-empty {
         border-style: dotted;
       }
 
@@ -65,6 +65,12 @@
 
     svg.link {
       transform: rotate(90deg);
+    }
+  }
+
+  .cm-lang-query {
+    .internal-query-header {
+      padding-inline: var(--size-4-2);
     }
   }
 

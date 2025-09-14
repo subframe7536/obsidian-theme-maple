@@ -4,11 +4,8 @@ body {
   --table-radius: var(--size-2-3);
   --table-btn-color: var(--text-muted);
   --table-btn-bg: var(--background-modifier-hover);
-  --table-header-bg: var(--setting-table-header-bg, var(--md-container-bg));
-  --table-alt-line-bg: var(
-    --setting-table-line-bg,
-    hsl(var(--background-secondary-hsl), calc(var(--bg-opacity) / 2))
-  );
+  --table-header-background: var(--md-container-bg);
+  --table-header-background-hover: var(--table-header-background);
   --table-cell-vertical-alignment: middle;
 }
 
@@ -65,10 +62,6 @@ body {
     opacity: 1;
   }
 
-  th {
-    background-color: var(--table-header-bg);
-  }
-
   // table radius
 
   th:first-child:not(
@@ -112,10 +105,6 @@ body {
   }
 
   // line background color
-  thead tr {
-    background-color: var(--table-header-bg);
-  }
-
   tbody {
     tr:nth-of-type(2n) {
       background-color: var(--table-alt-line-bg);
@@ -161,10 +150,19 @@ body.table-colorful {
       --setting-table-header-text,
       var(--text-on-accent)
     );
-    --table-header-bg: var(--setting-table-header-bg, var(--accent-active));
+    --table-header-background: var(
+      --setting-table-header-bg,
+      var(--accent-active)
+    );
+    --table-header-background-hover: var(--table-header-background);
+    --table-alt-line-bg: var(--setting-table-line-bg, var(--md-container-bg));
   }
 
   .markdown-source-view table thead .cm-s-obsidian {
     color: var(--setting-table-header-text, var(--text-normal));
+  }
+
+  .cm-html-embed .edit-block-button {
+    --background-modifier-hover: var(--background-secondary);
   }
 }

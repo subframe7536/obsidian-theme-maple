@@ -1,5 +1,5 @@
 .code-mac-style-header
-  .cm-preview-code-block[class*='cm-lang']
+  .cm-preview-code-block[class*='cm-lang']:not(.cm-lang-query)
   .edit-block-button {
   color: #ddd;
 }
