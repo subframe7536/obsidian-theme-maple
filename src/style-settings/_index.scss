@@ -1,5 +1,7 @@
 @use '../utils.scss' as *;
 
+/* #region Icon */
+
 .style-settings-heading[data-id^='maple']
   .style-settings-collapse-indicator::after {
   content: '';
@@ -25,9 +27,14 @@
   --style-settings-icon: #{icon('blocks')};
 }
 
+/* #endregion */
+
+/* #region Default Color Input Indicator */
+
 html[lang='zh'] {
   --system-accent-override-text-cotent: '由 Style Settings 插件控制';
 }
+
 .color-use-custom {
   .mod-settings
     .vertical-tab-content-container
@@ -72,6 +79,9 @@ html[lang='zh'] {
     transform: translateY(-50%);
   }
 }
+/* #endregion */
+
+/* #region Buttons */
 
 :is(
     .style-settings-import,
@@ -103,19 +113,9 @@ html[lang='zh'] {
   }
 }
 
-.themed-color-wrapper {
-  & > .theme-light {
-    background-color: #eee;
-  }
+/* #endregion */
 
-  & > .theme-dark {
-    background-color: #111;
-  }
-
-  .pickr-reset > button {
-    padding: var(--size-2-3);
-  }
-}
+/* #region Controls */
 
 .pickr .pcr-button {
   &::before,
@@ -169,7 +169,10 @@ html[lang='zh'] {
   }
 }
 
-/* hide option */
+/* #endregion */
+
+/* #region Hide Options */
+
 body:not(.line-active-enable)
   .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month)
@@ -252,8 +255,10 @@ body:not(.tag-outline) .setting-item[data-id='tag-outline-setting'] {
   }
 }
 
+/* #endregion */
+
 /* 参考 https://github.com/damiankorcz/Prism-Theme */
-div.workspace-leaf-content[data-type='style-settings'] {
+@include use-panel('style-settings') {
   div.view-content {
     padding: var(--file-margins);
 
