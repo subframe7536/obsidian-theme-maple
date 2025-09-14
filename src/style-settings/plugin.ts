@@ -5,12 +5,12 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
     .addClassToggle(
       'calendar-weekend',
       {
-        title: { en: 'Highlight Weekend', zh: '突显周末' },
+        title: { en: 'Highlight Weekends', zh: '突出显示周末' },
       },
       { enable: true },
     )
     .addClassToggle('calendar-swap-year-month', {
-      title: { en: 'Swap Year & Month', zh: '交换年和月的位置' },
+      title: { en: 'Swap Year and Month', zh: '交换年份和月份的位置' },
     })
     .addVarText(
       'setting-calendar-year-suffix',
@@ -22,10 +22,10 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
     .addVarText(
       'setting-calendar-max-width',
       {
-        title: { en: 'Max Width', zh: '最大宽度' },
+        title: { en: 'Maximum Width', zh: '最大宽度' },
         desc: {
-          en: 'Support any css max-width property',
-          zh: '支持任何 css 的 max-width 属性值',
+          en: 'Supports any CSS max-width property.',
+          zh: '支持任何 CSS 的 max-width 属性值。',
         },
       },
       { default: '500px' },
@@ -34,7 +34,7 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
     .addVarThemedColor(
       'setting-kanban-item-color',
       {
-        title: { en: 'Kanban Item Font Color', zh: '看板项 文字颜色' },
+        title: { en: 'Kanban Item Font Color', zh: '看板项文字颜色' },
       },
       {
         format: 'hex',
@@ -46,7 +46,7 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
     .addVarThemedColor(
       'setting-kanban-item-bg',
       {
-        title: { en: 'Kanban Item Background Color', zh: '看板项 背景色' },
+        title: { en: 'Kanban Item Background Color', zh: '看板项背景色' },
       },
       {
         format: 'hex',
@@ -60,7 +60,7 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
       {
         title: {
           en: 'Kanban Board Background Color',
-          zh: '看板 版面 背景色',
+          zh: '看板版面背景色',
         },
       },
       {
@@ -71,12 +71,12 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
       },
     ),
   Settings.ofLevel(1, {
-    title: { en: 'DataView(WIP)', zh: 'DataView(待完工)' },
+    title: { en: 'DataView (WIP)', zh: 'DataView (待完成)' },
   }).addClassToggle('dv-enable', {
-    title: { en: 'Enable Dataview Style', zh: '启用 dataview 样式' },
+    title: { en: 'Enable DataView Style', zh: '启用 DataView 样式' },
     desc: {
-      en: 'Need install version >= 1.1.9',
-      zh: '需要安装程序版本 >= 1.1.9',
+      en: 'Requires installation of version >= 1.1.9.',
+      zh: '需要安装版本 >= 1.1.9。',
     },
   }),
 ])

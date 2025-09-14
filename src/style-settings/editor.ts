@@ -2,27 +2,27 @@ import { Settings } from './generator'
 
 export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, {
-    title: { en: 'Editor Background Image', zh: '编辑器背景图' },
+    title: { en: 'Editor Background Image', zh: '编辑器背景图片' },
   })
     .addClassSelect(
       'editor-bg-type',
       {
-        title: { en: 'Background Image Type', zh: '背景图类型' },
+        title: { en: 'Background Image Type', zh: '背景图片类型' },
       },
       {
         allowEmpty: false,
         default: 'editor-bg-plain',
         options: [
-          { label: 'plain', value: 'editor-bg-plain' },
-          { label: 'dots', value: 'editor-bg-grid-dots' },
-          { label: 'grid', value: 'editor-bg-grid-line' },
+          { label: 'Plain', value: 'editor-bg-plain' },
+          { label: 'Dots', value: 'editor-bg-grid-dots' },
+          { label: 'Grid', value: 'editor-bg-grid-line' },
         ],
       },
     )
     .addVarThemedColor(
       'setting-editor-bg',
       {
-        title: { en: 'Editor Background Color', zh: '编辑器背景色' },
+        title: { en: 'Editor Background Color', zh: '编辑器背景颜色' },
       },
       {
         format: 'hsl-values',
@@ -33,14 +33,17 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-editor-bg-grid-dots',
       {
-        title: { en: 'Editor Background Dot Color', zh: '编辑器背景点的颜色' },
+        title: { en: 'Editor Background Dot Color', zh: '编辑器背景点颜色' },
       },
       { format: 'rgb', opacity: true, defaultLight: '#', defaultDark: '#' },
     )
     .addVarThemedColor(
       'setting-editor-bg-grid-line',
       {
-        title: { en: 'Editor Background Line Color', zh: '编辑器背景网格颜色' },
+        title: {
+          en: 'Editor Background Grid Line Color',
+          zh: '编辑器背景网格线颜色',
+        },
       },
       { format: 'rgb', opacity: true, defaultLight: '#', defaultDark: '#' },
     )
@@ -59,11 +62,11 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: {
           en: 'Editor Container Background Color',
-          zh: '编辑器容器背景色',
+          zh: '编辑器容器背景颜色',
         },
         desc: {
-          en: 'Quote, code block, table and so on',
-          zh: '引用、代码块、表格等',
+          en: 'For elements like quotes, code blocks, and tables',
+          zh: '用于引用、代码块、表格等元素',
         },
       },
       {
@@ -79,8 +82,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'font-maple',
       {
         title: {
-          en: 'Use "Maple Mono" As Monospace Font',
-          zh: '使用 Maple Mono 作为等宽字体',
+          en: 'Use "Maple Mono" as Monospace Font',
+          zh: '使用“Maple Mono”作为等宽字体',
         },
         desc: {
           en: 'https://github.com/subframe7536/Maple-font',
@@ -93,7 +96,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'setting-code-ligature',
       {
         title: {
-          en: 'OpenType Feature Config For Monospace Font',
+          en: 'OpenType Feature Configuration for Monospace Font',
           zh: '等宽字体的 OpenType 特性配置',
         },
       },
@@ -101,21 +104,21 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     )
     .addClassToggle('font-latex-text', {
       title: {
-        en: 'Use "Text Font" In Non-formula Parts Of Latex',
-        zh: '在 latex 非公式部分使用正文字体',
+        en: 'Use Text Font in Non-formula Parts of LaTeX',
+        zh: '在 LaTeX 非公式部分使用正文字体',
       },
       desc: {
-        en: '❗only tested in CJK font, maybe not reconcile with latin characters',
-        zh: '默认的字体比较丑',
+        en: 'Only tested with CJK fonts; may not reconcile with Latin characters',
+        zh: '默认字体较丑',
       },
     }),
   Settings.ofLevel(1, {
-    title: { en: 'Text', zh: '文字' },
+    title: { en: 'Text', zh: '文本' },
   })
     .addVarThemedColor(
       'setting-text-normal',
       {
-        title: { en: 'Editor Text Color', zh: '编辑器文字颜色' },
+        title: { en: 'Editor Text Color', zh: '编辑器文本颜色' },
       },
       {
         format: 'hex',
@@ -127,7 +130,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarNumSlider(
       'setting-underline-offset',
       {
-        title: { en: 'Underline Offset', zh: '下划线间距' },
+        title: { en: 'Underline Offset', zh: '下划线偏移' },
       },
       { default: 2, format: 'px', min: 0, max: 8, step: 0.5 },
     )
@@ -138,11 +141,11 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: {
               en: 'Highlight Text Background Color',
-              zh: '文本高亮背景色',
+              zh: '文本高亮背景颜色',
             },
             desc: {
-              en: 'The value can be the value of any background attribute in css',
-              zh: '填写的值可以为css中任意 background 属性的值',
+              en: 'Any valid CSS background property value',
+              zh: '可填写任何合法的 CSS background 属性值',
             },
           },
           { default: 'rgba(255, 208, 0, 0.4)' },
@@ -164,17 +167,20 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: {
               en: 'Highlight Background Radius',
-              zh: '高亮背景色圆角大小',
+              zh: '高亮背景圆角大小',
             },
-            desc: { en: 'Format px', zh: '单位 px' },
+            desc: { en: 'Value in pixels (px)', zh: '单位：像素 (px)' },
           },
           { default: 4, min: 0, max: 8, step: 1 },
         )
         .addClassToggle(
           'text-highlight-all-round',
           {
-            title: { en: 'Keep Radius When Wrap', zh: '换行时保持圆角' },
-            desc: { en: 'Except when edit', zh: '除了编辑的时候' },
+            title: {
+              en: 'Maintain Radius When Wrapping',
+              zh: '换行时保持圆角',
+            },
+            desc: { en: 'Except during editing', zh: '编辑时除外' },
           },
           { enable: true },
         )
@@ -199,8 +205,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: { en: 'Bold Style', zh: '粗体样式' },
             desc: {
-              en: 'Support any css text-decoration property',
-              zh: '支持任何 css 的 text-decoration 属性值',
+              en: 'Supports any CSS text-decoration property value',
+              zh: '支持任何 CSS text-decoration 属性值',
             },
           },
           { default: 'underline dotted' },
@@ -230,8 +236,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: { en: 'Italic Style', zh: '斜体样式' },
             desc: {
-              en: 'Support any css text-decoration property',
-              zh: '支持任何 css 的 text-decoration 属性值',
+              en: 'Supports any CSS text-decoration property value',
+              zh: '支持任何 CSS text-decoration 属性值',
             },
           },
           { default: 'underline dotted' },
@@ -252,7 +258,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: {
           en: 'Editor Paragraph Spacing (px)',
-          zh: '编辑器段落间隔（px）',
+          zh: '编辑器段落间距 (px)',
         },
       },
       { default: 4, format: 'px', min: 0, max: 20, step: 1 },
@@ -262,8 +268,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Editor Paragraph Indent', zh: '编辑器段落缩进' },
         desc: {
-          en: "If 'p-indent' exist in properties.cssclasses, all paragraph will add indent(n times of font size)",
-          zh: "在文档属性的cssclasses中存在 'p-indent' 类时，会为段落添加缩进（字体大小的倍数）",
+          en: "If 'p-indent' exists in properties.cssclasses, all paragraphs will be indented (n times font size)",
+          zh: "当文档属性的 cssclasses 中存在 'p-indent' 类时，会为所有段落添加缩进（字体大小的倍数）",
         },
       },
       { default: 2, min: 0, max: 4, step: 0.2 },
@@ -281,8 +287,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Editor Line Width', zh: '编辑器行宽' },
         desc: {
-          en: 'Dynamic width — clamp(MinWidth, WidthPercent, MaxWidth)',
-          zh: '动态宽度 — clamp(最小值, 宽度百分比, 最大值)',
+          en: 'Dynamic width: clamp(MinWidth, WidthPercent, MaxWidth)',
+          zh: '动态宽度：clamp(最小值, 宽度百分比, 最大值)',
         },
       },
       { default: 'clamp(600px, 72%, 850px)' },
@@ -290,34 +296,34 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassSelect(
       'line-indicator-enable',
       {
-        title: { en: 'Hover Line Indicator', zh: '鼠标经过行指示器' },
+        title: { en: 'Hover Line Indicator', zh: '鼠标悬停行指示器' },
         desc: {
-          en: 'Reference from https://github.com/Akifyss/obsidian-border, need install version>=1.1.9',
-          zh: '参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9',
+          en: 'Reference: https://github.com/Akifyss/obsidian-border; requires version >= 1.1.9',
+          zh: '参考项目：https://github.com/Akifyss/obsidian-border；需要安装版本 >= 1.1.9',
         },
       },
       {
         allowEmpty: false,
         default: 'line-indicator-disable',
         options: [
-          { label: 'none', value: 'line-indicator-disable' },
-          { label: 'left', value: 'line-indicator-enable' },
-          { label: 'full line', value: 'line-indicator-full' },
+          { label: 'None', value: 'line-indicator-disable' },
+          { label: 'Left', value: 'line-indicator-enable' },
+          { label: 'Full Line', value: 'line-indicator-full' },
         ],
       },
     )
     .addClassSelect(
       'line-active',
       {
-        title: { en: 'Active Line Hightlight', zh: '当前行高亮' },
+        title: { en: 'Active Line Highlight', zh: '当前行高亮' },
       },
       {
         allowEmpty: false,
         default: 'line-active-enable',
         options: [
-          { label: 'none', value: 'line-active-disable' },
-          { label: 'left', value: 'line-active-left' },
-          { label: 'full line', value: 'line-active-enable' },
+          { label: 'None', value: 'line-active-disable' },
+          { label: 'Left', value: 'line-active-left' },
+          { label: 'Full Line', value: 'line-active-enable' },
         ],
       },
     )
@@ -335,35 +341,35 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, { title: { en: 'Link', zh: '链接' } })
     .addClassToggle('link-hover-expand', {
       title: {
-        en: 'Use Underline Animation On Hover',
-        zh: '鼠标经过时开启下划线动画',
+        en: 'Use Underline Animation on Hover',
+        zh: '鼠标悬停时启用下划线动画',
       },
     })
     .addClassToggle(
       'link-icon',
       {
         title: {
-          en: 'Add Icon Before Link In Editor',
-          zh: '编辑器内链接前添加图标',
+          en: 'Add Icon Before Link in Editor',
+          zh: '在编辑器内链接前添加图标',
         },
       },
       { enable: true },
     )
     .addClassToggle('link-heading', {
-      title: { en: 'Compatible With Heading Style', zh: '兼容标题样式' },
+      title: { en: 'Compatible with Heading Style', zh: '兼容标题样式' },
       desc: {
-        en: 'Keep link color with heading, but keep icon',
-        zh: '链接颜色改为标题颜色，保留图标',
+        en: 'Keep link color consistent with heading, but retain icon',
+        zh: '链接颜色与标题颜色保持一致，但保留图标',
       },
     })
     .addClassToggle('link-click-to-edit-in-live-preview', {
       title: {
-        en: 'Click To Edit Link In Live-Preview',
-        zh: '实时预览 模式时点击链接进行编辑而不是跳转',
+        en: 'Click to Edit Link in Live Preview Mode',
+        zh: '实时预览模式下点击链接进行编辑而非跳转',
       },
       desc: {
-        en: '❗will disable hover animation, external link prefix icon will be diabled',
-        zh: '❗鼠标经过动画会消失，外部链接的前置图标会消失',
+        en: '❗Disables hover animation; external link prefix icon will be disabled',
+        zh: '❗将禁用悬停动画；外部链接前缀图标将不可用',
       },
     })
     .children([
@@ -425,22 +431,22 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     ]),
   Settings.ofLevel(1, { title: { en: 'Heading', zh: '标题' } })
     .addClassToggle('fix-line-number', {
-      title: { en: 'Fix Line Number Movement', zh: '修复行号的移动' },
-      desc: { en: "Will increase '#' size", zh: "将增加 '#' 的大小" },
+      title: { en: 'Fix Line Number Movement', zh: '修复行号移动' },
+      desc: { en: "Increases '#' size", zh: "将增加 '#' 的大小" },
     })
     .children([
       Settings.ofLevel(2, {
         title: { en: 'Heading Level Icon', zh: '标题等级图标' },
       })
         .addClassToggle('heading-level-enable', {
-          title: { en: 'Level Heading Icon', zh: '标题等级图标' },
+          title: { en: 'Enable Level Heading Icon', zh: '启用标题等级图标' },
         })
         .addClassToggle('heading-level-fix', {
-          title: { en: 'Always Show Heading Icon', zh: '总是显示图标' },
-          desc: { en: 'Highlight on hover', zh: '鼠标经过时高亮' },
+          title: { en: 'Always Show Heading Icon', zh: '始终显示图标' },
+          desc: { en: 'Highlights on hover', zh: '鼠标悬停时高亮' },
         }),
       Settings.ofLevel(2, {
-        title: { en: 'Heading Style Preference', zh: '标题样式设置' },
+        title: { en: 'Heading Style Preference', zh: '标题样式偏好' },
       })
         .addClassToggle(
           'heading-h1-center',
@@ -456,12 +462,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           'heading-h6-variant',
           {
             title: {
-              en: 'Set Font Small-caps For Heading 6',
-              zh: '为六级标题设置 small-caps 样式',
+              en: 'Set Small-caps Font for Heading 6',
+              zh: '为六级标题设置小型大写字母样式',
             },
             desc: {
               en: 'All characters are capitalized',
-              zh: '所有字母都是大写',
+              zh: '所有字母都大写',
             },
           },
           { enable: true },
@@ -476,9 +482,9 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
             allowEmpty: false,
             default: 'heading-color-colorful',
             options: [
-              { label: 'text color', value: 'heading-color-base' },
-              { label: 'accent color', value: 'heading-color-accent' },
-              { label: 'colorful', value: 'heading-color-colorful' },
+              { label: 'Text Color', value: 'heading-color-base' },
+              { label: 'Accent Color', value: 'heading-color-accent' },
+              { label: 'Colorful', value: 'heading-color-colorful' },
             ],
           },
         )
@@ -606,26 +612,26 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         title: { en: 'Heading Underline', zh: '标题下划线' },
       })
         .addClassToggle('heading-h1-underline', {
-          title: { en: 'Add Underline For H1', zh: '添加 h1 下划线' },
+          title: { en: 'Add Underline for H1', zh: '为 H1 添加下划线' },
         })
         .addClassToggle(
           'heading-h2-underline',
           {
-            title: { en: 'Add Underline For H2', zh: '添加 h2 下划线' },
+            title: { en: 'Add Underline for H2', zh: '为 H2 添加下划线' },
           },
           { enable: true },
         )
         .addClassToggle('heading-h3-underline', {
-          title: { en: 'Add Underline For H3', zh: '添加 h3 下划线' },
+          title: { en: 'Add Underline for H3', zh: '为 H3 添加下划线' },
         })
         .addClassToggle('heading-h4-underline', {
-          title: { en: 'Add Underline For H4', zh: '添加 h4 下划线' },
+          title: { en: 'Add Underline for H4', zh: '为 H4 添加下划线' },
         })
         .addClassToggle('heading-h5-underline', {
-          title: { en: 'Add Underline For H5', zh: '添加 h5 下划线' },
+          title: { en: 'Add Underline for H5', zh: '为 H5 添加下划线' },
         })
         .addClassToggle('heading-h6-underline', {
-          title: { en: 'Add Underline For H6', zh: '添加 h6 下划线' },
+          title: { en: 'Add Underline for H6', zh: '为 H6 添加下划线' },
         }),
       Settings.ofLevel(2, { title: { en: 'Heading Font', zh: '标题字体' } })
         .addVarText(
@@ -671,18 +677,21 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           { default: "''" },
         ),
     ]),
-  Settings.ofLevel(1, { title: { en: 'Hr', zh: '分隔行' } })
+  Settings.ofLevel(1, { title: { en: 'Horizontal Rule', zh: '分隔线' } })
     .addClassToggle(
       'hr-enable',
       {
-        title: { en: 'Enable Hr Style', zh: '开启分割线样式' },
+        title: { en: 'Enable Horizontal Rule Style', zh: '启用分隔线样式' },
       },
       { enable: true },
     )
     .addVarText(
       'setting-hr-icon',
       {
-        title: { en: 'Set Icon In The Center Of Hr', zh: '分割行中部图标' },
+        title: {
+          en: 'Set Icon in the Center of Horizontal Rule',
+          zh: '分隔线中部图标',
+        },
       },
       { default: "'⭐'" },
     ),
@@ -698,14 +707,17 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'table-colorful',
       {
         title: { en: 'Colorful Table', zh: '多彩表格' },
-        desc: { en: 'Accent header and line color', zh: '添加表头和行的颜色' },
+        desc: {
+          en: 'Accented header and line colors',
+          zh: '添加表头和行的颜色',
+        },
       },
       { enable: true },
     )
     .addVarThemedColor(
       'setting-table-header-text',
       {
-        title: { en: 'Header Text Color', zh: '表头文字色' },
+        title: { en: 'Header Text Color', zh: '表头文字颜色' },
       },
       {
         format: 'hex',
@@ -717,7 +729,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-table-header-bg',
       {
-        title: { en: 'Header Background Color', zh: '表头背景色' },
+        title: { en: 'Header Background Color', zh: '表头背景颜色' },
       },
       {
         format: 'hex',
@@ -729,7 +741,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-table-line-bg',
       {
-        title: { en: 'Stripped Background Color', zh: '斑马纹背景色' },
+        title: { en: 'Striped Background Color', zh: '斑马纹背景颜色' },
       },
       {
         format: 'hex',
@@ -742,7 +754,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassToggle(
       'embed-enable',
       {
-        title: { en: 'Block Style Embed File', zh: '块状的内嵌文档' },
+        title: { en: 'Block Style Embed File', zh: '块状内嵌文档' },
       },
       { enable: true },
     )
@@ -750,12 +762,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'embed-title-right-top',
       {
         title: {
-          en: 'Move Embed Title To Right Top',
+          en: 'Move Embed Title to Top Right',
           zh: '内嵌文档标题移至右上角',
         },
         desc: {
-          en: "Visiable on hover, disabled when alias is '#', Example ![[FileName|#]]",
-          zh: "鼠标经过时显示；别名为'#'时禁用，例：![[文件名|#]]",
+          en: "Visible on hover; disabled when alias is '#', e.g., ![[FileName|#]]",
+          zh: "鼠标悬停时显示；别名为'#'时禁用，例如：![[文件名|#]]",
         },
       },
       { enable: true },
@@ -765,12 +777,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'image-alt',
       {
         title: {
-          en: 'Add Alt Text Below And Center The Image',
+          en: 'Add Alt Text Below and Center the Image',
           zh: '在图片底部添加提示文本并居中图片',
         },
         desc: {
-          en: 'Example ![[image.jpg|alt text]]',
-          zh: '样例 ![[图片.jpg|提示文本]]',
+          en: 'Example: ![[image.jpg|alt text]]',
+          zh: '示例：![[图片.jpg|提示文本]]',
         },
       },
       { enable: true },
@@ -778,10 +790,10 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassToggle(
       'image-zoom',
       {
-        title: { en: 'Click To Zoom Out Image', zh: '鼠标按下时放大图片' },
+        title: { en: 'Click to Zoom Image', zh: '鼠标按下时放大图片' },
         desc: {
-          en: 'Invalid in source view or Live-Preview',
-          zh: '在 源码模式 或者 实时预览 模式不生效',
+          en: 'Not effective in Source view or Live Preview mode',
+          zh: '在源码模式或实时预览模式下不生效',
         },
       },
       { enable: true },
@@ -790,7 +802,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'image-zoom-out',
       {
         title: {
-          en: 'Zoom Out The Image To Full Screen',
+          en: 'Zoom Image to Full Screen',
           zh: '图片放大到全屏',
         },
       },
@@ -800,12 +812,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'image-dark-hover',
       {
         title: {
-          en: 'Decrease Brightness In Dark Mode',
+          en: 'Decrease Brightness in Dark Mode',
           zh: '黑暗模式下降低图片亮度',
         },
         desc: {
-          en: 'Hover will increase brightness',
-          zh: '鼠标经过时会增加亮度',
+          en: 'Brightness increases on hover',
+          zh: '鼠标悬停时亮度会增加',
         },
       },
       { enable: true },
@@ -813,22 +825,22 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, { title: { en: 'Quote', zh: '引言' } })
     .addClassToggle('quote-mark', {
       title: {
-        en: 'Add Front Quote Mark In Preview Mode',
-        zh: '阅读模式 引言块添加前置引号',
+        en: 'Add Front Quote Mark in Preview Mode',
+        zh: '阅读模式下引言块添加前置引号',
       },
     })
     .addClassSelect(
       'quote-outline-style',
       {
-        title: { en: 'Preview Mode Outline Style', zh: '阅读模式 外部样式' },
+        title: { en: 'Preview Mode Outline Style', zh: '阅读模式外部样式' },
       },
       {
         allowEmpty: false,
         default: 'quote-shadow',
         options: [
-          { label: 'none', value: 'quote-none' },
-          { label: 'border', value: 'quote-border' },
-          { label: 'shadow', value: 'quote-shadow' },
+          { label: 'None', value: 'quote-none' },
+          { label: 'Border', value: 'quote-border' },
+          { label: 'Shadow', value: 'quote-shadow' },
         ],
       },
     ),
@@ -838,8 +850,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Optimize List Style', zh: '优化列表样式' },
         desc: {
-          en: '❗no support for list or task items inside callout',
-          zh: '❗精力有限，不打算适配 callout 中的列表或者代办项',
+          en: '❗No support for list or task items inside callouts',
+          zh: '❗精力有限，暂不适配 Callout 中的列表或待办项',
         },
       },
       { enable: true },
@@ -849,11 +861,11 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: {
           en: 'Logseq Bullet Thread Style List',
-          zh: 'logseq bullet thread 样式的列表',
+          zh: 'Logseq Bullet Thread 样式的列表',
         },
         desc: {
-          en: 'No support for task list and numbered list. Reference from https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1.',
-          zh: '不支持任务列表和序号列表，参考自 https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1',
+          en: 'No support for task lists and numbered lists. Reference: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1.',
+          zh: '不支持任务列表和序号列表。参考项目：https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1',
         },
       },
       { enable: true },
@@ -861,7 +873,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-list-marker',
       {
-        title: { en: 'List Marker Color', zh: '列表标号颜色' },
+        title: { en: 'List Marker Color', zh: '列表标记颜色' },
       },
       {
         format: 'hex',
@@ -873,7 +885,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-list-marker-alt',
       {
-        title: { en: 'List Marker Alt Color', zh: '列表标号颜色 2' },
+        title: { en: 'Alternate List Marker Color', zh: '列表标记备用颜色' },
       },
       {
         format: 'hex',
@@ -896,11 +908,11 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     )
     .children([
       Settings.ofLevel(2, {
-        title: { en: 'Task List (checkbox)', zh: '待办事项（勾选框）' },
+        title: { en: 'Task List (Checkbox)', zh: '待办事项（复选框）' },
       })
         .addClassToggle('list-checkbox-line', {
           title: {
-            en: 'Remove Middle Line In Completed Item',
+            en: 'Remove Strikethrough on Completed Items',
             zh: '移除已完成事项上的删除线',
           },
         })
@@ -908,12 +920,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           'list-checkbox-alternative',
           {
             title: {
-              en: 'Enable Alternative Checkboxes',
-              zh: '增加勾选框样式',
+              en: 'Enable Alternative Checkbox Styles',
+              zh: '启用备用复选框样式',
             },
             desc: {
-              en: 'Disable this if you are using your own implementation via a CSS Snippet.',
-              zh: '如果你用了其他勾选框 CSS 片段，可以关闭',
+              en: 'Disable this if you are using your own implementation via a CSS snippet',
+              zh: '如果您正在使用自己的 CSS 片段实现，请禁用此选项',
             },
           },
           { enable: true },
@@ -921,7 +933,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         .addVarThemedColor(
           'setting-list-checkbox-color',
           {
-            title: { en: 'Checkbox Marker Color', zh: '勾选框颜色' },
+            title: { en: 'Checkbox Marker Color', zh: '复选框标记颜色' },
           },
           {
             format: 'hex',
@@ -935,7 +947,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: {
               en: 'Checkbox Marker Hover Color',
-              zh: '勾选框鼠标经过色',
+              zh: '复选框标记悬停颜色',
             },
           },
           {
@@ -948,7 +960,10 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         .addVarThemedColor(
           'setting-list-checkbox-border',
           {
-            title: { en: 'Checkbox Marker Border', zh: '勾选框边框' },
+            title: {
+              en: 'Checkbox Marker Border Color',
+              zh: '复选框标记边框颜色',
+            },
           },
           {
             format: 'hex',
@@ -962,7 +977,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-code-inline',
       {
-        title: { en: 'Inline Code Color', zh: '行内代码文字色' },
+        title: { en: 'Inline Code Color', zh: '行内代码文字颜色' },
       },
       {
         format: 'hex',
@@ -974,7 +989,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-code-bg',
       {
-        title: { en: 'Code Block Background Color', zh: '代码块背景色' },
+        title: { en: 'Code Block Background Color', zh: '代码块背景颜色' },
       },
       {
         format: 'hex',
@@ -987,12 +1002,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'code-line-number',
       {
         title: {
-          en: 'Add Code Block Line Number In Live Preview Mode',
-          zh: '为 实时预览模式 代码块添加行号',
+          en: 'Add Code Block Line Numbers in Live Preview Mode',
+          zh: '在实时预览模式下为代码块添加行号',
         },
         desc: {
-          en: 'If the code block lines are too large, the line number will have error',
-          zh: '如果代码块行数太多，行号会出现错误',
+          en: 'If the code block has too many lines, line numbering may be incorrect',
+          zh: '如果代码块行数过多，行号可能会出现错误',
         },
       },
       { enable: true },
@@ -1001,8 +1016,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'code-language',
       {
         title: {
-          en: 'Add Code Block Language Indicator In Preview Mode',
-          zh: '为 阅读模式 代码块添加语言标识',
+          en: 'Add Code Block Language Indicator in Preview Mode',
+          zh: '在阅读模式下为代码块添加语言标识',
         },
       },
       { enable: true },
@@ -1010,28 +1025,31 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassToggle(
       'code-nowrap',
       {
-        title: { en: 'No Wrap In Preview Mode', zh: '阅读模式 代码块不换行' },
+        title: {
+          en: 'No Wrap in Preview Mode Code Blocks',
+          zh: '阅读模式下代码块不换行',
+        },
       },
       { enable: true },
     )
     .addVarText(
       'setting-code-ligature',
       {
-        title: { en: 'Monospace Font Feature', zh: '等宽字体字体特性' },
+        title: { en: 'Monospace Font Features', zh: '等宽字体特性' },
         desc: {
-          en: "If you use “Maple Mono” as monospace, recommend to set 'calt','cv02'",
-          zh: "如果你使用“Maple Mono”作为等宽字体，推荐设置为 'calt','cv02'",
+          en: "If using \"Maple Mono\" as monospace, recommend setting to 'calt','cv02'",
+          zh: "如果您使用“Maple Mono”作为等宽字体，建议设置为 'calt','cv02'",
         },
       },
       { default: "'calt'" },
     )
     .addClassToggle('code-preview-bg', {
       title: {
-        en: 'Enable Codeblock Background In Preview Mode',
-        zh: '在 阅读模式 开启代码块背景',
+        en: 'Enable Code Block Background in Preview Mode',
+        zh: '在阅读模式下启用代码块背景',
       },
       desc: {
-        en: 'Need install version >= 1.1.9',
+        en: 'Requires app version >= 1.1.9',
         zh: '需要安装程序版本 >= 1.1.9',
       },
     })
@@ -1039,22 +1057,22 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'setting-code-bg-outer',
       {
         title: {
-          en: 'Custom Codeblock Background In Preview Mode',
-          zh: '修改 阅读模式 代码块背景',
+          en: 'Custom Code Block Background in Preview Mode',
+          zh: '自定义阅读模式下代码块背景',
         },
         desc: {
-          en: 'Need install version >= 1.1.9, image is supported(eg. \'url("/your/image/uri")\'), it can be all the css value that supported by background-image',
-          zh: '需要安装程序版本 >= 1.1.9，支持图片（\'url("图片地址")\'），可以是 css background-image 支持的所有的值',
+          en: "Requires app version >= 1.1.9; supports images (e.g., 'url(\"/your/image/uri')') and all CSS background-image values",
+          zh: '需要安装程序版本 >= 1.1.9；支持图片（例如：\'url("图片地址")\'），可以是 CSS background-image 支持的所有值',
         },
       },
       { default: "''" },
     )
     .addClassToggle('code-mac-style-header', {
       title: {
-        en: 'Add Mac Style Code Block Header In Preview Mode',
-        zh: '为 阅读模式 代码块添加mac的标题栏',
+        en: 'Add Mac Style Code Block Header in Preview Mode',
+        zh: '在阅读模式下为代码块添加 Mac 风格标题栏',
       },
-      desc: { en: 'No code block border', zh: '没有代码块边框' },
+      desc: { en: 'No code block border', zh: '无代码块边框' },
     })
     .addVarThemedColor(
       'setting-code-language-color',
@@ -1071,15 +1089,15 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassToggle(
       'code-theme',
       {
-        title: { en: "Use Theme's Color Schema", zh: '使用主题的代码高亮' },
+        title: { en: "Use Theme's Color Scheme", zh: '使用主题的代码高亮方案' },
       },
       { enable: true },
     ),
   Settings.ofLevel(1, { title: { en: 'Tag', zh: '标签' } })
     .addClassToggle('tag-click-to-edit', {
       title: {
-        en: 'Click To Edit Tags In Live-Preview Mode',
-        zh: '点击标签进行编辑',
+        en: 'Click to Edit Tags in Live Preview Mode',
+        zh: '在实时预览模式下点击标签进行编辑',
       },
       desc: { en: "Click '#' to jump", zh: "点击'#'跳转" },
     })
@@ -1088,18 +1106,18 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Tag Style', zh: '标签样式' },
         desc: {
-          en: 'Tags of obsidian / todo / important / progress / complete will be colorized when use outline or fill',
-          zh: '当选择 outline 或者 fill 时，obsidian / todo / important / progress / complete 标签会有额外颜色',
+          en: 'Tags like obsidian, todo, important, progress, and complete will be colorized when using outline or fill styles',
+          zh: '当选择 outline 或 fill 样式时，obsidian / todo / important / progress / complete 标签会有额外颜色',
         },
       },
       {
         allowEmpty: false,
         default: 'tag-outline',
         options: [
-          { label: 'default', value: 'tag-default' },
-          { label: 'plain', value: 'tag-plain' },
-          { label: 'outline', value: 'tag-outline' },
-          { label: 'fill', value: 'tag-fill' },
+          { label: 'Default', value: 'tag-default' },
+          { label: 'Plain', value: 'tag-plain' },
+          { label: 'Outline', value: 'tag-outline' },
+          { label: 'Fill', value: 'tag-fill' },
         ],
       },
     )
@@ -1118,7 +1136,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .children([
       Settings.ofLevel(2, {
         id: 'tag-outline-setting',
-        title: { en: 'Outline Style Setting', zh: '边框模式设置' },
+        title: { en: 'Outline Style Settings', zh: '边框模式设置' },
       })
         .addVarThemedColor(
           'setting-tag-color',
@@ -1149,13 +1167,13 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassToggle('canvas-group-hide', {
       title: {
         en: 'Hide Left Canvas Control Buttons',
-        zh: '隐藏左侧的控制按钮',
+        zh: '隐藏左侧控制按钮',
       },
-      desc: { en: 'Show on hover', zh: '鼠标移入时显示' },
+      desc: { en: 'Shows on hover', zh: '鼠标移入时显示' },
     })
     .addClassToggle('canvas-center', {
       title: {
-        en: 'Center Text In Card When Blur Focus',
+        en: 'Center Text in Card When Focus is Lost',
         zh: '卡片失去焦点时居中文本',
       },
     }),
@@ -1163,12 +1181,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     'pdf-dark-hover',
     {
       title: {
-        en: 'Decrease Brightness In Dark Mode',
+        en: 'Decrease Brightness in Dark Mode',
         zh: '黑暗模式下降低图片亮度',
       },
       desc: {
-        en: 'Hover will increase brightness',
-        zh: '鼠标经过时会增加亮度',
+        en: 'Brightness increases on hover',
+        zh: '鼠标悬停时亮度会增加',
       },
     },
     { enable: true },
@@ -1179,13 +1197,13 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassToggle(
       'prop-outline',
       {
-        title: { en: 'Add Outline For Property Panel', zh: '属性面板添加边框' },
+        title: { en: 'Add Outline for Property Panel', zh: '属性面板添加边框' },
       },
       { enable: true },
     )
     .addClassToggle('prop-hide-preview', {
       title: {
-        en: 'Hide Property Panel In Preview Mode',
+        en: 'Hide Property Panel in Preview Mode',
         zh: '预览模式下隐藏属性面板',
       },
     }),

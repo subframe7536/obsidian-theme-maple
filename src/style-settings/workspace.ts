@@ -3,27 +3,30 @@ import { version } from '../../package.json'
 
 export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, {
-    title: { en: 'Titlebar And Background Image', zh: '标题栏和背景图' },
+    title: { en: 'Titlebar & Background Image', zh: '标题栏和背景图片' },
   })
     .addClassToggle(
       'titlebar-button-style',
       {
-        title: { en: 'Styled Window Buttons', zh: '窗体按钮美化' },
-        desc: { en: 'For Windows and Linux', zh: '在 Windows 和 Linux 中生效' },
+        title: { en: 'Styled Window Buttons', zh: '美化窗体按钮' },
+        desc: {
+          en: 'Applies to Windows and Linux',
+          zh: '在 Windows 和 Linux 系统中生效',
+        },
       },
       { enable: true },
     )
     .addClassToggle('titlebar-colorful', {
       title: { en: 'Colorful Titlebar', zh: '多彩 Obsidian 标题栏' },
       desc: {
-        en: 'Reference from https://github.com/kepano/obsidian-minimal',
-        zh: '参考 https://github.com/kepano/obsidian-minimal',
+        en: 'Reference: https://github.com/kepano/obsidian-minimal',
+        zh: '参考项目：https://github.com/kepano/obsidian-minimal',
       },
     })
     .addClassToggle('app-bg-image-enable', {
       title: {
-        en: 'Add Background Image In Workspace',
-        zh: '在应用中添加背景图',
+        en: 'Enable Background Image In Workspace',
+        zh: '在应用中启用背景图片',
       },
     })
     .addVarText(
@@ -34,8 +37,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           zh: '浅色主题背景图片地址',
         },
         desc: {
-          en: 'Any valid value of CSS backgroud-image property, e.g. url(image-url)',
-          zh: '任何一个合法的 CSS background-image 值，例如 url(图片链接地址)',
+          en: 'Enter any valid CSS background-image property value, e.g., url(image-url)',
+          zh: '请输入任何合法的 CSS background-image 属性值，例如：url(图片链接地址)',
         },
       },
       { default: '' },
@@ -58,8 +61,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           zh: '深色主题背景图片地址',
         },
         desc: {
-          en: 'Any valid value of CSS backgroud-image property, e.g. url(image-url)',
-          zh: '任何一个合法的 CSS background-image 值，例如 url(图片链接地址)',
+          en: 'Enter any valid CSS background-image property value, e.g., url(image-url)',
+          zh: '请输入任何合法的 CSS background-image 属性值，例如：url(图片链接地址)',
         },
       },
       { default: '' },
@@ -77,29 +80,29 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, { title: { en: 'File Explorer', zh: '文件管理器' } })
     .addClassToggle('explorer-nav-decoration', {
       title: {
-        en: 'Add Tail Decorator On Active File',
-        zh: '在当前文件末尾添加装饰',
+        en: 'Add Tail Decorator To Active File',
+        zh: '为当前文件添加尾部装饰',
       },
       desc: {
-        en: 'Reference from https://github.com/Akifyss/obsidian-border',
-        zh: '参考 https://github.com/Akifyss/obsidian-border',
+        en: 'Reference: https://github.com/Akifyss/obsidian-border',
+        zh: '参考项目：https://github.com/Akifyss/obsidian-border',
       },
     })
     .addClassToggle('explorer-title-wrap', {
-      title: { en: 'Auto Wrap For Long File Name', zh: '为长文件名自动换行' },
+      title: { en: 'Auto Wrap Long File Names', zh: '自动换行长文件名' },
     })
     .addVarNumSlider(
       'explorer-item-height',
-      { title: { en: 'Item Line Height', zh: '行高' } },
+      { title: { en: 'Item Line Height', zh: '项目行高' } },
       { default: 1.6, min: 1.2, max: 1.8, step: 0.1 },
     )
     .addClassToggle(
       'explorer-icon',
       {
-        title: { en: 'Enable Prefix Icon', zh: '开启前置图标' },
+        title: { en: 'Enable Prefix Icons', zh: '启用前置图标' },
         desc: {
-          en: 'If the tree indent is weird, please collpase all the directory and restart Obsidian',
-          zh: '如果缩进出现问题，请折叠全部文件夹并重启 Obsidian',
+          en: 'If the tree indentation appears incorrect, please collapse all directories and restart Obsidian',
+          zh: '如果缩进显示异常，请折叠所有文件夹并重启 Obsidian',
         },
       },
       { enable: true },
@@ -120,11 +123,11 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addClassToggle('outline-enable', {
       title: {
         en: 'Logseq Bullet Thread Style Outline',
-        zh: 'logseq bullet thread 样式的文档视图',
+        zh: 'Logseq 样式的文档大纲视图',
       },
       desc: {
-        en: 'Please reload Obsidian after enable it. Reference from https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
-        zh: '启用后请重启应用。参考 https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
+        en: 'Please reload Obsidian after enabling this feature. Reference: https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
+        zh: '启用此功能后请重启 Obsidian。参考项目：https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
       },
     })
     .addVarNumSlider(
@@ -163,7 +166,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       {
         title: {
           en: 'Guide Dot Color',
-          zh: '引导点的颜色',
+          zh: '引导点颜色',
         },
       },
       {
@@ -181,16 +184,16 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     )
     .addClassToggle(
       'status-bar-style-float',
-      { title: { en: 'Round Style Status Bar', zh: '圆角风格的状态栏' } },
+      { title: { en: 'Rounded Status Bar', zh: '圆角状态栏' } },
       { enable: true },
     )
     .addClassSelect(
       'status-bar-style',
       {
-        title: { en: 'Status Bar Animation', zh: '状态栏样式' },
+        title: { en: 'Status Bar Animation', zh: '状态栏动画效果' },
         desc: {
-          en: '❗last style only valid when turn on “round status bar”',
-          zh: '❗最后一种样式只在开启“圆角风格的状态栏”才生效',
+          en: 'Note: The last style option is only valid when "rounded status bar" is enabled',
+          zh: '注意：最后一种样式选项仅在启用"圆角状态栏"时生效',
         },
       },
       {
@@ -204,29 +207,29 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
     )
     .addClassToggle('status-bar-style-center', {
-      title: { en: 'Center Status Bar', zh: '状态栏居中' },
+      title: { en: 'Center Status Bar', zh: '状态栏居中显示' },
     }),
   Settings.ofLevel(1, {
-    title: { en: 'Document Search / Replace Panel', zh: '文档内搜索框' },
+    title: { en: 'Document Search / Replace Panel', zh: '文档内搜索面板' },
   })
     .addClassToggle(
       'search-internal-enable',
       {
         title: {
-          en: 'Minimal Document Search / Replace Panel (Like VSCode)',
-          zh: '精简的文档内搜索框（和 VSCode 类似）',
+          en: 'Minimal Document Search Panel (VSCode Style)',
+          zh: '精简的文档搜索面板（VSCode 风格）',
         },
       },
       { enable: true },
     )
     .addClassToggle('search-remove-button', {
       title: {
-        en: 'Remove Some Buttons In Document Search Panel',
-        zh: '移除一些搜索框中的按钮',
+        en: 'Remove Buttons From Document Search Panel',
+        zh: '移除搜索面板中的按钮',
       },
       desc: {
         en: 'Removed buttons: Find All',
-        zh: '移除的按钮：查找全部',
+        zh: '已移除的按钮：查找全部',
       },
     }),
   Settings.ofLevel(1, { title: { en: 'Tab', zh: '标签页' } })
@@ -293,27 +296,27 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
     ),
   Settings.ofLevel(1, {
-    title: { en: 'Tooltip & Notice', zh: '气泡提示框 & 通知' },
+    title: { en: 'Tooltip & Notice', zh: '气泡提示框与通知' },
   })
     .addClassToggle('message-tooltip-hide-arrow', {
       title: { en: 'Hide Tooltip Arrow', zh: '隐藏气泡提示框箭头' },
     })
     .addClassToggle('message-tooltip-hide', {
-      title: { en: 'Always Hide Tooltip', zh: '永久隐藏气泡提示框' },
+      title: { en: 'Always Hide Tooltip', zh: '始终隐藏气泡提示框' },
     })
     .addClassToggle(
       'message-modify',
       {
         title: {
           en: 'Change Tooltip & Notice Color',
-          zh: '修改气泡提示框和消息的颜色',
+          zh: '修改气泡提示框和通知的颜色',
         },
       },
       { enable: true },
     )
     .addVarThemedColor(
       'setting-message-bg',
-      { title: { en: 'Background Color', zh: '背景色' } },
+      { title: { en: 'Background Color', zh: '背景颜色' } },
       {
         format: 'hsl-values',
         opacity: false,
@@ -323,7 +326,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     )
     .addVarThemedColor(
       'setting-message-fg',
-      { title: { en: 'Foreground Color', zh: '文字色' } },
+      { title: { en: 'Foreground Color', zh: '文字颜色' } },
       {
         format: 'rgb-values',
         opacity: false,
@@ -332,29 +335,32 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
     ),
   Settings.ofLevel(1, {
-    title: { en: 'Modal & Setting Panel', zh: '弹出框 & 设置面板' },
+    title: { en: 'Modal & Setting Panel', zh: '模态框与设置面板' },
   })
     .addClassToggle(
       'modal-blur',
       {
-        title: { en: 'Enable Modal Background Blur', zh: '开启弹出框背景模糊' },
+        title: { en: 'Enable Modal Background Blur', zh: '启用模态框背景模糊' },
         desc: {
-          en: 'If there is a delay in scrolling, try turning this option off',
-          zh: '如果滚动时有卡顿，尝试关闭该选项',
+          en: 'If scrolling experiences delay, try disabling this option',
+          zh: '如果滚动时出现卡顿，请尝试关闭此选项',
         },
       },
       { enable: true },
     )
     .addClassToggle('modal-header', {
-      title: { en: 'Add Header For Setting Panel', zh: '为设置面板添加顶部框' },
+      title: {
+        en: 'Add Header To Setting Panel',
+        zh: '为设置面板添加顶部标题',
+      },
       desc: {
-        en: 'Better with plugin “setting search”, invalid in mobile',
-        zh: '配合 setting search 插件使用更佳，移动端无效',
+        en: 'Works best with the "Setting Search" plugin; not valid on mobile',
+        zh: '配合“设置搜索”插件使用效果更佳，移动端无效',
       },
     })
     .addVarText(
       'setting-modal-header-title',
-      { title: { en: 'Set Modal Header Title', zh: '设置面板标题' } },
+      { title: { en: 'Set Modal Header Title', zh: '设置模态框标题' } },
       { default: `'maple ${version}'` },
     )
     .addClassToggle(
@@ -362,19 +368,19 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       {
         title: {
           en: 'Add Icons For Left Navigation Group Title',
-          zh: '为左侧选项组标题添加样式',
+          zh: '为左侧导航组标题添加图标',
         },
       },
       { enable: true },
     )
     .addClassToggle(
       'modal-slider',
-      { title: { en: 'Styled Slider Thumb', zh: '滑动条按钮美化' } },
+      { title: { en: 'Styled Slider Thumb', zh: '美化滑动条按钮' } },
       { enable: true },
     )
     .addClassSelect(
       'modal-toggle',
-      { title: { en: 'Styled Toggle Button', zh: '开关按钮美化' } },
+      { title: { en: 'Styled Toggle Button', zh: '美化开关按钮' } },
       {
         allowEmpty: false,
         default: 'modal-toggle-default',
@@ -388,7 +394,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addClassToggle(
       'modal-animation',
       {
-        title: { en: 'Modal Show Up Animation', zh: '弹出框进入动画' },
+        title: { en: 'Modal Show Up Animation', zh: '模态框进入动画' },
       },
       { enable: true },
     ),
@@ -410,16 +416,16 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     ),
   Settings.ofLevel(1, { title: { en: 'Scrollbar', zh: '滚动条' } })
     .addClassToggle('scrollbar-hide', {
-      title: { en: 'Always Hide Scrollbar', zh: '不显示滚动条' },
+      title: { en: 'Always Hide Scrollbar', zh: '始终隐藏滚动条' },
     })
     .addClassToggle(
       'scrollbar-enable',
-      { title: { en: 'Enable Styled Scrollbar', zh: '使用美化的滚动条' } },
+      { title: { en: 'Enable Styled Scrollbar', zh: '启用美化滚动条' } },
       { enable: true },
     )
     .addClassSelect(
       'scrollbar-hover',
-      { title: { en: 'Scrollbar Hover Action', zh: '鼠标经过时滚动条变化' } },
+      { title: { en: 'Scrollbar Hover Action', zh: '鼠标悬停时滚动条变化' } },
       {
         allowEmpty: false,
         default: 'scrollbar-hover-accent',
@@ -435,8 +441,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       {
         title: { en: 'Enable Scrollbar Animation', zh: '启用滚动条动画' },
         desc: {
-          en: 'When disabled, always show scrollbar; when enabled, hide scrollbar when the mouse move outside the container',
-          zh: '关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条',
+          en: 'When disabled, the scrollbar is always visible; when enabled, the scrollbar hides when the mouse moves outside the container',
+          zh: '禁用时，滚动条始终可见；启用后，当鼠标移出容器时滚动条将隐藏',
         },
       },
       { enable: true },
@@ -475,6 +481,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, {
     title: { en: 'PDF Export', zh: 'PDF 导出' },
   }).addClassToggle('export-pdf-transparent', {
-    title: { en: 'Transparent Page Background Color', zh: '透明页面背景色' },
+    title: { en: 'Transparent Page Background Color', zh: '透明页面背景颜色' },
   }),
 ])
