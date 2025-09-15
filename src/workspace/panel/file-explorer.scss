@@ -144,13 +144,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       padding-inline-end: 0;
 
       .nav-file-tag {
-        background-color: var(--accent-active);
-        color: var(--text-on-accent);
-      }
-
-      &.is-active .nav-file-tag {
-        background-color: hsl(var(--background-secondary-hsl), 0.9);
-        color: var(--nav-item-background-active);
+        background-color: var(--accent-inactive);
+        color: var(--text-muted);
       }
 
       &-content + .nav-file-tag {

@@ -449,11 +449,12 @@ body .markdown-rendered pre {
         text-align: right;
         width: var(--size-4-8);
         left: 0;
-        color: var(--accent-inactive);
+        color: var(--accent-active);
+        opacity: 0.6;
       }
 
       &.cm-active::before {
-        color: var(--accent-active);
+        opacity: 1;
       }
     }
 
