@@ -49,6 +49,12 @@ body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   background-color: var(--color-base-20);
   cursor: pointer;
 
+  &:focus-within {
+    outline: none;
+    box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.14),
+      inset 0 0 1px rgba(0, 0, 0, 0.28);
+  }
+
   input[type='checkbox'] {
     opacity: 0;
   }
@@ -69,7 +75,7 @@ body.modal-toggle-round .checkbox-container {
     transition: var(--animation-slow);
   }
 
-  :is(:has(input:focus), &:hover, &:focus)::after {
+  :is(&:hover, &:focus-within)::after {
     bottom: 10%;
   }
 
@@ -113,7 +119,7 @@ body.modal-toggle-thin .checkbox-container {
     transition: var(--animation-slow);
   }
 
-  &:hover::after {
+  :is(&:hover, &:focus-within)::after {
     height: var(--size-4-2);
   }
 
