@@ -1,4 +1,4 @@
-import { Settings } from './generator'
+import { descValidCSS, Settings } from './generator'
 import { version } from '../../package.json'
 
 export default Settings.create('maple-workspace', 'Maple Workspace').children([
@@ -25,8 +25,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     })
     .addClassToggle('app-bg-image-enable', {
       title: {
-        en: 'Enable Background Image In Workspace',
-        zh: '在应用中启用背景图片',
+        en: 'Add Background Image In Workspace',
+        zh: '添加应用的背景图片',
       },
     })
     .addVarText(
@@ -36,10 +36,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           en: 'Light Theme Background Image URL',
           zh: '浅色主题背景图片地址',
         },
-        desc: {
-          en: 'Enter any valid CSS background-image property value, e.g., url(image-url)',
-          zh: '请输入任何合法的 CSS background-image 属性值，例如：url(图片链接地址)',
-        },
+        desc: descValidCSS('background-image'),
       },
       { default: '' },
     )
@@ -60,10 +57,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           en: 'Dark Theme Background Image URL',
           zh: '深色主题背景图片地址',
         },
-        desc: {
-          en: 'Enter any valid CSS background-image property value, e.g., url(image-url)',
-          zh: '请输入任何合法的 CSS background-image 属性值，例如：url(图片链接地址)',
-        },
+        desc: descValidCSS('background-image'),
       },
       { default: '' },
     )
@@ -77,23 +71,15 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
       { default: 0.6, max: 0.9, min: 0.1, step: 0.05 },
     ),
-  Settings.ofLevel(1, { title: { en: 'File Explorer', zh: '文件管理器' } })
-    .addClassToggle('explorer-nav-decoration', {
-      title: {
-        en: 'Add Tail Decorator To Active File',
-        zh: '为当前文件添加尾部装饰',
-      },
-      desc: {
-        en: 'Reference: https://github.com/Akifyss/obsidian-border',
-        zh: '参考项目：https://github.com/Akifyss/obsidian-border',
-      },
-    })
+  Settings.ofLevel(1, {
+    title: { en: 'File Explorer Panel', zh: '文件管理器面板' },
+  })
     .addClassToggle('explorer-title-wrap', {
-      title: { en: 'Auto Wrap Long File Names', zh: '自动换行长文件名' },
+      title: { en: 'Auto Wrap Long File Names', zh: '长文件名自动换行' },
     })
     .addVarNumSlider(
       'explorer-item-height',
-      { title: { en: 'Item Line Height', zh: '项目行高' } },
+      { title: { en: 'Line Height', zh: '行高' } },
       { default: 1.6, min: 1.2, max: 1.8, step: 0.1 },
     )
     .addClassToggle(
@@ -118,7 +104,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
     ),
   Settings.ofLevel(1, {
-    title: { en: 'Outline Panel', zh: '文档大纲' },
+    title: { en: 'Outline Panel', zh: '文档大纲面板' },
   })
     .addClassToggle('outline-enable', {
       title: {
@@ -184,7 +170,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     )
     .addClassToggle(
       'status-bar-style-float',
-      { title: { en: 'Rounded Status Bar', zh: '圆角状态栏' } },
+      { title: { en: 'Enable Float Style', zh: '启用浮动样式' } },
       { enable: true },
     )
     .addClassSelect(
@@ -200,9 +186,9 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         allowEmpty: false,
         default: 'status-bar-default',
         options: [
-          { label: 'default', value: 'status-bar-default' },
-          { label: 'show on hover', value: 'status-bar-hidden' },
-          { label: 'scroll out on hover', value: 'status-bar-scroll' },
+          { label: 'Default', value: 'status-bar-default' },
+          { label: 'Show on hover', value: 'status-bar-hidden' },
+          { label: 'Scroll out on hover', value: 'status-bar-scroll' },
         ],
       },
     )
@@ -210,7 +196,10 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       title: { en: 'Center Status Bar', zh: '状态栏居中显示' },
     }),
   Settings.ofLevel(1, {
-    title: { en: 'Document Search / Replace Panel', zh: '文档内搜索面板' },
+    title: {
+      en: 'In-Document Search / Replace Panel',
+      zh: '文档内搜索/替换面板',
+    },
   })
     .addClassToggle(
       'search-internal-enable',
@@ -271,9 +260,9 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         allowEmpty: false,
         default: 'tab-show-close-default',
         options: [
-          { label: 'default', value: 'tab-show-close-default' },
-          { label: 'on hover all tabs', value: 'tab-show-close-all' },
-          { label: 'on hover except active tab', value: 'tab-show-close-part' },
+          { label: 'Default', value: 'tab-show-close-default' },
+          { label: 'On hover', value: 'tab-show-close-all' },
+          { label: 'On hover except active tab', value: 'tab-show-close-part' },
         ],
       },
     )
@@ -289,9 +278,9 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         allowEmpty: false,
         default: 'tab-title-bar-text-default',
         options: [
-          { label: 'default', value: 'tab-title-bar-text-default' },
-          { label: 'small size', value: 'tab-title-bar-text-small' },
-          { label: 'show on hover', value: 'tab-title-bar-text-hidden' },
+          { label: 'Default', value: 'tab-title-bar-text-default' },
+          { label: 'Small size', value: 'tab-title-bar-text-small' },
+          { label: 'Show on hover', value: 'tab-title-bar-text-hidden' },
         ],
       },
     ),
@@ -385,9 +374,9 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         allowEmpty: false,
         default: 'modal-toggle-default',
         options: [
-          { label: 'default', value: 'modal-toggle-default' },
-          { label: 'thin', value: 'modal-toggle-thin' },
-          { label: 'round', value: 'modal-toggle-round' },
+          { label: 'Default', value: 'modal-toggle-default' },
+          { label: 'Thin', value: 'modal-toggle-thin' },
+          { label: 'Round', value: 'modal-toggle-round' },
         ],
       },
     )
@@ -430,9 +419,9 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         allowEmpty: false,
         default: 'scrollbar-hover-accent',
         options: [
-          { label: 'none', value: 'scrollbar-hover-default' },
-          { label: 'accent', value: 'scrollbar-hover-accent' },
-          { label: 'expand', value: 'scrollbar-hover-expand' },
+          { label: 'None', value: 'scrollbar-hover-default' },
+          { label: 'Accent', value: 'scrollbar-hover-accent' },
+          { label: 'Expand', value: 'scrollbar-hover-expand' },
         ],
       },
     )

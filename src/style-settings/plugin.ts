@@ -1,4 +1,4 @@
-import { Settings } from './generator'
+import { descValidCSS, Settings } from './generator'
 
 export default Settings.create('maple-plugin', 'Maple Plugin').children([
   Settings.ofLevel(1, { title: { en: 'Calendar', zh: '日历' } })
@@ -23,10 +23,7 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
       'setting-calendar-max-width',
       {
         title: { en: 'Maximum Width', zh: '最大宽度' },
-        desc: {
-          en: 'Supports any CSS max-width property.',
-          zh: '支持任何 CSS 的 max-width 属性值。',
-        },
+        desc: descValidCSS('max-width'),
       },
       { default: '500px' },
     ),

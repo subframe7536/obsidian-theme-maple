@@ -19,8 +19,8 @@ export default Settings.create(
       {
         title: { en: 'Use Custom Accent Color', zh: '自定义高亮颜色' },
         desc: {
-          en: "Use the style setting's accent color instead of Obsidian's default accent color.",
-          zh: '使用样式设置的颜色，而不是 Obsidian 默认的颜色',
+          en: "Use the Style Setting Plugin's accent color instead of Obsidian's",
+          zh: '使用 Style Settings 插件的高亮色，而不是 Obsidian 的',
         },
       },
       { enable: false },

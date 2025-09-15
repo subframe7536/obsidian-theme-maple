@@ -1,4 +1,4 @@
-import { Settings } from './generator'
+import { descValidCSS, Settings } from './generator'
 
 export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, {
@@ -92,16 +92,6 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       { enable: true },
     )
-    .addVarText(
-      'setting-code-ligature',
-      {
-        title: {
-          en: 'OpenType Feature Configuration for Monospace Font',
-          zh: '等宽字体的 OpenType 特性配置',
-        },
-      },
-      { default: '"calt"' },
-    )
     .addClassToggle('font-latex-text', {
       title: {
         en: 'Use Text Font in Non-formula Parts of LaTeX',
@@ -143,10 +133,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
               en: 'Highlight Text Background Color',
               zh: '文本高亮背景颜色',
             },
-            desc: {
-              en: 'Any valid CSS background property value',
-              zh: '可填写任何合法的 CSS background 属性值',
-            },
+            desc: descValidCSS('background'),
           },
           { default: 'rgba(255, 208, 0, 0.4)' },
         )
@@ -204,10 +191,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           'setting-text-bold-style',
           {
             title: { en: 'Bold Style', zh: '粗体样式' },
-            desc: {
-              en: 'Supports any CSS text-decoration property value',
-              zh: '支持任何 CSS text-decoration 属性值',
-            },
+            desc: descValidCSS('text-decoration'),
           },
           { default: 'underline dotted' },
         )
@@ -235,10 +219,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           'setting-text-italic-style',
           {
             title: { en: 'Italic Style', zh: '斜体样式' },
-            desc: {
-              en: 'Supports any CSS text-decoration property value',
-              zh: '支持任何 CSS text-decoration 属性值',
-            },
+            desc: descValidCSS('text-decoration'),
           },
           { default: 'underline dotted' },
         )
@@ -258,7 +239,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: {
           en: 'Editor Paragraph Spacing (px)',
-          zh: '编辑器段落间距 (px)',
+          zh: '编辑器段落间距（px）',
         },
       },
       { default: 4, format: 'px', min: 0, max: 20, step: 1 },
@@ -268,8 +249,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Editor Paragraph Indent', zh: '编辑器段落缩进' },
         desc: {
-          en: "If 'p-indent' exists in properties.cssclasses, all paragraphs will be indented (n times font size)",
-          zh: "当文档属性的 cssclasses 中存在 'p-indent' 类时，会为所有段落添加缩进（字体大小的倍数）",
+          en: 'If "p-indent" exists in properties.cssclasses, all paragraphs will be indented (n times font size)',
+          zh: '当文档属性的 cssclasses 中存在 “p-indent” 类时，会为所有段落添加缩进（字体大小的倍数）',
         },
       },
       { default: 2, min: 0, max: 4, step: 0.2 },
@@ -298,8 +279,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Hover Line Indicator', zh: '鼠标悬停行指示器' },
         desc: {
-          en: 'Reference: https://github.com/Akifyss/obsidian-border; requires version >= 1.1.9',
-          zh: '参考项目：https://github.com/Akifyss/obsidian-border；需要安装版本 >= 1.1.9',
+          en: 'Reference: https://github.com/Akifyss/obsidian-border',
+          zh: '参考项目：https://github.com/Akifyss/obsidian-border',
         },
       },
       {
@@ -349,8 +330,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'link-icon',
       {
         title: {
-          en: 'Add Icon Before Link in Editor',
-          zh: '在编辑器内链接前添加图标',
+          en: 'Add Icon Before Internal Link',
+          zh: '在内部链接前添加图标',
         },
       },
       { enable: true },
@@ -432,7 +413,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, { title: { en: 'Heading', zh: '标题' } })
     .addClassToggle('fix-line-number', {
       title: { en: 'Fix Line Number Movement', zh: '修复行号移动' },
-      desc: { en: "Increases '#' size", zh: "将增加 '#' 的大小" },
+      desc: { en: 'Will restore "#" size', zh: '将恢复 “#” 的大小' },
     })
     .children([
       Settings.ofLevel(2, {
@@ -708,8 +689,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Colorful Table', zh: '多彩表格' },
         desc: {
-          en: 'Accented header and line colors',
-          zh: '添加表头和行的颜色',
+          en: 'Accented header and line colors; ignore DataView table',
+          zh: '加深表头和行的颜色；忽略 DataView 表格',
         },
       },
       { enable: true },
@@ -750,11 +731,11 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         defaultDark: '#',
       },
     ),
-  Settings.ofLevel(1, { title: { en: 'Embed File', zh: '内嵌文档' } })
+  Settings.ofLevel(1, { title: { en: 'Embed File', zh: '内嵌文件' } })
     .addClassToggle(
       'embed-enable',
       {
-        title: { en: 'Block Style Embed File', zh: '块状内嵌文档' },
+        title: { en: 'Block Style Embed File', zh: '块状内嵌文件' },
       },
       { enable: true },
     )
@@ -763,11 +744,11 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: {
           en: 'Move Embed Title to Top Right',
-          zh: '内嵌文档标题移至右上角',
+          zh: '内嵌文件标题移至右上角',
         },
         desc: {
-          en: "Visible on hover; disabled when alias is '#', e.g., ![[FileName|#]]",
-          zh: "鼠标悬停时显示；别名为'#'时禁用，例如：![[文件名|#]]",
+          en: 'Visible on hover; disabled when alias is "#", e.g., ![[FileName|#]]',
+          zh: '鼠标悬停时显示；别名为 “#” 时禁用，例如：![[文件名|#]]',
         },
       },
       { enable: true },
@@ -825,14 +806,14 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, { title: { en: 'Quote', zh: '引言' } })
     .addClassToggle('quote-mark', {
       title: {
-        en: 'Add Front Quote Mark in Preview Mode',
-        zh: '阅读模式下引言块添加前置引号',
+        en: 'Add Front Quote Mark in Reading View',
+        zh: '阅读视图下引言块添加前置引号',
       },
     })
     .addClassSelect(
       'quote-outline-style',
       {
-        title: { en: 'Preview Mode Outline Style', zh: '阅读模式外部样式' },
+        title: { en: 'Reading View Style', zh: '阅读视图的样式' },
       },
       {
         allowEmpty: false,
@@ -885,7 +866,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-list-marker-alt',
       {
-        title: { en: 'Alternate List Marker Color', zh: '列表标记备用颜色' },
+        title: { en: 'Alternate List Marker Color', zh: '列表标记颜色2' },
       },
       {
         format: 'hex',
@@ -908,7 +889,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     )
     .children([
       Settings.ofLevel(2, {
-        title: { en: 'Task List (Checkbox)', zh: '待办事项（复选框）' },
+        title: { en: 'Task List (Checkbox)', zh: '待办事项（勾选框）' },
       })
         .addClassToggle('list-checkbox-line', {
           title: {
@@ -920,8 +901,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           'list-checkbox-alternative',
           {
             title: {
-              en: 'Enable Alternative Checkbox Styles',
-              zh: '启用备用复选框样式',
+              en: 'Enhanced Checkbox Styles',
+              zh: '更多的复选框样式',
             },
             desc: {
               en: 'Disable this if you are using your own implementation via a CSS snippet',
@@ -1006,8 +987,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           zh: '在实时预览模式下为代码块添加行号',
         },
         desc: {
-          en: 'If the code block has too many lines, line numbering may be incorrect',
-          zh: '如果代码块行数过多，行号可能会出现错误',
+          en: "Due to the limitation of Obsidian's render strategy, if the code block has too many lines, line numbering may be incorrect",
+          zh: '由于 Obsidian 渲染方式的限制，如果代码块行数过多，行号可能会出现错误',
         },
       },
       { enable: true },
@@ -1016,8 +997,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'code-language',
       {
         title: {
-          en: 'Add Code Block Language Indicator in Preview Mode',
-          zh: '在阅读模式下为代码块添加语言标识',
+          en: 'Add Code Block Language Indicator in Reading View',
+          zh: '在阅读视图下为代码块添加语言标识',
         },
       },
       { enable: true },
@@ -1026,8 +1007,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'code-nowrap',
       {
         title: {
-          en: 'No Wrap in Preview Mode Code Blocks',
-          zh: '阅读模式下代码块不换行',
+          en: "Don't Wrap Line in Reading View Code Blocks",
+          zh: '阅读视图下代码过长时不换行',
         },
       },
       { enable: true },
@@ -1037,40 +1018,33 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Monospace Font Features', zh: '等宽字体特性' },
         desc: {
-          en: "If using \"Maple Mono\" as monospace, recommend setting to 'calt','cv02'",
-          zh: "如果您使用“Maple Mono”作为等宽字体，建议设置为 'calt','cv02'",
+          en: "If using \"Maple Mono\" as monospace, recommend setting to 'calt','cv01','cv02'",
+          zh: "如果您使用 “Maple Mono” 作为等宽字体，建议设置为 'calt','cv01','cv02'",
         },
       },
       { default: "'calt'" },
     )
     .addClassToggle('code-preview-bg', {
       title: {
-        en: 'Enable Code Block Background in Preview Mode',
-        zh: '在阅读模式下启用代码块背景',
-      },
-      desc: {
-        en: 'Requires app version >= 1.1.9',
-        zh: '需要安装程序版本 >= 1.1.9',
+        en: 'Enable Code Block Background in Reading View',
+        zh: '在阅读视图下启用代码块背景',
       },
     })
     .addVarText(
       'setting-code-bg-outer',
       {
         title: {
-          en: 'Custom Code Block Background in Preview Mode',
-          zh: '自定义阅读模式下代码块背景',
+          en: 'Custom Code Block Background in Reading View',
+          zh: '自定义阅读视图下代码块背景',
         },
-        desc: {
-          en: "Requires app version >= 1.1.9; supports images (e.g., 'url(\"/your/image/uri')') and all CSS background-image values",
-          zh: '需要安装程序版本 >= 1.1.9；支持图片（例如：\'url("图片地址")\'），可以是 CSS background-image 支持的所有值',
-        },
+        desc: descValidCSS('background'),
       },
       { default: "''" },
     )
     .addClassToggle('code-mac-style-header', {
       title: {
-        en: 'Add Mac Style Code Block Header in Preview Mode',
-        zh: '在阅读模式下为代码块添加 Mac 风格标题栏',
+        en: 'Add Mac Style Code Block Header in Reading View',
+        zh: '在阅读视图下为代码块添加 Mac 风格标题栏',
       },
       desc: { en: 'No code block border', zh: '无代码块边框' },
     })
@@ -1099,15 +1073,15 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         en: 'Click to Edit Tags in Live Preview Mode',
         zh: '在实时预览模式下点击标签进行编辑',
       },
-      desc: { en: "Click '#' to jump", zh: "点击'#'跳转" },
+      desc: { en: 'Click "#" to jump', zh: '点击 “#” 跳转' },
     })
     .addClassSelect(
       'tag-style',
       {
         title: { en: 'Tag Style', zh: '标签样式' },
         desc: {
-          en: 'Tags like obsidian, todo, important, progress, and complete will be colorized when using outline or fill styles',
-          zh: '当选择 outline 或 fill 样式时，obsidian / todo / important / progress / complete 标签会有额外颜色',
+          en: 'Tags like "#obsidian", "#todo", "#important", "#progress", and "#complete" will be colorized when using "Outline" or "Fill" styles',
+          zh: '当选择 “Outline” 或 “Fill” 样式时，“#obsidian”、“#todo”、“#important”、“#progress”、“#complete” 标签会有额外颜色',
         },
       },
       {
@@ -1133,36 +1107,30 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         defaultDark: '#',
       },
     )
-    .children([
-      Settings.ofLevel(2, {
-        id: 'tag-outline-setting',
-        title: { en: 'Outline Style Settings', zh: '边框模式设置' },
-      })
-        .addVarThemedColor(
-          'setting-tag-color',
-          {
-            title: { en: 'Tag Text Color', zh: '标签文字颜色' },
-          },
-          {
-            format: 'hex',
-            opacity: false,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
-        )
-        .addVarThemedColor(
-          'setting-tag-border',
-          {
-            title: { en: 'Tag Border Color', zh: '标签边框颜色' },
-          },
-          {
-            format: 'hex',
-            opacity: false,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
-        ),
-    ]),
+    .addVarThemedColor(
+      'setting-tag-color',
+      {
+        title: { en: 'Tag Text Color', zh: '标签文字颜色' },
+      },
+      {
+        format: 'hex',
+        opacity: false,
+        defaultLight: '#',
+        defaultDark: '#',
+      },
+    )
+    .addVarThemedColor(
+      'setting-tag-border',
+      {
+        title: { en: 'Tag Border Color', zh: '标签边框颜色' },
+      },
+      {
+        format: 'hex',
+        opacity: false,
+        defaultLight: '#',
+        defaultDark: '#',
+      },
+    ),
   Settings.ofLevel(1, { title: { en: 'Canvas', zh: '白板' } })
     .addClassToggle('canvas-group-hide', {
       title: {
@@ -1203,8 +1171,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     )
     .addClassToggle('prop-hide-preview', {
       title: {
-        en: 'Hide Property Panel in Preview Mode',
-        zh: '预览模式下隐藏属性面板',
+        en: 'Hide Property Panel in Reading View',
+        zh: '阅读视图下隐藏属性面板',
       },
     }),
 ])
