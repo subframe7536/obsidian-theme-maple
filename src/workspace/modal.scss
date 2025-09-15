@@ -50,7 +50,7 @@ body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   cursor: pointer;
 
   input[type='checkbox'] {
-    display: none;
+    opacity: 0;
   }
 }
 
@@ -69,7 +69,7 @@ body.modal-toggle-round .checkbox-container {
     transition: var(--animation-slow);
   }
 
-  :is(&:hover, &:focus)::after {
+  :is(:has(input:focus), &:hover, &:focus)::after {
     bottom: 10%;
   }
 
@@ -307,19 +307,9 @@ button {
   transition: var(--animation);
 }
 
-:is(select, .combobox-button, .dropdown):focus {
-  box-shadow: var(--input-shadow-hover);
-}
-
-:is(
-    button,
-    select,
-    .clickable-icon,
-    .dropdown,
-    .metadata-add-button,
-    .vertical-tab-nav-item
-  ) {
-  -electron-corner-smoothing: 60%;
+:is(select, .combobox-button, .dropdown):focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--background-modifier-border-focus);
 }
 
 .theme-light {
