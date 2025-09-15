@@ -470,6 +470,9 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, {
     title: { en: 'PDF Export', zh: 'PDF 导出' },
   }).addClassToggle('export-pdf-transparent', {
-    title: { en: 'Transparent Page Background Color', zh: '透明页面背景颜色' },
+    title: {
+      en: 'Set Background to Transparent When Exporting',
+      zh: '导出时将页面背景颜色设置为透明',
+    },
   }),
 ])

@@ -4,7 +4,7 @@
   .workspace-tab-header-inner-icon {
     @include use-icon-override('.lucide-file-audio', 'music-4');
     @include use-icon-override('.lucide-file', 'film');
-    @include use-icon-override('.lucide-file-text', 'book-open-text');
+    @include use-icon-override('.lucide-file-text', 'book-open');
     @include use-icon-override('.lucide-table', 'database');
   }
 }

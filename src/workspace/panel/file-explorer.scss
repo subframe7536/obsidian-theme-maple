@@ -2,7 +2,7 @@
 @use 'sass:list';
 
 $file-icon: (
-  (pdf, 'book-open-text'),
+  (pdf, 'book-open'),
   (png, svg, jpeg, jpg, bmp, gif, webp, tiff, 'image'),
   (mp3, flac, wav, ape, alac, aac, m4a, 'music-4'),
   (mkv, mp4, flv, webm, avi, mov, 'film'),
@@ -46,18 +46,12 @@ svg.lucide-layout-dashboard rect {
       --file-icon: #{icon('file-question-mark')};
     }
   }
-
-  // &:is([data-path$='excalidraw.md'], [data-path$='excalidraw']) .nav-file-tag {
-  //   position: absolute;
-  //   translate: calc(-1 * var(--size-4-5));
-  //   top: var(--size-2-3);
-  // }
 }
 
 @mixin override-stack-menu() {
   .menu.mod-tab-list {
     @include use-icon-override('.lucide-file', 'file-text');
-    @include use-icon-override('.lucide-file-text', 'book-open-text');
+    @include use-icon-override('.lucide-file-text', 'book-open');
     @include use-icon-override('.lucide-file-audio', 'music-4');
     @include use-icon-override('.lucide-table', 'database');
   }
