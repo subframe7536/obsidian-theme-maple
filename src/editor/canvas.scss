@@ -4,6 +4,10 @@
     background-color: hsl(var(--background-primary-hsl));
   }
 
+  .canvas-node:is(.is-selected, .is-focused) .canvas-node-container {
+    --shadow-border-accent: 0 0 0 2px var(--accent-active);
+  }
+
   .canvas-card-menu {
     padding: var(--size-2-1);
     border-radius: var(--radius-m);
