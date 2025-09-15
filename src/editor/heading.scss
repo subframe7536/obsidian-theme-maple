@@ -78,7 +78,11 @@ body {
   filter: grayscale(70%);
   font-weight: 400 !important;
 
-  body:not(.fix-line-number) & {
+  :is(
+      body:not(.fix-line-number),
+      body.fix-line-number .cm-contentContainer :first-child
+    )
+    & {
     font-size: 1rem !important;
     line-height: 1.2rem;
   }
