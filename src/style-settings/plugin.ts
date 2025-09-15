@@ -70,13 +70,4 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
         defaultDark: '#',
       },
     ),
-  Settings.ofLevel(1, {
-    title: { en: 'DataView (WIP)', zh: 'DataView (待完成)' },
-  }).addClassToggle('dv-enable', {
-    title: { en: 'Enable DataView Style', zh: '启用 DataView 样式' },
-    desc: {
-      en: 'Requires installation of version >= 1.1.9.',
-      zh: '需要安装版本 >= 1.1.9。',
-    },
-  }),
 ])
