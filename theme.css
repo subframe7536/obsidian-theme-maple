@@ -1,7 +1,7 @@
-/* Maple Theme v1.0.0-beta.7 For Obsidian */
+/* Maple Theme v1.0.0-beta.8 For Obsidian */
 /* @settings
 id: maple-basic
-name: Maple Color And Animation
+name: Maple Color and Animation
 settings:
     - id: title-animation
       title: Animation
@@ -27,9 +27,9 @@ settings:
     - id: color-use-custom
       type: class-toggle
       title: Use Custom Accent Color
-      title.zh: 自定义 accent color
-      description: Use style setting accent color instead of Obsidian's accent color
-      description.zh: 使用 style setting 的颜色，而不是 Obsidian 自带的颜色
+      title.zh: 自定义高亮颜色
+      description: Use the Style Setting Plugin's accent color instead of Obsidian's
+      description.zh: 使用 Style Settings 插件的高亮色，而不是 Obsidian 的
       default: false
     - id: title-light-mode
       title: Light Mode
@@ -52,23 +52,23 @@ settings:
       allow-empty: false
       default: color-active-default-light
       options:
-          - label: accent color
+          - label: Accent Color
             value: color-active-default-light
-          - label: accent color alt
+          - label: Accent Color Alt
             value: color-active-alt-light
-          - label: custom
+          - label: Custom
             value: color-active-custom-light
     - id: setting-color-active-custom-light
       type: variable-color
-      title: Custom Highlight Color For Active State
+      title: Custom Highlight Color for Active State
       title.zh: 自定义激活状态的高亮颜色
       default: "#"
       format: rgb
       opacity: false
     - id: setting-color-inactive-custom-light
       type: variable-color
-      title: Custom Highlight Color For Inactive State
-      title.zh: 自定义非激活状态高亮颜色
+      title: Custom Highlight Color for Inactive State
+      title.zh: 自定义非激活状态的高亮颜色
       default: "#"
       format: rgb
       opacity: false
@@ -82,8 +82,8 @@ settings:
       type: variable-number-slider
       title: Accent Color Saturation
       title.zh: 高亮颜色饱和度
-      description: S(aturation) of HSL
-      description.zh: HSL 中的 S
+      description: Saturation (S) in HSL
+      description.zh: HSL 中的饱和度 (S)
       default: 32
       min: 0
       max: 100
@@ -93,8 +93,8 @@ settings:
       type: variable-number-slider
       title: Accent Color Lightness
       title.zh: 高亮颜色亮度
-      description: L(ight) of HSL
-      description.zh: HSL 中的 L
+      description: Lightness (L) in HSL
+      description.zh: HSL 中的亮度 (L)
       default: 58
       min: 0
       max: 100
@@ -121,22 +121,22 @@ settings:
       allow-empty: false
       default: color-active-default-dark
       options:
-          - label: accent color
+          - label: Accent Color
             value: color-active-default-dark
-          - label: accent color alt
+          - label: Accent Color Alt
             value: color-active-alt-dark
-          - label: custom
+          - label: Custom
             value: color-active-custom-dark
     - id: setting-color-active-custom-dark
       type: variable-color
-      title: Custom Highlight Color For Active State
+      title: Custom Highlight Color for Active State
       title.zh: 自定义激活状态的高亮颜色
       default: "#"
       format: rgb
       opacity: false
     - id: setting-color-inactive-custom-dark
       type: variable-color
-      title: Custom Highlight Color For Inactive State
+      title: Custom Highlight Color for Inactive State
       title.zh: 自定义非激活状态的高亮颜色
       default: "#"
       format: rgb
@@ -151,8 +151,8 @@ settings:
       type: variable-number-slider
       title: Accent Color Saturation
       title.zh: 高亮颜色饱和度
-      description: S(aturation) of hsl
-      description.zh: HSL 中的 S
+      description: Saturation (S) in HSL
+      description.zh: HSL 中的饱和度 (S)
       default: 32
       min: 0
       max: 100
@@ -162,8 +162,8 @@ settings:
       type: variable-number-slider
       title: Accent Color Lightness
       title.zh: 高亮颜色亮度
-      description: L(ight) of hsl
-      description.zh: HSL 中的 L
+      description: Lightness (L) in HSL
+      description.zh: HSL 中的亮度 (L)
       default: 58
       min: 0
       max: 100
@@ -174,35 +174,36 @@ settings:
 id: maple-workspace
 name: Maple Workspace
 settings:
-    - id: title-titlebar-and-background-image
-      title: Titlebar And Background Image
-      title.zh: 标题栏和背景图
+    - id: title-titlebar-&-background-image
+      title: Titlebar & Background Image
+      title.zh: 标题栏和背景图片
       type: heading
       level: 1
       collapsed: true
     - id: titlebar-button-style
       type: class-toggle
       title: Styled Window Buttons
-      title.zh: 窗体按钮美化
-      description: For Windows and Linux
-      description.zh: 在 Windows 和 Linux 中生效
+      title.zh: 美化窗体按钮
+      description: Applies to Windows and Linux
+      description.zh: 在 Windows 和 Linux 系统中生效
       default: true
     - id: titlebar-colorful
       type: class-toggle
       title: Colorful Titlebar
       title.zh: 多彩 Obsidian 标题栏
-      description: Reference from https://github.com/kepano/obsidian-minimal
-      description.zh: 参考 https://github.com/kepano/obsidian-minimal
+      description: "Reference: https://github.com/kepano/obsidian-minimal"
+      description.zh: 参考项目：https://github.com/kepano/obsidian-minimal
     - id: app-bg-image-enable
       type: class-toggle
       title: Add Background Image In Workspace
-      title.zh: 在应用中添加背景图
+      title.zh: 添加应用的背景图片
     - id: setting-app-bg-image-light
       type: variable-text
       title: Light Theme Background Image URL
       title.zh: 浅色主题背景图片地址
-      description: Any valid value of CSS backgroud-image property, e.g. url(image-url)
-      description.zh: 任何一个合法的 CSS background-image 值，例如 url(图片链接地址)
+      description: Any valid CSS property value of "background-image" (e.g.
+          'url("/your/image/url')')
+      description.zh: 任何有效的 CSS “background-image” 值 (例如：'url("图片链接地址')')
       default: ""
     - id: setting-app-bg-opacity-light
       type: variable-number-slider
@@ -216,8 +217,9 @@ settings:
       type: variable-text
       title: Dark Theme Background Image URL
       title.zh: 深色主题背景图片地址
-      description: Any valid value of CSS backgroud-image property, e.g. url(image-url)
-      description.zh: 任何一个合法的 CSS background-image 值，例如 url(图片链接地址)
+      description: Any valid CSS property value of "background-image" (e.g.
+          'url("/your/image/url')')
+      description.zh: 任何有效的 CSS “background-image” 值 (例如：'url("图片链接地址')')
       default: ""
     - id: setting-app-bg-opacity-dark
       type: variable-number-slider
@@ -227,25 +229,19 @@ settings:
       max: 0.9
       min: 0.1
       step: 0.05
-    - id: title-file-explorer
-      title: File Explorer
-      title.zh: 文件管理器
+    - id: title-file-explorer-panel
+      title: File Explorer Panel
+      title.zh: 文件管理器面板
       type: heading
       level: 1
       collapsed: true
-    - id: explorer-nav-decoration
-      type: class-toggle
-      title: Add Tail Decorator On Active File
-      title.zh: 在当前文件末尾添加装饰
-      description: Reference from https://github.com/Akifyss/obsidian-border
-      description.zh: 参考 https://github.com/Akifyss/obsidian-border
     - id: explorer-title-wrap
       type: class-toggle
-      title: Auto Wrap For Long File Name
-      title.zh: 为长文件名自动换行
+      title: Auto Wrap Long File Names
+      title.zh: 长文件名自动换行
     - id: explorer-item-height
       type: variable-number-slider
-      title: Item Line Height
+      title: Line Height
       title.zh: 行高
       default: 1.6
       min: 1.2
@@ -253,11 +249,11 @@ settings:
       step: 0.1
     - id: explorer-icon
       type: class-toggle
-      title: Enable Prefix Icon
-      title.zh: 开启前置图标
-      description: If the tree indent is weird, please collpase all the directory and
-          restart Obsidian
-      description.zh: 如果缩进出现问题，请折叠全部文件夹并重启 Obsidian
+      title: Enable Prefix Icons
+      title.zh: 启用前置图标
+      description: If the tree indentation appears incorrect, please collapse all
+          directories and restart Obsidian
+      description.zh: 如果缩进显示异常，请折叠所有文件夹并重启 Obsidian
       default: true
     - id: setting-color-dirs
       type: variable-themed-color
@@ -269,18 +265,19 @@ settings:
       default-dark: rgb(245, 180, 0)
     - id: title-outline-panel
       title: Outline Panel
-      title.zh: 文档大纲
+      title.zh: 文档大纲面板
       type: heading
       level: 1
       collapsed: true
     - id: outline-enable
       type: class-toggle
       title: Logseq Bullet Thread Style Outline
-      title.zh: logseq bullet thread 样式的文档视图
-      description: Please reload Obsidian after enable it. Reference from
-          https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
-      description.zh: 启用后请重启应用。参考
-          https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+      title.zh: Logseq 样式的文档大纲视图
+      description: "Please reload Obsidian after enabling this feature. Reference:
+          https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threadin\
+          g.css"
+      description.zh: 启用此功能后请重启
+          Obsidian。参考项目：https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
     - id: setting-outline-width
       type: variable-number-slider
       title: Guide Line Width
@@ -301,7 +298,7 @@ settings:
     - id: setting-outline-dot-color
       type: variable-themed-color
       title: Guide Dot Color
-      title.zh: 引导点的颜色
+      title.zh: 引导点颜色
       default-dark: "#"
       default-light: "#"
       format: hsl
@@ -319,45 +316,46 @@ settings:
       default: true
     - id: status-bar-style-float
       type: class-toggle
-      title: Round Style Status Bar
-      title.zh: 圆角风格的状态栏
+      title: Enable Float Style
+      title.zh: 启用浮动样式
       default: true
     - id: status-bar-style
       type: class-select
       title: Status Bar Animation
-      title.zh: 状态栏样式
-      description: ❗last style only valid when turn on “round status bar”
-      description.zh: ❗最后一种样式只在开启“圆角风格的状态栏”才生效
+      title.zh: 状态栏动画效果
+      description: 'Note: The last style option is only valid when "rounded status
+          bar" is enabled'
+      description.zh: 注意：最后一种样式选项仅在启用"圆角状态栏"时生效
       allow-empty: false
       default: status-bar-default
       options:
-          - label: default
+          - label: Default
             value: status-bar-default
-          - label: show on hover
+          - label: Show on hover
             value: status-bar-hidden
-          - label: scroll out on hover
+          - label: Scroll out on hover
             value: status-bar-scroll
     - id: status-bar-style-center
       type: class-toggle
       title: Center Status Bar
-      title.zh: 状态栏居中
-    - id: title-document-search-/-replace-panel
-      title: Document Search / Replace Panel
-      title.zh: 文档内搜索框
+      title.zh: 状态栏居中显示
+    - id: title-in-document-search-/-replace-panel
+      title: In-Document Search / Replace Panel
+      title.zh: 文档内搜索/替换面板
       type: heading
       level: 1
       collapsed: true
     - id: search-internal-enable
       type: class-toggle
-      title: Minimal Document Search / Replace Panel (Like VSCode)
-      title.zh: 精简的文档内搜索框（和 VSCode 类似）
+      title: Minimal Document Search Panel (VSCode Style)
+      title.zh: 精简的文档搜索面板（VSCode 风格）
       default: true
     - id: search-remove-button
       type: class-toggle
-      title: Remove Some Buttons In Document Search Panel
-      title.zh: 移除一些搜索框中的按钮
+      title: Remove Buttons From Document Search Panel
+      title.zh: 移除搜索面板中的按钮
       description: "Removed buttons: Find All"
-      description.zh: 移除的按钮：查找全部
+      description.zh: 已移除的按钮：查找全部
     - id: title-tab
       title: Tab
       title.zh: 标签页
@@ -388,11 +386,11 @@ settings:
       allow-empty: false
       default: tab-show-close-default
       options:
-          - label: default
+          - label: Default
             value: tab-show-close-default
-          - label: on hover all tabs
+          - label: On hover
             value: tab-show-close-all
-          - label: on hover except active tab
+          - label: On hover except active tab
             value: tab-show-close-part
     - id: tab-title-bar-text
       type: class-select
@@ -401,15 +399,15 @@ settings:
       allow-empty: false
       default: tab-title-bar-text-default
       options:
-          - label: default
+          - label: Default
             value: tab-title-bar-text-default
-          - label: small size
+          - label: Small size
             value: tab-title-bar-text-small
-          - label: show on hover
+          - label: Show on hover
             value: tab-title-bar-text-hidden
     - id: title-tooltip-&-notice
       title: Tooltip & Notice
-      title.zh: 气泡提示框 & 通知
+      title.zh: 气泡提示框与通知
       type: heading
       level: 1
       collapsed: true
@@ -420,16 +418,16 @@ settings:
     - id: message-tooltip-hide
       type: class-toggle
       title: Always Hide Tooltip
-      title.zh: 永久隐藏气泡提示框
+      title.zh: 始终隐藏气泡提示框
     - id: message-modify
       type: class-toggle
       title: Change Tooltip & Notice Color
-      title.zh: 修改气泡提示框和消息的颜色
+      title.zh: 修改气泡提示框和通知的颜色
       default: true
     - id: setting-message-bg
       type: variable-themed-color
       title: Background Color
-      title.zh: 背景色
+      title.zh: 背景颜色
       format: hsl-values
       opacity: false
       default-light: "#"
@@ -437,62 +435,62 @@ settings:
     - id: setting-message-fg
       type: variable-themed-color
       title: Foreground Color
-      title.zh: 文字色
+      title.zh: 文字颜色
       format: rgb-values
       opacity: false
       default-light: "#"
       default-dark: "#"
     - id: title-modal-&-setting-panel
       title: Modal & Setting Panel
-      title.zh: 弹出框 & 设置面板
+      title.zh: 模态框与设置面板
       type: heading
       level: 1
       collapsed: true
     - id: modal-blur
       type: class-toggle
       title: Enable Modal Background Blur
-      title.zh: 开启弹出框背景模糊
-      description: If there is a delay in scrolling, try turning this option off
-      description.zh: 如果滚动时有卡顿，尝试关闭该选项
+      title.zh: 启用模态框背景模糊
+      description: If scrolling experiences delay, try disabling this option
+      description.zh: 如果滚动时出现卡顿，请尝试关闭此选项
       default: true
     - id: modal-header
       type: class-toggle
-      title: Add Header For Setting Panel
-      title.zh: 为设置面板添加顶部框
-      description: Better with plugin “setting search”, invalid in mobile
-      description.zh: 配合 setting search 插件使用更佳，移动端无效
+      title: Add Header To Setting Panel
+      title.zh: 为设置面板添加顶部标题
+      description: Works best with the "Setting Search" plugin; not valid on mobile
+      description.zh: 配合“设置搜索”插件使用效果更佳，移动端无效
     - id: setting-modal-header-title
       type: variable-text
       title: Set Modal Header Title
-      title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.7'"
+      title.zh: 设置模态框标题
+      default: "'maple 1.0.0-beta.8'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
-      title.zh: 为左侧选项组标题添加样式
+      title.zh: 为左侧导航组标题添加图标
       default: true
     - id: modal-slider
       type: class-toggle
       title: Styled Slider Thumb
-      title.zh: 滑动条按钮美化
+      title.zh: 美化滑动条按钮
       default: true
     - id: modal-toggle
       type: class-select
       title: Styled Toggle Button
-      title.zh: 开关按钮美化
+      title.zh: 美化开关按钮
       allow-empty: false
       default: modal-toggle-default
       options:
-          - label: default
+          - label: Default
             value: modal-toggle-default
-          - label: thin
+          - label: Thin
             value: modal-toggle-thin
-          - label: round
+          - label: Round
             value: modal-toggle-round
     - id: modal-animation
       type: class-toggle
       title: Modal Show Up Animation
-      title.zh: 弹出框进入动画
+      title.zh: 模态框进入动画
       default: true
     - id: title-menu-blur
       title: Menu Blur
@@ -524,32 +522,32 @@ settings:
     - id: scrollbar-hide
       type: class-toggle
       title: Always Hide Scrollbar
-      title.zh: 不显示滚动条
+      title.zh: 始终隐藏滚动条
     - id: scrollbar-enable
       type: class-toggle
       title: Enable Styled Scrollbar
-      title.zh: 使用美化的滚动条
+      title.zh: 启用美化滚动条
       default: true
     - id: scrollbar-hover
       type: class-select
       title: Scrollbar Hover Action
-      title.zh: 鼠标经过时滚动条变化
+      title.zh: 鼠标悬停时滚动条变化
       allow-empty: false
       default: scrollbar-hover-accent
       options:
-          - label: none
+          - label: None
             value: scrollbar-hover-default
-          - label: accent
+          - label: Accent
             value: scrollbar-hover-accent
-          - label: expand
+          - label: Expand
             value: scrollbar-hover-expand
     - id: scrollbar-movein-animation-enable
       type: class-toggle
       title: Enable Scrollbar Animation
       title.zh: 启用滚动条动画
-      description: When disabled, always show scrollbar; when enabled, hide scrollbar
-          when the mouse move outside the container
-      description.zh: 关闭时，一直显示滚动条；开启后，鼠标在容器外时隐藏滚动条
+      description: When disabled, the scrollbar is always visible; when enabled, the
+          scrollbar hides when the mouse moves outside the container
+      description.zh: 禁用时，滚动条始终可见；启用后，当鼠标移出容器时滚动条将隐藏
       default: true
     - id: title-graph
       title: Graph
@@ -589,8 +587,8 @@ settings:
       collapsed: true
     - id: export-pdf-transparent
       type: class-toggle
-      title: Transparent Page Background Color
-      title.zh: 透明页面背景色
+      title: Set Background to Transparent When Exporting
+      title.zh: 导出时将页面背景颜色设置为透明
 */
 /* @settings
 id: maple-editor
@@ -598,42 +596,42 @@ name: Maple Editor
 settings:
     - id: title-editor-background-image
       title: Editor Background Image
-      title.zh: 编辑器背景图
+      title.zh: 编辑器背景图片
       type: heading
       level: 1
       collapsed: true
     - id: editor-bg-type
       type: class-select
       title: Background Image Type
-      title.zh: 背景图类型
+      title.zh: 背景图片类型
       allow-empty: false
       default: editor-bg-plain
       options:
-          - label: plain
+          - label: Plain
             value: editor-bg-plain
-          - label: dots
+          - label: Dots
             value: editor-bg-grid-dots
-          - label: grid
+          - label: Grid
             value: editor-bg-grid-line
     - id: setting-editor-bg
       type: variable-themed-color
       title: Editor Background Color
-      title.zh: 编辑器背景色
+      title.zh: 编辑器背景颜色
       format: hsl-values
       default-light: "#"
       default-dark: "#"
     - id: setting-editor-bg-grid-dots
       type: variable-themed-color
       title: Editor Background Dot Color
-      title.zh: 编辑器背景点的颜色
+      title.zh: 编辑器背景点颜色
       format: rgb
       opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-editor-bg-grid-line
       type: variable-themed-color
-      title: Editor Background Line Color
-      title.zh: 编辑器背景网格颜色
+      title: Editor Background Grid Line Color
+      title.zh: 编辑器背景网格线颜色
       format: rgb
       opacity: true
       default-light: "#"
@@ -650,9 +648,9 @@ settings:
     - id: setting-md-container-bg
       type: variable-themed-color
       title: Editor Container Background Color
-      title.zh: 编辑器容器背景色
-      description: Quote, code block, table and so on
-      description.zh: 引用、代码块、表格等
+      title.zh: 编辑器容器背景颜色
+      description: For elements like quotes, code blocks, and tables
+      description.zh: 用于引用、代码块、表格等元素
       format: hsl-values
       default-light: "#"
       default-dark: "#"
@@ -664,32 +662,27 @@ settings:
       collapsed: true
     - id: font-maple
       type: class-toggle
-      title: Use "Maple Mono" As Monospace Font
-      title.zh: 使用 Maple Mono 作为等宽字体
+      title: Use "Maple Mono" as Monospace Font
+      title.zh: 使用“Maple Mono”作为等宽字体
       description: https://github.com/subframe7536/Maple-font
       description.zh: https://github.com/subframe7536/Maple-font
       default: true
-    - id: setting-code-ligature
-      type: variable-text
-      title: OpenType Feature Config For Monospace Font
-      title.zh: 等宽字体的 OpenType 特性配置
-      default: '"calt"'
     - id: font-latex-text
       type: class-toggle
-      title: Use "Text Font" In Non-formula Parts Of Latex
-      title.zh: 在 latex 非公式部分使用正文字体
-      description: ❗only tested in CJK font, maybe not reconcile with latin characters
-      description.zh: 默认的字体比较丑
+      title: Use Text Font in Non-formula Parts of LaTeX
+      title.zh: 在 LaTeX 非公式部分使用正文字体
+      description: Only tested with CJK fonts; may not reconcile with Latin characters
+      description.zh: 默认字体较丑
     - id: title-text
       title: Text
-      title.zh: 文字
+      title.zh: 文本
       type: heading
       level: 1
       collapsed: true
     - id: setting-text-normal
       type: variable-themed-color
       title: Editor Text Color
-      title.zh: 编辑器文字颜色
+      title.zh: 编辑器文本颜色
       format: hex
       opacity: true
       default-light: "#"
@@ -697,7 +690,7 @@ settings:
     - id: setting-underline-offset
       type: variable-number-slider
       title: Underline Offset
-      title.zh: 下划线间距
+      title.zh: 下划线偏移
       default: 2
       format: px
       min: 0
@@ -712,9 +705,10 @@ settings:
     - id: setting-text-highlight-bg
       type: variable-text
       title: Highlight Text Background Color
-      title.zh: 文本高亮背景色
-      description: The value can be the value of any background attribute in css
-      description.zh: 填写的值可以为css中任意 background 属性的值
+      title.zh: 文本高亮背景颜色
+      description: Any valid CSS property value of "background" (e.g.
+          'url("/your/image/url')')
+      description.zh: 任何有效的 CSS “background” 值 (例如：'url("图片链接地址')')
       default: rgba(255, 208, 0, 0.4)
     - id: setting-text-highlight-color
       type: variable-themed-color
@@ -727,19 +721,19 @@ settings:
     - id: setting-text-highlight-radius
       type: variable-number-slider
       title: Highlight Background Radius
-      title.zh: 高亮背景色圆角大小
-      description: Format px
-      description.zh: 单位 px
+      title.zh: 高亮背景圆角大小
+      description: Value in pixels (px)
+      description.zh: 单位：像素 (px)
       default: 4
       min: 0
       max: 8
       step: 1
     - id: text-highlight-all-round
       type: class-toggle
-      title: Keep Radius When Wrap
+      title: Maintain Radius When Wrapping
       title.zh: 换行时保持圆角
-      description: Except when edit
-      description.zh: 除了编辑的时候
+      description: Except during editing
+      description.zh: 编辑时除外
       default: true
     - id: text-highlight-margin
       type: class-toggle
@@ -763,8 +757,8 @@ settings:
       type: variable-text
       title: Bold Style
       title.zh: 粗体样式
-      description: Support any css text-decoration property
-      description.zh: 支持任何 css 的 text-decoration 属性值
+      description: Any valid CSS property value of "text-decoration"
+      description.zh: 任何有效的 CSS “text-decoration” 值
       default: underline dotted
     - id: setting-text-bold-font
       type: variable-text
@@ -789,8 +783,8 @@ settings:
       type: variable-text
       title: Italic Style
       title.zh: 斜体样式
-      description: Support any css text-decoration property
-      description.zh: 支持任何 css 的 text-decoration 属性值
+      description: Any valid CSS property value of "text-decoration"
+      description.zh: 任何有效的 CSS “text-decoration” 值
       default: underline dotted
     - id: setting-text-italic-font
       type: variable-text
@@ -806,7 +800,7 @@ settings:
     - id: setting-editor-p-spacing
       type: variable-number-slider
       title: Editor Paragraph Spacing (px)
-      title.zh: 编辑器段落间隔（px）
+      title.zh: 编辑器段落间距（px）
       default: 4
       format: px
       min: 0
@@ -816,9 +810,9 @@ settings:
       type: variable-number-slider
       title: Editor Paragraph Indent
       title.zh: 编辑器段落缩进
-      description: If 'p-indent' exist in properties.cssclasses, all paragraph will
-          add indent(n times of font size)
-      description.zh: 在文档属性的cssclasses中存在 'p-indent' 类时，会为段落添加缩进（字体大小的倍数）
+      description: If "p-indent" exists in properties.cssclasses, all paragraphs will
+          be indented (n times font size)
+      description.zh: 当文档属性的 cssclasses 中存在 “p-indent” 类时，会为所有段落添加缩进（字体大小的倍数）
       default: 2
       min: 0
       max: 4
@@ -837,37 +831,36 @@ settings:
       type: variable-text
       title: Editor Line Width
       title.zh: 编辑器行宽
-      description: Dynamic width — clamp(MinWidth, WidthPercent, MaxWidth)
-      description.zh: 动态宽度 — clamp(最小值, 宽度百分比, 最大值)
+      description: "Dynamic width: clamp(MinWidth, WidthPercent, MaxWidth)"
+      description.zh: 动态宽度：clamp(最小值, 宽度百分比, 最大值)
       default: clamp(600px, 72%, 850px)
     - id: line-indicator-enable
       type: class-select
       title: Hover Line Indicator
-      title.zh: 鼠标经过行指示器
-      description: Reference from https://github.com/Akifyss/obsidian-border, need
-          install version>=1.1.9
-      description.zh: 参考自 https://github.com/Akifyss/obsidian-border, 需要安装版本>=1.1.9
+      title.zh: 鼠标悬停行指示器
+      description: "Reference: https://github.com/Akifyss/obsidian-border"
+      description.zh: 参考项目：https://github.com/Akifyss/obsidian-border
       allow-empty: false
       default: line-indicator-disable
       options:
-          - label: none
+          - label: None
             value: line-indicator-disable
-          - label: left
+          - label: Left
             value: line-indicator-enable
-          - label: full line
+          - label: Full Line
             value: line-indicator-full
     - id: line-active
       type: class-select
-      title: Active Line Hightlight
+      title: Active Line Highlight
       title.zh: 当前行高亮
       allow-empty: false
       default: line-active-enable
       options:
-          - label: none
+          - label: None
             value: line-active-disable
-          - label: left
+          - label: Left
             value: line-active-left
-          - label: full line
+          - label: Full Line
             value: line-active-enable
     - id: setting-line-active-color
       type: variable-themed-color
@@ -884,26 +877,25 @@ settings:
       collapsed: true
     - id: link-hover-expand
       type: class-toggle
-      title: Use Underline Animation On Hover
-      title.zh: 鼠标经过时开启下划线动画
+      title: Use Underline Animation on Hover
+      title.zh: 鼠标悬停时启用下划线动画
     - id: link-icon
       type: class-toggle
-      title: Add Icon Before Link In Editor
-      title.zh: 编辑器内链接前添加图标
+      title: Add Icon Before Internal Link
+      title.zh: 在内部链接前添加图标
       default: true
     - id: link-heading
       type: class-toggle
-      title: Compatible With Heading Style
+      title: Compatible with Heading Style
       title.zh: 兼容标题样式
-      description: Keep link color with heading, but keep icon
-      description.zh: 链接颜色改为标题颜色，保留图标
+      description: Keep link color consistent with heading, but retain icon
+      description.zh: 链接颜色与标题颜色保持一致，但保留图标
     - id: link-click-to-edit-in-live-preview
       type: class-toggle
-      title: Click To Edit Link In Live-Preview
-      title.zh: 实时预览 模式时点击链接进行编辑而不是跳转
-      description: ❗will disable hover animation, external link prefix icon will be
-          diabled
-      description.zh: ❗鼠标经过动画会消失，外部链接的前置图标会消失
+      title: Click to Edit Link in Live Preview Mode
+      title.zh: 实时预览模式下点击链接进行编辑而非跳转
+      description: ❗Disables hover animation; external link prefix icon will be disabled
+      description.zh: ❗将禁用悬停动画；外部链接前缀图标将不可用
     - id: title-link-color
       title: Link Color
       title.zh: 链接颜色
@@ -951,9 +943,9 @@ settings:
     - id: fix-line-number
       type: class-toggle
       title: Fix Line Number Movement
-      title.zh: 修复行号的移动
-      description: Will increase '#' size
-      description.zh: 将增加 '#' 的大小
+      title.zh: 修复行号移动
+      description: Will restore "#" size
+      description.zh: 将恢复 “#” 的大小
     - id: title-heading-level-icon
       title: Heading Level Icon
       title.zh: 标题等级图标
@@ -962,17 +954,17 @@ settings:
       collapsed: true
     - id: heading-level-enable
       type: class-toggle
-      title: Level Heading Icon
-      title.zh: 标题等级图标
+      title: Enable Level Heading Icon
+      title.zh: 启用标题等级图标
     - id: heading-level-fix
       type: class-toggle
       title: Always Show Heading Icon
-      title.zh: 总是显示图标
-      description: Highlight on hover
-      description.zh: 鼠标经过时高亮
+      title.zh: 始终显示图标
+      description: Highlights on hover
+      description.zh: 鼠标悬停时高亮
     - id: title-heading-style-preference
       title: Heading Style Preference
-      title.zh: 标题样式设置
+      title.zh: 标题样式偏好
       type: heading
       level: 2
       collapsed: true
@@ -987,10 +979,10 @@ settings:
       title.zh: 标题下划线变细
     - id: heading-h6-variant
       type: class-toggle
-      title: Set Font Small-caps For Heading 6
-      title.zh: 为六级标题设置 small-caps 样式
+      title: Set Small-caps Font for Heading 6
+      title.zh: 为六级标题设置小型大写字母样式
       description: All characters are capitalized
-      description.zh: 所有字母都是大写
+      description.zh: 所有字母都大写
       default: true
     - id: title-heading-color
       title: Heading Color
@@ -1005,11 +997,11 @@ settings:
       allow-empty: false
       default: heading-color-colorful
       options:
-          - label: text color
+          - label: Text Color
             value: heading-color-base
-          - label: accent color
+          - label: Accent Color
             value: heading-color-accent
-          - label: colorful
+          - label: Colorful
             value: heading-color-colorful
     - id: title-custom-heading-color
       title: Custom Heading Color
@@ -1127,29 +1119,29 @@ settings:
       collapsed: true
     - id: heading-h1-underline
       type: class-toggle
-      title: Add Underline For H1
-      title.zh: 添加 h1 下划线
+      title: Add Underline for H1
+      title.zh: 为 H1 添加下划线
     - id: heading-h2-underline
       type: class-toggle
-      title: Add Underline For H2
-      title.zh: 添加 h2 下划线
+      title: Add Underline for H2
+      title.zh: 为 H2 添加下划线
       default: true
     - id: heading-h3-underline
       type: class-toggle
-      title: Add Underline For H3
-      title.zh: 添加 h3 下划线
+      title: Add Underline for H3
+      title.zh: 为 H3 添加下划线
     - id: heading-h4-underline
       type: class-toggle
-      title: Add Underline For H4
-      title.zh: 添加 h4 下划线
+      title: Add Underline for H4
+      title.zh: 为 H4 添加下划线
     - id: heading-h5-underline
       type: class-toggle
-      title: Add Underline For H5
-      title.zh: 添加 h5 下划线
+      title: Add Underline for H5
+      title.zh: 为 H5 添加下划线
     - id: heading-h6-underline
       type: class-toggle
-      title: Add Underline For H6
-      title.zh: 添加 h6 下划线
+      title: Add Underline for H6
+      title.zh: 为 H6 添加下划线
     - id: title-heading-font
       title: Heading Font
       title.zh: 标题字体
@@ -1186,21 +1178,21 @@ settings:
       title: H6 Font
       title.zh: 标题 6 字体
       default: "''"
-    - id: title-hr
-      title: Hr
-      title.zh: 分隔行
+    - id: title-horizontal-rule
+      title: Horizontal Rule
+      title.zh: 分隔线
       type: heading
       level: 1
       collapsed: true
     - id: hr-enable
       type: class-toggle
-      title: Enable Hr Style
-      title.zh: 开启分割线样式
+      title: Enable Horizontal Rule Style
+      title.zh: 启用分隔线样式
       default: true
     - id: setting-hr-icon
       type: variable-text
-      title: Set Icon In The Center Of Hr
-      title.zh: 分割行中部图标
+      title: Set Icon in the Center of Horizontal Rule
+      title.zh: 分隔线中部图标
       default: "'⭐'"
     - id: title-table
       title: Table
@@ -1217,13 +1209,13 @@ settings:
       type: class-toggle
       title: Colorful Table
       title.zh: 多彩表格
-      description: Accent header and line color
-      description.zh: 添加表头和行的颜色
+      description: Accented header and line colors; ignore DataView table
+      description.zh: 加深表头和行的颜色；忽略 DataView 表格
       default: true
     - id: setting-table-header-text
       type: variable-themed-color
       title: Header Text Color
-      title.zh: 表头文字色
+      title.zh: 表头文字颜色
       format: hex
       opacity: true
       default-light: "#"
@@ -1231,36 +1223,36 @@ settings:
     - id: setting-table-header-bg
       type: variable-themed-color
       title: Header Background Color
-      title.zh: 表头背景色
+      title.zh: 表头背景颜色
       format: hex
       opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-table-line-bg
       type: variable-themed-color
-      title: Stripped Background Color
-      title.zh: 斑马纹背景色
+      title: Striped Background Color
+      title.zh: 斑马纹背景颜色
       format: hex
       opacity: true
       default-light: "#"
       default-dark: "#"
     - id: title-embed-file
       title: Embed File
-      title.zh: 内嵌文档
+      title.zh: 内嵌文件
       type: heading
       level: 1
       collapsed: true
     - id: embed-enable
       type: class-toggle
       title: Block Style Embed File
-      title.zh: 块状的内嵌文档
+      title.zh: 块状内嵌文件
       default: true
     - id: embed-title-right-top
       type: class-toggle
-      title: Move Embed Title To Right Top
-      title.zh: 内嵌文档标题移至右上角
-      description: Visiable on hover, disabled when alias is '#', Example ![[FileName|#]]
-      description.zh: 鼠标经过时显示；别名为'#'时禁用，例：![[文件名|#]]
+      title: Move Embed Title to Top Right
+      title.zh: 内嵌文件标题移至右上角
+      description: Visible on hover; disabled when alias is "#", e.g., ![[FileName|#]]
+      description.zh: 鼠标悬停时显示；别名为 “#” 时禁用，例如：![[文件名|#]]
       default: true
     - id: title-image
       title: Image
@@ -1270,29 +1262,29 @@ settings:
       collapsed: true
     - id: image-alt
       type: class-toggle
-      title: Add Alt Text Below And Center The Image
+      title: Add Alt Text Below and Center the Image
       title.zh: 在图片底部添加提示文本并居中图片
-      description: Example ![[image.jpg|alt text]]
-      description.zh: 样例 ![[图片.jpg|提示文本]]
+      description: "Example: ![[image.jpg|alt text]]"
+      description.zh: 示例：![[图片.jpg|提示文本]]
       default: true
     - id: image-zoom
       type: class-toggle
-      title: Click To Zoom Out Image
+      title: Click to Zoom Image
       title.zh: 鼠标按下时放大图片
-      description: Invalid in source view or Live-Preview
-      description.zh: 在 源码模式 或者 实时预览 模式不生效
+      description: Not effective in Source view or Live Preview mode
+      description.zh: 在源码模式或实时预览模式下不生效
       default: true
     - id: image-zoom-out
       type: class-toggle
-      title: Zoom Out The Image To Full Screen
+      title: Zoom Image to Full Screen
       title.zh: 图片放大到全屏
       default: true
     - id: image-dark-hover
       type: class-toggle
-      title: Decrease Brightness In Dark Mode
+      title: Decrease Brightness in Dark Mode
       title.zh: 黑暗模式下降低图片亮度
-      description: Hover will increase brightness
-      description.zh: 鼠标经过时会增加亮度
+      description: Brightness increases on hover
+      description.zh: 鼠标悬停时亮度会增加
       default: true
     - id: title-quote
       title: Quote
@@ -1302,20 +1294,20 @@ settings:
       collapsed: true
     - id: quote-mark
       type: class-toggle
-      title: Add Front Quote Mark In Preview Mode
-      title.zh: 阅读模式 引言块添加前置引号
+      title: Add Front Quote Mark in Reading View
+      title.zh: 阅读视图下引言块添加前置引号
     - id: quote-outline-style
       type: class-select
-      title: Preview Mode Outline Style
-      title.zh: 阅读模式 外部样式
+      title: Reading View Style
+      title.zh: 阅读视图的样式
       allow-empty: false
       default: quote-shadow
       options:
-          - label: none
+          - label: None
             value: quote-none
-          - label: border
+          - label: Border
             value: quote-border
-          - label: shadow
+          - label: Shadow
             value: quote-shadow
     - id: title-list
       title: List
@@ -1327,30 +1319,29 @@ settings:
       type: class-toggle
       title: Optimize List Style
       title.zh: 优化列表样式
-      description: ❗no support for list or task items inside callout
-      description.zh: ❗精力有限，不打算适配 callout 中的列表或者代办项
+      description: ❗No support for list or task items inside callouts
+      description.zh: ❗精力有限，暂不适配 Callout 中的列表或待办项
       default: true
     - id: list-bullet-thread-style
       type: class-toggle
       title: Logseq Bullet Thread Style List
-      title.zh: logseq bullet thread 样式的列表
-      description: No support for task list and numbered list. Reference from
-          https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1.
-      description.zh: 不支持任务列表和序号列表，参考自
-          https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1
+      title.zh: Logseq Bullet Thread 样式的列表
+      description: "No support for task lists and numbered lists. Reference:
+          https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1."
+      description.zh: 不支持任务列表和序号列表。参考项目：https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1
       default: true
     - id: setting-list-marker
       type: variable-themed-color
       title: List Marker Color
-      title.zh: 列表标号颜色
+      title.zh: 列表标记颜色
       format: hex
       opacity: false
       default-light: "#"
       default-dark: "#"
     - id: setting-list-marker-alt
       type: variable-themed-color
-      title: List Marker Alt Color
-      title.zh: 列表标号颜色 2
+      title: Alternate List Marker Color
+      title.zh: 列表标记颜色2
       format: hex
       opacity: false
       default-light: "#"
@@ -1364,27 +1355,26 @@ settings:
       default-light: "#"
       default-dark: "#"
     - id: title-task-list-(checkbox)
-      title: Task List (checkbox)
+      title: Task List (Checkbox)
       title.zh: 待办事项（勾选框）
       type: heading
       level: 2
       collapsed: true
     - id: list-checkbox-line
       type: class-toggle
-      title: Remove Middle Line In Completed Item
+      title: Remove Strikethrough on Completed Items
       title.zh: 移除已完成事项上的删除线
     - id: list-checkbox-alternative
       type: class-toggle
-      title: Enable Alternative Checkboxes
-      title.zh: 增加勾选框样式
-      description: Disable this if you are using your own implementation via a CSS
-          Snippet.
-      description.zh: 如果你用了其他勾选框 CSS 片段，可以关闭
+      title: Enhanced Checkbox Styles
+      title.zh: 更多的复选框样式
+      description: Disable this if you are using your own implementation via a CSS snippet
+      description.zh: 如果您正在使用自己的 CSS 片段实现，请禁用此选项
       default: true
     - id: setting-list-checkbox-color
       type: variable-themed-color
       title: Checkbox Marker Color
-      title.zh: 勾选框颜色
+      title.zh: 复选框标记颜色
       format: hex
       opacity: false
       default-light: "#"
@@ -1392,15 +1382,15 @@ settings:
     - id: setting-list-checkbox-color-hover
       type: variable-themed-color
       title: Checkbox Marker Hover Color
-      title.zh: 勾选框鼠标经过色
+      title.zh: 复选框标记悬停颜色
       format: hex
       opacity: false
       default-light: "#"
       default-dark: "#"
     - id: setting-list-checkbox-border
       type: variable-themed-color
-      title: Checkbox Marker Border
-      title.zh: 勾选框边框
+      title: Checkbox Marker Border Color
+      title.zh: 复选框标记边框颜色
       format: hex
       opacity: false
       default-light: "#"
@@ -1414,7 +1404,7 @@ settings:
     - id: setting-code-inline
       type: variable-themed-color
       title: Inline Code Color
-      title.zh: 行内代码文字色
+      title.zh: 行内代码文字颜色
       format: hex
       opacity: false
       default-light: "#"
@@ -1422,56 +1412,55 @@ settings:
     - id: setting-code-bg
       type: variable-themed-color
       title: Code Block Background Color
-      title.zh: 代码块背景色
+      title.zh: 代码块背景颜色
       format: hex
       opacity: false
       default-light: "#"
       default-dark: "#"
     - id: code-line-number
       type: class-toggle
-      title: Add Code Block Line Number In Live Preview Mode
-      title.zh: 为 实时预览模式 代码块添加行号
-      description: If the code block lines are too large, the line number will have error
-      description.zh: 如果代码块行数太多，行号会出现错误
+      title: Add Code Block Line Numbers in Live Preview Mode
+      title.zh: 在实时预览模式下为代码块添加行号
+      description: Due to the limitation of Obsidian's render strategy, if the code
+          block has too many lines, line numbering may be incorrect
+      description.zh: 由于 Obsidian 渲染方式的限制，如果代码块行数过多，行号可能会出现错误
       default: true
     - id: code-language
       type: class-toggle
-      title: Add Code Block Language Indicator In Preview Mode
-      title.zh: 为 阅读模式 代码块添加语言标识
+      title: Add Code Block Language Indicator in Reading View
+      title.zh: 在阅读视图下为代码块添加语言标识
       default: true
     - id: code-nowrap
       type: class-toggle
-      title: No Wrap In Preview Mode
-      title.zh: 阅读模式 代码块不换行
+      title: Don't Wrap Line in Reading View Code Blocks
+      title.zh: 阅读视图下代码过长时不换行
       default: true
     - id: setting-code-ligature
       type: variable-text
-      title: Monospace Font Feature
-      title.zh: 等宽字体字体特性
-      description: If you use “Maple Mono” as monospace, recommend to set 'calt','cv02'
-      description.zh: 如果你使用“Maple Mono”作为等宽字体，推荐设置为 'calt','cv02'
+      title: Monospace Font Features
+      title.zh: 等宽字体特性
+      description: If using "Maple Mono" as monospace, recommend setting to
+          'calt','cv01','cv02'
+      description.zh: 如果您使用 “Maple Mono” 作为等宽字体，建议设置为 'calt','cv01','cv02'
       default: "'calt'"
     - id: code-preview-bg
       type: class-toggle
-      title: Enable Codeblock Background In Preview Mode
-      title.zh: 在 阅读模式 开启代码块背景
-      description: Need install version >= 1.1.9
-      description.zh: 需要安装程序版本 >= 1.1.9
+      title: Enable Code Block Background in Reading View
+      title.zh: 在阅读视图下启用代码块背景
     - id: setting-code-bg-outer
       type: variable-text
-      title: Custom Codeblock Background In Preview Mode
-      title.zh: 修改 阅读模式 代码块背景
-      description: Need install version >= 1.1.9, image is supported(eg.
-          'url("/your/image/uri")'), it can be all the css value that supported
-          by background-image
-      description.zh: 需要安装程序版本 >= 1.1.9，支持图片（'url("图片地址")'），可以是 css background-image 支持的所有的值
+      title: Custom Code Block Background in Reading View
+      title.zh: 自定义阅读视图下代码块背景
+      description: Any valid CSS property value of "background" (e.g.
+          'url("/your/image/url')')
+      description.zh: 任何有效的 CSS “background” 值 (例如：'url("图片链接地址')')
       default: "''"
     - id: code-mac-style-header
       type: class-toggle
-      title: Add Mac Style Code Block Header In Preview Mode
-      title.zh: 为 阅读模式 代码块添加mac的标题栏
+      title: Add Mac Style Code Block Header in Reading View
+      title.zh: 在阅读视图下为代码块添加 Mac 风格标题栏
       description: No code block border
-      description.zh: 没有代码块边框
+      description.zh: 无代码块边框
     - id: setting-code-language-color
       type: variable-themed-color
       title: Language Indicator Color
@@ -1482,8 +1471,8 @@ settings:
       default-dark: "#"
     - id: code-theme
       type: class-toggle
-      title: Use Theme's Color Schema
-      title.zh: 使用主题的代码高亮
+      title: Use Theme's Color Scheme
+      title.zh: 使用主题的代码高亮方案
       default: true
     - id: title-tag
       title: Tag
@@ -1493,28 +1482,28 @@ settings:
       collapsed: true
     - id: tag-click-to-edit
       type: class-toggle
-      title: Click To Edit Tags In Live-Preview Mode
-      title.zh: 点击标签进行编辑
-      description: Click '#' to jump
-      description.zh: 点击'#'跳转
+      title: Click to Edit Tags in Live Preview Mode
+      title.zh: 在实时预览模式下点击标签进行编辑
+      description: Click "#" to jump
+      description.zh: 点击 “#” 跳转
     - id: tag-style
       type: class-select
       title: Tag Style
       title.zh: 标签样式
-      description: Tags of obsidian / todo / important / progress / complete will be
-          colorized when use outline or fill
-      description.zh: 当选择 outline 或者 fill 时，obsidian / todo / important / progress /
-          complete 标签会有额外颜色
+      description: Tags like "#obsidian", "#todo", "#important", "#progress", and
+          "#complete" will be colorized when using "Outline" or "Fill" styles
+      description.zh: 当选择 “Outline” 或 “Fill”
+          样式时，“#obsidian”、“#todo”、“#important”、“#progress”、“#complete” 标签会有额外颜色
       allow-empty: false
       default: tag-outline
       options:
-          - label: default
+          - label: Default
             value: tag-default
-          - label: plain
+          - label: Plain
             value: tag-plain
-          - label: outline
+          - label: Outline
             value: tag-outline
-          - label: fill
+          - label: Fill
             value: tag-fill
     - id: setting-tag-bg
       type: variable-themed-color
@@ -1524,12 +1513,6 @@ settings:
       opacity: false
       default-light: "#"
       default-dark: "#"
-    - id: tag-outline-setting
-      title: Outline Style Setting
-      title.zh: 边框模式设置
-      type: heading
-      level: 2
-      collapsed: true
     - id: setting-tag-color
       type: variable-themed-color
       title: Tag Text Color
@@ -1555,12 +1538,12 @@ settings:
     - id: canvas-group-hide
       type: class-toggle
       title: Hide Left Canvas Control Buttons
-      title.zh: 隐藏左侧的控制按钮
-      description: Show on hover
+      title.zh: 隐藏左侧控制按钮
+      description: Shows on hover
       description.zh: 鼠标移入时显示
     - id: canvas-center
       type: class-toggle
-      title: Center Text In Card When Blur Focus
+      title: Center Text in Card When Focus is Lost
       title.zh: 卡片失去焦点时居中文本
     - id: title-pdf
       title: PDF
@@ -1570,10 +1553,10 @@ settings:
       collapsed: true
     - id: pdf-dark-hover
       type: class-toggle
-      title: Decrease Brightness In Dark Mode
+      title: Decrease Brightness in Dark Mode
       title.zh: 黑暗模式下降低图片亮度
-      description: Hover will increase brightness
-      description.zh: 鼠标经过时会增加亮度
+      description: Brightness increases on hover
+      description.zh: 鼠标悬停时亮度会增加
       default: true
     - id: title-properties
       title: Properties
@@ -1583,13 +1566,13 @@ settings:
       collapsed: true
     - id: prop-outline
       type: class-toggle
-      title: Add Outline For Property Panel
+      title: Add Outline for Property Panel
       title.zh: 属性面板添加边框
       default: true
     - id: prop-hide-preview
       type: class-toggle
-      title: Hide Property Panel In Preview Mode
-      title.zh: 预览模式下隐藏属性面板
+      title: Hide Property Panel in Reading View
+      title.zh: 阅读视图下隐藏属性面板
 */
 /* @settings
 id: maple-plugin
@@ -1603,13 +1586,13 @@ settings:
       collapsed: true
     - id: calendar-weekend
       type: class-toggle
-      title: Highlight Weekend
-      title.zh: 突显周末
+      title: Highlight Weekends
+      title.zh: 突出显示周末
       default: true
     - id: calendar-swap-year-month
       type: class-toggle
-      title: Swap Year & Month
-      title.zh: 交换年和月的位置
+      title: Swap Year and Month
+      title.zh: 交换年份和月份的位置
     - id: setting-calendar-year-suffix
       type: variable-text
       title: Year Suffix
@@ -1617,10 +1600,10 @@ settings:
       default: "'年'"
     - id: setting-calendar-max-width
       type: variable-text
-      title: Max Width
+      title: Maximum Width
       title.zh: 最大宽度
-      description: Support any css max-width property
-      description.zh: 支持任何 css 的 max-width 属性值
+      description: Any valid CSS property value of "max-width"
+      description.zh: 任何有效的 CSS “max-width” 值
       default: 500px
     - id: title-kanban
       title: Kanban
@@ -1631,7 +1614,7 @@ settings:
     - id: setting-kanban-item-color
       type: variable-themed-color
       title: Kanban Item Font Color
-      title.zh: 看板项 文字颜色
+      title.zh: 看板项文字颜色
       format: hex
       opacity: true
       default-light: "#"
@@ -1639,7 +1622,7 @@ settings:
     - id: setting-kanban-item-bg
       type: variable-themed-color
       title: Kanban Item Background Color
-      title.zh: 看板项 背景色
+      title.zh: 看板项背景色
       format: hex
       opacity: true
       default-light: "#"
@@ -1647,23 +1630,11 @@ settings:
     - id: setting-kanban-board-bg
       type: variable-themed-color
       title: Kanban Board Background Color
-      title.zh: 看板 版面 背景色
+      title.zh: 看板版面背景色
       format: hex
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: title-dataview(wip)
-      title: DataView(WIP)
-      title.zh: DataView(待完工)
-      type: heading
-      level: 1
-      collapsed: true
-    - id: dv-enable
-      type: class-toggle
-      title: Enable Dataview Style
-      title.zh: 启用 dataview 样式
-      description: Need install version >= 1.1.9
-      description.zh: 需要安装程序版本 >= 1.1.9
 */
 
 /* #region built-in fonts */
@@ -1859,7 +1830,8 @@ body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
 body:not(.table-colorful) .setting-item[data-id^=setting-table],
 body:not(.embed-enable) .setting-item[data-id^=embed-title],
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
-body:not(.tag-outline) .setting-item[data-id=tag-outline-setting] {
+body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
+[data-id=setting-tag-color]) {
   display: none;
 }
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
@@ -1908,7 +1880,8 @@ body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom] + 
 body:not(.table-colorful) .setting-item[data-id^=setting-table] + .style-settings-container,
 body:not(.embed-enable) .setting-item[data-id^=embed-title] + .style-settings-container,
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon] + .style-settings-container,
-body:not(.tag-outline) .setting-item[data-id=tag-outline-setting] + .style-settings-container {
+body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
+[data-id=setting-tag-color]) + .style-settings-container {
   display: none;
 }
 
@@ -2032,7 +2005,7 @@ body {
   --alt-light-accent-inactive: hsl(
     calc(var(--accent-h) + 60),
     calc(var(--accent-s) - 12%),
-    calc(var(--accent-l) + 20%)
+    max(calc(var(--accent-l) + 20%), 82%)
   );
   --alt-dark-accent-active: hsl(
     calc(var(--accent-h) + 60),
@@ -2041,8 +2014,8 @@ body {
   );
   --alt-dark-accent-inactive: hsl(
     calc(var(--accent-h) + 60),
-    calc(var(--accent-s) - 12%),
-    calc(var(--accent-l) - 28%)
+    calc(var(--accent-s) - 18%),
+    min(calc(var(--accent-l) - 28%), 24%)
   );
 }
 
@@ -2118,7 +2091,7 @@ body {
   --accent-inactive: hsl(
     var(--accent-h),
     calc(var(--accent-s) - 4%),
-    calc(var(--accent-l) + 32%)
+    calc(var(--accent-l) + 28%)
   );
   --text-on-accent: #fafafa !important;
   --md-container-bg: var(
@@ -2178,7 +2151,7 @@ body {
     var(--accent-h),
     var(--accent-s),
     calc(var(--accent-l) / 2),
-    50%
+    20%
   );
   --accent-active: hsl(
     var(--accent-h),
@@ -3390,10 +3363,11 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   text-align: right;
   width: var(--size-4-8);
   left: 0;
-  color: var(--accent-inactive);
+  color: var(--accent-active);
+  opacity: 0.6;
 }
 .code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end).cm-active::before {
-  color: var(--accent-active);
+  opacity: 1;
 }
 .code-line-number .cm-contentContainer .cm-line.HyperMD-codeblock-end {
   counter-set: code-line;
@@ -4550,19 +4524,19 @@ body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-
 }
 
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) .table-col-btn {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) .table-col-btn {
   border-top-right-radius: var(--table-radius);
   border-bottom-right-radius: var(--table-radius);
   color: var(--table-btn-color);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) .table-row-btn {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) .table-row-btn {
   border-bottom-left-radius: var(--table-radius);
   border-bottom-right-radius: var(--table-radius);
   color: var(--table-btn-color);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) :is(.table-col-btn,
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) :is(.table-col-btn,
 .table-row-btn,
 .table-col-drag-handle:hover,
 .table-row-drag-handle:hover) {
@@ -4571,78 +4545,78 @@ body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-
   --table-drag-handle-color: var(--table-btn-color);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) :is(tr:hover .table-row-drag-handle, th:hover .table-col-drag-handle) {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) :is(tr:hover .table-row-drag-handle, th:hover .table-col-drag-handle) {
   opacity: 1;
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) th:first-child:not(:has(:is(.table-row-drag-handle, .table-col-drag-handle):hover)) {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) th:first-child:not(:has(:is(.table-row-drag-handle, .table-col-drag-handle):hover)) {
   border-top-left-radius: var(--table-radius);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) th:last-child:not(:has(.table-col-drag-handle:hover)) {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) th:last-child:not(:has(.table-col-drag-handle:hover)) {
   border-top-right-radius: var(--table-radius);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table):has(.table-col-btn:hover) th:last-child {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table):has(.table-col-btn:hover) th:last-child {
   border-top-right-radius: 0;
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) tr:last-child td:first-child {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) tr:last-child td:first-child {
   border-bottom-left-radius: var(--table-radius);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table):has(.table-row-btn:hover) tr:last-child td:first-child {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table):has(.table-row-btn:hover) tr:last-child td:first-child {
   border-bottom-left-radius: 0;
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) tr:last-child td:last-child {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) tr:last-child td:last-child {
   border-bottom-right-radius: var(--table-radius);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table):has(:is(.table-col-btn, .table-row-btn):hover) tr:last-child td:last-child {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table):has(:is(.table-col-btn, .table-row-btn):hover) tr:last-child td:last-child {
   border-bottom-right-radius: 0;
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) :is(th, td):not(:first-child) {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) :is(th, td):not(:first-child) {
   border-left: 0;
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) tbody td {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) tbody td {
   border-top: 0;
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) tbody tr:nth-of-type(2n) {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) tbody tr:nth-of-type(2n) {
   background-color: var(--table-alt-line-bg);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) tbody tr:nth-of-type(2n + 1) {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) tbody tr:nth-of-type(2n + 1) {
   background-color: var(--bg-editor);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) .table-cell-wrapper:has(> .cm-s-obsidian):not(:has(.image-embed)) {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) .table-cell-wrapper:has(> .cm-s-obsidian):not(:has(.image-embed)) {
   padding-inline: var(--size-4-1);
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) .table-cell-wrapper:has(> .image-embed) {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) .table-cell-wrapper:has(> .image-embed) {
   display: table-cell;
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) .table-cell-wrapper .image-embed {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) .table-cell-wrapper .image-embed {
   padding-block: 0;
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) .table-cell-wrapper:has(.is-live-preview .image-embed) {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) .table-cell-wrapper:has(.is-live-preview .image-embed) {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) .table-cell-wrapper:has(.is-live-preview .image-embed) [class=cm-line] {
+.markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table) .table-cell-wrapper:has(.is-live-preview .image-embed) [class=cm-line] {
   display: none;
 }
 
-body.table-colorful table {
+body.table-colorful .markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table {
   --table-header-color: var(
     --setting-table-header-text,
     var(--text-on-accent)
@@ -4809,7 +4783,8 @@ body:is(:not(.css-settings-manager), .heading-color-colorful) {
   filter: grayscale(70%);
   font-weight: 400 !important;
 }
-body:not(.fix-line-number) .cm-formatting.cm-formatting-header {
+:is(body:not(.fix-line-number),
+body.fix-line-number .cm-contentContainer :first-child) .cm-formatting.cm-formatting-header {
   font-size: 1rem !important;
   line-height: 1.2rem;
 }
@@ -5259,6 +5234,9 @@ body.image-zoom.image-zoom-out :is(.markdown-preview-view, .workspace-leaf-conte
 .canvas-wrapper .canvas-node-container {
   border-radius: var(--radius-m);
   background-color: hsl(var(--background-primary-hsl));
+}
+.canvas-wrapper .canvas-node:is(.is-selected, .is-focused) .canvas-node-container {
+  --shadow-border-accent: 0 0 0 2px var(--accent-active);
 }
 .canvas-wrapper .canvas-card-menu {
   padding: var(--size-2-1);
@@ -5902,28 +5880,6 @@ hypothesis-app :is(.Hyp-LabeledButton, .Hyp-TextInput) {
 }
 
 /* #endregion annotator */
-/* #region dataview */
-pre.dataview {
-  border: 0 !important;
-  padding-top: calc(var(--code-size) * var(--line-height-normal) * 0.7);
-}
-pre.dataview-error {
-  font-family: var(--font-monospace);
-}
-
-pre.dataview-error::before {
-  content: "DataView Error";
-  color: var(--color-red);
-  position: absolute;
-  top: var(--size-4-1);
-  font-weight: bold;
-}
-
-body.dv-enable .cm-embed-block:has(.dataview) {
-  border-color: var(--accent-inactive);
-}
-
-/* #endregion dataview */
 /* #region recent-files */
 .workspace-leaf-content[data-type=recent-files] .nav-file-title {
   padding: var(--size-4-1) var(--size-4-2);
@@ -6111,8 +6067,12 @@ body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   background-color: var(--color-base-20);
   cursor: pointer;
 }
+body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container:focus-within {
+  outline: none;
+  box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.14), inset 0 0 1px rgba(0, 0, 0, 0.28);
+}
 body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container input[type=checkbox] {
-  display: none;
+  opacity: 0;
 }
 
 body.modal-toggle-round .checkbox-container {
@@ -6129,7 +6089,7 @@ body.modal-toggle-round .checkbox-container::after {
   margin: 0;
   transition: var(--animation-slow);
 }
-:is(body.modal-toggle-round .checkbox-container:hover, body.modal-toggle-round .checkbox-container:focus)::after {
+:is(body.modal-toggle-round .checkbox-container:hover, body.modal-toggle-round .checkbox-container:focus-within)::after {
   bottom: 10%;
 }
 body.modal-toggle-round .checkbox-container.is-enabled {
@@ -6165,7 +6125,7 @@ body.modal-toggle-thin .checkbox-container::after {
   margin: 0;
   transition: var(--animation-slow);
 }
-body.modal-toggle-thin .checkbox-container:hover::after {
+:is(body.modal-toggle-thin .checkbox-container:hover, body.modal-toggle-thin .checkbox-container:focus-within)::after {
   height: var(--size-4-2);
 }
 body.modal-toggle-thin .checkbox-container:active::after {
@@ -6199,7 +6159,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.7");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.8");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6300,17 +6260,9 @@ button {
   transition: var(--animation);
 }
 
-:is(select, .combobox-button, .dropdown):focus {
-  box-shadow: var(--input-shadow-hover);
-}
-
-:is(button,
-select,
-.clickable-icon,
-.dropdown,
-.metadata-add-button,
-.vertical-tab-nav-item) {
-  -electron-corner-smoothing: 60%;
+:is(select, .combobox-button, .dropdown):focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--background-modifier-border-focus);
 }
 
 .theme-light {
@@ -6517,7 +6469,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-tab-header-inner
   display: none;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-tab-header-inner-icon .lucide-file-text {
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 7v14m4-9h2m-2-4h2M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3zm3-6h2M6 8h2'/></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
 }
@@ -6795,11 +6747,8 @@ body.message-modify:not(.color-active-default).theme-dark {
 }
 
 .flair.mod-pop {
-  --interactive-accent: var(--accent-active);
-  border: var(--accent-inactive) 1px solid;
-}
-.community-modal-info-name .flair.mod-pop {
-  --interactive-accent: var(--text-accent);
+  --flair-background: var(--background-modifier-hover);
+  --flair-color: var(--text-accent);
 }
 
 /* #endregion message */
@@ -7302,7 +7251,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-
   display: none;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-file-text {
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 7v14m4-9h2m-2-4h2M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3zm3-6h2M6 8h2'/></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
 }
@@ -7390,7 +7339,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title::before {
   height: var(--size-4-4);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=pdf])::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 7v14m4-9h2m-2-4h2M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3zm3-6h2M6 8h2'/></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z'/></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
@@ -7432,12 +7381,8 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsuppor
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title .nav-file-tag {
-  background-color: var(--accent-active);
-  color: var(--text-on-accent);
-}
-body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-active .nav-file-tag {
-  background-color: hsl(var(--background-secondary-hsl), 0.9);
-  color: var(--nav-item-background-active);
+  background-color: var(--accent-inactive);
+  color: var(--text-muted);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title-content + .nav-file-tag {
   margin-left: var(--size-2-3);
