@@ -148,11 +148,6 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         margin-right: var(--size-2-3);
         background-color: var(--background-modifier-hover);
         color: var(--text-accent);
-        border: 1px solid var(--text-accent);
-      }
-
-      &-content + .nav-file-tag {
-        margin-left: var(--size-2-3);
       }
 
       &.is-active:not(.is-selected) {
@@ -167,6 +162,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         }
 
         .nav-file-tag {
+          border: 1px solid var(--text-accent);
           background-color: transparent;
           border-color: var(--accent-inactive);
           color: var(--text-on-accent);
