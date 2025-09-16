@@ -125,7 +125,7 @@ function move() {
     copyFileSync('theme.css', join(themeRoot, 'theme.css'))
     copyFileSync('manifest.json', join(themeRoot, 'manifest.json'))
 
-    console.log(`✨ ${root}`)
+    console.log(`> ${root}`)
   }
 }
 

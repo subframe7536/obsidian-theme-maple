@@ -64,6 +64,7 @@ body.modal-toggle-round .checkbox-container {
   --toggle-shadow: var(--color-base-40);
 
   &::after {
+    cursor: pointer;
     left: 0;
     height: calc(var(--toggle-width) / 3);
     width: calc(var(--toggle-width) / 3);
@@ -96,6 +97,7 @@ body.modal-toggle-round .checkbox-container {
 /* 参考 https://uiverse.io/martinval9/white-lionfish-18 */
 body.modal-toggle-thin .checkbox-container {
   &::before {
+    cursor: pointer;
     height: var(--toggle-border-width);
     left: calc(var(--toggle-border-width) * 2);
     right: calc(var(--toggle-border-width) * 2);
@@ -107,6 +109,7 @@ body.modal-toggle-thin .checkbox-container {
   }
 
   &::after {
+    cursor: pointer;
     left: var(--toggle-border-width);
     height: var(--size-4-3);
     bottom: 50%;
@@ -347,6 +350,26 @@ button {
     .modal-sidebar
     .setting-item:first-child {
     max-width: var(--modal-community-sidebar-width);
+  }
+
+  .community-modal-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    .setting-item:not(.mod-toggle) {
+      position: absolute;
+      right: var(--size-4-9);
+      .setting-item-control {
+        flex-direction: row-reverse;
+      }
+    }
+    button.clickable-icon {
+      padding: var(--size-4-1) var(--size-2-3);
+    }
+    .community-modal-search-summary {
+      padding-bottom: var(--size-4-2);
+    }
   }
 
   .mod-settings .modal-content {
