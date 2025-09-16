@@ -47,7 +47,6 @@ body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   transition: var(--animation-slow);
   border: var(--size-2-1) solid var(--text-faint);
   background-color: var(--color-base-20);
-  cursor: pointer;
 
   &:focus-within {
     outline: none;
@@ -64,7 +63,6 @@ body.modal-toggle-round .checkbox-container {
   --toggle-shadow: var(--color-base-40);
 
   &::after {
-    cursor: pointer;
     left: 0;
     height: calc(var(--toggle-width) / 3);
     width: calc(var(--toggle-width) / 3);
@@ -97,7 +95,6 @@ body.modal-toggle-round .checkbox-container {
 /* 参考 https://uiverse.io/martinval9/white-lionfish-18 */
 body.modal-toggle-thin .checkbox-container {
   &::before {
-    cursor: pointer;
     height: var(--toggle-border-width);
     left: calc(var(--toggle-border-width) * 2);
     right: calc(var(--toggle-border-width) * 2);
@@ -109,7 +106,6 @@ body.modal-toggle-thin .checkbox-container {
   }
 
   &::after {
-    cursor: pointer;
     left: var(--toggle-border-width);
     height: var(--size-4-3);
     bottom: 50%;
