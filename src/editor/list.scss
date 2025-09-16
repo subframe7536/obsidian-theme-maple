@@ -38,8 +38,7 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
   }
 
   .markdown-source-view .task-list-item-checkbox {
-    margin-inline-start: 0.3rem;
-    margin-inline-end: var(--size-4-1);
+    --checkbox-margin-inline-start: var(--size-4-1);
   }
 
   .markdown-preview-view .task-list-item-checkbox {
@@ -175,7 +174,7 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     }
 
     .task-list-item {
-      margin-inline-start: calc(var(--font-text-size) / 1.5);
+      --checkbox-margin-inline-start: calc(var(--font-text-size) / 1.5);
     }
   }
 }
