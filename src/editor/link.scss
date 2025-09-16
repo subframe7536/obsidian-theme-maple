@@ -165,22 +165,25 @@ body.link-hover-expand {
   }
 }
 
-body.link-icon {
+.link-icon {
   :is(
       :is(.markdown-source-view, .markdown-preview-view)
         a.internal-link:not(.is-unresolved),
       .cm-hmd-internal-link > .cm-underline
-    )::before {
-    content: '';
-    display: inline-block;
-    transition: var(--animation);
-    transform: translateY(var(--size-2-1));
-    margin-inline: var(--size-2-1);
-    @include use-icon(
-      'file-text',
-      var(--link-color),
-      calc(var(--link-text-size) - var(--size-2-1))
-    );
+    ) {
+    padding-inline-end: var(--size-2-1);
+    &::before {
+      content: '';
+      display: inline-block;
+      transition: var(--animation);
+      transform: translateY(var(--size-2-1));
+      margin-inline: var(--size-2-1);
+      @include use-icon(
+        'file-text',
+        var(--link-color),
+        calc(var(--link-text-size) * 0.9)
+      );
+    }
   }
 
   &:not(.link-click-to-edit-in-live-preview) {
@@ -188,17 +191,20 @@ body.link-icon {
         :is(.markdown-source-view, .markdown-preview-view)
           a.external-link:not(.is-resolved),
         :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline
-      ):not(.cm-escape + .cm-link .cm-underline)::before {
-      content: '';
-      display: inline-block;
-      transition: var(--animation);
-      margin-left: var(--size-2-1);
-      margin-right: var(--size-2-1);
-      @include use-icon(
-        'link',
-        var(--link-external-color),
-        calc(var(--link-text-size) - var(--size-2-1))
-      );
+      ):not(.cm-escape + .cm-link .cm-underline) {
+      padding-inline-end: var(--size-2-1);
+      &::before {
+        content: '';
+        display: inline-block;
+        transition: var(--animation);
+        transform: translateY(var(--size-2-1));
+        margin-inline: var(--size-2-1);
+        @include use-icon(
+          'link',
+          var(--link-external-color),
+          calc(var(--link-text-size) * 0.85)
+        );
+      }
     }
 
     a.external-link {

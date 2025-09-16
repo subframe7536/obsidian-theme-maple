@@ -330,8 +330,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'link-icon',
       {
         title: {
-          en: 'Add Icon Before Internal Link',
-          zh: '在内部链接前添加图标',
+          en: 'Add Icon Before Link',
+          zh: '在链接前添加图标',
         },
       },
       { enable: true },

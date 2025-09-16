@@ -293,7 +293,7 @@ body .markdown-rendered pre {
   }
 }
 
-:is(.cm-tag, .cm-attribute, .cm-string) {
+:is(.cm-tag, .cm-attribute, .cm-string:not(.cm-url)) {
   font-family: var(--font-monospace);
 }
 
