@@ -12,11 +12,11 @@
 body.search-internal-enable .document-search-container {
   background-color: var(--background-secondary) !important;
   position: absolute;
-  top: var(--size-4-2);
+  top: var(--size-4-10);
   right: var(--size-4-4);
   border-radius: var(--radius-m);
   height: fit-content;
-  border: var(--size-2-1) solid var(--frame-outline-color);
+  border: var(--size-2-1) solid var(--tab-outline-color);
   box-shadow: var(--shadow-s);
   margin: 0;
 

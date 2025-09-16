@@ -205,7 +205,6 @@ body.scrollbar-hide
 body:not(.status-bar-enable) .setting-item[data-id*='status-bar-style'],
 :is(body.status-bar-scroll, body:not(.status-bar-style-float))
   .setting-item[data-id='status-bar-style-center'],
-body:not(.tab-title-bar-round) .setting-item[data-id='tab-title-bar-shadow'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],
 body:not(.explorer-icon) .setting-item[data-id='setting-color-dirs'],
 body:not(.search-internal-enable)
