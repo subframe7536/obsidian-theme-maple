@@ -173,8 +173,9 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
       --list-marker-color: #{$marker-color};
     }
 
-    .task-list-item {
-      --checkbox-margin-inline-start: calc(var(--font-text-size) / 1.5);
+    .task-list-item-checkbox {
+      vertical-align: middle;
+      margin-inline-start: calc(var(--checkbox-size) * -1.3);
     }
   }
 }
