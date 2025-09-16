@@ -352,23 +352,26 @@ button {
     max-width: var(--modal-community-sidebar-width);
   }
 
-  .community-modal-controls {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    .setting-item:not(.mod-toggle) {
-      position: absolute;
-      right: var(--size-4-9);
-      .setting-item-control {
-        flex-direction: row-reverse;
+  .modal-sidebar:not(:has(+ .community-modal-details)) {
+    .community-modal-controls {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      height: calc(var(--font-ui-small) + var(--size-4-3) * 2);
+      .setting-item:not(.mod-toggle) {
+        position: absolute;
+        right: var(--size-4-9);
+        .setting-item-control {
+          flex-direction: row-reverse;
+        }
       }
-    }
-    button.clickable-icon {
-      padding: var(--size-4-1) var(--size-2-3);
-    }
-    .community-modal-search-summary {
-      padding-bottom: var(--size-4-2);
+      button.clickable-icon {
+        padding: var(--size-4-1) var(--size-2-3);
+      }
+      .community-modal-search-summary {
+        padding-bottom: var(--size-4-3);
+      }
     }
   }
 
