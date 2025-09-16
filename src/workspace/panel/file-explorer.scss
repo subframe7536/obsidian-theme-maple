@@ -144,8 +144,11 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       padding-inline-end: 0;
 
       .nav-file-tag {
+        font-size: var(--size-4-2);
+        margin-right: var(--size-2-3);
         background-color: var(--background-modifier-hover);
         color: var(--text-accent);
+        border: 1px solid var(--text-accent);
       }
 
       &-content + .nav-file-tag {
@@ -165,20 +168,13 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 
         .nav-file-tag {
           background-color: transparent;
-          border: 1px solid var(--accent-inactive);
+          border-color: var(--accent-inactive);
           color: var(--text-on-accent);
         }
       }
       &-content {
         padding-left: var(--size-4-1);
       }
-    }
-
-    &-tag {
-      font-size: var(--size-4-2);
-      margin-left: 0;
-      margin-right: var(--size-4-2);
-      line-height: 2;
     }
   }
 }
