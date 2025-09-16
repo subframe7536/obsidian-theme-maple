@@ -1,3 +1,6 @@
-.MySnippets-statusbar-menu {
-  --interactive-normal: var(--accent-inactive);
+.MS-OpenSnippet {
+  --interactive-normal: var(--accent-active);
+  :is(&, .MySnippetsButton) {
+    cursor: pointer;
+  }
 }

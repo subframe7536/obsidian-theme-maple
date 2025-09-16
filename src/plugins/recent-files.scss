@@ -1,27 +1,9 @@
-.workspace-leaf-content[data-type='recent-files'] {
-  .nav-file-title {
-    padding: var(--size-4-1) var(--size-4-2);
-    border-radius: var(--radius-s);
-
-    &:hover {
-      background-color: var(--nav-item-background-hover);
-
-      &:not(.is-active) .recent-files-file-delete {
-        color: var(--accent-active);
-      }
-    }
-
-    &.is-active {
-      background-color: var(--accent-active);
-
-      &::after {
-        content: none;
-      }
-    }
-  }
-
+@use '../utils.scss' as *;
+@include use-panel('recent-files') {
   .recent-files-file-delete {
+    margin-inline-end: var(--size-4-1);
+  }
+  .is-active .recent-files-file-delete {
     color: var(--text-on-accent);
-    transform: translateY(var(--size-4-1));
   }
 }
