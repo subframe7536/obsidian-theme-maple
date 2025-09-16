@@ -372,7 +372,7 @@ body.enable-group-title
       content: '';
       display: inline-block;
       translate: 0 var(--size-2-1);
-      margin-right: var(--size-2-1);
+      margin-right: var(--size-4-1);
       @include use-icon(--settings-icon, inherit, $title-size);
     }
   }
