@@ -144,8 +144,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       padding-inline-end: 0;
 
       .nav-file-tag {
-        background-color: var(--accent-inactive);
-        color: var(--text-muted);
+        background-color: var(--background-modifier-hover);
+        color: var(--text-accent);
       }
 
       &-content + .nav-file-tag {
@@ -160,6 +160,12 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
         }
 
         .nav-file-title-content {
+          color: var(--text-on-accent);
+        }
+
+        .nav-file-tag {
+          background-color: transparent;
+          border: 1px solid var(--accent-inactive);
           color: var(--text-on-accent);
         }
       }

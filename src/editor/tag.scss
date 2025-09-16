@@ -7,8 +7,8 @@ body {
 }
 
 :is(body, .print .markdown-rendered) {
-  --tag-padding-x: 0.4rem;
-  --tag-padding-y: 0.05rem;
+  --tag-padding-x: var(--size-4-2);
+  --tag-padding-y: 0;
 }
 
 .cm-line span.cm-hashtag {

@@ -55,7 +55,7 @@ body {
   --alt-light-accent-inactive: hsl(
     calc(var(--accent-h) + 60),
     calc(var(--accent-s) - 12%),
-    max(calc(var(--accent-l) + 20%), 82%)
+    max(calc(var(--accent-l) + 20%), 78%)
   );
   --alt-dark-accent-active: hsl(
     calc(var(--accent-h) + 60),
@@ -64,8 +64,8 @@ body {
   );
   --alt-dark-accent-inactive: hsl(
     calc(var(--accent-h) + 60),
-    calc(var(--accent-s) - 18%),
-    min(calc(var(--accent-l) - 28%), 24%)
+    calc(var(--accent-s) - 12%),
+    min(calc(var(--accent-l) - 28%), 28%)
   );
 }
 
@@ -115,7 +115,7 @@ body {
   --accent-inactive: hsl(
     var(--accent-h),
     calc(var(--accent-s) - 4%),
-    calc(var(--accent-l) + 28%)
+    calc(var(--accent-l) + 22%)
   );
   --text-on-accent: #fafafa !important;
   --md-container-bg: var(
@@ -158,7 +158,7 @@ body {
   --accent-inactive: hsl(
     var(--accent-h),
     calc(var(--accent-s) - 4%),
-    calc(var(--accent-l) - 40%)
+    calc(var(--accent-l) - 32%)
   );
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
