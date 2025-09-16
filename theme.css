@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.8 For Obsidian */
+/* Maple Theme v1.0.0-beta.9 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Color and Animation
@@ -463,7 +463,7 @@ settings:
       type: variable-text
       title: Set Modal Header Title
       title.zh: 设置模态框标题
-      default: "'maple 1.0.0-beta.8'"
+      default: "'maple 1.0.0-beta.9'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -881,8 +881,8 @@ settings:
       title.zh: 鼠标悬停时启用下划线动画
     - id: link-icon
       type: class-toggle
-      title: Add Icon Before Internal Link
-      title.zh: 在内部链接前添加图标
+      title: Add Icon Before Link
+      title.zh: 在链接前添加图标
       default: true
     - id: link-heading
       type: class-toggle
@@ -1802,7 +1802,6 @@ body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover],
 [data-id=scrollbar-gutter]),
 body:not(.status-bar-enable) .setting-item[data-id*=status-bar-style],
 :is(body.status-bar-scroll, body:not(.status-bar-style-float)) .setting-item[data-id=status-bar-style-center],
-body:not(.tab-title-bar-round) .setting-item[data-id=tab-title-bar-shadow],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.explorer-icon) .setting-item[data-id=setting-color-dirs],
 body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expand-on-focus],
@@ -1852,7 +1851,6 @@ body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover],
 [data-id=scrollbar-gutter]) + .style-settings-container,
 body:not(.status-bar-enable) .setting-item[data-id*=status-bar-style] + .style-settings-container,
 :is(body.status-bar-scroll, body:not(.status-bar-style-float)) .setting-item[data-id=status-bar-style-center] + .style-settings-container,
-body:not(.tab-title-bar-round) .setting-item[data-id=tab-title-bar-shadow] + .style-settings-container,
 body:not(.loading-text) .setting-item[data-id=loading-text-content] + .style-settings-container,
 body:not(.explorer-icon) .setting-item[data-id=setting-color-dirs] + .style-settings-container,
 body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expand-on-focus],
@@ -2005,7 +2003,7 @@ body {
   --alt-light-accent-inactive: hsl(
     calc(var(--accent-h) + 60),
     calc(var(--accent-s) - 12%),
-    max(calc(var(--accent-l) + 20%), 82%)
+    max(calc(var(--accent-l) + 20%), 78%)
   );
   --alt-dark-accent-active: hsl(
     calc(var(--accent-h) + 60),
@@ -2014,8 +2012,8 @@ body {
   );
   --alt-dark-accent-inactive: hsl(
     calc(var(--accent-h) + 60),
-    calc(var(--accent-s) - 18%),
-    min(calc(var(--accent-l) - 28%), 24%)
+    calc(var(--accent-s) - 12%),
+    min(calc(var(--accent-l) - 28%), 28%)
   );
 }
 
@@ -2091,7 +2089,7 @@ body {
   --accent-inactive: hsl(
     var(--accent-h),
     calc(var(--accent-s) - 4%),
-    calc(var(--accent-l) + 28%)
+    calc(var(--accent-l) + 22%)
   );
   --text-on-accent: #fafafa !important;
   --md-container-bg: var(
@@ -2161,7 +2159,7 @@ body {
   --accent-inactive: hsl(
     var(--accent-h),
     calc(var(--accent-s) - 4%),
-    calc(var(--accent-l) - 40%)
+    calc(var(--accent-l) - 32%)
   );
   --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
@@ -3241,7 +3239,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   background-color: var(--nav-item-background-hover);
 }
 
-:is(.cm-tag, .cm-attribute, .cm-string) {
+:is(.cm-tag, .cm-attribute, .cm-string:not(.cm-url)) {
   font-family: var(--font-monospace);
 }
 
@@ -3702,7 +3700,11 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   transition: color var(--animation);
 }
 
-body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved),
+.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved),
+.cm-hmd-internal-link > .cm-underline) {
+  padding-inline-end: var(--size-2-1);
+}
+.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved),
 .cm-hmd-internal-link > .cm-underline)::before {
   content: "";
   display: inline-block;
@@ -3713,29 +3715,33 @@ body.link-icon :is(:is(.markdown-source-view, .markdown-preview-view) a.internal
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--link-color);
-  width: calc(var(--link-text-size) - var(--size-2-1));
-  height: calc(var(--link-text-size) - var(--size-2-1));
+  width: calc(var(--link-text-size) * 0.9);
+  height: calc(var(--link-text-size) * 0.9);
 }
-body.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved),
+.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved),
+:is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline):not(.cm-escape + .cm-link .cm-underline) {
+  padding-inline-end: var(--size-2-1);
+}
+.link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved),
 :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline):not(.cm-escape + .cm-link .cm-underline)::before {
   content: "";
   display: inline-block;
   transition: var(--animation);
-  margin-left: var(--size-2-1);
-  margin-right: var(--size-2-1);
+  transform: translateY(var(--size-2-1));
+  margin-inline: var(--size-2-1);
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/><path d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--link-external-color);
-  width: calc(var(--link-text-size) - var(--size-2-1));
-  height: calc(var(--link-text-size) - var(--size-2-1));
+  width: calc(var(--link-text-size) * 0.85);
+  height: calc(var(--link-text-size) * 0.85);
 }
-body.link-icon:not(.link-click-to-edit-in-live-preview) a.external-link {
+.link-icon:not(.link-click-to-edit-in-live-preview) a.external-link {
   background-image: none;
   background-size: unset;
   padding-right: 0;
 }
-body.link-icon:not(.link-click-to-edit-in-live-preview) span.external-link {
+.link-icon:not(.link-click-to-edit-in-live-preview) span.external-link {
   display: none;
 }
 
@@ -3777,8 +3783,7 @@ body:is(:not(.css-settings-manager), .list-enable) :is(.markdown-source-view, .m
   border-width: var(--size-2-1);
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .task-list-item-checkbox {
-  margin-inline-start: 0.3rem;
-  margin-inline-end: var(--size-4-1);
+  --checkbox-margin-inline-start: var(--size-4-1);
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-preview-view .task-list-item-checkbox {
   margin-inline-start: calc(var(--checkbox-size) * -1.3);
@@ -3877,8 +3882,9 @@ body:is(:not(.css-settings-manager), .list-enable).list-checkbox-line {
 body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callout ul > li > ul > li {
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
 }
-body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callout .task-list-item {
-  margin-inline-start: calc(var(--font-text-size) / 1.5);
+body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callout .task-list-item-checkbox {
+  vertical-align: middle;
+  margin-inline-start: calc(var(--checkbox-size) * -1.3);
 }
 
 body.list-enable .print {
@@ -4646,8 +4652,8 @@ body {
 }
 
 :is(body, .print .markdown-rendered) {
-  --tag-padding-x: 0.4rem;
-  --tag-padding-y: 0.05rem;
+  --tag-padding-x: var(--size-4-2);
+  --tag-padding-y: 0;
 }
 
 .cm-line span.cm-hashtag {
@@ -5627,12 +5633,6 @@ body #calendar-container .day {
 }
 
 /* #endregion calender */
-/* #region dbfolder */
-body.link-icon .database-plugin__embed-link-wrapper a.internal-link[class*=database-plugin]::before {
-  content: none;
-}
-
-/* #endregion dbfolder */
 /* #region git */
 .workspace-leaf-content[data-type=diff-view] .d2h-diff-table {
   font-family: var(--font-monospace);
@@ -5664,267 +5664,23 @@ body.link-icon .database-plugin__embed-link-wrapper a.internal-link[class*=datab
 
 /* #endregion git */
 /* #region my-snippets */
-.MySnippets-statusbar-menu {
-  --interactive-normal: var(--accent-inactive);
+.MS-OpenSnippet {
+  --interactive-normal: var(--accent-active);
+}
+:is(.MS-OpenSnippet, .MySnippetsButton) {
+  cursor: pointer;
 }
 
 /* #endregion my-snippets */
-/* #region banners */
-img.banner-image {
-  border-radius: 0;
-}
-
-.obsidian-banner-spacer {
-  height: 0;
-}
-
-.markdown-source-view .cm-content:has(.cm-line.has-banner) {
-  padding-top: calc(var(--banner-height) - var(--size-4-8) + 1.5rem) !important;
-}
-.markdown-source-view .obsidian-banner-spacer {
-  margin: 0 !important;
-}
-
-.markdown-preview-sizer > div.obsidian-banner-wrapper {
-  position: initial !important;
-  margin-top: var(--banner-height);
-}
-
-/* #endregion banners */
-/* #region kanban */
-body {
-  --kanban-item-color: var(--setting-kanban-item-color, var(--text-normal));
-  --kanban-item-bg: var(
-    --setting-kanban-item-bg,
-    hsl(var(--background-primary-hsl))
-  );
-  --kanban-board-bg: var(
-    --setting-kanban-board-bg,
-    hsl(var(--background-secondary-hsl))
-  );
-}
-
-:is(.kanban-plugin, .kanban-plugin__item, .kanban-plugin__lane) button {
-  line-height: normal;
-  padding-block: 0;
-}
-:is(.kanban-plugin__item-action-add, .kanban-plugin__lane-action-add) {
-  color: var(--accent-active);
-}
-:is(.kanban-plugin__item-action-add, .kanban-plugin__lane-action-add):hover {
-  background-color: var(--accent-active);
-  color: var(--text-on-accent);
-}
-.kanban-plugin__lane {
-  background: var(--kanban-board-bg);
-}
-.kanban-plugin__lane-form-wrapper {
-  background: var(--kanban-board-bg);
-  border: 1px solid var(--background-modifier-border-hover);
-  box-shadow: var(--shadow-s);
-}
-.kanban-plugin__lane-form-wrapper textarea {
-  padding: var(--size-4-1) var(--size-2-3);
-}
-.kanban-plugin__grow-wrap > textarea, .kanban-plugin__grow-wrap:after {
-  border-radius: var(--radius-s);
-  box-sizing: border-box;
-  transition: box-shadow var(--animation) !important;
-}
-.kanban-plugin__new-item-button {
-  background-color: var(--kanban-item-bg) !important;
-  transition: var(--animation);
-}
-.kanban-plugin__new-item-button:hover {
-  color: var(--accent-active);
-}
-.kanban-plugin__item-form .kanban-plugin__item-input-wrapper {
-  padding: 0;
-  height: 100%;
-}
-.kanban-plugin__item-form .kanban-plugin__item-input-wrapper * {
-  height: 100%;
-}
-.kanban-plugin__item-form .kanban-plugin__item-input-wrapper textarea {
-  padding: var(--size-2-1) var(--size-2-3);
-}
-.kanban-plugin__item-title-wrapper {
-  background: var(--kanban-item-bg);
-}
-.kanban-plugin__item-title-wrapper p {
-  color: var(--kanban-item-color);
-}
-.kanban-plugin__item-title-wrapper:has(.kanban-plugin__item-input-wrapper) {
-  background: var(--background-modifier-form-field);
-}
-.kanban-plugin__item-postfix-button {
-  padding: var(--size-4-1);
-  margin-left: var(--size-2-3);
-  margin-right: calc(var(--size-2-1) * -1);
-}
-.kanban-plugin__lane-title .kanban-plugin__lane-input {
-  padding-inline: var(--size-2-3);
-}
-.kanban-plugin__lane a[aria-label=Close] {
-  padding: var(--size-4-1);
-  margin-left: var(--size-2-3);
-  margin-right: calc(var(--size-2-1) * -1);
-}
-.kanban-plugin__markdown-preview-view :is(ul, ol) {
-  padding-inline-start: var(--size-4-8);
-}
-.kanban-plugin__markdown-preview-view :is(ul, ol) li {
-  margin: 0 !important;
-  line-height: var(--line-height-tight) !important;
-}
-.kanban-plugin__markdown-preview-view img {
-  pointer-events: none !important;
-}
-.kanban-plugin__autocomplete {
-  backdrop-filter: blur(var(--size-4-8));
-  padding-inline: var(--size-2-2);
-  animation: op var(--animation);
-  border-radius: var(--radius-m);
-  border: 1px solid var(--background-modifier-border);
-  box-shadow: var(--shadow-s);
-  z-index: var(--layer-notice);
-}
-.kanban-plugin__autocomplete-item, .kanban-plugin__autocomplete-item-active {
-  border: none;
-  border-radius: var(--radius-s);
-  margin-block: var(--size-4-1) !important;
-}
-.kanban-plugin__autocomplete-item *, .kanban-plugin__autocomplete-item-active * {
-  opacity: 1 !important;
-  transition: none !important;
-}
-.kanban-plugin__autocomplete-item-active * {
-  color: var(--text-on-accent) !important;
-}
-.kanban-plugin__autocomplete-item:hover {
-  background-color: var(--background-modifier-hover);
-  color: var(--text-normal);
-}
-.kanban-plugin * {
-  caret-color: var(--accent-active);
-}
-
-.kanban-plugin__board-settings-modal :is(.is-open .choices__list--dropdown, .choices__list--dropdown) {
-  background-color: var(--interactive-normal);
-}
-.kanban-plugin__board-settings-modal .choices {
-  border: none;
-  box-shadow: var(--input-shadow);
-  border-radius: var(--input-radius);
-  background-color: var(--interactive-normal);
-}
-.kanban-plugin__board-settings-modal .choices__inner {
-  border-radius: var(--input-radius);
-}
-.kanban-plugin__board-settings-modal .choices__list {
-  background-color: var(--interactive-normal);
-}
-.kanban-plugin__board-settings-modal .choices__list--dropdown {
-  border-radius: var(--input-radius);
-}
-.kanban-plugin__board-settings-modal .choices__list--dropdown:focus {
-  box-shadow: 0 0 0 3px var(--background-modifier-border-focus);
-}
-.kanban-plugin__board-settings-modal .choices__item--choice {
-  border-radius: var(--radius-s);
-}
-.kanban-plugin__board-settings-modal .choices::after {
-  content: var(--select-bg-img);
-  width: 1.2rem;
-  height: 1.2rem;
-  border: none;
-  margin-top: 0;
-  translate: 0 -50%;
-}
-.kanban-plugin__board-settings-modal .choices[data-type*=select-one].is-open:after {
-  margin-top: 0;
-}
-
-body.search-internal-enable .kanban-plugin__search-wrapper {
-  width: fit-content;
-  padding: var(--size-2-3) var(--size-2-3);
-  position: absolute;
-  background-color: var(--kanban-board-bg);
-  border: 1px solid var(--background-modifier-border-hover);
-  border-radius: var(--radius-m);
-  left: unset;
-  top: var(--size-2-3);
-  right: var(--size-2-3);
-}
-body.search-internal-enable .kanban-plugin__search-wrapper a[aria-label=Cancel] {
-  padding: var(--size-4-1);
-  margin-left: var(--size-2-2);
-}
-
-/* #endregion kanban */
-/* #region annotator */
-hypothesis-app {
-  --radius-base: 0.25rem;
-}
-hypothesis-app textarea {
-  color: var(--text-normal) !important;
-  border-bottom-left-radius: calc(var(--radius-base) * 4 / 5) !important;
-  border-bottom-right-radius: calc(var(--radius-base) * 4 / 5) !important;
-}
-hypothesis-app .Hyp-Card {
-  transition: var(--setting-animation-time, 200ms) ease;
-  border-radius: calc(var(--radius-base) * 2);
-}
-hypothesis-app :is(.Hyp-LabeledButton, .Hyp-TextInput) {
-  border-radius: var(--radius-base);
-}
-
-/* #endregion annotator */
 /* #region recent-files */
-.workspace-leaf-content[data-type=recent-files] .nav-file-title {
-  padding: var(--size-4-1) var(--size-4-2);
-  border-radius: var(--radius-s);
-}
-.workspace-leaf-content[data-type=recent-files] .nav-file-title:hover {
-  background-color: var(--nav-item-background-hover);
-}
-.workspace-leaf-content[data-type=recent-files] .nav-file-title:hover:not(.is-active) .recent-files-file-delete {
-  color: var(--accent-active);
-}
-.workspace-leaf-content[data-type=recent-files] .nav-file-title.is-active {
-  background-color: var(--accent-active);
-}
-.workspace-leaf-content[data-type=recent-files] .nav-file-title.is-active::after {
-  content: none;
-}
 .workspace-leaf-content[data-type=recent-files] .recent-files-file-delete {
+  margin-inline-end: var(--size-4-1);
+}
+.workspace-leaf-content[data-type=recent-files] .is-active .recent-files-file-delete {
   color: var(--text-on-accent);
-  transform: translateY(var(--size-4-1));
 }
 
 /* #endregion recent-files */
-/* #region markmap */
-body .markmap {
-  font: var(--font-text-size) var(--font-text);
-}
-body .mm-toolbar {
-  background-color: var(--status-bar-background);
-  border-color: var(--status-bar-border-color);
-}
-
-/* #endregion markmap */
-/* #region edit-toolbar */
-body.search-internal-enable :is(.cMenuToolbarpopover + .document-search-container.top,
-.document-search-container:has(+ #cMenuToolbarModalBar.top)) {
-  top: var(--size-4-12);
-  right: var(--size-2-2);
-}
-
-#cMenuToolbarModalBar.top {
-  margin: var(--size-2-2);
-}
-
-/* #endregion edit-toolbar */
 /* #region shiki */
 .code-mac-style-header .cm-preview-code-block[class*=cm-lang]:not(.cm-lang-query) .edit-block-button {
   color: #ddd;
@@ -5948,11 +5704,11 @@ body.search-internal-enable :is(.cMenuToolbarpopover + .document-search-containe
 body.search-internal-enable .document-search-container {
   background-color: var(--background-secondary) !important;
   position: absolute;
-  top: var(--size-4-2);
+  top: var(--size-4-10);
   right: var(--size-4-4);
   border-radius: var(--radius-m);
   height: fit-content;
-  border: var(--size-2-1) solid var(--frame-outline-color);
+  border: var(--size-2-1) solid var(--tab-outline-color);
   box-shadow: var(--shadow-s);
   margin: 0;
 }
@@ -6159,7 +5915,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.8");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.9");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6306,7 +6062,7 @@ body.enable-group-title .modal-container .mod-settings .modal-content .vertical-
   content: "";
   display: inline-block;
   translate: 0 var(--size-2-1);
-  margin-right: var(--size-2-1);
+  margin-right: var(--size-4-1);
   -webkit-mask: var(--settings-icon) no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
@@ -7381,11 +7137,9 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsuppor
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title .nav-file-tag {
-  background-color: var(--accent-inactive);
-  color: var(--text-muted);
-}
-body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title-content + .nav-file-tag {
-  margin-left: var(--size-2-3);
+  margin-right: var(--size-2-3);
+  background-color: var(--background-modifier-hover);
+  color: var(--text-accent);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-active:not(.is-selected) {
   color: var(--text-on-accent);
@@ -7396,14 +7150,14 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-active:n
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-active:not(.is-selected) .nav-file-title-content {
   color: var(--text-on-accent);
 }
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-active:not(.is-selected) .nav-file-tag {
+  border: 1px solid var(--text-accent);
+  background-color: transparent;
+  border-color: var(--accent-inactive);
+  color: var(--text-on-accent);
+}
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title-content {
   padding-left: var(--size-4-1);
-}
-body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-tag {
-  font-size: var(--size-4-2);
-  margin-left: 0;
-  margin-right: var(--size-4-2);
-  line-height: 2;
 }
 
 body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content) {
