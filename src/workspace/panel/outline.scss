@@ -124,8 +124,7 @@ body.outline-enable {
       }
 
       > .tree-item-children > .tree-item:hover {
-        &::after,
-        & ~ .tree-item::after {
+        :is(&, & ~ .tree-item)::after {
           background-color: transparent;
         }
 

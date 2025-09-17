@@ -280,7 +280,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         title: { en: 'Hover Line Indicator', zh: '鼠标悬停行指示器' },
         desc: {
           en: 'Reference: https://github.com/Akifyss/obsidian-border',
-          zh: '参考项目：https://github.com/Akifyss/obsidian-border',
+          zh: '参考：https://github.com/Akifyss/obsidian-border',
         },
       },
       {
@@ -845,8 +845,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           zh: 'Logseq Bullet Thread 样式的列表',
         },
         desc: {
-          en: 'No support for task lists and numbered lists. Reference: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1.',
-          zh: '不支持任务列表和序号列表。参考项目：https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1',
+          en: 'Only support bullet list in Live Preview mode. Reference: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1.',
+          zh: '仅支持实时预览模式中的无序列表。参考：https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1',
         },
       },
       { enable: true },

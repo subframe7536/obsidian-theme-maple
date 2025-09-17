@@ -77,10 +77,6 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
       > .cm-hmd-list-indent {
       &::after {
         $prev-level: $current-level - 1;
-        // --list-threading-color: var(
-        //   --list-threading-color-#{$current-level},
-        //   var(--accent-active)
-        // );
         --list-threading-offset: calc(
           var(--list-indent-editing) +
             #{$prev-level} *

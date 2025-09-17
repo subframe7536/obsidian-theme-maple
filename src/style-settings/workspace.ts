@@ -20,7 +20,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       title: { en: 'Colorful Titlebar', zh: '多彩 Obsidian 标题栏' },
       desc: {
         en: 'Reference: https://github.com/kepano/obsidian-minimal',
-        zh: '参考项目：https://github.com/kepano/obsidian-minimal',
+        zh: '参考：https://github.com/kepano/obsidian-minimal',
       },
     })
     .addClassToggle('app-bg-image-enable', {
@@ -117,7 +117,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
       desc: {
         en: 'Please reload Obsidian after enabling this feature. Reference: https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
-        zh: '启用此功能后请重启 Obsidian。参考项目：https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
+        zh: '启用此功能后请重启 Obsidian。参考：https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
       },
     })
     .addVarNumSlider(
@@ -311,8 +311,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         zh: '主导航栏添加文字',
       },
       desc: {
-        en: 'Reference from https://github.com/kepano/obsidian-minimal',
-        zh: '参考自 https://github.com/kepano/obsidian-minimal',
+        en: 'Reference: https://github.com/kepano/obsidian-minimal',
+        zh: '参考：https://github.com/kepano/obsidian-minimal',
       },
     })
     .addClassSelect(
