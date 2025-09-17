@@ -87,7 +87,7 @@ body.tab-title-bar-text-small .view-header {
 }
 
 body.tab-title-bar-text-hidden
-  .workspace-leaf-content:not([data-type='excalidraw'])
+  .workspace-leaf-content
   .view-header-title-container {
   opacity: 0;
   transition: var(--animation);

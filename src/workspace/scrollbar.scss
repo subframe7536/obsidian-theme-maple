@@ -1,6 +1,5 @@
 $base-panel: '.vertical-tab-header', '.vertical-tab-content',
-  '.nav-files-container',
-  '.workspace-leaf-content:not([data-type*="graph"],[data-type*="pdf"]) .view-content',
+  '.nav-files-container', '.workspace-leaf-content .view-content',
   '.search-result-container', '.git-view-body',
   '.suggestion-container .suggestion', '.prompt-results',
   '.community-modal-search-results-wrapper', '.community-modal-info',
@@ -12,15 +11,6 @@ $editor: '.markdown-source-view .cm-scroller', '.markdown-preview-view',
 
 $horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
   '.markdown-embed-content .markdown-rendered', 'pre code';
-
-$excalidraw: '.excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left,.scrollbar)',
-  '.excalidraw-contextMenuContainer .popover';
-
-$janitor: '.janitor-scan-results';
-
-$calendar: ".workspace-leaf-content[data-type='calendar'] .view-content";
-
-$plugins: $calendar, $janitor, $excalidraw;
 
 @property --scrollbar-color {
   syntax: '<color>';
@@ -85,7 +75,7 @@ body.scrollbar-enable:not(.is-mobile) {
   }
 
   &.scrollbar-movein-animation-enable {
-    :is(#{$base-panel}, #{$editor}, #{$horizon}, #{$plugins}) {
+    :is(#{$base-panel}, #{$editor}, #{$horizon}) {
       transition: --scrollbar-color var(--animation);
 
       &:hover {

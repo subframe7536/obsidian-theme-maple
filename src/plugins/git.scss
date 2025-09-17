@@ -1,5 +1,9 @@
-.workspace-leaf-content[data-type='diff-view'] .d2h-diff-table {
-  font-family: var(--font-monospace);
+@use '../utils.scss' as *;
+
+@include use-panel('diff-view') {
+  .d2h-diff-table {
+    font-family: var(--font-monospace);
+  }
 }
 
 .d2h-ins {

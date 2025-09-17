@@ -1,4 +1,4 @@
-@use '../utils';
+@use '../utils' as *;
 
 /* #region paragraph */
 
@@ -41,7 +41,7 @@ mjx-stretchy-h > mjx-ext > mjx-c::before {
 
 /* #region monospace */
 
-@include utils.use-no-plugin('.font-maple') {
+@include use-no-plugin('.font-maple') {
   --font-monospace-theme: 'maplemono';
 }
 
@@ -106,7 +106,7 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
   --active-line: var(--setting-line-active-color, var(--accent-h), 18%, 14%);
 }
 
-@include utils.use-no-plugin('.line-active-enable') {
+@include use-no-plugin('.line-active-enable') {
   .workspace-leaf.mod-active
     .markdown-source-view
     .cm-scroller
@@ -354,10 +354,10 @@ a :is(em, strong) {
 
 /* #region others */
 
-.workspace-leaf-content[data-type='markdown']
-  .view-header
-  .clickable-icon:hover {
-  background-color: var(--background-modifier-hover);
+@include use-panel('markdown') {
+  .view-header .clickable-icon:hover {
+    background-color: var(--background-modifier-hover);
+  }
 }
 
 .cm-hmd-frontmatter {
