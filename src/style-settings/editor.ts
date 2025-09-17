@@ -2,12 +2,12 @@ import { descValidCSS, Settings } from './generator'
 
 export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, {
-    title: { en: 'Editor Background Image', zh: '编辑器背景图片' },
+    title: { en: 'Editor Background Pattern', zh: '编辑器背景图案' },
   })
     .addClassSelect(
-      'editor-bg-type',
+      'editor-bg-pattern',
       {
-        title: { en: 'Background Image Type', zh: '背景图片类型' },
+        title: { en: 'Pattern Style', zh: '图案风格' },
       },
       {
         allowEmpty: false,
@@ -17,17 +17,6 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           { label: 'Dots', value: 'editor-bg-grid-dots' },
           { label: 'Grid', value: 'editor-bg-grid-line' },
         ],
-      },
-    )
-    .addVarThemedColor(
-      'setting-editor-bg',
-      {
-        title: { en: 'Editor Background Color', zh: '编辑器背景颜色' },
-      },
-      {
-        format: 'hsl-values',
-        defaultLight: '#',
-        defaultDark: '#',
       },
     )
     .addVarThemedColor(
@@ -69,11 +58,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           zh: '用于引用、代码块、表格等元素',
         },
       },
-      {
-        format: 'hsl-values',
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hsl-values',
     ),
   Settings.ofLevel(1, {
     title: { en: 'Font', zh: '字体' },
@@ -83,11 +68,11 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: {
           en: 'Use "Maple Mono" as Monospace Font',
-          zh: '使用“Maple Mono”作为等宽字体',
+          zh: '使用 “Maple Mono” 作为等宽字体',
         },
         desc: {
-          en: 'https://github.com/subframe7536/Maple-font',
-          zh: 'https://github.com/subframe7536/Maple-font',
+          en: 'https://github.com/subframe7536/maple-font',
+          zh: 'https://github.com/subframe7536/maple-font',
         },
       },
       { enable: true },
@@ -110,12 +95,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Editor Text Color', zh: '编辑器文本颜色' },
       },
-      {
-        format: 'hex',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addVarNumSlider(
       'setting-underline-offset',
@@ -142,12 +122,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: { en: 'Highlight Text Color', zh: '文本高亮文字颜色' },
           },
-          {
-            format: 'hex',
-            opacity: true,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
+          'hex',
         )
         .addVarNumSlider(
           'setting-text-highlight-radius',
@@ -180,12 +155,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: { en: 'Bold Text Color', zh: '粗体颜色' },
           },
-          {
-            format: 'hex',
-            opacity: true,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
+          'hex',
         )
         .addVarText(
           'setting-text-bold-style',
@@ -195,25 +165,17 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           },
           { default: 'underline dotted' },
         )
-        .addVarText(
-          'setting-text-bold-font',
-          {
-            title: { en: 'Bold Font', zh: '粗体字体' },
-          },
-          { default: "''" },
-        ),
+        .addVarText('setting-text-bold-font', {
+          title: { en: 'Bold Font', zh: '粗体字体' },
+          desc: descValidCSS('font-family'),
+        }),
       Settings.ofLevel(2, { title: { en: 'Italic', zh: '斜体' } })
         .addVarThemedColor(
           'setting-text-italic-color',
           {
             title: { en: 'Italic Text Color', zh: '斜体颜色' },
           },
-          {
-            format: 'hex',
-            opacity: true,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
+          'hex',
         )
         .addVarText(
           'setting-text-italic-style',
@@ -223,16 +185,13 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           },
           { default: 'underline dotted' },
         )
-        .addVarText(
-          'setting-text-italic-font',
-          {
-            title: { en: 'Italic Font', zh: '斜体字体' },
-          },
-          { default: "''" },
-        ),
+        .addVarText('setting-text-italic-font', {
+          title: { en: 'Italic Font', zh: '斜体字体' },
+          desc: descValidCSS('font-family'),
+        }),
     ]),
   Settings.ofLevel(1, {
-    title: { en: 'Line', zh: '行' },
+    title: { en: 'Line and Spacing', zh: '行和间距' },
   })
     .addVarNumSlider(
       'setting-editor-p-spacing',
@@ -267,10 +226,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'setting-file-line-width',
       {
         title: { en: 'Editor Line Width', zh: '编辑器行宽' },
-        desc: {
-          en: 'Dynamic width: clamp(MinWidth, WidthPercent, MaxWidth)',
-          zh: '动态宽度：clamp(最小值, 宽度百分比, 最大值)',
-        },
+        desc: descValidCSS('width'),
       },
       { default: 'clamp(600px, 72%, 850px)' },
     )
@@ -313,11 +269,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Active Line Color', zh: '高亮行颜色' },
       },
-      {
-        format: 'hsl-values',
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hsl-values',
     ),
   Settings.ofLevel(1, { title: { en: 'Link', zh: '链接' } })
     .addClassToggle('link-hover-expand', {
@@ -360,12 +312,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: { en: 'Internal Link Color', zh: '内部链接颜色' },
           },
-          {
-            format: 'rgb-values',
-            opacity: false,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
+          'rgb-values',
         )
         .addVarThemedColor(
           'setting-link-internal-color-underline',
@@ -375,24 +322,14 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
               zh: '内部链接下划线颜色',
             },
           },
-          {
-            format: 'rgb',
-            opacity: false,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
+          'rgb',
         )
         .addVarThemedColor(
           'setting-link-external-color',
           {
             title: { en: 'External Link Color', zh: '外部链接颜色' },
           },
-          {
-            format: 'rgb-values',
-            opacity: false,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
+          'rgb-values',
         )
         .addVarThemedColor(
           'setting-link-external-color-underline',
@@ -402,12 +339,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
               zh: '外部链接下划线颜色',
             },
           },
-          {
-            format: 'rgb',
-            opacity: false,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
+          'rgb',
         ),
     ]),
   Settings.ofLevel(1, { title: { en: 'Heading', zh: '标题' } })
@@ -478,72 +410,42 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
               {
                 title: { en: 'H1 Color', zh: '标题 1 颜色' },
               },
-              {
-                format: 'hex',
-                opacity: false,
-                defaultLight: '#',
-                defaultDark: '#',
-              },
+              'hex',
             )
             .addVarThemedColor(
               'setting-h2-color',
               {
                 title: { en: 'H2 Color', zh: '标题 2 颜色' },
               },
-              {
-                format: 'hex',
-                opacity: false,
-                defaultLight: '#',
-                defaultDark: '#',
-              },
+              'hex',
             )
             .addVarThemedColor(
               'setting-h3-color',
               {
                 title: { en: 'H3 Color', zh: '标题 3 颜色' },
               },
-              {
-                format: 'hex',
-                opacity: false,
-                defaultLight: '#',
-                defaultDark: '#',
-              },
+              'hex',
             )
             .addVarThemedColor(
               'setting-h4-color',
               {
                 title: { en: 'H4 Color', zh: '标题 4 颜色' },
               },
-              {
-                format: 'hex',
-                opacity: false,
-                defaultLight: '#',
-                defaultDark: '#',
-              },
+              'hex',
             )
             .addVarThemedColor(
               'setting-h5-color',
               {
                 title: { en: 'H5 Color', zh: '标题 5 颜色' },
               },
-              {
-                format: 'hex',
-                opacity: false,
-                defaultLight: '#',
-                defaultDark: '#',
-              },
+              'hex',
             )
             .addVarThemedColor(
               'setting-h6-color',
               {
                 title: { en: 'H6 Color', zh: '标题 6 颜色' },
               },
-              {
-                format: 'hex',
-                opacity: false,
-                defaultLight: '#',
-                defaultDark: '#',
-              },
+              'hex',
             ),
         ]),
       Settings.ofLevel(2, { title: { en: 'Heading Size', zh: '标题大小' } })
@@ -615,48 +517,30 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           title: { en: 'Add Underline for H6', zh: '为 H6 添加下划线' },
         }),
       Settings.ofLevel(2, { title: { en: 'Heading Font', zh: '标题字体' } })
-        .addVarText(
-          'setting-h1-font',
-          {
-            title: { en: 'H1 Font', zh: '标题 1 字体' },
-          },
-          { default: "''" },
-        )
-        .addVarText(
-          'setting-h2-font',
-          {
-            title: { en: 'H2 Font', zh: '标题 2 字体' },
-          },
-          { default: "''" },
-        )
-        .addVarText(
-          'setting-h3-font',
-          {
-            title: { en: 'H3 Font', zh: '标题 3 字体' },
-          },
-          { default: "''" },
-        )
-        .addVarText(
-          'setting-h4-font',
-          {
-            title: { en: 'H4 Font', zh: '标题 4 字体' },
-          },
-          { default: "''" },
-        )
-        .addVarText(
-          'setting-h5-font',
-          {
-            title: { en: 'H5 Font', zh: '标题 5 字体' },
-          },
-          { default: "''" },
-        )
-        .addVarText(
-          'setting-h6-font',
-          {
-            title: { en: 'H6 Font', zh: '标题 6 字体' },
-          },
-          { default: "''" },
-        ),
+        .addVarText('setting-h1-font', {
+          title: { en: 'H1 Font', zh: '标题 1 字体' },
+          desc: descValidCSS('font-family'),
+        })
+        .addVarText('setting-h2-font', {
+          title: { en: 'H2 Font', zh: '标题 2 字体' },
+          desc: descValidCSS('font-family'),
+        })
+        .addVarText('setting-h3-font', {
+          title: { en: 'H3 Font', zh: '标题 3 字体' },
+          desc: descValidCSS('font-family'),
+        })
+        .addVarText('setting-h4-font', {
+          title: { en: 'H4 Font', zh: '标题 4 字体' },
+          desc: descValidCSS('font-family'),
+        })
+        .addVarText('setting-h5-font', {
+          title: { en: 'H5 Font', zh: '标题 5 字体' },
+          desc: descValidCSS('font-family'),
+        })
+        .addVarText('setting-h6-font', {
+          title: { en: 'H6 Font', zh: '标题 6 字体' },
+          desc: descValidCSS('font-family'),
+        }),
     ]),
   Settings.ofLevel(1, { title: { en: 'Horizontal Rule', zh: '分隔线' } })
     .addClassToggle(
@@ -700,36 +584,21 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Header Text Color', zh: '表头文字颜色' },
       },
-      {
-        format: 'hex',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addVarThemedColor(
       'setting-table-header-bg',
       {
         title: { en: 'Header Background Color', zh: '表头背景颜色' },
       },
-      {
-        format: 'hex',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addVarThemedColor(
       'setting-table-line-bg',
       {
         title: { en: 'Striped Background Color', zh: '斑马纹背景颜色' },
       },
-      {
-        format: 'hex',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     ),
   Settings.ofLevel(1, { title: { en: 'Embed File', zh: '内嵌文件' } })
     .addClassToggle(
@@ -856,36 +725,21 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'List Marker Color', zh: '列表标记颜色' },
       },
-      {
-        format: 'hex',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addVarThemedColor(
       'setting-list-marker-alt',
       {
         title: { en: 'Alternate List Marker Color', zh: '列表标记颜色2' },
       },
-      {
-        format: 'hex',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addVarThemedColor(
       'setting-list-guide-color',
       {
         title: { en: 'List Guide Line Color', zh: '列表引导线颜色' },
       },
-      {
-        format: 'hex',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .children([
       Settings.ofLevel(2, {
@@ -916,12 +770,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: { en: 'Checkbox Marker Color', zh: '复选框标记颜色' },
           },
-          {
-            format: 'hex',
-            opacity: false,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
+          'hex',
         )
         .addVarThemedColor(
           'setting-list-checkbox-color-hover',
@@ -931,12 +780,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
               zh: '复选框标记悬停颜色',
             },
           },
-          {
-            format: 'hex',
-            opacity: false,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
+          'hex',
         )
         .addVarThemedColor(
           'setting-list-checkbox-border',
@@ -946,12 +790,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
               zh: '复选框标记边框颜色',
             },
           },
-          {
-            format: 'hex',
-            opacity: false,
-            defaultLight: '#',
-            defaultDark: '#',
-          },
+          'hex',
         ),
     ]),
   Settings.ofLevel(1, { title: { en: 'Code', zh: '代码' } })
@@ -960,24 +799,14 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Inline Code Color', zh: '行内代码文字颜色' },
       },
-      {
-        format: 'hex',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addVarThemedColor(
       'setting-code-bg',
       {
         title: { en: 'Code Block Background Color', zh: '代码块背景颜色' },
       },
-      {
-        format: 'hex',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addClassToggle(
       'code-line-number',
@@ -1030,17 +859,13 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         zh: '在阅读视图下启用代码块背景',
       },
     })
-    .addVarText(
-      'setting-code-bg-outer',
-      {
-        title: {
-          en: 'Custom Code Block Background in Reading View',
-          zh: '自定义阅读视图下代码块背景',
-        },
-        desc: descValidCSS('background'),
+    .addVarText('setting-code-bg-outer', {
+      title: {
+        en: 'Custom Code Block Background in Reading View',
+        zh: '自定义阅读视图下代码块背景',
       },
-      { default: "''" },
-    )
+      desc: descValidCSS('background'),
+    })
     .addClassToggle('code-mac-style-header', {
       title: {
         en: 'Add Mac Style Code Block Header in Reading View',
@@ -1053,12 +878,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Language Indicator Color', zh: '语言标识颜色' },
       },
-      {
-        format: 'hex',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addClassToggle(
       'code-theme',
@@ -1100,36 +920,21 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Tag Background Color', zh: '标签背景颜色' },
       },
-      {
-        format: 'hex',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addVarThemedColor(
       'setting-tag-color',
       {
         title: { en: 'Tag Text Color', zh: '标签文字颜色' },
       },
-      {
-        format: 'hex',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addVarThemedColor(
       'setting-tag-border',
       {
         title: { en: 'Tag Border Color', zh: '标签边框颜色' },
       },
-      {
-        format: 'hex',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     ),
   Settings.ofLevel(1, { title: { en: 'Canvas', zh: '白板' } })
     .addClassToggle('canvas-group-hide', {

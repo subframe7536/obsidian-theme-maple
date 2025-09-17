@@ -202,7 +202,6 @@ body.scrollbar-hide
     [data-id='scrollbar-movein-animation'],
     [data-id='scrollbar-gutter']
   ),
-body:not(.status-bar-enable) .setting-item[data-id*='status-bar-style'],
 :is(body.status-bar-scroll, body:not(.status-bar-style-float))
   .setting-item[data-id='status-bar-style-center'],
 body:not(.loading-text) .setting-item[data-id='loading-text-content'],

@@ -332,6 +332,11 @@ button {
   background-image: var(--select-bg-img) !important;
 }
 
+.flair.mod-pop {
+  --flair-background: var(--background-modifier-hover);
+  --flair-color: var(--text-accent);
+}
+
 .modal-container {
   .is-loading {
     position: initial;

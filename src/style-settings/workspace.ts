@@ -17,7 +17,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       { enable: true },
     )
     .addClassToggle('titlebar-colorful', {
-      title: { en: 'Colorful Titlebar', zh: '多彩 Obsidian 标题栏' },
+      title: { en: 'Colorful Style Titlebar', zh: '多彩 Obsidian 标题栏' },
       desc: {
         en: 'Reference: https://github.com/kepano/obsidian-minimal',
         zh: '参考：https://github.com/kepano/obsidian-minimal',
@@ -144,12 +144,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           zh: '引导线颜色',
         },
       },
-      {
-        defaultLight: '#',
-        defaultDark: '#',
-        format: 'hsl',
-        opacity: true,
-      },
+      'hsl',
     )
     .addVarThemedColor(
       'setting-outline-dot-color',
@@ -159,12 +154,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           zh: '引导点颜色',
         },
       },
-      {
-        defaultDark: '#',
-        defaultLight: '#',
-        format: 'hsl',
-        opacity: true,
-      },
+      'hsl',
     ),
 
   Settings.ofLevel(1, {
@@ -177,8 +167,12 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       'search-internal-enable',
       {
         title: {
-          en: 'Float Panel (VSCode Style)',
-          zh: '浮动面板（VSCode 风格）',
+          en: 'Enable Floating Style',
+          zh: '启用浮动风格',
+        },
+        desc: {
+          en: "Similar to VSCode's document search widget",
+          zh: '和 VSCode 的文档搜索框类似',
         },
       },
       { enable: true },
@@ -196,33 +190,18 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, { title: { en: 'Graph Panel', zh: '关系图谱面板' } })
     .addVarThemedColor(
       'setting-graph-node',
-      { title: { en: 'Node Color', zh: '普通节点颜色' } },
-      {
-        format: 'rgb-values',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      { title: { en: 'Normal Node Color', zh: '普通节点颜色' } },
+      'hex',
     )
     .addVarThemedColor(
       'setting-graph-node-unresolved',
       { title: { en: 'Unresolved Node Color', zh: '未连接节点颜色' } },
-      {
-        format: 'rgb-values',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addVarThemedColor(
       'setting-graph-node-focus',
       { title: { en: 'Focused Node Color', zh: '聚焦节点颜色' } },
-      {
-        format: 'rgb-values',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     ),
   Settings.ofLevel(1, {
     title: { en: 'Modal and Setting Panel', zh: '模态框与设置面板' },
@@ -230,7 +209,10 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addClassToggle(
       'modal-blur',
       {
-        title: { en: 'Enable Modal Background Blur', zh: '启用模态框背景模糊' },
+        title: {
+          en: 'Enable Blurred Modal Background',
+          zh: '启用模态框背景模糊',
+        },
         desc: {
           en: 'If scrolling experiences delay, try disabling this option',
           zh: '如果滚动时出现卡顿，请尝试关闭此选项',
@@ -250,7 +232,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     })
     .addVarText(
       'setting-modal-header-title',
-      { title: { en: 'Set Modal Header Title', zh: '设置模态框标题' } },
+      { title: { en: 'Setting Panel Header Title', zh: '设置面板标题' } },
       { default: `'maple ${version}'` },
     )
     .addClassToggle(
@@ -284,7 +266,10 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addClassToggle(
       'modal-animation',
       {
-        title: { en: 'Modal Show Up Animation', zh: '模态框进入动画' },
+        title: {
+          en: 'Add Show Up Animation for Modal',
+          zh: '为模态框添加显现动画',
+        },
       },
       { enable: true },
     ),
@@ -327,9 +312,9 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         allowEmpty: false,
         default: 'tab-show-close-default',
         options: [
-          { label: 'Default', value: 'tab-show-close-default' },
-          { label: 'On hover', value: 'tab-show-close-all' },
-          { label: 'On hover except active tab', value: 'tab-show-close-part' },
+          { label: 'Always', value: 'tab-show-close-default' },
+          { label: 'Hover only', value: 'tab-show-close-all' },
+          { label: 'Hover only or active tab', value: 'tab-show-close-part' },
         ],
       },
     )
@@ -347,19 +332,14 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         options: [
           { label: 'Default', value: 'tab-title-bar-text-default' },
           { label: 'Small size', value: 'tab-title-bar-text-small' },
-          { label: 'Show on hover', value: 'tab-title-bar-text-hidden' },
+          { label: 'Hover only', value: 'tab-title-bar-text-hidden' },
         ],
       },
     ),
   Settings.ofLevel(1, { title: { en: 'Status Bar', zh: '状态栏' } })
     .addClassToggle(
-      'status-bar-enable',
-      { title: { en: 'Custom Status Bar Style', zh: '自定义状态栏样式' } },
-      { enable: true },
-    )
-    .addClassToggle(
       'status-bar-style-float',
-      { title: { en: 'Enable Float Style', zh: '启用浮动样式' } },
+      { title: { en: 'Enable Floating Style', zh: '启用浮动风格' } },
       { enable: true },
     )
     .addClassSelect(
@@ -367,8 +347,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       {
         title: { en: 'Status Bar Animation', zh: '状态栏动画效果' },
         desc: {
-          en: 'Note: The last style option is only valid when "rounded status bar" is enabled',
-          zh: '注意：最后一种样式选项仅在启用"圆角状态栏"时生效',
+          en: 'Note: The "Auto scroll in" option is only effective when "Enable Floating Style" is on',
+          zh: '注意：“自动滚入”选项仅在"启用浮动风格"开启时生效',
         },
       },
       {
@@ -376,16 +356,16 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         default: 'status-bar-default',
         options: [
           { label: 'Default', value: 'status-bar-default' },
-          { label: 'Show on hover', value: 'status-bar-hidden' },
-          { label: 'Scroll out on hover', value: 'status-bar-scroll' },
+          { label: 'Auto hide', value: 'status-bar-hidden' },
+          { label: 'Auto scroll in', value: 'status-bar-scroll' },
         ],
       },
     )
     .addClassToggle('status-bar-style-center', {
-      title: { en: 'Center Status Bar', zh: '状态栏居中显示' },
+      title: { en: 'Centered Status Bar', zh: '状态栏居中显示' },
     }),
   Settings.ofLevel(1, {
-    title: { en: 'Tooltip and Notice', zh: '气泡提示框与通知' },
+    title: { en: 'Tooltip and Notice', zh: '提示框与通知' },
   })
     .addClassToggle('message-tooltip-hide-arrow', {
       title: { en: 'Hide Tooltip Arrow', zh: '隐藏气泡提示框箭头' },
@@ -397,7 +377,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       'message-modify',
       {
         title: {
-          en: 'Change Tooltip and Notice Color',
+          en: 'Modify Tooltip and Notice Color',
           zh: '修改气泡提示框和通知的颜色',
         },
       },
@@ -406,22 +386,12 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addVarThemedColor(
       'setting-message-bg',
       { title: { en: 'Background Color', zh: '背景颜色' } },
-      {
-        format: 'hsl-values',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     )
     .addVarThemedColor(
       'setting-message-fg',
       { title: { en: 'Foreground Color', zh: '文字颜色' } },
-      {
-        format: 'rgb-values',
-        opacity: false,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
+      'hex',
     ),
 
   Settings.ofLevel(1, { title: { en: 'Blurred Menu', zh: '菜单模糊效果' } })
@@ -451,7 +421,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     )
     .addClassSelect(
       'scrollbar-hover',
-      { title: { en: 'Scrollbar Hover Action', zh: '鼠标悬停时滚动条变化' } },
+      { title: { en: 'Scrollbar Hover Action', zh: '鼠标悬停时滚动条的变化' } },
       {
         allowEmpty: false,
         default: 'scrollbar-hover-accent',

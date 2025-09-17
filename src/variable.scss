@@ -46,6 +46,7 @@ body {
   // tree item color
   --nav-item-background-active: var(--accent-active);
   --nav-item-background-selected: var(--background-modifier-hover);
+  --line-height-tight: var(--setting-line-height-item, 1.5);
 
   --alt-light-accent-active: hsl(
     calc(var(--accent-h) + 60),

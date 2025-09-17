@@ -61,7 +61,6 @@ body {
   --file-folding-offset: 28px;
   --folder-color: rgb(var(--setting-color-dirs, #{to-rgb(hsl(46, 81%, 45%))}));
   --nav-item-size: calc(var(--size-4-4) * 0.9);
-  --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
   --nav-indentation-guide-width: 1.8px;
 }
@@ -84,10 +83,6 @@ body:not(.is-grabbing)
 .nav-folder-title.is-being-dragged {
   background-color: var(--accent-inactive);
   color: var(--text-normal);
-}
-
-@include use-panel('file-explorer') {
-  --line-height-tight: var(--explorer-item-height, 1.6);
 }
 
 body.theme-dark.explorer-icon .is-active .nav-file-tag {

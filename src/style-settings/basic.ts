@@ -4,14 +4,19 @@ export default Settings.create(
   'maple-basic',
   'Maple Color and Animation',
 ).children([
-  Settings.ofLevel(1, {
-    title: { en: 'Animation', zh: '动画' },
-  }).addVarNumSlider(
+  Settings.of().addVarNumSlider(
     'setting-animation-time',
     {
       title: { en: 'Animation Duration (ms)', zh: '动画持续时间（毫秒）' },
     },
     { default: 200, min: 0, max: 500, step: 50, format: 'ms' },
+  ),
+  Settings.of().addVarNumSlider(
+    'setting-line-height-item',
+    {
+      title: { en: 'List Item Line Height', zh: '列表行高' },
+    },
+    { default: 1.5, min: 1, max: 2, step: 0.1 },
   ),
   Settings.ofLevel(1, { title: { en: 'Accent Color', zh: '高亮颜色' } })
     .addClassToggle(

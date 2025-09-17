@@ -7,6 +7,9 @@ export function descValidCSS(property: string): Translate {
   if (property.startsWith('background')) {
     en += ', e.g. url("/your/image/url")'
     zh += '，例如：url("图片链接地址")'
+  } else if (property === 'width') {
+    en += ', e.g. clamp(MinWidth, WidthPercent, MaxWidth)'
+    zh += '，例如：clamp(最小值, 宽度百分比, 最大值)'
   }
 
   return { en, zh }
@@ -118,21 +121,11 @@ function flattenDoc(doc: Doc) {
  * ```
  */
 export class Settings {
-  public items: any[]
-  private constructor(public level: number, public doc: Doc, id?: string) {
-    id ??= [
-      'title',
-      ...doc.title.en.split(' ').map((s) => s.toLowerCase()),
-    ].join('-')
-    this.items = [
-      {
-        id,
-        ...flattenDoc(doc),
-        type: 'heading',
-        level,
-        collapsed: true,
-      },
-    ]
+  public items: any[] = []
+  private constructor(item?: Record<string, any>) {
+    if (item) {
+      this.items.push(item)
+    }
   }
 
   static create(id: string, name: string) {
@@ -150,8 +143,26 @@ export class Settings {
       },
     }
   }
+
+  static of() {
+    return new Settings()
+  }
+
   static ofLevel(level: number, doc: Doc & { id?: string }) {
-    return new Settings(level, doc, doc.id)
+    const defaultText = [
+      'title',
+      ...doc.title.en.split(' ').map((s) => s.toLowerCase()),
+    ].join('-')
+    const id = doc.id ?? defaultText
+    const item = {
+      id,
+      ...flattenDoc(doc),
+      type: 'heading',
+      level,
+      collapsed: true,
+    }
+
+    return new Settings(item)
   }
 
   children(items: Settings[]) {
@@ -195,7 +206,12 @@ export class Settings {
     })
     return this
   }
-  addVarText(id: string, doc: Doc, opt: { default: string; quotes?: boolean }) {
+  addVarText(
+    id: string,
+    doc: Doc,
+    opt: { default?: string; quotes?: boolean } = {},
+  ) {
+    opt.default ??= ''
     this.items.push({
       id,
       type: 'variable-text',
@@ -269,13 +285,23 @@ export class Settings {
   addVarThemedColor(
     id: string,
     doc: Doc,
-    opt: {
-      format: ColorFormat
-      opacity?: boolean
-      defaultLight: string
-      defaultDark: string
-    },
+    opt:
+      | {
+          format: ColorFormat
+          opacity?: boolean
+          defaultLight: string
+          defaultDark: string
+        }
+      | ColorFormat,
   ) {
+    if (typeof opt === 'string') {
+      opt = {
+        format: opt,
+        opacity: true,
+        defaultLight: '#',
+        defaultDark: '#',
+      }
+    }
     this.items.push({
       id,
       type: 'variable-themed-color',
