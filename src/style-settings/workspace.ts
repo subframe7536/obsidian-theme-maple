@@ -197,24 +197,24 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     }),
   Settings.ofLevel(1, {
     title: {
-      en: 'In-Document Search / Replace Panel',
-      zh: '文档内搜索/替换面板',
+      en: 'Search and Replace Panel',
+      zh: '搜索和替换面板',
     },
   })
     .addClassToggle(
       'search-internal-enable',
       {
         title: {
-          en: 'Minimal Document Search Panel (VSCode Style)',
-          zh: '精简的文档搜索面板（VSCode 风格）',
+          en: 'Float Panel (VSCode Style)',
+          zh: '浮动面板（VSCode 风格）',
         },
       },
       { enable: true },
     )
     .addClassToggle('search-remove-button', {
       title: {
-        en: 'Remove Buttons From Document Search Panel',
-        zh: '移除搜索面板中的按钮',
+        en: 'Remove Rarely Used Buttons',
+        zh: '移除不常用的按钮',
       },
       desc: {
         en: 'Removed buttons: Find All',

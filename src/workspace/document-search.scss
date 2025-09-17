@@ -16,9 +16,13 @@ body.search-internal-enable .document-search-container {
   right: var(--size-4-4);
   border-radius: var(--radius-m);
   height: fit-content;
-  border: var(--size-2-1) solid var(--tab-outline-color);
+  border: 1px solid var(--color-base-25) !important;
   box-shadow: var(--shadow-s);
   margin: 0;
+
+  :is(.document-replace, .document-search) {
+    gap: var(--size-4-1);
+  }
 
   .search-input-container {
     input {
@@ -33,6 +37,7 @@ body.search-internal-enable .document-search-container {
     }
 
     .document-search-count {
+      letter-spacing: -0.5px;
       background-color: var(--background-secondary);
       height: calc(var(--input-height) - var(--size-2-3));
       line-height: calc(var(--input-height) - var(--size-2-3));
@@ -80,18 +85,7 @@ body.search-remove-button {
     width: calc(100% - 2 * var(--size-4-3));
 
     :is(.document-search-input, .document-replace-input) {
-      min-width: 0;
+      min-width: unset;
     }
-  }
-}
-
-@container (max-width: 320px) {
-  body.search-internal-enable
-    .document-search-container
-    :is(
-      .document-search-buttons [aria-label='Shift + F3'],
-      .document-replace-buttons [aria-label='Ctrl + Alt + Enter']
-    ) {
-    display: none;
   }
 }

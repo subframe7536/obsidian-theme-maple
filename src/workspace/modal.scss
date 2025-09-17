@@ -405,21 +405,10 @@ button {
         transition: var(--animation);
       }
       .search-input-clear-button {
-        opacity: 0;
-        pointer-events: none;
+        right: calc(var(--size-4-6) + var(--size-2-1));
       }
       input {
-        padding-inline-end: var(--size-4-8);
-      }
-      &:focus-within {
-        .search-input-clear-button {
-          opacity: 1;
-          pointer-events: all;
-        }
-        & + button {
-          opacity: 0;
-          pointer-events: none;
-        }
+        padding-inline-end: var(--size-4-12);
       }
     }
   }
