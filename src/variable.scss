@@ -98,6 +98,11 @@ body {
 
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
   --background-primary: hsl(var(--background-primary-hsl));
+  --background-primary-alt: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) - 12%),
+    95%
+  );
   --background-secondary-hsl: calc(var(--accent-h) - 18),
     calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
   --background-secondary: hsl(var(--background-secondary-hsl));
@@ -138,12 +143,17 @@ body {
   @include var-color('blue', hsl(210, 100%, 78%));
   @include var-color('purple', hsl(247, 96%, 88%));
 
-  --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) / 4),
     calc(var(--accent-l) / 7);
-  --background-secondary: hsl(var(--background-secondary-hsl));
+  --background-primary: hsl(var(--background-primary-hsl));
+  --background-primary-alt: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) / 4),
+    calc(var(--accent-l) / 5)
+  );
   --background-secondary-hsl: calc(var(--accent-h) + 8),
     calc(var(--accent-s) / 6), calc(var(--accent-l) / 5);
+  --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(
     var(--accent-h),
     var(--accent-s),

@@ -31,7 +31,7 @@ body {
   --bg-surface: var(--background-secondary);
 }
 
-body.app-bg-image-enable {
+body.app-bg-image-enable:not(.is-mobile) {
   background-image: var(--app-bg-image);
   background-repeat: no-repeat;
   background-size: 100% 100%;

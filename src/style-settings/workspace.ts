@@ -28,6 +28,10 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         en: 'Add Background Image In Workspace',
         zh: '添加应用的背景图片',
       },
+      desc: {
+        en: 'Only works in Desktop Version',
+        zh: '只在桌面端生效',
+      },
     })
     .addVarText(
       'setting-app-bg-image-light',
