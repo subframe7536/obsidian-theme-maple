@@ -27,7 +27,7 @@ body.calendar-swap-year-month #calendar-container .nav {
       height: $height;
       line-height: $height;
       letter-spacing: 0.1rem;
-      font-weight: bold;
+      font-weight: 550;
       color: var(--accent-active);
     }
   }
@@ -61,7 +61,7 @@ body.calendar-swap-year-month #calendar-container .nav {
 
   th {
     padding: 2px 0 4px;
-    font-weight: bold;
+    font-weight: 550;
     letter-spacing: 0.1em;
   }
 

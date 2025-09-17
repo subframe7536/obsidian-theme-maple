@@ -227,7 +227,7 @@ body .markdown-rendered pre {
         content: 'Unkown';
         font-family: var(--font-mono);
         color: var(--setting-code-language-color, var(--inline-code));
-        font-weight: bold;
+        font-weight: 550;
         position: absolute;
         text-align: right;
         right: var(--size-4-8);
@@ -286,7 +286,7 @@ body .markdown-rendered pre {
   color: var(--inline-code);
   transition: var(--animation);
   font-family: var(--font-mono);
-  font-weight: bold;
+  font-weight: 550;
 
   &:hover {
     background-color: var(--nav-item-background-hover);
@@ -367,7 +367,7 @@ body .markdown-rendered pre {
   }
 
   .cm-type {
-    font-weight: bold;
+    font-weight: 550;
   }
 
   .cm-keyword {

@@ -165,7 +165,7 @@ body {
         top: var(--size-4-6);
         transform: translate(-50%, -50%);
         font-size: calc(1.4 * var(--size-4-4));
-        font-weight: bold;
+        font-weight: 550;
         color: var(--setting-color-logo, var(--logo-color-default));
         transition: var(--animation);
       }
@@ -358,7 +358,7 @@ button {
 
       &::before {
         content: var(--community-title);
-        font-weight: bold;
+        font-weight: 550;
         font-size: var(--font-ui-large);
         display: inline-block;
         margin-inline-start: var(--size-4-4);
@@ -415,7 +415,7 @@ button {
 
   .mod-settings .modal-content {
     .setting-item-heading .setting-item-name {
-      font-weight: bold;
+      font-weight: 550;
       font-size: var(--font-ui-medium);
     }
   }

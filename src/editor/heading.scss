@@ -13,10 +13,10 @@ body {
   --h6-size: calc(var(--font-text-size) * var(--setting-h6-size, 1.1));
   --h1-weight: 750;
   --h2-weight: 700;
-  --h3-weight: 650;
-  --h4-weight: 650;
-  --h5-weight: 600;
-  --h6-weight: 600;
+  --h3-weight: 600;
+  --h4-weight: 550;
+  --h5-weight: 500;
+  --h6-weight: 500;
   --h1-line-height: calc(
     var(--setting-line-height, var(--line-height-normal)) * var(--h1-size)
   );
