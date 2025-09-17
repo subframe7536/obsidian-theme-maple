@@ -56,47 +56,47 @@ body {
       margin-inline-end: var(--size-4-3) !important;
     }
   }
+}
 
-  &.quote-shadow .markdown-rendered blockquote {
-    box-shadow: var(--shadow-s);
+.quote-shadow .markdown-rendered blockquote {
+  box-shadow: var(--shadow-s);
+}
+
+.quote-border .markdown-rendered blockquote {
+  border: var(--block-outline-width) solid var(--background-modifier-border);
+  transition: var(--animation);
+  box-shadow: none;
+
+  &:hover {
+    border-color: var(--background-modifier-border-hover);
   }
 
-  &.quote-border .markdown-rendered blockquote {
-    border: var(--block-outline-width) solid var(--background-modifier-border);
-    transition: var(--animation);
-    box-shadow: none;
-
-    &:hover {
-      border-color: var(--background-modifier-border-hover);
-    }
-
-    &:active {
-      border-color: var(--background-modifier-border-focus);
-    }
-
-    blockquote {
-      margin: var(--block-outline-width);
-    }
+  &:active {
+    border-color: var(--background-modifier-border-focus);
   }
 
-  &.quote-mark {
-    &.quote-theme blockquote {
-      padding-left: $indent * 3.8;
+  blockquote {
+    margin: var(--block-outline-width);
+  }
+}
 
-      &::before {
-        position: absolute;
-        font-size: $mark-size;
-        font-family: Source Code Pro;
-        line-height: 1;
-        content: '“' !important;
-        background-color: transparent;
-        color: var(--text-muted);
-        top: calc(
-          var(--font-text-size) * var(--line-height-normal) -
-            math.div($mark-size, 1.6)
-        );
-        transform: translateX($indent * -2.7);
-      }
+.quote-mark {
+  &.quote-theme blockquote {
+    padding-left: $indent * 3.8;
+
+    &::before {
+      position: absolute;
+      font-size: $mark-size;
+      font-family: Source Code Pro;
+      line-height: 1;
+      content: '“' !important;
+      background-color: transparent;
+      color: var(--text-muted);
+      top: calc(
+        var(--font-text-size) * var(--line-height-normal) -
+          math.div($mark-size, 1.6)
+      );
+      transform: translateX($indent * -2.7);
     }
   }
 }

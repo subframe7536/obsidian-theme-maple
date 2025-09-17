@@ -15,15 +15,15 @@ body {
   vertical-align: baseline;
 }
 
-body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
+.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
   pointer-events: none;
 }
 
-body.tag-plain {
+.tag-plain {
   --tag-background: transparent;
 }
 
-body.tag-outline {
+.tag-outline {
   --tag-border-color: var(--setting-tag-outline, var(--text-accent)) !important;
   --tag-border-width: 1px !important;
   --tag-color: var(--setting-tag-color, var(--text-accent)) !important;
@@ -54,7 +54,7 @@ body.tag-outline {
   }
 }
 
-body.tag-fill {
+.tag-fill {
   --tag-background: var(--setting-tag-bg, var(--text-accent)) !important;
   --tag-background-hover: var(--tag-background);
   --tag-color: var(--text-on-accent);

@@ -7,7 +7,7 @@
   --metadata-label-background-active: var(--background-primary);
   --metadata-input-background-active: var(--background-primary);
 
-  body.prop-outline & {
+  .prop-outline & {
     transform: none;
     --metadata-padding: var(--radius-m);
     --metadata-background: var(--md-container-bg);

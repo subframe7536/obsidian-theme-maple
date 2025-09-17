@@ -144,7 +144,7 @@ body {
   }
 }
 
-body.table-colorful {
+.table-colorful {
   .markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table {
     --table-header-color: var(
       --setting-table-header-text,

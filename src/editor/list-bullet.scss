@@ -16,7 +16,7 @@ $action: '.cm-active';
 // $action: ':hover';
 $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
 
-body.list-enable.list-bullet-thread-style {
+.list-enable.list-bullet-thread-style {
   --list-threading-width: var(--size-2-1);
   --list-threading-color: var(
     --setting-list-guide-color,

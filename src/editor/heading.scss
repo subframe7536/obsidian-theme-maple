@@ -224,12 +224,12 @@ body.line-active-left .cm-active.HyperMD-header {
   }
 }
 
-body.heading-h1-center h1 {
+.heading-h1-center h1 {
   text-align: center;
 }
 
 @for $i from 1 through 6 {
-  body.heading-h#{$i}-underline {
+  .heading-h#{$i}-underline {
     --h#{$i}-line-height: calc(
       var(--setting-line-height, var(--line-height-normal)) *
         var(--h#{$i}-size) *
@@ -279,6 +279,6 @@ body.heading-h1-center h1 {
   }
 }
 
-body.heading-h6-variant :is(h6, .cm-header-6) {
+.heading-h6-variant :is(h6, .cm-header-6) {
   font-variant: small-caps;
 }

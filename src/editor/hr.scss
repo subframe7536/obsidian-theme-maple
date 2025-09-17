@@ -3,7 +3,7 @@
   margin-block-end: 2.4rem !important;
 }
 
-body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
+.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
   overflow: initial;
   border: none;
   position: relative;
