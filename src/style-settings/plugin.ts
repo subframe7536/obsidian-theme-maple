@@ -27,44 +27,4 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
       },
       { default: '500px' },
     ),
-  Settings.ofLevel(1, { title: { en: 'Kanban', zh: '看板' } })
-    .addVarThemedColor(
-      'setting-kanban-item-color',
-      {
-        title: { en: 'Kanban Item Font Color', zh: '看板项文字颜色' },
-      },
-      {
-        format: 'hex',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
-    )
-    .addVarThemedColor(
-      'setting-kanban-item-bg',
-      {
-        title: { en: 'Kanban Item Background Color', zh: '看板项背景色' },
-      },
-      {
-        format: 'hex',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
-    )
-    .addVarThemedColor(
-      'setting-kanban-board-bg',
-      {
-        title: {
-          en: 'Kanban Board Background Color',
-          zh: '看板版面背景色',
-        },
-      },
-      {
-        format: 'hex',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
-    ),
 ])

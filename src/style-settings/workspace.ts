@@ -3,7 +3,7 @@ import { version } from '../../package.json'
 
 export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, {
-    title: { en: 'Titlebar & Background Image', zh: '标题栏和背景图片' },
+    title: { en: 'Titlebar and Background Image', zh: '标题栏和背景图片' },
   })
     .addClassToggle(
       'titlebar-button-style',
@@ -108,7 +108,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
     ),
   Settings.ofLevel(1, {
-    title: { en: 'Outline Panel', zh: '文档大纲面板' },
+    title: { en: 'Outline Panel', zh: '大纲面板' },
   })
     .addClassToggle('outline-enable', {
       title: {
@@ -166,39 +166,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         opacity: true,
       },
     ),
-  Settings.ofLevel(1, { title: { en: 'Status Bar', zh: '状态栏' } })
-    .addClassToggle(
-      'status-bar-enable',
-      { title: { en: 'Custom Status Bar Style', zh: '自定义状态栏样式' } },
-      { enable: true },
-    )
-    .addClassToggle(
-      'status-bar-style-float',
-      { title: { en: 'Enable Float Style', zh: '启用浮动样式' } },
-      { enable: true },
-    )
-    .addClassSelect(
-      'status-bar-style',
-      {
-        title: { en: 'Status Bar Animation', zh: '状态栏动画效果' },
-        desc: {
-          en: 'Note: The last style option is only valid when "rounded status bar" is enabled',
-          zh: '注意：最后一种样式选项仅在启用"圆角状态栏"时生效',
-        },
-      },
-      {
-        allowEmpty: false,
-        default: 'status-bar-default',
-        options: [
-          { label: 'Default', value: 'status-bar-default' },
-          { label: 'Show on hover', value: 'status-bar-hidden' },
-          { label: 'Scroll out on hover', value: 'status-bar-scroll' },
-        ],
-      },
-    )
-    .addClassToggle('status-bar-style-center', {
-      title: { en: 'Center Status Bar', zh: '状态栏居中显示' },
-    }),
+
   Settings.ofLevel(1, {
     title: {
       en: 'Search and Replace Panel',
@@ -225,6 +193,101 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         zh: '已移除的按钮：查找全部',
       },
     }),
+  Settings.ofLevel(1, { title: { en: 'Graph Panel', zh: '关系图谱面板' } })
+    .addVarThemedColor(
+      'setting-graph-node',
+      { title: { en: 'Node Color', zh: '普通节点颜色' } },
+      {
+        format: 'rgb-values',
+        opacity: true,
+        defaultLight: '#',
+        defaultDark: '#',
+      },
+    )
+    .addVarThemedColor(
+      'setting-graph-node-unresolved',
+      { title: { en: 'Unresolved Node Color', zh: '未连接节点颜色' } },
+      {
+        format: 'rgb-values',
+        opacity: true,
+        defaultLight: '#',
+        defaultDark: '#',
+      },
+    )
+    .addVarThemedColor(
+      'setting-graph-node-focus',
+      { title: { en: 'Focused Node Color', zh: '聚焦节点颜色' } },
+      {
+        format: 'rgb-values',
+        opacity: true,
+        defaultLight: '#',
+        defaultDark: '#',
+      },
+    ),
+  Settings.ofLevel(1, {
+    title: { en: 'Modal and Setting Panel', zh: '模态框与设置面板' },
+  })
+    .addClassToggle(
+      'modal-blur',
+      {
+        title: { en: 'Enable Modal Background Blur', zh: '启用模态框背景模糊' },
+        desc: {
+          en: 'If scrolling experiences delay, try disabling this option',
+          zh: '如果滚动时出现卡顿，请尝试关闭此选项',
+        },
+      },
+      { enable: true },
+    )
+    .addClassToggle('modal-header', {
+      title: {
+        en: 'Add Header To Setting Panel',
+        zh: '为设置面板添加顶部标题',
+      },
+      desc: {
+        en: 'Works best with the "Setting Search" plugin; not valid on mobile',
+        zh: '配合“设置搜索”插件使用效果更佳，移动端无效',
+      },
+    })
+    .addVarText(
+      'setting-modal-header-title',
+      { title: { en: 'Set Modal Header Title', zh: '设置模态框标题' } },
+      { default: `'maple ${version}'` },
+    )
+    .addClassToggle(
+      'enable-group-title',
+      {
+        title: {
+          en: 'Add Icons For Left Navigation Group Title',
+          zh: '为左侧导航组标题添加图标',
+        },
+      },
+      { enable: true },
+    )
+    .addClassToggle(
+      'modal-slider',
+      { title: { en: 'Styled Slider Thumb', zh: '美化滑动条按钮' } },
+      { enable: true },
+    )
+    .addClassSelect(
+      'modal-toggle',
+      { title: { en: 'Styled Toggle Button', zh: '美化开关按钮' } },
+      {
+        allowEmpty: false,
+        default: 'modal-toggle-default',
+        options: [
+          { label: 'Default', value: 'modal-toggle-default' },
+          { label: 'Thin', value: 'modal-toggle-thin' },
+          { label: 'Round', value: 'modal-toggle-round' },
+        ],
+      },
+    )
+    .addClassToggle(
+      'modal-animation',
+      {
+        title: { en: 'Modal Show Up Animation', zh: '模态框进入动画' },
+      },
+      { enable: true },
+    ),
   Settings.ofLevel(1, { title: { en: 'Tab', zh: '标签页' } })
     .addClassToggle('tab-float', {
       title: {
@@ -288,8 +351,41 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         ],
       },
     ),
+  Settings.ofLevel(1, { title: { en: 'Status Bar', zh: '状态栏' } })
+    .addClassToggle(
+      'status-bar-enable',
+      { title: { en: 'Custom Status Bar Style', zh: '自定义状态栏样式' } },
+      { enable: true },
+    )
+    .addClassToggle(
+      'status-bar-style-float',
+      { title: { en: 'Enable Float Style', zh: '启用浮动样式' } },
+      { enable: true },
+    )
+    .addClassSelect(
+      'status-bar-style',
+      {
+        title: { en: 'Status Bar Animation', zh: '状态栏动画效果' },
+        desc: {
+          en: 'Note: The last style option is only valid when "rounded status bar" is enabled',
+          zh: '注意：最后一种样式选项仅在启用"圆角状态栏"时生效',
+        },
+      },
+      {
+        allowEmpty: false,
+        default: 'status-bar-default',
+        options: [
+          { label: 'Default', value: 'status-bar-default' },
+          { label: 'Show on hover', value: 'status-bar-hidden' },
+          { label: 'Scroll out on hover', value: 'status-bar-scroll' },
+        ],
+      },
+    )
+    .addClassToggle('status-bar-style-center', {
+      title: { en: 'Center Status Bar', zh: '状态栏居中显示' },
+    }),
   Settings.ofLevel(1, {
-    title: { en: 'Tooltip & Notice', zh: '气泡提示框与通知' },
+    title: { en: 'Tooltip and Notice', zh: '气泡提示框与通知' },
   })
     .addClassToggle('message-tooltip-hide-arrow', {
       title: { en: 'Hide Tooltip Arrow', zh: '隐藏气泡提示框箭头' },
@@ -301,7 +397,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       'message-modify',
       {
         title: {
-          en: 'Change Tooltip & Notice Color',
+          en: 'Change Tooltip and Notice Color',
           zh: '修改气泡提示框和通知的颜色',
         },
       },
@@ -327,71 +423,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         defaultDark: '#',
       },
     ),
-  Settings.ofLevel(1, {
-    title: { en: 'Modal & Setting Panel', zh: '模态框与设置面板' },
-  })
-    .addClassToggle(
-      'modal-blur',
-      {
-        title: { en: 'Enable Modal Background Blur', zh: '启用模态框背景模糊' },
-        desc: {
-          en: 'If scrolling experiences delay, try disabling this option',
-          zh: '如果滚动时出现卡顿，请尝试关闭此选项',
-        },
-      },
-      { enable: true },
-    )
-    .addClassToggle('modal-header', {
-      title: {
-        en: 'Add Header To Setting Panel',
-        zh: '为设置面板添加顶部标题',
-      },
-      desc: {
-        en: 'Works best with the "Setting Search" plugin; not valid on mobile',
-        zh: '配合“设置搜索”插件使用效果更佳，移动端无效',
-      },
-    })
-    .addVarText(
-      'setting-modal-header-title',
-      { title: { en: 'Set Modal Header Title', zh: '设置模态框标题' } },
-      { default: `'maple ${version}'` },
-    )
-    .addClassToggle(
-      'enable-group-title',
-      {
-        title: {
-          en: 'Add Icons For Left Navigation Group Title',
-          zh: '为左侧导航组标题添加图标',
-        },
-      },
-      { enable: true },
-    )
-    .addClassToggle(
-      'modal-slider',
-      { title: { en: 'Styled Slider Thumb', zh: '美化滑动条按钮' } },
-      { enable: true },
-    )
-    .addClassSelect(
-      'modal-toggle',
-      { title: { en: 'Styled Toggle Button', zh: '美化开关按钮' } },
-      {
-        allowEmpty: false,
-        default: 'modal-toggle-default',
-        options: [
-          { label: 'Default', value: 'modal-toggle-default' },
-          { label: 'Thin', value: 'modal-toggle-thin' },
-          { label: 'Round', value: 'modal-toggle-round' },
-        ],
-      },
-    )
-    .addClassToggle(
-      'modal-animation',
-      {
-        title: { en: 'Modal Show Up Animation', zh: '模态框进入动画' },
-      },
-      { enable: true },
-    ),
-  Settings.ofLevel(1, { title: { en: 'Menu Blur', zh: '菜单模糊' } })
+
+  Settings.ofLevel(1, { title: { en: 'Blurred Menu', zh: '菜单模糊效果' } })
     .addClassToggle(
       'menu-normal',
       { title: { en: 'Normal Menu', zh: '普通菜单' } },
@@ -439,37 +472,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         },
       },
       { enable: true },
-    ),
-  Settings.ofLevel(1, { title: { en: 'Graph', zh: '关系图谱' } })
-    .addVarThemedColor(
-      'setting-graph-node',
-      { title: { en: 'Node Color', zh: '普通节点颜色' } },
-      {
-        format: 'rgb-values',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
-    )
-    .addVarThemedColor(
-      'setting-graph-node-unresolved',
-      { title: { en: 'Unresolved Node Color', zh: '未连接节点颜色' } },
-      {
-        format: 'rgb-values',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
-    )
-    .addVarThemedColor(
-      'setting-graph-node-focus',
-      { title: { en: 'Focused Node Color', zh: '聚焦节点颜色' } },
-      {
-        format: 'rgb-values',
-        opacity: true,
-        defaultLight: '#',
-        defaultDark: '#',
-      },
     ),
   Settings.ofLevel(1, {
     title: { en: 'PDF Export', zh: 'PDF 导出' },
