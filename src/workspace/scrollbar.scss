@@ -7,13 +7,11 @@ $base-panel: '.vertical-tab-header', '.vertical-tab-content',
   '.modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin)',
   '.tag-container', '.backlink-pane';
 
-$editor: '.markdown-source-view .cm-scroller', '.markdown-preview-view';
+$editor: '.markdown-source-view .cm-scroller', '.markdown-preview-view',
+  '.pdf-thumbnail-view', '.pdf-viewer-container';
 
 $horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
   '.markdown-embed-content .markdown-rendered', 'pre code';
-
-$kanban: '.kanban-plugin__board', '.kanban-plugin__lane-items',
-  '.kanban-plugin__autocomplete';
 
 $excalidraw: '.excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left,.scrollbar)',
   '.excalidraw-contextMenuContainer .popover';
@@ -22,7 +20,7 @@ $janitor: '.janitor-scan-results';
 
 $calendar: ".workspace-leaf-content[data-type='calendar'] .view-content";
 
-$plugins: $calendar, $janitor, $excalidraw, $kanban;
+$plugins: $calendar, $janitor, $excalidraw;
 
 @property --scrollbar-color {
   syntax: '<color>';

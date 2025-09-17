@@ -46,6 +46,7 @@ body.app-bg-image-enable {
       max(var(--bg-opacity), var(--editor-min-opacity))
     );
     --bg-surface: hsla(var(--background-primary-hsl), var(--bg-opacity));
+    --pdf-background: transparent;
   }
 
   &.theme-light {
@@ -94,7 +95,8 @@ body.app-bg-image-enable {
       .workspace-split:not(.mod-root) .workspace-tabs .workspace-leaf,
       .workspace-split.mod-root
         .workspace-tabs:not(.mod-stacked)
-        .workspace-leaf
+        .workspace-leaf,
+      .pdf-toolbar
     ) {
     background-color: transparent;
   }
