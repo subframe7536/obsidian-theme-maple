@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.9 For Obsidian */
+/* Maple Theme v1.0.0-beta.10 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Color and Animation
@@ -201,9 +201,8 @@ settings:
       type: variable-text
       title: Light Theme Background Image URL
       title.zh: 浅色主题背景图片地址
-      description: Any valid CSS property value of "background-image" (e.g.
-          'url("/your/image/url')')
-      description.zh: 任何有效的 CSS “background-image” 值 (例如：'url("图片链接地址')')
+      description: Any CSS "background-image" value, e.g. url("/your/image/url")
+      description.zh: 任何 CSS “background-image” 值，例如：url("图片链接地址")
       default: ""
     - id: setting-app-bg-opacity-light
       type: variable-number-slider
@@ -217,9 +216,8 @@ settings:
       type: variable-text
       title: Dark Theme Background Image URL
       title.zh: 深色主题背景图片地址
-      description: Any valid CSS property value of "background-image" (e.g.
-          'url("/your/image/url')')
-      description.zh: 任何有效的 CSS “background-image” 值 (例如：'url("图片链接地址')')
+      description: Any CSS "background-image" value, e.g. url("/your/image/url")
+      description.zh: 任何 CSS “background-image” 值，例如：url("图片链接地址")
       default: ""
     - id: setting-app-bg-opacity-dark
       type: variable-number-slider
@@ -339,21 +337,21 @@ settings:
       type: class-toggle
       title: Center Status Bar
       title.zh: 状态栏居中显示
-    - id: title-in-document-search-/-replace-panel
-      title: In-Document Search / Replace Panel
-      title.zh: 文档内搜索/替换面板
+    - id: title-search-and-replace-panel
+      title: Search and Replace Panel
+      title.zh: 搜索和替换面板
       type: heading
       level: 1
       collapsed: true
     - id: search-internal-enable
       type: class-toggle
-      title: Minimal Document Search Panel (VSCode Style)
-      title.zh: 精简的文档搜索面板（VSCode 风格）
+      title: Float Panel (VSCode Style)
+      title.zh: 浮动面板（VSCode 风格）
       default: true
     - id: search-remove-button
       type: class-toggle
-      title: Remove Buttons From Document Search Panel
-      title.zh: 移除搜索面板中的按钮
+      title: Remove Rarely Used Buttons
+      title.zh: 移除不常用的按钮
       description: "Removed buttons: Find All"
       description.zh: 已移除的按钮：查找全部
     - id: title-tab
@@ -463,7 +461,7 @@ settings:
       type: variable-text
       title: Set Modal Header Title
       title.zh: 设置模态框标题
-      default: "'maple 1.0.0-beta.9'"
+      default: "'maple 1.0.0-beta.10'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -706,9 +704,8 @@ settings:
       type: variable-text
       title: Highlight Text Background Color
       title.zh: 文本高亮背景颜色
-      description: Any valid CSS property value of "background" (e.g.
-          'url("/your/image/url')')
-      description.zh: 任何有效的 CSS “background” 值 (例如：'url("图片链接地址')')
+      description: Any CSS "background" value, e.g. url("/your/image/url")
+      description.zh: 任何 CSS “background” 值，例如：url("图片链接地址")
       default: rgba(255, 208, 0, 0.4)
     - id: setting-text-highlight-color
       type: variable-themed-color
@@ -757,8 +754,8 @@ settings:
       type: variable-text
       title: Bold Style
       title.zh: 粗体样式
-      description: Any valid CSS property value of "text-decoration"
-      description.zh: 任何有效的 CSS “text-decoration” 值
+      description: Any CSS "text-decoration" value
+      description.zh: 任何 CSS “text-decoration” 值
       default: underline dotted
     - id: setting-text-bold-font
       type: variable-text
@@ -783,8 +780,8 @@ settings:
       type: variable-text
       title: Italic Style
       title.zh: 斜体样式
-      description: Any valid CSS property value of "text-decoration"
-      description.zh: 任何有效的 CSS “text-decoration” 值
+      description: Any CSS "text-decoration" value
+      description.zh: 任何 CSS “text-decoration” 值
       default: underline dotted
     - id: setting-text-italic-font
       type: variable-text
@@ -1451,9 +1448,8 @@ settings:
       type: variable-text
       title: Custom Code Block Background in Reading View
       title.zh: 自定义阅读视图下代码块背景
-      description: Any valid CSS property value of "background" (e.g.
-          'url("/your/image/url')')
-      description.zh: 任何有效的 CSS “background” 值 (例如：'url("图片链接地址')')
+      description: Any CSS "background" value, e.g. url("/your/image/url")
+      description.zh: 任何 CSS “background” 值，例如：url("图片链接地址")
       default: "''"
     - id: code-mac-style-header
       type: class-toggle
@@ -1602,8 +1598,8 @@ settings:
       type: variable-text
       title: Maximum Width
       title.zh: 最大宽度
-      description: Any valid CSS property value of "max-width"
-      description.zh: 任何有效的 CSS “max-width” 值
+      description: Any CSS "max-width" value
+      description.zh: 任何 CSS “max-width” 值
       default: 500px
     - id: title-kanban
       title: Kanban
@@ -5708,9 +5704,12 @@ body.search-internal-enable .document-search-container {
   right: var(--size-4-4);
   border-radius: var(--radius-m);
   height: fit-content;
-  border: var(--size-2-1) solid var(--tab-outline-color);
+  border: 1px solid var(--color-base-25) !important;
   box-shadow: var(--shadow-s);
   margin: 0;
+}
+body.search-internal-enable .document-search-container :is(.document-replace, .document-search) {
+  gap: var(--size-4-1);
 }
 body.search-internal-enable .document-search-container .search-input-container input {
   padding-inline: var(--size-4-8) var(--size-4-1);
@@ -5722,6 +5721,7 @@ body.search-internal-enable .document-search-container .search-input-container i
   transition: var(--animation);
 }
 body.search-internal-enable .document-search-container .search-input-container .document-search-count {
+  letter-spacing: -0.5px;
   background-color: var(--background-secondary);
   height: calc(var(--input-height) - var(--size-2-3));
   line-height: calc(var(--input-height) - var(--size-2-3));
@@ -5761,13 +5761,7 @@ body.search-remove-button .document-search-buttons > :last-child {
     width: calc(100% - 2 * var(--size-4-3));
   }
   body.search-internal-enable .document-search-container :is(.document-search-input, .document-replace-input) {
-    min-width: 0;
-  }
-}
-@container (max-width: 320px) {
-  body.search-internal-enable .document-search-container :is(.document-search-buttons [aria-label="Shift + F3"],
-  .document-replace-buttons [aria-label="Ctrl + Alt + Enter"]) {
-    display: none;
+    min-width: unset;
   }
 }
 /* #endregion document-search */
@@ -5821,7 +5815,6 @@ body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   transition: var(--animation-slow);
   border: var(--size-2-1) solid var(--text-faint);
   background-color: var(--color-base-20);
-  cursor: pointer;
 }
 body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container:focus-within {
   outline: none;
@@ -5915,7 +5908,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.9");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.10");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6045,6 +6038,57 @@ button {
 }
 .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-sidebar .setting-item:first-child {
   max-width: var(--modal-community-sidebar-width);
+}
+.modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: calc(var(--font-ui-small) + var(--size-4-3) * 2);
+}
+.modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls::before {
+  content: var(--community-title);
+  font-weight: bold;
+  font-size: var(--font-ui-large);
+  display: inline-block;
+  margin-inline-start: var(--size-4-4);
+  margin-block-end: var(--size-2-3);
+}
+.mod-community-theme {
+  --community-title: "Community Theme";
+}
+
+.mod-community-plugin {
+  --community-title: "Community Plugin";
+}
+
+html[lang=zh] .mod-community-theme {
+  --community-title: "社区主题";
+}
+html[lang=zh] .mod-community-plugin {
+  --community-title: "社区主题";
+}
+
+.modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls .setting-item:not(.mod-toggle) {
+  position: absolute;
+  right: var(--size-4-9);
+}
+.modal-container .community-modal-search-summary {
+  display: none;
+}
+.modal-container .community-modal-controls button.clickable-icon {
+  padding: var(--size-2-1) var(--size-2-2);
+  position: absolute;
+  margin-inline-end: var(--size-4-1);
+}
+.modal-container .community-modal-controls .search-input-container * {
+  transition: var(--animation);
+}
+.modal-container .community-modal-controls .search-input-container .search-input-clear-button {
+  right: calc(var(--size-4-6) + var(--size-2-1));
+}
+.modal-container .community-modal-controls .search-input-container input {
+  padding-inline-end: var(--size-4-12);
 }
 .modal-container .mod-settings .modal-content .setting-item-heading .setting-item-name {
   font-weight: bold;
@@ -6178,10 +6222,10 @@ body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-thumb:active {
 body.scrollbar-enable:not(.is-mobile):not(.scrollbar-movein-animation-enable) {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete) {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover) {
   transition: --scrollbar-color var(--animation);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover, .kanban-plugin__board, .kanban-plugin__lane-items, .kanban-plugin__autocomplete):hover {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover):hover {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
 body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable textarea {
@@ -6513,10 +6557,10 @@ body.message-modify:not(.color-active-default).theme-dark {
   --app-bg-image: var(
     --setting-app-bg-image-light,
     linear-gradient(
-      30deg,
-      hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 0.95), 85%),
+      210deg,
+      hsl(calc(var(--accent-h) - 15), calc(var(--accent-s) * 0.95), 85%),
       hsl(var(--accent-h), calc(var(--accent-s) * 0.9), 85%),
-      hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 0.95), 85%)
+      hsl(calc(var(--accent-h) + 15), calc(var(--accent-s) * 0.95), 85%)
     )
   );
   --bg-opacity: var(--setting-app-bg-opacity-light, 0.6);
@@ -6527,10 +6571,10 @@ body.message-modify:not(.color-active-default).theme-dark {
   --app-bg-image: var(
     --setting-app-bg-image-dark,
     linear-gradient(
-      30deg,
-      hsl(calc(var(--accent-h) - 15), calc(var(--accent-s) * 1.15), 25%),
+      210deg,
+      hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 1.15), 25%),
       hsl(var(--accent-h), calc(var(--accent-s) * 1.1), 20%),
-      hsl(calc(var(--accent-h) + 15), calc(var(--accent-s) * 1.15), 25%)
+      hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 1.15), 25%)
     )
   );
   --bg-opacity: var(--setting-app-bg-opacity-dark, 0.6);
@@ -6557,6 +6601,7 @@ body.app-bg-image-enable :is(.workspace, .titlebar) {
     max(var(--bg-opacity), var(--editor-min-opacity))
   );
   --bg-surface: hsla(var(--background-primary-hsl), var(--bg-opacity));
+  --pdf-background: transparent;
 }
 body.app-bg-image-enable.theme-light {
   --md-container-bg: var(
@@ -6596,7 +6641,8 @@ body.app-bg-image-enable :is(.workspace-tab-header-container,
 .sidebar-toggle-button,
 .workspace-fake-target-overlay:not(.is-in-sidebar) .workspace-tabs .workspace-leaf,
 .workspace-split:not(.mod-root) .workspace-tabs .workspace-leaf,
-.workspace-split.mod-root .workspace-tabs:not(.mod-stacked) .workspace-leaf) {
+.workspace-split.mod-root .workspace-tabs:not(.mod-stacked) .workspace-leaf,
+.pdf-toolbar) {
   background-color: transparent;
 }
 body.app-bg-image-enable .titlebar {
@@ -7140,6 +7186,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title .nav-file-t
   margin-right: var(--size-2-3);
   background-color: var(--background-modifier-hover);
   color: var(--text-accent);
+  line-height: unset;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-active:not(.is-selected) {
   color: var(--text-on-accent);
@@ -7151,9 +7198,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-active:n
   color: var(--text-on-accent);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-active:not(.is-selected) .nav-file-tag {
-  border: 1px solid var(--text-accent);
-  background-color: transparent;
-  border-color: var(--accent-inactive);
+  backdrop-filter: brightness(0.85);
   color: var(--text-on-accent);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title-content {
