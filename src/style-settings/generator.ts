@@ -1,12 +1,12 @@
 import { stringify } from 'yaml'
 
 export function descValidCSS(property: string): Translate {
-  let en = `Any valid CSS property value of "${property}"`
-  let zh = `任何有效的 CSS “${property}” 值`
+  let en = `Any CSS "${property}" value`
+  let zh = `任何 CSS “${property}” 值`
 
   if (property.startsWith('background')) {
-    en += " (e.g. 'url(\"/your/image/url')')"
-    zh += " (例如：'url(\"图片链接地址')')"
+    en += ', e.g. url("/your/image/url")'
+    zh += '，例如：url("图片链接地址")'
   }
 
   return { en, zh }

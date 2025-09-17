@@ -2,10 +2,10 @@
   --app-bg-image: var(
     --setting-app-bg-image-light,
     linear-gradient(
-      30deg,
-      hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 0.95), 85%),
+      210deg,
+      hsl(calc(var(--accent-h) - 15), calc(var(--accent-s) * 0.95), 85%),
       hsl(var(--accent-h), calc(var(--accent-s) * 0.9), 85%),
-      hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 0.95), 85%)
+      hsl(calc(var(--accent-h) + 15), calc(var(--accent-s) * 0.95), 85%)
     )
   );
   --bg-opacity: var(--setting-app-bg-opacity-light, 0.6);
@@ -16,10 +16,10 @@
   --app-bg-image: var(
     --setting-app-bg-image-dark,
     linear-gradient(
-      30deg,
-      hsl(calc(var(--accent-h) - 15), calc(var(--accent-s) * 1.15), 25%),
+      210deg,
+      hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 1.15), 25%),
       hsl(var(--accent-h), calc(var(--accent-s) * 1.1), 20%),
-      hsl(calc(var(--accent-h) + 15), calc(var(--accent-s) * 1.15), 25%)
+      hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 1.15), 25%)
     )
   );
   --bg-opacity: var(--setting-app-bg-opacity-dark, 0.6);
