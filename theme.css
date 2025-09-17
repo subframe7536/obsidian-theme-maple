@@ -1,14 +1,8 @@
-/* Maple Theme v1.0.0-beta.10 For Obsidian */
+/* Maple Theme v1.0.0-beta.11 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Color and Animation
 settings:
-    - id: title-animation
-      title: Animation
-      title.zh: 动画
-      type: heading
-      level: 1
-      collapsed: true
     - id: setting-animation-time
       type: variable-number-slider
       title: Animation Duration (ms)
@@ -18,6 +12,14 @@ settings:
       max: 500
       step: 50
       format: ms
+    - id: setting-line-height-item
+      type: variable-number-slider
+      title: List Item Line Height
+      title.zh: 列表行高
+      default: 1.5
+      min: 1
+      max: 2
+      step: 0.1
     - id: title-accent-color
       title: Accent Color
       title.zh: 高亮颜色
@@ -174,8 +176,8 @@ settings:
 id: maple-workspace
 name: Maple Workspace
 settings:
-    - id: title-titlebar-&-background-image
-      title: Titlebar & Background Image
+    - id: title-titlebar-and-background-image
+      title: Titlebar and Background Image
       title.zh: 标题栏和背景图片
       type: heading
       level: 1
@@ -189,14 +191,16 @@ settings:
       default: true
     - id: titlebar-colorful
       type: class-toggle
-      title: Colorful Titlebar
+      title: Colorful Style Titlebar
       title.zh: 多彩 Obsidian 标题栏
       description: "Reference: https://github.com/kepano/obsidian-minimal"
-      description.zh: 参考项目：https://github.com/kepano/obsidian-minimal
+      description.zh: 参考：https://github.com/kepano/obsidian-minimal
     - id: app-bg-image-enable
       type: class-toggle
       title: Add Background Image In Workspace
       title.zh: 添加应用的背景图片
+      description: Only works in Desktop Version
+      description.zh: 只在桌面端生效
     - id: setting-app-bg-image-light
       type: variable-text
       title: Light Theme Background Image URL
@@ -263,7 +267,7 @@ settings:
       default-dark: rgb(245, 180, 0)
     - id: title-outline-panel
       title: Outline Panel
-      title.zh: 文档大纲面板
+      title.zh: 大纲面板
       type: heading
       level: 1
       collapsed: true
@@ -275,7 +279,7 @@ settings:
           https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threadin\
           g.css"
       description.zh: 启用此功能后请重启
-          Obsidian。参考项目：https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
+          Obsidian。参考：https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
     - id: setting-outline-width
       type: variable-number-slider
       title: Guide Line Width
@@ -289,54 +293,18 @@ settings:
       type: variable-themed-color
       title: Guide Line Color
       title.zh: 引导线颜色
-      default-light: "#"
-      default-dark: "#"
       format: hsl
       opacity: true
+      default-light: "#"
+      default-dark: "#"
     - id: setting-outline-dot-color
       type: variable-themed-color
       title: Guide Dot Color
       title.zh: 引导点颜色
-      default-dark: "#"
-      default-light: "#"
       format: hsl
       opacity: true
-    - id: title-status-bar
-      title: Status Bar
-      title.zh: 状态栏
-      type: heading
-      level: 1
-      collapsed: true
-    - id: status-bar-enable
-      type: class-toggle
-      title: Custom Status Bar Style
-      title.zh: 自定义状态栏样式
-      default: true
-    - id: status-bar-style-float
-      type: class-toggle
-      title: Enable Float Style
-      title.zh: 启用浮动样式
-      default: true
-    - id: status-bar-style
-      type: class-select
-      title: Status Bar Animation
-      title.zh: 状态栏动画效果
-      description: 'Note: The last style option is only valid when "rounded status
-          bar" is enabled'
-      description.zh: 注意：最后一种样式选项仅在启用"圆角状态栏"时生效
-      allow-empty: false
-      default: status-bar-default
-      options:
-          - label: Default
-            value: status-bar-default
-          - label: Show on hover
-            value: status-bar-hidden
-          - label: Scroll out on hover
-            value: status-bar-scroll
-    - id: status-bar-style-center
-      type: class-toggle
-      title: Center Status Bar
-      title.zh: 状态栏居中显示
+      default-light: "#"
+      default-dark: "#"
     - id: title-search-and-replace-panel
       title: Search and Replace Panel
       title.zh: 搜索和替换面板
@@ -345,8 +313,10 @@ settings:
       collapsed: true
     - id: search-internal-enable
       type: class-toggle
-      title: Float Panel (VSCode Style)
-      title.zh: 浮动面板（VSCode 风格）
+      title: Enable Floating Style
+      title.zh: 启用浮动风格
+      description: Similar to VSCode's document search widget
+      description.zh: 和 VSCode 的文档搜索框类似
       default: true
     - id: search-remove-button
       type: class-toggle
@@ -354,99 +324,45 @@ settings:
       title.zh: 移除不常用的按钮
       description: "Removed buttons: Find All"
       description.zh: 已移除的按钮：查找全部
-    - id: title-tab
-      title: Tab
-      title.zh: 标签页
+    - id: title-graph-panel
+      title: Graph Panel
+      title.zh: 关系图谱面板
       type: heading
       level: 1
       collapsed: true
-    - id: tab-float
-      type: class-toggle
-      title: Float Style Tab (Like Firefox / Microsoft Edge)
-      title.zh: 浮动的标签页（和 Firefox / Microsoft Edge 类似）
-    - id: tab-slide-up
-      type: class-toggle
-      title: Enable Tab Slide Up Animation
-      title.zh: 启用标签页切换动画
-      description: ❗Turning on will prevent some panels updating instantly while
-          switching tabs
-      description.zh: ❗开启后会导致部分面板无法立即更新
-    - id: labeled-nav
-      type: class-toggle
-      title: Text Labels For Primary Navigation
-      title.zh: 主导航栏添加文字
-      description: Reference from https://github.com/kepano/obsidian-minimal
-      description.zh: 参考自 https://github.com/kepano/obsidian-minimal
-    - id: tab-show-close
-      type: class-select
-      title: When To Show Close Button On Tabs
-      title.zh: 何时显示标签页的关闭按钮
-      allow-empty: false
-      default: tab-show-close-default
-      options:
-          - label: Default
-            value: tab-show-close-default
-          - label: On hover
-            value: tab-show-close-all
-          - label: On hover except active tab
-            value: tab-show-close-part
-    - id: tab-title-bar-text
-      type: class-select
-      title: File Name On Tab Title Bar
-      title.zh: 标签页标题栏的文件名
-      allow-empty: false
-      default: tab-title-bar-text-default
-      options:
-          - label: Default
-            value: tab-title-bar-text-default
-          - label: Small size
-            value: tab-title-bar-text-small
-          - label: Show on hover
-            value: tab-title-bar-text-hidden
-    - id: title-tooltip-&-notice
-      title: Tooltip & Notice
-      title.zh: 气泡提示框与通知
-      type: heading
-      level: 1
-      collapsed: true
-    - id: message-tooltip-hide-arrow
-      type: class-toggle
-      title: Hide Tooltip Arrow
-      title.zh: 隐藏气泡提示框箭头
-    - id: message-tooltip-hide
-      type: class-toggle
-      title: Always Hide Tooltip
-      title.zh: 始终隐藏气泡提示框
-    - id: message-modify
-      type: class-toggle
-      title: Change Tooltip & Notice Color
-      title.zh: 修改气泡提示框和通知的颜色
-      default: true
-    - id: setting-message-bg
+    - id: setting-graph-node
       type: variable-themed-color
-      title: Background Color
-      title.zh: 背景颜色
-      format: hsl-values
-      opacity: false
+      title: Normal Node Color
+      title.zh: 普通节点颜色
+      format: hex
+      opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: setting-message-fg
+    - id: setting-graph-node-unresolved
       type: variable-themed-color
-      title: Foreground Color
-      title.zh: 文字颜色
-      format: rgb-values
-      opacity: false
+      title: Unresolved Node Color
+      title.zh: 未连接节点颜色
+      format: hex
+      opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: title-modal-&-setting-panel
-      title: Modal & Setting Panel
+    - id: setting-graph-node-focus
+      type: variable-themed-color
+      title: Focused Node Color
+      title.zh: 聚焦节点颜色
+      format: hex
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
+    - id: title-modal-and-setting-panel
+      title: Modal and Setting Panel
       title.zh: 模态框与设置面板
       type: heading
       level: 1
       collapsed: true
     - id: modal-blur
       type: class-toggle
-      title: Enable Modal Background Blur
+      title: Enable Blurred Modal Background
       title.zh: 启用模态框背景模糊
       description: If scrolling experiences delay, try disabling this option
       description.zh: 如果滚动时出现卡顿，请尝试关闭此选项
@@ -459,9 +375,9 @@ settings:
       description.zh: 配合“设置搜索”插件使用效果更佳，移动端无效
     - id: setting-modal-header-title
       type: variable-text
-      title: Set Modal Header Title
-      title.zh: 设置模态框标题
-      default: "'maple 1.0.0-beta.10'"
+      title: Setting Panel Header Title
+      title.zh: 设置面板标题
+      default: "'maple 1.0.0-beta.11'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -487,12 +403,127 @@ settings:
             value: modal-toggle-round
     - id: modal-animation
       type: class-toggle
-      title: Modal Show Up Animation
-      title.zh: 模态框进入动画
+      title: Add Show Up Animation for Modal
+      title.zh: 为模态框添加显现动画
       default: true
-    - id: title-menu-blur
-      title: Menu Blur
-      title.zh: 菜单模糊
+    - id: title-tab
+      title: Tab
+      title.zh: 标签页
+      type: heading
+      level: 1
+      collapsed: true
+    - id: tab-float
+      type: class-toggle
+      title: Float Style Tab (Like Firefox / Microsoft Edge)
+      title.zh: 浮动的标签页（和 Firefox / Microsoft Edge 类似）
+    - id: tab-slide-up
+      type: class-toggle
+      title: Enable Tab Slide Up Animation
+      title.zh: 启用标签页切换动画
+      description: ❗Turning on will prevent some panels updating instantly while
+          switching tabs
+      description.zh: ❗开启后会导致部分面板无法立即更新
+    - id: labeled-nav
+      type: class-toggle
+      title: Text Labels For Primary Navigation
+      title.zh: 主导航栏添加文字
+      description: "Reference: https://github.com/kepano/obsidian-minimal"
+      description.zh: 参考：https://github.com/kepano/obsidian-minimal
+    - id: tab-show-close
+      type: class-select
+      title: When To Show Close Button On Tabs
+      title.zh: 何时显示标签页的关闭按钮
+      allow-empty: false
+      default: tab-show-close-default
+      options:
+          - label: Always
+            value: tab-show-close-default
+          - label: Hover only
+            value: tab-show-close-all
+          - label: Hover only or active tab
+            value: tab-show-close-part
+    - id: tab-title-bar-text
+      type: class-select
+      title: File Name On Tab Title Bar
+      title.zh: 标签页标题栏的文件名
+      allow-empty: false
+      default: tab-title-bar-text-default
+      options:
+          - label: Default
+            value: tab-title-bar-text-default
+          - label: Small size
+            value: tab-title-bar-text-small
+          - label: Hover only
+            value: tab-title-bar-text-hidden
+    - id: title-status-bar
+      title: Status Bar
+      title.zh: 状态栏
+      type: heading
+      level: 1
+      collapsed: true
+    - id: status-bar-style-float
+      type: class-toggle
+      title: Enable Floating Style
+      title.zh: 启用浮动风格
+      default: true
+    - id: status-bar-style
+      type: class-select
+      title: Status Bar Animation
+      title.zh: 状态栏动画效果
+      description: 'Note: The "Auto scroll in" option is only effective when "Enable
+          Floating Style" is on'
+      description.zh: 注意：“自动滚入”选项仅在"启用浮动风格"开启时生效
+      allow-empty: false
+      default: status-bar-default
+      options:
+          - label: Default
+            value: status-bar-default
+          - label: Auto hide
+            value: status-bar-hidden
+          - label: Auto scroll in
+            value: status-bar-scroll
+    - id: status-bar-style-center
+      type: class-toggle
+      title: Centered Status Bar
+      title.zh: 状态栏居中显示
+    - id: title-tooltip-and-notice
+      title: Tooltip and Notice
+      title.zh: 提示框与通知
+      type: heading
+      level: 1
+      collapsed: true
+    - id: message-tooltip-hide-arrow
+      type: class-toggle
+      title: Hide Tooltip Arrow
+      title.zh: 隐藏气泡提示框箭头
+    - id: message-tooltip-hide
+      type: class-toggle
+      title: Always Hide Tooltip
+      title.zh: 始终隐藏气泡提示框
+    - id: message-modify
+      type: class-toggle
+      title: Modify Tooltip and Notice Color
+      title.zh: 修改气泡提示框和通知的颜色
+      default: true
+    - id: setting-message-bg
+      type: variable-themed-color
+      title: Background Color
+      title.zh: 背景颜色
+      format: hex
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
+    - id: setting-message-fg
+      type: variable-themed-color
+      title: Foreground Color
+      title.zh: 文字颜色
+      format: hex
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
+    - id: title-blurred-menu
+      title: Blurred Menu
+      title.zh: 菜单模糊效果
       type: heading
       level: 1
       collapsed: true
@@ -529,7 +560,7 @@ settings:
     - id: scrollbar-hover
       type: class-select
       title: Scrollbar Hover Action
-      title.zh: 鼠标悬停时滚动条变化
+      title.zh: 鼠标悬停时滚动条的变化
       allow-empty: false
       default: scrollbar-hover-accent
       options:
@@ -547,36 +578,6 @@ settings:
           scrollbar hides when the mouse moves outside the container
       description.zh: 禁用时，滚动条始终可见；启用后，当鼠标移出容器时滚动条将隐藏
       default: true
-    - id: title-graph
-      title: Graph
-      title.zh: 关系图谱
-      type: heading
-      level: 1
-      collapsed: true
-    - id: setting-graph-node
-      type: variable-themed-color
-      title: Node Color
-      title.zh: 普通节点颜色
-      format: rgb-values
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
-    - id: setting-graph-node-unresolved
-      type: variable-themed-color
-      title: Unresolved Node Color
-      title.zh: 未连接节点颜色
-      format: rgb-values
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
-    - id: setting-graph-node-focus
-      type: variable-themed-color
-      title: Focused Node Color
-      title.zh: 聚焦节点颜色
-      format: rgb-values
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
     - id: title-pdf-export
       title: PDF Export
       title.zh: PDF 导出
@@ -592,16 +593,16 @@ settings:
 id: maple-editor
 name: Maple Editor
 settings:
-    - id: title-editor-background-image
-      title: Editor Background Image
-      title.zh: 编辑器背景图片
+    - id: title-editor-background-pattern
+      title: Editor Background Pattern
+      title.zh: 编辑器背景图案
       type: heading
       level: 1
       collapsed: true
-    - id: editor-bg-type
+    - id: editor-bg-pattern
       type: class-select
-      title: Background Image Type
-      title.zh: 背景图片类型
+      title: Pattern Style
+      title.zh: 图案风格
       allow-empty: false
       default: editor-bg-plain
       options:
@@ -611,13 +612,6 @@ settings:
             value: editor-bg-grid-dots
           - label: Grid
             value: editor-bg-grid-line
-    - id: setting-editor-bg
-      type: variable-themed-color
-      title: Editor Background Color
-      title.zh: 编辑器背景颜色
-      format: hsl-values
-      default-light: "#"
-      default-dark: "#"
     - id: setting-editor-bg-grid-dots
       type: variable-themed-color
       title: Editor Background Dot Color
@@ -650,6 +644,7 @@ settings:
       description: For elements like quotes, code blocks, and tables
       description.zh: 用于引用、代码块、表格等元素
       format: hsl-values
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: title-font
@@ -661,9 +656,9 @@ settings:
     - id: font-maple
       type: class-toggle
       title: Use "Maple Mono" as Monospace Font
-      title.zh: 使用“Maple Mono”作为等宽字体
-      description: https://github.com/subframe7536/Maple-font
-      description.zh: https://github.com/subframe7536/Maple-font
+      title.zh: 使用 “Maple Mono” 作为等宽字体
+      description: https://github.com/subframe7536/maple-font
+      description.zh: https://github.com/subframe7536/maple-font
       default: true
     - id: font-latex-text
       type: class-toggle
@@ -761,7 +756,9 @@ settings:
       type: variable-text
       title: Bold Font
       title.zh: 粗体字体
-      default: "''"
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
     - id: title-italic
       title: Italic
       title.zh: 斜体
@@ -787,10 +784,12 @@ settings:
       type: variable-text
       title: Italic Font
       title.zh: 斜体字体
-      default: "''"
-    - id: title-line
-      title: Line
-      title.zh: 行
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
+    - id: title-line-and-spacing
+      title: Line and Spacing
+      title.zh: 行和间距
       type: heading
       level: 1
       collapsed: true
@@ -828,15 +827,15 @@ settings:
       type: variable-text
       title: Editor Line Width
       title.zh: 编辑器行宽
-      description: "Dynamic width: clamp(MinWidth, WidthPercent, MaxWidth)"
-      description.zh: 动态宽度：clamp(最小值, 宽度百分比, 最大值)
+      description: Any CSS "width" value, e.g. clamp(MinWidth, WidthPercent, MaxWidth)
+      description.zh: 任何 CSS “width” 值，例如：clamp(最小值, 宽度百分比, 最大值)
       default: clamp(600px, 72%, 850px)
     - id: line-indicator-enable
       type: class-select
       title: Hover Line Indicator
       title.zh: 鼠标悬停行指示器
       description: "Reference: https://github.com/Akifyss/obsidian-border"
-      description.zh: 参考项目：https://github.com/Akifyss/obsidian-border
+      description.zh: 参考：https://github.com/Akifyss/obsidian-border
       allow-empty: false
       default: line-indicator-disable
       options:
@@ -864,6 +863,7 @@ settings:
       title: Active Line Color
       title.zh: 高亮行颜色
       format: hsl-values
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: title-link
@@ -904,7 +904,7 @@ settings:
       title: Internal Link Color
       title.zh: 内部链接颜色
       format: rgb-values
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-link-internal-color-underline
@@ -912,7 +912,7 @@ settings:
       title: Internal Link Underline Color
       title.zh: 内部链接下划线颜色
       format: rgb
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-link-external-color
@@ -920,7 +920,7 @@ settings:
       title: External Link Color
       title.zh: 外部链接颜色
       format: rgb-values
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-link-external-color-underline
@@ -928,7 +928,7 @@ settings:
       title: External Link Underline Color
       title.zh: 外部链接下划线颜色
       format: rgb
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: title-heading
@@ -1011,7 +1011,7 @@ settings:
       title: H1 Color
       title.zh: 标题 1 颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-h2-color
@@ -1019,7 +1019,7 @@ settings:
       title: H2 Color
       title.zh: 标题 2 颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-h3-color
@@ -1027,7 +1027,7 @@ settings:
       title: H3 Color
       title.zh: 标题 3 颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-h4-color
@@ -1035,7 +1035,7 @@ settings:
       title: H4 Color
       title.zh: 标题 4 颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-h5-color
@@ -1043,7 +1043,7 @@ settings:
       title: H5 Color
       title.zh: 标题 5 颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-h6-color
@@ -1051,7 +1051,7 @@ settings:
       title: H6 Color
       title.zh: 标题 6 颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: title-heading-size
@@ -1149,32 +1149,44 @@ settings:
       type: variable-text
       title: H1 Font
       title.zh: 标题 1 字体
-      default: "''"
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
     - id: setting-h2-font
       type: variable-text
       title: H2 Font
       title.zh: 标题 2 字体
-      default: "''"
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
     - id: setting-h3-font
       type: variable-text
       title: H3 Font
       title.zh: 标题 3 字体
-      default: "''"
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
     - id: setting-h4-font
       type: variable-text
       title: H4 Font
       title.zh: 标题 4 字体
-      default: "''"
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
     - id: setting-h5-font
       type: variable-text
       title: H5 Font
       title.zh: 标题 5 字体
-      default: "''"
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
     - id: setting-h6-font
       type: variable-text
       title: H6 Font
       title.zh: 标题 6 字体
-      default: "''"
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
     - id: title-horizontal-rule
       title: Horizontal Rule
       title.zh: 分隔线
@@ -1323,16 +1335,16 @@ settings:
       type: class-toggle
       title: Logseq Bullet Thread Style List
       title.zh: Logseq Bullet Thread 样式的列表
-      description: "No support for task lists and numbered lists. Reference:
+      description: "Only support bullet list in Live Preview mode. Reference:
           https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1."
-      description.zh: 不支持任务列表和序号列表。参考项目：https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1
+      description.zh: 仅支持实时预览模式中的无序列表。参考：https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1
       default: true
     - id: setting-list-marker
       type: variable-themed-color
       title: List Marker Color
       title.zh: 列表标记颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-list-marker-alt
@@ -1340,7 +1352,7 @@ settings:
       title: Alternate List Marker Color
       title.zh: 列表标记颜色2
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-list-guide-color
@@ -1348,7 +1360,7 @@ settings:
       title: List Guide Line Color
       title.zh: 列表引导线颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: title-task-list-(checkbox)
@@ -1373,7 +1385,7 @@ settings:
       title: Checkbox Marker Color
       title.zh: 复选框标记颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-list-checkbox-color-hover
@@ -1381,7 +1393,7 @@ settings:
       title: Checkbox Marker Hover Color
       title.zh: 复选框标记悬停颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-list-checkbox-border
@@ -1389,7 +1401,7 @@ settings:
       title: Checkbox Marker Border Color
       title.zh: 复选框标记边框颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: title-code
@@ -1403,7 +1415,7 @@ settings:
       title: Inline Code Color
       title.zh: 行内代码文字颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-code-bg
@@ -1411,7 +1423,7 @@ settings:
       title: Code Block Background Color
       title.zh: 代码块背景颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: code-line-number
@@ -1450,7 +1462,7 @@ settings:
       title.zh: 自定义阅读视图下代码块背景
       description: Any CSS "background" value, e.g. url("/your/image/url")
       description.zh: 任何 CSS “background” 值，例如：url("图片链接地址")
-      default: "''"
+      default: ""
     - id: code-mac-style-header
       type: class-toggle
       title: Add Mac Style Code Block Header in Reading View
@@ -1462,7 +1474,7 @@ settings:
       title: Language Indicator Color
       title.zh: 语言标识颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: code-theme
@@ -1506,7 +1518,7 @@ settings:
       title: Tag Background Color
       title.zh: 标签背景颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-tag-color
@@ -1514,7 +1526,7 @@ settings:
       title: Tag Text Color
       title.zh: 标签文字颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: setting-tag-border
@@ -1522,7 +1534,7 @@ settings:
       title: Tag Border Color
       title.zh: 标签边框颜色
       format: hex
-      opacity: false
+      opacity: true
       default-light: "#"
       default-dark: "#"
     - id: title-canvas
@@ -1601,36 +1613,6 @@ settings:
       description: Any CSS "max-width" value
       description.zh: 任何 CSS “max-width” 值
       default: 500px
-    - id: title-kanban
-      title: Kanban
-      title.zh: 看板
-      type: heading
-      level: 1
-      collapsed: true
-    - id: setting-kanban-item-color
-      type: variable-themed-color
-      title: Kanban Item Font Color
-      title.zh: 看板项文字颜色
-      format: hex
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
-    - id: setting-kanban-item-bg
-      type: variable-themed-color
-      title: Kanban Item Background Color
-      title.zh: 看板项背景色
-      format: hex
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
-    - id: setting-kanban-board-bg
-      type: variable-themed-color
-      title: Kanban Board Background Color
-      title.zh: 看板版面背景色
-      format: hex
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
 */
 
 /* #region built-in fonts */
@@ -1796,7 +1778,6 @@ body.bg-default .setting-item[data-id=setting-bg-color],
 body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover],
 [data-id=scrollbar-movein-animation],
 [data-id=scrollbar-gutter]),
-body:not(.status-bar-enable) .setting-item[data-id*=status-bar-style],
 :is(body.status-bar-scroll, body:not(.status-bar-style-float)) .setting-item[data-id=status-bar-style-center],
 body:not(.loading-text) .setting-item[data-id=loading-text-content],
 body:not(.explorer-icon) .setting-item[data-id=setting-color-dirs],
@@ -1845,7 +1826,6 @@ body.bg-default .setting-item[data-id=setting-bg-color] + .style-settings-contai
 body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover],
 [data-id=scrollbar-movein-animation],
 [data-id=scrollbar-gutter]) + .style-settings-container,
-body:not(.status-bar-enable) .setting-item[data-id*=status-bar-style] + .style-settings-container,
 :is(body.status-bar-scroll, body:not(.status-bar-style-float)) .setting-item[data-id=status-bar-style-center] + .style-settings-container,
 body:not(.loading-text) .setting-item[data-id=loading-text-content] + .style-settings-container,
 body:not(.explorer-icon) .setting-item[data-id=setting-color-dirs] + .style-settings-container,
@@ -1991,6 +1971,7 @@ body {
   --divider-width-hover: var(--size-4-1);
   --nav-item-background-active: var(--accent-active);
   --nav-item-background-selected: var(--background-modifier-hover);
+  --line-height-tight: var(--setting-line-height-item, 1.5);
   --alt-light-accent-active: hsl(
     calc(var(--accent-h) + 60),
     calc(var(--accent-s) - 12%),
@@ -2068,6 +2049,11 @@ body {
   --color-purple-rgb: 114.24, 97.92, 146.88 !important;
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
   --background-primary: hsl(var(--background-primary-hsl));
+  --background-primary-alt: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) - 12%),
+    95%
+  );
   --background-secondary-hsl: calc(var(--accent-h) - 18),
     calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
   --background-secondary: hsl(var(--background-secondary-hsl));
@@ -2135,12 +2121,17 @@ body {
     var(--color-opacity)
   ) !important;
   --color-purple-rgb: 201.8784, 195.024, 253.776 !important;
-  --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-hsl: var(--accent-h), calc(var(--accent-s) / 4),
     calc(var(--accent-l) / 7);
-  --background-secondary: hsl(var(--background-secondary-hsl));
+  --background-primary: hsl(var(--background-primary-hsl));
+  --background-primary-alt: hsl(
+    var(--accent-h),
+    calc(var(--accent-s) / 4),
+    calc(var(--accent-l) / 5)
+  );
   --background-secondary-hsl: calc(var(--accent-h) + 8),
     calc(var(--accent-s) / 6), calc(var(--accent-l) / 5);
+  --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(
     var(--accent-h),
     var(--accent-s),
@@ -2783,7 +2774,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   content: "Unkown";
   font-family: var(--font-mono);
   color: var(--setting-code-language-color, var(--inline-code));
-  font-weight: bold;
+  font-weight: 550;
   position: absolute;
   text-align: right;
   right: var(--size-4-8);
@@ -3229,7 +3220,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   color: var(--inline-code);
   transition: var(--animation);
   font-family: var(--font-mono);
-  font-weight: bold;
+  font-weight: 550;
 }
 .markdown-source-view.mod-cm6 .code-block-flair:hover {
   background-color: var(--nav-item-background-hover);
@@ -3293,7 +3284,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   color: var(--code-keyword);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-type {
-  font-weight: bold;
+  font-weight: 550;
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-keyword {
   font-style: italic;
@@ -3424,7 +3415,7 @@ body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:no
   padding: 0;
   border: var(--block-outline-width) solid var(--background-modifier-border);
 }
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed).mod-empty {
+body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed):is(.mod-empty, .mod-empty-attachment) {
   border-style: dotted;
 }
 body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) .markdown-preview-view {
@@ -3508,14 +3499,14 @@ body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .inter
   margin-block-end: 2.4rem !important;
 }
 
-body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
+.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
   overflow: initial;
   border: none;
   position: relative;
   height: var(--size-4-1);
   background-image: linear-gradient(to right, transparent 0%, hsla(var(--color-accent-hsl), 40%) 16%, hsla(var(--color-accent-hsl), 90%) 44%, transparent 44%, transparent 56%, hsla(var(--color-accent-hsl), 90%) 56%, hsla(var(--color-accent-hsl), 40%) 84%, transparent 100%);
 }
-body.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr::after {
+.hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr::after {
   content: var(--setting-hr-icon, "⭐");
   display: inline-block;
   font-family: var(--font-monospace);
@@ -3741,7 +3732,7 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   display: none;
 }
 
-body.link-click-to-edit-in-live-preview :is(.cm-url, .cm-link, .cm-hmd-internal-link) .cm-underline {
+.link-click-to-edit-in-live-preview :is(.cm-url, .cm-link, .cm-hmd-internal-link) .cm-underline {
   pointer-events: none;
 }
 
@@ -3883,29 +3874,29 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   margin-inline-start: calc(var(--checkbox-size) * -1.3);
 }
 
-body.list-enable .print {
+.list-enable .print {
   --list-marker-color-alt-render: var(--list-marker-color-alt);
 }
 
 /* #endregion list */
 /* #region list */
 /* Reference: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1 */
-body.list-enable.list-bullet-thread-style {
+.list-enable.list-bullet-thread-style {
   --list-threading-width: var(--size-2-1);
   --list-threading-color: var(
     --setting-list-guide-color,
     var(--accent-inactive)
   );
 }
-body.list-enable.list-bullet-thread-style .list-bullet::after {
+.list-enable.list-bullet-thread-style .list-bullet::after {
   --list-bullet-radius: 50%;
   --list-bullet-border: 0;
   --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-2, .HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-2.cm-active, ~ .HyperMD-list-line-2 ~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-2, .HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-2.cm-active, ~ .HyperMD-list-line-2 ~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
     var(--list-indent-editing) +
       0 *
@@ -3914,9 +3905,9 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .Hyper
       2
   );
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-3.cm-active, ~ .HyperMD-list-line-3 ~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-3.cm-active, ~ .HyperMD-list-line-3 ~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
     var(--list-indent-editing) +
       1 *
@@ -3925,9 +3916,9 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .Hyper
       2
   );
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-4.cm-active, ~ .HyperMD-list-line-4 ~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-4.cm-active, ~ .HyperMD-list-line-4 ~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
     var(--list-indent-editing) +
       2 *
@@ -3936,9 +3927,9 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .Hyper
       2
   );
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-5.cm-active, ~ .HyperMD-list-line-5 ~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-5.cm-active, ~ .HyperMD-list-line-5 ~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
     var(--list-indent-editing) +
       3 *
@@ -3947,9 +3938,9 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .Hyper
       2
   );
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-6.cm-active, ~ .HyperMD-list-line-6 ~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-6.cm-active, ~ .HyperMD-list-line-6 ~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
     var(--list-indent-editing) +
       4 *
@@ -3958,9 +3949,9 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .Hyper
       2
   );
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-7.cm-active, ~ .HyperMD-list-line-7 ~ :is(.HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-7.cm-active, ~ .HyperMD-list-line-7 ~ :is(.HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
     var(--list-indent-editing) +
       5 *
@@ -3969,9 +3960,9 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .Hyper
       2
   );
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-8).cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-8.cm-active)::after,
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-8:not(:has(~ .HyperMD-list-line-8 ~ .HyperMD-list-line.cm-active)):is(.cm-active) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-8).cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-8.cm-active)::after,
+.list-enable.list-bullet-thread-style .HyperMD-list-line-8:not(:has(~ .HyperMD-list-line-8 ~ .HyperMD-list-line.cm-active)):is(.cm-active) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
     var(--list-indent-editing) +
       6 *
@@ -3980,7 +3971,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-8:not(:has(~ .Hyper
       2
   );
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-2, .HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-2, .HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -3989,10 +3980,10 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .Hyper
   background-color: var(--list-threading-color);
   height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-2, .HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-2, .HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4001,10 +3992,10 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .Hyper
   background-color: var(--list-threading-color);
   height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4013,10 +4004,10 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .Hyper
   background-color: var(--list-threading-color);
   height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4025,10 +4016,10 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .Hyper
   background-color: var(--list-threading-color);
   height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4037,10 +4028,10 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .Hyper
   background-color: var(--list-threading-color);
   height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4049,10 +4040,10 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .Hyper
   background-color: var(--list-threading-color);
   height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4061,10 +4052,10 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .Hyper
   background-color: var(--list-threading-color);
   height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-2.cm-active, ~ .HyperMD-list-line-2 ~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-2.cm-active, ~ .HyperMD-list-line-2 ~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4073,7 +4064,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .Hyper
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-3.cm-active, ~ .HyperMD-list-line-3 ~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-3.cm-active, ~ .HyperMD-list-line-3 ~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4082,7 +4073,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .Hyper
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-4.cm-active, ~ .HyperMD-list-line-4 ~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-4.cm-active, ~ .HyperMD-list-line-4 ~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4091,7 +4082,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .Hyper
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-5.cm-active, ~ .HyperMD-list-line-5 ~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-5.cm-active, ~ .HyperMD-list-line-5 ~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4100,7 +4091,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .Hyper
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-6.cm-active, ~ .HyperMD-list-line-6 ~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-6.cm-active, ~ .HyperMD-list-line-6 ~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4109,7 +4100,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .Hyper
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-7.cm-active, ~ .HyperMD-list-line-7 ~ :is(.HyperMD-list-line-8).cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-7.cm-active, ~ .HyperMD-list-line-7 ~ :is(.HyperMD-list-line-8).cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4118,7 +4109,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .Hyper
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-8.cm-active)::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-8.cm-active)::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4127,7 +4118,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .Hyper
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4138,7 +4129,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .Hyper
   border-left: var(--list-threading-width) solid var(--list-threading-color);
   height: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 8);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4149,7 +4140,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .Hyper
   border-left: var(--list-threading-width) solid var(--list-threading-color);
   height: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 8);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4160,7 +4151,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .Hyper
   border-left: var(--list-threading-width) solid var(--list-threading-color);
   height: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 8);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4171,7 +4162,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .Hyper
   border-left: var(--list-threading-width) solid var(--list-threading-color);
   height: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 8);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4182,7 +4173,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .Hyper
   border-left: var(--list-threading-width) solid var(--list-threading-color);
   height: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 8);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active, :has(~ :is(.HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4193,7 +4184,7 @@ body.list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .Hyper
   border-left: var(--list-threading-width) solid var(--list-threading-color);
   height: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 8);
 }
-body.list-enable.list-bullet-thread-style .HyperMD-list-line-8:not(:has(~ .HyperMD-list-line-8 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active) > .cm-hmd-list-indent::after {
+.list-enable.list-bullet-thread-style .HyperMD-list-line-8:not(:has(~ .HyperMD-list-line-8 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):is(.cm-active) > .cm-hmd-list-indent::after {
   content: "";
   position: absolute;
   left: var(--list-threading-offset);
@@ -4467,27 +4458,30 @@ body .markdown-rendered blockquote blockquote {
   box-shadow: none;
   margin-inline-end: var(--size-4-3) !important;
 }
-body.quote-shadow .markdown-rendered blockquote {
+
+.quote-shadow .markdown-rendered blockquote {
   box-shadow: var(--shadow-s);
 }
-body.quote-border .markdown-rendered blockquote {
+
+.quote-border .markdown-rendered blockquote {
   border: var(--block-outline-width) solid var(--background-modifier-border);
   transition: var(--animation);
   box-shadow: none;
 }
-body.quote-border .markdown-rendered blockquote:hover {
+.quote-border .markdown-rendered blockquote:hover {
   border-color: var(--background-modifier-border-hover);
 }
-body.quote-border .markdown-rendered blockquote:active {
+.quote-border .markdown-rendered blockquote:active {
   border-color: var(--background-modifier-border-focus);
 }
-body.quote-border .markdown-rendered blockquote blockquote {
+.quote-border .markdown-rendered blockquote blockquote {
   margin: var(--block-outline-width);
 }
-body.quote-mark.quote-theme blockquote {
+
+.quote-mark.quote-theme blockquote {
   padding-left: 2.28rem;
 }
-body.quote-mark.quote-theme blockquote::before {
+.quote-mark.quote-theme blockquote::before {
   position: absolute;
   font-size: 3rem;
   font-family: Source Code Pro;
@@ -4618,7 +4612,7 @@ body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-
   display: none;
 }
 
-body.table-colorful .markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table {
+.table-colorful .markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table {
   --table-header-color: var(
     --setting-table-header-text,
     var(--text-on-accent)
@@ -4630,10 +4624,10 @@ body.table-colorful .markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-datav
   --table-header-background-hover: var(--table-header-background);
   --table-alt-line-bg: var(--setting-table-line-bg, var(--md-container-bg));
 }
-body.table-colorful .markdown-source-view table thead .cm-s-obsidian {
+.table-colorful .markdown-source-view table thead .cm-s-obsidian {
   color: var(--setting-table-header-text, var(--text-normal));
 }
-body.table-colorful .cm-html-embed .edit-block-button {
+.table-colorful .cm-html-embed .edit-block-button {
   --background-modifier-hover: var(--background-secondary);
 }
 
@@ -4656,59 +4650,59 @@ body {
   vertical-align: baseline;
 }
 
-body.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
+.tag-click-to-edit .cm-line span.cm-hashtag:not(.cm-formatting) {
   pointer-events: none;
 }
 
-body.tag-plain {
+.tag-plain {
   --tag-background: transparent;
 }
 
-body.tag-outline {
+.tag-outline {
   --tag-border-color: var(--setting-tag-outline, var(--text-accent)) !important;
   --tag-border-width: 1px !important;
   --tag-color: var(--setting-tag-color, var(--text-accent)) !important;
 }
-body.tag-outline :is(.cm-tag-obsidian, .tag[href="#obsidian"]) {
+.tag-outline :is(.cm-tag-obsidian, .tag[href="#obsidian"]) {
   --tag-border-color: var(--color-purple) !important;
   --tag-color: var(--tag-border-color);
 }
-body.tag-outline :is(.cm-tag-todo, .tag[href="#todo"]) {
+.tag-outline :is(.cm-tag-todo, .tag[href="#todo"]) {
   --tag-border-color: var(--color-green) !important;
   --tag-color: var(--tag-border-color);
 }
-body.tag-outline :is(.cm-tag-important, .tag[href="#important"]) {
+.tag-outline :is(.cm-tag-important, .tag[href="#important"]) {
   --tag-border-color: var(--color-red) !important;
   --tag-color: var(--tag-border-color);
 }
-body.tag-outline :is(.cm-tag-progress, .tag[href="#progress"]) {
+.tag-outline :is(.cm-tag-progress, .tag[href="#progress"]) {
   --tag-border-color: var(--color-blue) !important;
   --tag-color: var(--tag-border-color);
 }
-body.tag-outline :is(.cm-tag-complete, .tag[href="#complete"]) {
+.tag-outline :is(.cm-tag-complete, .tag[href="#complete"]) {
   --tag-border-color: var(--color-orange) !important;
   --tag-color: var(--tag-border-color);
 }
 
-body.tag-fill {
+.tag-fill {
   --tag-background: var(--setting-tag-bg, var(--text-accent)) !important;
   --tag-background-hover: var(--tag-background);
   --tag-color: var(--text-on-accent);
   --tag-color-hover: var(--tag-color);
 }
-body.tag-fill :is(.cm-tag-obsidian, .tag[href="#obsidian"]) {
+.tag-fill :is(.cm-tag-obsidian, .tag[href="#obsidian"]) {
   --tag-background: var(--color-purple) !important;
 }
-body.tag-fill :is(.cm-tag-todo, .tag[href="#todo"]) {
+.tag-fill :is(.cm-tag-todo, .tag[href="#todo"]) {
   --tag-background: var(--color-green) !important;
 }
-body.tag-fill :is(.cm-tag-important, .tag[href="#important"]) {
+.tag-fill :is(.cm-tag-important, .tag[href="#important"]) {
   --tag-background: var(--color-red) !important;
 }
-body.tag-fill :is(.cm-tag-progress, .tag[href="#progress"]) {
+.tag-fill :is(.cm-tag-progress, .tag[href="#progress"]) {
   --tag-background: var(--color-blue) !important;
 }
-body.tag-fill :is(.cm-tag-complete, .tag[href="#complete"]) {
+.tag-fill :is(.cm-tag-complete, .tag[href="#complete"]) {
   --tag-background: var(--color-orange) !important;
 }
 
@@ -4723,10 +4717,10 @@ body {
   --h6-size: calc(var(--font-text-size) * var(--setting-h6-size, 1.1));
   --h1-weight: 750;
   --h2-weight: 700;
-  --h3-weight: 650;
-  --h4-weight: 650;
-  --h5-weight: 600;
-  --h6-weight: 600;
+  --h3-weight: 600;
+  --h4-weight: 550;
+  --h5-weight: 500;
+  --h6-weight: 500;
   --h1-line-height: calc(
     var(--setting-line-height, var(--line-height-normal)) * var(--h1-size)
   );
@@ -4957,21 +4951,21 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   color: var(--h6-color) !important;
 }
 
-body.heading-h1-center h1 {
+.heading-h1-center h1 {
   text-align: center;
 }
 
-body.heading-h1-underline {
+.heading-h1-underline {
   --h1-line-height: calc(
     var(--setting-line-height, var(--line-height-normal)) *
       var(--h1-size) *
       1.2
   );
 }
-body.heading-h1-underline :is(h1, .HyperMD-header-1) {
+.heading-h1-underline :is(h1, .HyperMD-header-1) {
   position: relative;
 }
-body.heading-h1-underline :is(h1, .HyperMD-header-1)::after {
+.heading-h1-underline :is(h1, .HyperMD-header-1)::after {
   content: "";
   position: absolute;
   height: var(--size-4-1);
@@ -4981,31 +4975,31 @@ body.heading-h1-underline :is(h1, .HyperMD-header-1)::after {
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h1-color) 30%, transparent 70%);
 }
-body.heading-h1-underline h1::after {
+.heading-h1-underline h1::after {
   left: 0;
 }
-body.heading-h1-underline .HyperMD-header-1::after {
+.heading-h1-underline .HyperMD-header-1::after {
   left: var(--size-4-1);
 }
-body.heading-h1-underline .vertical-tab-content h1 {
+.heading-h1-underline .vertical-tab-content h1 {
   font-size: var(--h1-size);
   font-weight: var(--h1-weight);
 }
-body.heading-h1-underline.heading-underline-thin :is(h1, .HyperMD-header-1)::after {
+.heading-h1-underline.heading-underline-thin :is(h1, .HyperMD-header-1)::after {
   height: var(--size-2-1);
 }
 
-body.heading-h2-underline {
+.heading-h2-underline {
   --h2-line-height: calc(
     var(--setting-line-height, var(--line-height-normal)) *
       var(--h2-size) *
       1.2
   );
 }
-body.heading-h2-underline :is(h2, .HyperMD-header-2) {
+.heading-h2-underline :is(h2, .HyperMD-header-2) {
   position: relative;
 }
-body.heading-h2-underline :is(h2, .HyperMD-header-2)::after {
+.heading-h2-underline :is(h2, .HyperMD-header-2)::after {
   content: "";
   position: absolute;
   height: var(--size-4-1);
@@ -5015,31 +5009,31 @@ body.heading-h2-underline :is(h2, .HyperMD-header-2)::after {
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h2-color) 30%, transparent 70%);
 }
-body.heading-h2-underline h2::after {
+.heading-h2-underline h2::after {
   left: 0;
 }
-body.heading-h2-underline .HyperMD-header-2::after {
+.heading-h2-underline .HyperMD-header-2::after {
   left: var(--size-4-1);
 }
-body.heading-h2-underline .vertical-tab-content h2 {
+.heading-h2-underline .vertical-tab-content h2 {
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
 }
-body.heading-h2-underline.heading-underline-thin :is(h2, .HyperMD-header-2)::after {
+.heading-h2-underline.heading-underline-thin :is(h2, .HyperMD-header-2)::after {
   height: var(--size-2-1);
 }
 
-body.heading-h3-underline {
+.heading-h3-underline {
   --h3-line-height: calc(
     var(--setting-line-height, var(--line-height-normal)) *
       var(--h3-size) *
       1.2
   );
 }
-body.heading-h3-underline :is(h3, .HyperMD-header-3) {
+.heading-h3-underline :is(h3, .HyperMD-header-3) {
   position: relative;
 }
-body.heading-h3-underline :is(h3, .HyperMD-header-3)::after {
+.heading-h3-underline :is(h3, .HyperMD-header-3)::after {
   content: "";
   position: absolute;
   height: var(--size-4-1);
@@ -5049,31 +5043,31 @@ body.heading-h3-underline :is(h3, .HyperMD-header-3)::after {
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h3-color) 30%, transparent 70%);
 }
-body.heading-h3-underline h3::after {
+.heading-h3-underline h3::after {
   left: 0;
 }
-body.heading-h3-underline .HyperMD-header-3::after {
+.heading-h3-underline .HyperMD-header-3::after {
   left: var(--size-4-1);
 }
-body.heading-h3-underline .vertical-tab-content h3 {
+.heading-h3-underline .vertical-tab-content h3 {
   font-size: var(--h3-size);
   font-weight: var(--h3-weight);
 }
-body.heading-h3-underline.heading-underline-thin :is(h3, .HyperMD-header-3)::after {
+.heading-h3-underline.heading-underline-thin :is(h3, .HyperMD-header-3)::after {
   height: var(--size-2-1);
 }
 
-body.heading-h4-underline {
+.heading-h4-underline {
   --h4-line-height: calc(
     var(--setting-line-height, var(--line-height-normal)) *
       var(--h4-size) *
       1.2
   );
 }
-body.heading-h4-underline :is(h4, .HyperMD-header-4) {
+.heading-h4-underline :is(h4, .HyperMD-header-4) {
   position: relative;
 }
-body.heading-h4-underline :is(h4, .HyperMD-header-4)::after {
+.heading-h4-underline :is(h4, .HyperMD-header-4)::after {
   content: "";
   position: absolute;
   height: var(--size-4-1);
@@ -5083,31 +5077,31 @@ body.heading-h4-underline :is(h4, .HyperMD-header-4)::after {
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h4-color) 30%, transparent 70%);
 }
-body.heading-h4-underline h4::after {
+.heading-h4-underline h4::after {
   left: 0;
 }
-body.heading-h4-underline .HyperMD-header-4::after {
+.heading-h4-underline .HyperMD-header-4::after {
   left: var(--size-4-1);
 }
-body.heading-h4-underline .vertical-tab-content h4 {
+.heading-h4-underline .vertical-tab-content h4 {
   font-size: var(--h4-size);
   font-weight: var(--h4-weight);
 }
-body.heading-h4-underline.heading-underline-thin :is(h4, .HyperMD-header-4)::after {
+.heading-h4-underline.heading-underline-thin :is(h4, .HyperMD-header-4)::after {
   height: var(--size-2-1);
 }
 
-body.heading-h5-underline {
+.heading-h5-underline {
   --h5-line-height: calc(
     var(--setting-line-height, var(--line-height-normal)) *
       var(--h5-size) *
       1.2
   );
 }
-body.heading-h5-underline :is(h5, .HyperMD-header-5) {
+.heading-h5-underline :is(h5, .HyperMD-header-5) {
   position: relative;
 }
-body.heading-h5-underline :is(h5, .HyperMD-header-5)::after {
+.heading-h5-underline :is(h5, .HyperMD-header-5)::after {
   content: "";
   position: absolute;
   height: var(--size-4-1);
@@ -5117,31 +5111,31 @@ body.heading-h5-underline :is(h5, .HyperMD-header-5)::after {
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h5-color) 30%, transparent 70%);
 }
-body.heading-h5-underline h5::after {
+.heading-h5-underline h5::after {
   left: 0;
 }
-body.heading-h5-underline .HyperMD-header-5::after {
+.heading-h5-underline .HyperMD-header-5::after {
   left: var(--size-4-1);
 }
-body.heading-h5-underline .vertical-tab-content h5 {
+.heading-h5-underline .vertical-tab-content h5 {
   font-size: var(--h5-size);
   font-weight: var(--h5-weight);
 }
-body.heading-h5-underline.heading-underline-thin :is(h5, .HyperMD-header-5)::after {
+.heading-h5-underline.heading-underline-thin :is(h5, .HyperMD-header-5)::after {
   height: var(--size-2-1);
 }
 
-body.heading-h6-underline {
+.heading-h6-underline {
   --h6-line-height: calc(
     var(--setting-line-height, var(--line-height-normal)) *
       var(--h6-size) *
       1.2
   );
 }
-body.heading-h6-underline :is(h6, .HyperMD-header-6) {
+.heading-h6-underline :is(h6, .HyperMD-header-6) {
   position: relative;
 }
-body.heading-h6-underline :is(h6, .HyperMD-header-6)::after {
+.heading-h6-underline :is(h6, .HyperMD-header-6)::after {
   content: "";
   position: absolute;
   height: var(--size-4-1);
@@ -5151,21 +5145,21 @@ body.heading-h6-underline :is(h6, .HyperMD-header-6)::after {
   border-radius: var(--size-2-1);
   background-image: linear-gradient(to right, var(--h6-color) 30%, transparent 70%);
 }
-body.heading-h6-underline h6::after {
+.heading-h6-underline h6::after {
   left: 0;
 }
-body.heading-h6-underline .HyperMD-header-6::after {
+.heading-h6-underline .HyperMD-header-6::after {
   left: var(--size-4-1);
 }
-body.heading-h6-underline .vertical-tab-content h6 {
+.heading-h6-underline .vertical-tab-content h6 {
   font-size: var(--h6-size);
   font-weight: var(--h6-weight);
 }
-body.heading-h6-underline.heading-underline-thin :is(h6, .HyperMD-header-6)::after {
+.heading-h6-underline.heading-underline-thin :is(h6, .HyperMD-header-6)::after {
   height: var(--size-2-1);
 }
 
-body.heading-h6-variant :is(h6, .cm-header-6) {
+.heading-h6-variant :is(h6, .cm-header-6) {
   font-variant: small-caps;
 }
 
@@ -5185,14 +5179,14 @@ img {
 }
 
 /* hint text, reference from https://github.com/chrisgrieser/shimmering-focus */
-body.image-alt .image-embed[alt] {
+.image-alt .image-embed[alt] {
   padding: var(--size-4-1) 0;
 }
-body.image-alt .image-embed[alt]::after {
+.image-alt .image-embed[alt]::after {
   display: block;
   text-align: center;
 }
-body.image-alt .image-embed[alt]:not([alt$=".png"],
+.image-alt .image-embed[alt]:not([alt$=".png"],
 [alt$=".jpg"],
 [alt$=".jpeg"],
 [alt$=".svg"],
@@ -5205,7 +5199,7 @@ body.image-alt .image-embed[alt]:not([alt$=".png"],
   font-size: var(--font-smaller);
   color: var(--text-faint);
 }
-body.image-alt .view-content img:not(.emoji) {
+.image-alt .view-content img:not(.emoji) {
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -5289,11 +5283,11 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
 
 /* #endregion canvas */
 /* #region pdf */
-body.theme-dark.pdf-dark-hover .pdf-viewer {
+.theme-dark.pdf-dark-hover .pdf-viewer {
   opacity: 0.7;
   transition: opacity var(--animation);
 }
-body.theme-dark.pdf-dark-hover .pdf-viewer:hover {
+.theme-dark.pdf-dark-hover .pdf-viewer:hover {
   opacity: 0.85;
 }
 
@@ -5306,7 +5300,7 @@ body.theme-dark.pdf-dark-hover .pdf-viewer:hover {
   --metadata-label-background-active: var(--background-primary);
   --metadata-input-background-active: var(--background-primary);
 }
-body.prop-outline .metadata-container {
+.prop-outline .metadata-container {
   transform: none;
   --metadata-padding: var(--radius-m);
   --metadata-background: var(--md-container-bg);
@@ -5533,7 +5527,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   height: var(--size-4-6);
   line-height: var(--size-4-6);
   letter-spacing: 0.1rem;
-  font-weight: bold;
+  font-weight: 550;
   color: var(--accent-active);
 }
 
@@ -5564,7 +5558,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 }
 #calendar-container th {
   padding: 2px 0 4px;
-  font-weight: bold;
+  font-weight: 550;
   letter-spacing: 0.1em;
 }
 #calendar-container .nav {
@@ -5908,13 +5902,13 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.10");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.11");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
   transform: translate(-50%, -50%);
   font-size: calc(1.4 * var(--size-4-4));
-  font-weight: bold;
+  font-weight: 550;
   color: var(--setting-color-logo, var(--logo-color-default));
   transition: var(--animation);
 }
@@ -6029,6 +6023,11 @@ button {
   background-image: var(--select-bg-img) !important;
 }
 
+.flair.mod-pop {
+  --flair-background: var(--background-modifier-hover);
+  --flair-color: var(--text-accent);
+}
+
 .modal-container .is-loading {
   position: initial;
 }
@@ -6048,7 +6047,7 @@ button {
 }
 .modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls::before {
   content: var(--community-title);
-  font-weight: bold;
+  font-weight: 550;
   font-size: var(--font-ui-large);
   display: inline-block;
   margin-inline-start: var(--size-4-4);
@@ -6091,7 +6090,7 @@ html[lang=zh] .mod-community-plugin {
   padding-inline-end: var(--size-4-12);
 }
 .modal-container .mod-settings .modal-content .setting-item-heading .setting-item-name {
-  font-weight: bold;
+  font-weight: 550;
   font-size: var(--font-ui-medium);
 }
 
@@ -6161,11 +6160,9 @@ body.modal-blur .modal-bg {
   border-bottom: var(--divider-width) solid var(--divider-color);
 }
 .prompt-input-container input {
-  border: none;
+  border: none !important;
+  outline: none !important;
   background-color: transparent !important;
-}
-.prompt-input-container input:hover {
-  border: none;
 }
 
 .prompt-results {
@@ -6222,10 +6219,10 @@ body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-thumb:active {
 body.scrollbar-enable:not(.is-mobile):not(.scrollbar-movein-animation-enable) {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover) {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code) {
   transition: --scrollbar-color var(--animation);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content:not([data-type*=graph], [data-type*=pdf]) .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code, .workspace-leaf-content[data-type=calendar] .view-content, .janitor-scan-results, .excalidraw-wrapper :is(.App-menu .Stack .Island.App-menu__left, .scrollbar), .excalidraw-contextMenuContainer .popover):hover {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code):hover {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
 body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable textarea {
@@ -6347,12 +6344,12 @@ body.tab-title-bar-text-small .view-header {
   --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
 }
 
-body.tab-title-bar-text-hidden .workspace-leaf-content:not([data-type=excalidraw]) .view-header-title-container {
+body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-container {
   opacity: 0;
   transition: var(--animation);
   transition-delay: var(--animation-delay);
 }
-body.tab-title-bar-text-hidden .workspace-leaf-content:not([data-type=excalidraw]) .view-header-title-container:hover {
+body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-container:hover {
   opacity: 1;
   transition-delay: 0s;
 }
@@ -6479,37 +6476,39 @@ body.theme-dark .status-bar {
   );
 }
 
-body.status-bar-enable .status-bar {
+.status-bar {
   padding: var(--size-2-1) var(--size-4-1);
   width: fit-content;
   transition: var(--animation);
 }
-body.status-bar-enable.status-bar-hidden .status-bar {
+
+.status-bar-hidden .status-bar {
   opacity: 0;
   transition-delay: var(--animation-delay);
 }
-body.status-bar-enable.status-bar-hidden .status-bar:hover {
+.status-bar-hidden .status-bar:hover {
   transition-delay: 0s;
   opacity: 1;
 }
-body.status-bar-enable.status-bar-style-float .status-bar {
+
+.status-bar-style-float .status-bar {
   --status-bar-radius: var(--size-2-3);
   --status-bar-border-width: 1px;
   bottom: var(--size-4-1);
   right: var(--size-4-1);
   box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
 }
-body.status-bar-enable.status-bar-style-float.status-bar-style-center:is(.status-bar-default, .status-bar-hidden) .status-bar {
+.status-bar-style-float.status-bar-style-center:is(.status-bar-default, .status-bar-hidden) .status-bar {
   left: 50%;
   transform: translateX(-50%);
 }
-body.status-bar-enable.status-bar-style-float.status-bar-scroll .status-bar {
+.status-bar-style-float.status-bar-scroll .status-bar {
   transform: translateX(calc(100% - var(--size-4-2)));
   transition-delay: var(--animation-delay);
   right: 0;
   padding: var(--size-4-1);
 }
-body.status-bar-enable.status-bar-style-float.status-bar-scroll .status-bar:hover {
+.status-bar-style-float.status-bar-scroll .status-bar:hover {
   transform: translateX(0);
   transition-delay: 0s;
 }
@@ -6529,26 +6528,10 @@ body.message-tooltip-hide-arrow .tooltip-arrow {
 }
 
 body.message-modify {
-  --background-modifier-message: hsl(
-    var(
-      --setting-message-bg,
-      calc(var(--accent-h) - 30) var(--accent-s) calc(var(--accent-l) - 20%)
-    )
-  );
+  --background-modifier-message: var(--setting-message-bg, var(--text-accent));
 }
 body.message-modify :is(.tooltip, .notice) {
   color: var(--setting-message-fg, var(--text-on-accent));
-}
-body.message-modify:not(.color-active-default).theme-light {
-  --background-modifier-message: hsl(var(--setting-message-bg, calc(var(--accent-h) + 60) calc(var(--accent-s) - 12%) calc(var(--accent-l) + 4%)));
-}
-body.message-modify:not(.color-active-default).theme-dark {
-  --background-modifier-message: hsl(var(--setting-message-bg, calc(var(--accent-h) + 60) calc(var(--accent-s) - 12%) calc(var(--accent-l) - 12%)));
-}
-
-.flair.mod-pop {
-  --flair-background: var(--background-modifier-hover);
-  --flair-color: var(--text-accent);
 }
 
 /* #endregion message */
@@ -6586,13 +6569,13 @@ body {
   --bg-surface: var(--background-secondary);
 }
 
-body.app-bg-image-enable {
+body.app-bg-image-enable:not(.is-mobile) {
   background-image: var(--app-bg-image);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   --divider-color: transparent;
 }
-body.app-bg-image-enable :is(.workspace, .titlebar) {
+body.app-bg-image-enable:not(.is-mobile) :is(.workspace, .titlebar) {
   --frame-bg: transparent !important;
   --tab-active-shadow: none;
   --bg-opacity: var(--setting-app-bg-opacity, 0.4);
@@ -6603,7 +6586,7 @@ body.app-bg-image-enable :is(.workspace, .titlebar) {
   --bg-surface: hsla(var(--background-primary-hsl), var(--bg-opacity));
   --pdf-background: transparent;
 }
-body.app-bg-image-enable.theme-light {
+body.app-bg-image-enable:not(.is-mobile).theme-light {
   --md-container-bg: var(
     --setting-md-container-bg,
     hsla(
@@ -6613,29 +6596,29 @@ body.app-bg-image-enable.theme-light {
     )
   );
 }
-body.app-bg-image-enable.theme-dark {
+body.app-bg-image-enable:not(.is-mobile).theme-dark {
   --md-container-bg: var(
     --setting-md-container-bg,
     hsla(calc(var(--accent-h) - 4), 12%, 11%)
   );
 }
-body.app-bg-image-enable .mod-root .workspace-tab-container {
+body.app-bg-image-enable:not(.is-mobile) .mod-root .workspace-tab-container {
   padding: var(--size-4-1);
   padding-top: 0;
 }
-body.app-bg-image-enable .mod-root .workspace-tab-container .workspace-leaf-content {
+body.app-bg-image-enable:not(.is-mobile) .mod-root .workspace-tab-container .workspace-leaf-content {
   border-radius: var(--radius-m);
 }
-body.app-bg-image-enable .workspace-tab-header {
+body.app-bg-image-enable:not(.is-mobile) .workspace-tab-header {
   --background-modifier-hover: hsla(
     var(--background-primary-hsl),
     var(--bg-opacity)
   );
 }
-body.app-bg-image-enable .workspace-tab-header.is-active {
+body.app-bg-image-enable:not(.is-mobile) .workspace-tab-header.is-active {
   --tab-background-active: var(--bg-editor);
 }
-body.app-bg-image-enable :is(.workspace-tab-header-container,
+body.app-bg-image-enable:not(.is-mobile) :is(.workspace-tab-header-container,
 .workspace-tab-header-container-inner,
 .titlebar-button-container,
 .sidebar-toggle-button,
@@ -6645,26 +6628,26 @@ body.app-bg-image-enable :is(.workspace-tab-header-container,
 .pdf-toolbar) {
   background-color: transparent;
 }
-body.app-bg-image-enable .titlebar {
+body.app-bg-image-enable:not(.is-mobile) .titlebar {
   background-color: var(--bg-surface);
 }
-body.app-bg-image-enable .workspace-ribbon {
+body.app-bg-image-enable:not(.is-mobile) .workspace-ribbon {
   --ribbon-background: var(--bg-surface);
   --ribbon-background-collapsed: var(--bg-surface);
 }
-body.app-bg-image-enable .workspace-ribbon::before {
+body.app-bg-image-enable:not(.is-mobile) .workspace-ribbon::before {
   background-color: var(--bg-surface);
 }
-body.app-bg-image-enable .workspace-split {
+body.app-bg-image-enable:not(.is-mobile) .workspace-split {
   background-color: var(--bg-surface);
 }
-body.app-bg-image-enable .workspace-split.mod-root {
+body.app-bg-image-enable:not(.is-mobile) .workspace-split.mod-root {
   background-color: var(--bg-surface);
 }
-body.app-bg-image-enable :is(.workspace-split.mod-root .view-content, .view-header) {
+body.app-bg-image-enable:not(.is-mobile) :is(.workspace-split.mod-root .view-content, .view-header) {
   background-color: var(--bg-editor);
 }
-body.app-bg-image-enable:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+body.app-bg-image-enable:not(.is-mobile):not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
   background-color: hsla(var(--background-secondary-hsl), calc(var(--bg-opacity) / 4));
 }
 
@@ -6734,7 +6717,7 @@ https://github.com/sponsors/kepano
 }
 .labeled-nav .mod-left-split .mod-top .workspace-tab-header-inner-title {
   display: inline-block;
-  font-weight: bold;
+  font-weight: 550;
   font-size: var(--font-ui-smaller);
   color: var(--text-muted);
 }
@@ -6981,7 +6964,7 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover 
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-self:hover + .tree-item-children .tree-item::after {
   background-color: transparent;
 }
-body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-children > .tree-item:hover::after, body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-children > .tree-item:hover ~ .tree-item::after {
+:is(body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-children > .tree-item:hover, body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-children > .tree-item:hover ~ .tree-item)::after {
   background-color: transparent;
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item:hover > .tree-item-children > .tree-item:hover::before {
@@ -7012,7 +6995,6 @@ body {
   --file-folding-offset: 28px;
   --folder-color: rgb(var(--setting-color-dirs, 207.6975, 164.322, 21.8025));
   --nav-item-size: calc(var(--size-4-4) * 0.9);
-  --line-height-tight: 1.6;
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
   --nav-indentation-guide-width: 1.8px;
 }
@@ -7034,10 +7016,6 @@ body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.i
 .nav-folder-title.is-being-dragged {
   background-color: var(--accent-inactive);
   color: var(--text-normal);
-}
-
-.workspace-leaf-content[data-type=file-explorer] {
-  --line-height-tight: var(--explorer-item-height, 1.6);
 }
 
 body.theme-dark.explorer-icon .is-active .nav-file-tag {
@@ -7085,10 +7063,10 @@ body:is(:not(.css-settings-manager), .explorer-icon) .lucide-folder-closed path 
   display: none;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) :is(.nav-file-title, .nav-folder-title).is-selected {
-  font-weight: bold !important;
+  font-weight: 550 !important;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) :is(.nav-file-title, .nav-folder-title).is-selected + .nav-folder-children :is(.nav-file-title, .nav-folder-title) {
-  font-weight: bold !important;
+  font-weight: 550 !important;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder-title {
   cursor: pointer;
@@ -7208,6 +7186,10 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title-content {
 body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content) {
   overflow: visible;
   white-space: pre-wrap;
+}
+
+.tree-item-self.is-clickable.mobile-tap.is-active {
+  background-color: var(--nav-item-background-active);
 }
 
 /* #endregion file-explorer */
