@@ -12,6 +12,10 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
     'setting-line-height-item',
     {
       title: { en: 'List Item Line Height', zh: '列表行高' },
+      desc: {
+        en: 'Line height of item in file explorer, outline panel, setting modal sidebar and so on',
+        zh: '文件管理器、大纲面板、设置框侧边栏等列表的行高',
+      },
     },
     { default: 1.5, min: 1, max: 2, step: 0.1 },
   ),
