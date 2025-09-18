@@ -1,7 +1,7 @@
-/* Maple Theme v1.0.0-beta.12 For Obsidian */
+/* Maple Theme v1.0.0-beta.13 For Obsidian */
 /* @settings
 id: maple-basic
-name: Maple Color and Animation
+name: Maple Basic
 settings:
     - id: setting-animation-time
       type: variable-number-slider
@@ -16,22 +16,25 @@ settings:
       type: variable-number-slider
       title: List Item Line Height
       title.zh: 列表行高
+      description: Line height of item in file explorer, outline panel, setting modal
+          sidebar and so on
+      description.zh: 文件管理器、大纲面板、设置框侧边栏等列表的行高
       default: 1.5
       min: 1
       max: 2
       step: 0.1
-    - id: title-accent-color
-      title: Accent Color
-      title.zh: 高亮颜色
+    - id: title-theme-color
+      title: Theme Color
+      title.zh: 主题色
       type: heading
       level: 1
       collapsed: true
     - id: color-use-custom
       type: class-toggle
-      title: Use Custom Accent Color
-      title.zh: 自定义高亮颜色
-      description: Use the Style Setting Plugin's accent color instead of Obsidian's
-      description.zh: 使用 Style Settings 插件的高亮色，而不是 Obsidian 的
+      title: Use Custom Theme Color
+      title.zh: 自定义主题色
+      description: Use the Style Setting Plugin's theme color instead of Obsidian's
+      description.zh: 使用 Style Settings 插件的主题色，而不是 Obsidian 的
       default: false
     - id: title-light-mode
       title: Light Mode
@@ -42,7 +45,7 @@ settings:
     - id: setting-accent-h-light
       type: variable-number-slider
       title: Base Color
-      title.zh: 基础颜色
+      title.zh: 基础色
       default: 35
       min: 0
       max: 360
@@ -50,31 +53,31 @@ settings:
     - id: color-active-light
       type: class-select
       title: Highlight Color
-      title.zh: 高亮颜色
+      title.zh: 高亮色
       allow-empty: false
       default: color-active-default-light
       options:
-          - label: Accent Color
+          - label: Theme Color
             value: color-active-default-light
-          - label: Accent Color Alt
+          - label: Theme Color Alt
             value: color-active-alt-light
           - label: Custom
             value: color-active-custom-light
     - id: setting-color-active-custom-light
       type: variable-color
       title: Custom Highlight Color for Active State
-      title.zh: 自定义激活状态的高亮颜色
+      title.zh: 自定义激活状态的高亮色
       default: "#"
       format: rgb
       opacity: false
     - id: setting-color-inactive-custom-light
       type: variable-color
       title: Custom Highlight Color for Inactive State
-      title.zh: 自定义非激活状态的高亮颜色
+      title.zh: 自定义非激活状态的高亮色
       default: "#"
       format: rgb
       opacity: false
-    - id: title-more-configuration
+    - id: title-light-accent-custom
       title: More Configuration
       title.zh: 更多设置
       type: heading
@@ -82,8 +85,8 @@ settings:
       collapsed: true
     - id: setting-accent-s-light
       type: variable-number-slider
-      title: Accent Color Saturation
-      title.zh: 高亮颜色饱和度
+      title: Highlight Color Saturation
+      title.zh: 高亮色饱和度
       description: Saturation (S) in HSL
       description.zh: HSL 中的饱和度 (S)
       default: 32
@@ -93,8 +96,8 @@ settings:
       format: "%"
     - id: setting-accent-l-light
       type: variable-number-slider
-      title: Accent Color Lightness
-      title.zh: 高亮颜色亮度
+      title: Highlight Color Lightness
+      title.zh: 高亮色亮度
       description: Lightness (L) in HSL
       description.zh: HSL 中的亮度 (L)
       default: 58
@@ -111,7 +114,7 @@ settings:
     - id: setting-accent-h-dark
       type: variable-number-slider
       title: Base Color
-      title.zh: 基础颜色
+      title.zh: 基础色
       default: 207
       min: 0
       max: 360
@@ -119,31 +122,31 @@ settings:
     - id: color-active-dark
       type: class-select
       title: Highlight Color
-      title.zh: 高亮颜色
+      title.zh: 高亮色
       allow-empty: false
       default: color-active-default-dark
       options:
-          - label: Accent Color
+          - label: Theme Color
             value: color-active-default-dark
-          - label: Accent Color Alt
+          - label: Theme Color Alt
             value: color-active-alt-dark
           - label: Custom
             value: color-active-custom-dark
     - id: setting-color-active-custom-dark
       type: variable-color
       title: Custom Highlight Color for Active State
-      title.zh: 自定义激活状态的高亮颜色
+      title.zh: 自定义激活状态的高亮色
       default: "#"
       format: rgb
       opacity: false
     - id: setting-color-inactive-custom-dark
       type: variable-color
       title: Custom Highlight Color for Inactive State
-      title.zh: 自定义非激活状态的高亮颜色
+      title.zh: 自定义非激活状态的高亮色
       default: "#"
       format: rgb
       opacity: false
-    - id: title-more-configuration
+    - id: title-dark-accent-custom
       title: More Configuration
       title.zh: 更多设置
       type: heading
@@ -151,8 +154,8 @@ settings:
       collapsed: true
     - id: setting-accent-s-dark
       type: variable-number-slider
-      title: Accent Color Saturation
-      title.zh: 高亮颜色饱和度
+      title: Highlight Color Saturation
+      title.zh: 高亮色饱和度
       description: Saturation (S) in HSL
       description.zh: HSL 中的饱和度 (S)
       default: 32
@@ -162,8 +165,8 @@ settings:
       format: "%"
     - id: setting-accent-l-dark
       type: variable-number-slider
-      title: Accent Color Lightness
-      title.zh: 高亮颜色亮度
+      title: Highlight Color Lightness
+      title.zh: 高亮色亮度
       description: Lightness (L) in HSL
       description.zh: HSL 中的亮度 (L)
       default: 58
@@ -171,6 +174,60 @@ settings:
       max: 100
       step: 1
       format: "%"
+    - id: title-layout
+      title: Layout
+      title.zh: 布局
+      type: heading
+      level: 1
+      collapsed: true
+    - id: app-layout-card
+      type: class-toggle
+      title: Enable Card Layout
+      title.zh: 启用卡片布局
+      default: true
+    - id: app-layout-card-bg
+      type: class-select
+      title: Background Type
+      title.zh: 背景类型
+      allow-empty: false
+      default: app-layout-card-gradient
+      options:
+          - label: Plain
+            value: app-layout-card-plain
+          - label: Gradient
+            value: app-layout-card-gradient
+          - label: Custom
+            value: app-layout-card-custom
+    - id: setting-layout-image-light
+      type: variable-text
+      title: Light Theme Background Image
+      title.zh: 浅色主题背景图片
+      description: Any CSS "background-image" value, e.g. url("/your/image/url")
+      description.zh: 任何 CSS “background-image” 值，例如：url("图片链接地址")
+      default: ""
+    - id: setting-layout-opacity-light
+      type: variable-number-slider
+      title: Light Theme Background Opacity
+      title.zh: 浅色主题背景不透明度
+      default: 0.6
+      max: 0.9
+      min: 0.1
+      step: 0.05
+    - id: setting-layout-image-dark
+      type: variable-text
+      title: Dark Theme Background Image
+      title.zh: 深色主题背景图片
+      description: Any CSS "background-image" value, e.g. url("/your/image/url")
+      description.zh: 任何 CSS “background-image” 值，例如：url("图片链接地址")
+      default: ""
+    - id: setting-layout-opacity-dark
+      type: variable-number-slider
+      title: Dark Theme Background Opacity
+      title.zh: 深色主题背景不透明度
+      default: 0.6
+      max: 0.9
+      min: 0.1
+      step: 0.05
 */
 /* @settings
 id: maple-workspace
@@ -188,14 +245,14 @@ settings:
       title.zh: 添加应用的背景图片
       description: Only works in Desktop Version
       description.zh: 只在桌面端生效
-    - id: setting-app-bg-image-light
+    - id: setting-layout-image-light
       type: variable-text
       title: Light Theme Background Image URL
       title.zh: 浅色主题背景图片地址
       description: Any CSS "background-image" value, e.g. url("/your/image/url")
       description.zh: 任何 CSS “background-image” 值，例如：url("图片链接地址")
       default: ""
-    - id: setting-app-bg-opacity-light
+    - id: setting-layout-opacity-light
       type: variable-number-slider
       title: Light Theme Background Opacity
       title.zh: 浅色主题背景不透明度
@@ -203,14 +260,14 @@ settings:
       max: 0.9
       min: 0.1
       step: 0.05
-    - id: setting-app-bg-image-dark
+    - id: setting-layout-image-dark
       type: variable-text
       title: Dark Theme Background Image URL
       title.zh: 深色主题背景图片地址
       description: Any CSS "background-image" value, e.g. url("/your/image/url")
       description.zh: 任何 CSS “background-image” 值，例如：url("图片链接地址")
       default: ""
-    - id: setting-app-bg-opacity-dark
+    - id: setting-layout-opacity-dark
       type: variable-number-slider
       title: Dark Theme Background Opacity
       title.zh: 深色主题背景不透明度
@@ -364,7 +421,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.12'"
+      default: "'maple 1.0.0-beta.13'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -1728,9 +1785,7 @@ html[lang=zh] {
 
 .style-settings-container .setting-item:is([data-id^=setting-accent-h]) input.slider {
   height: 0.8em;
-  --hue-slider-sat: 70%;
-  --hue-slider-br: 60%;
-  background: linear-gradient(to right, hsl(0, var(--hue-slider-sat), var(--hue-slider-br)), hsl(30, var(--hue-slider-sat), var(--hue-slider-br)), hsl(60, var(--hue-slider-sat), var(--hue-slider-br)), hsl(90, var(--hue-slider-sat), var(--hue-slider-br)), hsl(120, var(--hue-slider-sat), var(--hue-slider-br)), hsl(150, var(--hue-slider-sat), var(--hue-slider-br)), hsl(180, var(--hue-slider-sat), var(--hue-slider-br)), hsl(210, var(--hue-slider-sat), var(--hue-slider-br)), hsl(240, var(--hue-slider-sat), var(--hue-slider-br)), hsl(270, var(--hue-slider-sat), var(--hue-slider-br)), hsl(300, var(--hue-slider-sat), var(--hue-slider-br)), hsl(330, var(--hue-slider-sat), var(--hue-slider-br)), hsl(360, var(--hue-slider-sat), var(--hue-slider-br)));
+  background: linear-gradient(to right, hsl(0, 80%, 60%), hsl(30, 80%, 60%), hsl(60, 80%, 60%), hsl(90, 80%, 60%), hsl(120, 80%, 60%), hsl(150, 80%, 60%), hsl(180, 80%, 60%), hsl(210, 80%, 60%), hsl(240, 80%, 60%), hsl(270, 80%, 60%), hsl(300, 80%, 60%), hsl(330, 80%, 60%), hsl(0, 80%, 60%));
   border-radius: var(--size-2-1);
 }
 .style-settings-container .setting-item:is([data-id^=setting-accent-h]) .setting-item-control::before {
@@ -1757,10 +1812,12 @@ body:not(.is-mobile) .setting-item:is([data-id=maple-mobile],
 [data-id=modal-toggle]),
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color],
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
-body:not(.app-bg-image-enable) .setting-item:is([data-id=setting-app-bg-image-light],
-[data-id=setting-app-bg-opacity-light],
-[data-id=setting-app-bg-image-dark],
-[data-id=setting-app-bg-opacity-dark]),
+body.color-active-custom-light .setting-item[data-id=title-light-accent-custom],
+body.color-active-custom-dark .setting-item[data-id=title-dark-accent-custom],
+body:not(.app-layout-card.app-layout-card-custom) .setting-item:is([data-id=setting-layout-image-light],
+[data-id=setting-layout-opacity-light],
+[data-id=setting-layout-image-dark],
+[data-id=setting-layout-opacity-dark]),
 body:not(.editor-bg-plain) .setting-item[data-id=setting-editor-bg],
 body.editor-bg-plain .setting-item[data-id=setting-editor-bg-grid-spacing],
 body:not(.editor-bg-grid-dots) .setting-item[data-id=setting-editor-bg-grid-dots],
@@ -1808,10 +1865,12 @@ body:not(.is-mobile) .setting-item:is([data-id=maple-mobile],
 [data-id=modal-toggle]) + .style-settings-container,
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
-body:not(.app-bg-image-enable) .setting-item:is([data-id=setting-app-bg-image-light],
-[data-id=setting-app-bg-opacity-light],
-[data-id=setting-app-bg-image-dark],
-[data-id=setting-app-bg-opacity-dark]) + .style-settings-container,
+body.color-active-custom-light .setting-item[data-id=title-light-accent-custom] + .style-settings-container,
+body.color-active-custom-dark .setting-item[data-id=title-dark-accent-custom] + .style-settings-container,
+body:not(.app-layout-card.app-layout-card-custom) .setting-item:is([data-id=setting-layout-image-light],
+[data-id=setting-layout-opacity-light],
+[data-id=setting-layout-image-dark],
+[data-id=setting-layout-opacity-dark]) + .style-settings-container,
 body:not(.editor-bg-plain) .setting-item[data-id=setting-editor-bg] + .style-settings-container,
 body.editor-bg-plain .setting-item[data-id=setting-editor-bg-grid-spacing] + .style-settings-container,
 body:not(.editor-bg-grid-dots) .setting-item[data-id=setting-editor-bg-grid-dots] + .style-settings-container,
@@ -2055,7 +2114,7 @@ body {
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(
     var(--accent-h),
-    calc(var(--accent-s) * 1.5),
+    calc(var(--accent-s) * 1.2),
     min(var(--accent-l) * 2, 60%),
     20%
   );
@@ -2399,16 +2458,20 @@ body.line-indicator-full .cm-line.HyperMD-codeblock:hover {
   font-family: var(--font-monospace);
 }
 
-kbd,
-.setting-hotkey,
-.prompt-instruction-command {
+:is(kbd, .setting-hotkey, .prompt-instruction-command) {
   user-select: none;
   text-transform: capitalize;
-  box-shadow: var(--input-shadow);
   border-radius: var(--radius-s);
   background-color: var(--background-secondary);
   font-family: var(--font-monospace) !important;
   padding: 0 var(--size-2-3) !important;
+}
+.theme-light :is(kbd, .setting-hotkey, .prompt-instruction-command) {
+  box-shadow: var(--input-shadow), 0 1px 1px 1px var(--color-base-40);
+}
+.theme-dark :is(kbd, .setting-hotkey, .prompt-instruction-command) {
+  border: 1px solid var(--color-base-40);
+  border-bottom-width: 2px;
 }
 
 .setting-hotkey.mod-empty {
@@ -5846,6 +5909,10 @@ input {
   transition-duration: var(--setting-animation-time, 200ms) !important;
 }
 
+.checkbox-container {
+  background-color: var(--color-base-25);
+}
+
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb {
   height: 1.6em;
   width: var(--size-4-1);
@@ -5863,7 +5930,6 @@ body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-conta
   height: var(--size-4-4);
   transition: var(--animation-slow);
   border: var(--size-2-1) solid var(--text-faint);
-  background-color: var(--color-base-20);
 }
 body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container:focus-within {
   outline: none;
@@ -5954,7 +6020,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.12");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.13");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6424,11 +6490,7 @@ body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sided
 /* #endregion tab */
 /* #region titlebar */
 .theme-light {
-  --frame-bg: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 32%)
-  );
+  --frame-bg: hsl(var(--accent-h), 18%, 93%);
 }
 
 .theme-dark {
@@ -6467,6 +6529,7 @@ body .mod-maximize svg rect {
   rx: 1.8;
 }
 body .titlebar-button.mod-close:hover {
+  background-color: hsl(1, 75%, 62%) !important;
   color: var(--text-on-accent);
 }
 body .workspace-tab-header-new-tab {
@@ -6566,7 +6629,10 @@ body.message-tooltip-hide-arrow .tooltip-arrow {
 }
 
 body.message-modify {
-  --background-modifier-message: var(--setting-message-bg, var(--text-accent));
+  --background-modifier-message: var(
+    --setting-message-bg,
+    var(--accent-active)
+  );
 }
 body.message-modify :is(.tooltip, .notice) {
   color: var(--setting-message-fg, var(--text-on-accent));
@@ -6574,89 +6640,90 @@ body.message-modify :is(.tooltip, .notice) {
 
 /* #endregion message */
 /* #region background image */
-.theme-light {
-  --app-bg-image: var(
-    --setting-app-bg-image-light,
-    linear-gradient(
-      210deg,
-      hsl(calc(var(--accent-h) - 15), calc(var(--accent-s) * 0.95), 85%),
-      hsl(var(--accent-h), calc(var(--accent-s) * 0.9), 85%),
-      hsl(calc(var(--accent-h) + 15), calc(var(--accent-s) * 0.95), 85%)
-    )
-  );
-  --bg-opacity: var(--setting-app-bg-opacity-light, 0.6);
-  --editor-min-opacity: 0.8;
-}
-
-.theme-dark {
-  --app-bg-image: var(
-    --setting-app-bg-image-dark,
-    linear-gradient(
-      210deg,
-      hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 1.15), 25%),
-      hsl(var(--accent-h), calc(var(--accent-s) * 1.1), 20%),
-      hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 1.15), 25%)
-    )
-  );
-  --bg-opacity: var(--setting-app-bg-opacity-dark, 0.6);
-  --editor-min-opacity: 0.85;
-}
-
 body {
   --bg-editor: var(--background-primary);
   --bg-surface: var(--background-secondary);
 }
 
-body.app-bg-image-enable:not(.is-mobile) {
+body.app-layout-card:not(.is-mobile) {
+  --divider-color: transparent;
+  --pdf-background: transparent;
+  --tab-active-shadow: none;
+}
+body.app-layout-card:not(.is-mobile).app-layout-card-plain {
+  background-color: var(--background-secondary);
+  --editor-min-opacity: 1;
+  --bg-opacity: 1;
+}
+body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain) {
+  background-color: transparent;
   background-image: var(--app-bg-image);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  --divider-color: transparent;
-}
-body.app-bg-image-enable:not(.is-mobile) :is(.workspace, .titlebar) {
-  --frame-bg: transparent !important;
-  --tab-active-shadow: none;
-  --bg-opacity: var(--setting-app-bg-opacity, 0.4);
+  --bg-opacity: var(--setting-layout-opacity, 0.4);
   --bg-editor: hsla(
     var(--background-primary-hsl),
     max(var(--bg-opacity), var(--editor-min-opacity))
   );
-  --bg-surface: hsla(var(--background-primary-hsl), var(--bg-opacity));
-  --pdf-background: transparent;
+  --bg-surface: hsla(var(--background-secondary-hsl), var(--bg-opacity));
 }
-body.app-bg-image-enable:not(.is-mobile).theme-light {
-  --md-container-bg: var(
-    --setting-md-container-bg,
-    hsla(
-      calc(var(--accent-h) + 8),
-      calc(var(--accent-s) / 1.2),
-      calc(100% - (100% - var(--accent-l)) / 7)
-    )
+body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain) :is(.titlebar, .workspace) {
+  --frame-bg: transparent !important;
+}
+body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain).theme-light {
+  --editor-min-opacity: 0.8;
+}
+body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain).theme-dark {
+  --editor-min-opacity: 0.85;
+}
+body.app-layout-card:not(.is-mobile).app-layout-card-gradient {
+  --bg-opacity: 0.6;
+}
+body.app-layout-card:not(.is-mobile).app-layout-card-gradient.theme-light {
+  --app-bg-image: linear-gradient(
+    210deg,
+    hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 0.9), 85%),
+    hsl(calc(var(--accent-h) + 60), calc(var(--accent-s) * 0.9), 85%)
   );
 }
-body.app-bg-image-enable:not(.is-mobile).theme-dark {
-  --md-container-bg: var(
-    --setting-md-container-bg,
-    hsla(calc(var(--accent-h) - 4), 12%, 11%)
+body.app-layout-card:not(.is-mobile).app-layout-card-gradient.theme-dark {
+  --app-bg-image: linear-gradient(
+    210deg,
+    hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 1.15), 25%),
+    hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 1.15), 25%)
   );
 }
-body.app-bg-image-enable:not(.is-mobile) .mod-root .workspace-tab-container {
+body.app-layout-card:not(.is-mobile).app-layout-card-custom.theme-light {
+  --bg-opacity: var(--setting-layout-opacity-light, 0.6);
+  --app-bg-image: var(
+    --setting-layout-image-light,
+    linear-gradient(to bottom, var(--color-base-25))
+  );
+}
+body.app-layout-card:not(.is-mobile).app-layout-card-custom.theme-dark {
+  --bg-opacity: var(--setting-layout-opacity-dark, 0.6);
+  --app-bg-image: var(
+    --setting-layout-image-dark,
+    linear-gradient(to bottom, var(--color-base-20))
+  );
+}
+body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-container {
   padding: var(--size-4-1);
   padding-top: 0;
 }
-body.app-bg-image-enable:not(.is-mobile) .mod-root .workspace-tab-container .workspace-leaf-content {
+body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-container .workspace-leaf-content {
   border-radius: var(--radius-m);
 }
-body.app-bg-image-enable:not(.is-mobile) .workspace-tab-header {
+body.app-layout-card:not(.is-mobile) .workspace-tab-header {
   --background-modifier-hover: hsla(
     var(--background-primary-hsl),
     var(--bg-opacity)
   );
 }
-body.app-bg-image-enable:not(.is-mobile) .workspace-tab-header.is-active {
+body.app-layout-card:not(.is-mobile) .workspace-tab-header.is-active {
   --tab-background-active: var(--bg-editor);
 }
-body.app-bg-image-enable:not(.is-mobile) :is(.workspace-tab-header-container,
+body.app-layout-card:not(.is-mobile) :is(.workspace-tab-header-container,
 .workspace-tab-header-container-inner,
 .titlebar-button-container,
 .sidebar-toggle-button,
@@ -6666,26 +6733,23 @@ body.app-bg-image-enable:not(.is-mobile) :is(.workspace-tab-header-container,
 .pdf-toolbar) {
   background-color: transparent;
 }
-body.app-bg-image-enable:not(.is-mobile) .titlebar {
-  background-color: var(--bg-surface);
-}
-body.app-bg-image-enable:not(.is-mobile) .workspace-ribbon {
+body.app-layout-card:not(.is-mobile) .workspace-ribbon {
   --ribbon-background: var(--bg-surface);
   --ribbon-background-collapsed: var(--bg-surface);
 }
-body.app-bg-image-enable:not(.is-mobile) .workspace-ribbon::before {
+body.app-layout-card:not(.is-mobile) .workspace-ribbon::before {
   background-color: var(--bg-surface);
 }
-body.app-bg-image-enable:not(.is-mobile) .workspace-split {
+body.app-layout-card:not(.is-mobile) .workspace-split {
   background-color: var(--bg-surface);
 }
-body.app-bg-image-enable:not(.is-mobile) .workspace-split.mod-root {
+body.app-layout-card:not(.is-mobile) .workspace-split.mod-root {
   background-color: var(--bg-surface);
 }
-body.app-bg-image-enable:not(.is-mobile) :is(.workspace-split.mod-root .view-content, .view-header) {
+body.app-layout-card:not(.is-mobile) :is(.workspace-split.mod-root .view-content, .view-header) {
   background-color: var(--bg-editor);
 }
-body.app-bg-image-enable:not(.is-mobile):not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+body.app-layout-card:not(.is-mobile):not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
   background-color: hsla(var(--background-secondary-hsl), calc(var(--bg-opacity) / 4));
 }
 
