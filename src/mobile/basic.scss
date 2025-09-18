@@ -1,5 +1,5 @@
 .is-mobile {
-  --interactive-normal: var(--color-base-10);
+  --interactive-normal: var(--color-base-05);
   --interactive-hover: var(--background-modifier-hover);
   --system-access-override-text-width: auto;
 
@@ -8,5 +8,11 @@
   }
   .modal-close-button::before {
     transform: translate(20%, 20%);
+  }
+
+  .mobile-tap {
+    &.tree-item-self.is-clickable.is-active {
+      background-color: var(--nav-item-background-active);
+    }
   }
 }

@@ -27,121 +27,123 @@ input {
   transition-duration: var(--setting-animation-time, 200ms) !important;
 }
 
-body.modal-slider input[type='range']::-webkit-slider-thumb {
-  height: 1.6em;
-  width: var(--size-4-1);
-  background-color: var(--text-muted);
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: var(--radius-m);
-
-  &:hover {
-    box-shadow: none;
-  }
-}
-
-body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
-  --toggle-radius: var(--radius-m);
-  height: var(--size-4-4);
-  transition: var(--animation-slow);
-  border: var(--size-2-1) solid var(--text-faint);
-  background-color: var(--color-base-20);
-
-  &:focus-within {
-    outline: none;
-    box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.14),
-      inset 0 0 1px rgba(0, 0, 0, 0.28);
-  }
-
-  input[type='checkbox'] {
-    opacity: 0;
-  }
-}
-
-body.modal-toggle-round .checkbox-container {
-  --toggle-shadow: var(--color-base-40);
-
-  &::after {
-    left: 0;
-    height: calc(var(--toggle-width) / 3);
-    width: calc(var(--toggle-width) / 3);
-    bottom: 30%;
-    border-radius: calc(var(--toggle-width) / 2);
-    border: var(--toggle-border-width) solid var(--text-faint);
-    background-color: var(--text-on-accent);
-    margin: 0;
-    transition: var(--animation-slow);
-  }
-
-  :is(&:hover, &:focus-within)::after {
-    bottom: 10%;
-  }
-
-  &.is-enabled {
-    border-color: var(--accent-active);
-    background-color: var(--accent-inactive);
-
-    &::after {
-      border-color: var(--accent-active);
-      transform: none;
-      left: calc(
-        100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width)
-      );
-    }
-  }
-}
-
-/* 参考 https://uiverse.io/martinval9/white-lionfish-18 */
-body.modal-toggle-thin .checkbox-container {
-  &::before {
-    height: var(--toggle-border-width);
-    left: calc(var(--toggle-border-width) * 2);
-    right: calc(var(--toggle-border-width) * 2);
-    opacity: 1;
+body:not(.is-mobile) {
+  &.modal-slider input[type='range']::-webkit-slider-thumb {
+    height: 1.6em;
+    width: var(--size-4-1);
+    background-color: var(--text-muted);
+    position: relative;
     top: 50%;
-    bottom: initial;
     transform: translateY(-50%);
-    background-color: var(--text-faint);
+    border-radius: var(--radius-m);
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 
-  &::after {
-    left: var(--toggle-border-width);
-    height: var(--size-4-3);
-    bottom: 50%;
-    border-radius: var(--radius-m) var(--radius-m) 0 0;
-    border: var(--toggle-border-width) solid var(--text-faint);
-    border-bottom-width: calc(var(--toggle-border-width) / 2);
-    background-color: var(--text-on-accent);
-    width: 20%;
-    margin: 0;
+  &:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
+    --toggle-radius: var(--radius-m);
+    height: var(--size-4-4);
     transition: var(--animation-slow);
+    border: var(--size-2-1) solid var(--text-faint);
+    background-color: var(--color-base-20);
+
+    &:focus-within {
+      outline: none;
+      box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.14),
+        inset 0 0 1px rgba(0, 0, 0, 0.28);
+    }
+
+    input[type='checkbox'] {
+      opacity: 0;
+    }
   }
 
-  :is(&:hover, &:focus-within)::after {
-    height: var(--size-4-2);
+  &.modal-toggle-round .checkbox-container {
+    --toggle-shadow: var(--color-base-40);
+
+    &::after {
+      left: 0;
+      height: calc(var(--toggle-width) / 3);
+      width: calc(var(--toggle-width) / 3);
+      bottom: 30%;
+      border-radius: calc(var(--toggle-width) / 2);
+      border: var(--toggle-border-width) solid var(--text-faint);
+      background-color: var(--text-on-accent);
+      margin: 0;
+      transition: var(--animation-slow);
+    }
+
+    :is(&:hover, &:focus-within)::after {
+      bottom: 10%;
+    }
+
+    &.is-enabled {
+      border-color: var(--accent-active);
+      background-color: var(--accent-inactive);
+
+      &::after {
+        border-color: var(--accent-active);
+        transform: none;
+        left: calc(
+          100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width)
+        );
+      }
+    }
   }
 
-  &:active::after {
-    width: calc(100% - var(--toggle-border-width) * 6);
-  }
-
-  &.is-enabled {
-    border-color: var(--accent-active);
-    background-color: var(--accent-inactive);
-
+  // https://uiverse.io/martinval9/white-lionfish-18
+  &.modal-toggle-thin .checkbox-container {
     &::before {
-      background-color: var(--accent-active);
+      height: var(--toggle-border-width);
+      left: calc(var(--toggle-border-width) * 2);
+      right: calc(var(--toggle-border-width) * 2);
+      opacity: 1;
+      top: 50%;
+      bottom: initial;
+      transform: translateY(-50%);
+      background-color: var(--text-faint);
     }
 
     &::after {
-      border-color: var(--accent-active);
-      transform: none;
-      left: calc(80% - var(--toggle-border-width) * 4);
+      left: var(--toggle-border-width);
+      height: var(--size-4-3);
+      bottom: 50%;
+      border-radius: var(--radius-m) var(--radius-m) 0 0;
+      border: var(--toggle-border-width) solid var(--text-faint);
+      border-bottom-width: calc(var(--toggle-border-width) / 2);
+      background-color: var(--text-on-accent);
+      width: 20%;
+      margin: 0;
+      transition: var(--animation-slow);
+    }
+
+    :is(&:hover, &:focus-within)::after {
+      height: var(--size-4-2);
     }
 
     &:active::after {
-      left: calc(2 * var(--toggle-border-width));
+      width: calc(100% - var(--toggle-border-width) * 6);
+    }
+
+    &.is-enabled {
+      border-color: var(--accent-active);
+      background-color: var(--accent-inactive);
+
+      &::before {
+        background-color: var(--accent-active);
+      }
+
+      &::after {
+        border-color: var(--accent-active);
+        transform: none;
+        left: calc(80% - var(--toggle-border-width) * 4);
+      }
+
+      &:active::after {
+        left: calc(2 * var(--toggle-border-width));
+      }
     }
   }
 }
