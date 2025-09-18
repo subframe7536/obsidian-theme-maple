@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.11 For Obsidian */
+/* Maple Theme v1.0.0-beta.12 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Color and Animation
@@ -182,19 +182,6 @@ settings:
       type: heading
       level: 1
       collapsed: true
-    - id: titlebar-button-style
-      type: class-toggle
-      title: Styled Window Buttons
-      title.zh: 美化窗体按钮
-      description: Applies to Windows and Linux
-      description.zh: 在 Windows 和 Linux 系统中生效
-      default: true
-    - id: titlebar-colorful
-      type: class-toggle
-      title: Colorful Style Titlebar
-      title.zh: 多彩 Obsidian 标题栏
-      description: "Reference: https://github.com/kepano/obsidian-minimal"
-      description.zh: 参考：https://github.com/kepano/obsidian-minimal
     - id: app-bg-image-enable
       type: class-toggle
       title: Add Background Image In Workspace
@@ -356,7 +343,7 @@ settings:
       default-dark: "#"
     - id: title-modal-and-setting-panel
       title: Modal and Setting Panel
-      title.zh: 模态框与设置面板
+      title.zh: 模态框和设置面板
       type: heading
       level: 1
       collapsed: true
@@ -377,7 +364,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.11'"
+      default: "'maple 1.0.0-beta.12'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -406,9 +393,9 @@ settings:
       title: Add Show Up Animation for Modal
       title.zh: 为模态框添加显现动画
       default: true
-    - id: title-tab
-      title: Tab
-      title.zh: 标签页
+    - id: title-tab-and-navigation-bar
+      title: Tab and Navigation Bar
+      title.zh: 标签页和导航栏
       type: heading
       level: 1
       collapsed: true
@@ -423,12 +410,6 @@ settings:
       description: ❗Turning on will prevent some panels updating instantly while
           switching tabs
       description.zh: ❗开启后会导致部分面板无法立即更新
-    - id: labeled-nav
-      type: class-toggle
-      title: Text Labels For Primary Navigation
-      title.zh: 主导航栏添加文字
-      description: "Reference: https://github.com/kepano/obsidian-minimal"
-      description.zh: 参考：https://github.com/kepano/obsidian-minimal
     - id: tab-show-close
       type: class-select
       title: When To Show Close Button On Tabs
@@ -488,7 +469,7 @@ settings:
       title.zh: 状态栏居中显示
     - id: title-tooltip-and-notice
       title: Tooltip and Notice
-      title.zh: 提示框与通知
+      title.zh: 提示框和通知
       type: heading
       level: 1
       collapsed: true
@@ -663,9 +644,9 @@ settings:
     - id: font-latex-text
       type: class-toggle
       title: Use Text Font in Non-formula Parts of LaTeX
-      title.zh: 在 LaTeX 非公式部分使用正文字体
-      description: Only tested with CJK fonts; may not reconcile with Latin characters
-      description.zh: 默认字体较丑
+      title.zh: 在 LaTeX 内非公式部分使用正文字体
+      description: No effective on Latin letters and numbers
+      description.zh: 用于修改中文字体
     - id: title-text
       title: Text
       title.zh: 文本
@@ -1280,13 +1261,8 @@ settings:
       type: class-toggle
       title: Click to Zoom Image
       title.zh: 鼠标按下时放大图片
-      description: Not effective in Source view or Live Preview mode
-      description.zh: 在源码模式或实时预览模式下不生效
-      default: true
-    - id: image-zoom-out
-      type: class-toggle
-      title: Zoom Image to Full Screen
-      title.zh: 图片放大到全屏
+      description: "Reference: https://github.com/aaaaalexis/obsidian-cupertino"
+      description.zh: 参考：https://github.com/aaaaalexis/obsidian-cupertino
       default: true
     - id: image-dark-hover
       type: class-toggle
@@ -1614,6 +1590,16 @@ settings:
       description.zh: 任何 CSS “max-width” 值
       default: 500px
 */
+/* @settings
+id: maple-mobile
+name: Maple Mobile
+settings:
+    - id: mobile-floating-button
+      type: class-toggle
+      title: Floating Mode Switch Button
+      title.zh: 浮动的模式切换按钮
+      default: true
+*/
 
 /* #region built-in fonts */
 @font-face {
@@ -1658,6 +1644,10 @@ settings:
 
 .style-settings-heading[data-id=maple-plugin] {
   --style-settings-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2'/><rect width='8' height='8' x='14' y='2' rx='1'/></g></svg>");
+}
+
+.style-settings-heading[data-id=maple-mobile] {
+  --style-settings-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><rect width='10' height='14' x='3' y='8' rx='2'/><path d='M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4M8 18h.01'/></g></svg>");
 }
 
 /* #endregion */
@@ -1762,6 +1752,9 @@ html[lang=zh] {
 
 /* #endregion */
 /* #region Hide Options */
+body:not(.is-mobile) .setting-item:is([data-id=maple-mobile],
+[data-id=modal-slider],
+[data-id=modal-toggle]),
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color],
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
 body:not(.app-bg-image-enable) .setting-item:is([data-id=setting-app-bg-image-light],
@@ -1810,6 +1803,9 @@ body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
 [data-id=setting-tag-color]) {
   display: none;
 }
+body:not(.is-mobile) .setting-item:is([data-id=maple-mobile],
+[data-id=modal-slider],
+[data-id=modal-toggle]) + .style-settings-container,
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
 body:not(.app-bg-image-enable) .setting-item:is([data-id=setting-app-bg-image-light],
@@ -3770,7 +3766,7 @@ body:is(:not(.css-settings-manager), .list-enable) :is(.markdown-source-view, .m
   border-width: var(--size-2-1);
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .task-list-item-checkbox {
-  --checkbox-margin-inline-start: var(--size-4-1);
+  --checkbox-margin-inline-start: var(--size-4-2);
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-preview-view .task-list-item-checkbox {
   margin-inline-start: calc(var(--checkbox-size) * -1.3);
@@ -4407,6 +4403,14 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   background-color: currentColor;
   color: var(--color-red);
 }
+body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=L], li[data-task=L] > input, li[data-task=L] > p > input):checked {
+  --checkbox-marker-color: transparent;
+  border: none;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='currentColor' d='M6.979 3.074a6 6 0 0 1 4.988 1.425l.037.033l.034-.03a6 6 0 0 1 4.733-1.44l.246.036a6 6 0 0 1 3.364 10.008l-.18.185l-.048.041l-7.45 7.379a1 1 0 0 1-1.313.082l-.094-.082l-7.493-7.422A6 6 0 0 1 6.979 3.074'/></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+  color: var(--color-red);
+}
 
 /* #endregion checkbox */
 /* #region quote */
@@ -4417,8 +4421,6 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
 
 body {
   --blockquote-border-color: var(--accent-active);
-}
-body :is(.markdown-source-view, .markdown-rendered) {
   --blockquote-border-thickness: var(--size-4-1);
   --blockquote-radius: var(--size-2-3);
 }
@@ -4457,6 +4459,35 @@ body .markdown-rendered blockquote::after {
 body .markdown-rendered blockquote blockquote {
   box-shadow: none;
   margin-inline-end: var(--size-4-3) !important;
+}
+body .HyperMD-quote {
+  border: solid var(--blockquote-background-color);
+  border-width: 0 var(--size-4-2) 0 var(--size-4-2);
+}
+body .HyperMD-quote::before {
+  width: 0 !important;
+}
+body :is(.HyperMD-quote:first-child,
+.cm-sizer > div > div > *:not(.HyperMD-quote) + .HyperMD-quote) {
+  border-top-width: var(--size-4-2);
+  border-start-start-radius: var(--blockquote-border-thickness);
+  border-start-end-radius: var(--blockquote-border-thickness);
+}
+body :is(.HyperMD-quote:first-child,
+.cm-sizer > div > div > *:not(.HyperMD-quote) + .HyperMD-quote)::before {
+  border-start-start-radius: var(--blockquote-border-thickness);
+  border-start-end-radius: var(--blockquote-border-thickness);
+}
+body :is(.HyperMD-quote:last-child,
+.cm-sizer > div > div > .HyperMD-quote:has(+ *:not(.HyperMD-quote))) {
+  border-bottom-width: var(--size-4-2);
+  border-end-start-radius: var(--blockquote-border-thickness);
+  border-end-end-radius: var(--blockquote-border-thickness);
+}
+body :is(.HyperMD-quote:last-child,
+.cm-sizer > div > div > .HyperMD-quote:has(+ *:not(.HyperMD-quote)))::before {
+  border-end-start-radius: var(--blockquote-border-thickness);
+  border-end-end-radius: var(--blockquote-border-thickness);
 }
 
 .quote-shadow .markdown-rendered blockquote {
@@ -4719,7 +4750,7 @@ body {
   --h2-weight: 700;
   --h3-weight: 600;
   --h4-weight: 550;
-  --h5-weight: 500;
+  --h5-weight: 550;
   --h6-weight: 500;
   --h1-line-height: calc(
     var(--setting-line-height, var(--line-height-normal)) * var(--h1-size)
@@ -5205,24 +5236,48 @@ img {
   margin-left: auto;
 }
 
-/* scale on click, reference from blue-topaz */
-body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=image]) img:not([class*=emoji], .banner-image) {
+/* Reference: https://github.com/aaaaalexis/obsidian-cupertino/blob/a7b045b1267728f6535fc8ed1b0925f8b49bc05d/src/features/image-zoom.scss#L1-L53 */
+body.image-zoom:not(.is-mobile) .workspace-leaf-content[data-type=markdown] :is(.image-embed:not(.canvas-node-content),
+img[referrerpolicy=no-referrer],
+.cm-content > img) {
   cursor: zoom-in;
 }
-body.image-zoom :is(.markdown-preview-view, .workspace-leaf-content[data-type=image]) img:not([class*=emoji], .banner-image):active {
-  overflow: hidden;
-  position: relative;
-  object-fit: contain;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  border-radius: 0;
-  inset: 0;
-  z-index: 200;
-  background-image: linear-gradient(to right, hsl(var(--background-primary-hsl)), hsl(var(--background-secondary-hsl)), hsl(var(--background-primary-hsl)));
-}
-body.image-zoom.image-zoom-out :is(.markdown-preview-view, .workspace-leaf-content[data-type=image]) img:not([class*=emoji], .banner-image):active {
+body.image-zoom:not(.is-mobile) .markdown-preview-view .image-embed:not(.canvas-node-content):active img,
+body.image-zoom:not(.is-mobile) .markdown-preview-view img[referrerpolicy=no-referrer]:active {
   position: fixed;
+  z-index: 1000;
+  cursor: zoom-out;
+  inset: 0;
+  background-color: var(--background-primary);
+  width: 100%;
+  height: 100%;
+  max-height: unset;
+  object-fit: contain;
+}
+body.image-zoom:not(.is-mobile) .markdown-source-view .image-embed:not(.canvas-node-content):active,
+body.image-zoom:not(.is-mobile) .markdown-source-view .cm-content > img:active {
+  position: fixed;
+  z-index: 1000;
+  cursor: zoom-out;
+  inset: var(--header-height) 0 0;
+  background-color: var(--background-primary);
+}
+body.image-zoom:not(.is-mobile) .markdown-source-view .image-embed:not(.canvas-node-content):active {
+  display: flex;
+  justify-content: center;
+}
+body.image-zoom:not(.is-mobile) .markdown-source-view .image-embed:not(.canvas-node-content):active img {
+  background-color: transparent;
+  width: 100%;
+  height: auto;
+  max-height: unset;
+  object-fit: contain;
+}
+body.image-zoom:not(.is-mobile) .markdown-source-view .cm-content > img:active {
+  width: 100%;
+  height: calc(100% - var(--header-height));
+  max-height: unset;
+  object-fit: contain;
 }
 
 /* #endregion image */
@@ -5700,6 +5755,7 @@ body.search-internal-enable .document-search-container {
   height: fit-content;
   border: 1px solid var(--color-base-25) !important;
   box-shadow: var(--shadow-s);
+  padding: var(--size-4-2);
   margin: 0;
 }
 body.search-internal-enable .document-search-container :is(.document-replace, .document-search) {
@@ -5790,7 +5846,7 @@ input {
   transition-duration: var(--setting-animation-time, 200ms) !important;
 }
 
-body.modal-slider input[type=range]::-webkit-slider-thumb {
+body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb {
   height: 1.6em;
   width: var(--size-4-1);
   background-color: var(--text-muted);
@@ -5799,29 +5855,27 @@ body.modal-slider input[type=range]::-webkit-slider-thumb {
   transform: translateY(-50%);
   border-radius: var(--radius-m);
 }
-body.modal-slider input[type=range]::-webkit-slider-thumb:hover {
+body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:hover {
   box-shadow: none;
 }
-
-body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
+body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
   height: var(--size-4-4);
   transition: var(--animation-slow);
   border: var(--size-2-1) solid var(--text-faint);
   background-color: var(--color-base-20);
 }
-body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container:focus-within {
+body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container:focus-within {
   outline: none;
   box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.14), inset 0 0 1px rgba(0, 0, 0, 0.28);
 }
-body:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container input[type=checkbox] {
+body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container input[type=checkbox] {
   opacity: 0;
 }
-
-body.modal-toggle-round .checkbox-container {
+body:not(.is-mobile).modal-toggle-round .checkbox-container {
   --toggle-shadow: var(--color-base-40);
 }
-body.modal-toggle-round .checkbox-container::after {
+body:not(.is-mobile).modal-toggle-round .checkbox-container::after {
   left: 0;
   height: calc(var(--toggle-width) / 3);
   width: calc(var(--toggle-width) / 3);
@@ -5832,21 +5886,19 @@ body.modal-toggle-round .checkbox-container::after {
   margin: 0;
   transition: var(--animation-slow);
 }
-:is(body.modal-toggle-round .checkbox-container:hover, body.modal-toggle-round .checkbox-container:focus-within)::after {
+:is(body:not(.is-mobile).modal-toggle-round .checkbox-container:hover, body:not(.is-mobile).modal-toggle-round .checkbox-container:focus-within)::after {
   bottom: 10%;
 }
-body.modal-toggle-round .checkbox-container.is-enabled {
+body:not(.is-mobile).modal-toggle-round .checkbox-container.is-enabled {
   border-color: var(--accent-active);
   background-color: var(--accent-inactive);
 }
-body.modal-toggle-round .checkbox-container.is-enabled::after {
+body:not(.is-mobile).modal-toggle-round .checkbox-container.is-enabled::after {
   border-color: var(--accent-active);
   transform: none;
   left: calc(100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width));
 }
-
-/* 参考 https://uiverse.io/martinval9/white-lionfish-18 */
-body.modal-toggle-thin .checkbox-container::before {
+body:not(.is-mobile).modal-toggle-thin .checkbox-container::before {
   height: var(--toggle-border-width);
   left: calc(var(--toggle-border-width) * 2);
   right: calc(var(--toggle-border-width) * 2);
@@ -5856,7 +5908,7 @@ body.modal-toggle-thin .checkbox-container::before {
   transform: translateY(-50%);
   background-color: var(--text-faint);
 }
-body.modal-toggle-thin .checkbox-container::after {
+body:not(.is-mobile).modal-toggle-thin .checkbox-container::after {
   left: var(--toggle-border-width);
   height: var(--size-4-3);
   bottom: 50%;
@@ -5868,25 +5920,25 @@ body.modal-toggle-thin .checkbox-container::after {
   margin: 0;
   transition: var(--animation-slow);
 }
-:is(body.modal-toggle-thin .checkbox-container:hover, body.modal-toggle-thin .checkbox-container:focus-within)::after {
+:is(body:not(.is-mobile).modal-toggle-thin .checkbox-container:hover, body:not(.is-mobile).modal-toggle-thin .checkbox-container:focus-within)::after {
   height: var(--size-4-2);
 }
-body.modal-toggle-thin .checkbox-container:active::after {
+body:not(.is-mobile).modal-toggle-thin .checkbox-container:active::after {
   width: calc(100% - var(--toggle-border-width) * 6);
 }
-body.modal-toggle-thin .checkbox-container.is-enabled {
+body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled {
   border-color: var(--accent-active);
   background-color: var(--accent-inactive);
 }
-body.modal-toggle-thin .checkbox-container.is-enabled::before {
+body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled::before {
   background-color: var(--accent-active);
 }
-body.modal-toggle-thin .checkbox-container.is-enabled::after {
+body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled::after {
   border-color: var(--accent-active);
   transform: none;
   left: calc(80% - var(--toggle-border-width) * 4);
 }
-body.modal-toggle-thin .checkbox-container.is-enabled:active::after {
+body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled:active::after {
   left: calc(2 * var(--toggle-border-width));
 }
 
@@ -5902,7 +5954,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.11");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.12");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6284,6 +6336,8 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-tab-header-inner
 
 body.tab-float {
   --tab-radius: var(--size-2-3);
+}
+body.tab-float.theme-light {
   --tab-active-shadow: var(--shadow-s);
 }
 body.tab-float .mod-root .workspace-tab-header {
@@ -6369,35 +6423,6 @@ body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sided
 
 /* #endregion tab */
 /* #region titlebar */
-body.titlebar-button-style.is-hidden-frameless:is(.mod-windows, .mod-linux) .titlebar-button {
-  padding: 0 14px;
-}
-body.titlebar-button-style.is-hidden-frameless:is(.mod-windows, .mod-linux) .titlebar-button svg {
-  width: 100%;
-  height: 32%;
-}
-body.titlebar-button-style .mod-maximize svg rect {
-  rx: 1.8;
-}
-body.titlebar-button-style.is-maximized .mod-maximize svg {
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><g stroke='currentColor' stroke-width='1.8' stroke-linecap='round'><path d='M14.5 7A2.5 2.5 0 0 1 17 9.5v9a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 3 18.5v-9A2.5 2.5 0 0 1 5.5 7h9Z' /><path d='M7 3h8c4 0 6 2 6 6v8' /></g></svg>") no-repeat;
-  -webkit-mask-size: 100% 100%;
-  background-color: currentColor;
-}
-body.titlebar-button-style.is-maximized .mod-maximize svg path {
-  display: none;
-}
-body.titlebar-button-style.is-frameless:not(.is-hidden-frameless):is(.mod-windows, .mod-linux) .titlebar-button svg:not([class*=logo]) {
-  width: 100%;
-  height: 42%;
-}
-body.titlebar-button-style .titlebar-button.mod-close:hover {
-  color: var(--text-on-accent);
-}
-body.titlebar-button-style .workspace-tab-header-new-tab {
-  padding-bottom: var(--size-2-1);
-}
-
 .theme-light {
   --frame-bg: hsl(
     var(--accent-h),
@@ -6419,20 +6444,33 @@ body .workspace-tabs:not(.mod-top) .workspace-tab-header-container {
   background-color: var(--bg-surface);
   border-bottom: none;
 }
-
-body.titlebar-colorful.theme-light {
-  --frame-bg: hsl(var(--accent-h), 40%, 82%);
-  --logo-color-default: hsl(var(--accent-h), 35%, 50%);
+body.is-maximized .mod-maximize svg {
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><g stroke='currentColor' stroke-width='1.8' stroke-linecap='round'><path d='M14.5 7A2.5 2.5 0 0 1 17 9.5v9a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 3 18.5v-9A2.5 2.5 0 0 1 5.5 7h9Z' /><path d='M7 3h8c4 0 6 2 6 6v8' /></g></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
 }
-body.titlebar-colorful.theme-light .workspace-tab-header {
-  --background-modifier-hover: hsl(var(--accent-h), 50%, 92%);
+body.is-maximized .mod-maximize svg path {
+  display: none;
 }
-body.titlebar-colorful.theme-dark {
-  --frame-bg: hsl(var(--accent-h), 24%, 22%);
-  --logo-color-default: hsl(var(--accent-h), 35%, 50%);
+body.is-hidden-frameless:is(.mod-windows, .mod-linux) .titlebar-button {
+  padding: 0 15px;
 }
-body.titlebar-colorful.theme-dark .workspace-tab-header {
-  --background-modifier-hover: hsl(var(--accent-h), 45%, 32%);
+body.is-hidden-frameless:is(.mod-windows, .mod-linux) .titlebar-button svg {
+  width: 100%;
+  height: 32%;
+}
+body.is-hidden-frameless:is(.mod-windows, .mod-linux) .titlebar-button svg:not([class*=logo]) {
+  width: 100%;
+  height: 35%;
+}
+body .mod-maximize svg rect {
+  rx: 1.8;
+}
+body .titlebar-button.mod-close:hover {
+  color: var(--text-on-accent);
+}
+body .workspace-tab-header-new-tab {
+  padding-bottom: var(--size-2-1);
 }
 
 /* #endregion titlebar */
@@ -6653,17 +6691,7 @@ body.app-bg-image-enable:not(.is-mobile):not(.is-mobile) .workspace-split.mod-le
 
 /* #endregion background */
 /* #region labeled-navigator */
-/* MIT License | Copyright (c) Stephan Ango (@kepano)
-
-Labeled Nav snippet for Obsidian
-
-author: @kepano
-version: 2.0.0
-
-Support my work:
-https://github.com/sponsors/kepano
-
-*/
+/* Reference from author: @kepano, support his work: https://github.com/sponsors/kepano */
 .labeled-nav.mod-windows,
 .labeled-nav.is-fullscreen:not(.colorful-frame) {
   --labeled-nav-top-margin: 0;
@@ -6719,10 +6747,6 @@ https://github.com/sponsors/kepano
   display: inline-block;
   font-weight: 550;
   font-size: var(--font-ui-smaller);
-  color: var(--text-muted);
-}
-.labeled-nav .mod-left-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-title {
-  color: var(--text-normal) !important;
 }
 .labeled-nav .mod-left-split .mod-top .workspace-tab-header-container {
   position: relative;
@@ -6749,9 +6773,9 @@ https://github.com/sponsors/kepano
   padding: var(--size-4-2) var(--size-4-3);
 }
 .labeled-nav .mod-left-split .mod-top .workspace-tab-header {
-  --icon-color: var(--text-muted);
-  --tab-text-color: var(--text-muted);
-  --tab-text-color-focused: var(--text-muted);
+  --icon-color: var(--text-faint);
+  --tab-text-color: var(--text-faint);
+  --tab-text-color-focused: var(--text-faint);
   padding: 0;
   margin-bottom: 2px;
   border: none;
@@ -6760,7 +6784,15 @@ https://github.com/sponsors/kepano
 .labeled-nav .mod-left-split .mod-top .workspace-tab-header.is-active:not(:hover) {
   background-color: transparent;
 }
-.labeled-nav .mod-left-split .mod-top .workspace-tab-header.is-active, .labeled-nav .mod-left-split .mod-top .workspace-tab-header:hover {
+.labeled-nav .mod-left-split .mod-top .workspace-tab-header:hover {
+  opacity: 1;
+  --tab-text-color-active: var(--text-muted);
+  --tab-text-color-focused: var(--text-muted);
+  --tab-text-color-focused-active: var(--text-muted);
+  --tab-text-color-focused-active-current: var(--text-muted);
+  --icon-color: var(--text-muted);
+}
+.labeled-nav .mod-left-split .mod-top .workspace-tab-header.is-active {
   opacity: 1;
   --tab-text-color-active: var(--text-normal);
   --tab-text-color-focused: var(--text-normal);
@@ -6780,12 +6812,6 @@ https://github.com/sponsors/kepano
 }
 .labeled-nav .mod-left-split .mod-top .workspace-tab-header:hover .workspace-tab-header-inner {
   background-color: var(--nav-item-background-hover);
-}
-.labeled-nav .mod-left-split .mod-top :is(.workspace-tab-header:hover, .workspace-tab-header.is-active) .workspace-tab-header-inner-icon {
-  color: var(--text-accent);
-}
-.labeled-nav .mod-left-split .mod-top .workspace-tab-header.is-active .workspace-tab-header-inner-icon svg * {
-  stroke-width: 2.5;
 }
 .labeled-nav .mod-left-split .mod-top .workspace-tab-header-container {
   border: none;
@@ -7188,10 +7214,6 @@ body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content)
   white-space: pre-wrap;
 }
 
-.tree-item-self.is-clickable.mobile-tap.is-active {
-  background-color: var(--nav-item-background-active);
-}
-
 /* #endregion file-explorer */
 /* #region empty-state */
 .empty-state-action-list {
@@ -7251,6 +7273,7 @@ body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content)
 /* #region [mobile] */
 /* #region basic */
 .is-mobile {
+  --interactive-normal: var(--color-base-05);
   --interactive-hover: var(--background-modifier-hover);
   --system-access-override-text-width: auto;
 }
@@ -7260,6 +7283,64 @@ body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content)
 .is-mobile .modal-close-button::before {
   transform: translate(20%, 20%);
 }
+.is-mobile .mobile-tap.tree-item-self.is-clickable.is-active {
+  background-color: var(--nav-item-background-active);
+}
 
 /* #endregion basic */
+/* #region float button */
+body.is-phone .mod-root .view-header {
+  z-index: 3;
+}
+body.is-phone .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
+  position: fixed;
+  right: var(--size-4-8);
+  bottom: 0;
+  backdrop-filter: blur(var(--size-4-1));
+  background-color: hsla(var(--background-secondary-hsl), 0.6);
+  border: 1px solid var(--color-base-20);
+  margin-bottom: var(--safe-area-inset-bottom);
+  border-radius: 100%;
+  padding: var(--size-4-3);
+  width: auto;
+  height: auto;
+  box-shadow: var(--shadow-s) !important;
+  transition: var(--animation);
+}
+
+/* #endregion float button */
+/* #region ios hdr */
+/* Reference: https://github.com/aaaaalexis/obsidian-cupertino/blob/a7b045b1267728f6535fc8ed1b0925f8b49bc05d/src/app/mobile.scss#L488C1-L523C2 */
+body.is-ios.theme-light .mod-left-split-toggle.clickable-icon::after,
+body.is-ios.theme-light .mod-root .workspace-leaf-content .view-action::after,
+body.is-ios.theme-light .mobile-navbar-actions::after,
+body.is-ios.theme-light .mobile-toolbar-options-list::after,
+body.is-ios.theme-light .workspace-drawer .nav-buttons-container::after,
+body.is-ios.theme-light .workspace-drawer-header-icon.clickable-icon::after,
+body.is-ios.theme-light .prompt-input-container::after,
+body.is-ios.theme-light .prompt-input-container .search-input-clear-button::before,
+body.is-ios.theme-light .modal-setting-back-button::after,
+body.is-ios.theme-light .modal-close-button::after {
+  position: absolute;
+  backdrop-filter: brightness(1.5);
+  mask: linear-gradient(white, white) padding-box, linear-gradient(white, white) border-box;
+  mask-composite: exclude, add;
+  filter: blur(1px);
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: linear-gradient(to bottom left, white, transparent, white) border-box no-repeat;
+  pointer-events: none;
+  content: "";
+}
+body.is-ios.theme-light .prompt-input-container::after {
+  margin-right: 56px;
+  border-radius: var(--clickable-icon-radius);
+}
+body.is-ios.theme-light .prompt-input-container::after,
+body.is-ios.theme-light .search-input-clear-button::before {
+  backdrop-filter: brightness(1.2);
+}
+
+/* #endregion ios hdr */
 /* #endregion [mobile] */
