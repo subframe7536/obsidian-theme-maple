@@ -16,7 +16,10 @@ body.message-tooltip-hide-arrow .tooltip-arrow {
 }
 
 body.message-modify {
-  --background-modifier-message: var(--setting-message-bg, var(--text-accent));
+  --background-modifier-message: var(
+    --setting-message-bg,
+    var(--accent-active)
+  );
 
   :is(.tooltip, .notice) {
     color: var(--setting-message-fg, var(--text-on-accent));
