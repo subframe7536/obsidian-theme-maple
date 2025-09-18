@@ -80,11 +80,11 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassToggle('font-latex-text', {
       title: {
         en: 'Use Text Font in Non-formula Parts of LaTeX',
-        zh: '在 LaTeX 非公式部分使用正文字体',
+        zh: '在 LaTeX 内非公式部分使用正文字体',
       },
       desc: {
-        en: 'Only tested with CJK fonts; may not reconcile with Latin characters',
-        zh: '默认字体较丑',
+        en: 'No effective on Latin letters and numbers',
+        zh: '用于修改中文字体',
       },
     }),
   Settings.ofLevel(1, {
