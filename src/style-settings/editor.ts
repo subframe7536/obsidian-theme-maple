@@ -642,18 +642,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Click to Zoom Image', zh: '鼠标按下时放大图片' },
         desc: {
-          en: 'Not effective in Source view or Live Preview mode',
-          zh: '在源码模式或实时预览模式下不生效',
-        },
-      },
-      { enable: true },
-    )
-    .addClassToggle(
-      'image-zoom-out',
-      {
-        title: {
-          en: 'Zoom Image to Full Screen',
-          zh: '图片放大到全屏',
+          en: 'Reference: https://github.com/aaaaalexis/obsidian-cupertino',
+          zh: '参考：https://github.com/aaaaalexis/obsidian-cupertino',
         },
       },
       { enable: true },

@@ -1,3 +1,5 @@
+@use '../utils.scss' as *;
+
 body.theme-dark.image-dark-hover img {
   filter: brightness(0.7);
   transition: var(--animation);
@@ -49,35 +51,62 @@ img {
   }
 }
 
-/* scale on click, reference from blue-topaz */
+/* Reference: https://github.com/aaaaalexis/obsidian-cupertino/blob/a7b045b1267728f6535fc8ed1b0925f8b49bc05d/src/features/image-zoom.scss#L1-L53 */
 
-body.image-zoom {
-  :is(.markdown-preview-view, .workspace-leaf-content[data-type='image'])
-    img:not([class*='emoji'], .banner-image) {
-    cursor: zoom-in;
-
-    &:active {
-      overflow: hidden;
-      position: relative;
-      object-fit: contain;
-      height: 100%;
-      width: 100%;
-      margin: 0;
-      border-radius: 0;
-      inset: 0;
-      z-index: 200;
-      background-image: linear-gradient(
-        to right,
-        hsl(var(--background-primary-hsl)),
-        hsl(var(--background-secondary-hsl)),
-        hsl(var(--background-primary-hsl))
-      );
+body.image-zoom:not(.is-mobile) {
+  @include use-panel('markdown') {
+    :is(
+        .image-embed:not(.canvas-node-content),
+        img[referrerpolicy='no-referrer'],
+        .cm-content > img
+      ) {
+      cursor: zoom-in;
     }
   }
 
-  &.image-zoom-out
-    :is(.markdown-preview-view, .workspace-leaf-content[data-type='image'])
-    img:not([class*='emoji'], .banner-image):active {
-    position: fixed;
+  .markdown-preview-view {
+    .image-embed:not(.canvas-node-content):active img,
+    img[referrerpolicy='no-referrer']:active {
+      position: fixed;
+      z-index: 1000;
+      cursor: zoom-out;
+      inset: 0;
+      background-color: var(--background-primary);
+      width: 100%;
+      height: 100%;
+      max-height: unset;
+      object-fit: contain;
+    }
+  }
+
+  .markdown-source-view {
+    .image-embed:not(.canvas-node-content):active,
+    .cm-content > img:active {
+      position: fixed;
+      z-index: 1000;
+      cursor: zoom-out;
+      inset: var(--header-height) 0 0;
+      background-color: var(--background-primary);
+    }
+
+    .image-embed:not(.canvas-node-content):active {
+      display: flex;
+      justify-content: center;
+
+      img {
+        background-color: transparent;
+        width: 100%;
+        height: auto;
+        max-height: unset;
+        object-fit: contain;
+      }
+    }
+
+    .cm-content > img:active {
+      width: 100%;
+      height: calc(100% - var(--header-height));
+      max-height: unset;
+      object-fit: contain;
+    }
   }
 }
