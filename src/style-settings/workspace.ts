@@ -16,7 +16,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
     })
     .addVarText(
-      'setting-app-bg-image-light',
+      'setting-layout-image-light',
       {
         title: {
           en: 'Light Theme Background Image URL',
@@ -27,7 +27,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       { default: '' },
     )
     .addVarNumSlider(
-      'setting-app-bg-opacity-light',
+      'setting-layout-opacity-light',
       {
         title: {
           en: 'Light Theme Background Opacity',
@@ -37,7 +37,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       { default: 0.6, max: 0.9, min: 0.1, step: 0.05 },
     )
     .addVarText(
-      'setting-app-bg-image-dark',
+      'setting-layout-image-dark',
       {
         title: {
           en: 'Dark Theme Background Image URL',
@@ -48,7 +48,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       { default: '' },
     )
     .addVarNumSlider(
-      'setting-app-bg-opacity-dark',
+      'setting-layout-opacity-dark',
       {
         title: {
           en: 'Dark Theme Background Opacity',

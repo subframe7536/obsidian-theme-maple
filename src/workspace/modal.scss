@@ -27,6 +27,10 @@ input {
   transition-duration: var(--setting-animation-time, 200ms) !important;
 }
 
+.checkbox-container {
+  background-color: var(--color-base-25);
+}
+
 body:not(.is-mobile) {
   &.modal-slider input[type='range']::-webkit-slider-thumb {
     height: 1.6em;
@@ -47,7 +51,6 @@ body:not(.is-mobile) {
     height: var(--size-4-4);
     transition: var(--animation-slow);
     border: var(--size-2-1) solid var(--text-faint);
-    background-color: var(--color-base-20);
 
     &:focus-within {
       outline: none;

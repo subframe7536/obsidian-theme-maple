@@ -1,4 +1,4 @@
-import { Settings } from './generator'
+import { descValidCSS, Settings } from './generator'
 
 export default Settings.create('maple-basic', 'Maple Basic').children([
   Settings.of().addVarNumSlider(
@@ -155,4 +155,77 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
             ),
         ]),
     ]),
+  Settings.ofLevel(1, {
+    title: { en: 'Layout', zh: '布局' },
+  })
+    .addClassToggle(
+      'app-layout-card',
+      {
+        title: {
+          en: 'Enable Card Layout',
+          zh: '启用卡片布局',
+        },
+      },
+      { enable: true },
+    )
+    .addClassSelect(
+      'app-layout-card-bg',
+      {
+        title: {
+          en: 'Background Type',
+          zh: '背景类型',
+        },
+      },
+      {
+        allowEmpty: false,
+        default: 'app-layout-card-gradient',
+        options: [
+          { label: 'Plain', value: 'app-layout-card-plain' },
+          { label: 'Gradient', value: 'app-layout-card-gradient' },
+          { label: 'Custom', value: 'app-layout-card-custom' },
+        ],
+      },
+    )
+    .addVarText(
+      'setting-layout-image-light',
+      {
+        title: {
+          en: 'Light Theme Background Image',
+          zh: '浅色主题背景图片',
+        },
+        desc: descValidCSS('background-image'),
+      },
+      { default: '' },
+    )
+    .addVarNumSlider(
+      'setting-layout-opacity-light',
+      {
+        title: {
+          en: 'Light Theme Background Opacity',
+          zh: '浅色主题背景不透明度',
+        },
+      },
+      { default: 0.6, max: 0.9, min: 0.1, step: 0.05 },
+    )
+    .addVarText(
+      'setting-layout-image-dark',
+      {
+        title: {
+          en: 'Dark Theme Background Image',
+          zh: '深色主题背景图片',
+        },
+        desc: descValidCSS('background-image'),
+      },
+      { default: '' },
+    )
+    .addVarNumSlider(
+      'setting-layout-opacity-dark',
+      {
+        title: {
+          en: 'Dark Theme Background Opacity',
+          zh: '深色主题背景不透明度',
+        },
+      },
+      { default: 0.6, max: 0.9, min: 0.1, step: 0.05 },
+    ),
 ])

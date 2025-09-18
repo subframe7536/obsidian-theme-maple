@@ -189,12 +189,12 @@ body:not(.calendar-swap-year-month)
 body.color-active-custom-light
   .setting-item[data-id='title-light-accent-custom'],
 body.color-active-custom-dark .setting-item[data-id='title-dark-accent-custom'],
-body:not(.app-bg-image-enable)
+body:not(.app-layout-card.app-layout-card-custom)
   .setting-item:is(
-    [data-id='setting-app-bg-image-light'],
-    [data-id='setting-app-bg-opacity-light'],
-    [data-id='setting-app-bg-image-dark'],
-    [data-id='setting-app-bg-opacity-dark']
+    [data-id='setting-layout-image-light'],
+    [data-id='setting-layout-opacity-light'],
+    [data-id='setting-layout-image-dark'],
+    [data-id='setting-layout-opacity-dark']
   ),
 body:not(.editor-bg-plain) .setting-item[data-id='setting-editor-bg'],
 body.editor-bg-plain .setting-item[data-id='setting-editor-bg-grid-spacing'],

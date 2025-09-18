@@ -1,62 +1,85 @@
-.theme-light {
-  --app-bg-image: var(
-    --setting-app-bg-image-light,
-    linear-gradient(
-      210deg,
-      hsl(calc(var(--accent-h) - 15), calc(var(--accent-s) * 0.95), 85%),
-      hsl(var(--accent-h), calc(var(--accent-s) * 0.9), 85%),
-      hsl(calc(var(--accent-h) + 15), calc(var(--accent-s) * 0.95), 85%)
-    )
-  );
-  --bg-opacity: var(--setting-app-bg-opacity-light, 0.6);
-  --editor-min-opacity: 0.8;
-}
-
-.theme-dark {
-  --app-bg-image: var(
-    --setting-app-bg-image-dark,
-    linear-gradient(
-      210deg,
-      hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 1.15), 25%),
-      hsl(var(--accent-h), calc(var(--accent-s) * 1.1), 20%),
-      hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 1.15), 25%)
-    )
-  );
-  --bg-opacity: var(--setting-app-bg-opacity-dark, 0.6);
-  --editor-min-opacity: 0.85;
-}
-
 body {
   --bg-editor: var(--background-primary);
   --bg-surface: var(--background-secondary);
 }
 
-body.app-bg-image-enable:not(.is-mobile) {
-  background-image: var(--app-bg-image);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+body.app-layout-card:not(.is-mobile) {
   --divider-color: transparent;
+  --pdf-background: transparent;
+  --tab-active-shadow: none;
 
-  :is(.workspace, .titlebar) {
-    --frame-bg: transparent !important;
-    --tab-active-shadow: none;
-    --bg-opacity: var(--setting-app-bg-opacity, 0.4);
+  &.app-layout-card-plain {
+    background-color: var(--background-secondary);
+    --editor-min-opacity: 1;
+    --bg-opacity: 1;
+  }
+
+  &:not(.app-layout-card-plain) {
+    background-color: transparent;
+    background-image: var(--app-bg-image);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    --bg-opacity: var(--setting-layout-opacity, 0.4);
     --bg-editor: hsla(
       var(--background-primary-hsl),
       max(var(--bg-opacity), var(--editor-min-opacity))
     );
-    --bg-surface: hsla(var(--background-primary-hsl), var(--bg-opacity));
-    --pdf-background: transparent;
+    --bg-surface: hsla(var(--background-secondary-hsl), var(--bg-opacity));
+
+    :is(.titlebar, .workspace) {
+      --frame-bg: transparent !important;
+    }
+    &.theme-light {
+      --editor-min-opacity: 0.8;
+    }
+
+    &.theme-dark {
+      --editor-min-opacity: 0.85;
+    }
+  }
+
+  &.app-layout-card-gradient {
+    --bg-opacity: 0.6;
+
+    &.theme-light {
+      --app-bg-image: linear-gradient(
+        210deg,
+        hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 0.9), 85%),
+        hsl(calc(var(--accent-h) + 60), calc(var(--accent-s) * 0.9), 85%)
+      );
+    }
+
+    &.theme-dark {
+      --app-bg-image: linear-gradient(
+        210deg,
+        hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 1.15), 25%),
+        hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 1.15), 25%)
+      );
+    }
+  }
+
+  &.app-layout-card-custom {
+    &.theme-light {
+      --bg-opacity: var(--setting-layout-opacity-light, 0.6);
+      --app-bg-image: var(
+        --setting-layout-image-light,
+        linear-gradient(to bottom, var(--color-base-25))
+      );
+    }
+
+    &.theme-dark {
+      --bg-opacity: var(--setting-layout-opacity-dark, 0.6);
+      --app-bg-image: var(
+        --setting-layout-image-dark,
+        linear-gradient(to bottom, var(--color-base-20))
+      );
+    }
   }
 
   &.theme-light {
     --md-container-bg: var(
       --setting-md-container-bg,
-      hsla(
-        calc(var(--accent-h) + 8),
-        calc(var(--accent-s) / 1.2),
-        calc(100% - (100% - var(--accent-l)) / 7)
-      )
+      hsla(calc(var(--accent-h) + 8), 10%, 94%)
     );
   }
   &.theme-dark {
@@ -100,9 +123,7 @@ body.app-bg-image-enable:not(.is-mobile) {
     ) {
     background-color: transparent;
   }
-  .titlebar {
-    background-color: var(--bg-surface);
-  }
+
   .workspace-ribbon {
     --ribbon-background: var(--bg-surface);
     --ribbon-background-collapsed: var(--bg-surface);
