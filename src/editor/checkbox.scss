@@ -81,4 +81,5 @@
   @include create-symbol('S', 'bi:currency-dollar', var(--color-green));
   @include create-symbol-override('u', 'tb:trending-up', var(--color-green));
   @include create-symbol-override('d', 'tb:trending-down', var(--color-red));
+  @include create-symbol-override('L', 'tb:heart-filled', var(--color-red));
 }
