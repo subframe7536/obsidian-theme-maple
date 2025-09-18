@@ -131,23 +131,23 @@ html[lang='zh'] {
   .setting-item:is([data-id^='setting-accent-h']) {
     input.slider {
       height: 0.8em;
-      --hue-slider-sat: 70%;
-      --hue-slider-br: 60%;
+      $s: 80%;
+      $l: 60%;
       background: linear-gradient(
         to right,
-        hsl(0 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(30 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(60 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(90 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(120 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(150 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(180 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(210 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(240 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(270 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(300 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(330 var(--hue-slider-sat) var(--hue-slider-br)),
-        hsl(360 var(--hue-slider-sat) var(--hue-slider-br))
+        hsl(0 $s $l),
+        hsl(30 $s $l),
+        hsl(60 $s $l),
+        hsl(90 $s $l),
+        hsl(120 $s $l),
+        hsl(150 $s $l),
+        hsl(180 $s $l),
+        hsl(210 $s $l),
+        hsl(240 $s $l),
+        hsl(270 $s $l),
+        hsl(300 $s $l),
+        hsl(330 $s $l),
+        hsl(360 $s $l)
       );
       border-radius: var(--size-2-1);
     }
