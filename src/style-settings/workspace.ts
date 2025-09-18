@@ -5,24 +5,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, {
     title: { en: 'Titlebar and Background Image', zh: '标题栏和背景图片' },
   })
-    .addClassToggle(
-      'titlebar-button-style',
-      {
-        title: { en: 'Styled Window Buttons', zh: '美化窗体按钮' },
-        desc: {
-          en: 'Applies to Windows and Linux',
-          zh: '在 Windows 和 Linux 系统中生效',
-        },
-      },
-      { enable: true },
-    )
-    .addClassToggle('titlebar-colorful', {
-      title: { en: 'Colorful Style Titlebar', zh: '多彩 Obsidian 标题栏' },
-      desc: {
-        en: 'Reference: https://github.com/kepano/obsidian-minimal',
-        zh: '参考：https://github.com/kepano/obsidian-minimal',
-      },
-    })
     .addClassToggle('app-bg-image-enable', {
       title: {
         en: 'Add Background Image In Workspace',

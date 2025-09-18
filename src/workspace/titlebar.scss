@@ -1,37 +1,5 @@
 @use '../utils.scss' as *;
 
-body.titlebar-button-style {
-  &.is-hidden-frameless:is(.mod-windows, .mod-linux) .titlebar-button {
-    padding: 0 14px;
-
-    svg {
-      width: 100%;
-      height: 32%;
-    }
-  }
-
-  .mod-maximize svg rect {
-    rx: 1.8;
-  }
-
-  @include use-icon-override('&.is-maximized .mod-maximize svg', 'max-to-win');
-
-  &.is-frameless:not(.is-hidden-frameless):is(.mod-windows, .mod-linux)
-    .titlebar-button
-    svg:not([class*='logo']) {
-    width: 100%;
-    height: 42%;
-  }
-
-  .titlebar-button.mod-close:hover {
-    color: var(--text-on-accent);
-  }
-
-  .workspace-tab-header-new-tab {
-    padding-bottom: var(--size-2-1);
-  }
-}
-
 .theme-light {
   --frame-bg: hsl(
     var(--accent-h),
@@ -53,22 +21,32 @@ body {
     background-color: var(--bg-surface);
     border-bottom: none;
   }
-}
 
-body.titlebar-colorful {
-  &.theme-light {
-    --frame-bg: hsl(var(--accent-h), 40%, 82%);
-    --logo-color-default: hsl(var(--accent-h), 35%, 50%);
-    .workspace-tab-header {
-      --background-modifier-hover: hsl(var(--accent-h), 50%, 92%);
+  @include use-icon-override('&.is-maximized .mod-maximize svg', 'max-to-win');
+
+  &.is-hidden-frameless:is(.mod-windows, .mod-linux) .titlebar-button {
+    padding: 0 15px;
+
+    svg {
+      width: 100%;
+      height: 32%;
+
+      &:not([class*='logo']) {
+        width: 100%;
+        height: 35%;
+      }
     }
   }
 
-  &.theme-dark {
-    --frame-bg: hsl(var(--accent-h), 24%, 22%);
-    --logo-color-default: hsl(var(--accent-h), 35%, 50%);
-    .workspace-tab-header {
-      --background-modifier-hover: hsl(var(--accent-h), 45%, 32%);
-    }
+  .mod-maximize svg rect {
+    rx: 1.8;
+  }
+
+  .titlebar-button.mod-close:hover {
+    color: var(--text-on-accent);
+  }
+
+  .workspace-tab-header-new-tab {
+    padding-bottom: var(--size-2-1);
   }
 }
