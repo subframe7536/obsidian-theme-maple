@@ -204,16 +204,22 @@ body.line-indicator-full {
   font-family: var(--font-monospace);
 }
 
-kbd,
-.setting-hotkey,
-.prompt-instruction-command {
+:is(kbd, .setting-hotkey, .prompt-instruction-command) {
   user-select: none;
   text-transform: capitalize;
-  box-shadow: var(--input-shadow);
   border-radius: var(--radius-s);
   background-color: var(--background-secondary);
   font-family: var(--font-monospace) !important;
   padding: 0 var(--size-2-3) !important;
+
+  .theme-light & {
+    box-shadow: var(--input-shadow), 0 1px 1px 1px var(--color-base-40);
+  }
+
+  .theme-dark & {
+    border: 1px solid var(--color-base-40);
+    border-bottom-width: 2px;
+  }
 }
 
 .setting-hotkey.mod-empty {
