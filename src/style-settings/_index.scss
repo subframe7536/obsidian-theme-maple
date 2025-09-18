@@ -186,6 +186,9 @@ body:not(.line-active-enable)
   .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month)
   .setting-item[data-id='setting-calendar-year-suffix'],
+body.color-active-custom-light
+  .setting-item[data-id='title-light-accent-custom'],
+body.color-active-custom-dark .setting-item[data-id='title-dark-accent-custom'],
 body:not(.app-bg-image-enable)
   .setting-item:is(
     [data-id='setting-app-bg-image-light'],
