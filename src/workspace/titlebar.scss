@@ -43,6 +43,7 @@ body {
   }
 
   .titlebar-button.mod-close:hover {
+    background-color: hsl(1, 75%, 62%) !important;
     color: var(--text-on-accent);
   }
 
