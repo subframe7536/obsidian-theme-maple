@@ -1,14 +1,4 @@
-/* MIT License | Copyright (c) Stephan Ango (@kepano)
-
-Labeled Nav snippet for Obsidian
-
-author: @kepano
-version: 2.0.0
-
-Support my work:
-https://github.com/sponsors/kepano
-
-*/
+/* Reference from author: @kepano, support his work: https://github.com/sponsors/kepano */
 
 .labeled-nav.mod-windows,
 .labeled-nav.is-fullscreen:not(.colorful-frame) {
@@ -105,11 +95,6 @@ https://github.com/sponsors/kepano
       display: inline-block;
       font-weight: 550;
       font-size: var(--font-ui-smaller);
-      color: var(--text-muted);
-    }
-
-    .workspace-tab-header.is-active .workspace-tab-header-inner-title {
-      color: var(--text-normal) !important;
     }
 
     .workspace-tab-header-container {
@@ -141,9 +126,9 @@ https://github.com/sponsors/kepano
     }
 
     .workspace-tab-header {
-      --icon-color: var(--text-muted);
-      --tab-text-color: var(--text-muted);
-      --tab-text-color-focused: var(--text-muted);
+      --icon-color: var(--text-faint);
+      --tab-text-color: var(--text-faint);
+      --tab-text-color-focused: var(--text-faint);
 
       padding: 0;
       margin-bottom: 2px;
@@ -154,8 +139,16 @@ https://github.com/sponsors/kepano
         background-color: transparent;
       }
 
-      &.is-active,
       &:hover {
+        opacity: 1;
+        --tab-text-color-active: var(--text-muted);
+        --tab-text-color-focused: var(--text-muted);
+        --tab-text-color-focused-active: var(--text-muted);
+        --tab-text-color-focused-active-current: var(--text-muted);
+        --icon-color: var(--text-muted);
+      }
+
+      &.is-active {
         opacity: 1;
         --tab-text-color-active: var(--text-normal);
         --tab-text-color-focused: var(--text-normal);
@@ -179,14 +172,6 @@ https://github.com/sponsors/kepano
 
     .workspace-tab-header:hover .workspace-tab-header-inner {
       background-color: var(--nav-item-background-hover);
-    }
-
-    :is(.workspace-tab-header:hover, .workspace-tab-header.is-active)
-      .workspace-tab-header-inner-icon {
-      color: var(--text-accent);
-    }
-    .workspace-tab-header.is-active .workspace-tab-header-inner-icon svg * {
-      stroke-width: 2.5;
     }
 
     .workspace-tab-header-container {

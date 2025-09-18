@@ -204,7 +204,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       'hex',
     ),
   Settings.ofLevel(1, {
-    title: { en: 'Modal and Setting Panel', zh: '模态框与设置面板' },
+    title: { en: 'Modal and Setting Panel', zh: '模态框和设置面板' },
   })
     .addClassToggle(
       'modal-blur',
@@ -273,7 +273,9 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
       { enable: true },
     ),
-  Settings.ofLevel(1, { title: { en: 'Tab', zh: '标签页' } })
+  Settings.ofLevel(1, {
+    title: { en: 'Tab and Navigation Bar', zh: '标签页和导航栏' },
+  })
     .addClassToggle('tab-float', {
       title: {
         en: 'Float Style Tab (Like Firefox / Microsoft Edge)',
@@ -288,16 +290,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       desc: {
         en: '❗Turning on will prevent some panels updating instantly while switching tabs',
         zh: '❗开启后会导致部分面板无法立即更新',
-      },
-    })
-    .addClassToggle('labeled-nav', {
-      title: {
-        en: 'Text Labels For Primary Navigation',
-        zh: '主导航栏添加文字',
-      },
-      desc: {
-        en: 'Reference: https://github.com/kepano/obsidian-minimal',
-        zh: '参考：https://github.com/kepano/obsidian-minimal',
       },
     })
     .addClassSelect(
@@ -365,7 +357,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       title: { en: 'Centered Status Bar', zh: '状态栏居中显示' },
     }),
   Settings.ofLevel(1, {
-    title: { en: 'Tooltip and Notice', zh: '提示框与通知' },
+    title: { en: 'Tooltip and Notice', zh: '提示框和通知' },
   })
     .addClassToggle('message-tooltip-hide-arrow', {
       title: { en: 'Hide Tooltip Arrow', zh: '隐藏气泡提示框箭头' },
