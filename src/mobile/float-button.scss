@@ -13,4 +13,5 @@ body.is-phone:not(.mode-switcher-off).mobile-floating-button
   height: auto;
   background-color: var(--background-secondary);
   border: 1px solid var(--background-modifier-border);
+  box-shadow: var(--shadow-s);
 }
