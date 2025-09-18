@@ -26,6 +26,9 @@
 .style-settings-heading[data-id='maple-plugin'] {
   --style-settings-icon: #{icon('blocks')};
 }
+.style-settings-heading[data-id='maple-mobile'] {
+  --style-settings-icon: #{icon('tablet-smartphone')};
+}
 
 /* #endregion */
 
@@ -173,6 +176,7 @@ html[lang='zh'] {
 
 /* #region Hide Options */
 
+body:not(.is-mobile) .setting-item[data-id='maple-mobile'],
 body:not(.line-active-enable)
   .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month)

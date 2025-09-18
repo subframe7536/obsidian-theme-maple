@@ -1,0 +1,16 @@
+body.is-phone:not(.mode-switcher-off).mobile-floating-button
+  .mod-root
+  .workspace-leaf-content
+  .view-actions
+  button:nth-last-child(2) {
+  position: fixed;
+  right: 16px;
+  bottom: 0;
+  margin-bottom: 16px;
+  border-radius: 100%;
+  padding: 16px;
+  width: auto;
+  height: auto;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+}
