@@ -11,7 +11,10 @@
 
 body.tab-float {
   --tab-radius: var(--size-2-3);
-  --tab-active-shadow: var(--shadow-s);
+
+  &.theme-light {
+    --tab-active-shadow: var(--shadow-s);
+  }
 
   .mod-root {
     .workspace-tab-header {
