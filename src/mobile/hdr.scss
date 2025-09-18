@@ -1,0 +1,38 @@
+/* Reference: https://github.com/aaaaalexis/obsidian-cupertino/blob/a7b045b1267728f6535fc8ed1b0925f8b49bc05d/src/app/mobile.scss#L488C1-L523C2 */
+
+body.is-ios.theme-light {
+  .mod-left-split-toggle.clickable-icon::after,
+  .mod-root .workspace-leaf-content .view-action::after,
+  .mobile-navbar-actions::after,
+  .mobile-toolbar-options-list::after,
+  .workspace-drawer .nav-buttons-container::after,
+  .workspace-drawer-header-icon.clickable-icon::after,
+  .prompt-input-container::after,
+  .prompt-input-container .search-input-clear-button::before,
+  .modal-setting-back-button::after,
+  .modal-close-button::after {
+    position: absolute;
+    backdrop-filter: brightness(1.5);
+    mask: linear-gradient(white, white) padding-box,
+      linear-gradient(white, white) border-box;
+    mask-composite: exclude, add;
+    filter: blur(1px);
+    inset: 0;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: linear-gradient(to bottom left, white, transparent, white)
+      border-box no-repeat;
+    pointer-events: none;
+    content: '';
+  }
+
+  .prompt-input-container::after {
+    margin-right: 56px;
+    border-radius: var(--clickable-icon-radius);
+  }
+
+  .prompt-input-container::after,
+  .search-input-clear-button::before {
+    backdrop-filter: brightness(1.2);
+  }
+}
