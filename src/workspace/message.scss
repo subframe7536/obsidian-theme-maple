@@ -24,4 +24,9 @@ body.message-modify {
   :is(.tooltip, .notice) {
     color: var(--setting-message-fg, var(--text-on-accent));
   }
+
+  .notice-cta {
+    color: var(--text-on-accent);
+    text-decoration: underline;
+  }
 }
