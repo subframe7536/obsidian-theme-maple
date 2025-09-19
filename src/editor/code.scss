@@ -10,7 +10,7 @@
   --code-important: var(--color-purple);
   --code-keyword: var(--color-purple);
   --code-property: var(--color-yellow);
-  --code-punctuation: rgb(var(--color-blue-rgb), 0.6);
+  --code-punctuation: var(--color-base-60);
   --code-operator: var(--code-punctuation);
   --code-class: var(--color-orange);
   --code-string: var(--color-green);
@@ -368,6 +368,10 @@ body .markdown-rendered pre {
 
   .cm-type {
     font-weight: 550;
+  }
+
+  .cm-builtin {
+    font-style: italic;
   }
 
   .cm-keyword {
