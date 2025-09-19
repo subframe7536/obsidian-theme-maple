@@ -263,8 +263,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   })
     .addClassToggle('tab-float', {
       title: {
-        en: 'Float Style Tab (Like Firefox / Microsoft Edge)',
-        zh: '浮动的标签页（和 Firefox / Microsoft Edge 类似）',
+        en: 'Enable Floating Style',
+        zh: '启用浮动风格',
       },
     })
     .addClassToggle('tab-slide-up', {
