@@ -1,29 +1,6 @@
 body {
-  --stauts-bar-background-opacity: 1;
-
-  &.theme-light .status-bar {
-    --status-bar-background: hsla(
-      var(--accent-h),
-      var(--accent-s),
-      calc(100% - (100% - var(--accent-l)) / 8),
-      var(--stauts-bar-background-opacity)
-    );
-  }
-
-  &.theme-dark .status-bar {
-    --status-bar-background: hsla(
-      var(--accent-h),
-      var(--accent-s),
-      calc(var(--accent-l) / 3),
-      var(--stauts-bar-background-opacity)
-    );
-  }
-}
-
-.status-bar {
-  padding: var(--size-2-1) var(--size-4-1);
-  width: fit-content;
-  transition: var(--animation);
+  --status-bar-background: var(--background-secondary);
+  --status-bar-border-color: var(--background-modifier-border);
 }
 
 .status-bar-hidden .status-bar {
@@ -36,13 +13,14 @@ body {
   }
 }
 
-.status-bar-style-float {
+body.status-bar-style-float {
+  --status-bar-radius: var(--size-2-3);
+  --status-bar-border-width: 1px;
   .status-bar {
-    --status-bar-radius: var(--size-2-3);
-    --status-bar-border-width: 1px;
+    padding: var(--size-4-1);
     bottom: var(--size-4-1);
     right: var(--size-4-1);
-    box-shadow: 0 0 var(--size-2-1) var(--background-modifier-box-shadow);
+    box-shadow: var(--shadow-s);
   }
 
   &.status-bar-style-center:is(.status-bar-default, .status-bar-hidden)
