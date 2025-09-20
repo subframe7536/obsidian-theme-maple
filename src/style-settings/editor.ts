@@ -2,7 +2,7 @@ import { descValidCSS, Settings } from './generator'
 
 export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, {
-    title: { en: 'Editor Background Pattern', zh: '编辑器背景图案' },
+    title: { en: 'Background Pattern', zh: '背景图案' },
   })
     .addClassSelect(
       'editor-bg-pattern',
