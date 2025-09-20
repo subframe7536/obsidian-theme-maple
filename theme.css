@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.15 For Obsidian */
+/* Maple Theme v1.0.0-beta.16 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -361,7 +361,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.15'"
+      default: "'maple 1.0.0-beta.16'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -6022,7 +6022,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.15");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.16");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
