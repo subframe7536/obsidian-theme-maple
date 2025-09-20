@@ -242,16 +242,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           { label: 'Round', value: 'modal-toggle-round' },
         ],
       },
-    )
-    .addClassToggle(
-      'modal-animation',
-      {
-        title: {
-          en: 'Add Show Up Animation for Modal',
-          zh: '为模态框添加显现动画',
-        },
-      },
-      { enable: true },
     ),
   Settings.ofLevel(1, {
     title: { en: 'Tab and Navigation Bar', zh: '标签页和导航栏' },
