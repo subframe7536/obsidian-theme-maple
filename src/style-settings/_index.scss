@@ -65,23 +65,6 @@ html[lang='zh'] {
   }
 }
 
-.mod-settings
-  .vertical-tab-content
-  > .setting-item:nth-child(2)
-  > .setting-item-control
-  > input[type='color'] {
-  position: relative;
-
-  &::before {
-    content: 'only change Hue!';
-    font-family: var(--font-interface);
-    position: absolute;
-    width: auto;
-    left: calc((var(--swatch-width) + var(--size-4-12) * 2 + 120%) * -1);
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
 /* #endregion */
 
 /* #region Buttons */
@@ -128,7 +111,10 @@ html[lang='zh'] {
 }
 
 .style-settings-container {
-  .setting-item:is([data-id^='setting-accent-h']) {
+  .setting-item:is(
+      [data-id='setting-accent-h-light'],
+      [data-id='setting-accent-h-dark']
+    ) {
     input.slider {
       height: 0.8em;
       $s: 80%;
@@ -160,25 +146,19 @@ html[lang='zh'] {
       height: 1.6em;
       width: 1.6em;
       color: var(--text-normal);
-      background-color: hsl(var(--base-accent-h), 32%, 58%);
       position: relative;
       right: 1em;
       border-radius: var(--radius-s);
     }
+  }
 
-    .setting-item:is([data-id='setting-accent-h-light'])
-      .setting-item-control::before {
-      background-color: hsl(var(--setting-accent-h-light, 35), 24%, 52%);
-    }
-
-    .setting-item:is([data-id='setting-accent-h-dark'])
-      .setting-item-control::before {
-      background-color: hsl(var(--setting-accent-h-dark, 207), 24%, 42%);
-    }
+  .setting-item[data-id='setting-accent-h-light']
+    .setting-item-control::before {
+    background-color: hsl(var(--setting-accent-h-light, 35), 24%, 52%);
   }
 
   .setting-item[data-id='setting-accent-h-dark'] .setting-item-control::before {
-    background-color: hsl(var(--setting-accent-h-dark, 207), 32%, 58%);
+    background-color: hsl(var(--setting-accent-h-dark, 207), 24%, 42%);
   }
 }
 
@@ -322,12 +302,10 @@ body:not(.tag-outline)
   }
 }
 
-.style-settings-heading[data-level='0'] {
-  background-color: var(--md-container-bg);
-
-  & + .style-settings-container .style-settings-collapse-indicator {
-    margin-left: unset;
-  }
+.style-settings-heading[data-level='0']
+  + .style-settings-container
+  .style-settings-collapse-indicator {
+  margin-left: unset;
 }
 
 :is(
