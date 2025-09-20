@@ -1,21 +1,6 @@
-@use '../utils';
+@use '../utils' as *;
 
-body {
-  --table-radius: var(--size-2-3);
-  --table-btn-color: var(--text-muted);
-  --table-btn-bg: var(--background-modifier-hover);
-  --table-header-background: var(--md-container-bg);
-  --table-header-background-hover: var(--table-header-background);
-  --table-cell-vertical-alignment: middle;
-}
-
-// make table radius available
-.markdown-rendered table {
-  border-collapse: initial;
-  border-spacing: 0;
-}
-
-@include utils.use-no-plugin('.table-full') {
+@include use-no-plugin('.table-full') {
   :is(
       .markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
       .markdown-rendered table
@@ -30,93 +15,87 @@ body {
   }
 }
 
-:is(
-    .markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-    .markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table
-  ) {
-  // table drag handler
-  .table-col-btn {
-    border-top-right-radius: var(--table-radius);
-    border-bottom-right-radius: var(--table-radius);
-    color: var(--table-btn-color);
-  }
+/* table radius */
+.markdown-rendered {
+  table {
+    border-collapse: initial;
+    border-spacing: 0;
 
-  .table-row-btn {
-    border-bottom-left-radius: var(--table-radius);
-    border-bottom-right-radius: var(--table-radius);
-    color: var(--table-btn-color);
-  }
-
-  :is(
-      .table-col-btn,
-      .table-row-btn,
-      .table-col-drag-handle:hover,
-      .table-row-drag-handle:hover
-    ) {
-    transition: var(--animation);
-    background-color: var(--table-btn-bg);
-    --table-drag-handle-color: var(--table-btn-color);
-  }
-
-  :is(tr:hover .table-row-drag-handle, th:hover .table-col-drag-handle) {
-    opacity: 1;
-  }
-
-  // table radius
-
-  th:first-child:not(
-      :has(:is(.table-row-drag-handle, .table-col-drag-handle):hover)
-    ) {
-    border-top-left-radius: var(--table-radius);
-  }
-
-  th:last-child:not(:has(.table-col-drag-handle:hover)) {
-    border-top-right-radius: var(--table-radius);
-  }
-
-  &:has(.table-col-btn:hover) th:last-child {
-    border-top-right-radius: 0;
-  }
-
-  tr:last-child td:first-child {
-    border-bottom-left-radius: var(--table-radius);
-  }
-
-  &:has(.table-row-btn:hover) tr:last-child td:first-child {
-    border-bottom-left-radius: 0;
-  }
-
-  tr:last-child td:last-child {
-    border-bottom-right-radius: var(--table-radius);
-  }
-
-  &:has(:is(.table-col-btn, .table-row-btn):hover) tr:last-child td:last-child {
-    border-bottom-right-radius: 0;
-  }
-
-  // fix table inner border
-
-  :is(th, td):not(:first-child) {
-    border-left: 0;
-  }
-
-  tbody td {
-    border-top: 0;
-  }
-
-  // line background color
-  tbody {
-    tr:nth-of-type(2n) {
-      background-color: var(--table-alt-line-bg);
+    :is(th, td):not(:first-child) {
+      border-left: 0;
     }
 
-    tr:nth-of-type(2n + 1) {
-      background-color: var(--bg-editor);
+    tbody td {
+      border-top: 0;
+    }
+
+    // 😅 fix: background color does not update when `border-radius` is changed
+    thead tr {
+      background-color: transparent;
+      th {
+        background-color: var(--table-header-background) !important;
+      }
+    }
+
+    th:first-child:not(
+        :has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)
+      ) {
+      border-top-left-radius: var(--radius-m);
+    }
+
+    th:last-child:not(:has(.table-col-drag-handle:hover)) {
+      border-top-right-radius: var(--radius-m);
+    }
+
+    tr:last-child td:first-child {
+      border-bottom-left-radius: var(--radius-m);
+    }
+
+    tr:last-child td:last-child {
+      border-bottom-right-radius: var(--radius-m);
     }
   }
 
-  // center image
+  &:has(.table-row-btn:hover) tr:last-child td {
+    border-radius: 0;
+  }
 
+  &:has(.table-col-btn:hover) :is(tr:last-child td:last-child, th:last-child) {
+    border-radius: 0;
+  }
+}
+
+body {
+  --table-header-background: var(--md-container-bg);
+  --table-header-background-hover: var(--table-header-background);
+  --table-cell-vertical-alignment: middle;
+  --table-add-button-background: var(--background-modifier-hover);
+  --table-drag-handle-background: var(--background-modifier-hover);
+}
+
+.table-colorful {
+  --table-background: var(--md-container-bg);
+  --table-header-color: var(--setting-table-header-bg, var(--text-on-accent));
+  --table-header-background: var(
+    --setting-table-header-text,
+    var(--accent-active)
+  );
+  --table-row-alt-background: var(--bg-editor);
+  --table-row-alt-background-hover: var(--bg-editor);
+  --table-column-alt-background: inherit;
+  --table-column-alt-background-hover: inherit;
+
+  th .cm-s-obsidian {
+    color: var(--text-normal);
+  }
+
+  .cm-html-embed .edit-block-button {
+    --background-modifier-hover: var(--background-secondary);
+  }
+}
+
+.markdown-source-view.mod-cm6 .cm-table-widget {
+  /* centered image */
   .table-cell-wrapper {
     // debounce cell
     &:has(> .cm-s-obsidian):not(:has(.image-embed)) {
@@ -142,27 +121,23 @@ body {
       }
     }
   }
-}
 
-.table-colorful {
-  .markdown-rendered:not(.cm-lang-dataview):not(.cm-lang-dataviewjs) table {
-    --table-header-color: var(
-      --setting-table-header-text,
-      var(--text-on-accent)
-    );
-    --table-header-background: var(
-      --setting-table-header-bg,
-      var(--accent-active)
-    );
-    --table-header-background-hover: var(--table-header-background);
-    --table-alt-line-bg: var(--setting-table-line-bg, var(--md-container-bg));
+  :is(
+      .table-row-btn,
+      .table-col-btn,
+      .table-row-drag-handle,
+      .table-col-drag-handle
+    ) {
+    transition: var(--animation);
   }
 
-  .markdown-source-view table thead .cm-s-obsidian {
-    color: var(--setting-table-header-text, var(--text-normal));
+  .table-row-btn {
+    border-end-start-radius: var(--radius-s);
+    border-end-end-radius: var(--radius-s);
   }
 
-  .cm-html-embed .edit-block-button {
-    --background-modifier-hover: var(--background-secondary);
+  .table-col-btn {
+    border-start-end-radius: var(--radius-s);
+    border-end-end-radius: var(--radius-s);
   }
 }
