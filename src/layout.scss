@@ -6,7 +6,7 @@ body {
 body.app-layout-card:not(.is-mobile) {
   --divider-color: transparent;
   --pdf-background: transparent;
-  --tab-active-shadow: none;
+  --tab-active-shadow: none !important;
 
   &.app-layout-card-plain {
     background-color: var(--background-secondary);
