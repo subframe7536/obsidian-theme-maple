@@ -12,6 +12,56 @@
     --background-primary: transparent;
   }
 
+  @page {
+    size: a4;
+    margin: 2.5cm 2cm 2cm 2cm !important;
+
+    body.pdf-export-page-num {
+      @bottom-center {
+        content: counter(page);
+        font-size: 10pt !important;
+        margin-top: 10pt !important;
+      }
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+  }
+
+  table,
+  figure,
+  pre,
+  .callout p {
+    page-break-inside: avoid;
+  }
+
+  p {
+    margin: 0 0 12pt 0 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  h1 {
+    page-break-before: always;
+  }
+
+  ul,
+  ol {
+    margin: 12pt 0 12pt 1.5cm !important;
+    padding: 0 !important;
+  }
+
+  li {
+    margin: 3pt 0 !important;
+    padding: 0 !important;
+  }
+
   pre {
     &::before {
       right: var(--size-4-2) !important;
@@ -20,6 +70,14 @@
     code {
       white-space: pre-wrap !important;
       tab-size: 4;
+    }
+  }
+
+  hr {
+    background-image: none !important;
+    border-width: var(--size-2-1) !important;
+    &::after {
+      content: none !important;
     }
   }
 }

@@ -5,7 +5,7 @@
 
 .hr-enable :is(.markdown-source-view.mod-cm6, .markdown-rendered) hr {
   overflow: initial;
-  border: none;
+  border-width: 0;
   position: relative;
   height: var(--size-4-1);
   background-image: linear-gradient(

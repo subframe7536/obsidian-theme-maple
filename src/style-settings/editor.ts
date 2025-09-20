@@ -960,6 +960,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         en: 'Set Background to Transparent When Exporting',
         zh: '导出时将页面背景颜色设置为透明',
       },
+    })
+    .addClassToggle('pdf-export-page-num', {
+      title: {
+        en: 'Add Page Numbers in The Footer When Exporting',
+        zh: '导出时页脚添加页号',
+      },
     }),
   Settings.ofLevel(1, {
     title: { en: 'Properties', zh: '文档属性' },
