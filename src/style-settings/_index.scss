@@ -167,11 +167,8 @@ html[lang='zh'] {
 /* #region Hide Options */
 
 body.is-mobile
-  .setting-item:is(
-    [data-id='maple-mobile'],
-    [data-id='modal-slider'],
-    [data-id='modal-toggle']
-  ),
+  .setting-item:is([data-id='modal-slider'], [data-id='modal-toggle']),
+body:not(.is-mobile) div[data-id='maple-mobile'],
 body:not(.line-active-enable)
   .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month)
