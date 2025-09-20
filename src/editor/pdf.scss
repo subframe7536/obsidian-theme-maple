@@ -6,3 +6,20 @@
     opacity: 0.85;
   }
 }
+
+@media print {
+  body.pdf-export-transparent {
+    --background-primary: transparent;
+  }
+
+  pre {
+    &::before {
+      right: var(--size-4-2) !important;
+    }
+
+    code {
+      white-space: pre-wrap !important;
+      tab-size: 4;
+    }
+  }
+}

@@ -940,20 +940,27 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         zh: '卡片失去焦点时居中文本',
       },
     }),
-  Settings.ofLevel(1, { title: { en: 'PDF', zh: 'PDF' } }).addClassToggle(
-    'pdf-dark-hover',
-    {
+  Settings.ofLevel(1, { title: { en: 'PDF', zh: 'PDF' } })
+    .addClassToggle(
+      'pdf-dark-hover',
+      {
+        title: {
+          en: 'Decrease Brightness in Dark Mode',
+          zh: '黑暗模式下降低图片亮度',
+        },
+        desc: {
+          en: 'Brightness increases on hover',
+          zh: '鼠标悬停时亮度会增加',
+        },
+      },
+      { enable: true },
+    )
+    .addClassToggle('pdf-export-transparent', {
       title: {
-        en: 'Decrease Brightness in Dark Mode',
-        zh: '黑暗模式下降低图片亮度',
+        en: 'Set Background to Transparent When Exporting',
+        zh: '导出时将页面背景颜色设置为透明',
       },
-      desc: {
-        en: 'Brightness increases on hover',
-        zh: '鼠标悬停时亮度会增加',
-      },
-    },
-    { enable: true },
-  ),
+    }),
   Settings.ofLevel(1, {
     title: { en: 'Properties', zh: '文档属性' },
   })
