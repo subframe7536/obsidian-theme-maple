@@ -59,7 +59,7 @@ svg.lucide-layout-dashboard rect {
 
 body {
   --file-folding-offset: 28px;
-  --folder-color: rgb(var(--setting-color-dirs, #{to-rgb(hsl(46, 81%, 45%))}));
+  --folder-color: var(--setting-color-dirs, hsl(46, 81%, 45%));
   --nav-item-size: calc(var(--size-4-4) * 0.9);
   --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
   --nav-indentation-guide-width: 1.8px;
@@ -135,7 +135,6 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   .nav-file {
     &-title {
       @include create-icons();
-      justify-content: space-between;
       padding-inline-end: 0;
 
       .nav-file-tag {

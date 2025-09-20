@@ -63,11 +63,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addClassToggle('explorer-title-wrap', {
       title: { en: 'Auto Wrap Long File Names', zh: '长文件名自动换行' },
     })
-    .addVarNumSlider(
-      'explorer-item-height',
-      { title: { en: 'Line Height', zh: '行高' } },
-      { default: 1.6, min: 1.2, max: 1.8, step: 0.1 },
-    )
     .addClassToggle(
       'explorer-icon',
       {
@@ -86,10 +81,10 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       'setting-color-dirs',
       { title: { en: 'Directory Color', zh: '文件夹颜色' } },
       {
-        format: 'rgb-values',
+        format: 'hsl',
         opacity: false,
-        defaultLight: 'rgb(245, 180, 0)',
-        defaultDark: 'rgb(245, 180, 0)',
+        defaultLight: 'hsl(46, 81%, 45%)',
+        defaultDark: 'hsl(46, 81%, 45%)',
       },
     ),
   Settings.ofLevel(1, {
