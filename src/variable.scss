@@ -26,6 +26,10 @@ body {
   --background-modifier-cover: hsla(var(--background-secondary-hsl), 0.6);
   --interactive-accent: var(--accent-active);
 
+  --tab-container-background: var(--frame-bg);
+  --titlebar-background: var(--frame-bg);
+  --titlebar-background-focused: var(--frame-bg);
+
   --input-radius: var(--size-2-3);
   --input-shadow: 0 0.125px 0 0.5px var(--color-base-10),
     inset 0 -0.125px 1px 0px var(--color-base-30),
@@ -83,6 +87,11 @@ body {
     calc(var(--theme-accent-active-s) * 1.02),
     calc(var(--theme-accent-active-l) * 1.15)
   );
+  --frame-bg: hsl(
+    var(--base-accent-h),
+    calc(var(--theme-accent-active-s) * 0.9),
+    calc(82% + var(--theme-accent-active-l) / 10)
+  );
 
   --background-primary-hsl: var(--base-accent-h), 12%, 97%;
   --background-primary: hsl(var(--background-primary-hsl));
@@ -106,8 +115,8 @@ body {
 
     &.color-active-alt-light {
       --theme-accent-h: calc(var(--base-accent-h) + 60);
-      --theme-accent-active-s: 24%;
-      --theme-accent-active-l: 52%;
+      --theme-accent-active-s: 20%;
+      --theme-accent-active-l: 56%;
       --theme-accent-inactive-s: 20%;
       --theme-accent-inactive-l: 78%;
     }
@@ -156,6 +165,11 @@ body {
     calc(var(--base-accent-h) - 5),
     calc(var(--theme-accent-active-s) * 1.05),
     calc(var(--theme-accent-active-l) * 1.29)
+  );
+  --frame-bg: hsl(
+    var(--base-accent-h),
+    calc(var(--theme-accent-active-s) * 0.7),
+    calc(10% + var(--theme-accent-active-l) / 10)
   );
 
   --background-primary-hsl: var(--base-accent-h), 5%, 9%;

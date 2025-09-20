@@ -1,18 +1,6 @@
 @use '../utils.scss' as *;
 
-.theme-light {
-  --frame-bg: hsla(var(--color-accent-hsl), 0.17);
-}
-
-.theme-dark {
-  --frame-bg: hsla(var(--color-accent-hsl), 0.2);
-}
-
 body {
-  --tab-container-background: var(--frame-bg);
-  --titlebar-background: var(--frame-bg);
-  --titlebar-background-focused: var(--frame-bg);
-
   .workspace-tabs:not(.mod-top) .workspace-tab-header-container {
     background-color: var(--bg-surface);
     border-bottom: none;
