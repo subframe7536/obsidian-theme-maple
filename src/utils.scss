@@ -20,12 +20,6 @@
     color.channel($color, 'blue', $space: rgb);
 }
 
-@mixin use-print($selector) {
-  :is(#{$selector}, #{$selector} .print) {
-    @content;
-  }
-}
-
 @mixin use-icon($icon-name, $color: none, $size: none) {
   @if string.slice($icon-name, 1, 2) == '--' {
     -webkit-mask: var(#{$icon-name}) no-repeat;

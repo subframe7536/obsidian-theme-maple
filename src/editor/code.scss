@@ -24,7 +24,7 @@
   --code-border-width: 1px;
 }
 
-@include use-print('.theme-light') {
+.theme-light {
   --code-preview-base: hsl(
     var(--accent-h),
     var(--accent-s),
@@ -33,7 +33,7 @@
   --code-mac-style-header-bg: #333;
 }
 
-@include use-print('.theme-dark') {
+.theme-dark {
   --code-preview-base: hsl(var(--accent-h), var(--accent-s), 85%);
   --code-mac-style-header-bg: #000;
 }

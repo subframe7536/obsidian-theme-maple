@@ -14,7 +14,7 @@ body {
   --color-#{$name}-rgb: #{$rgb} !important;
 }
 
-@include use-print('body') {
+body {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
@@ -70,15 +70,13 @@ body {
   );
 }
 
-@include use-print('body.obsidian-app') {
+body.obsidian-app {
   --accent-s: 32% !important;
   --accent-l: 58% !important;
 }
 
 @mixin setup-hsl($theme, $h, $s, $l) {
-  @include use-print(
-    'body.color-use-custom.theme-#{$theme}.css-settings-manager'
-  ) {
+  body.color-use-custom.theme-#{$theme}.css-settings-manager {
     --accent-h: var(--setting-accent-h-#{$theme}, #{$h}) !important;
     --accent-s: var(--setting-accent-s-#{$theme}, #{$s}) !important;
     --accent-l: var(--setting-accent-l-#{$theme}, #{$l}) !important;
@@ -88,7 +86,7 @@ body {
 @include setup-hsl('light', 35, 32%, 58%);
 @include setup-hsl('dark', 207, 32%, 58%);
 
-@include use-print('.theme-light') {
+.theme-light {
   @include var-color('red', hsl(0, 45%, 53%));
   @include var-color('orange', hsl(32, 70%, 46%));
   @include var-color('yellow', hsl(45, 74%, 40%));
@@ -135,7 +133,7 @@ body {
   --color-opacity: 1;
 }
 
-@include use-print('.theme-dark') {
+.theme-dark {
   @include var-color('red', hsl(0, 64%, 80%));
   @include var-color('orange', hsl(20, 60%, 75%));
   @include var-color('yellow', hsl(36, 70%, 78%));
@@ -180,11 +178,11 @@ body {
   --color-opacity: 0.85;
 }
 
-@include use-print('.theme-light.color-use-custom.color-active-alt-light') {
+.theme-light.color-use-custom.color-active-alt-light {
   --accent-active: var(--alt-light-accent-active);
   --accent-inactive: var(--alt-light-accent-inactive);
 }
-@include use-print('.theme-light.color-use-custom.color-active-custom-light') {
+.theme-light.color-use-custom.color-active-custom-light {
   --accent-active: var(
     --setting-color-active-custom-light,
     var(--alt-light-accent-active)
@@ -194,11 +192,11 @@ body {
     var(--alt-light-accent-inactive)
   );
 }
-@include use-print('.theme-dark.color-use-custom.color-active-alt-dark') {
+.theme-dark.color-use-custom.color-active-alt-dark {
   --accent-active: var(--alt-dark-accent-active);
   --accent-inactive: var(--alt-dark-accent-inactive);
 }
-@include use-print('.theme-dark.color-use-custom.color-active-custom-dark') {
+.theme-dark.color-use-custom.color-active-custom-dark {
   --accent-active: var(
     --setting-color-active-custom-dark,
     var(--alt-dark-accent-active)
