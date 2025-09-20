@@ -50,16 +50,16 @@ body.app-layout-card:not(.is-mobile) {
     &.theme-light {
       --app-bg-image: linear-gradient(
         210deg,
-        hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 0.9), 85%),
-        hsl(calc(var(--accent-h) + 60), calc(var(--accent-s) * 0.9), 85%)
+        hsl(calc(var(--base-accent-h) - 10), calc(var(--accent-s) * 0.9), 85%),
+        hsl(calc(var(--base-accent-h) + 10), calc(var(--accent-s) * 0.9), 85%)
       );
     }
 
     &.theme-dark {
       --app-bg-image: linear-gradient(
-        210deg,
-        hsl(calc(var(--accent-h) - 30), calc(var(--accent-s) * 1.15), 25%),
-        hsl(calc(var(--accent-h) + 30), calc(var(--accent-s) * 1.15), 25%)
+        340deg,
+        hsl(calc(var(--base-accent-h) + 90), 11%, 22%),
+        hsl(calc(var(--base-accent-h) - 10), 24%, 28%)
       );
     }
   }
