@@ -99,11 +99,21 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 /* #region current line highlight */
 
 .theme-light {
-  --active-line: var(--setting-line-active-color, var(--accent-h), 24%, 92%);
+  --active-line: var(
+    --setting-line-active-color,
+    var(--base-accent-h),
+    24%,
+    92%
+  );
 }
 
 .theme-dark {
-  --active-line: var(--setting-line-active-color, var(--accent-h), 18%, 14%);
+  --active-line: var(
+    --setting-line-active-color,
+    var(--base-accent-h),
+    12%,
+    14%
+  );
 }
 
 @include use-no-plugin('.line-active-enable') {
@@ -213,7 +223,7 @@ body.line-indicator-full {
   padding: 0 var(--size-2-3) !important;
 
   .theme-light & {
-    box-shadow: var(--input-shadow), 0 1px 1px 1px var(--color-base-40);
+    box-shadow: var(--input-shadow);
   }
 
   .theme-dark & {

@@ -61,7 +61,7 @@ body {
   --file-folding-offset: 28px;
   --folder-color: var(--setting-color-dirs, hsl(46, 81%, 45%));
   --nav-item-size: calc(var(--size-4-4) * 0.9);
-  --nav-indentation-guide-color: hsla(var(--accent-h), 20%, 50%, 0.2);
+  --nav-indentation-guide-color: var(--color-base-30);
   --nav-indentation-guide-width: 1.8px;
 }
 
@@ -71,10 +71,6 @@ body {
 
 .theme-dark {
   --folder-inactive: 70%;
-}
-
-.nav-file-title.is-active:not(.is-selected) {
-  color: var(--text-on-accent);
 }
 
 body:not(.is-grabbing)
@@ -145,19 +141,17 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       }
 
       &.is-active:not(.is-selected) {
-        color: var(--text-on-accent);
-
         &:first-child::before {
-          background-color: var(--text-on-accent);
+          background-color: var(--nav-item-color-active);
         }
 
         .nav-file-title-content {
-          color: var(--text-on-accent);
+          color: var(--nav-item-color-active);
         }
 
         .nav-file-tag {
           backdrop-filter: brightness(0.85);
-          color: var(--text-on-accent);
+          color: var(--nav-item-color-active);
         }
       }
       &-content {

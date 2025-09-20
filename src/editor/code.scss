@@ -18,23 +18,17 @@
   --code-value: var(--color-cyan);
   --code-comment: var(--text-faint);
   --code-variable: var(--color-yellow);
-  --code-normal: var(--code-preview-base);
+  --code-normal: var(--text-muted);
   --code-bg-radius: var(--radius-m);
   --code-bg-border: solid var(--accent-inactive);
   --code-border-width: 1px;
 }
 
 .theme-light {
-  --code-preview-base: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 30%)
-  );
   --code-mac-style-header-bg: #333;
 }
 
 .theme-dark {
-  --code-preview-base: hsl(var(--accent-h), var(--accent-s), 85%);
   --code-mac-style-header-bg: #000;
 }
 
@@ -379,12 +373,11 @@ body .markdown-rendered pre {
   }
 
   .cm-variable {
-    color: var(--code-normal);
+    color: var(--code-class);
   }
 
   .cm-variable-2 {
-    color: var(--code-variable);
-    filter: hue-rotate(20deg) saturate(1.1);
+    color: var(--code-value);
   }
 
   .cm-variable-3 {
@@ -482,11 +475,31 @@ body .markdown-rendered pre {
         --setting-code-bg-outer,
         linear-gradient(
           -30deg,
-          hsl(calc(var(--accent-h) + 145), var(--code-bg-s), var(--code-bg-l)),
-          hsl(calc(var(--accent-h) + 115), var(--code-bg-s), var(--code-bg-l)),
-          hsl(calc(var(--accent-h) + 90), var(--code-bg-s), var(--code-bg-l)),
-          hsl(calc(var(--accent-h) + 65), var(--code-bg-s), var(--code-bg-l)),
-          hsl(calc(var(--accent-h) + 35), var(--code-bg-s), var(--code-bg-l))
+          hsl(
+            calc(var(--base-accent-h) + 145),
+            var(--code-bg-s),
+            var(--code-bg-l)
+          ),
+          hsl(
+            calc(var(--base-accent-h) + 115),
+            var(--code-bg-s),
+            var(--code-bg-l)
+          ),
+          hsl(
+            calc(var(--base-accent-h) + 90),
+            var(--code-bg-s),
+            var(--code-bg-l)
+          ),
+          hsl(
+            calc(var(--base-accent-h) + 65),
+            var(--code-bg-s),
+            var(--code-bg-l)
+          ),
+          hsl(
+            calc(var(--base-accent-h) + 35),
+            var(--code-bg-s),
+            var(--code-bg-l)
+          )
         )
       );
     }

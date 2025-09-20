@@ -59,7 +59,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
               zh: '自定义激活状态的高亮色',
             },
           },
-          { default: '#', format: 'rgb', opacity: false },
+          { default: '#', format: 'hsl-split', opacity: false },
         )
         .addVarColor(
           'setting-color-inactive-custom-light',
@@ -69,30 +69,8 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
               zh: '自定义非激活状态的高亮色',
             },
           },
-          { default: '#', format: 'rgb', opacity: false },
-        )
-        .children([
-          Settings.ofLevel(3, {
-            id: 'title-light-accent-custom',
-            title: { en: 'More Configuration', zh: '更多设置' },
-          })
-            .addVarNumSlider(
-              'setting-accent-s-light',
-              {
-                title: { en: 'Highlight Color Saturation', zh: '高亮色饱和度' },
-                desc: { en: 'Saturation (S) in HSL', zh: 'HSL 中的饱和度 (S)' },
-              },
-              { default: 32, min: 0, max: 100, step: 1, format: '%' },
-            )
-            .addVarNumSlider(
-              'setting-accent-l-light',
-              {
-                title: { en: 'Highlight Color Lightness', zh: '高亮色亮度' },
-                desc: { en: 'Lightness (L) in HSL', zh: 'HSL 中的亮度 (L)' },
-              },
-              { default: 58, min: 0, max: 100, step: 1, format: '%' },
-            ),
-        ]),
+          { default: '#', format: 'hsl-split', opacity: false },
+        ),
       Settings.ofLevel(2, { title: { en: 'Dark Mode', zh: '暗色模式' } })
         .addVarNumSlider(
           'setting-accent-h-dark',
@@ -120,7 +98,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
               zh: '自定义激活状态的高亮色',
             },
           },
-          { default: '#', format: 'rgb', opacity: false },
+          { default: '#', format: 'hsl-split', opacity: false },
         )
         .addVarColor(
           'setting-color-inactive-custom-dark',
@@ -130,30 +108,8 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
               zh: '自定义非激活状态的高亮色',
             },
           },
-          { default: '#', format: 'rgb', opacity: false },
-        )
-        .children([
-          Settings.ofLevel(3, {
-            id: 'title-dark-accent-custom',
-            title: { en: 'More Configuration', zh: '更多设置' },
-          })
-            .addVarNumSlider(
-              'setting-accent-s-dark',
-              {
-                title: { en: 'Highlight Color Saturation', zh: '高亮色饱和度' },
-                desc: { en: 'Saturation (S) in HSL', zh: 'HSL 中的饱和度 (S)' },
-              },
-              { default: 32, min: 0, max: 100, step: 1, format: '%' },
-            )
-            .addVarNumSlider(
-              'setting-accent-l-dark',
-              {
-                title: { en: 'Highlight Color Lightness', zh: '高亮色亮度' },
-                desc: { en: 'Lightness (L) in HSL', zh: 'HSL 中的亮度 (L)' },
-              },
-              { default: 58, min: 0, max: 100, step: 1, format: '%' },
-            ),
-        ]),
+          { default: '#', format: 'hsl-split', opacity: false },
+        ),
     ]),
   Settings.ofLevel(1, {
     title: { en: 'Layout', zh: '布局' },

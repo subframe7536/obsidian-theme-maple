@@ -1,11 +1,11 @@
 @use '../utils.scss' as *;
 
 .theme-light {
-  --frame-bg: hsl(var(--accent-h), 18%, 93%);
+  --frame-bg: hsla(var(--color-accent-hsl), 0.17);
 }
 
 .theme-dark {
-  --frame-bg: hsl(var(--accent-h), 20%, 12%);
+  --frame-bg: hsla(var(--color-accent-hsl), 0.2);
 }
 
 body {

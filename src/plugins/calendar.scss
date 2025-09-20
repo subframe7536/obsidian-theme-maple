@@ -35,24 +35,6 @@ body.calendar-swap-year-month #calendar-container .nav {
   }
 }
 
-.theme-light {
-  --calendar-weekend-bg: hsla(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 24%),
-    24%
-  );
-}
-
-.theme-dark {
-  --calendar-weekend-bg: hsla(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 24%),
-    24%
-  );
-}
-
 #calendar-container {
   --color-text-today: var(--text-on-accent);
   --color-text-weeknum: var(--accent-active);
@@ -124,7 +106,7 @@ body.calendar-swap-year-month #calendar-container .nav {
 body.calendar-weekend #calendar-container {
   tbody tr td:nth-last-child(2),
   tbody tr td:nth-last-child(1) {
-    background-color: var(--calendar-weekend-bg);
+    background-color: hsla(var(--color-accent-hsl), 0.1);
   }
 }
 

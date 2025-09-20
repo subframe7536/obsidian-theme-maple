@@ -160,10 +160,20 @@ html[lang='zh'] {
       height: 1.6em;
       width: 1.6em;
       color: var(--text-normal);
-      background-color: hsl(var(--setting-accent-h-light, 116), 32%, 58%);
+      background-color: hsl(var(--base-accent-h), 32%, 58%);
       position: relative;
       right: 1em;
       border-radius: var(--radius-s);
+    }
+
+    .setting-item:is([data-id='setting-accent-h-light'])
+      .setting-item-control::before {
+      background-color: hsl(var(--setting-accent-h-light, 35), 24%, 52%);
+    }
+
+    .setting-item:is([data-id='setting-accent-h-dark'])
+      .setting-item-control::before {
+      background-color: hsl(var(--setting-accent-h-dark, 207), 24%, 42%);
     }
   }
 
@@ -186,9 +196,7 @@ body:not(.line-active-enable)
   .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month)
   .setting-item[data-id='setting-calendar-year-suffix'],
-body.color-active-custom-light
-  .setting-item[data-id='title-light-accent-custom'],
-body.color-active-custom-dark .setting-item[data-id='title-dark-accent-custom'],
+body:not(.app-layout-card) .setting-item[data-id='app-layout-card-bg'],
 body:not(.app-layout-card.app-layout-card-custom)
   .setting-item:is(
     [data-id='setting-layout-image-light'],
@@ -297,7 +305,6 @@ body:not(.tag-outline)
   padding-left: var(--size-4-3);
 
   &:hover {
-    color: var(--highlight-text-normal);
     background-color: var(--background-modifier-hover);
   }
 }
@@ -317,8 +324,6 @@ body:not(.tag-outline)
 
 .style-settings-heading[data-level='0'] {
   background-color: var(--md-container-bg);
-  border: 1px solid
-    hsla(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 4%), 16%) !important;
 
   & + .style-settings-container .style-settings-collapse-indicator {
     margin-left: unset;
@@ -356,7 +361,7 @@ body:not(.tag-outline)
   transition: var(--animation);
 
   &:hover {
-    border-left-color: var(--accent-active);
+    border-left-color: var(--accent-inactive);
   }
 }
 

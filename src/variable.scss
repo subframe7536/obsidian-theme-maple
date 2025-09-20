@@ -1,20 +1,20 @@
 @use './utils.scss' as *;
 
 body {
+  --base-accent-h: var(--accent-h);
+  --theme-accent-h: var(--base-accent-h);
+  --accent-active: hsl(
+    var(--theme-accent-active-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l)
+  );
+  --accent-inactive: hsl(
+    var(--theme-accent-inactive-h),
+    var(--theme-accent-inactive-s),
+    var(--theme-accent-inactive-l)
+  );
+
   --bg-opacity: 1;
-}
-
-@mixin var-color($name, $color) {
-  $rgb: to-rgb($color);
-
-  --color-#{$name}: rgba(
-    var(--color-#{$name}-rgb),
-    var(--color-opacity)
-  ) !important;
-  --color-#{$name}-rgb: #{$rgb} !important;
-}
-
-body {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
@@ -44,47 +44,11 @@ body {
   --divider-width-hover: var(--size-4-1);
 
   // tree item color
+  --nav-item-color-active: var(--text-on-accent);
   --nav-item-background-active: var(--accent-active);
   --nav-item-background-selected: var(--background-modifier-hover);
   --line-height-tight: var(--setting-line-height-item, 1.5);
-
-  --alt-light-accent-active: hsl(
-    calc(var(--accent-h) + 60),
-    calc(var(--accent-s) - 12%),
-    calc(var(--accent-l) + 4%)
-  );
-  --alt-light-accent-inactive: hsl(
-    calc(var(--accent-h) + 60),
-    calc(var(--accent-s) - 12%),
-    max(calc(var(--accent-l) + 20%), 78%)
-  );
-  --alt-dark-accent-active: hsl(
-    calc(var(--accent-h) + 60),
-    calc(var(--accent-s) - 12%),
-    calc(var(--accent-l) - 12%)
-  );
-  --alt-dark-accent-inactive: hsl(
-    calc(var(--accent-h) + 60),
-    calc(var(--accent-s) - 12%),
-    min(calc(var(--accent-l) - 28%), 28%)
-  );
 }
-
-body.obsidian-app {
-  --accent-s: 32% !important;
-  --accent-l: 58% !important;
-}
-
-@mixin setup-hsl($theme, $h, $s, $l) {
-  body.color-use-custom.theme-#{$theme}.css-settings-manager {
-    --accent-h: var(--setting-accent-h-#{$theme}, #{$h}) !important;
-    --accent-s: var(--setting-accent-s-#{$theme}, #{$s}) !important;
-    --accent-l: var(--setting-accent-l-#{$theme}, #{$l}) !important;
-  }
-}
-
-@include setup-hsl('light', 35, 32%, 58%);
-@include setup-hsl('dark', 207, 32%, 58%);
 
 .theme-light {
   @include var-color('red', hsl(0, 45%, 53%));
@@ -95,114 +59,142 @@ body.obsidian-app {
   @include var-color('blue', hsl(193, 94%, 34%));
   @include var-color('purple', hsl(260, 20%, 48%));
 
-  --background-primary-hsl: var(--accent-h), calc(var(--accent-s) - 12%), 97%;
-  --background-primary: hsl(var(--background-primary-hsl));
-  --background-primary-alt: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 12%),
-    95%
+  --theme-accent-active-h: var(--theme-accent-h);
+  --theme-accent-active-s: calc(20% + var(--accent-s) / 10);
+  --theme-accent-active-l: calc(50% + var(--accent-l) / 10);
+  --theme-accent-inactive-h: var(--theme-accent-h);
+  --theme-accent-inactive-s: calc(15% + var(--accent-s) / 10);
+  --theme-accent-inactive-l: calc(75% + var(--accent-l) / 10);
+
+  --color-accent-hsl: var(--base-accent-h), var(--theme-accent-active-s),
+    var(--theme-accent-active-l);
+  --color-accent: hsl(
+    var(--base-accent-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l)
   );
-  --background-secondary-hsl: calc(var(--accent-h) - 18),
-    calc(var(--accent-s) - 4%), calc(100% - (100% - var(--accent-l)) / 8);
+  --color-accent-1: hsl(
+    calc(var(--base-accent-h) - 1),
+    calc(var(--theme-accent-active-s) * 1.01),
+    calc(var(--theme-accent-active-l) * 1.075)
+  );
+  --color-accent-2: hsl(
+    calc(var(--base-accent-h) - 3),
+    calc(var(--theme-accent-active-s) * 1.02),
+    calc(var(--theme-accent-active-l) * 1.15)
+  );
+
+  --background-primary-hsl: var(--base-accent-h), 12%, 97%;
+  --background-primary: hsl(var(--background-primary-hsl));
+  --background-primary-alt: hsl(var(--base-accent-h), 15%, 95%);
+  --background-secondary-hsl: calc(var(--base-accent-h) - 18), 8%, 93%;
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) * 1.2),
-    min(var(--accent-l) * 2, 60%),
+    var(--base-accent-h),
+    var(--theme-accent-inactive-s),
+    max(60%, var(--accent-l) * 0.7),
     20%
-  );
-  --accent-active: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) + 4%)
-  );
-  --accent-inactive: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 4%),
-    calc(var(--accent-l) + 22%)
   );
   --text-on-accent: #fafafa !important;
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsla(
-      calc(var(--accent-h) + 8),
-      calc(var(--accent-s) / 1.2),
-      calc(100% - (100% - var(--accent-l)) / 8)
-    )
+    hsla(calc(var(--base-accent-h) + 8), 16%, 95%)
   );
-  --color-opacity: 1;
+
+  &.color-use-custom {
+    --base-accent-h: var(--setting-accent-h-light, 35);
+
+    &.color-active-alt-light {
+      --theme-accent-h: calc(var(--base-accent-h) + 60);
+      --theme-accent-active-s: 24%;
+      --theme-accent-active-l: 52%;
+      --theme-accent-inactive-s: 20%;
+      --theme-accent-inactive-l: 78%;
+    }
+
+    &.color-active-custom-light {
+      --theme-accent-active-h: var(--setting-color-active-custom-light-h);
+      --theme-accent-active-s: var(--setting-color-active-custom-light-s);
+      --theme-accent-active-l: var(--setting-color-active-custom-light-l);
+      --theme-accent-inactive-h: var(--setting-color-inactive-custom-light-h);
+      --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s);
+      --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l);
+    }
+  }
 }
 
 .theme-dark {
-  @include var-color('red', hsl(0, 64%, 80%));
-  @include var-color('orange', hsl(20, 60%, 75%));
-  @include var-color('yellow', hsl(36, 70%, 78%));
-  @include var-color('green', hsl(130, 48%, 76%));
-  @include var-color('cyan', hsl(178, 60%, 77%));
-  @include var-color('blue', hsl(210, 100%, 78%));
-  @include var-color('purple', hsl(247, 96%, 88%));
+  $dark-bright: -15%;
+  @include var-color('red', hsl(0, 64%, 80%), $dark-bright);
+  @include var-color('orange', hsl(20, 60%, 75%), $dark-bright);
+  @include var-color('yellow', hsl(36, 70%, 78%), $dark-bright);
+  @include var-color('green', hsl(130, 48%, 76%), $dark-bright);
+  @include var-color('cyan', hsl(178, 60%, 77%), $dark-bright);
+  @include var-color('blue', hsl(210, 100%, 78%), $dark-bright);
+  @include var-color('purple', hsl(247, 85%, 90%), $dark-bright);
 
-  --background-primary-hsl: var(--accent-h), calc(var(--accent-s) / 4),
-    calc(var(--accent-l) / 7);
-  --background-primary: hsl(var(--background-primary-hsl));
-  --background-primary-alt: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) / 4),
-    calc(var(--accent-l) / 5)
+  --theme-accent-active-h: var(--theme-accent-h);
+  --theme-accent-active-s: calc(20% + var(--accent-s) / 10);
+  --theme-accent-active-l: calc(40% + var(--accent-l) / 10);
+  --theme-accent-inactive-h: var(--theme-accent-h);
+  --theme-accent-inactive-s: calc(15% + var(--accent-s) / 10);
+  --theme-accent-inactive-l: calc(30% + var(--accent-l) / 10);
+
+  --color-accent-hsl: var(--base-accent-h), var(--theme-accent-active-s),
+    var(--theme-accent-active-l);
+  --color-accent: hsl(
+    var(--base-accent-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l)
   );
-  --background-secondary-hsl: calc(var(--accent-h) + 8),
-    calc(var(--accent-s) / 6), calc(var(--accent-l) / 5);
+  --color-accent-1: hsl(
+    calc(var(--base-accent-h) - 3),
+    calc(var(--theme-accent-active-s) * 1.02),
+    calc(var(--theme-accent-active-l) * 1.15)
+  );
+  --color-accent-2: hsl(
+    calc(var(--base-accent-h) - 5),
+    calc(var(--theme-accent-active-s) * 1.05),
+    calc(var(--theme-accent-active-l) * 1.29)
+  );
+
+  --background-primary-hsl: var(--base-accent-h), 5%, 9%;
+  --background-primary: hsl(var(--background-primary-hsl));
+  --background-primary-alt: hsl(var(--base-accent-h), 10%, 13%);
+  --background-secondary-hsl: calc(var(--base-accent-h) - 18), 6%, 12%;
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) / 2),
+    var(--base-accent-h),
+    var(--theme-accent-active-s),
+    max(50%, var(--accent-l) * 0.6),
     20%
   );
-  --accent-active: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    calc(var(--accent-l) - 16%)
-  );
-  --accent-inactive: hsl(
-    var(--accent-h),
-    calc(var(--accent-s) - 4%),
-    calc(var(--accent-l) - 32%)
-  );
-  --text-normal: hsla(var(--accent-h), 50%, 94%, 75%);
+
+  --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsla(calc(var(--accent-h) - 4), 12%, 9%)
+    hsl(calc(var(--base-accent-h) - 4), 12%, 9%)
   );
-  --color-opacity: 0.85;
-}
 
-.theme-light.color-use-custom.color-active-alt-light {
-  --accent-active: var(--alt-light-accent-active);
-  --accent-inactive: var(--alt-light-accent-inactive);
-}
-.theme-light.color-use-custom.color-active-custom-light {
-  --accent-active: var(
-    --setting-color-active-custom-light,
-    var(--alt-light-accent-active)
-  );
-  --accent-inactive: var(
-    --setting-color-inactive-custom-light,
-    var(--alt-light-accent-inactive)
-  );
-}
-.theme-dark.color-use-custom.color-active-alt-dark {
-  --accent-active: var(--alt-dark-accent-active);
-  --accent-inactive: var(--alt-dark-accent-inactive);
-}
-.theme-dark.color-use-custom.color-active-custom-dark {
-  --accent-active: var(
-    --setting-color-active-custom-dark,
-    var(--alt-dark-accent-active)
-  );
-  --accent-inactive: var(
-    --setting-color-inactive-custom-dark,
-    var(--alt-dark-accent-inactive)
-  );
+  &.color-use-custom {
+    --base-accent-h: var(--setting-accent-h-dark, 207);
+
+    &.color-active-alt-dark {
+      --theme-accent-h: calc(var(--base-accent-h) + 60);
+      --theme-accent-active-s: 24%;
+      --theme-accent-active-l: 42%;
+      --theme-accent-inactive-s: 20%;
+      --theme-accent-inactive-l: 32%;
+    }
+
+    &.theme-dark.color-use-custom.color-active-custom-dark {
+      --theme-accent-active-h: var(--setting-color-active-custom-dark-h);
+      --theme-accent-active-s: var(--setting-color-active-custom-dark-s);
+      --theme-accent-active-l: var(--setting-color-active-custom-dark-l);
+      --theme-accent-inactive-h: var(--setting-color-inactive-custom-dark-h);
+      --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s);
+      --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l);
+    }
+  }
 }

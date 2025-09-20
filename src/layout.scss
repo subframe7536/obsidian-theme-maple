@@ -37,6 +37,13 @@ body.app-layout-card:not(.is-mobile) {
     }
   }
 
+  .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
+    translate: 2px;
+  }
+  .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
+    translate: -2px;
+  }
+
   &.app-layout-card-gradient {
     --bg-opacity: 0.6;
 

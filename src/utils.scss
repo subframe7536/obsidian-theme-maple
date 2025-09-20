@@ -1,6 +1,17 @@
 @use 'sass:string';
 @use 'sass:color';
 
+@mixin var-color($name, $color, $bright: 100%) {
+  @if $bright != 100% {
+    $color: color.scale($color, $saturation: $bright * 3, $lightness: $bright);
+  }
+  $rgb: color.channel($color, 'red', $space: rgb),
+    color.channel($color, 'green', $space: rgb),
+    color.channel($color, 'blue', $space: rgb);
+  --color-#{$name}-rgb: #{$rgb};
+  --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity, 1));
+}
+
 @mixin use-no-plugin($selector, $suffix: '') {
   // prettier-ignore
   body:is(:not(.css-settings-manager),#{string.unquote($selector)})#{string.unquote($suffix)} {
@@ -12,12 +23,6 @@
   .workspace-leaf-content[data-type='#{$name}'] #{string.unquote($child)} {
     @content;
   }
-}
-
-@function to-rgb($color) {
-  @return color.channel($color, 'red', $space: rgb),
-    color.channel($color, 'green', $space: rgb),
-    color.channel($color, 'blue', $space: rgb);
 }
 
 @mixin use-icon($icon-name, $color: none, $size: none) {
