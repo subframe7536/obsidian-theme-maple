@@ -174,7 +174,7 @@ body {
   --text-on-accent: #eaeaea !important;
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsl(calc(var(--base-accent-h) - 4), 12%, 9%)
+    hsl(calc(var(--base-accent-h) - 4), 12%, 12%)
   );
 
   &.color-use-custom {

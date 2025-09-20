@@ -49,24 +49,10 @@ code,
 code *,
 .HyperMD-codeblock *,
 .cm-inline-code {
-  font-family: var(--font-monospace);
   font-feature-settings: var(--setting-code-ligature, 'calt');
 }
 
 /* #endregion monospace */
-
-/* #region editor background */
-
-body {
-  --file-line-width: var(--setting-file-line-width, clamp(600px, 72%, 820px));
-}
-
-.markdown-source-view.mod-cm6.is-readable-line-width
-  :is(.cm-content, .cm-line) {
-  max-width: 100%;
-}
-
-/* #endregion editor background */
 
 /* #region text */
 
@@ -87,14 +73,23 @@ body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
 
 /* #endregion text */
 
-/* #region editor line height */
+/* #region line */
+
+body {
+  --file-line-width: var(--setting-file-line-width, clamp(600px, 72%, 820px));
+}
+
+.markdown-source-view.mod-cm6.is-readable-line-width
+  :is(.cm-content, .cm-line) {
+  max-width: 100%;
+}
 
 .workspace-split.mod-root,
 .markdown-rendered {
   --line-height-normal: var(--setting-line-height, 1.8) !important;
 }
 
-/* #endregion editor line height */
+/* #endregion line */
 
 /* #region current line highlight */
 
