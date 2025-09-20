@@ -1,14 +1,14 @@
-/* #region built-in fonts */
-@use './fonts.scss';
-/* #endregion built-in fonts */
-
-/* #region [style settings] */
-@use './style-settings';
-/* #endregion [style settings] */
-
 /* #region global variables */
 @use './variable.scss';
 /* #endregion global variables */
+
+/* #region style settings */
+@use './style-settings';
+/* #endregion style settings */
+
+/* #region layout */
+@use './layout.scss';
+/* #endregion layout */
 
 /* #region animation */
 @use './animation.scss';
@@ -30,4 +30,6 @@
 @use './mobile';
 /* #endregion [mobile] */
 
-//todo)) callouts(bt,prism,mado) / slide / dataview / plugins adapt
+/* #region built-in fonts */
+@use './fonts.scss';
+/* #endregion built-in fonts */
