@@ -11,7 +11,6 @@ body.app-layout-card:not(.is-mobile) {
   &.app-layout-card-plain {
     background-color: var(--background-secondary);
     --editor-min-opacity: 1;
-    --bg-opacity: 1;
   }
 
   &:not(.app-layout-card-plain) {

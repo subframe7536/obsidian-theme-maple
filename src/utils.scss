@@ -1,10 +1,6 @@
 @use 'sass:string';
 @use 'sass:color';
 
-@function with-no-plugin($selector) {
-  @return string.unquote('body:is(:not(.css-settings-manager),#{$selector})');
-}
-
 @mixin use-no-plugin($selector, $suffix: '') {
   // prettier-ignore
   body:is(:not(.css-settings-manager),#{string.unquote($selector)})#{string.unquote($suffix)} {
