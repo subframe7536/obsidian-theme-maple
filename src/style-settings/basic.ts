@@ -124,6 +124,9 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
       },
       { enable: true },
     )
+    .addClassToggle('app-layout-card-border', {
+      title: { en: 'Add Border For Card', zh: '为卡片添加边框' },
+    })
     .addClassSelect(
       'app-layout-card-bg',
       {

@@ -83,6 +83,19 @@ body.app-layout-card:not(.is-mobile) {
     }
   }
 
+  &.app-layout-card-border {
+    .mod-root .workspace-leaf-content {
+      border: 1px solid var(--background-modifier-border);
+    }
+
+    .workspace-tab-header {
+      border: 1px solid transparent;
+      &.is-active {
+        border-color: var(--background-modifier-border);
+      }
+    }
+  }
+
   .mod-root .workspace-tab-container {
     padding: var(--size-4-1);
     padding-top: 0;
