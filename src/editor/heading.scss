@@ -1,4 +1,4 @@
-@use '../utils';
+@use '../utils' as *;
 
 $headings: ':is(h1, h2, h3, h4, h5, h6)';
 $cm-headings: '.HyperMD-header-1', '.HyperMD-header-2', '.HyperMD-header-3',
@@ -53,7 +53,7 @@ body {
   }
 }
 
-@include utils.use-no-plugin('.heading-color-colorful') {
+@include use-no-plugin('.heading-color-colorful') {
   --h1-color: var(--setting-h1-color, var(--color-red));
   --h2-color: var(--setting-h2-color, var(--color-orange));
   --h3-color: var(--setting-h3-color, var(--color-green));
@@ -62,21 +62,14 @@ body {
   --h6-color: var(--setting-h6-color, var(--color-cyan));
 }
 
-.cm-formatting.cm-formatting-header {
-  filter: grayscale(70%);
-  font-weight: 400 !important;
-
-  :is(
-      body:not(.fix-line-number),
-      body.fix-line-number .cm-contentContainer :first-child
-    )
-    & {
-    font-size: 1rem !important;
-    line-height: 1.2rem;
-  }
+body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
+  color: var(--color-base-50);
+  font-weight: 400;
+  font-size: var(--font-text-size) !important;
+  line-height: var(--line-height-normal);
 }
 
-@include utils.use-no-plugin('.heading-level-enable') {
+@include use-no-plugin(':not(.heading-indicator-disable)') {
   :is(
       div.markdown-reading-view > div > div > div > #{$headings},
       .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header
@@ -94,8 +87,6 @@ body {
       width: fit-content;
       letter-spacing: 0.05rem;
       opacity: 0;
-      transition: var(--animation);
-      transition-delay: calc(var(--animation-delay) / 2);
       pointer-events: none;
       top: 50%;
       transform: translateY(-50%);
@@ -104,7 +95,6 @@ body {
 
     &:hover::before {
       opacity: 0.9;
-      transition-delay: 0s;
       pointer-events: all;
     }
   }
@@ -118,7 +108,7 @@ body {
     text-decoration: underline 0.1rem;
   }
 
-  &.heading-level-fix
+  &.heading-indiator-fixed
     :is(
       div.markdown-reading-view
         > div

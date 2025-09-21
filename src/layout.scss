@@ -5,8 +5,8 @@ body {
 
 body.app-layout-card:not(.is-mobile) {
   --divider-color: transparent;
-  --tab-divider-color: var(--color-base-35);
   --pdf-background: transparent;
+  --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;
 
   &.app-layout-card-plain {
@@ -97,9 +97,6 @@ body.app-layout-card:not(.is-mobile) {
       var(--background-primary-hsl),
       var(--bg-opacity)
     );
-    &.is-active {
-      --tab-background-active: var(--bg-editor);
-    }
   }
 
   :is(

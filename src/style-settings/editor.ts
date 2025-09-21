@@ -343,111 +343,101 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         ),
     ]),
   Settings.ofLevel(1, { title: { en: 'Heading', zh: '标题' } })
-    .addClassToggle('fix-line-number', {
-      title: { en: 'Fix Line Number Movement', zh: '修复行号移动' },
-      desc: { en: 'Will restore "#" size', zh: '将恢复 “#” 的大小' },
-    })
+    .addClassSelect(
+      'heading-color-style',
+      {
+        title: { en: 'Heading Color Style', zh: '标题颜色样式' },
+      },
+      {
+        allowEmpty: false,
+        default: 'heading-color-colorful',
+        options: [
+          { label: 'Text Color', value: 'heading-color-base' },
+          { label: 'Accent Color', value: 'heading-color-accent' },
+          { label: 'Colorful', value: 'heading-color-colorful' },
+        ],
+      },
+    )
+    .addClassSelect(
+      'heading-indicator',
+      {
+        title: { en: 'Heading Level Indicator', zh: '标题等级指示器' },
+      },
+      {
+        allowEmpty: false,
+        default: 'heading-indicator-auto',
+        options: [
+          { label: 'Disable', value: 'heading-indicator-disable' },
+          { label: 'Auto hide', value: 'heading-indicator-auto' },
+          { label: 'Fixed', value: 'heading-indicator-fixed' },
+        ],
+      },
+    )
+    .addClassToggle(
+      'heading-h1-center',
+      {
+        title: { en: 'Centered Heading 1', zh: '居中一级标题' },
+      },
+      { enable: true },
+    )
+    .addClassToggle(
+      'heading-h6-variant',
+      {
+        title: {
+          en: 'Set Small-caps Font for Heading 6',
+          zh: '为六级标题设置小型大写字母样式',
+        },
+        desc: {
+          en: 'All characters are capitalized',
+          zh: '所有字母都大写',
+        },
+      },
+      { enable: true },
+    )
     .children([
-      Settings.ofLevel(2, {
-        title: { en: 'Heading Level Icon', zh: '标题等级图标' },
-      })
-        .addClassToggle('heading-level-enable', {
-          title: { en: 'Enable Level Heading Icon', zh: '启用标题等级图标' },
-        })
-        .addClassToggle('heading-level-fix', {
-          title: { en: 'Always Show Heading Icon', zh: '始终显示图标' },
-          desc: { en: 'Highlights on hover', zh: '鼠标悬停时高亮' },
-        }),
-      Settings.ofLevel(2, {
-        title: { en: 'Heading Style Preference', zh: '标题样式偏好' },
-      })
-        .addClassToggle(
-          'heading-h1-center',
-          {
-            title: { en: 'Centered Heading 1', zh: '居中一级标题' },
-          },
-          { enable: true },
-        )
-        .addClassToggle('heading-underline-thin', {
-          title: { en: 'Thinner Heading Underline', zh: '标题下划线变细' },
-        })
-        .addClassToggle(
-          'heading-h6-variant',
-          {
-            title: {
-              en: 'Set Small-caps Font for Heading 6',
-              zh: '为六级标题设置小型大写字母样式',
-            },
-            desc: {
-              en: 'All characters are capitalized',
-              zh: '所有字母都大写',
-            },
-          },
-          { enable: true },
-        ),
       Settings.ofLevel(2, { title: { en: 'Heading Color', zh: '标题颜色' } })
-        .addClassSelect(
-          'heading-color-style',
+        .addVarThemedColor(
+          'setting-h1-color',
           {
-            title: { en: 'Heading Color Style', zh: '标题颜色样式' },
+            title: { en: 'H1 Color', zh: '标题 1 颜色' },
           },
-          {
-            allowEmpty: false,
-            default: 'heading-color-colorful',
-            options: [
-              { label: 'Text Color', value: 'heading-color-base' },
-              { label: 'Accent Color', value: 'heading-color-accent' },
-              { label: 'Colorful', value: 'heading-color-colorful' },
-            ],
-          },
+          'hex',
         )
-        .children([
-          Settings.ofLevel(3, {
-            title: { en: 'Custom Heading Color', zh: '自定义标题颜色' },
-          })
-            .addVarThemedColor(
-              'setting-h1-color',
-              {
-                title: { en: 'H1 Color', zh: '标题 1 颜色' },
-              },
-              'hex',
-            )
-            .addVarThemedColor(
-              'setting-h2-color',
-              {
-                title: { en: 'H2 Color', zh: '标题 2 颜色' },
-              },
-              'hex',
-            )
-            .addVarThemedColor(
-              'setting-h3-color',
-              {
-                title: { en: 'H3 Color', zh: '标题 3 颜色' },
-              },
-              'hex',
-            )
-            .addVarThemedColor(
-              'setting-h4-color',
-              {
-                title: { en: 'H4 Color', zh: '标题 4 颜色' },
-              },
-              'hex',
-            )
-            .addVarThemedColor(
-              'setting-h5-color',
-              {
-                title: { en: 'H5 Color', zh: '标题 5 颜色' },
-              },
-              'hex',
-            )
-            .addVarThemedColor(
-              'setting-h6-color',
-              {
-                title: { en: 'H6 Color', zh: '标题 6 颜色' },
-              },
-              'hex',
-            ),
-        ]),
+        .addVarThemedColor(
+          'setting-h2-color',
+          {
+            title: { en: 'H2 Color', zh: '标题 2 颜色' },
+          },
+          'hex',
+        )
+        .addVarThemedColor(
+          'setting-h3-color',
+          {
+            title: { en: 'H3 Color', zh: '标题 3 颜色' },
+          },
+          'hex',
+        )
+        .addVarThemedColor(
+          'setting-h4-color',
+          {
+            title: { en: 'H4 Color', zh: '标题 4 颜色' },
+          },
+          'hex',
+        )
+        .addVarThemedColor(
+          'setting-h5-color',
+          {
+            title: { en: 'H5 Color', zh: '标题 5 颜色' },
+          },
+          'hex',
+        )
+        .addVarThemedColor(
+          'setting-h6-color',
+          {
+            title: { en: 'H6 Color', zh: '标题 6 颜色' },
+          },
+          'hex',
+        ),
       Settings.ofLevel(2, { title: { en: 'Heading Font', zh: '标题字体' } })
         .addVarText('setting-h1-font', {
           title: { en: 'H1 Font', zh: '标题 1 字体' },
