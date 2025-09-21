@@ -11,7 +11,7 @@
     position: absolute;
     @include use-icon(
       'obsidian-icon',
-      var(--accent-active),
+      var(--accent-inactive),
       calc(2 * var(--size-4-12))
     );
     margin-inline-start: 50%;
