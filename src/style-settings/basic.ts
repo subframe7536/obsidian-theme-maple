@@ -9,7 +9,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
     { default: 200, min: 0, max: 500, step: 50, format: 'ms' },
   ),
   Settings.of().addVarNumSlider(
-    'setting-line-height-item',
+    'setting-item-line-height',
     {
       title: { en: 'List Item Line Height', zh: '列表行高' },
       desc: {
