@@ -60,6 +60,7 @@ body {
   @include var-color('cyan', hsl(156, 75%, 28%));
   @include var-color('blue', hsl(193, 94%, 34%));
   @include var-color('purple', hsl(260, 20%, 48%));
+  --color-opacity: 1;
 
   --theme-accent-active-h: var(--theme-accent-h);
   --theme-accent-active-s: calc(20% + var(--accent-s) / 10);
@@ -131,14 +132,14 @@ body {
 }
 
 .theme-dark {
-  $dark-bright: -15%;
-  @include var-color('red', hsl(0, 64%, 80%), $dark-bright);
-  @include var-color('orange', hsl(20, 60%, 75%), $dark-bright);
-  @include var-color('yellow', hsl(36, 70%, 78%), $dark-bright);
-  @include var-color('green', hsl(130, 48%, 76%), $dark-bright);
-  @include var-color('cyan', hsl(178, 60%, 77%), $dark-bright);
-  @include var-color('blue', hsl(210, 100%, 78%), $dark-bright);
-  @include var-color('purple', hsl(247, 85%, 90%), $dark-bright);
+  @include var-color('red', hsl(0, 64%, 80%));
+  @include var-color('orange', hsl(20, 60%, 75%));
+  @include var-color('yellow', hsl(36, 70%, 78%));
+  @include var-color('green', hsl(130, 48%, 76%));
+  @include var-color('cyan', hsl(178, 60%, 77%));
+  @include var-color('blue', hsl(210, 100%, 78%));
+  @include var-color('purple', hsl(247, 85%, 90%));
+  --color-opacity: 0.85;
 
   --theme-accent-active-h: var(--theme-accent-h);
   --theme-accent-active-s: calc(20% + var(--accent-s) / 10);

@@ -19,8 +19,8 @@
   --code-comment: var(--text-faint);
   --code-variable: var(--color-yellow);
   --code-normal: var(--text-muted);
-  --code-bg-radius: var(--radius-m);
-  --code-bg-border: solid var(--accent-inactive);
+  --code-radius: var(--radius-m);
+  --code-border-color: var(--accent-inactive);
   --code-border-width: 1px;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .markdown-rendered code {
-  border: var(--code-bg-border);
+  border: var(--code-border-color);
 }
 
 .markdown-preview-view pre code {
@@ -50,7 +50,7 @@
 .cm-inline-code {
   color: var(--inline-code) !important;
   border-radius: var(--radius-s);
-  border: var(--code-bg-border);
+  border: var(--code-border-color);
 
   &:not(.cm-formatting) {
     padding-inline: var(--size-2-1);
@@ -89,8 +89,8 @@
 .cm-s-obsidian .cm-line.HyperMD-codeblock {
   line-height: calc(var(--line-height-normal) - 0.2);
   color: var(--code-normal) !important;
-  border-left: var(--code-bg-border);
-  border-right: var(--code-bg-border);
+  border-left: var(--code-border-color);
+  border-right: var(--code-border-color);
   border-radius: 0 !important;
 
   .cm-fold-indicator .collapse-indicator {
@@ -102,16 +102,16 @@
   }
 
   &.HyperMD-codeblock-begin-bg {
-    border-top: var(--code-bg-border);
-    border-top-left-radius: var(--code-bg-radius) !important;
-    border-top-right-radius: var(--code-bg-radius) !important;
+    border-top: var(--code-border-color);
+    border-top-left-radius: var(--code-radius) !important;
+    border-top-right-radius: var(--code-radius) !important;
     margin-top: var(--size-2-1) !important;
   }
 
   &.HyperMD-codeblock-end-bg {
-    border-bottom: var(--code-bg-border);
-    border-bottom-left-radius: var(--code-bg-radius) !important;
-    border-bottom-right-radius: var(--code-bg-radius) !important;
+    border-bottom: var(--code-border-color);
+    border-bottom-left-radius: var(--code-radius) !important;
+    border-bottom-right-radius: var(--code-radius) !important;
     margin-bottom: var(--size-2-1) !important;
   }
 }
@@ -160,8 +160,6 @@ pre {
 }
 
 body .markdown-rendered pre {
-  border-radius: var(--code-bg-radius);
-  border: var(--block-outline-width) solid var(--background-modifier-border);
   transition: var(--animation);
   overflow-x: hidden;
 
@@ -215,7 +213,6 @@ body .markdown-rendered pre {
 
     pre {
       padding: var(--code-block-padding);
-      position: relative;
 
       code[class*='language-']::before {
         content: 'Unkown';
@@ -461,7 +458,6 @@ body .markdown-rendered pre {
   }
 }
 
-// todo))
 .code-preview-bg {
   --code-bg-s: 50%;
   --code-bg-l: 85%;
@@ -470,7 +466,6 @@ body .markdown-rendered pre {
     div:has(> pre:not([class*='frontmatter'])) {
       padding: var(--size-4-4) var(--size-4-8);
       margin-block: var(--size-4-4);
-      border-radius: var(--setting-code-bg-radius);
       background-image: var(
         --setting-code-bg-outer,
         linear-gradient(

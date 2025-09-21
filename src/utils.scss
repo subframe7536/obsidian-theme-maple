@@ -1,15 +1,12 @@
 @use 'sass:string';
 @use 'sass:color';
 
-@mixin var-color($name, $color, $bright: 100%) {
-  @if $bright != 100% {
-    $color: color.scale($color, $saturation: $bright * 3, $lightness: $bright);
-  }
+@mixin var-color($name, $color) {
   $rgb: color.channel($color, 'red', $space: rgb),
     color.channel($color, 'green', $space: rgb),
     color.channel($color, 'blue', $space: rgb);
   --color-#{$name}-rgb: #{$rgb};
-  --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity, 1));
+  --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity));
 }
 
 @mixin use-no-plugin($selector, $suffix: '') {
