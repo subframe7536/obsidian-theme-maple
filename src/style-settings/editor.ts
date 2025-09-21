@@ -663,6 +663,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       { enable: true },
     ),
   Settings.ofLevel(1, { title: { en: 'Quote', zh: '引言' } })
+    .addClassToggle('quote-italic', {
+      title: {
+        en: 'Use Italic Style',
+        zh: '使用斜体',
+      },
+    })
     .addClassToggle('quote-mark', {
       title: {
         en: 'Add Front Quote Mark in Reading View',
