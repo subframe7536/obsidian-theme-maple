@@ -10,7 +10,7 @@ body:not(.is-mobile)
   background-color: var(--nav-item-background-active) !important;
 }
 
-.modal-close-button {
+body:not(.is-phone) .modal-close-button {
   height: var(--input-height);
   width: var(--input-height);
   transition: var(--animation);
