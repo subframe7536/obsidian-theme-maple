@@ -21,9 +21,9 @@ body.tab-float {
       padding-block: 0 !important;
       transition: color var(--animation), width var(--animation);
       --tab-curve: 0;
+      --tab-radius-active: var(--radius-m);
 
       &.is-active {
-        --tab-radius-active: var(--radius-m);
         box-shadow: var(--tab-active-shadow);
       }
       &-container {
