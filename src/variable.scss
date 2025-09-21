@@ -102,19 +102,19 @@ body {
     max(70%, var(--accent-l) * 0.8),
     25%
   );
-  --text-on-accent: #fafafa;
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsla(calc(var(--base-accent-h) + 8), 16%, 95%)
+    hsla(calc(var(--base-accent-h) + 8), 15%, 94%)
   );
 
   &.color-use-custom {
+    --text-on-accent: #fafafa !important;
     --base-accent-h: var(--setting-accent-h-light, 35);
 
     &.color-active-alt-light {
       --theme-accent-h: calc(var(--base-accent-h) + 60);
       --theme-accent-active-s: 20%;
-      --theme-accent-active-l: 56%;
+      --theme-accent-active-l: 58%;
       --theme-accent-inactive-s: 20%;
       --theme-accent-inactive-l: 78%;
     }
@@ -183,13 +183,13 @@ body {
   );
 
   --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
-  --text-on-accent: #eaeaea;
   --md-container-bg: var(
     --setting-md-container-bg,
     hsl(calc(var(--base-accent-h) - 4), 12%, 12%)
   );
 
   &.color-use-custom {
+    --text-on-accent: #eaeaea !important;
     --base-accent-h: var(--setting-accent-h-dark, 207);
 
     &.color-active-alt-dark {
