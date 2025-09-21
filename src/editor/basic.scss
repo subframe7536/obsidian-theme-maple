@@ -214,8 +214,7 @@ body.line-indicator-full {
   text-transform: capitalize;
   border-radius: var(--radius-s);
   background-color: var(--background-secondary);
-  font-family: var(--font-monospace) !important;
-  padding: 0 var(--size-2-3) !important;
+  padding: var(--size-2-1) var(--size-4-2);
 
   .theme-light & {
     box-shadow: var(--input-shadow);
