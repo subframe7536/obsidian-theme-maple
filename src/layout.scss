@@ -5,6 +5,7 @@ body {
 
 body.app-layout-card:not(.is-mobile) {
   --divider-color: transparent;
+  --tab-divider-color: var(--color-base-35);
   --pdf-background: transparent;
   --tab-active-shadow: none !important;
 
@@ -85,6 +86,7 @@ body.app-layout-card:not(.is-mobile) {
   .mod-root .workspace-tab-container {
     padding: var(--size-4-1);
     padding-top: 0;
+
     .workspace-leaf-content {
       border-radius: var(--radius-m);
     }

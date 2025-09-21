@@ -48,9 +48,8 @@
 }
 
 .cm-inline-code {
-  color: var(--inline-code) !important;
-  border-radius: var(--radius-s);
-  border: var(--code-border-color);
+  --code-normal: var(--inline-code);
+  --code-radius: var(--radius-s);
 
   &:not(.cm-formatting) {
     padding-inline: var(--size-2-1);
