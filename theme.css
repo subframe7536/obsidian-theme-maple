@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.19 For Obsidian */
+/* Maple Theme v1.0.0-beta.20 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -12,7 +12,7 @@ settings:
       max: 500
       step: 50
       format: ms
-    - id: setting-line-height-item
+    - id: setting-item-line-height
       type: variable-number-slider
       title: List Item Line Height
       title.zh: 列表行高
@@ -129,6 +129,10 @@ settings:
       title: Enable Card Layout
       title.zh: 启用卡片布局
       default: true
+    - id: app-layout-card-border
+      type: class-toggle
+      title: Add Border For Card
+      title.zh: 为卡片添加边框
     - id: app-layout-card-bg
       type: class-select
       title: Background Type
@@ -361,7 +365,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.19'"
+      default: "'maple 1.0.0-beta.20'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -900,56 +904,6 @@ settings:
       type: heading
       level: 1
       collapsed: true
-    - id: fix-line-number
-      type: class-toggle
-      title: Fix Line Number Movement
-      title.zh: 修复行号移动
-      description: Will restore "#" size
-      description.zh: 将恢复 “#” 的大小
-    - id: title-heading-level-icon
-      title: Heading Level Icon
-      title.zh: 标题等级图标
-      type: heading
-      level: 2
-      collapsed: true
-    - id: heading-level-enable
-      type: class-toggle
-      title: Enable Level Heading Icon
-      title.zh: 启用标题等级图标
-    - id: heading-level-fix
-      type: class-toggle
-      title: Always Show Heading Icon
-      title.zh: 始终显示图标
-      description: Highlights on hover
-      description.zh: 鼠标悬停时高亮
-    - id: title-heading-style-preference
-      title: Heading Style Preference
-      title.zh: 标题样式偏好
-      type: heading
-      level: 2
-      collapsed: true
-    - id: heading-h1-center
-      type: class-toggle
-      title: Centered Heading 1
-      title.zh: 居中一级标题
-      default: true
-    - id: heading-underline-thin
-      type: class-toggle
-      title: Thinner Heading Underline
-      title.zh: 标题下划线变细
-    - id: heading-h6-variant
-      type: class-toggle
-      title: Set Small-caps Font for Heading 6
-      title.zh: 为六级标题设置小型大写字母样式
-      description: All characters are capitalized
-      description.zh: 所有字母都大写
-      default: true
-    - id: title-heading-color
-      title: Heading Color
-      title.zh: 标题颜色
-      type: heading
-      level: 2
-      collapsed: true
     - id: heading-color-style
       type: class-select
       title: Heading Color Style
@@ -963,11 +917,36 @@ settings:
             value: heading-color-accent
           - label: Colorful
             value: heading-color-colorful
-    - id: title-custom-heading-color
-      title: Custom Heading Color
-      title.zh: 自定义标题颜色
+    - id: heading-indicator
+      type: class-select
+      title: Heading Level Indicator
+      title.zh: 标题等级指示器
+      allow-empty: false
+      default: heading-indicator-auto
+      options:
+          - label: Disable
+            value: heading-indicator-disable
+          - label: Auto hide
+            value: heading-indicator-auto
+          - label: Fixed
+            value: heading-indicator-fixed
+    - id: heading-h1-center
+      type: class-toggle
+      title: Centered Heading 1
+      title.zh: 居中一级标题
+      default: true
+    - id: heading-h6-variant
+      type: class-toggle
+      title: Set Small-caps Font for Heading 6
+      title.zh: 为六级标题设置小型大写字母样式
+      description: All characters are capitalized
+      description.zh: 所有字母都大写
+      default: true
+    - id: title-heading-color
+      title: Heading Color
+      title.zh: 标题颜色
       type: heading
-      level: 3
+      level: 2
       collapsed: true
     - id: setting-h1-color
       type: variable-themed-color
@@ -1017,91 +996,6 @@ settings:
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: title-heading-size
-      title: Heading Size
-      title.zh: 标题大小
-      type: heading
-      level: 2
-      collapsed: true
-    - id: setting-h1-size
-      type: variable-number-slider
-      title: H1 Font Size
-      title.zh: 标题 1 字体大小
-      default: 1.6
-      min: 1
-      max: 2.4
-      step: 0.1
-    - id: setting-h2-size
-      type: variable-number-slider
-      title: H2 Font Size
-      title.zh: 标题 2 字体大小
-      default: 1.5
-      min: 1
-      max: 2.4
-      step: 0.1
-    - id: setting-h3-size
-      type: variable-number-slider
-      title: H3 Font Size
-      title.zh: 标题 3 字体大小
-      default: 1.4
-      min: 1
-      max: 2.4
-      step: 0.1
-    - id: setting-h4-size
-      type: variable-number-slider
-      title: H4 Font Size
-      title.zh: 标题 4 字体大小
-      default: 1.3
-      min: 1
-      max: 2.4
-      step: 0.1
-    - id: setting-h5-size
-      type: variable-number-slider
-      title: H5 Font Size
-      title.zh: 标题 5 字体大小
-      default: 1.2
-      min: 1
-      max: 2.4
-      step: 0.1
-    - id: setting-h6-size
-      type: variable-number-slider
-      title: H6 Font Size
-      title.zh: 标题 6 字体大小
-      default: 1.1
-      min: 1
-      max: 2.4
-      step: 0.1
-    - id: title-heading-underline
-      title: Heading Underline
-      title.zh: 标题下划线
-      type: heading
-      level: 2
-      collapsed: true
-    - id: heading-h1-underline
-      type: class-toggle
-      title: Add Underline for H1
-      title.zh: 为 H1 添加下划线
-    - id: heading-h2-underline
-      type: class-toggle
-      title: Add Underline for H2
-      title.zh: 为 H2 添加下划线
-      default: true
-    - id: heading-h3-underline
-      type: class-toggle
-      title: Add Underline for H3
-      title.zh: 为 H3 添加下划线
-    - id: heading-h4-underline
-      type: class-toggle
-      title: Add Underline for H4
-      title.zh: 为 H4 添加下划线
-    - id: heading-h5-underline
-      type: class-toggle
-      title: Add Underline for H5
-      title.zh: 为 H5 添加下划线
-    - id: heading-h6-underline
-      type: class-toggle
-      title: Add Underline for H6
-      title.zh: 为 H6 添加下划线
     - id: title-heading-font
       title: Heading Font
       title.zh: 标题字体
@@ -1613,7 +1507,6 @@ body {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
-  --line-height-normal: 1.8;
   --background-modifier-border: var(--accent-inactive);
   --background-modifier-border-hover: var(--accent-active);
   --background-modifier-border-focus: var(--accent-active);
@@ -1638,7 +1531,8 @@ body {
   --divider-width-hover: var(--size-4-1);
   --nav-item-background-active: var(--accent-active);
   --nav-item-background-selected: var(--background-modifier-hover);
-  --line-height-tight: var(--setting-line-height-item, 1.5);
+  --line-height-normal: var(--setting-line-height, 1.8);
+  --line-height-tight: var(--setting-item-line-height, 1.5);
 }
 
 .theme-light {
@@ -1704,13 +1598,13 @@ body {
 }
 .theme-light.color-use-custom {
   --base-accent-h: var(--setting-accent-h-light, 35);
-}
-.theme-light.color-use-custom.color-active-alt-light {
-  --theme-accent-h: calc(var(--base-accent-h) + 60);
   --theme-accent-active-s: 20%;
   --theme-accent-active-l: 58%;
   --theme-accent-inactive-s: 20%;
   --theme-accent-inactive-l: 78%;
+}
+.theme-light.color-use-custom.color-active-alt-light {
+  --theme-accent-h: calc(var(--base-accent-h) + 60);
 }
 .theme-light.color-use-custom.color-active-custom-light {
   --theme-accent-active-h: var(--setting-color-active-custom-light-h);
@@ -1785,13 +1679,13 @@ body {
 }
 .theme-dark.color-use-custom {
   --base-accent-h: var(--setting-accent-h-dark, 207);
+  --theme-accent-active-s: 24%;
+  --theme-accent-active-l: 42%;
+  --theme-accent-inactive-s: 15%;
+  --theme-accent-inactive-l: 36%;
 }
 .theme-dark.color-use-custom.color-active-alt-dark {
   --theme-accent-h: calc(var(--base-accent-h) + 60);
-  --theme-accent-active-s: 24%;
-  --theme-accent-active-l: 42%;
-  --theme-accent-inactive-s: 20%;
-  --theme-accent-inactive-l: 32%;
 }
 .theme-dark.color-use-custom.theme-dark.color-use-custom.color-active-custom-dark {
   --theme-accent-active-h: var(--setting-color-active-custom-dark-h);
@@ -2115,8 +2009,8 @@ body {
 
 body.app-layout-card:not(.is-mobile) {
   --divider-color: transparent;
-  --tab-divider-color: var(--color-base-35);
   --pdf-background: transparent;
+  --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;
 }
 body.app-layout-card:not(.is-mobile).app-layout-card-plain {
@@ -2181,6 +2075,15 @@ body.app-layout-card:not(.is-mobile).app-layout-card-custom.theme-dark {
     linear-gradient(to bottom, var(--color-base-20))
   );
 }
+body.app-layout-card:not(.is-mobile).app-layout-card-border .mod-root .workspace-leaf-content {
+  border: 1px solid var(--background-modifier-border);
+}
+body.app-layout-card:not(.is-mobile).app-layout-card-border .workspace-tab-header {
+  border: 1px solid transparent;
+}
+body.app-layout-card:not(.is-mobile).app-layout-card-border .workspace-tab-header.is-active {
+  border-color: var(--background-modifier-border);
+}
 body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-container {
   padding: var(--size-4-1);
   padding-top: 0;
@@ -2193,9 +2096,6 @@ body.app-layout-card:not(.is-mobile) .workspace-tab-header {
     var(--background-primary-hsl),
     var(--bg-opacity)
   );
-}
-body.app-layout-card:not(.is-mobile) .workspace-tab-header.is-active {
-  --tab-background-active: var(--bg-editor);
 }
 body.app-layout-card:not(.is-mobile) :is(.workspace-tab-header-container,
 .workspace-tab-header-container-inner,
@@ -3331,7 +3231,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   font-style: italic;
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable {
-  color: var(--code-class);
+  color: var(--code-function);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable-2 {
   color: var(--code-value);
@@ -4772,24 +4672,12 @@ body {
   --h4-weight: 550;
   --h5-weight: 550;
   --h6-weight: 500;
-  --h1-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) * var(--h1-size)
-  );
-  --h2-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) * var(--h2-size)
-  );
-  --h3-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) * var(--h3-size)
-  );
-  --h4-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) * var(--h4-size)
-  );
-  --h5-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) * var(--h5-size)
-  );
-  --h6-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) * var(--h6-size)
-  );
+  --h1-line-height: calc(var(--line-height-normal) * var(--h1-size) * 0.8);
+  --h2-line-height: calc(var(--line-height-normal) * var(--h2-size) * 0.8);
+  --h3-line-height: calc(var(--line-height-normal) * var(--h3-size) * 0.85);
+  --h4-line-height: calc(var(--line-height-normal) * var(--h4-size) * 0.85);
+  --h5-line-height: calc(var(--line-height-normal) * var(--h5-size) * 0.9);
+  --h6-line-height: calc(var(--line-height-normal) * var(--h6-size) * 0.9);
   --h1-font: var(--setting-h1-font, var(--font-text));
   --h2-font: var(--setting-h2-font, var(--font-text));
   --h3-font: var(--setting-h3-font, var(--font-text));
@@ -4826,25 +4714,18 @@ body:is(:not(.css-settings-manager), .heading-color-colorful) {
   --h6-color: var(--setting-h6-color, var(--color-cyan));
 }
 
-.cm-formatting.cm-formatting-header {
-  filter: grayscale(70%);
-  font-weight: 400 !important;
-}
-:is(body:not(.fix-line-number),
-body.fix-line-number .cm-contentContainer :first-child) .cm-formatting.cm-formatting-header {
-  font-size: 1rem !important;
-  line-height: 1.2rem;
+body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
+  color: var(--color-base-50);
+  font-weight: 400;
+  font-size: var(--font-text-size) !important;
+  line-height: var(--line-height-normal);
 }
 
-.cm-s-obsidian .cm-line.HyperMD-header {
-  padding-block: 0;
-}
-
-body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header) {
   position: relative;
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header)::before {
   content: "";
   position: absolute;
@@ -4856,103 +4737,100 @@ body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-rea
   width: fit-content;
   letter-spacing: 0.05rem;
   opacity: 0;
-  transition: var(--animation);
-  transition-delay: calc(var(--animation-delay) / 2);
   pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
   left: calc(var(--size-4-5) * -1);
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):hover::before {
   opacity: 0.9;
-  transition-delay: 0s;
   pointer-events: all;
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div.is-collapsed > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div.is-collapsed > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(> .cm-foldPlaceholder))::before {
   opacity: 0.9;
   text-decoration: underline 0.1rem;
 }
-body:is(:not(.css-settings-manager), .heading-level-enable).heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indiator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder)))::before {
   opacity: 0.4;
 }
-body:is(:not(.css-settings-manager), .heading-level-enable).heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indiator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder))):not(:hover)::before {
   color: var(--text-muted);
 }
-body:is(:not(.css-settings-manager), .heading-level-enable).heading-level-fix :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indiator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder))):hover::before {
   opacity: 1;
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
   left: calc(var(--size-4-6) * -1) !important;
 }
-body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1) {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1) {
   --link-color: var(--h1-color);
   --link-color-underline: var(--h1-color);
   --link-external-color: var(--h1-color);
   --link-external-color-underline: var(--h1-color);
   --link-text-size: var(--h1-size);
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1)::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1)::before {
   content: "H1";
 }
-body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2) {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2) {
   --link-color: var(--h2-color);
   --link-color-underline: var(--h2-color);
   --link-external-color: var(--h2-color);
   --link-external-color-underline: var(--h2-color);
   --link-text-size: var(--h2-size);
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2)::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2)::before {
   content: "H2";
 }
-body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3) {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3) {
   --link-color: var(--h3-color);
   --link-color-underline: var(--h3-color);
   --link-external-color: var(--h3-color);
   --link-external-color-underline: var(--h3-color);
   --link-text-size: var(--h3-size);
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3)::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3)::before {
   content: "H3";
 }
-body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4) {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4) {
   --link-color: var(--h4-color);
   --link-color-underline: var(--h4-color);
   --link-external-color: var(--h4-color);
   --link-external-color-underline: var(--h4-color);
   --link-text-size: var(--h4-size);
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4)::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4)::before {
   content: "H4";
 }
-body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5) {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5) {
   --link-color: var(--h5-color);
   --link-color-underline: var(--h5-color);
   --link-external-color: var(--h5-color);
   --link-external-color-underline: var(--h5-color);
   --link-text-size: var(--h5-size);
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5)::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5)::before {
   content: "H5";
 }
-body:is(:not(.css-settings-manager), .heading-level-enable).link-heading :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6) {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6) {
   --link-color: var(--h6-color);
   --link-color-underline: var(--h6-color);
   --link-external-color: var(--h6-color);
   --link-external-color-underline: var(--h6-color);
   --link-text-size: var(--h6-size);
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6)::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6)::before {
   content: "H6";
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
   left: calc(-1 * var(--size-4-6)) !important;
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) .heading-collapse-indicator {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) .heading-collapse-indicator {
   position: absolute;
   z-index: 99;
   height: var(--size-4-4);
@@ -4963,13 +4841,13 @@ body:is(:not(.css-settings-manager), .heading-level-enable) .heading-collapse-in
   padding: 0 !important;
   --cursor: pointer;
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) .heading-collapse-indicator svg {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) .heading-collapse-indicator svg {
   display: none;
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) .HyperMD-header {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) .HyperMD-header {
   position: relative;
 }
-body:is(:not(.css-settings-manager), .heading-level-enable) .HyperMD-header .cm-fold-indicator .collapse-indicator {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) .HyperMD-header .cm-fold-indicator .collapse-indicator {
   --cursor: pointer;
   z-index: 99;
   opacity: 0 !important;
@@ -5004,210 +4882,6 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 
 .heading-h1-center h1 {
   text-align: center;
-}
-
-.heading-h1-underline {
-  --h1-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) *
-      var(--h1-size) *
-      1.2
-  );
-}
-.heading-h1-underline :is(h1, .HyperMD-header-1) {
-  position: relative;
-}
-.heading-h1-underline :is(h1, .HyperMD-header-1)::after {
-  content: "";
-  position: absolute;
-  height: var(--size-4-1);
-  width: 100%;
-  top: 50%;
-  transform: translateY(max(var(--h1-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
-  border-radius: var(--size-2-1);
-  background-image: linear-gradient(to right, var(--h1-color) 30%, transparent 70%);
-}
-.heading-h1-underline h1::after {
-  left: 0;
-}
-.heading-h1-underline .HyperMD-header-1::after {
-  left: var(--size-4-1);
-}
-.heading-h1-underline .vertical-tab-content h1 {
-  font-size: var(--h1-size);
-  font-weight: var(--h1-weight);
-}
-.heading-h1-underline.heading-underline-thin :is(h1, .HyperMD-header-1)::after {
-  height: var(--size-2-1);
-}
-
-.heading-h2-underline {
-  --h2-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) *
-      var(--h2-size) *
-      1.2
-  );
-}
-.heading-h2-underline :is(h2, .HyperMD-header-2) {
-  position: relative;
-}
-.heading-h2-underline :is(h2, .HyperMD-header-2)::after {
-  content: "";
-  position: absolute;
-  height: var(--size-4-1);
-  width: 100%;
-  top: 50%;
-  transform: translateY(max(var(--h2-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
-  border-radius: var(--size-2-1);
-  background-image: linear-gradient(to right, var(--h2-color) 30%, transparent 70%);
-}
-.heading-h2-underline h2::after {
-  left: 0;
-}
-.heading-h2-underline .HyperMD-header-2::after {
-  left: var(--size-4-1);
-}
-.heading-h2-underline .vertical-tab-content h2 {
-  font-size: var(--h2-size);
-  font-weight: var(--h2-weight);
-}
-.heading-h2-underline.heading-underline-thin :is(h2, .HyperMD-header-2)::after {
-  height: var(--size-2-1);
-}
-
-.heading-h3-underline {
-  --h3-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) *
-      var(--h3-size) *
-      1.2
-  );
-}
-.heading-h3-underline :is(h3, .HyperMD-header-3) {
-  position: relative;
-}
-.heading-h3-underline :is(h3, .HyperMD-header-3)::after {
-  content: "";
-  position: absolute;
-  height: var(--size-4-1);
-  width: 100%;
-  top: 50%;
-  transform: translateY(max(var(--h3-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
-  border-radius: var(--size-2-1);
-  background-image: linear-gradient(to right, var(--h3-color) 30%, transparent 70%);
-}
-.heading-h3-underline h3::after {
-  left: 0;
-}
-.heading-h3-underline .HyperMD-header-3::after {
-  left: var(--size-4-1);
-}
-.heading-h3-underline .vertical-tab-content h3 {
-  font-size: var(--h3-size);
-  font-weight: var(--h3-weight);
-}
-.heading-h3-underline.heading-underline-thin :is(h3, .HyperMD-header-3)::after {
-  height: var(--size-2-1);
-}
-
-.heading-h4-underline {
-  --h4-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) *
-      var(--h4-size) *
-      1.2
-  );
-}
-.heading-h4-underline :is(h4, .HyperMD-header-4) {
-  position: relative;
-}
-.heading-h4-underline :is(h4, .HyperMD-header-4)::after {
-  content: "";
-  position: absolute;
-  height: var(--size-4-1);
-  width: 100%;
-  top: 50%;
-  transform: translateY(max(var(--h4-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
-  border-radius: var(--size-2-1);
-  background-image: linear-gradient(to right, var(--h4-color) 30%, transparent 70%);
-}
-.heading-h4-underline h4::after {
-  left: 0;
-}
-.heading-h4-underline .HyperMD-header-4::after {
-  left: var(--size-4-1);
-}
-.heading-h4-underline .vertical-tab-content h4 {
-  font-size: var(--h4-size);
-  font-weight: var(--h4-weight);
-}
-.heading-h4-underline.heading-underline-thin :is(h4, .HyperMD-header-4)::after {
-  height: var(--size-2-1);
-}
-
-.heading-h5-underline {
-  --h5-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) *
-      var(--h5-size) *
-      1.2
-  );
-}
-.heading-h5-underline :is(h5, .HyperMD-header-5) {
-  position: relative;
-}
-.heading-h5-underline :is(h5, .HyperMD-header-5)::after {
-  content: "";
-  position: absolute;
-  height: var(--size-4-1);
-  width: 100%;
-  top: 50%;
-  transform: translateY(max(var(--h5-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
-  border-radius: var(--size-2-1);
-  background-image: linear-gradient(to right, var(--h5-color) 30%, transparent 70%);
-}
-.heading-h5-underline h5::after {
-  left: 0;
-}
-.heading-h5-underline .HyperMD-header-5::after {
-  left: var(--size-4-1);
-}
-.heading-h5-underline .vertical-tab-content h5 {
-  font-size: var(--h5-size);
-  font-weight: var(--h5-weight);
-}
-.heading-h5-underline.heading-underline-thin :is(h5, .HyperMD-header-5)::after {
-  height: var(--size-2-1);
-}
-
-.heading-h6-underline {
-  --h6-line-height: calc(
-    var(--setting-line-height, var(--line-height-normal)) *
-      var(--h6-size) *
-      1.2
-  );
-}
-.heading-h6-underline :is(h6, .HyperMD-header-6) {
-  position: relative;
-}
-.heading-h6-underline :is(h6, .HyperMD-header-6)::after {
-  content: "";
-  position: absolute;
-  height: var(--size-4-1);
-  width: 100%;
-  top: 50%;
-  transform: translateY(max(var(--h6-size) * var(--line-height-normal) * 0.3, var(--size-4-3)));
-  border-radius: var(--size-2-1);
-  background-image: linear-gradient(to right, var(--h6-color) 30%, transparent 70%);
-}
-.heading-h6-underline h6::after {
-  left: 0;
-}
-.heading-h6-underline .HyperMD-header-6::after {
-  left: var(--size-4-1);
-}
-.heading-h6-underline .vertical-tab-content h6 {
-  font-size: var(--h6-size);
-  font-weight: var(--h6-weight);
-}
-.heading-h6-underline.heading-underline-thin :is(h6, .HyperMD-header-6)::after {
-  height: var(--size-2-1);
 }
 
 .heading-h6-variant :is(h6, .cm-header-6) {
@@ -5888,13 +5562,13 @@ body:not(.is-mobile) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-ac
   background-color: var(--nav-item-background-active) !important;
 }
 
-.modal-close-button {
+body:not(.is-phone) .modal-close-button {
   height: var(--input-height);
   width: var(--input-height);
   transition: var(--animation);
   padding: 3px;
 }
-.modal-close-button::before {
+body:not(.is-phone) .modal-close-button::before {
   content: " " !important;
   display: block;
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/></svg>") no-repeat;
@@ -6020,7 +5694,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.19");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.20");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6383,9 +6057,9 @@ body.tab-float .mod-root .workspace-tab-header {
   padding-block: 0 !important;
   transition: color var(--animation), width var(--animation);
   --tab-curve: 0;
+  --tab-radius-active: var(--radius-m);
 }
 body.tab-float .mod-root .workspace-tab-header.is-active {
-  --tab-radius-active: var(--radius-m);
   box-shadow: var(--tab-active-shadow);
 }
 body.tab-float .mod-root .workspace-tab-header-container {
@@ -7102,10 +6776,10 @@ body.explorer-folder-bold .nav-folder-title {
 .empty-state-action-list::before {
   content: "";
   position: absolute;
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M17.133 40.912c3.155-6.394 3.071-10.982 1.722-14.24c-1.229-3.014-3.527-4.913-5.333-6.095a2.3 2.3 0 0 1-.167.503L9.11 30.526c-.44.975-.237 2.12.512 2.885l6.784 6.98c.214.213.466.39.726.52Zm8.581-12.973c.847.083 1.675.27 2.494.567c2.587.968 4.942 3.146 6.887 7.343c.14-.242.279-.474.428-.698a114 114 0 0 0 3.415-5.388a1.3 1.3 0 0 0-.093-1.461a28.2 28.2 0 0 1-3.322-5.445c-.894-2.14-1.024-5.481-1.033-7.1c0-.615-.196-1.22-.577-1.704l-6.747-8.561l-.112-.14c.493 1.629.465 2.931.158 4.113c-.28 1.099-.8 2.094-1.35 3.146c-.185.354-.372.717-.548 1.089a13 13 0 0 0-1.47 5.398c-.094 2.252.362 5.072 1.86 8.84z' /><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M25.704 27.939c-1.498-3.77-1.954-6.59-1.86-8.841c.092-2.234.744-3.91 1.47-5.398l.558-1.09c.54-1.05 1.052-2.047 1.34-3.145a7.3 7.3 0 0 0-.158-4.113a2.606 2.606 0 0 0-3.667-.186l-8.022 7.212c-.45.403-.746.949-.838 1.545L13.55 20.4c0 .065-.019.121-.028.186c1.806 1.173 4.095 3.072 5.333 6.078c.242.595.447 1.219.595 1.898a18.6 18.6 0 0 1 6.254-.633z' /><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M29.91 43.406c1.732.475 3.472-.912 3.714-2.699c.198-1.695.7-3.34 1.48-4.858c-1.954-4.197-4.309-6.375-6.887-7.343c-2.745-1.023-5.733-.68-8.767.056c.68 3.08.28 7.11-2.308 12.35c.289.149.615.232.94.26l4.086.307c2.215.159 5.519 1.303 7.743 1.927Z' /></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='180' viewBox='0 0 140 180' fill='currentColor'><path d='M49.775 105.089C54.3828 103.715 61.8069 101.605 70.3434 101.082C65.2222 88.1449 63.986 76.8242 64.9803 66.7442C66.1285 55.1033 70.23 45.3874 74.228 37.1201C75.0811 35.3561 75.9012 33.7135 76.6879 32.1378C77.8017 29.9069 78.8486 27.81 79.8278 25.6916C81.4579 22.1652 82.6674 19.051 83.2791 16.1576C83.8806 13.3125 83.8838 10.7715 83.1727 8.3342C82.4607 5.89352 80.9475 3.26635 78.0704 0.386692C74.3134 -0.587559 70.1448 0.267767 67.0197 3.08162L29.9298 36.4772C27.861 38.34 26.503 40.8642 26.0879 43.6182L22.8899 64.8384C27.9185 69.2873 40.33 82.2201 47.8789 100.165C48.5525 101.766 49.1875 103.408 49.775 105.089Z' /><path d='M21.3902 74.5293C21.2153 75.2761 20.9692 76.0051 20.6549 76.7063L1.05225 120.436C-0.961131 124.928 -0.0336421 130.194 3.39276 133.726L34.2418 165.523C49.9952 142.262 47.6984 120.379 40.5026 103.274C35.0465 90.3037 26.777 80.1526 21.3902 74.5293Z' /><path d='M41.3687 169.269C41.9093 169.355 42.4575 169.407 43.0096 169.424C48.864 169.6 58.7098 170.109 66.6947 171.582C73.2088 172.783 86.1213 176.397 96.747 179.505C104.855 181.877 113.211 175.396 114.387 167.024C115.245 160.917 116.855 154.009 119.821 147.677L119.753 147.702C114.73 133.682 108.34 124.629 101.641 118.849C94.9619 113.086 87.7708 110.397 80.8276 109.42C69.2835 107.795 58.7071 110.832 52.0453 112.791C56.0353 129.428 54.8074 149.004 41.3687 169.269Z' /><path d='M124.96 139.034C131.626 128.965 136.375 121.134 138.881 116.888C140.135 114.764 139.907 112.102 138.423 110.133C134.554 105.002 127.152 94.5755 123.12 84.9218C118.973 74.9962 118.355 59.5866 118.319 52.081C118.306 49.2279 117.402 46.4413 115.639 44.1994L91.6762 13.73C91.5918 15.1034 91.3946 16.4659 91.1093 17.8158C90.3118 21.5882 88.8073 25.3437 87.0916 29.0552C86.086 31.2306 84.9238 33.5612 83.7497 35.9157C82.9682 37.4827 82.1814 39.0607 81.432 40.6102C77.5579 48.6212 73.9528 57.3151 72.9451 67.5313C72.011 77.0006 73.2894 88.014 79.0482 101.162C80.0074 101.243 80.9727 101.351 81.9422 101.487C90.2067 102.651 98.8807 105.891 106.866 112.781C113.73 118.704 119.932 127.19 124.96 139.034Z' /></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
-  color: var(--accent-active);
+  color: var(--accent-inactive);
   width: calc(2 * var(--size-4-12));
   height: calc(2 * var(--size-4-12));
   margin-inline-start: 50%;
@@ -7150,7 +6824,6 @@ body.explorer-folder-bold .nav-folder-title {
 /* #region [mobile] */
 /* #region basic */
 .is-mobile {
-  --interactive-normal: var(--color-base-05);
   --interactive-hover: var(--background-modifier-hover);
   --system-access-override-text-width: auto;
   --scrollbar-thumb-bg: var(--accent-active);
@@ -7166,18 +6839,17 @@ body.explorer-folder-bold .nav-folder-title {
 }
 
 /* #endregion basic */
-/* #region float button */
-body.is-phone .mod-root .view-header {
+/* #region floating button */
+body.is-phone.mobile-floating-button .mod-root .view-header {
   z-index: 3;
 }
-body.is-phone .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
+body.is-phone.mobile-floating-button .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
   position: fixed;
-  right: var(--size-4-8);
+  right: var(--size-4-4);
   bottom: 0;
-  backdrop-filter: blur(var(--size-4-1));
-  background-color: hsla(var(--background-secondary-hsl), 0.6);
-  border: 1px solid var(--color-base-20);
-  margin-bottom: var(--safe-area-inset-bottom);
+  color: var(--text-on-accent);
+  background-color: var(--accent-active);
+  margin-bottom: calc(var(--safe-area-inset-bottom) + var(--size-4-4));
   border-radius: 100%;
   padding: var(--size-4-3);
   width: auto;
@@ -7186,7 +6858,7 @@ body.is-phone .mod-root .workspace-leaf-content[data-type=markdown] .view-action
   transition: var(--animation);
 }
 
-/* #endregion float button */
+/* #endregion floating button */
 /* #region ios hdr */
 /* Reference: https://github.com/aaaaalexis/obsidian-cupertino/blob/a7b045b1267728f6535fc8ed1b0925f8b49bc05d/src/app/mobile.scss#L488C1-L523C2 */
 body.is-ios.theme-light .mod-left-split-toggle.clickable-icon::after,
