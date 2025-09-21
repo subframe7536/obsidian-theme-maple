@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.18 For Obsidian */
+/* Maple Theme v1.0.0-beta.19 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -31,7 +31,7 @@ settings:
       collapsed: true
     - id: color-use-custom
       type: class-toggle
-      title: Use Custom Theme Color
+      title: Custom Theme Color
       title.zh: 自定义主题色
       description: Use the Style Setting Plugin's theme color instead of Obsidian's
       description.zh: 使用 Style Settings 插件的主题色，而不是 Obsidian 的
@@ -361,7 +361,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.18'"
+      default: "'maple 1.0.0-beta.19'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -1700,9 +1700,9 @@ body {
     --setting-md-container-bg,
     hsla(calc(var(--base-accent-h) + 8), 15%, 94%)
   );
+  --text-on-accent: #fafafa !important;
 }
 .theme-light.color-use-custom {
-  --text-on-accent: #fafafa !important;
   --base-accent-h: var(--setting-accent-h-light, 35);
 }
 .theme-light.color-use-custom.color-active-alt-light {
@@ -1781,9 +1781,9 @@ body {
     --setting-md-container-bg,
     hsl(calc(var(--base-accent-h) - 4), 12%, 12%)
   );
+  --text-on-accent: #eaeaea !important;
 }
 .theme-dark.color-use-custom {
-  --text-on-accent: #eaeaea !important;
   --base-accent-h: var(--setting-accent-h-dark, 207);
 }
 .theme-dark.color-use-custom.color-active-alt-dark {
@@ -2115,6 +2115,7 @@ body {
 
 body.app-layout-card:not(.is-mobile) {
   --divider-color: transparent;
+  --tab-divider-color: var(--color-base-35);
   --pdf-background: transparent;
   --tab-active-shadow: none !important;
 }
@@ -2669,9 +2670,8 @@ body {
 }
 
 .cm-inline-code {
-  color: var(--inline-code) !important;
-  border-radius: var(--radius-s);
-  border: var(--code-border-color);
+  --code-normal: var(--inline-code);
+  --code-radius: var(--radius-s);
 }
 .cm-inline-code:not(.cm-formatting) {
   padding-inline: var(--size-2-1);
@@ -6020,7 +6020,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.18");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.19");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6125,6 +6125,9 @@ button {
 }
 .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-sidebar .setting-item:first-child {
   max-width: var(--modal-community-sidebar-width);
+}
+.modal-container .community-item {
+  --interactive-accent: var(--accent-active);
 }
 .modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls {
   display: flex;
