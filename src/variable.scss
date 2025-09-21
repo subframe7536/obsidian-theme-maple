@@ -107,9 +107,9 @@ body {
     --setting-md-container-bg,
     hsla(calc(var(--base-accent-h) + 8), 15%, 94%)
   );
+  --text-on-accent: #fafafa !important;
 
   &.color-use-custom {
-    --text-on-accent: #fafafa !important;
     --base-accent-h: var(--setting-accent-h-light, 35);
 
     &.color-active-alt-light {
@@ -188,9 +188,9 @@ body {
     --setting-md-container-bg,
     hsl(calc(var(--base-accent-h) - 4), 12%, 12%)
   );
+  --text-on-accent: #eaeaea !important;
 
   &.color-use-custom {
-    --text-on-accent: #eaeaea !important;
     --base-accent-h: var(--setting-accent-h-dark, 207);
 
     &.color-active-alt-dark {

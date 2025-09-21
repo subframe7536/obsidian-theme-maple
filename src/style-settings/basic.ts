@@ -23,7 +23,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
     .addClassToggle(
       'color-use-custom',
       {
-        title: { en: 'Use Custom Theme Color', zh: '自定义主题色' },
+        title: { en: 'Custom Theme Color', zh: '自定义主题色' },
         desc: {
           en: "Use the Style Setting Plugin's theme color instead of Obsidian's",
           zh: '使用 Style Settings 插件的主题色，而不是 Obsidian 的',

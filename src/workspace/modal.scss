@@ -294,6 +294,10 @@ button {
     max-width: var(--modal-community-sidebar-width);
   }
 
+  .community-item {
+    --interactive-accent: var(--accent-active);
+  }
+
   .modal-sidebar:not(:has(+ .community-modal-details)) {
     .community-modal-controls {
       display: flex;
