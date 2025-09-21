@@ -24,7 +24,6 @@ body {
   --background-modifier-border-focus: var(--accent-active);
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
   --background-modifier-cover: hsla(var(--background-secondary-hsl), 0.6);
-  --interactive-accent: var(--accent-active);
 
   --tab-container-background: var(--frame-bg);
   --titlebar-background: var(--frame-bg);
@@ -48,7 +47,6 @@ body {
   --divider-width-hover: var(--size-4-1);
 
   // tree item color
-  --nav-item-color-active: var(--text-on-accent);
   --nav-item-background-active: var(--accent-active);
   --nav-item-background-selected: var(--background-modifier-hover);
   --line-height-tight: var(--setting-line-height-item, 1.5);

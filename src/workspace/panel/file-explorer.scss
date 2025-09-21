@@ -89,10 +89,13 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   @include override-stack-menu();
   @include use-icon-override('.lucide-folder-closed', 'folder');
 
-  :is(.nav-file-title, .nav-folder-title).is-selected {
-    font-weight: 550 !important;
-    & + .nav-folder-children :is(.nav-file-title, .nav-folder-title) {
+  :is(.nav-file-title, .nav-folder-title) {
+    --nav-item-color-active: var(--text-on-accent);
+    .is-selected {
       font-weight: 550 !important;
+      & + .nav-folder-children :is(.nav-file-title, .nav-folder-title) {
+        font-weight: 550 !important;
+      }
     }
   }
 
