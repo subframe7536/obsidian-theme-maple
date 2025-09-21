@@ -101,10 +101,10 @@ body {
   --background-modifier-hover: hsl(
     var(--base-accent-h),
     var(--theme-accent-inactive-s),
-    max(60%, var(--accent-l) * 0.7),
-    20%
+    max(70%, var(--accent-l) * 0.8),
+    25%
   );
-  --text-on-accent: #fafafa !important;
+  --text-on-accent: #fafafa;
   --md-container-bg: var(
     --setting-md-container-bg,
     hsla(calc(var(--base-accent-h) + 8), 16%, 95%)
@@ -185,7 +185,7 @@ body {
   );
 
   --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
-  --text-on-accent: #eaeaea !important;
+  --text-on-accent: #eaeaea;
   --md-container-bg: var(
     --setting-md-container-bg,
     hsl(calc(var(--base-accent-h) - 4), 12%, 12%)

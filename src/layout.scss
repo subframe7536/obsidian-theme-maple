@@ -49,9 +49,9 @@ body.app-layout-card:not(.is-mobile) {
 
     &.theme-light {
       --app-bg-image: linear-gradient(
-        210deg,
-        hsl(calc(var(--base-accent-h) - 10), calc(var(--accent-s) * 0.9), 85%),
-        hsl(calc(var(--base-accent-h) + 10), calc(var(--accent-s) * 0.9), 85%)
+        340deg,
+        hsl(calc(var(--base-accent-h) + 50), 50%, 92%),
+        hsl(calc(var(--base-accent-h) - 30), 36%, 87%)
       );
     }
 
