@@ -39,10 +39,10 @@ body.app-layout-card:not(.is-mobile) {
   }
 
   .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
-    translate: 2px;
+    translate: var(--size-4-1);
   }
   .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
-    translate: -2px;
+    translate: calc(-1 * var(--size-4-1));
   }
 
   &.app-layout-card-gradient {
