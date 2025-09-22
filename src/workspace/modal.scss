@@ -404,16 +404,7 @@ body.enable-group-title
   }
 }
 
-//==============================
-:is(
-    .menu,
-    .prompt,
-    :not(.excalidraw) .popover,
-    .modal,
-    .modal-bg,
-    .document-search-container,
-    .suggestion-container
-  ) {
+:is(.menu, .modal-bg, .document-search-container, .suggestion-container) {
   animation: use-animation('op');
 }
 
