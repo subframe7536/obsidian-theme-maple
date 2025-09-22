@@ -1,6 +1,19 @@
-.MS-OpenSnippet {
-  --interactive-normal: var(--accent-active);
-  :is(&, .MySnippetsButton) {
-    cursor: pointer;
+@use '../utils.scss' as *;
+
+.MySnippets-statusbar-menu {
+  @include use-icon-override('.ms-reload', 'refresh-cw');
+  @include use-icon-override('.ms-folder', 'folder-closed');
+  @include use-icon-override('.ms-snippet', 'code-xml');
+  @include use-icon-override('.ms-add', 'file-plus');
+  :is(.MySnippetsButton, .MS-OpenSnippet) {
+    font-size: 12px;
+    background-color: var(--interactive-normal);
+    padding: var(--size-4-1) var(--size-4-3);
+    &:hover {
+      background-color: var(--interactive-hover);
+    }
+    path {
+      fill: currentColor;
+    }
   }
 }
