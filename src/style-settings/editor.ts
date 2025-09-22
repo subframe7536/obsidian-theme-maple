@@ -484,27 +484,6 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         .addClassToggle('heading-underline-h6', {
           title: { en: 'H6 Underline', zh: '标题 6 下划线' },
         }),
-      Settings.ofLevel(2, {
-        title: { en: 'Heading Fill', zh: '标题填充' },
-      })
-        .addClassToggle('heading-fill-h1', {
-          title: { en: 'H1 Fill', zh: '标题 1 填充' },
-        })
-        .addClassToggle('heading-fill-h2', {
-          title: { en: 'H2 Fill', zh: '标题 2 填充' },
-        })
-        .addClassToggle('heading-fill-h3', {
-          title: { en: 'H3 Fill', zh: '标题 3 填充' },
-        })
-        .addClassToggle('heading-fill-h4', {
-          title: { en: 'H4 Fill', zh: '标题 4 填充' },
-        })
-        .addClassToggle('heading-fill-h5', {
-          title: { en: 'H5 Fill', zh: '标题 5 填充' },
-        })
-        .addClassToggle('heading-fill-h6', {
-          title: { en: 'H6 Fill', zh: '标题 6 填充' },
-        }),
     ]),
   Settings.ofLevel(1, { title: { en: 'Horizontal Rule', zh: '分隔线' } })
     .addClassToggle(
