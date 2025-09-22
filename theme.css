@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.20 For Obsidian */
+/* Maple Theme v1.0.0-beta.21 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -223,9 +223,9 @@ settings:
       max: 0.9
       min: 0.1
       step: 0.05
-    - id: title-file-explorer-panel
-      title: File Explorer Panel
-      title.zh: 文件管理器面板
+    - id: title-file-explorer
+      title: File Explorer
+      title.zh: 文件管理器
       type: heading
       level: 1
       collapsed: true
@@ -253,9 +253,9 @@ settings:
       opacity: false
       default-light: hsl(46, 81%, 45%)
       default-dark: hsl(46, 81%, 45%)
-    - id: title-outline-panel
-      title: Outline Panel
-      title.zh: 大纲面板
+    - id: title-outline
+      title: Outline
+      title.zh: 大纲
       type: heading
       level: 1
       collapsed: true
@@ -293,9 +293,9 @@ settings:
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: title-search-and-replace-panel
-      title: Search and Replace Panel
-      title.zh: 搜索和替换面板
+    - id: title-search-and-replace
+      title: Search and Replace
+      title.zh: 搜索和替换
       type: heading
       level: 1
       collapsed: true
@@ -312,9 +312,9 @@ settings:
       title.zh: 移除不常用的按钮
       description: "Removed buttons: Find All"
       description.zh: 已移除的按钮：查找全部
-    - id: title-graph-panel
-      title: Graph Panel
-      title.zh: 关系图谱面板
+    - id: title-graph
+      title: Graph
+      title.zh: 关系图谱
       type: heading
       level: 1
       collapsed: true
@@ -365,7 +365,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.20'"
+      default: "'maple 1.0.0-beta.21'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -1526,7 +1526,7 @@ body {
   --animation-slow: calc(var(--setting-animation-time, 200ms) * 2)
     var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
-  --block-outline-width: 2px;
+  --block-outline-width: var(--size-2-1);
   --divider-color: var(--color-base-30);
   --divider-width-hover: var(--size-4-1);
   --nav-item-background-active: var(--accent-active);
@@ -1592,7 +1592,7 @@ body {
   );
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsla(calc(var(--base-accent-h) + 8), 15%, 94%)
+    hsl(calc(var(--base-accent-h) + 8), 8%, 95%)
   );
   --text-on-accent: #fafafa !important;
 }
@@ -1673,7 +1673,7 @@ body {
   --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsl(calc(var(--base-accent-h) - 4), 12%, 12%)
+    hsl(calc(var(--base-accent-h) - 4), 8%, 12%)
   );
   --text-on-accent: #eaeaea !important;
 }
@@ -1827,7 +1827,8 @@ body.is-mobile .setting-item:is([data-id=modal-slider], [data-id=modal-toggle]),
 body:not(.is-mobile) div[data-id=maple-mobile],
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color],
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
-body:not(.app-layout-card) .setting-item[data-id=app-layout-card-bg],
+body:not(.app-layout-card) .setting-item:is([data-id=app-layout-card-bg],
+[data-id=app-layout-card-border]),
 body:not(.app-layout-card.app-layout-card-custom) .setting-item:is([data-id=setting-layout-image-light],
 [data-id=setting-layout-opacity-light],
 [data-id=setting-layout-image-dark],
@@ -1878,7 +1879,8 @@ body.is-mobile .setting-item:is([data-id=modal-slider], [data-id=modal-toggle]) 
 body:not(.is-mobile) div[data-id=maple-mobile] + .style-settings-container,
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
-body:not(.app-layout-card) .setting-item[data-id=app-layout-card-bg] + .style-settings-container,
+body:not(.app-layout-card) .setting-item:is([data-id=app-layout-card-bg],
+[data-id=app-layout-card-border]) + .style-settings-container,
 body:not(.app-layout-card.app-layout-card-custom) .setting-item:is([data-id=setting-layout-image-light],
 [data-id=setting-layout-opacity-light],
 [data-id=setting-layout-image-dark],
@@ -2013,6 +2015,18 @@ body.app-layout-card:not(.is-mobile) {
   --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;
 }
+body.app-layout-card:not(.is-mobile).theme-light {
+  --md-container-bg: var(
+    --setting-md-container-bg,
+    hsl(calc(var(--base-accent-h) + 8), 8%, 96%, var(--bg-opacity))
+  );
+}
+body.app-layout-card:not(.is-mobile).theme-dark {
+  --md-container-bg: var(
+    --setting-md-container-bg,
+    hsl(calc(var(--base-accent-h) - 4), 8%, 11%, var(--bg-opacity))
+  );
+}
 body.app-layout-card:not(.is-mobile).app-layout-card-plain {
   background-color: var(--background-secondary);
   --editor-min-opacity: 1;
@@ -2039,10 +2053,10 @@ body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain).theme-dark {
   --editor-min-opacity: 0.85;
 }
 body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
-  translate: 2px;
+  translate: var(--size-4-1);
 }
 body.app-layout-card:not(.is-mobile) .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
-  translate: -2px;
+  translate: calc(-1 * var(--size-4-1));
 }
 body.app-layout-card:not(.is-mobile).app-layout-card-gradient {
   --bg-opacity: 0.6;
@@ -2161,25 +2175,16 @@ body.app-layout-card:not(.is-mobile):not(.is-mobile) .workspace-split.mod-left-s
   }
 }
 @keyframes slide-up {
-  0% {
-    transform: translateY(0%) translateZ(0);
-    opacity: 0;
-  }
-  15% {
-    transform: translateY(1px) translateZ(0);
-    opacity: 0;
-  }
-  25% {
+  from {
     transform: translateY(2px) translateZ(0);
+    opacity: 0;
   }
-  45% {
+  50% {
+    transform: translateY(1px) translateZ(0);
     opacity: 0.5;
   }
-  65% {
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(0%);
+  to {
+    transform: translateY(0) translateZ(0);
     opacity: 1;
   }
 }
@@ -2351,16 +2356,12 @@ body.line-indicator-full .cm-line.HyperMD-codeblock:hover {
 :is(kbd, .setting-hotkey, .prompt-instruction-command) {
   user-select: none;
   text-transform: capitalize;
-  border-radius: var(--radius-s);
-  background-color: var(--background-secondary);
-  padding: var(--size-2-1) var(--size-4-2);
-}
-.theme-light :is(kbd, .setting-hotkey, .prompt-instruction-command) {
-  box-shadow: var(--input-shadow);
-}
-.theme-dark :is(kbd, .setting-hotkey, .prompt-instruction-command) {
-  border: 1px solid var(--color-base-40);
-  border-bottom-width: 2px;
+  font-family: var(--font-interface) !important;
+  border-radius: 6px;
+  background-color: var(--color-base-05);
+  padding: 2px var(--size-2-3);
+  border: 1px solid var(--color-base-35);
+  box-shadow: 0 1px 1px var(--color-base-35);
 }
 
 .setting-hotkey.mod-empty {
@@ -2542,7 +2543,7 @@ body {
   --code-variable: var(--color-yellow);
   --code-normal: var(--text-muted);
   --code-radius: var(--radius-m);
-  --code-border-color: var(--accent-inactive);
+  --code-border-color: var(--background-modifier-border);
   --code-border-width: 1px;
 }
 
@@ -2603,8 +2604,7 @@ body {
 .cm-s-obsidian .cm-line.HyperMD-codeblock {
   line-height: calc(var(--line-height-normal) - 0.2);
   color: var(--code-normal) !important;
-  border-left: var(--code-border-color);
-  border-right: var(--code-border-color);
+  border-inline: var(--code-border-width) solid var(--code-border-color);
   border-radius: 0 !important;
 }
 .cm-s-obsidian .cm-line.HyperMD-codeblock .cm-fold-indicator .collapse-indicator {
@@ -2615,35 +2615,16 @@ body {
   cursor: pointer;
 }
 .cm-s-obsidian .cm-line.HyperMD-codeblock.HyperMD-codeblock-begin-bg {
-  border-top: var(--code-border-color);
-  border-top-left-radius: var(--code-radius) !important;
-  border-top-right-radius: var(--code-radius) !important;
+  border-top: var(--code-border-width) solid var(--code-border-color);
+  border-start-start-radius: var(--code-radius) !important;
+  border-start-end-radius: var(--code-radius) !important;
   margin-top: var(--size-2-1) !important;
 }
 .cm-s-obsidian .cm-line.HyperMD-codeblock.HyperMD-codeblock-end-bg {
-  border-bottom: var(--code-border-color);
-  border-bottom-left-radius: var(--code-radius) !important;
-  border-bottom-right-radius: var(--code-radius) !important;
+  border-bottom: var(--code-border-width) solid var(--code-border-color);
+  border-end-start-radius: var(--code-radius) !important;
+  border-end-end-radius: var(--code-radius) !important;
   margin-bottom: var(--size-2-1) !important;
-}
-
-.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):not(.cm-callout) {
-  box-shadow: none !important;
-  border: var(--block-outline-width) solid transparent;
-  border-radius: var(--radius-m) !important;
-  transition: var(--animation);
-}
-.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):not(.cm-callout):hover {
-  border-color: var(--background-modifier-border-hover);
-}
-.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):not(.cm-callout):active {
-  border-color: var(--background-modifier-border-focus);
-}
-.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):not(.cm-callout) .edit-block-button {
-  border-radius: var(--radius-m) !important;
-  transition: var(--animation);
-  inset-block: 0.2rem;
-  height: fit-content;
 }
 
 .cm-hmd-codeblock .cm-indent::before {
@@ -3307,15 +3288,8 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   margin-block: var(--size-4-4);
   background-image: var(--setting-code-bg-outer, linear-gradient(-30deg, hsl(calc(var(--base-accent-h) + 145), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 115), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 90), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 65), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 35), var(--code-bg-s), var(--code-bg-l))));
 }
-.code-preview-bg .markdown-preview-view .markdown-preview-section pre:not([class*=frontmatter]) {
-  --code-background: var(
-    --setting-code-bg,
-    hsl(var(--background-secondary-hsl))
-  );
-  border-width: 0;
-}
 
-.theme-dark .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
+.theme-dark {
   --code-bg-s: 20%;
   --code-bg-l: 45%;
 }
@@ -3325,6 +3299,12 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
 body:is(:not(.css-settings-manager), .embed-enable) .cm-embed-block {
   border-radius: var(--radius-m) !important;
   transition: var(--animation);
+}
+body:is(:not(.css-settings-manager), .embed-enable) .cm-embed-block .edit-block-button {
+  border-radius: var(--radius-m) !important;
+  transition: var(--animation);
+  inset-block: 0.2rem;
+  height: fit-content;
 }
 body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) {
   --embed-background: var(--background-primary);
@@ -4672,12 +4652,24 @@ body {
   --h4-weight: 550;
   --h5-weight: 550;
   --h6-weight: 500;
-  --h1-line-height: calc(var(--line-height-normal) * var(--h1-size) * 0.8);
-  --h2-line-height: calc(var(--line-height-normal) * var(--h2-size) * 0.8);
-  --h3-line-height: calc(var(--line-height-normal) * var(--h3-size) * 0.85);
-  --h4-line-height: calc(var(--line-height-normal) * var(--h4-size) * 0.85);
-  --h5-line-height: calc(var(--line-height-normal) * var(--h5-size) * 0.9);
-  --h6-line-height: calc(var(--line-height-normal) * var(--h6-size) * 0.9);
+  --h1-line-height: calc(
+    var(--line-height-normal) * var(--h1-size) * var(--h1-size-factor, 1)
+  );
+  --h2-line-height: calc(
+    var(--line-height-normal) * var(--h2-size) * var(--h2-size-factor, 1)
+  );
+  --h3-line-height: calc(
+    var(--line-height-normal) * var(--h3-size) * var(--h3-size-factor, 1)
+  );
+  --h4-line-height: calc(
+    var(--line-height-normal) * var(--h4-size) * var(--h4-size-factor, 1)
+  );
+  --h5-line-height: calc(
+    var(--line-height-normal) * var(--h5-size) * var(--h5-size-factor, 1)
+  );
+  --h6-line-height: calc(
+    var(--line-height-normal) * var(--h6-size) * var(--h6-size-factor, 1)
+  );
   --h1-font: var(--setting-h1-font, var(--font-text));
   --h2-font: var(--setting-h2-font, var(--font-text));
   --h3-font: var(--setting-h3-font, var(--font-text));
@@ -4703,6 +4695,15 @@ body.heading-color-accent {
 }
 body :is(h1, h2, h3, h4, h5, h6) {
   margin: 0 !important;
+}
+
+.markdown-source-view {
+  --h1-size-factor: 0.8;
+  --h2-size-factor: 0.8;
+  --h3-size-factor: 0.85;
+  --h4-size-factor: 0.85;
+  --h5-size-factor: 0.9;
+  --h6-size-factor: 0.9;
 }
 
 body:is(:not(.css-settings-manager), .heading-color-colorful) {
@@ -5446,11 +5447,48 @@ body #calendar-container .day {
 
 /* #endregion git */
 /* #region my-snippets */
-.MS-OpenSnippet {
-  --interactive-normal: var(--accent-active);
+.MySnippets-statusbar-menu .ms-reload {
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M3 12a9 9 0 0 1 9-9a9.75 9.75 0 0 1 6.74 2.74L21 8'/><path d='M21 3v5h-5m5 4a9 9 0 0 1-9 9a9.75 9.75 0 0 1-6.74-2.74L3 16'/><path d='M8 16H3v5'/></g></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
 }
-:is(.MS-OpenSnippet, .MySnippetsButton) {
-  cursor: pointer;
+.MySnippets-statusbar-menu .ms-reload path {
+  display: none;
+}
+.MySnippets-statusbar-menu .ms-folder {
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2ZM2 10h20'/></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+}
+.MySnippets-statusbar-menu .ms-folder path {
+  display: none;
+}
+.MySnippets-statusbar-menu .ms-snippet {
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m18 16l4-4l-4-4M6 8l-4 4l4 4m8.5-12l-5 16'/></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+}
+.MySnippets-statusbar-menu .ms-snippet path {
+  display: none;
+}
+.MySnippets-statusbar-menu .ms-add {
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M9 15h6m-3 3v-6'/></g></svg>") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+}
+.MySnippets-statusbar-menu .ms-add path {
+  display: none;
+}
+.MySnippets-statusbar-menu :is(.MySnippetsButton, .MS-OpenSnippet) {
+  font-size: 12px;
+  background-color: var(--interactive-normal);
+  padding: var(--size-4-1) var(--size-4-3);
+}
+.MySnippets-statusbar-menu :is(.MySnippetsButton, .MS-OpenSnippet):hover {
+  background-color: var(--interactive-hover);
+}
+.MySnippets-statusbar-menu :is(.MySnippetsButton, .MS-OpenSnippet) path {
+  fill: currentColor;
 }
 
 /* #endregion my-snippets */
@@ -5694,7 +5732,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.20");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.21");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -5888,13 +5926,7 @@ body.enable-group-title .modal-container .mod-settings .modal-content .vertical-
   --settings-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M18 21a8 8 0 0 0-16 0'/><circle cx='10' cy='8' r='5'/><path d='M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3'/></g></svg>");
 }
 
-:is(.menu,
-.prompt,
-:not(.excalidraw) .popover,
-.modal,
-.modal-bg,
-.document-search-container,
-.suggestion-container) {
+:is(.menu, .modal-bg, .document-search-container, .suggestion-container) {
   animation: op var(--animation);
 }
 
@@ -6585,11 +6617,13 @@ body {
   --folder-inactive: 70%;
 }
 
-body:not(.is-grabbing) :is(.nav-file-title.is-being-dragged, .nav-folder-title.is-being-dragged),
-.nav-file-title.is-being-dragged,
-.nav-folder-title.is-being-dragged {
+:is(.nav-file-title, .nav-folder-title).is-being-dragged {
   background-color: var(--accent-inactive);
   color: var(--text-normal);
+}
+:is(.nav-file-title, .nav-folder-title).is-being-renamed {
+  background-color: var(--nav-item-background-selected);
+  --nav-item-color-active: var(--text-normal) !important;
 }
 
 body.theme-dark.explorer-icon .is-active .nav-file-tag {
@@ -6779,7 +6813,7 @@ body.explorer-folder-bold .nav-folder-title {
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='180' viewBox='0 0 140 180' fill='currentColor'><path d='M49.775 105.089C54.3828 103.715 61.8069 101.605 70.3434 101.082C65.2222 88.1449 63.986 76.8242 64.9803 66.7442C66.1285 55.1033 70.23 45.3874 74.228 37.1201C75.0811 35.3561 75.9012 33.7135 76.6879 32.1378C77.8017 29.9069 78.8486 27.81 79.8278 25.6916C81.4579 22.1652 82.6674 19.051 83.2791 16.1576C83.8806 13.3125 83.8838 10.7715 83.1727 8.3342C82.4607 5.89352 80.9475 3.26635 78.0704 0.386692C74.3134 -0.587559 70.1448 0.267767 67.0197 3.08162L29.9298 36.4772C27.861 38.34 26.503 40.8642 26.0879 43.6182L22.8899 64.8384C27.9185 69.2873 40.33 82.2201 47.8789 100.165C48.5525 101.766 49.1875 103.408 49.775 105.089Z' /><path d='M21.3902 74.5293C21.2153 75.2761 20.9692 76.0051 20.6549 76.7063L1.05225 120.436C-0.961131 124.928 -0.0336421 130.194 3.39276 133.726L34.2418 165.523C49.9952 142.262 47.6984 120.379 40.5026 103.274C35.0465 90.3037 26.777 80.1526 21.3902 74.5293Z' /><path d='M41.3687 169.269C41.9093 169.355 42.4575 169.407 43.0096 169.424C48.864 169.6 58.7098 170.109 66.6947 171.582C73.2088 172.783 86.1213 176.397 96.747 179.505C104.855 181.877 113.211 175.396 114.387 167.024C115.245 160.917 116.855 154.009 119.821 147.677L119.753 147.702C114.73 133.682 108.34 124.629 101.641 118.849C94.9619 113.086 87.7708 110.397 80.8276 109.42C69.2835 107.795 58.7071 110.832 52.0453 112.791C56.0353 129.428 54.8074 149.004 41.3687 169.269Z' /><path d='M124.96 139.034C131.626 128.965 136.375 121.134 138.881 116.888C140.135 114.764 139.907 112.102 138.423 110.133C134.554 105.002 127.152 94.5755 123.12 84.9218C118.973 74.9962 118.355 59.5866 118.319 52.081C118.306 49.2279 117.402 46.4413 115.639 44.1994L91.6762 13.73C91.5918 15.1034 91.3946 16.4659 91.1093 17.8158C90.3118 21.5882 88.8073 25.3437 87.0916 29.0552C86.086 31.2306 84.9238 33.5612 83.7497 35.9157C82.9682 37.4827 82.1814 39.0607 81.432 40.6102C77.5579 48.6212 73.9528 57.3151 72.9451 67.5313C72.011 77.0006 73.2894 88.014 79.0482 101.162C80.0074 101.243 80.9727 101.351 81.9422 101.487C90.2067 102.651 98.8807 105.891 106.866 112.781C113.73 118.704 119.932 127.19 124.96 139.034Z' /></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
-  color: var(--accent-inactive);
+  color: hsla(256, 92%, 76%, 0.2);
   width: calc(2 * var(--size-4-12));
   height: calc(2 * var(--size-4-12));
   margin-inline-start: 50%;
