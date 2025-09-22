@@ -8,15 +8,13 @@
 
   &::before {
     content: '';
-    position: absolute;
     @include use-icon(
       'obsidian-icon',
       hsla(256, 92%, 76%, 0.2),
       calc(2 * var(--size-4-12))
     );
     margin-inline-start: 50%;
-    translate: -50%;
-    top: calc(-2 * var(--size-4-12) - var(--size-4-8));
+    translate: -50% -50%;
   }
   & > ::before {
     content: '';
