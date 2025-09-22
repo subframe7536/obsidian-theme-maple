@@ -106,7 +106,7 @@ body {
   );
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsla(calc(var(--base-accent-h) + 8), 15%, 94%)
+    hsl(calc(var(--base-accent-h) + 8), 8%, 95%)
   );
   --text-on-accent: #fafafa !important;
 
@@ -187,7 +187,7 @@ body {
   --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
   --md-container-bg: var(
     --setting-md-container-bg,
-    hsl(calc(var(--base-accent-h) - 4), 12%, 12%)
+    hsl(calc(var(--base-accent-h) - 4), 8%, 12%)
   );
   --text-on-accent: #eaeaea !important;
 

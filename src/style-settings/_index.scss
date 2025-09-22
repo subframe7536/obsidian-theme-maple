@@ -173,7 +173,11 @@ body:not(.line-active-enable)
   .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month)
   .setting-item[data-id='setting-calendar-year-suffix'],
-body:not(.app-layout-card) .setting-item[data-id='app-layout-card-bg'],
+body:not(.app-layout-card)
+  .setting-item:is(
+    [data-id='app-layout-card-bg'],
+    [data-id='app-layout-card-border']
+  ),
 body:not(.app-layout-card.app-layout-card-custom)
   .setting-item:is(
     [data-id='setting-layout-image-light'],
