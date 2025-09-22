@@ -24,14 +24,13 @@
 
 /* #region list */
 @use './list.scss';
-/* #endregion list */
-/* #region list */
+/* #region list bullet */
 @use './list-bullet.scss';
-/* #endregion list */
-
+/* #endregion list bullet */
 /* #region checkbox */
 @use './checkbox.scss';
 /* #endregion checkbox */
+/* #endregion list */
 
 /* #region quote */
 @use './quote.scss';
