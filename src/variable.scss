@@ -40,7 +40,7 @@ body {
   --animation-slow: calc(var(--setting-animation-time, 200ms) * 2)
     var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
-  --block-outline-width: 2px;
+  --block-outline-width: var(--size-2-1);
 
   --divider-color: var(--color-base-30);
   --divider-width-hover: var(--size-4-1);

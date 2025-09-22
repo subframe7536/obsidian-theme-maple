@@ -20,7 +20,7 @@
   --code-variable: var(--color-yellow);
   --code-normal: var(--text-muted);
   --code-radius: var(--radius-m);
-  --code-border-color: var(--accent-inactive);
+  --code-border-color: var(--background-modifier-border);
   --code-border-width: 1px;
 }
 
@@ -88,8 +88,7 @@
 .cm-s-obsidian .cm-line.HyperMD-codeblock {
   line-height: calc(var(--line-height-normal) - 0.2);
   color: var(--code-normal) !important;
-  border-left: var(--code-border-color);
-  border-right: var(--code-border-color);
+  border-inline: var(--code-border-width) solid var(--code-border-color);
   border-radius: 0 !important;
 
   .cm-fold-indicator .collapse-indicator {
@@ -101,40 +100,17 @@
   }
 
   &.HyperMD-codeblock-begin-bg {
-    border-top: var(--code-border-color);
-    border-top-left-radius: var(--code-radius) !important;
-    border-top-right-radius: var(--code-radius) !important;
+    border-top: var(--code-border-width) solid var(--code-border-color);
+    border-start-start-radius: var(--code-radius) !important;
+    border-start-end-radius: var(--code-radius) !important;
     margin-top: var(--size-2-1) !important;
   }
 
   &.HyperMD-codeblock-end-bg {
-    border-bottom: var(--code-border-color);
-    border-bottom-left-radius: var(--code-radius) !important;
-    border-bottom-right-radius: var(--code-radius) !important;
+    border-bottom: var(--code-border-width) solid var(--code-border-color);
+    border-end-start-radius: var(--code-radius) !important;
+    border-end-end-radius: var(--code-radius) !important;
     margin-bottom: var(--size-2-1) !important;
-  }
-}
-
-.markdown-source-view.mod-cm6
-  .cm-embed-block:not(.cm-table-widget):not(.cm-callout) {
-  box-shadow: none !important;
-  border: var(--block-outline-width) solid transparent;
-  border-radius: var(--radius-m) !important;
-  transition: var(--animation);
-
-  &:hover {
-    border-color: var(--background-modifier-border-hover);
-  }
-
-  &:active {
-    border-color: var(--background-modifier-border-focus);
-  }
-
-  .edit-block-button {
-    border-radius: var(--radius-m) !important;
-    transition: var(--animation);
-    inset-block: 0.2rem;
-    height: fit-content;
   }
 }
 
@@ -497,21 +473,10 @@ body .markdown-rendered pre {
         )
       );
     }
-
-    pre:not([class*='frontmatter']) {
-      --code-background: var(
-        --setting-code-bg,
-        hsl(var(--background-secondary-hsl))
-      );
-      border-width: 0;
-    }
   }
 }
 
-.theme-dark
-  .markdown-preview-view
-  .markdown-preview-section
-  div:has(> pre:not([class*='frontmatter'])) {
+.theme-dark {
   --code-bg-s: 20%;
   --code-bg-l: 45%;
 }

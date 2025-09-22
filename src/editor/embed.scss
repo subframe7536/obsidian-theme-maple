@@ -4,6 +4,13 @@
   .cm-embed-block {
     border-radius: var(--radius-m) !important;
     transition: var(--animation);
+
+    .edit-block-button {
+      border-radius: var(--radius-m) !important;
+      transition: var(--animation);
+      inset-block: 0.2rem;
+      height: fit-content;
+    }
   }
   .internal-embed.is-loaded:not(.image-embed) {
     --embed-background: var(--background-primary);
