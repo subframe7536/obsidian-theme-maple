@@ -463,6 +463,48 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           title: { en: 'H6 Font', zh: '标题 6 字体' },
           desc: descValidCSS('font-family'),
         }),
+      Settings.ofLevel(2, {
+        title: { en: 'Heading Underline', zh: '标题下划线' },
+      })
+        .addClassToggle('heading-underline-h1', {
+          title: { en: 'H1 Underline', zh: '标题 1 下划线' },
+        })
+        .addClassToggle('heading-underline-h2', {
+          title: { en: 'H2 Underline', zh: '标题 2 下划线' },
+        })
+        .addClassToggle('heading-underline-h3', {
+          title: { en: 'H3 Underline', zh: '标题 3 下划线' },
+        })
+        .addClassToggle('heading-underline-h4', {
+          title: { en: 'H4 Underline', zh: '标题 4 下划线' },
+        })
+        .addClassToggle('heading-underline-h5', {
+          title: { en: 'H5 Underline', zh: '标题 5 下划线' },
+        })
+        .addClassToggle('heading-underline-h6', {
+          title: { en: 'H6 Underline', zh: '标题 6 下划线' },
+        }),
+      Settings.ofLevel(2, {
+        title: { en: 'Heading Fill', zh: '标题填充' },
+      })
+        .addClassToggle('heading-fill-h1', {
+          title: { en: 'H1 Fill', zh: '标题 1 填充' },
+        })
+        .addClassToggle('heading-fill-h2', {
+          title: { en: 'H2 Fill', zh: '标题 2 填充' },
+        })
+        .addClassToggle('heading-fill-h3', {
+          title: { en: 'H3 Fill', zh: '标题 3 填充' },
+        })
+        .addClassToggle('heading-fill-h4', {
+          title: { en: 'H4 Fill', zh: '标题 4 填充' },
+        })
+        .addClassToggle('heading-fill-h5', {
+          title: { en: 'H5 Fill', zh: '标题 5 填充' },
+        })
+        .addClassToggle('heading-fill-h6', {
+          title: { en: 'H6 Fill', zh: '标题 6 填充' },
+        }),
     ]),
   Settings.ofLevel(1, { title: { en: 'Horizontal Rule', zh: '分隔线' } })
     .addClassToggle(

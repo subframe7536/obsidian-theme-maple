@@ -226,3 +226,20 @@ body.line-active-left .cm-active.HyperMD-header {
 .heading-h6-variant :is(h6, .cm-header-6) {
   font-variant: small-caps;
 }
+
+@for $i from 1 through 6 {
+  body.heading-underline-h#{$i} :is(.HyperMD-header-#{$i} .cm-header, h#{$i}) {
+    text-decoration: underline var(--size-2-1);
+    text-underline-offset: var(--size-4-2);
+  }
+}
+
+@for $i from 1 through 6 {
+  body.heading-fill-h#{$i} :is(.HyperMD-header-#{$i} .cm-header, h#{$i}) {
+    background-color: var(--h#{$i}-color);
+    border-radius: var(--radius-s);
+    color: var(--text-on-accent);
+    width: fit-content;
+    padding: 0 var(--size-4-1);
+  }
+}
