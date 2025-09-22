@@ -17,12 +17,24 @@ body {
   --h4-weight: 550;
   --h5-weight: 550;
   --h6-weight: 500;
-  --h1-line-height: calc(var(--line-height-normal) * var(--h1-size) * 0.8);
-  --h2-line-height: calc(var(--line-height-normal) * var(--h2-size) * 0.8);
-  --h3-line-height: calc(var(--line-height-normal) * var(--h3-size) * 0.85);
-  --h4-line-height: calc(var(--line-height-normal) * var(--h4-size) * 0.85);
-  --h5-line-height: calc(var(--line-height-normal) * var(--h5-size) * 0.9);
-  --h6-line-height: calc(var(--line-height-normal) * var(--h6-size) * 0.9);
+  --h1-line-height: calc(
+    var(--line-height-normal) * var(--h1-size) * var(--h1-size-factor, 1)
+  );
+  --h2-line-height: calc(
+    var(--line-height-normal) * var(--h2-size) * var(--h2-size-factor, 1)
+  );
+  --h3-line-height: calc(
+    var(--line-height-normal) * var(--h3-size) * var(--h3-size-factor, 1)
+  );
+  --h4-line-height: calc(
+    var(--line-height-normal) * var(--h4-size) * var(--h4-size-factor, 1)
+  );
+  --h5-line-height: calc(
+    var(--line-height-normal) * var(--h5-size) * var(--h5-size-factor, 1)
+  );
+  --h6-line-height: calc(
+    var(--line-height-normal) * var(--h6-size) * var(--h6-size-factor, 1)
+  );
   --h1-font: var(--setting-h1-font, var(--font-text));
   --h2-font: var(--setting-h2-font, var(--font-text));
   --h3-font: var(--setting-h3-font, var(--font-text));
@@ -51,6 +63,15 @@ body {
   #{$headings} {
     margin: 0 !important;
   }
+}
+
+.markdown-source-view {
+  --h1-size-factor: 0.8;
+  --h2-size-factor: 0.8;
+  --h3-size-factor: 0.85;
+  --h4-size-factor: 0.85;
+  --h5-size-factor: 0.9;
+  --h6-size-factor: 0.9;
 }
 
 @include use-no-plugin('.heading-color-colorful') {
