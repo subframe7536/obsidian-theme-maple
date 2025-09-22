@@ -19,7 +19,7 @@ body {
     --h#{$i}-size: calc(
       var(--font-text-size) * var(--setting-h#{$i}-size, #{$size})
     );
-    --h#{$i}-weight: #{$weight};
+    --h#{$i}-weight: var(--setting-h#{$i}-weight, #{$weight});
     --h#{$i}-font: var(--setting-h#{$i}-font, var(--font-text));
     --h#{$i}-line-height: calc(
       var(--line-height-normal) *
@@ -40,8 +40,13 @@ body {
     }
   }
 
-  #{$headings} {
-    margin: 0 !important;
+  @for $i from 1 through 6 {
+    &.heading-h#{$i}-caps {
+      --h#{$i}-variant: small-caps;
+    }
+    &.heading-h#{$i}-center :is(.HyperMD-header-#{$i}, h#{$i}) {
+      text-align: center;
+    }
   }
 }
 
@@ -194,13 +199,7 @@ body.line-active-left .cm-active.HyperMD-header {
   }
 }
 
-.heading-h1-center h1 {
-  text-align: center;
-}
-
-.heading-h6-variant :is(h6, .cm-header-6) {
-  font-variant: small-caps;
-}
+// underline
 
 $underline-selectors: ();
 
@@ -208,7 +207,7 @@ $underline-selectors: ();
   $underline-selectors: list.append(
     $underline-selectors,
     string.unquote(
-      '.heading-underline-h#{$i} :is(.HyperMD-header-#{$i} .cm-header, h#{$i})'
+      '.heading-h#{$i}-underline :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting), h#{$i})'
     ),
     comma
   );
@@ -217,4 +216,45 @@ $underline-selectors: ();
 #{$underline-selectors} {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
+}
+
+// full line
+
+$full-selectors: ();
+
+@for $i from 1 through 6 {
+  $full-selectors: list.append(
+    $full-selectors,
+    string.unquote(
+      '.heading-h#{$i}-full-line :is(.HyperMD-header-#{$i}, h#{$i})'
+    ),
+    comma
+  );
+}
+
+:is(#{$full-selectors})::after {
+  content: '';
+  position: absolute;
+  bottom: var(--size-2-1);
+  height: var(--size-2-1);
+  inset-inline: 0;
+  background-color: currentColor;
+  border-radius: var(--size-2-1);
+}
+
+// block
+
+@for $i from 1 through 6 {
+  .heading-h#{$i}-block {
+    :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header), h#{$i}) {
+      background-color: var(--h#{$i}-color);
+      color: var(--text-on-accent);
+      padding: var(--size-4-1) var(--size-4-2);
+      border-radius: var(--size-2-3);
+    }
+    h#{$i} {
+      line-height: 1.2;
+      width: fit-content;
+    }
+  }
 }

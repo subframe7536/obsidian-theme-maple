@@ -1,5 +1,97 @@
 import { descValidCSS, Settings } from './generator'
 
+interface HeadingConfig {
+  style?: 'normal' | 'underline' | 'full-line' | 'block'
+  align?: 'left' | 'center'
+  smallCaps?: boolean
+}
+const CN_NUMBERS = ['一', '二', '三', '四', '五', '六']
+const FONT_WEIGHTS = [750, 700, 600, 550, 550, 500]
+function createHeadingSettings(level: number, config: HeadingConfig = {}) {
+  const { align = 'left', style = 'normal', smallCaps = false } = config
+  return Settings.ofLevel(2, {
+    title: {
+      en: `Level ${level} Heading`,
+      zh: `${CN_NUMBERS[level - 1]}级标题`,
+    },
+  })
+    .addClassSelect(
+      `heading-h${level}-style`,
+      {
+        title: {
+          en: `H${level} Style`,
+          zh: `H${CN_NUMBERS[level - 1]} 样式`,
+        },
+      },
+      {
+        allowEmpty: false,
+        default: `heading-h${level}-${style}`,
+        options: [
+          { label: 'Normal', value: `heading-h${level}-normal` },
+          { label: 'Underline', value: `heading-h${level}-underline` },
+          { label: 'Full Line', value: `heading-h${level}-full-line` },
+          { label: 'Block', value: `heading-h${level}-block` },
+        ],
+      },
+    )
+    .addVarThemedColor(
+      `setting-h${level}-color`,
+      {
+        title: {
+          en: `H${level} Color`,
+          zh: `H${CN_NUMBERS[level - 1]} 颜色`,
+        },
+      },
+      'hex',
+    )
+    .addClassToggle(
+      `heading-h${level}-center`,
+      {
+        title: {
+          en: `H${level} Centered Text`,
+          zh: `H${CN_NUMBERS[level - 1]} 文本居中`,
+        },
+      },
+      { enable: align === 'center' },
+    )
+    .addVarText(
+      `setting-h${level}-font`,
+      {
+        title: {
+          en: `H${level} Font Family`,
+          zh: `H${CN_NUMBERS[level - 1]} 字体`,
+        },
+        desc: descValidCSS('font-family'),
+      },
+      { default: '' },
+    )
+    .addVarText(
+      `setting-h${level}-weight`,
+      {
+        title: {
+          en: `H${level} Font Weight`,
+          zh: `H${CN_NUMBERS[level - 1]} 字重`,
+        },
+        desc: descValidCSS('font-weight'),
+      },
+      { default: FONT_WEIGHTS[level - 1].toString() },
+    )
+    .addClassToggle(
+      `heading-h${level}-caps`,
+      {
+        title: {
+          en: `H${level} Small Caps Text Variant`,
+          zh: `H${CN_NUMBERS[level - 1]} 文本变体`,
+        },
+        desc: {
+          en: 'Uses the form of uppercase letters but are reduced to the size of lowercase letters',
+          zh: '对于小写字母，使用大写字母的形式，但字号保持不变',
+        },
+      },
+      { enable: smallCaps },
+    )
+}
+
 export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, {
     title: { en: 'Background Pattern', zh: '背景图案' },
@@ -373,117 +465,21 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         ],
       },
     )
-    .addClassToggle(
-      'heading-h1-center',
-      {
-        title: { en: 'Centered Heading 1', zh: '居中一级标题' },
-      },
-      { enable: true },
-    )
-    .addClassToggle(
-      'heading-h6-variant',
-      {
-        title: {
-          en: 'Set Small-caps Font for Heading 6',
-          zh: '为六级标题设置小型大写字母样式',
-        },
-        desc: {
-          en: 'All characters are capitalized',
-          zh: '所有字母都大写',
-        },
-      },
-      { enable: true },
-    )
     .children([
-      Settings.ofLevel(2, { title: { en: 'Heading Color', zh: '标题颜色' } })
-        .addVarThemedColor(
-          'setting-h1-color',
-          {
-            title: { en: 'H1 Color', zh: '标题 1 颜色' },
-          },
-          'hex',
-        )
-        .addVarThemedColor(
-          'setting-h2-color',
-          {
-            title: { en: 'H2 Color', zh: '标题 2 颜色' },
-          },
-          'hex',
-        )
-        .addVarThemedColor(
-          'setting-h3-color',
-          {
-            title: { en: 'H3 Color', zh: '标题 3 颜色' },
-          },
-          'hex',
-        )
-        .addVarThemedColor(
-          'setting-h4-color',
-          {
-            title: { en: 'H4 Color', zh: '标题 4 颜色' },
-          },
-          'hex',
-        )
-        .addVarThemedColor(
-          'setting-h5-color',
-          {
-            title: { en: 'H5 Color', zh: '标题 5 颜色' },
-          },
-          'hex',
-        )
-        .addVarThemedColor(
-          'setting-h6-color',
-          {
-            title: { en: 'H6 Color', zh: '标题 6 颜色' },
-          },
-          'hex',
-        ),
-      Settings.ofLevel(2, { title: { en: 'Heading Font', zh: '标题字体' } })
-        .addVarText('setting-h1-font', {
-          title: { en: 'H1 Font', zh: '标题 1 字体' },
-          desc: descValidCSS('font-family'),
-        })
-        .addVarText('setting-h2-font', {
-          title: { en: 'H2 Font', zh: '标题 2 字体' },
-          desc: descValidCSS('font-family'),
-        })
-        .addVarText('setting-h3-font', {
-          title: { en: 'H3 Font', zh: '标题 3 字体' },
-          desc: descValidCSS('font-family'),
-        })
-        .addVarText('setting-h4-font', {
-          title: { en: 'H4 Font', zh: '标题 4 字体' },
-          desc: descValidCSS('font-family'),
-        })
-        .addVarText('setting-h5-font', {
-          title: { en: 'H5 Font', zh: '标题 5 字体' },
-          desc: descValidCSS('font-family'),
-        })
-        .addVarText('setting-h6-font', {
-          title: { en: 'H6 Font', zh: '标题 6 字体' },
-          desc: descValidCSS('font-family'),
-        }),
-      Settings.ofLevel(2, {
-        title: { en: 'Heading Underline', zh: '标题下划线' },
-      })
-        .addClassToggle('heading-underline-h1', {
-          title: { en: 'H1 Underline', zh: '标题 1 下划线' },
-        })
-        .addClassToggle('heading-underline-h2', {
-          title: { en: 'H2 Underline', zh: '标题 2 下划线' },
-        })
-        .addClassToggle('heading-underline-h3', {
-          title: { en: 'H3 Underline', zh: '标题 3 下划线' },
-        })
-        .addClassToggle('heading-underline-h4', {
-          title: { en: 'H4 Underline', zh: '标题 4 下划线' },
-        })
-        .addClassToggle('heading-underline-h5', {
-          title: { en: 'H5 Underline', zh: '标题 5 下划线' },
-        })
-        .addClassToggle('heading-underline-h6', {
-          title: { en: 'H6 Underline', zh: '标题 6 下划线' },
-        }),
+      createHeadingSettings(1, {
+        align: 'center',
+      }),
+      createHeadingSettings(2, {
+        style: 'block',
+      }),
+      createHeadingSettings(3, {
+        style: 'underline',
+      }),
+      createHeadingSettings(4),
+      createHeadingSettings(5),
+      createHeadingSettings(6, {
+        smallCaps: true,
+      }),
     ]),
   Settings.ofLevel(1, { title: { en: 'Horizontal Rule', zh: '分隔线' } })
     .addClassToggle(

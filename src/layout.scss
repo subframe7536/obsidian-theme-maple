@@ -8,16 +8,17 @@ body.app-layout-card:not(.is-mobile) {
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;
+  --target-opacity: max(var(--bg-opacity), var(--editor-min-opacity));
   &.theme-light {
     --md-container-bg: var(
       --setting-md-container-bg,
-      hsl(calc(var(--base-accent-h) + 8), 8%, 96%, var(--bg-opacity))
+      hsl(calc(var(--base-accent-h) + 8), 8%, 96%, var(--target-opacity))
     );
   }
   &.theme-dark {
     --md-container-bg: var(
       --setting-md-container-bg,
-      hsl(calc(var(--base-accent-h) - 4), 8%, 11%, var(--bg-opacity))
+      hsl(calc(var(--base-accent-h) - 4), 8%, 14%, var(--target-opacity))
     );
   }
 
