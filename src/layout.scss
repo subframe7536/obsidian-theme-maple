@@ -136,6 +136,7 @@ body.app-layout-card:not(.is-mobile) {
       .workspace-split.mod-root
         .workspace-tabs:not(.mod-stacked)
         .workspace-leaf,
+      .workspace-split.mod-root .workspace-split,
       .pdf-toolbar
     ) {
     background-color: transparent;
@@ -151,9 +152,9 @@ body.app-layout-card:not(.is-mobile) {
 
   .workspace-split {
     background-color: var(--bg-surface);
-    &.mod-root {
-      background-color: var(--bg-surface);
-    }
+    // &.mod-root {
+    //   background-color: var(--bg-surface);
+    // }
   }
 
   :is(.workspace-split.mod-root .view-content, .view-header) {
