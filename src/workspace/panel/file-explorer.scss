@@ -73,12 +73,15 @@ body {
   --folder-inactive: 70%;
 }
 
-body:not(.is-grabbing)
-  :is(.nav-file-title.is-being-dragged, .nav-folder-title.is-being-dragged),
-.nav-file-title.is-being-dragged,
-.nav-folder-title.is-being-dragged {
-  background-color: var(--accent-inactive);
-  color: var(--text-normal);
+:is(.nav-file-title, .nav-folder-title) {
+  &.is-being-dragged {
+    background-color: var(--accent-inactive);
+    color: var(--text-normal);
+  }
+  &.is-being-renamed {
+    background-color: var(--nav-item-background-selected);
+    --nav-item-color-active: var(--text-normal) !important;
+  }
 }
 
 body.theme-dark.explorer-icon .is-active .nav-file-tag {
