@@ -133,13 +133,13 @@ body {
 }
 
 .theme-dark {
-  @include var-color('red', hsl(0, 64%, 80%));
-  @include var-color('orange', hsl(20, 60%, 75%));
-  @include var-color('yellow', hsl(36, 70%, 78%));
-  @include var-color('green', hsl(130, 48%, 76%));
-  @include var-color('cyan', hsl(178, 60%, 77%));
-  @include var-color('blue', hsl(210, 100%, 78%));
-  @include var-color('purple', hsl(247, 85%, 90%));
+  @include var-color('red', hsl(0, 54%, 68%));
+  @include var-color('orange', hsl(20, 50%, 63%));
+  @include var-color('yellow', hsl(36, 60%, 66%));
+  @include var-color('green', hsl(130, 38%, 64%));
+  @include var-color('cyan', hsl(178, 50%, 65%));
+  @include var-color('blue', hsl(210, 90%, 66%));
+  @include var-color('purple', hsl(247, 75%, 78%));
   --color-opacity: 0.85;
 
   --theme-accent-active-h: var(--theme-accent-h);
