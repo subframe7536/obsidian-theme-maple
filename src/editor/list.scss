@@ -10,6 +10,7 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     var(--list-marker-color)
   );
   --list-marker-color-alt-render: transparent;
+  --checkbox-color: var(--accent-active);
   --checkbox-marker-color: var(--text-on-accent);
   --checkbox-border-color: var(
     --setting-list-checkbox-color,
