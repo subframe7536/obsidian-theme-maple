@@ -172,7 +172,7 @@ body {
     calc(10% + var(--theme-accent-active-l) / 10)
   );
 
-  --background-primary-hsl: var(--base-accent-h), 5%, 9%;
+  --background-primary-hsl: var(--base-accent-h), 5%, 11%;
   --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-alt: hsl(var(--base-accent-h), 10%, 13%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 6%, 12%;
