@@ -381,9 +381,9 @@ body .markdown-rendered pre {
     width: $light-size;
     height: $light-size;
     position: absolute;
-    left: 0.8rem;
+    left: 0.6rem;
     top: calc(
-      $light-size * var(--line-height-normal) * 0.7 - var(--code-size) / 3
+      $light-size * var(--line-height-normal) * 0.6 - var(--code-size) / 4
     );
     border-radius: 50%;
     z-index: 9;
