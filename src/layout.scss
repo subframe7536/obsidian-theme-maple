@@ -71,7 +71,7 @@ body.app-layout-card:not(.is-mobile) {
     &.theme-dark {
       --app-bg-image: linear-gradient(
         340deg,
-        hsl(calc(var(--base-accent-h) + 90), 11%, 22%),
+        hsl(calc(var(--base-accent-h) + 60), 11%, 22%),
         hsl(calc(var(--base-accent-h) - 10), 24%, 28%)
       );
     }
