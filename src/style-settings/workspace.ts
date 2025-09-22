@@ -58,7 +58,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       { default: 0.6, max: 0.9, min: 0.1, step: 0.05 },
     ),
   Settings.ofLevel(1, {
-    title: { en: 'File Explorer Panel', zh: '文件管理器面板' },
+    title: { en: 'File Explorer', zh: '文件管理器' },
   })
     .addClassToggle('explorer-title-wrap', {
       title: { en: 'Auto Wrap Long File Names', zh: '长文件名自动换行' },
@@ -88,7 +88,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
     ),
   Settings.ofLevel(1, {
-    title: { en: 'Outline Panel', zh: '大纲面板' },
+    title: { en: 'Outline', zh: '大纲' },
   })
     .addClassToggle('outline-enable', {
       title: {
@@ -139,8 +139,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
 
   Settings.ofLevel(1, {
     title: {
-      en: 'Search and Replace Panel',
-      zh: '搜索和替换面板',
+      en: 'Search and Replace',
+      zh: '搜索和替换',
     },
   })
     .addClassToggle(
@@ -167,7 +167,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         zh: '已移除的按钮：查找全部',
       },
     }),
-  Settings.ofLevel(1, { title: { en: 'Graph Panel', zh: '关系图谱面板' } })
+  Settings.ofLevel(1, { title: { en: 'Graph', zh: '关系图谱' } })
     .addVarThemedColor(
       'setting-graph-node',
       { title: { en: 'Normal Node Color', zh: '普通节点颜色' } },
