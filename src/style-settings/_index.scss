@@ -38,6 +38,10 @@ html[lang='zh'] {
   --system-accent-override-text-cotent: '由 Style Settings 插件控制';
 }
 
+.vertical-tab-content:has(> div > .style-settings-heading) .setting-item-name {
+  padding: var(--size-4-1);
+}
+
 .color-use-custom {
   .mod-settings
     .vertical-tab-content-container
@@ -345,10 +349,10 @@ body:not(.tag-outline)
 }
 
 .modal-style-settings {
-  .modal-header {
-    margin: 0;
-  }
   .style-settings-download {
     margin-right: var(--size-4-8);
+  }
+  .setting-item {
+    align-items: center;
   }
 }
