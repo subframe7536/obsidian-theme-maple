@@ -15,6 +15,15 @@
   }
 }
 
+body {
+  --table-header-background: var(--background-primary-alt);
+  --table-header-background-hover: var(--table-header-background);
+  --table-cell-vertical-alignment: middle;
+  --table-add-button-background: var(--background-modifier-hover);
+  --table-drag-handle-background: var(--background-modifier-hover);
+  --table-selection-border-radius: var(--radius-m);
+}
+
 /* table radius */
 .markdown-rendered {
   table {
@@ -65,17 +74,8 @@
   }
 }
 
-body {
-  --table-header-background: var(--background-primary-alt);
-  --table-header-background-hover: var(--table-header-background);
-  --table-cell-vertical-alignment: middle;
-  --table-add-button-background: var(--background-modifier-hover);
-  --table-drag-handle-background: var(--background-modifier-hover);
-}
-
 .table-colorful {
   --table-background: var(--background-primary-alt);
-  --table-header-color: var(--setting-table-header-bg, var(--text-on-accent));
   --table-header-background: var(
     --setting-table-header-text,
     var(--accent-active)
@@ -84,6 +84,10 @@ body {
   --table-row-alt-background-hover: var(--bg-editor);
   --table-column-alt-background: inherit;
   --table-column-alt-background-hover: inherit;
+
+  :is(.is-live-preview, .markdown-rendered) {
+    --table-header-color: var(--setting-table-header-bg, var(--text-on-accent));
+  }
 
   th .cm-s-obsidian {
     color: var(--text-normal);
