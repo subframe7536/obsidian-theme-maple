@@ -253,8 +253,9 @@ $full-selectors: ();
       border-radius: var(--size-2-3);
     }
     h#{$i} {
-      line-height: 1.2;
       width: fit-content;
+      line-height: 1.2;
+      --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h#{$i}-size));
     }
   }
 }
