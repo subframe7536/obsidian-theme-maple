@@ -102,9 +102,13 @@ function test(src: string) {
 }
 
 async function dev(src: string, out: string) {
-  const latestSettings =
-    await Bun.$`bun ${process.cwd()}/src/style-settings/index.ts`.text()
-  compileCss(out, src, latestSettings)
+  try {
+    const latestSettings =
+      await Bun.$`bun ${process.cwd()}/src/style-settings/index.ts`.text()
+    compileCss(out, src, latestSettings)
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 function move() {
