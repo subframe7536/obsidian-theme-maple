@@ -3,14 +3,14 @@
 .metadata-container {
   margin-block-end: var(--size-4-2);
   transition: var(--animation);
-  --metadata-property-background-hover: var(--md-container-bg);
+  --metadata-property-background-hover: var(--background-primary-alt);
   --metadata-label-background-active: var(--background-primary);
   --metadata-input-background-active: var(--background-primary);
 
   .prop-outline & {
     transform: none;
     --metadata-padding: var(--radius-m);
-    --metadata-background: var(--md-container-bg);
+    --metadata-background: var(--background-primary-alt);
     --metadata-border-width: var(--block-outline-width);
     --metadata-border-radius: var(--radius-m);
   }

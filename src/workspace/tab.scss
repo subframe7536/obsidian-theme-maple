@@ -27,8 +27,7 @@ body.tab-float {
         box-shadow: var(--tab-active-shadow);
       }
       &-container {
-        --tab-outline-width: 0 !important;
-        padding-left: 0;
+        padding-left: var(--size-4-1);
 
         &-inner {
           margin-top: var(--size-4-1);
@@ -54,7 +53,6 @@ body.tab-float {
 
   .workspace-tab-header-new-tab {
     padding-top: var(--size-4-1);
-    margin-left: calc(var(--size-4-3) * -1);
   }
 }
 

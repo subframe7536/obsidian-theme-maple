@@ -66,7 +66,7 @@
 }
 
 body {
-  --table-header-background: var(--md-container-bg);
+  --table-header-background: var(--background-primary-alt);
   --table-header-background-hover: var(--table-header-background);
   --table-cell-vertical-alignment: middle;
   --table-add-button-background: var(--background-modifier-hover);
@@ -74,7 +74,7 @@ body {
 }
 
 .table-colorful {
-  --table-background: var(--md-container-bg);
+  --table-background: var(--background-primary-alt);
   --table-header-color: var(--setting-table-header-bg, var(--text-on-accent));
   --table-header-background: var(
     --setting-table-header-text,

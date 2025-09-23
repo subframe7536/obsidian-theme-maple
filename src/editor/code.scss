@@ -5,7 +5,7 @@
 
 :is(body, .print .markdown-rendered) {
   --inline-code: var(--setting-code-inline, var(--color-red));
-  --code-background: var(--setting-code-bg, var(--md-container-bg));
+  --code-background: var(--setting-code-bg, var(--background-primary-alt));
   --code-function: var(--color-blue);
   --code-important: var(--color-purple);
   --code-keyword: var(--color-purple);

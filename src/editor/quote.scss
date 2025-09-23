@@ -4,7 +4,7 @@ $indent: 0.6rem;
 $mark-size: 3rem;
 
 :is(body, .print .markdown-rendered) {
-  --blockquote-background-color: var(--md-container-bg);
+  --blockquote-background-color: var(--background-primary-alt);
   --callout-radius: var(--radius-m);
 }
 

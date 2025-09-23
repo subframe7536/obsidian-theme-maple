@@ -137,20 +137,6 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         },
       },
       { format: 'px', default: 20, min: 10, max: 30, step: 1 },
-    )
-    .addVarThemedColor(
-      'setting-md-container-bg',
-      {
-        title: {
-          en: 'Editor Container Background Color',
-          zh: '编辑器容器背景颜色',
-        },
-        desc: {
-          en: 'For elements like quotes, code blocks, and tables',
-          zh: '用于引用、代码块、表格等元素',
-        },
-      },
-      'hsl-values',
     ),
   Settings.ofLevel(1, {
     title: { en: 'Font', zh: '字体' },
