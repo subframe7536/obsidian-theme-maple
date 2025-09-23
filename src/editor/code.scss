@@ -118,14 +118,30 @@
   transform: unset !important;
 }
 
-.markdown-source-view.mod-cm6 .code-block-flair:has(svg) {
-  width: calc(var(--size-4-8) - var(--size-4-1));
-  height: calc(var(--size-4-8) - var(--size-4-1));
-  padding: var(--size-4-1);
+.markdown-source-view.mod-cm6 .code-block-flair {
+  --cursor: pointer;
+  padding-block: 0;
+  color: var(--inline-code);
+  transition: var(--animation);
+  font-family: var(--font-monospace);
+  font-weight: 550;
+  top: var(--size-4-1);
+  right: var(--size-4-1);
+  border-radius: var(--radius-s);
 
-  svg {
-    width: var(--size-4-5);
-    height: var(--size-4-5);
+  &:hover {
+    background-color: var(--nav-item-background-hover);
+  }
+
+  &:has(svg) {
+    width: var(--size-4-6);
+    height: var(--size-4-6);
+    padding: var(--size-4-1);
+
+    svg {
+      width: var(--size-4-4);
+      height: var(--size-4-4);
+    }
   }
 }
 
@@ -191,7 +207,7 @@ body .markdown-rendered pre {
 
       code[class*='language-']::before {
         content: 'Unkown';
-        font-family: var(--font-mono);
+        font-family: var(--font-monospace);
         color: var(--setting-code-language-color, var(--inline-code));
         font-weight: 550;
         position: absolute;
@@ -244,18 +260,6 @@ body .markdown-rendered pre {
         }
       }
     }
-  }
-}
-
-.markdown-source-view.mod-cm6 .code-block-flair {
-  padding-block: 0;
-  color: var(--inline-code);
-  transition: var(--animation);
-  font-family: var(--font-mono);
-  font-weight: 550;
-
-  &:hover {
-    background-color: var(--nav-item-background-hover);
   }
 }
 
