@@ -16,6 +16,10 @@ body.tab-float {
     --tab-active-shadow: var(--shadow-s);
   }
 
+  .is-sidedock-collapsed + .mod-root .sidebar-toggle-button.mod-left {
+    margin-right: var(--size-4-2);
+  }
+
   .mod-root {
     .workspace-tab-header {
       padding-block: 0 !important;
