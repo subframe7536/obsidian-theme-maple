@@ -251,6 +251,13 @@ $full-selectors: ();
       color: var(--text-on-accent);
       padding: var(--size-4-1) var(--size-4-2);
       border-radius: var(--size-2-3);
+      caret-color: currentColor;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: ignore;
+      &::selection {
+        color: var(--h#{$i}-color);
+        background-color: var(--background-secondary);
+      }
     }
     h#{$i} {
       width: fit-content;
