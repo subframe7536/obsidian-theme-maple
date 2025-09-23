@@ -5,7 +5,8 @@ body {
   --modal-height: min(85vh, var(--modal-max-height));
 }
 
-body :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
+body:not(.is-phone)
+  :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
   background-color: var(--nav-item-background-active) !important;
 }
 
