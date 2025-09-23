@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.21 For Obsidian */
+/* Maple Theme v1.0.0-beta.22 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -365,7 +365,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.21'"
+      default: "'maple 1.0.0-beta.22'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -604,16 +604,6 @@ settings:
       min: 10
       max: 30
       step: 1
-    - id: setting-md-container-bg
-      type: variable-themed-color
-      title: Editor Container Background Color
-      title.zh: 编辑器容器背景颜色
-      description: For elements like quotes, code blocks, and tables
-      description.zh: 用于引用、代码块、表格等元素
-      format: hsl-values
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
     - id: title-font
       title: Font
       title.zh: 字体
@@ -930,120 +920,342 @@ settings:
             value: heading-indicator-auto
           - label: Fixed
             value: heading-indicator-fixed
-    - id: heading-h1-center
-      type: class-toggle
-      title: Centered Heading 1
-      title.zh: 居中一级标题
-      default: true
-    - id: heading-h6-variant
-      type: class-toggle
-      title: Set Small-caps Font for Heading 6
-      title.zh: 为六级标题设置小型大写字母样式
-      description: All characters are capitalized
-      description.zh: 所有字母都大写
-      default: true
-    - id: title-heading-color
-      title: Heading Color
-      title.zh: 标题颜色
+    - id: title-level-1-heading
+      title: Level 1 Heading
+      title.zh: 一级标题
       type: heading
       level: 2
       collapsed: true
+    - id: heading-h1-style
+      type: class-select
+      title: H1 Style
+      title.zh: H一 样式
+      allow-empty: false
+      default: heading-h1-normal
+      options:
+          - label: Normal
+            value: heading-h1-normal
+          - label: Underline
+            value: heading-h1-underline
+          - label: Full Line
+            value: heading-h1-full-line
+          - label: Block
+            value: heading-h1-block
     - id: setting-h1-color
       type: variable-themed-color
       title: H1 Color
-      title.zh: 标题 1 颜色
+      title.zh: H一 颜色
       format: hex
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: setting-h2-color
-      type: variable-themed-color
-      title: H2 Color
-      title.zh: 标题 2 颜色
-      format: hex
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
-    - id: setting-h3-color
-      type: variable-themed-color
-      title: H3 Color
-      title.zh: 标题 3 颜色
-      format: hex
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
-    - id: setting-h4-color
-      type: variable-themed-color
-      title: H4 Color
-      title.zh: 标题 4 颜色
-      format: hex
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
-    - id: setting-h5-color
-      type: variable-themed-color
-      title: H5 Color
-      title.zh: 标题 5 颜色
-      format: hex
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
-    - id: setting-h6-color
-      type: variable-themed-color
-      title: H6 Color
-      title.zh: 标题 6 颜色
-      format: hex
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
-    - id: title-heading-font
-      title: Heading Font
-      title.zh: 标题字体
+    - id: heading-h1-center
+      type: class-toggle
+      title: H1 Centered Text
+      title.zh: H一 文本居中
+      default: true
+    - id: setting-h1-font
+      type: variable-text
+      title: H1 Font Family
+      title.zh: H一 字体
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
+    - id: setting-h1-weight
+      type: variable-text
+      title: H1 Font Weight
+      title.zh: H一 字重
+      description: Any CSS "font-weight" value
+      description.zh: 任何 CSS “font-weight” 值
+      default: "750"
+    - id: heading-h1-caps
+      type: class-toggle
+      title: H1 Small Caps Text Variant
+      title.zh: H一 文本变体
+      description: Uses the form of uppercase letters but are reduced to the size of
+          lowercase letters
+      description.zh: 对于小写字母，使用大写字母的形式，但字号保持不变
+      default: false
+    - id: title-level-2-heading
+      title: Level 2 Heading
+      title.zh: 二级标题
       type: heading
       level: 2
       collapsed: true
-    - id: setting-h1-font
-      type: variable-text
-      title: H1 Font
-      title.zh: 标题 1 字体
-      description: Any CSS "font-family" value
-      description.zh: 任何 CSS “font-family” 值
-      default: ""
+    - id: heading-h2-style
+      type: class-select
+      title: H2 Style
+      title.zh: H二 样式
+      allow-empty: false
+      default: heading-h2-block
+      options:
+          - label: Normal
+            value: heading-h2-normal
+          - label: Underline
+            value: heading-h2-underline
+          - label: Full Line
+            value: heading-h2-full-line
+          - label: Block
+            value: heading-h2-block
+    - id: setting-h2-color
+      type: variable-themed-color
+      title: H2 Color
+      title.zh: H二 颜色
+      format: hex
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
+    - id: heading-h2-center
+      type: class-toggle
+      title: H2 Centered Text
+      title.zh: H二 文本居中
+      default: false
     - id: setting-h2-font
       type: variable-text
-      title: H2 Font
-      title.zh: 标题 2 字体
+      title: H2 Font Family
+      title.zh: H二 字体
       description: Any CSS "font-family" value
       description.zh: 任何 CSS “font-family” 值
       default: ""
+    - id: setting-h2-weight
+      type: variable-text
+      title: H2 Font Weight
+      title.zh: H二 字重
+      description: Any CSS "font-weight" value
+      description.zh: 任何 CSS “font-weight” 值
+      default: "700"
+    - id: heading-h2-caps
+      type: class-toggle
+      title: H2 Small Caps Text Variant
+      title.zh: H二 文本变体
+      description: Uses the form of uppercase letters but are reduced to the size of
+          lowercase letters
+      description.zh: 对于小写字母，使用大写字母的形式，但字号保持不变
+      default: false
+    - id: title-level-3-heading
+      title: Level 3 Heading
+      title.zh: 三级标题
+      type: heading
+      level: 2
+      collapsed: true
+    - id: heading-h3-style
+      type: class-select
+      title: H3 Style
+      title.zh: H三 样式
+      allow-empty: false
+      default: heading-h3-underline
+      options:
+          - label: Normal
+            value: heading-h3-normal
+          - label: Underline
+            value: heading-h3-underline
+          - label: Full Line
+            value: heading-h3-full-line
+          - label: Block
+            value: heading-h3-block
+    - id: setting-h3-color
+      type: variable-themed-color
+      title: H3 Color
+      title.zh: H三 颜色
+      format: hex
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
+    - id: heading-h3-center
+      type: class-toggle
+      title: H3 Centered Text
+      title.zh: H三 文本居中
+      default: false
     - id: setting-h3-font
       type: variable-text
-      title: H3 Font
-      title.zh: 标题 3 字体
+      title: H3 Font Family
+      title.zh: H三 字体
       description: Any CSS "font-family" value
       description.zh: 任何 CSS “font-family” 值
       default: ""
+    - id: setting-h3-weight
+      type: variable-text
+      title: H3 Font Weight
+      title.zh: H三 字重
+      description: Any CSS "font-weight" value
+      description.zh: 任何 CSS “font-weight” 值
+      default: "600"
+    - id: heading-h3-caps
+      type: class-toggle
+      title: H3 Small Caps Text Variant
+      title.zh: H三 文本变体
+      description: Uses the form of uppercase letters but are reduced to the size of
+          lowercase letters
+      description.zh: 对于小写字母，使用大写字母的形式，但字号保持不变
+      default: false
+    - id: title-level-4-heading
+      title: Level 4 Heading
+      title.zh: 四级标题
+      type: heading
+      level: 2
+      collapsed: true
+    - id: heading-h4-style
+      type: class-select
+      title: H4 Style
+      title.zh: H四 样式
+      allow-empty: false
+      default: heading-h4-normal
+      options:
+          - label: Normal
+            value: heading-h4-normal
+          - label: Underline
+            value: heading-h4-underline
+          - label: Full Line
+            value: heading-h4-full-line
+          - label: Block
+            value: heading-h4-block
+    - id: setting-h4-color
+      type: variable-themed-color
+      title: H4 Color
+      title.zh: H四 颜色
+      format: hex
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
+    - id: heading-h4-center
+      type: class-toggle
+      title: H4 Centered Text
+      title.zh: H四 文本居中
+      default: false
     - id: setting-h4-font
       type: variable-text
-      title: H4 Font
-      title.zh: 标题 4 字体
+      title: H4 Font Family
+      title.zh: H四 字体
       description: Any CSS "font-family" value
       description.zh: 任何 CSS “font-family” 值
       default: ""
+    - id: setting-h4-weight
+      type: variable-text
+      title: H4 Font Weight
+      title.zh: H四 字重
+      description: Any CSS "font-weight" value
+      description.zh: 任何 CSS “font-weight” 值
+      default: "550"
+    - id: heading-h4-caps
+      type: class-toggle
+      title: H4 Small Caps Text Variant
+      title.zh: H四 文本变体
+      description: Uses the form of uppercase letters but are reduced to the size of
+          lowercase letters
+      description.zh: 对于小写字母，使用大写字母的形式，但字号保持不变
+      default: false
+    - id: title-level-5-heading
+      title: Level 5 Heading
+      title.zh: 五级标题
+      type: heading
+      level: 2
+      collapsed: true
+    - id: heading-h5-style
+      type: class-select
+      title: H5 Style
+      title.zh: H五 样式
+      allow-empty: false
+      default: heading-h5-normal
+      options:
+          - label: Normal
+            value: heading-h5-normal
+          - label: Underline
+            value: heading-h5-underline
+          - label: Full Line
+            value: heading-h5-full-line
+          - label: Block
+            value: heading-h5-block
+    - id: setting-h5-color
+      type: variable-themed-color
+      title: H5 Color
+      title.zh: H五 颜色
+      format: hex
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
+    - id: heading-h5-center
+      type: class-toggle
+      title: H5 Centered Text
+      title.zh: H五 文本居中
+      default: false
     - id: setting-h5-font
       type: variable-text
-      title: H5 Font
-      title.zh: 标题 5 字体
+      title: H5 Font Family
+      title.zh: H五 字体
       description: Any CSS "font-family" value
       description.zh: 任何 CSS “font-family” 值
       default: ""
+    - id: setting-h5-weight
+      type: variable-text
+      title: H5 Font Weight
+      title.zh: H五 字重
+      description: Any CSS "font-weight" value
+      description.zh: 任何 CSS “font-weight” 值
+      default: "550"
+    - id: heading-h5-caps
+      type: class-toggle
+      title: H5 Small Caps Text Variant
+      title.zh: H五 文本变体
+      description: Uses the form of uppercase letters but are reduced to the size of
+          lowercase letters
+      description.zh: 对于小写字母，使用大写字母的形式，但字号保持不变
+      default: false
+    - id: title-level-6-heading
+      title: Level 6 Heading
+      title.zh: 六级标题
+      type: heading
+      level: 2
+      collapsed: true
+    - id: heading-h6-style
+      type: class-select
+      title: H6 Style
+      title.zh: H六 样式
+      allow-empty: false
+      default: heading-h6-normal
+      options:
+          - label: Normal
+            value: heading-h6-normal
+          - label: Underline
+            value: heading-h6-underline
+          - label: Full Line
+            value: heading-h6-full-line
+          - label: Block
+            value: heading-h6-block
+    - id: setting-h6-color
+      type: variable-themed-color
+      title: H6 Color
+      title.zh: H六 颜色
+      format: hex
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
+    - id: heading-h6-center
+      type: class-toggle
+      title: H6 Centered Text
+      title.zh: H六 文本居中
+      default: false
     - id: setting-h6-font
       type: variable-text
-      title: H6 Font
-      title.zh: 标题 6 字体
+      title: H6 Font Family
+      title.zh: H六 字体
       description: Any CSS "font-family" value
       description.zh: 任何 CSS “font-family” 值
       default: ""
+    - id: setting-h6-weight
+      type: variable-text
+      title: H6 Font Weight
+      title.zh: H六 字重
+      description: Any CSS "font-weight" value
+      description.zh: 任何 CSS “font-weight” 值
+      default: "500"
+    - id: heading-h6-caps
+      type: class-toggle
+      title: H6 Small Caps Text Variant
+      title.zh: H六 文本变体
+      description: Uses the form of uppercase letters but are reduced to the size of
+          lowercase letters
+      description.zh: 对于小写字母，使用大写字母的形式，但字号保持不变
+      default: true
     - id: title-horizontal-rule
       title: Horizontal Rule
       title.zh: 分隔线
@@ -1581,7 +1793,7 @@ body {
   );
   --background-primary-hsl: var(--base-accent-h), 12%, 97%;
   --background-primary: hsl(var(--background-primary-hsl));
-  --background-primary-alt: hsl(var(--base-accent-h), 15%, 95%);
+  --background-primary-alt: hsl(var(--base-accent-h), 10%, 96%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 8%, 93%;
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(
@@ -1589,10 +1801,6 @@ body {
     var(--theme-accent-inactive-s),
     max(70%, var(--accent-l) * 0.8),
     25%
-  );
-  --md-container-bg: var(
-    --setting-md-container-bg,
-    hsl(calc(var(--base-accent-h) + 8), 8%, 95%)
   );
   --text-on-accent: #fafafa !important;
 }
@@ -1616,19 +1824,19 @@ body {
 }
 
 .theme-dark {
-  --color-red-rgb: 236.64, 171.36, 171.36;
+  --color-red-rgb: 209.304, 137.496, 137.496;
   --color-red: rgba(var(--color-red-rgb), var(--color-opacity));
-  --color-orange-rgb: 229.5, 178.5, 153;
+  --color-orange-rgb: 206.04, 162.52, 140.76;
   --color-orange: rgba(var(--color-orange-rgb), var(--color-opacity));
-  --color-yellow-rgb: 238.17, 206.754, 159.63;
+  --color-yellow-rgb: 214.2, 181.56, 132.6;
   --color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity));
-  --color-green-rgb: 164.424, 223.176, 174.216;
+  --color-green-rgb: 147.288, 199.512, 155.992;
   --color-green: rgba(var(--color-green-rgb), var(--color-opacity));
-  --color-cyan-rgb: 161.16, 231.54, 229.194;
+  --color-cyan-rgb: 126.48, 199.92, 197.472;
   --color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity));
-  --color-blue-rgb: 142.8, 198.9, 255;
+  --color-blue-rgb: 126.48, 183.6, 240.72;
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity));
-  --color-purple-rgb: 212.8825, 207.825, 251.175;
+  --color-purple-rgb: 186.2265, 179.265, 238.935;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity));
   --color-opacity: 0.85;
   --theme-accent-active-h: var(--theme-accent-h);
@@ -1659,9 +1867,9 @@ body {
     calc(var(--theme-accent-active-s) * 0.7),
     calc(10% + var(--theme-accent-active-l) / 10)
   );
-  --background-primary-hsl: var(--base-accent-h), 5%, 9%;
+  --background-primary-hsl: var(--base-accent-h), 5%, 11%;
   --background-primary: hsl(var(--background-primary-hsl));
-  --background-primary-alt: hsl(var(--base-accent-h), 10%, 13%);
+  --background-primary-alt: hsl(var(--base-accent-h), 10%, 12%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 6%, 12%;
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(
@@ -1671,18 +1879,14 @@ body {
     20%
   );
   --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
-  --md-container-bg: var(
-    --setting-md-container-bg,
-    hsl(calc(var(--base-accent-h) - 4), 8%, 12%)
-  );
   --text-on-accent: #eaeaea !important;
 }
 .theme-dark.color-use-custom {
   --base-accent-h: var(--setting-accent-h-dark, 207);
   --theme-accent-active-s: 24%;
   --theme-accent-active-l: 42%;
-  --theme-accent-inactive-s: 15%;
-  --theme-accent-inactive-l: 36%;
+  --theme-accent-inactive-s: 12%;
+  --theme-accent-inactive-l: 28%;
 }
 .theme-dark.color-use-custom.color-active-alt-dark {
   --theme-accent-h: calc(var(--base-accent-h) + 60);
@@ -2016,16 +2220,10 @@ body.app-layout-card:not(.is-mobile) {
   --tab-active-shadow: none !important;
 }
 body.app-layout-card:not(.is-mobile).theme-light {
-  --md-container-bg: var(
-    --setting-md-container-bg,
-    hsl(calc(var(--base-accent-h) + 8), 8%, 96%, var(--bg-opacity))
-  );
+  --background-primary-alt: hsl(var(--base-accent-h), 12%, 95%);
 }
 body.app-layout-card:not(.is-mobile).theme-dark {
-  --md-container-bg: var(
-    --setting-md-container-bg,
-    hsl(calc(var(--base-accent-h) - 4), 8%, 11%, var(--bg-opacity))
-  );
+  --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
 }
 body.app-layout-card:not(.is-mobile).app-layout-card-plain {
   background-color: var(--background-secondary);
@@ -2071,7 +2269,7 @@ body.app-layout-card:not(.is-mobile).app-layout-card-gradient.theme-light {
 body.app-layout-card:not(.is-mobile).app-layout-card-gradient.theme-dark {
   --app-bg-image: linear-gradient(
     340deg,
-    hsl(calc(var(--base-accent-h) + 90), 11%, 22%),
+    hsl(calc(var(--base-accent-h) + 60), 11%, 22%),
     hsl(calc(var(--base-accent-h) - 10), 24%, 28%)
   );
 }
@@ -2098,6 +2296,9 @@ body.app-layout-card:not(.is-mobile).app-layout-card-border .workspace-tab-heade
 body.app-layout-card:not(.is-mobile).app-layout-card-border .workspace-tab-header.is-active {
   border-color: var(--background-modifier-border);
 }
+body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-header-container {
+  padding-left: var(--size-4-1);
+}
 body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-container {
   padding: var(--size-4-1);
   padding-top: 0;
@@ -2118,6 +2319,7 @@ body.app-layout-card:not(.is-mobile) :is(.workspace-tab-header-container,
 .workspace-fake-target-overlay:not(.is-in-sidebar) .workspace-tabs .workspace-leaf,
 .workspace-split:not(.mod-root) .workspace-tabs .workspace-leaf,
 .workspace-split.mod-root .workspace-tabs:not(.mod-stacked) .workspace-leaf,
+.workspace-split.mod-root .workspace-split,
 .pdf-toolbar) {
   background-color: transparent;
 }
@@ -2129,9 +2331,6 @@ body.app-layout-card:not(.is-mobile) .workspace-ribbon::before {
   background-color: var(--bg-surface);
 }
 body.app-layout-card:not(.is-mobile) .workspace-split {
-  background-color: var(--bg-surface);
-}
-body.app-layout-card:not(.is-mobile) .workspace-split.mod-root {
   background-color: var(--bg-surface);
 }
 body.app-layout-card:not(.is-mobile) :is(.workspace-split.mod-root .view-content, .view-header) {
@@ -2528,7 +2727,7 @@ body {
 /* #region code */
 :is(body, .print .markdown-rendered) {
   --inline-code: var(--setting-code-inline, var(--color-red));
-  --code-background: var(--setting-code-bg, var(--md-container-bg));
+  --code-background: var(--setting-code-bg, var(--background-primary-alt));
   --code-function: var(--color-blue);
   --code-important: var(--color-purple);
   --code-keyword: var(--color-purple);
@@ -3205,9 +3404,6 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-type {
   font-weight: 550;
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-builtin {
-  font-style: italic;
-}
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-keyword {
   font-style: italic;
 }
@@ -3243,8 +3439,8 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   width: calc(var(--code-size) - var(--size-2-1));
   height: calc(var(--code-size) - var(--size-2-1));
   position: absolute;
-  left: 0.8rem;
-  top: calc((var(--code-size) - var(--size-2-1)) * var(--line-height-normal) * 0.7 - var(--code-size) / 3);
+  left: 0.6rem;
+  top: calc((var(--code-size) - var(--size-2-1)) * var(--line-height-normal) * 0.6 - var(--code-size) / 4);
   border-radius: 50%;
   z-index: 9;
   background-color: rgba(255, 94, 92, var(--color-opacity));
@@ -3439,7 +3635,7 @@ body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .inter
   top: 50%;
   transform: translate(-50%, -50%);
   color: var(--accent-active);
-  background: var(--md-container-bg);
+  background: var(--background-primary-alt);
   border-radius: 50%;
 }
 
@@ -3664,6 +3860,7 @@ body:is(:not(.css-settings-manager), .list-enable) {
     var(--list-marker-color)
   );
   --list-marker-color-alt-render: transparent;
+  --checkbox-color: var(--accent-active);
   --checkbox-marker-color: var(--text-on-accent);
   --checkbox-border-color: var(
     --setting-list-checkbox-color,
@@ -3797,8 +3994,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   --list-marker-color-alt-render: var(--list-marker-color-alt);
 }
 
-/* #endregion list */
-/* #region list */
+/* #region list bullet */
 /* Reference: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1 */
 .list-enable.list-bullet-thread-style {
   --list-threading-width: var(--size-2-1);
@@ -4115,7 +4311,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   height: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 8);
 }
 
-/* #endregion list */
+/* #endregion list bullet */
 /* #region checkbox */
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task="!"], li[data-task="!"] > input, li[data-task="!"] > p > input):checked {
   --checkbox-color: var(--color-orange);
@@ -4336,9 +4532,10 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
 }
 
 /* #endregion checkbox */
+/* #endregion list */
 /* #region quote */
 :is(body, .print .markdown-rendered) {
-  --blockquote-background-color: var(--md-container-bg);
+  --blockquote-background-color: var(--background-primary-alt);
   --callout-radius: var(--radius-m);
 }
 
@@ -4418,7 +4615,7 @@ body :is(.HyperMD-quote:last-child,
 }
 
 .quote-border .markdown-rendered blockquote {
-  border: var(--block-outline-width) solid var(--background-modifier-border);
+  border: 1px solid var(--background-modifier-border);
   transition: var(--animation);
   box-shadow: none;
 }
@@ -4448,7 +4645,7 @@ body :is(.HyperMD-quote:last-child,
 }
 
 .quote-italic {
-  --blockquote-style: italic;
+  --blockquote-font-style: italic;
 }
 
 /* #endregion quote */
@@ -4500,7 +4697,7 @@ body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-
 }
 
 body {
-  --table-header-background: var(--md-container-bg);
+  --table-header-background: var(--background-primary-alt);
   --table-header-background-hover: var(--table-header-background);
   --table-cell-vertical-alignment: middle;
   --table-add-button-background: var(--background-modifier-hover);
@@ -4508,7 +4705,7 @@ body {
 }
 
 .table-colorful {
-  --table-background: var(--md-container-bg);
+  --table-background: var(--background-primary-alt);
   --table-header-color: var(--setting-table-header-bg, var(--text-on-accent));
   --table-header-background: var(
     --setting-table-header-text,
@@ -4640,42 +4837,66 @@ body {
 /* #endregion tag */
 /* #region heading */
 body {
-  --h1-size: calc(var(--font-text-size) * var(--setting-h1-size, 1.6));
-  --h2-size: calc(var(--font-text-size) * var(--setting-h2-size, 1.5));
-  --h3-size: calc(var(--font-text-size) * var(--setting-h3-size, 1.4));
-  --h4-size: calc(var(--font-text-size) * var(--setting-h4-size, 1.3));
-  --h5-size: calc(var(--font-text-size) * var(--setting-h5-size, 1.2));
-  --h6-size: calc(var(--font-text-size) * var(--setting-h6-size, 1.1));
-  --h1-weight: 750;
-  --h2-weight: 700;
-  --h3-weight: 600;
-  --h4-weight: 550;
-  --h5-weight: 550;
-  --h6-weight: 500;
-  --h1-line-height: calc(
-    var(--line-height-normal) * var(--h1-size) * var(--h1-size-factor, 1)
+  --h1-size: calc(
+    var(--font-text-size) * var(--setting-h1-size, 1.6)
   );
-  --h2-line-height: calc(
-    var(--line-height-normal) * var(--h2-size) * var(--h2-size-factor, 1)
-  );
-  --h3-line-height: calc(
-    var(--line-height-normal) * var(--h3-size) * var(--h3-size-factor, 1)
-  );
-  --h4-line-height: calc(
-    var(--line-height-normal) * var(--h4-size) * var(--h4-size-factor, 1)
-  );
-  --h5-line-height: calc(
-    var(--line-height-normal) * var(--h5-size) * var(--h5-size-factor, 1)
-  );
-  --h6-line-height: calc(
-    var(--line-height-normal) * var(--h6-size) * var(--h6-size-factor, 1)
-  );
+  --h1-weight: var(--setting-h1-weight, 750);
   --h1-font: var(--setting-h1-font, var(--font-text));
+  --h1-line-height: calc(
+    var(--line-height-normal) *
+      var(--h1-size) *
+      var(--h1-size-factor, 1)
+  );
+  --h2-size: calc(
+    var(--font-text-size) * var(--setting-h2-size, 1.5)
+  );
+  --h2-weight: var(--setting-h2-weight, 700);
   --h2-font: var(--setting-h2-font, var(--font-text));
+  --h2-line-height: calc(
+    var(--line-height-normal) *
+      var(--h2-size) *
+      var(--h2-size-factor, 1)
+  );
+  --h3-size: calc(
+    var(--font-text-size) * var(--setting-h3-size, 1.4)
+  );
+  --h3-weight: var(--setting-h3-weight, 600);
   --h3-font: var(--setting-h3-font, var(--font-text));
+  --h3-line-height: calc(
+    var(--line-height-normal) *
+      var(--h3-size) *
+      var(--h3-size-factor, 1)
+  );
+  --h4-size: calc(
+    var(--font-text-size) * var(--setting-h4-size, 1.3)
+  );
+  --h4-weight: var(--setting-h4-weight, 550);
   --h4-font: var(--setting-h4-font, var(--font-text));
+  --h4-line-height: calc(
+    var(--line-height-normal) *
+      var(--h4-size) *
+      var(--h4-size-factor, 1)
+  );
+  --h5-size: calc(
+    var(--font-text-size) * var(--setting-h5-size, 1.2)
+  );
+  --h5-weight: var(--setting-h5-weight, 550);
   --h5-font: var(--setting-h5-font, var(--font-text));
+  --h5-line-height: calc(
+    var(--line-height-normal) *
+      var(--h5-size) *
+      var(--h5-size-factor, 1)
+  );
+  --h6-size: calc(
+    var(--font-text-size) * var(--setting-h6-size, 1.1)
+  );
+  --h6-weight: var(--setting-h6-weight, 500);
   --h6-font: var(--setting-h6-font, var(--font-text));
+  --h6-line-height: calc(
+    var(--line-height-normal) *
+      var(--h6-size) *
+      var(--h6-size-factor, 1)
+  );
 }
 body.heading-color-base {
   --h1-color: var(--text-normal);
@@ -4693,26 +4914,77 @@ body.heading-color-accent {
   --h5-color: var(--accent-active);
   --h6-color: var(--accent-active);
 }
-body :is(h1, h2, h3, h4, h5, h6) {
-  margin: 0 !important;
+body.heading-h1-caps {
+  --h1-variant: small-caps;
+}
+body.heading-h1-center :is(.HyperMD-header-1, h1) {
+  text-align: center;
+}
+body.heading-h2-caps {
+  --h2-variant: small-caps;
+}
+body.heading-h2-center :is(.HyperMD-header-2, h2) {
+  text-align: center;
+}
+body.heading-h3-caps {
+  --h3-variant: small-caps;
+}
+body.heading-h3-center :is(.HyperMD-header-3, h3) {
+  text-align: center;
+}
+body.heading-h4-caps {
+  --h4-variant: small-caps;
+}
+body.heading-h4-center :is(.HyperMD-header-4, h4) {
+  text-align: center;
+}
+body.heading-h5-caps {
+  --h5-variant: small-caps;
+}
+body.heading-h5-center :is(.HyperMD-header-5, h5) {
+  text-align: center;
+}
+body.heading-h6-caps {
+  --h6-variant: small-caps;
+}
+body.heading-h6-center :is(.HyperMD-header-6, h6) {
+  text-align: center;
 }
 
 .markdown-source-view {
-  --h1-size-factor: 0.8;
-  --h2-size-factor: 0.8;
-  --h3-size-factor: 0.85;
-  --h4-size-factor: 0.85;
-  --h5-size-factor: 0.9;
-  --h6-size-factor: 0.9;
+  --h1-size-factor: list.nth($size-factors, $i);
+  --h2-size-factor: list.nth($size-factors, $i);
+  --h3-size-factor: list.nth($size-factors, $i);
+  --h4-size-factor: list.nth($size-factors, $i);
+  --h5-size-factor: list.nth($size-factors, $i);
+  --h6-size-factor: list.nth($size-factors, $i);
 }
 
 body:is(:not(.css-settings-manager), .heading-color-colorful) {
-  --h1-color: var(--setting-h1-color, var(--color-red));
-  --h2-color: var(--setting-h2-color, var(--color-orange));
-  --h3-color: var(--setting-h3-color, var(--color-green));
-  --h4-color: var(--setting-h4-color, var(--color-blue));
-  --h5-color: var(--setting-h5-color, var(--color-purple));
-  --h6-color: var(--setting-h6-color, var(--color-cyan));
+  --h1-color: var(
+    --setting-h1-color,
+    var(--color-red)
+  );
+  --h2-color: var(
+    --setting-h2-color,
+    var(--color-orange)
+  );
+  --h3-color: var(
+    --setting-h3-color,
+    var(--color-green)
+  );
+  --h4-color: var(
+    --setting-h4-color,
+    var(--color-blue)
+  );
+  --h5-color: var(
+    --setting-h5-color,
+    var(--color-purple)
+  );
+  --h6-color: var(
+    --setting-h6-color,
+    var(--color-cyan)
+  );
 }
 
 body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
@@ -4722,12 +4994,10 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   line-height: var(--line-height-normal);
 }
 
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header) {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header) {
   position: relative;
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header)::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header)::before {
   content: "";
   position: absolute;
   z-index: 1;
@@ -4743,25 +5013,23 @@ body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.m
   transform: translateY(-50%);
   left: calc(var(--size-4-5) * -1);
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):hover::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):hover::before {
   opacity: 0.9;
   pointer-events: all;
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div.is-collapsed > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(> .cm-foldPlaceholder))::before {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div.is-collapsed > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(> .cm-foldPlaceholder))::before {
   opacity: 0.9;
   text-decoration: underline 0.1rem;
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indiator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder)))::before {
   opacity: 0.4;
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indiator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder))):not(:hover)::before {
   color: var(--text-muted);
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indiator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder))):hover::before {
   opacity: 1;
 }
@@ -4881,12 +5149,91 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   color: var(--h6-color) !important;
 }
 
-.heading-h1-center h1 {
-  text-align: center;
+.heading-h1-underline :is(.HyperMD-header-1 .cm-header:not(.cm-formatting), h1), .heading-h2-underline :is(.HyperMD-header-2 .cm-header:not(.cm-formatting), h2), .heading-h3-underline :is(.HyperMD-header-3 .cm-header:not(.cm-formatting), h3), .heading-h4-underline :is(.HyperMD-header-4 .cm-header:not(.cm-formatting), h4), .heading-h5-underline :is(.HyperMD-header-5 .cm-header:not(.cm-formatting), h5), .heading-h6-underline :is(.HyperMD-header-6 .cm-header:not(.cm-formatting), h6) {
+  text-decoration: underline var(--size-2-1);
+  text-underline-offset: var(--size-4-2);
 }
 
-.heading-h6-variant :is(h6, .cm-header-6) {
-  font-variant: small-caps;
+:is(.heading-h1-full-line :is(.HyperMD-header-1, h1), .heading-h2-full-line :is(.HyperMD-header-2, h2), .heading-h3-full-line :is(.HyperMD-header-3, h3), .heading-h4-full-line :is(.HyperMD-header-4, h4), .heading-h5-full-line :is(.HyperMD-header-5, h5), .heading-h6-full-line :is(.HyperMD-header-6, h6))::after {
+  content: "";
+  position: absolute;
+  bottom: var(--size-2-1);
+  height: var(--size-2-1);
+  inset-inline: 0;
+  background-color: currentColor;
+  border-radius: var(--size-2-1);
+}
+
+.heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1) {
+  background-color: var(--h1-color);
+  color: var(--text-on-accent);
+  padding: var(--size-4-1) var(--size-4-2);
+  border-radius: var(--size-2-3);
+}
+.heading-h1-block h1 {
+  width: fit-content;
+  line-height: 1.2;
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h1-size));
+}
+
+.heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2) {
+  background-color: var(--h2-color);
+  color: var(--text-on-accent);
+  padding: var(--size-4-1) var(--size-4-2);
+  border-radius: var(--size-2-3);
+}
+.heading-h2-block h2 {
+  width: fit-content;
+  line-height: 1.2;
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h2-size));
+}
+
+.heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3) {
+  background-color: var(--h3-color);
+  color: var(--text-on-accent);
+  padding: var(--size-4-1) var(--size-4-2);
+  border-radius: var(--size-2-3);
+}
+.heading-h3-block h3 {
+  width: fit-content;
+  line-height: 1.2;
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h3-size));
+}
+
+.heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4) {
+  background-color: var(--h4-color);
+  color: var(--text-on-accent);
+  padding: var(--size-4-1) var(--size-4-2);
+  border-radius: var(--size-2-3);
+}
+.heading-h4-block h4 {
+  width: fit-content;
+  line-height: 1.2;
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h4-size));
+}
+
+.heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5) {
+  background-color: var(--h5-color);
+  color: var(--text-on-accent);
+  padding: var(--size-4-1) var(--size-4-2);
+  border-radius: var(--size-2-3);
+}
+.heading-h5-block h5 {
+  width: fit-content;
+  line-height: 1.2;
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h5-size));
+}
+
+.heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6) {
+  background-color: var(--h6-color);
+  color: var(--text-on-accent);
+  padding: var(--size-4-1) var(--size-4-2);
+  border-radius: var(--size-2-3);
+}
+.heading-h6-block h6 {
+  width: fit-content;
+  line-height: 1.2;
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h6-size));
 }
 
 /* #endregion heading */
@@ -5107,14 +5454,14 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
 .metadata-container {
   margin-block-end: var(--size-4-2);
   transition: var(--animation);
-  --metadata-property-background-hover: var(--md-container-bg);
+  --metadata-property-background-hover: var(--background-primary-alt);
   --metadata-label-background-active: var(--background-primary);
   --metadata-input-background-active: var(--background-primary);
 }
 .prop-outline .metadata-container {
   transform: none;
   --metadata-padding: var(--radius-m);
-  --metadata-background: var(--md-container-bg);
+  --metadata-background: var(--background-primary-alt);
   --metadata-border-width: var(--block-outline-width);
   --metadata-border-radius: var(--radius-m);
 }
@@ -5596,7 +5943,7 @@ body {
   --modal-height: min(85vh, var(--modal-max-height));
 }
 
-body:not(.is-mobile) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
+body :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
   background-color: var(--nav-item-background-active) !important;
 }
 
@@ -5732,7 +6079,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.21");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.22");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6085,6 +6432,9 @@ body.tab-float {
 body.tab-float.theme-light {
   --tab-active-shadow: var(--shadow-s);
 }
+body.tab-float .is-sidedock-collapsed + .mod-root .sidebar-toggle-button.mod-left {
+  margin-right: var(--size-4-2);
+}
 body.tab-float .mod-root .workspace-tab-header {
   padding-block: 0 !important;
   transition: color var(--animation), width var(--animation);
@@ -6095,8 +6445,7 @@ body.tab-float .mod-root .workspace-tab-header.is-active {
   box-shadow: var(--tab-active-shadow);
 }
 body.tab-float .mod-root .workspace-tab-header-container {
-  --tab-outline-width: 0 !important;
-  padding-left: 0;
+  padding-left: var(--size-4-1);
 }
 body.tab-float .mod-root .workspace-tab-header-container-inner {
   margin-top: var(--size-4-1);
@@ -6114,7 +6463,6 @@ body.tab-float .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-active) .wor
 }
 body.tab-float .workspace-tab-header-new-tab {
   padding-top: var(--size-4-1);
-  margin-left: calc(var(--size-4-3) * -1);
 }
 
 .view-header-title-parent:empty + .view-header-title {
@@ -6809,16 +7157,14 @@ body.explorer-folder-bold .nav-folder-title {
 }
 .empty-state-action-list::before {
   content: "";
-  position: absolute;
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='180' viewBox='0 0 140 180' fill='currentColor'><path d='M49.775 105.089C54.3828 103.715 61.8069 101.605 70.3434 101.082C65.2222 88.1449 63.986 76.8242 64.9803 66.7442C66.1285 55.1033 70.23 45.3874 74.228 37.1201C75.0811 35.3561 75.9012 33.7135 76.6879 32.1378C77.8017 29.9069 78.8486 27.81 79.8278 25.6916C81.4579 22.1652 82.6674 19.051 83.2791 16.1576C83.8806 13.3125 83.8838 10.7715 83.1727 8.3342C82.4607 5.89352 80.9475 3.26635 78.0704 0.386692C74.3134 -0.587559 70.1448 0.267767 67.0197 3.08162L29.9298 36.4772C27.861 38.34 26.503 40.8642 26.0879 43.6182L22.8899 64.8384C27.9185 69.2873 40.33 82.2201 47.8789 100.165C48.5525 101.766 49.1875 103.408 49.775 105.089Z' /><path d='M21.3902 74.5293C21.2153 75.2761 20.9692 76.0051 20.6549 76.7063L1.05225 120.436C-0.961131 124.928 -0.0336421 130.194 3.39276 133.726L34.2418 165.523C49.9952 142.262 47.6984 120.379 40.5026 103.274C35.0465 90.3037 26.777 80.1526 21.3902 74.5293Z' /><path d='M41.3687 169.269C41.9093 169.355 42.4575 169.407 43.0096 169.424C48.864 169.6 58.7098 170.109 66.6947 171.582C73.2088 172.783 86.1213 176.397 96.747 179.505C104.855 181.877 113.211 175.396 114.387 167.024C115.245 160.917 116.855 154.009 119.821 147.677L119.753 147.702C114.73 133.682 108.34 124.629 101.641 118.849C94.9619 113.086 87.7708 110.397 80.8276 109.42C69.2835 107.795 58.7071 110.832 52.0453 112.791C56.0353 129.428 54.8074 149.004 41.3687 169.269Z' /><path d='M124.96 139.034C131.626 128.965 136.375 121.134 138.881 116.888C140.135 114.764 139.907 112.102 138.423 110.133C134.554 105.002 127.152 94.5755 123.12 84.9218C118.973 74.9962 118.355 59.5866 118.319 52.081C118.306 49.2279 117.402 46.4413 115.639 44.1994L91.6762 13.73C91.5918 15.1034 91.3946 16.4659 91.1093 17.8158C90.3118 21.5882 88.8073 25.3437 87.0916 29.0552C86.086 31.2306 84.9238 33.5612 83.7497 35.9157C82.9682 37.4827 82.1814 39.0607 81.432 40.6102C77.5579 48.6212 73.9528 57.3151 72.9451 67.5313C72.011 77.0006 73.2894 88.014 79.0482 101.162C80.0074 101.243 80.9727 101.351 81.9422 101.487C90.2067 102.651 98.8807 105.891 106.866 112.781C113.73 118.704 119.932 127.19 124.96 139.034Z' /></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
-  color: hsla(256, 92%, 76%, 0.2);
+  color: hsla(256, 52%, 76%, 0.2);
   width: calc(2 * var(--size-4-12));
   height: calc(2 * var(--size-4-12));
   margin-inline-start: 50%;
-  translate: -50%;
-  top: calc(-2 * var(--size-4-12) - var(--size-4-8));
+  translate: -50% -50%;
 }
 .empty-state-action-list > ::before {
   content: "";
@@ -6860,10 +7206,8 @@ body.explorer-folder-bold .nav-folder-title {
 .is-mobile {
   --interactive-hover: var(--background-modifier-hover);
   --system-access-override-text-width: auto;
-  --scrollbar-thumb-bg: var(--accent-active);
-}
-.is-mobile input[type=search] {
-  background-color: var(--background-primary);
+  --scrollbar-thumb-bg: var(--interactive-hover);
+  --scrollbar-active-thumb-bg: var(--interactive-accent);
 }
 .is-mobile .modal-close-button::before {
   transform: translate(20%, 20%);
