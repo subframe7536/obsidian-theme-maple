@@ -436,6 +436,7 @@ body.modal-blur .modal-bg {
 
 .prompt-input-container {
   border-bottom: var(--divider-width) solid var(--divider-color);
+  margin-top: var(--size-4-2);
   input {
     border: none !important;
     outline: none !important;
