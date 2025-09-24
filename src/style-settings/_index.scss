@@ -116,7 +116,14 @@ html[lang='zh'] {
       [data-id='setting-accent-h-dark']
     ) {
     input.slider {
-      height: 0.8em;
+      --slider-thumb-height: var(--size-4-6);
+      --slider-thumb-width: var(--size-2-2);
+      --slider-track-height: calc(var(--slider-thumb-height) - var(--size-4-3));
+      --slider-thumb-radius: var(--slider-thumb-width);
+      --slider-thumb-y: calc(
+        (var(--slider-track-height) - var(--slider-thumb-height)) / 1.5
+      );
+      border-radius: var(--radius-s);
       $s: 60%;
       $l: 60%;
       background: linear-gradient(
@@ -135,7 +142,11 @@ html[lang='zh'] {
         hsl(330 $s $l),
         hsl(360 $s $l)
       );
-      border-radius: var(--size-2-1);
+
+      &::-webkit-slider-thumb {
+        box-shadow: none;
+        border-width: 1px;
+      }
     }
 
     .setting-item-control::before {
