@@ -137,7 +137,7 @@ body.line-active-left {
     position: absolute;
     inset-block: var(--size-4-1);
     left: calc(var(--size-4-3) * -1);
-    background-color: var(--accent-active) !important;
+    background-color: var(--accent-active-bg) !important;
     border-radius: var(--size-2-1);
   }
 }

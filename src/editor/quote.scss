@@ -45,7 +45,7 @@ body {
       border-radius: var(--blockquote-radius);
       height: calc(100% - var(--blockquote-radius) * 2);
       width: var(--blockquote-border-thickness);
-      background-color: var(--accent-active);
+      background-color: var(--accent-active-bg);
     }
 
     blockquote {

@@ -136,7 +136,7 @@ body:not(.is-mobile) {
       background-color: var(--accent-inactive);
 
       &::before {
-        background-color: var(--accent-active);
+        background-color: var(--accent-active-bg);
       }
 
       &::after {

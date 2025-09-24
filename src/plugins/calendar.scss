@@ -85,7 +85,7 @@ body.calendar-swap-year-month #calendar-container .nav {
   .today {
     --color-dot: var(--text-on-accent);
     color: var(--text-on-accent);
-    background-color: var(--accent-active);
+    background-color: var(--accent-active-bg);
   }
 
   .reset-button {

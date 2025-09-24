@@ -8,6 +8,12 @@ body {
     var(--theme-accent-active-s),
     var(--theme-accent-active-l)
   );
+  --accent-active-bg: hsla(
+    var(--theme-accent-active-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l),
+    var(--color-opacity)
+  );
   --accent-inactive: hsl(
     var(--theme-accent-inactive-h),
     var(--theme-accent-inactive-s),
@@ -57,7 +63,7 @@ body {
   --divider-width-hover: var(--size-4-1);
 
   // tree item color
-  --nav-item-background-active: var(--accent-active);
+  --nav-item-background-active: var(--accent-active-bg);
   --nav-item-background-selected: var(--background-modifier-hover);
 
   --line-height-normal: var(--setting-line-height, 1.8);
@@ -155,24 +161,24 @@ body {
   --theme-accent-inactive-l: calc(30% + var(--accent-l) / 10);
 
   $default-accent-s: 24%;
-  $default-accent-l: 48%;
+  $default-accent-l: 52%;
   --color-accent-hsl: var(--base-accent-h), #{$default-accent-s},
-    #{$default-accent-l};
+    #{$default-accent-l * 0.85};
   --color-accent: hsl(var(--color-accent-hsl));
   --color-accent-1: hsl(
     calc(var(--base-accent-h) - 3),
     #{$default-accent-s * 1.02},
-    #{$default-accent-l * 1.15}
+    #{$default-accent-l * 0.85 * 1.15}
   );
   --color-accent-2: hsl(
     calc(var(--base-accent-h) - 5),
     #{$default-accent-s * 1.05},
-    #{$default-accent-l * 1.29}
+    #{$default-accent-l * 0.85 * 1.29}
   );
   --frame-bg: hsl(
     var(--base-accent-h),
     #{$default-accent-s * 0.7},
-    #{10% + $default-accent-l * 0.1}
+    #{10% + $default-accent-l * 0.85 * 0.1}
   );
 
   --background-primary-hsl: var(--base-accent-h), 5%, 11%;
