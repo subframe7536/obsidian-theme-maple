@@ -1,4 +1,4 @@
-import { descValidCSS, Settings } from './generator'
+import { descReference, descValidCSS, Settings } from './generator'
 
 interface HeadingConfig {
   style?: 'normal' | 'underline' | 'full-line' | 'block'
@@ -309,13 +309,10 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       { default: 'clamp(600px, 72%, 850px)' },
     )
     .addClassSelect(
-      'line-indicator-enable',
+      'line-indicator',
       {
         title: { en: 'Hover Line Indicator', zh: '鼠标悬停行指示器' },
-        desc: {
-          en: 'Reference: https://github.com/Akifyss/obsidian-border',
-          zh: '参考：https://github.com/Akifyss/obsidian-border',
-        },
+        desc: descReference('https://github.com/Akifyss/obsidian-border'),
       },
       {
         allowEmpty: false,
@@ -566,10 +563,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'image-zoom',
       {
         title: { en: 'Click to Zoom Image', zh: '鼠标按下时放大图片' },
-        desc: {
-          en: 'Reference: https://github.com/aaaaalexis/obsidian-cupertino',
-          zh: '参考：https://github.com/aaaaalexis/obsidian-cupertino',
-        },
+        desc: descReference('https://github.com/aaaaalexis/obsidian-cupertino'),
       },
       { enable: true },
     )
@@ -634,10 +628,13 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           en: 'Logseq Bullet Thread Style List',
           zh: 'Logseq Bullet Thread 样式的列表',
         },
-        desc: {
-          en: 'Only support bullet list in Live Preview mode. Reference: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1.',
-          zh: '仅支持实时预览模式中的无序列表。参考：https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1',
-        },
+        desc: descReference(
+          'https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1',
+          {
+            en: 'Only support bullet list in Live Preview mode',
+            zh: '仅支持实时预览模式中的无序列表',
+          },
+        ),
       },
       { enable: true },
     )

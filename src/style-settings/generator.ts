@@ -15,6 +15,16 @@ export function descValidCSS(property: string): Translate {
   return { en, zh }
 }
 
+export function descReference(source: string, prefix?: Translate): Translate {
+  let en = `Reference from ${source}`
+  let zh = `参考自 ${source}`
+  if (prefix) {
+    en = `${prefix.en}. ${en}`
+    zh = `${prefix.zh}。${zh}`
+  }
+  return { en, zh }
+}
+
 function kebabCase(str: string): string {
   return str
     .replace(/([a-z])([A-Z])/g, '$1-$2')

@@ -1,4 +1,4 @@
-import { descValidCSS, Settings } from './generator'
+import { descReference, descValidCSS, Settings } from './generator'
 import { version } from '../../package.json'
 
 export default Settings.create('maple-workspace', 'Maple Workspace').children([
@@ -95,10 +95,13 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         en: 'Logseq Bullet Thread Style Outline',
         zh: 'Logseq 样式的文档大纲视图',
       },
-      desc: {
-        en: 'Please reload Obsidian after enabling this feature. Reference: https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
-        zh: '启用此功能后请重启 Obsidian。参考：https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
-      },
+      desc: descReference(
+        'https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
+        {
+          en: 'Please reload Obsidian after enabling this feature',
+          zh: '启用此功能后请重启 Obsidian',
+        },
+      ),
     })
     .addVarNumSlider(
       'setting-outline-width',
@@ -246,6 +249,15 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, {
     title: { en: 'Tab and Navigation Bar', zh: '标签页和导航栏' },
   })
+    .addClassToggle('labeled-nav', {
+      title: {
+        en: 'Enable Labeled Navigation Bar',
+        zh: '启用带文字的导航栏',
+      },
+      desc: descReference(
+        'https://github.com/kepano/obsidian-minimal/blob/master/src/scss/features/labeled-nav.scss',
+      ),
+    })
     .addClassToggle('tab-float', {
       title: {
         en: 'Enable Floating Style',
