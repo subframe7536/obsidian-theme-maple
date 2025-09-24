@@ -155,7 +155,7 @@ body {
   --theme-accent-inactive-l: calc(30% + var(--accent-l) / 10);
 
   $default-accent-s: 24%;
-  $default-accent-l: 42%;
+  $default-accent-l: 48%;
   --color-accent-hsl: var(--base-accent-h), #{$default-accent-s},
     #{$default-accent-l};
   --color-accent: hsl(var(--color-accent-hsl));
@@ -195,7 +195,7 @@ body {
     --theme-accent-active-s: #{$default-accent-s};
     --theme-accent-active-l: #{$default-accent-l};
     --theme-accent-inactive-s: 12%;
-    --theme-accent-inactive-l: 28%;
+    --theme-accent-inactive-l: 32%;
 
     &.color-active-alt-dark {
       --theme-accent-h: calc(var(--base-accent-h) + 60);
