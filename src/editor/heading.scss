@@ -44,6 +44,9 @@ body {
     &.heading-h#{$i}-caps {
       --h#{$i}-variant: small-caps;
     }
+    &.heading-h#{$i}-italic {
+      --h#{$i}-style: italic;
+    }
     &.heading-h#{$i}-center :is(.HyperMD-header-#{$i}, h#{$i}) {
       text-align: center;
     }

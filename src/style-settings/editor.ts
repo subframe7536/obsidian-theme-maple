@@ -20,7 +20,7 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
       {
         title: {
           en: `H${level} Style`,
-          zh: `H${CN_NUMBERS[level - 1]} 样式`,
+          zh: `H${level} 样式`,
         },
       },
       {
@@ -39,7 +39,7 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
       {
         title: {
           en: `H${level} Color`,
-          zh: `H${CN_NUMBERS[level - 1]} 颜色`,
+          zh: `H${level} 颜色`,
         },
       },
       'hex',
@@ -49,17 +49,23 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
       {
         title: {
           en: `H${level} Centered Text`,
-          zh: `H${CN_NUMBERS[level - 1]} 文本居中`,
+          zh: `H${level} 居中文本`,
         },
       },
       { enable: align === 'center' },
     )
+    .addClassToggle(`heading-h${level}-italic`, {
+      title: {
+        en: `H${level} Italic Text`,
+        zh: `H${level} 斜体文本`,
+      },
+    })
     .addVarText(
       `setting-h${level}-font`,
       {
         title: {
           en: `H${level} Font Family`,
-          zh: `H${CN_NUMBERS[level - 1]} 字体`,
+          zh: `H${level} 字体`,
         },
         desc: descValidCSS('font-family'),
       },
@@ -70,7 +76,7 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
       {
         title: {
           en: `H${level} Font Weight`,
-          zh: `H${CN_NUMBERS[level - 1]} 字重`,
+          zh: `H${level} 字重`,
         },
         desc: descValidCSS('font-weight'),
       },
@@ -81,11 +87,11 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
       {
         title: {
           en: `H${level} Small Caps Text Variant`,
-          zh: `H${CN_NUMBERS[level - 1]} 文本变体`,
+          zh: `H${level} 文本变体`,
         },
         desc: {
           en: 'Uses the form of uppercase letters but are reduced to the size of lowercase letters',
-          zh: '对于小写字母，使用大写字母的形式，但字号保持不变',
+          zh: '将小写字母转换成大写字母，但字号保持不变',
         },
       },
       { enable: smallCaps },
