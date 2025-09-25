@@ -258,12 +258,16 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         'https://github.com/kepano/obsidian-minimal/blob/master/src/scss/features/labeled-nav.scss',
       ),
     })
-    .addClassToggle('tab-float', {
-      title: {
-        en: 'Enable Floating Style',
-        zh: '启用浮动风格',
+    .addClassToggle(
+      'tab-float',
+      {
+        title: {
+          en: 'Enable Floating Style',
+          zh: '启用浮动风格',
+        },
       },
-    })
+      { enable: true },
+    )
     .addClassToggle('tab-slide-up', {
       title: {
         en: 'Enable Tab Slide Up Animation',

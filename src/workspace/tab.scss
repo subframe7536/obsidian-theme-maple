@@ -9,7 +9,7 @@
   }
 }
 
-body.tab-float {
+@include use-no-plugin('.tab-float') {
   --tab-radius: var(--size-2-3);
 
   &.theme-light {
