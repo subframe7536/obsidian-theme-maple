@@ -303,6 +303,7 @@ button {
 
   .community-item {
     --interactive-accent: var(--accent-active);
+    transition: border-color var(--animation);
   }
 
   .modal-sidebar:not(:has(+ .community-modal-details)) {
