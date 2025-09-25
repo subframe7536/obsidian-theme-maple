@@ -103,9 +103,15 @@ body.calendar-swap-year-month #calendar-container .nav {
   }
 }
 
-body.calendar-weekend #calendar-container {
-  tbody tr td:nth-last-child(2),
-  tbody tr td:nth-last-child(1) {
+@for $i from 1 through 7 {
+  $start: $i;
+  $end: if($i == 7, 1, $i + 1);
+  @debug $start $end;
+  .calendar-end-#{$start}-#{$end}
+    #calendar-container
+    tbody
+    tr
+    td:is(:nth-child(#{$start}), :nth-child(#{$end})) {
     background-color: hsla(var(--color-accent-hsl), 0.1);
   }
 }
