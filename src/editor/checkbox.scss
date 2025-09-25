@@ -76,7 +76,7 @@
     'tb:thumb-down-filled',
     var(--color-red)
   );
-  @include create-symbol-override('“', 'bi:quote', var(--color-purple));
+  @include create-symbol-override(('“', '"'), 'bi:quote', var(--color-purple));
   @include create-symbol-override('W', 'tb:trophy-filled', var(--color-yellow));
   @include create-symbol('S', 'bi:currency-dollar', var(--color-green));
   @include create-symbol-override('u', 'tb:trending-up', var(--color-green));

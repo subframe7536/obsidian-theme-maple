@@ -107,6 +107,7 @@ Extensive customization options available in the Style Settings plugin.
 ## Credits
 
 Inspired by:
+- [Minimal](https://github.com/kepano/obsidian-minimal)
 - [Blue Topaz](https://github.com/whyt-byte/Blue-Topaz_Obsidian-css)
 - [Mado Miniflow](https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow)
 - [Border](https://github.com/Akifyss/obsidian-border)

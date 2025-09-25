@@ -106,7 +106,6 @@ body.calendar-swap-year-month #calendar-container .nav {
 @for $i from 1 through 7 {
   $start: $i;
   $end: if($i == 7, 1, $i + 1);
-  @debug $start $end;
   .calendar-end-#{$start}-#{$end}
     #calendar-container
     tbody
