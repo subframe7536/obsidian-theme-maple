@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.23 For Obsidian */
+/* Maple Theme v1.0.0-beta.24 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -364,7 +364,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.23'"
+      default: "'maple 1.0.0-beta.24'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -1742,6 +1742,12 @@ body {
     var(--theme-accent-active-s),
     var(--theme-accent-active-l)
   );
+  --accent-active-bg: hsla(
+    var(--theme-accent-active-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l),
+    var(--color-opacity)
+  );
   --accent-inactive: hsl(
     var(--theme-accent-inactive-h),
     var(--theme-accent-inactive-s),
@@ -1783,7 +1789,7 @@ body {
   --block-outline-width: var(--size-2-1);
   --divider-color: var(--color-base-30);
   --divider-width-hover: var(--size-4-1);
-  --nav-item-background-active: var(--accent-active);
+  --nav-item-background-active: var(--accent-active-bg);
   --nav-item-background-selected: var(--background-modifier-hover);
   --line-height-normal: var(--setting-line-height, 1.8);
   --line-height-tight: var(--setting-item-line-height, 1.5);
@@ -1884,22 +1890,22 @@ body {
   --theme-accent-inactive-s: calc(15% + var(--accent-s) / 10);
   --theme-accent-inactive-l: calc(30% + var(--accent-l) / 10);
   --color-accent-hsl: var(--base-accent-h), 24%,
-    48%;
+    44.2%;
   --color-accent: hsl(var(--color-accent-hsl));
   --color-accent-1: hsl(
     calc(var(--base-accent-h) - 3),
     24.48%,
-    55.2%
+    50.83%
   );
   --color-accent-2: hsl(
     calc(var(--base-accent-h) - 5),
     25.2%,
-    61.92%
+    57.018%
   );
   --frame-bg: hsl(
     var(--base-accent-h),
     16.8%,
-    14.8%
+    14.42%
   );
   --background-primary-hsl: var(--base-accent-h), 5%, 11%;
   --background-primary: hsl(var(--background-primary-hsl));
@@ -1918,7 +1924,7 @@ body {
 .theme-dark.color-use-custom {
   --base-accent-h: var(--setting-accent-h-dark, 207);
   --theme-accent-active-s: 24%;
-  --theme-accent-active-l: 48%;
+  --theme-accent-active-l: 52%;
   --theme-accent-inactive-s: 12%;
   --theme-accent-inactive-l: 32%;
 }
@@ -2548,7 +2554,7 @@ body.line-active-left .markdown-source-view .cm-line.cm-active:not(.HyperMD-head
   position: absolute;
   inset-block: var(--size-4-1);
   left: calc(var(--size-4-3) * -1);
-  background-color: var(--accent-active) !important;
+  background-color: var(--accent-active-bg) !important;
   border-radius: var(--size-2-1);
 }
 
@@ -4622,7 +4628,7 @@ body .markdown-rendered blockquote::after {
   border-radius: var(--blockquote-radius);
   height: calc(100% - var(--blockquote-radius) * 2);
   width: var(--blockquote-border-thickness);
-  background-color: var(--accent-active);
+  background-color: var(--accent-active-bg);
 }
 body .markdown-rendered blockquote blockquote {
   box-shadow: none;
@@ -5233,6 +5239,9 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   border-radius: var(--size-2-1);
 }
 
+.heading-h1-block.heading-color-accent {
+  --h1-color: var(--accent-active-bg);
+}
 .heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1) {
   background-color: var(--h1-color);
   color: var(--text-on-accent);
@@ -5251,6 +5260,9 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h1-size));
 }
 
+.heading-h2-block.heading-color-accent {
+  --h2-color: var(--accent-active-bg);
+}
 .heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2) {
   background-color: var(--h2-color);
   color: var(--text-on-accent);
@@ -5269,6 +5281,9 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h2-size));
 }
 
+.heading-h3-block.heading-color-accent {
+  --h3-color: var(--accent-active-bg);
+}
 .heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3) {
   background-color: var(--h3-color);
   color: var(--text-on-accent);
@@ -5287,6 +5302,9 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h3-size));
 }
 
+.heading-h4-block.heading-color-accent {
+  --h4-color: var(--accent-active-bg);
+}
 .heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4) {
   background-color: var(--h4-color);
   color: var(--text-on-accent);
@@ -5305,6 +5323,9 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h4-size));
 }
 
+.heading-h5-block.heading-color-accent {
+  --h5-color: var(--accent-active-bg);
+}
 .heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5) {
   background-color: var(--h5-color);
   color: var(--text-on-accent);
@@ -5323,6 +5344,9 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h5-size));
 }
 
+.heading-h6-block.heading-color-accent {
+  --h6-color: var(--accent-active-bg);
+}
 .heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6) {
   background-color: var(--h6-color);
   color: var(--text-on-accent);
@@ -5834,7 +5858,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 #calendar-container .today {
   --color-dot: var(--text-on-accent);
   color: var(--text-on-accent);
-  background-color: var(--accent-active);
+  background-color: var(--accent-active-bg);
 }
 #calendar-container .reset-button {
   white-space: nowrap;
@@ -6080,14 +6104,16 @@ input {
 body:not(.is-mobile).modal-slider input[type=range] {
   --slider-track-background: var(--accent-inactive);
 }
+body:not(.is-mobile).modal-slider input[type=range]:focus {
+  --slider-thumb-ring-factor: 5;
+}
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb {
-  --slider-thumb-ring: calc(var(--slider-thumb-width) / 4 * 0.9);
-  box-shadow: inset 0 0 0 var(--slider-thumb-ring) var(--color-base-20), inset 0 0 0 calc(var(--slider-thumb-width) / 2) var(--accent-active), var(--input-shadow);
+  box-shadow: inset 0 0 0 calc(var(--slider-thumb-width) / var(--slider-thumb-ring-factor, 4) * 0.9) var(--color-base-20), inset 0 0 0 calc(var(--slider-thumb-width) / 2) var(--accent-active), var(--input-shadow);
   transition: var(--animation);
   border-width: 0;
 }
-body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:is(:hover, :active) {
-  --slider-thumb-ring: calc(var(--slider-thumb-width) / 5 * 0.9);
+body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:is(:hover, :active, :focus) {
+  --slider-thumb-ring-factor: 5;
 }
 body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
@@ -6161,7 +6187,7 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled {
   background-color: var(--accent-inactive);
 }
 body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled::before {
-  background-color: var(--accent-active);
+  background-color: var(--accent-active-bg);
 }
 body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled::after {
   border-color: var(--accent-active);
@@ -6184,7 +6210,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.23");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.24");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7332,7 +7358,7 @@ body.is-phone.mobile-floating-button .mod-root .workspace-leaf-content[data-type
   right: var(--size-4-4);
   bottom: 0;
   color: var(--text-on-accent);
-  background-color: var(--accent-active);
+  background-color: var(--accent-active-bg);
   margin-bottom: calc(var(--safe-area-inset-bottom) + var(--size-4-4));
   border-radius: 100%;
   padding: var(--size-4-3);
