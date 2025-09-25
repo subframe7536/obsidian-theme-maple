@@ -38,6 +38,11 @@ html[lang='zh'] {
   --system-accent-override-text-cotent: '由 Style Settings 插件控制';
 }
 
+.setting-item-info:has(+ .setting-item-control > .style-settings-import)
+  .setting-item-name {
+  padding: var(--size-4-1);
+}
+
 .color-use-custom {
   .mod-settings
     .vertical-tab-content-container
