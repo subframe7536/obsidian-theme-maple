@@ -12,6 +12,8 @@ A sleek and modern Obsidian theme for desktop and mobile, featuring awesome comp
   <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=subframe7536&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" height="36" />
 </a>
 
+Or support me through [Afdian (PayPal)](https://afdian.com/a/subframe7536)
+
 > **Note:** Backward compatibility is not guaranteed due to time constraints.
 
 ## Table of Contents
