@@ -1,100 +1,119 @@
 # Maple
 
-An Obsidian theme for desktop with some awesome components, using `Style Setting` to custom preference, embed with self-designed monospace font [Maple Mono](https://github.com/subframe7536/maple-font)
+[![GitHub stars](https://img.shields.io/github/stars/subframe7536/obsidian-theme-maple?style=social)](https://github.com/subframe7536/obsidian-theme-maple)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Style Settings](https://img.shields.io/badge/Style%20Settings-Enabled-blue)](https://github.com/mgmeyers/obsidian-style-settings)
 
-- my plugin to beautify devtools: [repo](https://github.com/subframe7536/obsidian-devtools-font-and-scrollbar)
+A sleek and modern Obsidian theme for desktop and mobile, featuring awesome components and customizable preferences via the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. It includes the self-designed monospace font [Maple Mono](https://github.com/subframe7536/maple-font).
 
-![](img/screenshot_source.webp)
+![Screenshot](img/screenshot.png)
 
-<a href="https://www.buymeacoffee.com/subframe753"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=subframe753&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" /></a>
+<a href="https://www.buymeacoffee.com/subframe7536">
+  <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=subframe7536&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" height="36" />
+</a>
 
-**does not guarantee backward compatibility due to working time limitations**
+> **Note:** Backward compatibility is not guaranteed due to time constraints.
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Components](#components)
+- [Todo](#todo)
+- [Credits](#credits)
+- [License](#license)
 
 ## Quick Start
 
-### Install Theme
+### Install the Theme
 
-1. Open Obsidian and go to Settings.
-2. Click on the Appearance tab.
-3. Click on the Manage button to open Community Store.
-4. In the Filter... Search Box, search "Maple".
-5. Click the Install and use button.
+1. Open Obsidian and navigate to **Settings > Appearance**.
+2. Click **Manage** to open the Community Themes store.
+3. Search for **"Maple"** in the filter box.
+4. Click **Install and Enable**.
 
-### Customize (👍 Recommend)
+### Customize (Recommended) ✨
 
-by community plugin: Style Settings
+Enhance your experience with the **Style Settings** community plugin:
 
-1. Open Obsidian and go to Settings.
-2. Click on the Community plugins tab.
-3. Click on the Browse button.
-4. In the Search community plugins... Search Box, search for Style Settings.
-5. Click the Install button.
-6. Click the Enable button once the plugin is finished installing.
+1. Go to **Settings > Community Plugins > Browse**.
+2. Search for **"Style Settings"** and install it.
+3. Enable the plugin.
+4. In **Settings > Appearance > CSS snippets**, you'll find Maple's style options.
 
 ## Components
 
 ### Dynamic Theme
 
-dynamic theme with customable accent color
+Supports dynamic theming with customizable accent colors.
 
-![](img/dynamic.png)
+![Dynamic Theme](img/dynamic.png)
 
-### Outline
+### Outline Panel
 
-in outline panel
+Enhanced styling for the outline view.
 
-![](./img/outline.gif)
+![Outline](img/outline.gif)
 
 ### Document Search
 
-![](img/container-query.gif)
+Modern container query-based search interface.
 
-### Scrollbar Style
+![Document Search](img/container-query.gif)
 
-background color transition and overlay
+### Scrollbar
 
-![](img/scrollbar.gif)
+Smooth background transitions and overlay effects.
 
-### Code Block
+![Scrollbar](img/scrollbar.gif)
 
-![](img/code.png)
+### Code Blocks
 
-### Quote
+Beautiful syntax highlighting and presentation.
 
-live preview
+![Code Block](img/code.png)
 
-![](img/quote.png)
+### Quotes
 
-### Toggle Button Style
+Live preview enhancements for blockquotes.
 
-![](img/toggle.gif)
+![Quote](img/quote.png)
 
-### Blur Menu
+### Toggle Buttons
 
-![](img/blur.png)
+Interactive and visually appealing toggles.
 
-### Modal Panel Title
+![Toggle](img/toggle.gif)
 
-![](img/input.gif)
+### Blur Effects
+
+Subtle blur on menus and overlays.
+
+![Blur Menu](img/blur.png)
+
+### Modal Inputs
+
+Improved title and input styling in modals.
+
+![Modal Input](img/input.gif)
 
 ### Style Settings
 
-**more** options can be configured in Style Settings plugin
+Extensive customization options available in the Style Settings plugin.
 
-![](img/style_setting.png)
+![Style Settings](img/style_setting.png)
 
-## Todo
+## Credits
 
-- [ ] mobile support
-- [ ] callouts
-- [ ] dataview
-
-### Credit
-
+Inspired by:
 - [Blue Topaz](https://github.com/whyt-byte/Blue-Topaz_Obsidian-css)
 - [Mado Miniflow](https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow)
 - [Border](https://github.com/Akifyss/obsidian-border)
+- [Cupertino](https://github.com/aaaaalexis/obsidian-cupertino/)
+- [Baseline](https://github.com/aaaaalexis/obsidian-baseline)
+- [Velocity](https://github.com/Gonzalo-D-Sales/obsidian-velocity)
+
+Enhance your DX on Windows with my plugin: [Obsidian DevTools Font and Scrollbar](https://github.com/subframe7536/obsidian-devtools-font-and-scrollbar)
 
 ## License
 
-MIT
+[MIT License](LICENSE)
