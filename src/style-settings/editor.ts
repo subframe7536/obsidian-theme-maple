@@ -459,11 +459,9 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         align: 'center',
       }),
       createHeadingSettings(2, {
-        style: 'block',
-      }),
-      createHeadingSettings(3, {
         style: 'underline',
       }),
+      createHeadingSettings(3),
       createHeadingSettings(4),
       createHeadingSettings(5),
       createHeadingSettings(6, {

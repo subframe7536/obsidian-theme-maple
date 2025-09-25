@@ -235,14 +235,17 @@ $full-selectors: ();
   );
 }
 
-:is(#{$full-selectors})::after {
-  content: '';
-  position: absolute;
-  bottom: var(--size-2-1);
-  height: var(--size-2-1);
-  inset-inline: 0;
-  background-color: currentColor;
-  border-radius: var(--size-2-1);
+:is(#{$full-selectors}) {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: var(--size-2-1);
+    height: var(--size-2-1);
+    inset-inline: 0;
+    background-color: currentColor;
+    border-radius: var(--size-2-1);
+  }
 }
 
 // block
