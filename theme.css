@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.25 For Obsidian */
+/* Maple Theme v1.0.0-beta.26 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -23,19 +23,25 @@ settings:
       min: 1
       max: 2
       step: 0.1
-    - id: title-theme-color
-      title: Theme Color
-      title.zh: 主题色
+    - id: title-colors
+      title: Colors
+      title.zh: 颜色
       type: heading
       level: 1
       collapsed: true
     - id: color-use-custom
-      type: class-toggle
-      title: Custom Theme Color
-      title.zh: 自定义主题色
-      description: Use the Style Setting Plugin's theme color instead of Obsidian's
-      description.zh: 使用 Style Settings 插件的主题色，而不是 Obsidian 的
-      default: false
+      type: class-select
+      title: Color Scheme
+      title.zh: 颜色方案
+      allow-empty: false
+      default: color-use-custom
+      options:
+          - label: Default
+            value: color-use-default
+          - label: Minimal
+            value: color-use-minimal
+          - label: Custom
+            value: color-use-custom
     - id: title-light-mode
       title: Light Mode
       title.zh: 浅色模式
@@ -360,11 +366,12 @@ settings:
       title.zh: 为设置面板添加顶部标题
       description: Works best with the "Setting Search" plugin; not valid on mobile
       description.zh: 配合“设置搜索”插件使用效果更佳，移动端无效
+      default: true
     - id: setting-modal-header-title
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.25'"
+      default: "'maple 1.0.0-beta.26'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -380,7 +387,7 @@ settings:
       title: Styled Toggle Button
       title.zh: 美化开关按钮
       allow-empty: false
-      default: modal-toggle-default
+      default: modal-toggle-round
       options:
           - label: Default
             value: modal-toggle-default
@@ -404,8 +411,8 @@ settings:
           https://github.com/kepano/obsidian-minimal/blob/master/src/scss/features/labeled-nav.scss
     - id: tab-float
       type: class-toggle
-      title: Enable Floating Style
-      title.zh: 启用浮动风格
+      title: Enable Floating Style Tab Bar
+      title.zh: 启用浮动风格的标签栏
       default: true
     - id: tab-slide-up
       type: class-toggle
@@ -1836,23 +1843,23 @@ body {
   --theme-accent-inactive-h: var(--theme-accent-h);
   --theme-accent-inactive-s: calc(15% + var(--accent-s) / 10);
   --theme-accent-inactive-l: calc(75% + var(--accent-l) / 10);
-  --color-accent-hsl: var(--base-accent-h), 22%,
-    56%;
+  --color-accent-hsl: var(--base-accent-h), var(--theme-accent-active-s),
+    var(--theme-accent-active-l);
   --color-accent: hsl(var(--color-accent-hsl));
   --color-accent-1: hsl(
     calc(var(--base-accent-h) - 1),
-    22.22%,
-    60.2%
+    calc(var(--theme-accent-active-s) * 1.01),
+    calc(var(--theme-accent-active-l) * 1.075)
   );
   --color-accent-2: hsl(
     calc(var(--base-accent-h) - 3),
-    22.44%,
-    64.4%
+    calc(var(--theme-accent-active-s) * 1.02),
+    calc(var(--theme-accent-active-l) * 1.15)
   );
   --frame-bg: hsl(
     var(--base-accent-h),
-    19.8%,
-    87.6%
+    calc(var(--theme-accent-active-s) * 0.6),
+    calc(85% + var(--theme-accent-active-l) * 0.1)
   );
   --background-primary-hsl: var(--base-accent-h), 12%, 97%;
   --background-primary: hsl(var(--background-primary-hsl));
@@ -1866,6 +1873,16 @@ body {
     25%
   );
   --text-on-accent: #fafafa !important;
+}
+.theme-light.color-use-minimal {
+  --base-accent-h: 210;
+  --background-primary-hsl: var(--base-accent-h), 6%, 97%;
+  --background-primary-alt: hsl(var(--base-accent-h), 10%, 95.5%);
+  --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 93%;
+  --theme-accent-active-s: 4%;
+  --theme-accent-active-l: 36%;
+  --theme-accent-inactive-s: 8%;
+  --theme-accent-inactive-l: 70%;
 }
 .theme-light.color-use-custom {
   --base-accent-h: var(--setting-accent-h-light, 35);
@@ -1908,23 +1925,23 @@ body {
   --theme-accent-inactive-h: var(--theme-accent-h);
   --theme-accent-inactive-s: calc(15% + var(--accent-s) / 10);
   --theme-accent-inactive-l: calc(30% + var(--accent-l) / 10);
-  --color-accent-hsl: var(--base-accent-h), 24%,
-    44.2%;
+  --color-accent-hsl: var(--base-accent-h), var(--theme-accent-active-s),
+    calc(var(--theme-accent-active-l) * var(--color-opacity));
   --color-accent: hsl(var(--color-accent-hsl));
   --color-accent-1: hsl(
     calc(var(--base-accent-h) - 3),
-    24.48%,
-    50.83%
+    calc(var(--theme-accent-active-s) * 1.02),
+    calc(var(--theme-accent-active-l) * 1.15 * var(--color-opacity))
   );
   --color-accent-2: hsl(
     calc(var(--base-accent-h) - 5),
-    25.2%,
-    57.018%
+    calc(var(--theme-accent-active-s) * 1.05),
+    calc(var(--theme-accent-active-l) * 1.29 * var(--color-opacity))
   );
   --frame-bg: hsl(
     var(--base-accent-h),
-    16.8%,
-    14.42%
+    calc(var(--theme-accent-active-s) * 0.5),
+    calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
   );
   --background-primary-hsl: var(--base-accent-h), 5%, 11%;
   --background-primary: hsl(var(--background-primary-hsl));
@@ -1939,6 +1956,17 @@ body {
   );
   --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
+}
+.theme-dark.color-use-minimal {
+  --text-on-accent: #1e1e1f !important;
+  --base-accent-h: 210;
+  --background-primary-hsl: var(--base-accent-h), 4%, 10%;
+  --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
+  --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 12%;
+  --theme-accent-active-s: 20%;
+  --theme-accent-active-l: 78%;
+  --theme-accent-inactive-s: 12%;
+  --theme-accent-inactive-l: 42%;
 }
 .theme-dark.color-use-custom {
   --base-accent-h: var(--setting-accent-h-dark, 207);
@@ -2005,14 +2033,14 @@ html[lang=zh] {
   padding: var(--size-4-1);
 }
 
-.color-use-custom .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) {
+body:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) {
   position: relative;
 }
-.color-use-custom .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) :is(div, input) {
+body:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) :is(div, input) {
   visibility: hidden;
   pointer-events: none;
 }
-.color-use-custom .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color])::before {
+body:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color])::before {
   content: var(--system-accent-override-text-cotent, "Controlled by Style Settings Plugin");
   font-family: var(--font-interface);
   font-size: var(--font-ui-smaller);
@@ -2129,7 +2157,7 @@ body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expa
 body:not(.outline-enable) .setting-item:is([data-id=setting-outline-width],
 [data-id=setting-outline-line-color],
 [data-id=setting-outline-dot-color]),
-body:not(.color-use-custom) .setting-item[data-id*=color-accent-],
+body:not(.color-use-custom) .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]),
 body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
 [data-id=list-bullet-thread-style]),
@@ -2181,7 +2209,7 @@ body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expa
 body:not(.outline-enable) .setting-item:is([data-id=setting-outline-width],
 [data-id=setting-outline-line-color],
 [data-id=setting-outline-dot-color]) + .style-settings-container,
-body:not(.color-use-custom) .setting-item[data-id*=color-accent-] + .style-settings-container,
+body:not(.color-use-custom) .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]) + .style-settings-container,
 body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
 [data-id=list-bullet-thread-style]) + .style-settings-container,
@@ -6216,7 +6244,7 @@ body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-conta
   --toggle-radius: var(--radius-m);
   height: var(--size-4-4);
   transition: var(--animation-slow);
-  border: var(--size-2-1) solid var(--text-faint);
+  border: 1px solid var(--text-faint);
 }
 body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container:focus-within {
   outline: none;
@@ -6235,7 +6263,7 @@ body:not(.is-mobile).modal-toggle-round .checkbox-container::after {
   bottom: 30%;
   border-radius: calc(var(--toggle-width) / 2);
   border: var(--toggle-border-width) solid var(--text-faint);
-  background-color: var(--text-on-accent);
+  background-color: #fafafa;
   margin: 0;
   transition: var(--animation-slow);
 }
@@ -6307,7 +6335,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.25");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.26");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
