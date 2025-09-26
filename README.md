@@ -9,7 +9,7 @@
 
 A sleek and modern Obsidian theme for desktop and mobile, featuring awesome components and customizable preferences via the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. It includes the self-designed monospace font [Maple Mono](https://github.com/subframe7536/maple-font).
 
-![Screenshot](img/screenshot.svg)
+![Screenshot](img/screenshot.webp)
 
 <a href="https://www.buymeacoffee.com/subframe7536">
   <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=subframe7536&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" height="36" />
