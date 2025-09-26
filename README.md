@@ -1,3 +1,6 @@
+> [!important]
+> Maple Theme 1.0 is currently in beta state. While it is already suitable for normal use, it is not yet stable and may contain bugs. Please feel free to report any issues you encounter. You can checkout the old version [here](https://github.com/subframe7536/obsidian-theme-maple/tree/main).
+
 # Maple
 
 [![GitHub stars](https://img.shields.io/github/stars/subframe7536/obsidian-theme-maple?style=social)](https://github.com/subframe7536/obsidian-theme-maple)
@@ -28,8 +31,8 @@ Or support me through [Afdian (PayPal)](https://afdian.com/a/subframe7536)
 #### Manually
 
 1. Download the source code zip ([Click to download](https://github.com/subframe7536/obsidian-theme-maple/archive/refs/heads/1.0.zip)).
-2. Extract the files to `<your-vault>/.obsidian/themes/maple/`.
-3. Ensure the `theme.css` and `manifest.json` are in the `maple/` folder.
+2. Extract the files to `<your-vault>/.obsidian/themes/maple/` (Ensure the `theme.css` and `manifest.json` are in the `maple/` folder).
+3. Restart Obsidian.
 
 ### Customize (Recommended) ✨
 
@@ -39,6 +42,10 @@ Enhance your experience with the **Style Settings** community plugin:
 2. Search for **"Style Settings"** and install it.
 3. Enable the plugin.
 4. In **Settings > Appearance > CSS snippets**, you'll find Maple's style options.
+
+## Features
+
+🚧 WIP
 
 ### Alternate Checkboxes
 

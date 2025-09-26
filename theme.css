@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.24 For Obsidian */
+/* Maple Theme v1.0.0-beta.25 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -364,7 +364,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.24'"
+      default: "'maple 1.0.0-beta.25'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -406,6 +406,7 @@ settings:
       type: class-toggle
       title: Enable Floating Style
       title.zh: 启用浮动风格
+      default: true
     - id: tab-slide-up
       type: class-toggle
       title: Enable Tab Slide Up Animation
@@ -998,7 +999,7 @@ settings:
       title: H2 Style
       title.zh: H2 样式
       allow-empty: false
-      default: heading-h2-block
+      default: heading-h2-underline
       options:
           - label: Normal
             value: heading-h2-normal
@@ -1058,7 +1059,7 @@ settings:
       title: H3 Style
       title.zh: H3 样式
       allow-empty: false
-      default: heading-h3-underline
+      default: heading-h3-normal
       options:
           - label: Normal
             value: heading-h3-normal
@@ -1701,10 +1702,28 @@ settings:
       level: 1
       collapsed: true
     - id: calendar-weekend
-      type: class-toggle
+      type: class-select
       title: Highlight Weekends
       title.zh: 突出显示周末
-      default: true
+      allow-empty: false
+      default: calendar-end-disable
+      options:
+          - label: Disable
+            value: calendar-end-disable
+          - label: Day 1 and Day 2
+            value: calendar-end-1-2
+          - label: Day 2 and Day 3
+            value: calendar-end-2-3
+          - label: Day 3 and Day 4
+            value: calendar-end-3-4
+          - label: Day 4 and Day 5
+            value: calendar-end-4-5
+          - label: Day 5 and Day 6
+            value: calendar-end-5-6
+          - label: Day 6 and Day 7
+            value: calendar-end-6-7
+          - label: Day 7 and Day 1
+            value: calendar-end-7-1
     - id: calendar-swap-year-month
       type: class-toggle
       title: Swap Year and Month
@@ -1980,6 +1999,10 @@ body {
 /* #region Default Color Input Indicator */
 html[lang=zh] {
   --system-accent-override-text-cotent: "由 Style Settings 插件控制";
+}
+
+.setting-item-info:has(+ .setting-item-control > .style-settings-import) .setting-item-name {
+  padding: var(--size-4-1);
 }
 
 .color-use-custom .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) {
@@ -4377,9 +4400,11 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--background-primary);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task="?"], li[data-task="?"] > input, li[data-task="?"] > p > input):checked {
-  --checkbox-color: var(--color-red);
+  --checkbox-color: var(--color-purple);
   border: none;
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task="?"], li[data-task="?"] > input, li[data-task="?"] > p > input):checked::after {
@@ -4388,9 +4413,11 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--background-primary);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task="+"], li[data-task="+"] > input, li[data-task="+"] > p > input):checked {
-  --checkbox-color: var(--color-pink);
+  --checkbox-color: var(--color-red);
   border: none;
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task="+"], li[data-task="+"] > input, li[data-task="+"] > p > input):checked::after {
@@ -4399,6 +4426,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--background-primary);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task="*"], li[data-task="*"] > input, li[data-task="*"] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4407,6 +4436,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-yellow);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=i], li[data-task=i] > input, li[data-task=i] > p > input):checked {
   --checkbox-color: var(--color-blue);
@@ -4418,6 +4449,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--background-primary);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task="/"], li[data-task="/"] > input, li[data-task="/"] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4426,6 +4459,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-yellow);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=a], li[data-task=a] > input, li[data-task=a] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4434,14 +4469,18 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-orange);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=B], li[data-task=B] > input, li[data-task=B] > p > input):checked {
   --checkbox-marker-color: transparent;
   border: none;
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 9V8a3 3 0 0 1 6 0v1M8 9h8a6 6 0 0 1 1 3v3a5 5 0 0 1-10 0v-3a6 6 0 0 1 1-3m-5 4h4m10 0h4m-9 7v-6m-8 5l3.35-2M20 19l-3.35-2M4 7l3.75 2.4M20 7l-3.75 2.4'/></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='1em' height='1em'><g fill='currentColor'><path d='M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A5 5 0 0 0 3 6h10a5 5 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A5 5 0 0 0 8 1a5 5 0 0 0-2.731.811l-.29-.956z'/><path d='M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
-  color: var(--color-red);
+  color: var(--color-purple);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task="<"], li[data-task="<"] > input, li[data-task="<"] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4449,7 +4488,9 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='1em' height='1em'><path fill='currentColor' d='M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M8.5 8.5V10H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V11H6a.5.5 0 0 1 0-1h1.5V8.5a.5.5 0 0 1 1 0'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
-  color: var(--color-blue);
+  color: var(--color-base-60);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=">"], li[data-task=">"] > input, li[data-task=">"] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4458,6 +4499,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-cyan);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=R], li[data-task=R] > input, li[data-task=R] > p > input):checked {
   --checkbox-color: var(--color-blue);
@@ -4469,9 +4512,11 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--background-primary);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task="-"], li[data-task="-"] > input, li[data-task="-"] > p > input):checked {
-  --checkbox-color: #666;
+  --checkbox-color: var(--color-base-60);
   border: none;
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task="-"], li[data-task="-"] > input, li[data-task="-"] > p > input):checked::after {
@@ -4480,6 +4525,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--background-primary);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) [data-task="-"] {
   color: var(--text-faint);
@@ -4492,6 +4539,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-yellow);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=l], li[data-task=l] > input, li[data-task=l] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4500,6 +4549,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-red);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=b], li[data-task=b] > input, li[data-task=b] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4508,14 +4559,18 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-blue);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=n], li[data-task=n] > input, li[data-task=n] > p > input, input[data-task=N], li[data-task=N] > input, li[data-task=N] > p > input):checked {
   --checkbox-marker-color: transparent;
   border: none;
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m13 20l7-7m-7 7v-6a1 1 0 0 1 1-1h6V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z'/></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='1em' height='1em'><path fill='currentColor' d='M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-cyan);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=P], li[data-task=P] > input, li[data-task=P] > p > input, input[data-task=p], li[data-task=p] > input, li[data-task=p] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4524,6 +4579,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-green);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=C], li[data-task=C] > input, li[data-task=C] > p > input, input[data-task=c], li[data-task=c] > input, li[data-task=c] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4532,22 +4589,28 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-red);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
-body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=“], li[data-task=“] > input, li[data-task=“] > p > input):checked {
+body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=“], li[data-task=“] > input, li[data-task=“] > p > input, input[data-task='"'], li[data-task='"'] > input, li[data-task='"'] > p > input):checked {
   --checkbox-marker-color: transparent;
   border: none;
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='1em' height='1em'><path fill='currentColor' d='M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054q.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992a4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054q.094-.558.31-.992q.217-.434.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992a4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-purple);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
-body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=W], li[data-task=W] > input, li[data-task=W] > p > input):checked {
+body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=W], li[data-task=W] > input, li[data-task=W] > p > input, input[data-task=w], li[data-task=w] > input, li[data-task=w] > p > input):checked {
   --checkbox-marker-color: transparent;
   border: none;
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='currentColor' d='M17 3a1 1 0 0 1 .993.883L18 4v2.17a3 3 0 1 1 0 5.659V12a6 6 0 0 1-5 5.917V20h3a1 1 0 0 1 .117 1.993L16 22H8a1 1 0 0 1-.117-1.993L8 20h3v-2.083a6 6 0 0 1-4.996-5.692L6 12v-.171a3 3 0 0 1-3.996-2.653L2.001 9l.005-.176A3 3 0 0 1 6.001 6.17L6 4a1 1 0 0 1 1-1zM5 8a1 1 0 1 0 0 2a1 1 0 0 0 0-2m14 0a1 1 0 1 0 0 2a1 1 0 0 0 0-2'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-yellow);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=S], li[data-task=S] > input, li[data-task=S] > p > input):checked {
   --checkbox-color: var(--color-green);
@@ -4559,6 +4622,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--background-primary);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=u], li[data-task=u] > input, li[data-task=u] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4567,6 +4632,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-green);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=d], li[data-task=d] > input, li[data-task=d] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4575,6 +4642,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-red);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-task=L], li[data-task=L] > input, li[data-task=L] > p > input):checked {
   --checkbox-marker-color: transparent;
@@ -4583,6 +4652,8 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--color-red);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
 }
 
 /* #endregion checkbox */
@@ -5229,6 +5300,9 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   text-underline-offset: var(--size-4-2);
 }
 
+:is(.heading-h1-full-line :is(.HyperMD-header-1, h1), .heading-h2-full-line :is(.HyperMD-header-2, h2), .heading-h3-full-line :is(.HyperMD-header-3, h3), .heading-h4-full-line :is(.HyperMD-header-4, h4), .heading-h5-full-line :is(.HyperMD-header-5, h5), .heading-h6-full-line :is(.HyperMD-header-6, h6)) {
+  position: relative;
+}
 :is(.heading-h1-full-line :is(.HyperMD-header-1, h1), .heading-h2-full-line :is(.HyperMD-header-2, h2), .heading-h3-full-line :is(.HyperMD-header-3, h3), .heading-h4-full-line :is(.HyperMD-header-4, h4), .heading-h5-full-line :is(.HyperMD-header-5, h5), .heading-h6-full-line :is(.HyperMD-header-6, h6))::after {
   content: "";
   position: absolute;
@@ -5872,8 +5946,31 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   translate: 0 calc(-1 * var(--size-2-1));
 }
 
-body.calendar-weekend #calendar-container tbody tr td:nth-last-child(2),
-body.calendar-weekend #calendar-container tbody tr td:nth-last-child(1) {
+.calendar-end-1-2 #calendar-container tbody tr td:is(:nth-child(1), :nth-child(2)) {
+  background-color: hsla(var(--color-accent-hsl), 0.1);
+}
+
+.calendar-end-2-3 #calendar-container tbody tr td:is(:nth-child(2), :nth-child(3)) {
+  background-color: hsla(var(--color-accent-hsl), 0.1);
+}
+
+.calendar-end-3-4 #calendar-container tbody tr td:is(:nth-child(3), :nth-child(4)) {
+  background-color: hsla(var(--color-accent-hsl), 0.1);
+}
+
+.calendar-end-4-5 #calendar-container tbody tr td:is(:nth-child(4), :nth-child(5)) {
+  background-color: hsla(var(--color-accent-hsl), 0.1);
+}
+
+.calendar-end-5-6 #calendar-container tbody tr td:is(:nth-child(5), :nth-child(6)) {
+  background-color: hsla(var(--color-accent-hsl), 0.1);
+}
+
+.calendar-end-6-7 #calendar-container tbody tr td:is(:nth-child(6), :nth-child(7)) {
+  background-color: hsla(var(--color-accent-hsl), 0.1);
+}
+
+.calendar-end-7-1 #calendar-container tbody tr td:is(:nth-child(7), :nth-child(1)) {
   background-color: hsla(var(--color-accent-hsl), 0.1);
 }
 
@@ -6210,7 +6307,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.24");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.25");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6318,6 +6415,7 @@ button {
 }
 .modal-container .community-item {
   --interactive-accent: var(--accent-active);
+  transition: border-color var(--animation);
 }
 .modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls {
   display: flex;
@@ -6558,42 +6656,42 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-tab-header-inner
   display: none;
 }
 
-body.tab-float {
+body:is(:not(.css-settings-manager), .tab-float) {
   --tab-radius: var(--size-2-3);
 }
-body.tab-float.theme-light {
+body:is(:not(.css-settings-manager), .tab-float).theme-light {
   --tab-active-shadow: var(--shadow-s);
 }
-body.tab-float .is-sidedock-collapsed + .mod-root .sidebar-toggle-button.mod-left {
+body:is(:not(.css-settings-manager), .tab-float) .is-sidedock-collapsed + .mod-root .sidebar-toggle-button.mod-left {
   margin-right: var(--size-4-2);
 }
-body.tab-float .mod-root .workspace-tab-header {
+body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header {
   padding-block: 0 !important;
   transition: color var(--animation), width var(--animation);
   --tab-curve: 0;
   --tab-radius-active: var(--radius-m);
 }
-body.tab-float .mod-root .workspace-tab-header.is-active {
+body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header.is-active {
   box-shadow: var(--tab-active-shadow);
 }
-body.tab-float .mod-root .workspace-tab-header-container {
+body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header-container {
   padding-left: var(--size-4-1);
 }
-body.tab-float .mod-root .workspace-tab-header-container-inner {
+body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header-container-inner {
   margin-top: var(--size-4-1);
   padding-bottom: var(--size-4-1);
   padding-left: var(--size-4-1);
 }
-body.tab-float .mod-root .workspace-tab-header-container-inner-close-button {
+body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header-container-inner-close-button {
   padding: var(--size-2-1);
 }
-body.tab-float .mod-root .workspace-tab-header-container-inner-close-button:hover {
+body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header-container-inner-close-button:hover {
   background-color: var(--frame-background-color);
 }
-body.tab-float .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-active) .workspace-tab-header.is-active {
+body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-active) .workspace-tab-header.is-active {
   --tab-background-active: hsla(var(--background-primary-hsl), 0.5);
 }
-body.tab-float .workspace-tab-header-new-tab {
+body:is(:not(.css-settings-manager), .tab-float) .workspace-tab-header-new-tab {
   padding-top: var(--size-4-1);
 }
 
@@ -7292,11 +7390,11 @@ body.explorer-folder-bold .nav-folder-title {
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='180' viewBox='0 0 140 180' fill='currentColor'><path d='M49.775 105.089C54.3828 103.715 61.8069 101.605 70.3434 101.082C65.2222 88.1449 63.986 76.8242 64.9803 66.7442C66.1285 55.1033 70.23 45.3874 74.228 37.1201C75.0811 35.3561 75.9012 33.7135 76.6879 32.1378C77.8017 29.9069 78.8486 27.81 79.8278 25.6916C81.4579 22.1652 82.6674 19.051 83.2791 16.1576C83.8806 13.3125 83.8838 10.7715 83.1727 8.3342C82.4607 5.89352 80.9475 3.26635 78.0704 0.386692C74.3134 -0.587559 70.1448 0.267767 67.0197 3.08162L29.9298 36.4772C27.861 38.34 26.503 40.8642 26.0879 43.6182L22.8899 64.8384C27.9185 69.2873 40.33 82.2201 47.8789 100.165C48.5525 101.766 49.1875 103.408 49.775 105.089Z' /><path d='M21.3902 74.5293C21.2153 75.2761 20.9692 76.0051 20.6549 76.7063L1.05225 120.436C-0.961131 124.928 -0.0336421 130.194 3.39276 133.726L34.2418 165.523C49.9952 142.262 47.6984 120.379 40.5026 103.274C35.0465 90.3037 26.777 80.1526 21.3902 74.5293Z' /><path d='M41.3687 169.269C41.9093 169.355 42.4575 169.407 43.0096 169.424C48.864 169.6 58.7098 170.109 66.6947 171.582C73.2088 172.783 86.1213 176.397 96.747 179.505C104.855 181.877 113.211 175.396 114.387 167.024C115.245 160.917 116.855 154.009 119.821 147.677L119.753 147.702C114.73 133.682 108.34 124.629 101.641 118.849C94.9619 113.086 87.7708 110.397 80.8276 109.42C69.2835 107.795 58.7071 110.832 52.0453 112.791C56.0353 129.428 54.8074 149.004 41.3687 169.269Z' /><path d='M124.96 139.034C131.626 128.965 136.375 121.134 138.881 116.888C140.135 114.764 139.907 112.102 138.423 110.133C134.554 105.002 127.152 94.5755 123.12 84.9218C118.973 74.9962 118.355 59.5866 118.319 52.081C118.306 49.2279 117.402 46.4413 115.639 44.1994L91.6762 13.73C91.5918 15.1034 91.3946 16.4659 91.1093 17.8158C90.3118 21.5882 88.8073 25.3437 87.0916 29.0552C86.086 31.2306 84.9238 33.5612 83.7497 35.9157C82.9682 37.4827 82.1814 39.0607 81.432 40.6102C77.5579 48.6212 73.9528 57.3151 72.9451 67.5313C72.011 77.0006 73.2894 88.014 79.0482 101.162C80.0074 101.243 80.9727 101.351 81.9422 101.487C90.2067 102.651 98.8807 105.891 106.866 112.781C113.73 118.704 119.932 127.19 124.96 139.034Z' /></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
-  color: hsla(256, 52%, 76%, 0.2);
+  color: hsla(var(--color-accent-hsl), 0.2);
   width: calc(2 * var(--size-4-12));
   height: calc(2 * var(--size-4-12));
   margin-inline-start: 50%;
-  translate: -50% -50%;
+  translate: -50% -25%;
 }
 .empty-state-action-list > ::before {
   content: "";
