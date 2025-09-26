@@ -43,7 +43,7 @@ html[lang='zh'] {
   padding: var(--size-4-1);
 }
 
-.color-use-custom {
+body:not(.color-use-default) {
   .mod-settings
     .vertical-tab-content-container
     > .vertical-tab-content
@@ -234,7 +234,8 @@ body:not(.outline-enable)
     [data-id='setting-outline-line-color'],
     [data-id='setting-outline-dot-color']
   ),
-body:not(.color-use-custom) .setting-item[data-id*='color-accent-'],
+body:not(.color-use-custom)
+  .setting-item:is([data-id='title-light-mode'], [data-id='title-dark-mode']),
 body:not(.list-enable)
   .setting-item:is(
     [data-id*='setting-list-'],

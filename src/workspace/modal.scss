@@ -57,7 +57,7 @@ body:not(.is-mobile) {
     --toggle-radius: var(--radius-m);
     height: var(--size-4-4);
     transition: var(--animation-slow);
-    border: var(--size-2-1) solid var(--text-faint);
+    border: 1px solid var(--text-faint);
 
     &:focus-within {
       outline: none;
@@ -80,7 +80,7 @@ body:not(.is-mobile) {
       bottom: 30%;
       border-radius: calc(var(--toggle-width) / 2);
       border: var(--toggle-border-width) solid var(--text-faint);
-      background-color: var(--text-on-accent);
+      background-color: #fafafa;
       margin: 0;
       transition: var(--animation-slow);
     }

@@ -30,7 +30,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
         default: 'color-use-custom',
         options: [
           { label: 'Default', value: 'color-use-default' },
-          { label: 'Mono', value: 'color-use-mono' },
+          { label: 'Minimal', value: 'color-use-minimal' },
           { label: 'Custom', value: 'color-use-custom' },
         ],
       },
