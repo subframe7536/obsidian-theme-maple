@@ -203,16 +203,20 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
       { enable: true },
     )
-    .addClassToggle('modal-header', {
-      title: {
-        en: 'Add Header To Setting Panel',
-        zh: '为设置面板添加顶部标题',
+    .addClassToggle(
+      'modal-header',
+      {
+        title: {
+          en: 'Add Header To Setting Panel',
+          zh: '为设置面板添加顶部标题',
+        },
+        desc: {
+          en: 'Works best with the "Setting Search" plugin; not valid on mobile',
+          zh: '配合“设置搜索”插件使用效果更佳，移动端无效',
+        },
       },
-      desc: {
-        en: 'Works best with the "Setting Search" plugin; not valid on mobile',
-        zh: '配合“设置搜索”插件使用效果更佳，移动端无效',
-      },
-    })
+      { enable: true },
+    )
     .addVarText(
       'setting-modal-header-title',
       { title: { en: 'Setting Panel Header Title', zh: '设置面板标题' } },
@@ -238,7 +242,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       { title: { en: 'Styled Toggle Button', zh: '美化开关按钮' } },
       {
         allowEmpty: false,
-        default: 'modal-toggle-default',
+        default: 'modal-toggle-round',
         options: [
           { label: 'Default', value: 'modal-toggle-default' },
           { label: 'Thin', value: 'modal-toggle-thin' },
@@ -262,8 +266,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       'tab-float',
       {
         title: {
-          en: 'Enable Floating Style',
-          zh: '启用浮动风格',
+          en: 'Enable Floating Style Tab Bar',
+          zh: '启用浮动风格的标签栏',
         },
       },
       { enable: true },
