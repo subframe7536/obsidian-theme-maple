@@ -6,7 +6,7 @@
 
 A sleek and modern Obsidian theme for desktop and mobile, featuring awesome components and customizable preferences via the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. It includes the self-designed monospace font [Maple Mono](https://github.com/subframe7536/maple-font).
 
-![Screenshot](img/screenshot.png)
+![Screenshot](img/screenshot.svg)
 
 <a href="https://www.buymeacoffee.com/subframe7536">
   <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=subframe7536&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" height="36" />
@@ -29,7 +29,7 @@ Or support me through [Afdian (PayPal)](https://afdian.com/a/subframe7536)
 
 1. Download the source code zip ([Click to download](https://github.com/subframe7536/obsidian-theme-maple/archive/refs/heads/1.0.zip)).
 2. Extract the files to `<your-vault>/.obsidian/themes/maple/`.
-3. Ensure the `theme.css` and `manifest.json` are in the `maple` folder.
+3. Ensure the `theme.css` and `manifest.json` are in the `maple/` folder.
 
 ### Customize (Recommended) ✨
 
@@ -40,67 +40,36 @@ Enhance your experience with the **Style Settings** community plugin:
 3. Enable the plugin.
 4. In **Settings > Appearance > CSS snippets**, you'll find Maple's style options.
 
-## Components
+### Alternate Checkboxes
 
-### Dynamic Theme
-
-Supports dynamic theming with customizable accent colors.
-
-![Dynamic Theme](img/dynamic.png)
-
-### Outline Panel
-
-Enhanced styling for the outline view.
-
-![Outline](img/outline.gif)
-
-### Document Search
-
-Modern container query-based search interface.
-
-![Document Search](img/container-query.gif)
-
-### Scrollbar
-
-Smooth background transitions and overlay effects.
-
-![Scrollbar](img/scrollbar.gif)
-
-### Code Blocks
-
-Beautiful syntax highlighting and presentation.
-
-![Code Block](img/code.png)
-
-### Quotes
-
-Live preview enhancements for blockquotes.
-
-![Quote](img/quote.png)
-
-### Toggle Buttons
-
-Interactive and visually appealing toggles.
-
-![Toggle](img/toggle.gif)
-
-### Blur Effects
-
-Subtle blur on menus and overlays.
-
-![Blur Menu](img/blur.png)
-
-### Modal Inputs
-
-Improved title and input styling in modals.
-
-![Modal Input](img/input.gif)
-
-### Style Settings
-
-Extensive customization options available in the Style Settings plugin.
-
-![Style Settings](img/style_setting.png)
+| Syntax  | Description |
+| ------- | ----------- |
+| `- [ ]` | To-do       |
+| `- [/]` | Incomplete  |
+| `- [x]` | Done        |
+| `- [-]` | Canceled    |
+| `- [>]` | Forwarded   |
+| `- [<]` | Scheduling  |
+| `- [?]` | Question    |
+| `- [!]` | Important   |
+| `- [*]` | Star        |
+| `- ["]` | Quote       |
+| `- [l]` | Location    |
+| `- [b]` | Bookmark    |
+| `- [i]` | Information |
+| `- [S]` | Dollar      |
+| `- [I]` | Idea        |
+| `- [p]` | Pros        |
+| `- [c]` | Cons        |
+| `- [w]` | Win         |
+| `- [u]` | Up          |
+| `- [d]` | Down        |
+| `- [+]` | Add         |
+| `- [B]` | Bug         |
+| `- [a]` | Alarm       |
+| `- [n]` | Note        |
+| `- [R]` | Review      |
+| `- [L]` | Love        |
 
 ## Credits
 
