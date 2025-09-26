@@ -16,22 +16,20 @@ Or support me through [Afdian (PayPal)](https://afdian.com/a/subframe7536)
 
 > **Note:** Backward compatibility is not guaranteed due to time constraints.
 
-## Table of Contents
-
-- [Quick Start](#quick-start)
-- [Components](#components)
-- [Todo](#todo)
-- [Credits](#credits)
-- [License](#license)
-
 ## Quick Start
 
-### Install the Theme
+### Install
 
 1. Open Obsidian and navigate to **Settings > Appearance**.
 2. Click **Manage** to open the Community Themes store.
 3. Search for **"Maple"** in the filter box.
 4. Click **Install and Enable**.
+
+#### Manually
+
+1. Download the source code zip ([Click to download](https://github.com/subframe7536/obsidian-theme-maple/archive/refs/heads/1.0.zip)).
+2. Extract the files to `<your-vault>/.obsidian/themes/maple/`.
+3. Ensure the `theme.css` and `manifest.json` are in the `maple` folder.
 
 ### Customize (Recommended) ✨
 
@@ -115,7 +113,7 @@ Inspired by:
 - [Baseline](https://github.com/aaaaalexis/obsidian-baseline)
 - [Velocity](https://github.com/Gonzalo-D-Sales/obsidian-velocity)
 
-Enhance your DX on Windows with my plugin: [Obsidian DevTools Font and Scrollbar](https://github.com/subframe7536/obsidian-devtools-font-and-scrollbar)
+Enhance your DX with my plugin: [Obsidian DevTools Font and Scrollbar](https://github.com/subframe7536/obsidian-devtools-font-and-scrollbar)
 
 ## License
 
