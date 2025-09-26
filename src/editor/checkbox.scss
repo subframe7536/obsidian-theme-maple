@@ -23,7 +23,11 @@
     border: none;
     &::after {
       inset: 0 !important;
-      @include use-icon($icon-name, var(--background-primary));
+      @include use-icon(
+        $icon-name,
+        var(--background-primary),
+        var(--checkbox-size)
+      );
     }
   }
 }
@@ -33,23 +37,23 @@
   :is(#{$sel}):checked {
     --checkbox-marker-color: transparent;
     border: none;
-    @include use-icon($icon-name, $color);
+    @include use-icon($icon-name, $color, var(--checkbox-size));
   }
 }
 
 @include use-no-plugin('.list-checkbox-alternative') {
   @include create-symbol('!', 'bi:exclamation-lg', var(--color-orange));
-  @include create-symbol('?', 'bi:question-lg', var(--color-red));
-  @include create-symbol('+', 'bi:plus-lg', var(--color-pink));
+  @include create-symbol('?', 'bi:question-lg', var(--color-purple));
+  @include create-symbol('+', 'bi:plus-lg', var(--color-red));
   @include create-symbol-override('*', 'bi:star-fill', var(--color-yellow));
   @include create-symbol('i', 'bi:info-lg', var(--color-blue));
   @include create-symbol-override('/', 'bi:circle-half', var(--color-yellow));
   @include create-symbol-override('a', 'bi:alarm-fill', var(--color-orange));
-  @include create-symbol-override('B', 'tb:bug', var(--color-red));
+  @include create-symbol-override('B', 'bi:bug-fill', var(--color-purple));
   @include create-symbol-override(
     '<',
     'bi:calendar-plus-fill',
-    var(--color-blue)
+    var(--color-base-60)
   );
   @include create-symbol-override(
     '>',
@@ -57,7 +61,7 @@
     var(--color-cyan)
   );
   @include create-symbol('R', 'tb:letter-r', var(--color-blue));
-  @include create-symbol('-', 'bi:dash', #666);
+  @include create-symbol('-', 'bi:dash', var(--color-base-60));
   [data-task='-'] {
     color: var(--text-faint);
     text-decoration: line-through solid var(--text-faint) 1px;
@@ -65,7 +69,11 @@
   @include create-symbol-override('I', 'tb:bulb-filled', var(--color-yellow));
   @include create-symbol-override('l', 'tb:map-pin-filled', var(--color-red));
   @include create-symbol-override('b', 'bi:bookmark-fill', var(--color-blue));
-  @include create-symbol-override(('n', 'N'), 'tb:note', var(--color-cyan));
+  @include create-symbol-override(
+    ('n', 'N'),
+    'bi:file-earmark-text-fill',
+    var(--color-cyan)
+  );
   @include create-symbol-override(
     ('P', 'p'),
     'tb:thumb-up-filled',
@@ -77,7 +85,11 @@
     var(--color-red)
   );
   @include create-symbol-override(('“', '"'), 'bi:quote', var(--color-purple));
-  @include create-symbol-override('W', 'tb:trophy-filled', var(--color-yellow));
+  @include create-symbol-override(
+    ('W', 'w'),
+    'tb:trophy-filled',
+    var(--color-yellow)
+  );
   @include create-symbol('S', 'bi:currency-dollar', var(--color-green));
   @include create-symbol-override('u', 'tb:trending-up', var(--color-green));
   @include create-symbol-override('d', 'tb:trending-down', var(--color-red));
