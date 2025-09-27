@@ -4,7 +4,9 @@ import { version } from '../package.json'
 
 import { icons as lucide } from '@iconify-json/lucide'
 import { icons as bootstrap } from '@iconify-json/bi'
-import { icons as tb } from '@iconify-json/tabler'
+import { icons as tabler } from '@iconify-json/tabler'
+
+const resourceDir = 'resource'
 
 function getIconUrl(name: string, color?: string) {
   const parseSvgUrl = (svg: string, color?: string) => {
@@ -27,13 +29,13 @@ function getIconUrl(name: string, color?: string) {
     data = bootstrap.icons[name.substring(3)]
     set = bootstrap
   } else if (name.startsWith('tb:')) {
-    data = tb.icons[name.substring(3)]
-    set = tb
+    data = tabler.icons[name.substring(3)]
+    set = tabler
   } else {
     data = lucide.icons[name]
     set = lucide
   }
-  const fileIconDir = 'resource/svg'
+  const fileIconDir = `${resourceDir}/svg`
   const fileIcons = readdirSync(fileIconDir)
   if (!data) {
     if (fileIcons.some((i) => i.startsWith(name))) {
@@ -71,7 +73,7 @@ export const FUNCTIONS: Record<string, CustomFunction<'sync'>> = {
       throw new Error('style must be regular or italic')
     }
     const source = readFileSync(
-      `resource/font/MapleMono-${style}.woff2`,
+      `${resourceDir}/font/MapleMono-${style}.woff2`,
     ).toBase64()
     return new SassString(`url("data:font/woff2;base64,${source}")`, {
       quotes: false,
@@ -80,7 +82,7 @@ export const FUNCTIONS: Record<string, CustomFunction<'sync'>> = {
   // 'img($image-name)': ([name]) => {
   //   const imageName = name.assertString().text
   //   const buffer = readFileSync(
-  //     join('./resource/image', imageName + '.webp'),
+  //     join(`${resourceDir}/image${imageName}.webp`),
   //   )
   //   const url = 'url("data:image/webp;base64,' + buffer.toBase64() + '")'
   //   return new SassString(url, { quotes: false })
