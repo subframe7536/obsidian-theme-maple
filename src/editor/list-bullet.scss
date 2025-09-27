@@ -26,7 +26,7 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
     --list-bullet-radius: 50%;
     --list-bullet-border: 0;
     --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
-    --list-marker-color: var(--setting-list-marker, var(--accent-active));
+    --list-marker-color: var(--setting-list-marker, var(--accent-active-bg));
   }
 
   @for $i from 1 through $supported-level - 1 {

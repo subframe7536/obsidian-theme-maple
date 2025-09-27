@@ -1,16 +1,12 @@
 @use '../../utils.scss' as *;
 
 body {
-  /* 引导线粗细 */
   --outline-guideline-width: var(--setting-outline-width, 2px);
-  /* 引导线颜色 */
   --outline-guideline-color: var(
     --settingoutline-line-color,
     var(--accent-inactive)
   );
-  /* 引导线颜色 */
   --outline-guideline-color-alt: var(--outline-dot-color, var(--accent-active));
-  /* 一行高度 */
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
 

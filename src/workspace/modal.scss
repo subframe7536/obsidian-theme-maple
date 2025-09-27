@@ -302,7 +302,7 @@ button {
   }
 
   .community-item {
-    --interactive-accent: var(--accent-active);
+    --interactive-accent: var(--accent-active-bg);
     transition: border-color var(--animation);
   }
 
