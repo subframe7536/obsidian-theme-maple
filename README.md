@@ -45,7 +45,7 @@ Enhance your experience with the **Style Settings** community plugin:
 
 ## Features
 
-🚧 WIP
+Maple offers a highly customizable experience with extensive options via Style Settings. Below is a summary of key features, grouped by category.
 
 ### Alternate Checkboxes
 

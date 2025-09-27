@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.26 For Obsidian */
+/* Maple Theme v1.0.0-beta.27 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -371,7 +371,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.26'"
+      default: "'maple 1.0.0-beta.27'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -387,14 +387,16 @@ settings:
       title: Styled Toggle Button
       title.zh: 美化开关按钮
       allow-empty: false
-      default: modal-toggle-round
+      default: modal-toggle-default
       options:
           - label: Default
             value: modal-toggle-default
           - label: Thin
             value: modal-toggle-thin
-          - label: Round
-            value: modal-toggle-round
+          - label: Floating
+            value: modal-toggle-floating
+          - label: Square
+            value: modal-toggle-square
     - id: title-tab-and-navigation-bar
       title: Tab and Navigation Bar
       title.zh: 标签页和导航栏
@@ -1795,6 +1797,8 @@ body {
     var(--theme-accent-active-l),
     90%
   );
+  --background-primary: hsl(var(--background-primary-hsl));
+  --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-border-focus: var(--background-modifier-border-hover);
   --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
   --background-modifier-cover: hsla(var(--background-secondary-hsl), 0.6);
@@ -1862,10 +1866,8 @@ body {
     calc(85% + var(--theme-accent-active-l) * 0.1)
   );
   --background-primary-hsl: var(--base-accent-h), 12%, 97%;
-  --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-alt: hsl(var(--base-accent-h), 10%, 95.5%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 8%, 93%;
-  --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(
     var(--base-accent-h),
     var(--theme-accent-inactive-s),
@@ -1879,7 +1881,7 @@ body {
   --background-primary-hsl: var(--base-accent-h), 6%, 97%;
   --background-primary-alt: hsl(var(--base-accent-h), 10%, 95.5%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 93%;
-  --theme-accent-active-s: 4%;
+  --theme-accent-active-s: 6%;
   --theme-accent-active-l: 36%;
   --theme-accent-inactive-s: 8%;
   --theme-accent-inactive-l: 70%;
@@ -1944,10 +1946,8 @@ body {
     calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
   );
   --background-primary-hsl: var(--base-accent-h), 5%, 11%;
-  --background-primary: hsl(var(--background-primary-hsl));
   --background-primary-alt: hsl(var(--base-accent-h), 10%, 12%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 6%, 12%;
-  --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-hover: hsl(
     var(--base-accent-h),
     var(--theme-accent-active-s),
@@ -1963,8 +1963,8 @@ body {
   --background-primary-hsl: var(--base-accent-h), 4%, 10%;
   --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 12%;
-  --theme-accent-active-s: 20%;
-  --theme-accent-active-l: 78%;
+  --theme-accent-active-s: 4%;
+  --theme-accent-active-l: 72%;
   --theme-accent-inactive-s: 12%;
   --theme-accent-inactive-l: 42%;
 }
@@ -2743,8 +2743,8 @@ body.text-highlight-margin :is(.markdown-source-view span.cm-highlight, .markdow
 /* #endregion highlight */
 /* #region bold & italic */
 body {
-  --bold-color: var(--setting-text-bold-color, var(--color-red)) !important;
-  --italic-color: var(--setting-text-italic-color, var(--color-red)) !important;
+  --bold-color: var(--setting-text-bold-color, inherit) !important;
+  --italic-color: var(--setting-text-italic-color, inherit) !important;
 }
 
 body :is(.cm-highlight.cm-strong, mark > strong) {
@@ -2758,18 +2758,18 @@ em,
 .cm-em {
   --blockquote-color: var(--italic-color);
   text-decoration: var(--setting-text-italic-style, underline dotted);
-  font-family: var(--setting-text-italic-font, var(--font-text));
+  font-family: var(--setting-text-italic-font, inherit);
 }
 
 strong,
 .cm-strong {
   --blockquote-color: var(--bold-color);
   text-decoration: var(--setting-text-bold-style, underline dotted);
-  font-family: var(--setting-text-bold-font, var(--font-text));
+  font-family: var(--setting-text-bold-font, inherit);
 }
 
 :is(em, .cm-em, strong, .cm-strong, u) {
-  text-underline-offset: var(--setting-underline-offset, 2);
+  text-underline-offset: var(--setting-underline-offset, var(--size-2-1));
 }
 
 a :is(em, strong) {
@@ -4112,7 +4112,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   --list-bullet-radius: 50%;
   --list-bullet-border: 0;
   --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
-  --list-marker-color: var(--setting-list-marker, var(--accent-active));
+  --list-marker-color: var(--setting-list-marker, var(--accent-active-bg));
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-2, .HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-2.cm-active, ~ .HyperMD-list-line-2 ~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
@@ -4820,6 +4820,7 @@ body {
   --table-add-button-background: var(--background-modifier-hover);
   --table-drag-handle-background: var(--background-modifier-hover);
   --table-selection-border-radius: var(--radius-m);
+  --table-selection-border-color: var(--accent-inactive);
 }
 
 /* table radius */
@@ -4862,7 +4863,7 @@ body {
   --table-background: var(--background-primary-alt);
   --table-header-background: var(
     --setting-table-header-text,
-    var(--accent-active)
+    var(--accent-active-bg)
   );
   --table-row-alt-background: var(--bg-editor);
   --table-row-alt-background-hover: var(--bg-editor);
@@ -6240,41 +6241,60 @@ body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb {
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:is(:hover, :active, :focus) {
   --slider-thumb-ring-factor: 5;
 }
-body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
+body:not(.is-mobile).modal-toggle-square .checkbox-container {
+  height: var(--size-4-5);
+  --toggle-radius: var(--size-2-3);
+  --toggle-thumb-radius: var(--size-4-1);
+  --toggle-thumb-width: var(--size-4-3);
+  --toggle-thumb-height: var(--size-4-3);
+}
+body:not(.is-mobile).modal-toggle-square .checkbox-container::after {
+  transform: translate3d(calc(var(--toggle-border-width) + var(--size-2-1)), var(--size-2-1), 0);
+}
+body:not(.is-mobile).modal-toggle-square .checkbox-container.is-enabled::after {
+  transform: translate3d(calc(var(--toggle-width) - var(--toggle-thumb-width) - var(--size-4-1)), var(--size-2-1), 0);
+}
+body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
   height: var(--size-4-4);
   transition: var(--animation-slow);
-  border: 1px solid var(--text-faint);
+  border: var(--toggle-border-width) solid var(--text-faint);
 }
-body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container:focus-within {
+body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container:focus-within {
   outline: none;
   box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.14), inset 0 0 1px rgba(0, 0, 0, 0.28);
 }
-body:not(.is-mobile):is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container input[type=checkbox] {
+body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container input[type=checkbox] {
   opacity: 0;
 }
-body:not(.is-mobile).modal-toggle-round .checkbox-container {
+body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin).theme-light .checkbox-container {
+  --toggle-color: #fafafa;
+}
+body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin).theme-dark .checkbox-container {
+  --toggle-color: #e0e0e0;
+}
+body:not(.is-mobile).modal-toggle-floating .checkbox-container {
   --toggle-shadow: var(--color-base-40);
 }
-body:not(.is-mobile).modal-toggle-round .checkbox-container::after {
+body:not(.is-mobile).modal-toggle-floating .checkbox-container::after {
   left: 0;
   height: calc(var(--toggle-width) / 3);
   width: calc(var(--toggle-width) / 3);
   bottom: 30%;
   border-radius: calc(var(--toggle-width) / 2);
   border: var(--toggle-border-width) solid var(--text-faint);
-  background-color: #fafafa;
+  background-color: var(--toggle-color);
   margin: 0;
   transition: var(--animation-slow);
 }
-:is(body:not(.is-mobile).modal-toggle-round .checkbox-container:hover, body:not(.is-mobile).modal-toggle-round .checkbox-container:focus-within)::after {
+:is(body:not(.is-mobile).modal-toggle-floating .checkbox-container:hover, body:not(.is-mobile).modal-toggle-floating .checkbox-container:focus-within)::after {
   bottom: 10%;
 }
-body:not(.is-mobile).modal-toggle-round .checkbox-container.is-enabled {
+body:not(.is-mobile).modal-toggle-floating .checkbox-container.is-enabled {
   border-color: var(--accent-active);
   background-color: var(--accent-inactive);
 }
-body:not(.is-mobile).modal-toggle-round .checkbox-container.is-enabled::after {
+body:not(.is-mobile).modal-toggle-floating .checkbox-container.is-enabled::after {
   border-color: var(--accent-active);
   transform: none;
   left: calc(100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width));
@@ -6296,7 +6316,7 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container::after {
   border-radius: var(--radius-m) var(--radius-m) 0 0;
   border: var(--toggle-border-width) solid var(--text-faint);
   border-bottom-width: calc(var(--toggle-border-width) / 2);
-  background-color: var(--text-on-accent);
+  background-color: var(--toggle-color);
   width: 20%;
   margin: 0;
   transition: var(--animation-slow);
@@ -6322,7 +6342,6 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled::after {
 body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled:active::after {
   left: calc(2 * var(--toggle-border-width));
 }
-
 body {
   --logo-color-default: var(--text-accent);
 }
@@ -6335,7 +6354,7 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   container-type: inline-size;
 }
 body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.26");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.27");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6442,7 +6461,7 @@ button {
   max-width: var(--modal-community-sidebar-width);
 }
 .modal-container .community-item {
-  --interactive-accent: var(--accent-active);
+  --interactive-accent: var(--accent-active-bg);
   transition: border-color var(--animation);
 }
 .modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls {
@@ -6868,7 +6887,7 @@ body.message-tooltip-hide-arrow .tooltip-arrow {
 body.message-modify {
   --background-modifier-message: var(
     --setting-message-bg,
-    var(--accent-active)
+    var(--accent-active-bg)
   );
 }
 body.message-modify :is(.tooltip, .notice) {
@@ -7086,16 +7105,12 @@ body {
 /* #endregion graph */
 /* #region outline */
 body {
-  /* 引导线粗细 */
   --outline-guideline-width: var(--setting-outline-width, 2px);
-  /* 引导线颜色 */
   --outline-guideline-color: var(
     --settingoutline-line-color,
     var(--accent-inactive)
   );
-  /* 引导线颜色 */
   --outline-guideline-color-alt: var(--outline-dot-color, var(--accent-active));
-  /* 一行高度 */
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
 
