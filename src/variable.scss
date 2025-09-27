@@ -124,7 +124,7 @@ body {
     --background-primary-hsl: var(--base-accent-h), 6%, 97%;
     --background-primary-alt: hsl(var(--base-accent-h), 10%, 95.5%);
     --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 93%;
-    --theme-accent-active-s: 4%;
+    --theme-accent-active-s: 6%;
     --theme-accent-active-l: 36%;
     --theme-accent-inactive-s: 8%;
     --theme-accent-inactive-l: 70%;
@@ -207,7 +207,7 @@ body {
     --background-primary-hsl: var(--base-accent-h), 4%, 10%;
     --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
     --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 12%;
-    --theme-accent-active-s: 20%;
+    --theme-accent-active-s: 4%;
     --theme-accent-active-l: 78%;
     --theme-accent-inactive-s: 12%;
     --theme-accent-inactive-l: 42%;
