@@ -242,11 +242,12 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       { title: { en: 'Styled Toggle Button', zh: '美化开关按钮' } },
       {
         allowEmpty: false,
-        default: 'modal-toggle-round',
+        default: 'modal-toggle-default',
         options: [
           { label: 'Default', value: 'modal-toggle-default' },
           { label: 'Thin', value: 'modal-toggle-thin' },
-          { label: 'Round', value: 'modal-toggle-round' },
+          { label: 'Floating', value: 'modal-toggle-floating' },
+          { label: 'Square', value: 'modal-toggle-square' },
         ],
       },
     ),

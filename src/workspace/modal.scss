@@ -53,24 +53,60 @@ body:not(.is-mobile) {
     }
   }
 
-  &:is(.modal-toggle-round, .modal-toggle-thin) .checkbox-container {
-    --toggle-radius: var(--radius-m);
-    height: var(--size-4-4);
-    transition: var(--animation-slow);
-    border: 1px solid var(--text-faint);
-
-    &:focus-within {
-      outline: none;
-      box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.14),
-        inset 0 0 1px rgba(0, 0, 0, 0.28);
-    }
-
-    input[type='checkbox'] {
-      opacity: 0;
+  &.modal-toggle-square {
+    .checkbox-container {
+      height: var(--size-4-5);
+      // border: 1px solid var(--background-modifier-border);
+      --toggle-radius: var(--size-2-3);
+      --toggle-thumb-radius: var(--size-4-1);
+      --toggle-thumb-width: var(--size-4-3);
+      --toggle-thumb-height: var(--size-4-3);
+      &::after {
+        transform: translate3d(
+          calc(var(--toggle-border-width) + var(--size-2-1)),
+          var(--size-2-1),
+          0
+        );
+      }
+      &.is-enabled::after {
+        transform: translate3d(
+          calc(
+            var(--toggle-width) - var(--toggle-thumb-width) - var(--size-4-1)
+          ),
+          var(--size-2-1),
+          0
+        );
+      }
     }
   }
 
-  &.modal-toggle-round .checkbox-container {
+  &:is(.modal-toggle-floating, .modal-toggle-thin) {
+    .checkbox-container {
+      --toggle-radius: var(--radius-m);
+      height: var(--size-4-4);
+      transition: var(--animation-slow);
+      border: var(--toggle-border-width) solid var(--text-faint);
+
+      &:focus-within {
+        outline: none;
+        box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.14),
+          inset 0 0 1px rgba(0, 0, 0, 0.28);
+      }
+
+      input[type='checkbox'] {
+        opacity: 0;
+      }
+    }
+    &.theme-light .checkbox-container {
+      --toggle-color: #fafafa;
+    }
+    &.theme-dark .checkbox-container {
+      --toggle-color: #e0e0e0;
+    }
+  }
+
+  // https://uiverse.io/aasisodiya/sour-horse-29
+  &.modal-toggle-floating .checkbox-container {
     --toggle-shadow: var(--color-base-40);
 
     &::after {
@@ -80,7 +116,7 @@ body:not(.is-mobile) {
       bottom: 30%;
       border-radius: calc(var(--toggle-width) / 2);
       border: var(--toggle-border-width) solid var(--text-faint);
-      background-color: #fafafa;
+      background-color: var(--toggle-color);
       margin: 0;
       transition: var(--animation-slow);
     }
@@ -123,7 +159,7 @@ body:not(.is-mobile) {
       border-radius: var(--radius-m) var(--radius-m) 0 0;
       border: var(--toggle-border-width) solid var(--text-faint);
       border-bottom-width: calc(var(--toggle-border-width) / 2);
-      background-color: var(--text-on-accent);
+      background-color: var(--toggle-color);
       width: 20%;
       margin: 0;
       transition: var(--animation-slow);
@@ -155,6 +191,9 @@ body:not(.is-mobile) {
         left: calc(2 * var(--toggle-border-width));
       }
     }
+  }
+
+  &.modal-toggle-line .checkbox-container {
   }
 }
 
