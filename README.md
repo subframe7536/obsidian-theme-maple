@@ -47,6 +47,12 @@ Enhance your experience with the **Style Settings** community plugin:
 
 Maple offers a highly customizable experience with extensive options via Style Settings. Below is a summary of key features, grouped by category.
 
+### Your flavor matters
+
+Maple is designed to be highly customizable, allowing you to tailor the theme to your liking. You can change the color scheme, layout, and more.
+
+![Layout](img/layout.webp)
+
 ### Alternate Checkboxes
 
 | Syntax  | Description |
