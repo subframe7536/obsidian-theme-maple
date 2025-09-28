@@ -97,7 +97,7 @@ body {
   --active-line: var(
     --setting-line-active-color,
     var(--base-accent-h),
-    24%,
+    var(--theme-accent-inactive-s),
     92%
   );
 }
@@ -106,7 +106,7 @@ body {
   --active-line: var(
     --setting-line-active-color,
     var(--base-accent-h),
-    12%,
+    var(--theme-accent-inactive-s),
     14%
   );
 }
