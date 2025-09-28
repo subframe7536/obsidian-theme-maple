@@ -39,17 +39,18 @@
 
 @keyframes slide-up {
   from {
-    transform: translateY(2px) translateZ(0);
-    opacity: 0;
+    transform: translateY(3px) translateZ(0);
   }
 
-  50% {
+  10% {
+    transform: translateY(2px) translateZ(0);
+  }
+
+  30% {
     transform: translateY(1px) translateZ(0);
-    opacity: 0.5;
   }
 
   to {
     transform: translateY(0) translateZ(0);
-    opacity: 1;
   }
 }

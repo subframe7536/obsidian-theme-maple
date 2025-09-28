@@ -111,12 +111,17 @@ body.tab-slide-up:not(.is-mobile):not(.is-tablet) {
     .workspace-tabs:not(.mod-stacked)
     .workspace-leaf-content:not([data-type='undefined'])
     .view-content {
-    animation: use-animation('slide-up');
+    animation: use-animation('op'), use-animation('slide-up');
   }
 }
 
-.is-sidedock-collapsed {
-  animation: use-animation('fade-dock');
+.workspace-split.mod-sidedock {
+  &.is-sidedock-collapsed {
+    animation: use-animation('fade-dock');
+  }
+  &:not(.is-sidedock-collapsed) {
+    animation: use-animation('op');
+  }
 }
 
 .search-result-file-matches {
