@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.27 For Obsidian */
+/* Maple Theme v1.0.0-beta.28 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -143,6 +143,8 @@ settings:
       type: class-select
       title: Background Type
       title.zh: 背景类型
+      description: '"gradient" is not effective when color scheme is "Minimal"'
+      description.zh: 当颜色方案为 "Minimal" 时，"gradient" 不会生效
       allow-empty: false
       default: app-layout-card-gradient
       options:
@@ -371,7 +373,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.27'"
+      default: "'maple 1.0.0-beta.28'"
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -958,6 +960,19 @@ settings:
             value: heading-h1-full-line
           - label: Block
             value: heading-h1-block
+    - id: heading-h1-full-line-direction
+      type: class-select
+      title: H1 Full Line Decoration Gradient Direction
+      title.zh: H1 整行下划线渐变方向
+      allow-empty: false
+      default: heading-h1-full-line-both
+      options:
+          - label: Both
+            value: heading-h1-full-line-both
+          - label: Left
+            value: heading-h1-full-line-left
+          - label: Right
+            value: heading-h1-full-line-right
     - id: setting-h1-color
       type: variable-themed-color
       title: H1 Color
@@ -1018,6 +1033,19 @@ settings:
             value: heading-h2-full-line
           - label: Block
             value: heading-h2-block
+    - id: heading-h2-full-line-direction
+      type: class-select
+      title: H2 Full Line Decoration Gradient Direction
+      title.zh: H2 整行下划线渐变方向
+      allow-empty: false
+      default: heading-h2-full-line-both
+      options:
+          - label: Both
+            value: heading-h2-full-line-both
+          - label: Left
+            value: heading-h2-full-line-left
+          - label: Right
+            value: heading-h2-full-line-right
     - id: setting-h2-color
       type: variable-themed-color
       title: H2 Color
@@ -1078,6 +1106,19 @@ settings:
             value: heading-h3-full-line
           - label: Block
             value: heading-h3-block
+    - id: heading-h3-full-line-direction
+      type: class-select
+      title: H3 Full Line Decoration Gradient Direction
+      title.zh: H3 整行下划线渐变方向
+      allow-empty: false
+      default: heading-h3-full-line-both
+      options:
+          - label: Both
+            value: heading-h3-full-line-both
+          - label: Left
+            value: heading-h3-full-line-left
+          - label: Right
+            value: heading-h3-full-line-right
     - id: setting-h3-color
       type: variable-themed-color
       title: H3 Color
@@ -1138,6 +1179,19 @@ settings:
             value: heading-h4-full-line
           - label: Block
             value: heading-h4-block
+    - id: heading-h4-full-line-direction
+      type: class-select
+      title: H4 Full Line Decoration Gradient Direction
+      title.zh: H4 整行下划线渐变方向
+      allow-empty: false
+      default: heading-h4-full-line-both
+      options:
+          - label: Both
+            value: heading-h4-full-line-both
+          - label: Left
+            value: heading-h4-full-line-left
+          - label: Right
+            value: heading-h4-full-line-right
     - id: setting-h4-color
       type: variable-themed-color
       title: H4 Color
@@ -1198,6 +1252,19 @@ settings:
             value: heading-h5-full-line
           - label: Block
             value: heading-h5-block
+    - id: heading-h5-full-line-direction
+      type: class-select
+      title: H5 Full Line Decoration Gradient Direction
+      title.zh: H5 整行下划线渐变方向
+      allow-empty: false
+      default: heading-h5-full-line-both
+      options:
+          - label: Both
+            value: heading-h5-full-line-both
+          - label: Left
+            value: heading-h5-full-line-left
+          - label: Right
+            value: heading-h5-full-line-right
     - id: setting-h5-color
       type: variable-themed-color
       title: H5 Color
@@ -1258,6 +1325,19 @@ settings:
             value: heading-h6-full-line
           - label: Block
             value: heading-h6-block
+    - id: heading-h6-full-line-direction
+      type: class-select
+      title: H6 Full Line Decoration Gradient Direction
+      title.zh: H6 整行下划线渐变方向
+      allow-empty: false
+      default: heading-h6-full-line-both
+      options:
+          - label: Both
+            value: heading-h6-full-line-both
+          - label: Left
+            value: heading-h6-full-line-left
+          - label: Right
+            value: heading-h6-full-line-right
     - id: setting-h6-color
       type: variable-themed-color
       title: H6 Color
@@ -2174,6 +2254,12 @@ body:not(.message-modify) .setting-item[data-id^=setting-message],
 body:not(.image-zoom) .setting-item[data-id^=image-zoom-out],
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix],
 body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
+body:not(.heading-h1-full-line) .setting-item[data-id=heading-h1-full-line-direction],
+body:not(.heading-h2-full-line) .setting-item[data-id=heading-h2-full-line-direction],
+body:not(.heading-h3-full-line) .setting-item[data-id=heading-h3-full-line-direction],
+body:not(.heading-h4-full-line) .setting-item[data-id=heading-h4-full-line-direction],
+body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direction],
+body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction],
 body:not(.table-colorful) .setting-item[data-id^=setting-table],
 body:not(.embed-enable) .setting-item[data-id^=embed-title],
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
@@ -2226,6 +2312,12 @@ body:not(.message-modify) .setting-item[data-id^=setting-message] + .style-setti
 body:not(.image-zoom) .setting-item[data-id^=image-zoom-out] + .style-settings-container,
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix] + .style-settings-container,
 body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom] + .style-settings-container,
+body:not(.heading-h1-full-line) .setting-item[data-id=heading-h1-full-line-direction] + .style-settings-container,
+body:not(.heading-h2-full-line) .setting-item[data-id=heading-h2-full-line-direction] + .style-settings-container,
+body:not(.heading-h3-full-line) .setting-item[data-id=heading-h3-full-line-direction] + .style-settings-container,
+body:not(.heading-h4-full-line) .setting-item[data-id=heading-h4-full-line-direction] + .style-settings-container,
+body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direction] + .style-settings-container,
+body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction] + .style-settings-container,
 body:not(.table-colorful) .setting-item[data-id^=setting-table] + .style-settings-container,
 body:not(.embed-enable) .setting-item[data-id^=embed-title] + .style-settings-container,
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon] + .style-settings-container,
@@ -2322,16 +2414,16 @@ body.app-layout-card:not(.is-mobile) {
   --tab-active-shadow: none !important;
 }
 body.app-layout-card:not(.is-mobile).theme-light {
-  --background-primary-alt: hsl(var(--base-accent-h), 12%, 95%);
+  --background-primary-alt: hsl(var(--base-accent-h), 14%, 95%);
 }
 body.app-layout-card:not(.is-mobile).theme-dark {
   --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-plain {
+body.app-layout-card:not(.is-mobile):is(.app-layout-card-plain, .color-use-minimal) {
   background-color: var(--background-secondary);
   --editor-min-opacity: 1;
 }
-body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain) {
+body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain, .color-use-minimal) {
   background-color: transparent;
   background-image: var(--app-bg-image);
   background-repeat: no-repeat;
@@ -2343,13 +2435,13 @@ body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain) {
   );
   --bg-surface: hsla(var(--background-secondary-hsl), var(--bg-opacity));
 }
-body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain) :is(.titlebar, .workspace) {
+body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain, .color-use-minimal) :is(.titlebar, .workspace) {
   --frame-bg: transparent !important;
 }
-body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain).theme-light {
+body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain, .color-use-minimal).theme-light {
   --editor-min-opacity: 0.8;
 }
-body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain).theme-dark {
+body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain, .color-use-minimal).theme-dark {
   --editor-min-opacity: 0.85;
 }
 body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
@@ -2358,17 +2450,17 @@ body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split > .workspac
 body.app-layout-card:not(.is-mobile) .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
   translate: calc(-1 * var(--size-4-1));
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-gradient {
+body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal) {
   --bg-opacity: 0.6;
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-gradient.theme-light {
+body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal).theme-light {
   --app-bg-image: linear-gradient(
     340deg,
     hsl(calc(var(--base-accent-h) + 50), 50%, 92%),
     hsl(calc(var(--base-accent-h) - 30), 36%, 87%)
   );
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-gradient.theme-dark {
+body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal).theme-dark {
   --app-bg-image: linear-gradient(
     340deg,
     hsl(calc(var(--base-accent-h) + 60), 11%, 22%),
@@ -2477,16 +2569,16 @@ body.app-layout-card:not(.is-mobile):not(.is-mobile) .workspace-split.mod-left-s
 }
 @keyframes slide-up {
   from {
-    transform: translateY(2px) translateZ(0);
-    opacity: 0;
+    transform: translateY(3px) translateZ(0);
   }
-  50% {
+  10% {
+    transform: translateY(2px) translateZ(0);
+  }
+  30% {
     transform: translateY(1px) translateZ(0);
-    opacity: 0.5;
   }
   to {
     transform: translateY(0) translateZ(0);
-    opacity: 1;
   }
 }
 /* #endregion animation */
@@ -2573,7 +2665,7 @@ body {
   --active-line: var(
     --setting-line-active-color,
     var(--base-accent-h),
-    24%,
+    var(--theme-accent-inactive-s),
     92%
   );
 }
@@ -2582,7 +2674,7 @@ body {
   --active-line: var(
     --setting-line-active-color,
     var(--base-accent-h),
-    12%,
+    var(--theme-accent-inactive-s),
     14%
   );
 }
@@ -4714,6 +4806,7 @@ body .markdown-rendered blockquote {
   border-radius: var(--blockquote-radius);
   position: relative;
   margin-block: var(--size-4-3);
+  padding-block: var(--size-2-3);
 }
 body .markdown-rendered blockquote :is(p, h1, h2, h3, h4, h5, h6) {
   padding-left: var(--blockquote-border-thickness);
@@ -5324,22 +5417,196 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   color: var(--h6-color) !important;
 }
 
-.heading-h1-underline :is(.HyperMD-header-1 .cm-header:not(.cm-formatting), h1), .heading-h2-underline :is(.HyperMD-header-2 .cm-header:not(.cm-formatting), h2), .heading-h3-underline :is(.HyperMD-header-3 .cm-header:not(.cm-formatting), h3), .heading-h4-underline :is(.HyperMD-header-4 .cm-header:not(.cm-formatting), h4), .heading-h5-underline :is(.HyperMD-header-5 .cm-header:not(.cm-formatting), h5), .heading-h6-underline :is(.HyperMD-header-6 .cm-header:not(.cm-formatting), h6) {
+.heading-h1-underline :is(.HyperMD-header-1 .cm-header:not(.cm-formatting), h1) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-:is(.heading-h1-full-line :is(.HyperMD-header-1, h1), .heading-h2-full-line :is(.HyperMD-header-2, h2), .heading-h3-full-line :is(.HyperMD-header-3, h3), .heading-h4-full-line :is(.HyperMD-header-4, h4), .heading-h5-full-line :is(.HyperMD-header-5, h5), .heading-h6-full-line :is(.HyperMD-header-6, h6)) {
+.heading-h2-underline :is(.HyperMD-header-2 .cm-header:not(.cm-formatting), h2) {
+  text-decoration: underline var(--size-2-1);
+  text-underline-offset: var(--size-4-2);
+}
+
+.heading-h3-underline :is(.HyperMD-header-3 .cm-header:not(.cm-formatting), h3) {
+  text-decoration: underline var(--size-2-1);
+  text-underline-offset: var(--size-4-2);
+}
+
+.heading-h4-underline :is(.HyperMD-header-4 .cm-header:not(.cm-formatting), h4) {
+  text-decoration: underline var(--size-2-1);
+  text-underline-offset: var(--size-4-2);
+}
+
+.heading-h5-underline :is(.HyperMD-header-5 .cm-header:not(.cm-formatting), h5) {
+  text-decoration: underline var(--size-2-1);
+  text-underline-offset: var(--size-4-2);
+}
+
+.heading-h6-underline :is(.HyperMD-header-6 .cm-header:not(.cm-formatting), h6) {
+  text-decoration: underline var(--size-2-1);
+  text-underline-offset: var(--size-4-2);
+}
+
+.heading-h1-full-line :is(.HyperMD-header-1, h1) {
   position: relative;
 }
-:is(.heading-h1-full-line :is(.HyperMD-header-1, h1), .heading-h2-full-line :is(.HyperMD-header-2, h2), .heading-h3-full-line :is(.HyperMD-header-3, h3), .heading-h4-full-line :is(.HyperMD-header-4, h4), .heading-h5-full-line :is(.HyperMD-header-5, h5), .heading-h6-full-line :is(.HyperMD-header-6, h6))::after {
+.heading-h1-full-line :is(.HyperMD-header-1, h1)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
   height: var(--size-2-1);
   inset-inline: 0;
-  background-color: currentColor;
+  background: var(--heading-h1-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
+}
+.heading-h1-full-line.heading-h1-full-line-left {
+  --heading-h1-full-line-bg: linear-gradient(
+    to right,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+.heading-h1-full-line.heading-h1-full-line-right {
+  --heading-h1-full-line-bg: linear-gradient(
+    to left,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+
+.heading-h2-full-line :is(.HyperMD-header-2, h2) {
+  position: relative;
+}
+.heading-h2-full-line :is(.HyperMD-header-2, h2)::after {
+  content: "";
+  position: absolute;
+  bottom: var(--size-2-1);
+  height: var(--size-2-1);
+  inset-inline: 0;
+  background: var(--heading-h2-full-line-bg, currentColor);
+  border-radius: var(--size-2-1);
+}
+.heading-h2-full-line.heading-h2-full-line-left {
+  --heading-h2-full-line-bg: linear-gradient(
+    to right,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+.heading-h2-full-line.heading-h2-full-line-right {
+  --heading-h2-full-line-bg: linear-gradient(
+    to left,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+
+.heading-h3-full-line :is(.HyperMD-header-3, h3) {
+  position: relative;
+}
+.heading-h3-full-line :is(.HyperMD-header-3, h3)::after {
+  content: "";
+  position: absolute;
+  bottom: var(--size-2-1);
+  height: var(--size-2-1);
+  inset-inline: 0;
+  background: var(--heading-h3-full-line-bg, currentColor);
+  border-radius: var(--size-2-1);
+}
+.heading-h3-full-line.heading-h3-full-line-left {
+  --heading-h3-full-line-bg: linear-gradient(
+    to right,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+.heading-h3-full-line.heading-h3-full-line-right {
+  --heading-h3-full-line-bg: linear-gradient(
+    to left,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+
+.heading-h4-full-line :is(.HyperMD-header-4, h4) {
+  position: relative;
+}
+.heading-h4-full-line :is(.HyperMD-header-4, h4)::after {
+  content: "";
+  position: absolute;
+  bottom: var(--size-2-1);
+  height: var(--size-2-1);
+  inset-inline: 0;
+  background: var(--heading-h4-full-line-bg, currentColor);
+  border-radius: var(--size-2-1);
+}
+.heading-h4-full-line.heading-h4-full-line-left {
+  --heading-h4-full-line-bg: linear-gradient(
+    to right,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+.heading-h4-full-line.heading-h4-full-line-right {
+  --heading-h4-full-line-bg: linear-gradient(
+    to left,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+
+.heading-h5-full-line :is(.HyperMD-header-5, h5) {
+  position: relative;
+}
+.heading-h5-full-line :is(.HyperMD-header-5, h5)::after {
+  content: "";
+  position: absolute;
+  bottom: var(--size-2-1);
+  height: var(--size-2-1);
+  inset-inline: 0;
+  background: var(--heading-h5-full-line-bg, currentColor);
+  border-radius: var(--size-2-1);
+}
+.heading-h5-full-line.heading-h5-full-line-left {
+  --heading-h5-full-line-bg: linear-gradient(
+    to right,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+.heading-h5-full-line.heading-h5-full-line-right {
+  --heading-h5-full-line-bg: linear-gradient(
+    to left,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+
+.heading-h6-full-line :is(.HyperMD-header-6, h6) {
+  position: relative;
+}
+.heading-h6-full-line :is(.HyperMD-header-6, h6)::after {
+  content: "";
+  position: absolute;
+  bottom: var(--size-2-1);
+  height: var(--size-2-1);
+  inset-inline: 0;
+  background: var(--heading-h6-full-line-bg, currentColor);
+  border-radius: var(--size-2-1);
+}
+.heading-h6-full-line.heading-h6-full-line-left {
+  --heading-h6-full-line-bg: linear-gradient(
+    to right,
+    currentColor 10%,
+    transparent 90%
+  );
+}
+.heading-h6-full-line.heading-h6-full-line-right {
+  --heading-h6-full-line-bg: linear-gradient(
+    to left,
+    currentColor 10%,
+    transparent 90%
+  );
 }
 
 .heading-h1-block.heading-color-accent {
@@ -6299,23 +6566,12 @@ body:not(.is-mobile).modal-toggle-floating .checkbox-container.is-enabled::after
   transform: none;
   left: calc(100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width));
 }
-body:not(.is-mobile).modal-toggle-thin .checkbox-container::before {
-  height: var(--toggle-border-width);
-  left: calc(var(--toggle-border-width) * 2);
-  right: calc(var(--toggle-border-width) * 2);
-  opacity: 1;
-  top: 50%;
-  bottom: initial;
-  transform: translateY(-50%);
-  background-color: var(--text-faint);
-}
 body:not(.is-mobile).modal-toggle-thin .checkbox-container::after {
   left: var(--toggle-border-width);
   height: var(--size-4-3);
   bottom: 50%;
   border-radius: var(--radius-m) var(--radius-m) 0 0;
   border: var(--toggle-border-width) solid var(--text-faint);
-  border-bottom-width: calc(var(--toggle-border-width) / 2);
   background-color: var(--toggle-color);
   width: 20%;
   margin: 0;
@@ -6342,19 +6598,20 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled::after {
 body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled:active::after {
   left: calc(2 * var(--toggle-border-width));
 }
+
 body {
   --logo-color-default: var(--text-accent);
 }
 
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container {
+.modal-header:not(.is-mobile) .modal-container {
   --modal-header-height: var(--size-4-12);
   --top-search-right: var(--size-4-12);
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings {
+.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.27");
+.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.28");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6365,57 +6622,57 @@ body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-conta
   transition: var(--animation);
 }
 @container (max-width:750px) {
-  body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings::before {
+  .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
     opacity: 0;
   }
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content {
   background-color: var(--titlebar-background);
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-header {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-header {
   background-color: hsl(var(--background-secondary-hsl));
   border-top: 1px solid var(--divider-color);
   margin-top: var(--modal-header-height);
   padding-top: 0;
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container {
   padding-top: var(--modal-header-height);
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
   background-color: var(--background-primary);
   border-top: 1px solid var(--divider-color);
   padding-top: var(--size-4-6);
   padding-right: var(--size-4-8);
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .settings-search-container {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .settings-search-container {
   padding: 0;
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .settings-search-container .settings-search-input {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .settings-search-container .settings-search-input {
   position: absolute;
   top: var(--size-2-3);
   width: calc(clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-5));
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
   margin: 0;
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(.search-input-container) {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(.search-input-container) {
   position: absolute;
   padding: 0;
   top: 0;
   right: var(--top-search-right);
   border: none;
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(.search-input-container) .setting-item-info {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(.search-input-container) .setting-item-info {
   visibility: hidden;
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-filter-container {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-filter-container {
   margin-bottom: var(--size-4-1);
 }
-body:is(:not(.css-settings-manager), .modal-header):not(.is-mobile) .modal-container .mod-settings .modal-content .setting-filter-container .hotkey-filter {
+.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-filter-container .hotkey-filter {
   margin-bottom: var(--size-4-3);
 }
 
@@ -6780,11 +7037,14 @@ body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-contai
 
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
 body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]) .view-content {
-  animation: slide-up var(--animation);
+  animation: op var(--animation), slide-up var(--animation);
 }
 
-.is-sidedock-collapsed {
+.workspace-split.mod-sidedock.is-sidedock-collapsed {
   animation: fade-dock var(--animation);
+}
+.workspace-split.mod-sidedock:not(.is-sidedock-collapsed) {
+  animation: op var(--animation);
 }
 
 .search-result-file-matches {
