@@ -225,8 +225,10 @@ body {
 
       .vertical-tab-content-container {
         padding-top: var(--modal-header-height);
+        position: relative;
 
         .vertical-tab-content {
+          position: unset !important;
           background-color: var(--background-primary);
           border-top: 1px solid var(--divider-color);
           padding-top: var(--size-4-6);
