@@ -186,7 +186,7 @@ body {
   --logo-color-default: var(--text-accent);
 }
 
-@include use-no-plugin('.modal-header', ':not(.is-mobile)') {
+.modal-header:not(.is-mobile) {
   .modal-container {
     --modal-header-height: var(--size-4-12);
     --top-search-right: var(--size-4-12);
