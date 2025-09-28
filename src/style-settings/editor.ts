@@ -34,6 +34,24 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
         ],
       },
     )
+    .addClassSelect(
+      `heading-h${level}-full-line-direction`,
+      {
+        title: {
+          en: `H${level} Full Line Decoration Gradient Direction`,
+          zh: `H${level} 整行下划线渐变方向`,
+        },
+      },
+      {
+        allowEmpty: false,
+        default: `heading-h${level}-full-line-both`,
+        options: [
+          { label: 'Both', value: `heading-h${level}-full-line-both` },
+          { label: 'Left', value: `heading-h${level}-full-line-left` },
+          { label: 'Right', value: `heading-h${level}-full-line-right` },
+        ],
+      },
+    )
     .addVarThemedColor(
       `setting-h${level}-color`,
       {

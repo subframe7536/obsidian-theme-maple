@@ -204,21 +204,12 @@ body.line-active-left .cm-active.HyperMD-header {
 
 // underline
 
-$underline-selectors: ();
-
 @for $i from 1 through 6 {
-  $underline-selectors: list.append(
-    $underline-selectors,
-    string.unquote(
-      '.heading-h#{$i}-underline :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting), h#{$i})'
-    ),
-    comma
-  );
-}
-
-#{$underline-selectors} {
-  text-decoration: underline var(--size-2-1);
-  text-underline-offset: var(--size-4-2);
+  .heading-h#{$i}-underline
+    :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting), h#{$i}) {
+    text-decoration: underline var(--size-2-1);
+    text-underline-offset: var(--size-4-2);
+  }
 }
 
 // full line
@@ -226,25 +217,33 @@ $underline-selectors: ();
 $full-selectors: ();
 
 @for $i from 1 through 6 {
-  $full-selectors: list.append(
-    $full-selectors,
-    string.unquote(
-      '.heading-h#{$i}-full-line :is(.HyperMD-header-#{$i}, h#{$i})'
-    ),
-    comma
-  );
-}
-
-:is(#{$full-selectors}) {
-  position: relative;
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: var(--size-2-1);
-    height: var(--size-2-1);
-    inset-inline: 0;
-    background-color: currentColor;
-    border-radius: var(--size-2-1);
+  .heading-h#{$i}-full-line {
+    :is(.HyperMD-header-#{$i}, h#{$i}) {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: var(--size-2-1);
+        height: var(--size-2-1);
+        inset-inline: 0;
+        background: var(--heading-h#{$i}-full-line-bg, currentColor);
+        border-radius: var(--size-2-1);
+      }
+    }
+    &.heading-h#{$i}-full-line-left {
+      --heading-h#{$i}-full-line-bg: linear-gradient(
+        to right,
+        currentColor 10%,
+        transparent 90%
+      );
+    }
+    &.heading-h#{$i}-full-line-right {
+      --heading-h#{$i}-full-line-bg: linear-gradient(
+        to left,
+        currentColor 10%,
+        transparent 90%
+      );
+    }
   }
 }
 

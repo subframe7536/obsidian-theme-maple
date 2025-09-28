@@ -260,6 +260,18 @@ body:not(.message-modify) .setting-item[data-id^='setting-message'],
 body:not(.image-zoom) .setting-item[data-id^='image-zoom-out'],
 body:not(.heading-level-enable) .setting-item[data-id^='heading-level-fix'],
 body:not(.heading-color-colorful) .setting-item[data-id='heading-color-custom'],
+body:not(.heading-h1-full-line)
+  .setting-item[data-id='heading-h1-full-line-direction'],
+body:not(.heading-h2-full-line)
+  .setting-item[data-id='heading-h2-full-line-direction'],
+body:not(.heading-h3-full-line)
+  .setting-item[data-id='heading-h3-full-line-direction'],
+body:not(.heading-h4-full-line)
+  .setting-item[data-id='heading-h4-full-line-direction'],
+body:not(.heading-h5-full-line)
+  .setting-item[data-id='heading-h5-full-line-direction'],
+body:not(.heading-h6-full-line)
+  .setting-item[data-id='heading-h6-full-line-direction'],
 body:not(.table-colorful) .setting-item[data-id^='setting-table'],
 body:not(.embed-enable) .setting-item[data-id^='embed-title'],
 body:not(.hr-enable) .setting-item[data-id^='setting-hr-icon'],
