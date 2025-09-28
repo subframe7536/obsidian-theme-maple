@@ -141,24 +141,12 @@ body:not(.is-mobile) {
 
   // https://uiverse.io/martinval9/white-lionfish-18
   &.modal-toggle-thin .checkbox-container {
-    &::before {
-      height: var(--toggle-border-width);
-      left: calc(var(--toggle-border-width) * 2);
-      right: calc(var(--toggle-border-width) * 2);
-      opacity: 1;
-      top: 50%;
-      bottom: initial;
-      transform: translateY(-50%);
-      background-color: var(--text-faint);
-    }
-
     &::after {
       left: var(--toggle-border-width);
       height: var(--size-4-3);
       bottom: 50%;
       border-radius: var(--radius-m) var(--radius-m) 0 0;
       border: var(--toggle-border-width) solid var(--text-faint);
-      border-bottom-width: calc(var(--toggle-border-width) / 2);
       background-color: var(--toggle-color);
       width: 20%;
       margin: 0;
@@ -191,9 +179,6 @@ body:not(.is-mobile) {
         left: calc(2 * var(--toggle-border-width));
       }
     }
-  }
-
-  &.modal-toggle-line .checkbox-container {
   }
 }
 
