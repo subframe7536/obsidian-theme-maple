@@ -10,7 +10,7 @@ body.app-layout-card:not(.is-mobile) {
   --tab-active-shadow: none !important;
 
   &.theme-light {
-    --background-primary-alt: hsl(var(--base-accent-h), 12%, 95%);
+    --background-primary-alt: hsl(var(--base-accent-h), 14%, 95%);
   }
   &.theme-dark {
     --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
