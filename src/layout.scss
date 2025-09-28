@@ -16,12 +16,12 @@ body.app-layout-card:not(.is-mobile) {
     --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
   }
 
-  &.app-layout-card-plain {
+  &:is(.app-layout-card-plain, .color-use-minimal) {
     background-color: var(--background-secondary);
     --editor-min-opacity: 1;
   }
 
-  &:not(.app-layout-card-plain) {
+  &:not(.app-layout-card-plain, .color-use-minimal) {
     background-color: transparent;
     background-image: var(--app-bg-image);
     background-repeat: no-repeat;
@@ -52,7 +52,7 @@ body.app-layout-card:not(.is-mobile) {
     translate: calc(-1 * var(--size-4-1));
   }
 
-  &.app-layout-card-gradient {
+  &.app-layout-card-gradient:not(.color-use-minimal) {
     --bg-opacity: 0.6;
 
     &.theme-light {

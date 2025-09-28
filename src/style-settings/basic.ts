@@ -138,6 +138,10 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
           en: 'Background Type',
           zh: '背景类型',
         },
+        desc: {
+          en: '"gradient" is not effective when color scheme is "Minimal"',
+          zh: '当颜色方案为 "Minimal" 时，"gradient" 不会生效',
+        },
       },
       {
         allowEmpty: false,
