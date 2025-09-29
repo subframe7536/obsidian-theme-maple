@@ -25,6 +25,11 @@ body {
   }
 }
 
+.markdown-source-view.mod-cm6 .cm-content,
+.markdown-preview-sizer {
+  padding-bottom: var(--setting-editor-bottom-spacing, 40vh) !important;
+}
+
 /* #endregion paragraph */
 
 /* #region fix latex */

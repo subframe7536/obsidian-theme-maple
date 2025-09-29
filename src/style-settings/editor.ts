@@ -306,6 +306,16 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       { default: 4, format: 'px', min: 0, max: 20, step: 1 },
     )
     .addVarNumSlider(
+      'setting-editor-bottom-spacing',
+      {
+        title: {
+          en: 'Editor Page Bottom Spacing (vh)',
+          zh: '编辑器页面底部留白大小（vh）',
+        },
+      },
+      { default: 40, format: 'vh', min: 0, max: 80, step: 5 },
+    )
+    .addVarNumSlider(
       'setting-editor-p-indent',
       {
         title: { en: 'Editor Paragraph Indent', zh: '编辑器段落缩进' },
