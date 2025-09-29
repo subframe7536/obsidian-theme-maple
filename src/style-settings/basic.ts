@@ -62,6 +62,10 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
               en: 'Custom Highlight Color for Active State',
               zh: '自定义激活状态的高亮色',
             },
+            desc: {
+              en: 'This option will also affect the saturation and brightness of the background color.',
+              zh: '这个选项也会影响背景色的饱和度和亮度',
+            },
           },
           { default: '#', format: 'hsl-split', opacity: false },
         )
@@ -100,6 +104,10 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
             title: {
               en: 'Custom Highlight Color for Active State',
               zh: '自定义激活状态的高亮色',
+            },
+            desc: {
+              en: 'This option will also affect the saturation and brightness of the background color.',
+              zh: '这个选项也会影响背景色的饱和度和亮度',
             },
           },
           { default: '#', format: 'hsl-split', opacity: false },
