@@ -220,7 +220,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addVarText(
       'setting-modal-header-title',
       { title: { en: 'Setting Panel Header Title', zh: '设置面板标题' } },
-      { default: `'maple ${version}'` },
+      { default: `Maple ${version}`, quotes: true },
     )
     .addClassToggle(
       'enable-group-title',
