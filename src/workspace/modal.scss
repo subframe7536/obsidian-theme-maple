@@ -60,6 +60,13 @@ body:not(.is-mobile) {
     background-color: var(--accent-active);
   }
 
+  &.theme-light .checkbox-container {
+    --toggle-thumb-color: #fafafa;
+  }
+  &.theme-dark .checkbox-container {
+    --toggle-thumb-color: #e0e0e0;
+  }
+
   &.modal-toggle-square {
     .checkbox-container {
       height: var(--size-4-5);
@@ -92,12 +99,6 @@ body:not(.is-mobile) {
         opacity: 0;
       }
     }
-    &.theme-light .checkbox-container {
-      --toggle-color: #fafafa;
-    }
-    &.theme-dark .checkbox-container {
-      --toggle-color: #e0e0e0;
-    }
   }
 
   // https://uiverse.io/aasisodiya/sour-horse-29
@@ -111,7 +112,6 @@ body:not(.is-mobile) {
       bottom: 30%;
       border-radius: calc(var(--toggle-width) / 2);
       border: var(--toggle-border-width) solid var(--text-faint);
-      background-color: var(--toggle-color);
       margin: 0;
       transition: var(--animation-slow);
     }
@@ -142,7 +142,6 @@ body:not(.is-mobile) {
       bottom: 50%;
       border-radius: var(--radius-m) var(--radius-m) 0 0;
       border: var(--toggle-border-width) solid var(--text-faint);
-      background-color: var(--toggle-color);
       width: 20%;
       margin: 0;
       transition: var(--animation-slow);

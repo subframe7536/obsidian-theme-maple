@@ -245,9 +245,9 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         default: 'modal-toggle-default',
         options: [
           { label: 'Default', value: 'modal-toggle-default' },
+          { label: 'Square', value: 'modal-toggle-square' },
           { label: 'Thin', value: 'modal-toggle-thin' },
           { label: 'Floating', value: 'modal-toggle-floating' },
-          { label: 'Square', value: 'modal-toggle-square' },
         ],
       },
     ),
