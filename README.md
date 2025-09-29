@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Style Settings](https://img.shields.io/badge/Style%20Settings-Enabled-blue)](https://github.com/mgmeyers/obsidian-style-settings)
 
-A sleek and modern Obsidian theme for desktop and mobile, featuring awesome components and customizable preferences via the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. It includes the self-designed monospace font [Maple Mono](https://github.com/subframe7536/maple-font).
+A sleek and modern Obsidian theme for desktop and mobile, featuring awesome components, graceful animation and customizable preferences via the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. It embeds the self-designed monospace font [Maple Mono](https://github.com/subframe7536/maple-font).
 
 ![Screenshot](img/screenshot.webp)
 
@@ -47,13 +47,26 @@ Enhance your experience with the **Style Settings** community plugin:
 
 Maple offers a highly customizable experience with extensive options via Style Settings. Below is a summary of key features, grouped by category.
 
-### Your flavor matters
+### Your Flavor Matters
 
-Maple is designed to be highly customizable, allowing you to tailor the theme to your liking. You can change the color scheme, layout, and more.
+Maple is designed to be highly customizable, allowing you to tailor the theme to your liking. You can change the color scheme, layout, app background, and more.
 
 ![Layout](img/layout.webp)
+![Style Settings]()
 
-### Alternate Checkboxes
+### Smooth the Experience
+
+Maple includes graceful animations and transitions throughout—tab switches, hovers, modals, and scrollbars—for a fluid workflow.
+
+![image to be added]()
+
+Plenty of new icons are designed to enhance the visual experience.
+
+![image to be added]()
+
+#### Alternate Checkboxes
+
+![image to be added]()
 
 | Syntax  | Description |
 | ------- | ----------- |
@@ -83,6 +96,12 @@ Maple is designed to be highly customizable, allowing you to tailor the theme to
 | `- [n]` | Note        |
 | `- [R]` | Review      |
 | `- [L]` | Love        |
+
+### Optimized for Mobile
+
+Maple is optimized for mobile devices, ensuring a seamless experience across different screen sizes. But everything just getting started, I will keep working on it.
+
+![image to be added]()
 
 ## Credits
 
