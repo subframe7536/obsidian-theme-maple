@@ -14,12 +14,15 @@ body:not(.is-phone) .modal-close-button {
   height: var(--input-height);
   width: var(--input-height);
   transition: var(--animation);
-  padding: 3px;
+  z-index: calc(var(--layer-modal) + 1);
 
   &::before {
-    content: ' ' !important;
-    display: block;
+    content: '';
+    position: absolute;
     @include use-icon('x', var(--text-muted), var(--size-4-6));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
   }
 }
 
