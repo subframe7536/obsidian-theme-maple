@@ -10,3 +10,6 @@ vault
 
 *.local
 src/snippets/test.css
+
+*.png
+!img/screenshot.png
