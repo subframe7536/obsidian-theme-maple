@@ -603,29 +603,32 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       { enable: true },
     ),
-  Settings.ofLevel(1, { title: { en: 'Quote', zh: '引言' } })
+  Settings.ofLevel(1, { title: { en: 'Blockquote', zh: '引言块' } })
     .addClassToggle('quote-italic', {
       title: {
-        en: 'Use Italic Style',
+        en: 'Use Italic Style in Blockquote',
         zh: '使用斜体',
       },
     })
     .addClassToggle('quote-mark', {
       title: {
-        en: 'Add Front Quote Mark in Reading View',
+        en: 'Add Front Blockquote Mark in Reading View',
         zh: '阅读视图下引言块添加前置引号',
       },
     })
     .addClassSelect(
       'quote-outline-style',
       {
-        title: { en: 'Reading View Style', zh: '阅读视图的样式' },
+        title: {
+          en: 'Blockquote Style in Reading View',
+          zh: '阅读视图中引言的样式',
+        },
       },
       {
         allowEmpty: false,
         default: 'quote-shadow',
         options: [
-          { label: 'None', value: 'quote-none' },
+          { label: 'Plain', value: 'quote-none' },
           { label: 'Border', value: 'quote-border' },
           { label: 'Shadow', value: 'quote-shadow' },
         ],

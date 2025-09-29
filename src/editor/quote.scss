@@ -1,7 +1,4 @@
-@use 'sass:math';
-
-$indent: 0.6rem;
-$mark-size: 3rem;
+@use '../utils.scss' as *;
 
 :is(body, .print .markdown-rendered) {
   --blockquote-background-color: var(--background-primary-alt);
@@ -110,24 +107,18 @@ body {
   }
 }
 
-.quote-mark {
-  &.quote-theme blockquote {
-    padding-left: $indent * 3.8;
+.quote-mark blockquote {
+  padding-left: calc(var(--indent-unit) * var(--indent-size));
 
-    &::before {
-      position: absolute;
-      font-size: $mark-size;
-      font-family: Source Code Pro;
-      line-height: 1;
-      content: '“' !important;
-      background-color: transparent;
-      color: var(--text-muted);
-      top: calc(
-        var(--font-text-size) * var(--line-height-normal) -
-          math.div($mark-size, 1.6)
-      );
-      transform: translateX($indent * -2.7);
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    @include use-icon(
+      'bi:quote',
+      var(--text-muted),
+      calc(var(--font-text-size) * 2)
+    );
+    left: var(--indent-unit);
   }
 }
 
