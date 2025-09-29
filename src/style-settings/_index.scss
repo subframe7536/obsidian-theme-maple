@@ -126,7 +126,7 @@ body:not(.color-use-default) {
       --slider-track-height: calc(var(--slider-thumb-height) - var(--size-4-3));
       --slider-thumb-radius: var(--slider-thumb-width);
       --slider-thumb-y: calc(
-        (var(--slider-track-height) - var(--slider-thumb-height)) / 1.5
+        (var(--slider-track-height) - var(--slider-thumb-height)) / 1.4
       );
       border-radius: var(--radius-s);
       $s: 60%;

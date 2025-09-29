@@ -35,8 +35,8 @@ input {
 }
 
 body:not(.is-mobile) {
+  --slider-track-background: var(--accent-inactive);
   &.modal-slider input[type='range'] {
-    --slider-track-background: var(--accent-inactive);
     &:focus {
       --slider-thumb-ring-factor: 5;
     }
@@ -54,6 +54,10 @@ body:not(.is-mobile) {
         --slider-thumb-ring-factor: 5;
       }
     }
+  }
+
+  .checkbox-container.is-enabled {
+    background-color: var(--accent-active);
   }
 
   &.modal-toggle-square {
