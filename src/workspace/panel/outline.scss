@@ -50,7 +50,10 @@ body.outline-enable {
             border-radius: 50%;
             position: absolute;
             top: 50%;
-            transform: translate(calc(-1 * var(--size-4-5)), -50%);
+            transform: translate(
+              calc(-1 * var(--size-4-5) - $size * 0.5 + 1px),
+              -50%
+            );
           }
         }
 
