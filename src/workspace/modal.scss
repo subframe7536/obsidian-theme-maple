@@ -63,27 +63,15 @@ body:not(.is-mobile) {
   &.modal-toggle-square {
     .checkbox-container {
       height: var(--size-4-5);
-      // border: 1px solid var(--background-modifier-border);
       --toggle-radius: var(--size-2-3);
+      --toggle-border-width: var(--size-4-1);
       --toggle-thumb-radius: var(--size-4-1);
       --toggle-thumb-width: var(--size-4-3);
       --toggle-thumb-height: var(--size-4-3);
-      &::after {
-        transform: translate3d(
-          calc(var(--toggle-border-width) + var(--size-2-1)),
-          var(--size-2-1),
-          0
-        );
-      }
-      &.is-enabled::after {
-        transform: translate3d(
-          calc(
-            var(--toggle-width) - var(--toggle-thumb-width) - var(--size-4-1)
-          ),
-          var(--size-2-1),
-          0
-        );
-      }
+      --toggle-s-border-width: var(--toggle-border-width);
+      --toggle-s-thumb-radius: var(--toggle-thumb-radius);
+      --toggle-s-thumb-width: var(--toggle-thumb-width);
+      --toggle-s-thumb-height: var(--toggle-thumb-height);
     }
   }
 
