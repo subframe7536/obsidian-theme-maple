@@ -13,7 +13,7 @@ body:not(.is-phone)
 body:not(.is-phone) .modal-close-button {
   height: var(--input-height);
   width: var(--input-height);
-  transition: var(--animation);
+  transition: background-color var(--animation);
   z-index: calc(var(--layer-modal) + 1);
 
   &::before {
@@ -48,7 +48,7 @@ body:not(.is-mobile) {
           var(--color-base-20),
         inset 0 0 0 calc(var(--slider-thumb-width) / 2) var(--accent-active),
         var(--input-shadow);
-      transition: var(--animation);
+      transition: box-shadow var(--animation);
       border-width: 0;
       &:is(:hover, :active, :focus) {
         --slider-thumb-ring-factor: 5;
@@ -206,7 +206,6 @@ body {
         font-size: calc(1.4 * var(--size-4-4));
         font-weight: 550;
         color: var(--setting-color-logo, var(--logo-color-default));
-        transition: var(--animation);
       }
 
       @container (max-width:750px) {
@@ -287,6 +286,7 @@ select,
 .dropdown,
 button {
   transition: var(--animation);
+  transition-property: background-color;
 }
 
 :is(select, .combobox-button, .dropdown):focus-visible {
@@ -388,14 +388,16 @@ button {
     }
 
     .search-input-container {
-      * {
-        transition: var(--animation);
-      }
+      // * {
+      //   transition: var(--animation);
+      // }
       .search-input-clear-button {
         right: calc(var(--size-4-6) + var(--size-2-1));
       }
       input {
         padding-inline-end: var(--size-4-12);
+        transition: var(--animation);
+        transition-property: border-color, background-color, box-shadow;
       }
     }
   }

@@ -122,7 +122,7 @@
   --cursor: pointer;
   padding-block: 0;
   color: var(--inline-code);
-  transition: var(--animation);
+  transition: background-color var(--animation);
   font-family: var(--font-monospace);
   font-weight: 550;
   top: var(--size-4-1);
@@ -151,7 +151,7 @@ pre {
 }
 
 body .markdown-rendered pre {
-  transition: var(--animation);
+  transition: border-color var(--animation);
   overflow-x: hidden;
 
   &:hover {

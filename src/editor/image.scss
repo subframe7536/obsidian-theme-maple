@@ -2,7 +2,7 @@
 
 body.theme-dark.image-dark-hover img {
   filter: brightness(0.7);
-  transition: var(--animation);
+  transition: filter var(--animation);
 
   &:hover {
     filter: brightness(0.85);

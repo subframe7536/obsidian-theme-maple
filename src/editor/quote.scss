@@ -91,7 +91,7 @@ body {
 
 .quote-border .markdown-rendered blockquote {
   border: 1px solid var(--background-modifier-border);
-  transition: var(--animation);
+  transition: border-color var(--animation);
   box-shadow: none;
 
   &:hover {

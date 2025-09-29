@@ -23,7 +23,8 @@
   .mod-root {
     .workspace-tab-header {
       padding-block: 0 !important;
-      transition: color var(--animation), width var(--animation);
+      transition: var(--animation);
+      transition-property: color, width;
       --tab-curve: 0;
       --tab-radius-active: var(--radius-m);
 
@@ -95,8 +96,7 @@ body.tab-title-bar-text-hidden
   .workspace-leaf-content
   .view-header-title-container {
   opacity: 0;
-  transition: var(--animation);
-  transition-delay: var(--animation-delay);
+  transition: var(--animation) var(--animation-delay);
 
   &:hover {
     opacity: 1;

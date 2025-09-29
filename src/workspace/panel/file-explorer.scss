@@ -111,12 +111,8 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       }
     }
 
-    .nav-folder-children {
-      transition: var(--animation);
-
-      &:hover {
-        border-color: var(--accent-inactive);
-      }
+    .nav-folder-children:hover {
+      border-color: var(--accent-inactive);
     }
 
     .collapse-icon {
@@ -127,10 +123,9 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       }
     }
 
-    &.is-collapsed .collapse-icon svg.svg-icon {
+    .collapse-icon.is-collapsed svg.svg-icon {
       transform: none;
       @include use-icon('folder', var(--folder-color));
-      transition: var(--animation);
     }
   }
 

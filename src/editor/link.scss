@@ -41,6 +41,7 @@
   box-shadow: inset 0 -0.1em 0 $underline;
   text-decoration: none !important;
   transition: var(--animation);
+  transition-property: box-shadow, color;
   color: $color !important;
 
   &:hover,
@@ -58,7 +59,7 @@
 }
 
 @mixin hover-base($color, $underline) {
-  transition: var(--animation);
+  transition: background-color var(--animation);
   color: rgba($color, var(--color-opacity));
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
@@ -81,7 +82,7 @@
 }
 
 .is-unresolved {
-  transition: var(--animation);
+  transition: color var(--animation);
 
   &:hover {
     --link-color-hover: rgba(var(--link-color-rgb), 0.6) !important;
@@ -175,7 +176,6 @@ body.link-hover-expand {
     &::before {
       content: '';
       display: inline-block;
-      transition: var(--animation);
       transform: translateY(var(--size-2-1));
       margin-inline: var(--size-2-1);
       @include use-icon(
@@ -196,7 +196,6 @@ body.link-hover-expand {
       &::before {
         content: '';
         display: inline-block;
-        transition: var(--animation);
         transform: translateY(var(--size-2-1));
         margin-inline: var(--size-2-1);
         @include use-icon(

@@ -81,7 +81,7 @@ body:not(.color-use-default) {
     .style-settings-download,
     .style-settings-import-label
   ) {
-  transition: var(--animation);
+  transition: background-color var(--animation);
   text-decoration: none !important;
   height: var(--input-height);
   font-size: var(--font-ui-small);
@@ -366,7 +366,7 @@ body:not(.tag-outline)
   margin-left: var(--size-4-4);
   border-left: var(--nav-indentation-guide-width) solid
     var(--nav-indentation-guide-color);
-  transition: var(--animation);
+  transition: border-color var(--animation);
 
   &:hover {
     border-left-color: var(--accent-inactive);

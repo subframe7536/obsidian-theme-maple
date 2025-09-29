@@ -255,7 +255,7 @@ mark {
 }
 
 .is-flashing {
-  transition: var(--animation);
+  transition: background-color var(--animation);
 }
 
 .theme-dark .is-flashing {
