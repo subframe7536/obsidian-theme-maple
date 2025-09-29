@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.28 For Obsidian */
+/* Maple Theme v1.0.0-beta.29 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -28,7 +28,7 @@ settings:
       title.zh: 颜色
       type: heading
       level: 1
-      collapsed: true
+      collapsed: false
     - id: color-use-custom
       type: class-select
       title: Color Scheme
@@ -73,6 +73,9 @@ settings:
       type: variable-color
       title: Custom Highlight Color for Active State
       title.zh: 自定义激活状态的高亮色
+      description: This option will also affect the saturation and brightness of the
+          background color.
+      description.zh: 这个选项也会影响背景色的饱和度和亮度
       default: "#"
       format: hsl-split
       opacity: false
@@ -114,6 +117,9 @@ settings:
       type: variable-color
       title: Custom Highlight Color for Active State
       title.zh: 自定义激活状态的高亮色
+      description: This option will also affect the saturation and brightness of the
+          background color.
+      description.zh: 这个选项也会影响背景色的饱和度和亮度
       default: "#"
       format: hsl-split
       opacity: false
@@ -129,7 +135,7 @@ settings:
       title.zh: 布局
       type: heading
       level: 1
-      collapsed: true
+      collapsed: false
     - id: app-layout-card
       type: class-toggle
       title: Enable Card Layout
@@ -373,7 +379,8 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: "'maple 1.0.0-beta.28'"
+      default: Maple 1.0.0-beta.29
+      quotes: true
     - id: enable-group-title
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
@@ -393,12 +400,12 @@ settings:
       options:
           - label: Default
             value: modal-toggle-default
+          - label: Square
+            value: modal-toggle-square
           - label: Thin
             value: modal-toggle-thin
           - label: Floating
             value: modal-toggle-floating
-          - label: Square
-            value: modal-toggle-square
     - id: title-tab-and-navigation-bar
       title: Tab and Navigation Bar
       title.zh: 标签页和导航栏
@@ -623,25 +630,94 @@ settings:
       min: 10
       max: 30
       step: 1
-    - id: title-font
-      title: Font
-      title.zh: 字体
+    - id: title-line-and-spacing
+      title: Line and Spacing
+      title.zh: 行和间距
       type: heading
       level: 1
       collapsed: true
-    - id: font-maple
-      type: class-toggle
-      title: Use "Maple Mono" as Monospace Font
-      title.zh: 使用 “Maple Mono” 作为等宽字体
-      description: https://github.com/subframe7536/maple-font
-      description.zh: https://github.com/subframe7536/maple-font
-      default: true
-    - id: font-latex-text
-      type: class-toggle
-      title: Use Text Font in Non-formula Parts of LaTeX
-      title.zh: 在 LaTeX 内非公式部分使用正文字体
-      description: No effective on Latin letters and numbers
-      description.zh: 用于修改中文字体
+    - id: setting-editor-p-spacing
+      type: variable-number-slider
+      title: Editor Paragraph Spacing (px)
+      title.zh: 编辑器段落间距（px）
+      default: 4
+      format: px
+      min: 0
+      max: 20
+      step: 1
+    - id: setting-editor-bottom-spacing
+      type: variable-number-slider
+      title: Editor Page Bottom Spacing (vh)
+      title.zh: 编辑器页面底部留白大小（vh）
+      default: 40
+      format: vh
+      min: 0
+      max: 80
+      step: 5
+    - id: setting-editor-p-indent
+      type: variable-number-slider
+      title: Editor Paragraph Indent
+      title.zh: 编辑器段落缩进
+      description: If "p-indent" exists in properties.cssclasses, all paragraphs will
+          be indented (n times font size)
+      description.zh: 当文档属性的 cssclasses 中存在 “p-indent” 类时，会为所有段落添加缩进（字体大小的倍数）
+      default: 2
+      min: 0
+      max: 4
+      step: 0.2
+    - id: setting-line-height
+      type: variable-number-slider
+      title: Editor Line Height
+      title.zh: 编辑器行高
+      description: Multiple of the text size
+      description.zh: 文字大小的倍数
+      default: 1.8
+      min: 1.2
+      max: 2.4
+      step: 0.1
+    - id: setting-file-line-width
+      type: variable-text
+      title: Editor Line Width
+      title.zh: 编辑器行宽
+      description: Any CSS "width" value, e.g. clamp(MinWidth, WidthPercent, MaxWidth)
+      description.zh: 任何 CSS “width” 值，例如：clamp(最小值, 宽度百分比, 最大值)
+      default: clamp(600px, 72%, 850px)
+    - id: line-indicator
+      type: class-select
+      title: Hover Line Indicator
+      title.zh: 鼠标悬停行指示器
+      description: Reference from https://github.com/Akifyss/obsidian-border
+      description.zh: 参考自 https://github.com/Akifyss/obsidian-border
+      allow-empty: false
+      default: line-indicator-disable
+      options:
+          - label: None
+            value: line-indicator-disable
+          - label: Left
+            value: line-indicator-enable
+          - label: Full Line
+            value: line-indicator-full
+    - id: line-active
+      type: class-select
+      title: Active Line Highlight
+      title.zh: 当前行高亮
+      allow-empty: false
+      default: line-active-enable
+      options:
+          - label: None
+            value: line-active-disable
+          - label: Left
+            value: line-active-left
+          - label: Full Line
+            value: line-active-enable
+    - id: setting-line-active-color
+      type: variable-themed-color
+      title: Active Line Color
+      title.zh: 高亮行颜色
+      format: hsl-values
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
     - id: title-text
       title: Text
       title.zh: 文本
@@ -763,85 +839,25 @@ settings:
       description: Any CSS "font-family" value
       description.zh: 任何 CSS “font-family” 值
       default: ""
-    - id: title-line-and-spacing
-      title: Line and Spacing
-      title.zh: 行和间距
+    - id: title-font
+      title: Font
+      title.zh: 字体
       type: heading
       level: 1
       collapsed: true
-    - id: setting-editor-p-spacing
-      type: variable-number-slider
-      title: Editor Paragraph Spacing (px)
-      title.zh: 编辑器段落间距（px）
-      default: 4
-      format: px
-      min: 0
-      max: 20
-      step: 1
-    - id: setting-editor-p-indent
-      type: variable-number-slider
-      title: Editor Paragraph Indent
-      title.zh: 编辑器段落缩进
-      description: If "p-indent" exists in properties.cssclasses, all paragraphs will
-          be indented (n times font size)
-      description.zh: 当文档属性的 cssclasses 中存在 “p-indent” 类时，会为所有段落添加缩进（字体大小的倍数）
-      default: 2
-      min: 0
-      max: 4
-      step: 0.2
-    - id: setting-line-height
-      type: variable-number-slider
-      title: Editor Line Height
-      title.zh: 编辑器行高
-      description: Multiple of the text size
-      description.zh: 文字大小的倍数
-      default: 1.8
-      min: 1.2
-      max: 2.4
-      step: 0.1
-    - id: setting-file-line-width
-      type: variable-text
-      title: Editor Line Width
-      title.zh: 编辑器行宽
-      description: Any CSS "width" value, e.g. clamp(MinWidth, WidthPercent, MaxWidth)
-      description.zh: 任何 CSS “width” 值，例如：clamp(最小值, 宽度百分比, 最大值)
-      default: clamp(600px, 72%, 850px)
-    - id: line-indicator
-      type: class-select
-      title: Hover Line Indicator
-      title.zh: 鼠标悬停行指示器
-      description: Reference from https://github.com/Akifyss/obsidian-border
-      description.zh: 参考自 https://github.com/Akifyss/obsidian-border
-      allow-empty: false
-      default: line-indicator-disable
-      options:
-          - label: None
-            value: line-indicator-disable
-          - label: Left
-            value: line-indicator-enable
-          - label: Full Line
-            value: line-indicator-full
-    - id: line-active
-      type: class-select
-      title: Active Line Highlight
-      title.zh: 当前行高亮
-      allow-empty: false
-      default: line-active-enable
-      options:
-          - label: None
-            value: line-active-disable
-          - label: Left
-            value: line-active-left
-          - label: Full Line
-            value: line-active-enable
-    - id: setting-line-active-color
-      type: variable-themed-color
-      title: Active Line Color
-      title.zh: 高亮行颜色
-      format: hsl-values
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
+    - id: font-maple
+      type: class-toggle
+      title: Use "Maple Mono" as Monospace Font
+      title.zh: 使用 “Maple Mono” 作为等宽字体
+      description: https://github.com/subframe7536/maple-font
+      description.zh: https://github.com/subframe7536/maple-font
+      default: true
+    - id: font-latex-text
+      type: class-toggle
+      title: Use Text Font in Non-formula Parts of LaTeX
+      title.zh: 在 LaTeX 内非公式部分使用正文字体
+      description: No effective on Latin letters and numbers
+      description.zh: 用于修改中文字体
     - id: title-link
       title: Link
       title.zh: 链接
@@ -1435,20 +1451,19 @@ settings:
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: title-embed-file
-      title: Embed File
-      title.zh: 内嵌文件
+    - id: title-embed-block
+      title: Embed Block
+      title.zh: 内嵌块
       type: heading
       level: 1
       collapsed: true
-    - id: embed-enable
+    - id: embed-border-hidden
       type: class-toggle
-      title: Block Style Embed File
-      title.zh: 块状内嵌文件
-      default: true
+      title: Hide Embed Block's Border
+      title.zh: 隐藏内嵌块的边框
     - id: embed-title-right-top
       type: class-toggle
-      title: Move Embed Title to Top Right
+      title: Move Embed File Title to Top Right
       title.zh: 内嵌文件标题移至右上角
       description: Visible on hover; disabled when alias is "#", e.g., ![[FileName|#]]
       description.zh: 鼠标悬停时显示；别名为 “#” 时禁用，例如：![[文件名|#]]
@@ -1480,28 +1495,28 @@ settings:
       description: Brightness increases on hover
       description.zh: 鼠标悬停时亮度会增加
       default: true
-    - id: title-quote
-      title: Quote
-      title.zh: 引言
+    - id: title-blockquote
+      title: Blockquote
+      title.zh: 引言块
       type: heading
       level: 1
       collapsed: true
     - id: quote-italic
       type: class-toggle
-      title: Use Italic Style
+      title: Use Italic Style in Blockquote
       title.zh: 使用斜体
     - id: quote-mark
       type: class-toggle
-      title: Add Front Quote Mark in Reading View
+      title: Add Front Blockquote Mark in Reading View
       title.zh: 阅读视图下引言块添加前置引号
     - id: quote-outline-style
       type: class-select
-      title: Reading View Style
-      title.zh: 阅读视图的样式
+      title: Blockquote Style in Reading View
+      title.zh: 阅读视图中引言的样式
       allow-empty: false
       default: quote-shadow
       options:
-          - label: None
+          - label: Plain
             value: quote-none
           - label: Border
             value: quote-border
@@ -2138,7 +2153,7 @@ body:not(.color-use-default) .mod-settings .vertical-tab-content-container > .ve
 .style-settings-copy,
 .style-settings-download,
 .style-settings-import-label) {
-  transition: var(--animation);
+  transition: background-color var(--animation);
   text-decoration: none !important;
   height: var(--input-height);
   font-size: var(--font-ui-small);
@@ -2177,7 +2192,7 @@ body:not(.color-use-default) .mod-settings .vertical-tab-content-container > .ve
   --slider-track-height: calc(var(--slider-thumb-height) - var(--size-4-3));
   --slider-thumb-radius: var(--slider-thumb-width);
   --slider-thumb-y: calc(
-    (var(--slider-track-height) - var(--slider-thumb-height)) / 1.5
+    (var(--slider-track-height) - var(--slider-thumb-height)) / 1.4
   );
   border-radius: var(--radius-s);
   background: linear-gradient(to right, hsl(0, 60%, 60%), hsl(30, 60%, 60%), hsl(60, 60%, 60%), hsl(90, 60%, 60%), hsl(120, 60%, 60%), hsl(150, 60%, 60%), hsl(180, 60%, 60%), hsl(210, 60%, 60%), hsl(240, 60%, 60%), hsl(270, 60%, 60%), hsl(300, 60%, 60%), hsl(330, 60%, 60%), hsl(0, 60%, 60%));
@@ -2261,7 +2276,6 @@ body:not(.heading-h4-full-line) .setting-item[data-id=heading-h4-full-line-direc
 body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direction],
 body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction],
 body:not(.table-colorful) .setting-item[data-id^=setting-table],
-body:not(.embed-enable) .setting-item[data-id^=embed-title],
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
 body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
 [data-id=setting-tag-color]) {
@@ -2319,7 +2333,6 @@ body:not(.heading-h4-full-line) .setting-item[data-id=heading-h4-full-line-direc
 body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direction] + .style-settings-container,
 body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction] + .style-settings-container,
 body:not(.table-colorful) .setting-item[data-id^=setting-table] + .style-settings-container,
-body:not(.embed-enable) .setting-item[data-id^=embed-title] + .style-settings-container,
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon] + .style-settings-container,
 body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
 [data-id=setting-tag-color]) + .style-settings-container {
@@ -2386,7 +2399,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type=style-settings] .view-con
   padding-left: var(--size-2-1);
   margin-left: var(--size-4-4);
   border-left: var(--nav-indentation-guide-width) solid var(--nav-indentation-guide-color);
-  transition: var(--animation);
+  transition: border-color var(--animation);
 }
 :is(.style-settings-heading[data-level="0"] + .style-settings-container,
 .style-settings-container):hover {
@@ -2604,6 +2617,11 @@ body {
   margin-inline-end: var(--indent);
 }
 
+.markdown-source-view.mod-cm6 .cm-contentContainer > .cm-content,
+.markdown-reading-view > div > .markdown-preview-sizer {
+  padding-bottom: var(--setting-editor-bottom-spacing, 40vh) !important;
+}
+
 /* #endregion paragraph */
 /* #region fix latex */
 .font-latex-text mjx-container mjx-utext {
@@ -2783,7 +2801,7 @@ mark {
 }
 
 .is-flashing {
-  transition: var(--animation);
+  transition: background-color var(--animation);
 }
 
 .theme-dark .is-flashing {
@@ -3028,7 +3046,7 @@ body {
   --cursor: pointer;
   padding-block: 0;
   color: var(--inline-code);
-  transition: var(--animation);
+  transition: background-color var(--animation);
   font-family: var(--font-monospace);
   font-weight: 550;
   top: var(--size-4-1);
@@ -3054,7 +3072,7 @@ pre {
 }
 
 body .markdown-rendered pre {
-  transition: var(--animation);
+  transition: border-color var(--animation);
   overflow-x: hidden;
 }
 body .markdown-rendered pre:hover {
@@ -3689,92 +3707,80 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
 
 /* #endregion code */
 /* #region embed */
-body:is(:not(.css-settings-manager), .embed-enable) .cm-embed-block {
-  border-radius: var(--radius-m) !important;
-  transition: var(--animation);
+body {
+  --embed-background: var(--bg-editor);
+  --embed-padding: var(--size-4-5) var(--size-4-4);
+  --embed-block-shadow-hover: 0 0 0 1px var(--accent-inactive),
+    inset 0 0 0 1px var(--accent-inactive);
+  --embed-border-start: var(--size-2-1) solid var(--accent-inactive);
+  --embed-border-end: var(--embed-border-start);
+  --embed-border-top: var(--embed-border-start);
+  --embed-border-bottom: var(--embed-border-start);
 }
-body:is(:not(.css-settings-manager), .embed-enable) .cm-embed-block .edit-block-button {
+body .markdown-source-view.mod-cm6 .cm-embed-block {
+  margin-block: var(--size-4-1) !important;
   border-radius: var(--radius-m) !important;
+  transition: box-shadow var(--animation);
+}
+body .markdown-source-view.mod-cm6 .cm-embed-block .edit-block-button {
+  border-radius: var(--radius-s) !important;
   transition: var(--animation);
-  inset-block: 0.2rem;
+  transition-property: background-color, opacity;
   height: fit-content;
 }
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) {
-  --embed-background: var(--background-primary);
-  --embed-max-height: initial;
+body .internal-embed.is-loaded:not(.image-embed) {
   transition: var(--animation);
-  padding: var(--size-4-1) var(--size-2-1) !important;
-}
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link) {
-  padding: var(--size-2-3);
+  transition-property: border-color, background-color;
   border-radius: var(--radius-m);
-  transition: var(--animation);
-  color: var(--accent-active);
-  top: 0.2rem;
-  right: 0.2rem;
+  margin-block: var(--size-4-1) !important;
 }
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link):hover {
+body .internal-embed.is-loaded:not(.image-embed):hover {
+  border-color: var(--accent-active);
+}
+body .internal-embed.is-loaded:not(.image-embed):is(.mod-empty, .mod-empty-attachment) {
+  border: var(--size-2-1) dotted var(--text-faint);
+}
+body .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link) {
+  border-radius: var(--radius-s);
+  transition: var(--animation);
+  transition-property: color, background-color;
+}
+body .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link):hover {
   background-color: var(--nav-item-background-hover);
 }
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) .markdown-embed-title {
-  text-align: center;
-  line-height: 2.8;
-}
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) {
-  border-radius: var(--radius-m);
-  transition: var(--animation);
-  margin-block: var(--size-4-1) !important;
-  padding: 0;
-  border: var(--block-outline-width) solid var(--background-modifier-border);
-}
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed):is(.mod-empty, .mod-empty-attachment) {
-  border-style: dotted;
-}
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) .markdown-preview-view {
-  padding: calc(var(--font-text-size) * 1.2) calc(var(--font-text-size) * 1.5);
-  position: initial;
-}
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) .markdown-preview-view .markdown-preview-section {
-  min-height: fit-content !important;
-}
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed):hover {
-  border-color: var(--background-modifier-border-hover);
-}
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed):active {
-  border-color: var(--background-modifier-border-focus);
-}
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed):is(.markdown-embed, .file-embed) .frontmatter + div {
+body .internal-embed.is-loaded:not(.image-embed) .markdown-embed-title {
   display: none;
 }
-body:is(:not(.css-settings-manager), .embed-enable) .internal-embed.is-loaded:not(.image-embed) svg.link {
-  transform: rotate(90deg);
-}
-body:is(:not(.css-settings-manager), .embed-enable) .cm-lang-query .internal-query-header {
+body .cm-lang-query .internal-query-header {
   padding-inline: var(--size-4-2);
 }
-body:is(:not(.css-settings-manager), .embed-enable).scrollbar-gutter-reserve.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
+body.embed-border-hidden {
+  --embed-border-start: none;
+  --embed-background: var(--background-primary-alt);
+}
+body.scrollbar-gutter-reserve.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
   right: var(--size-4-3);
 }
-body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .obsidian-metatable {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .obsidian-metatable {
   display: none;
 }
-body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
   position: absolute;
-  right: var(--size-4-9);
+  right: var(--size-4-6);
   top: var(--size-4-2);
   z-index: 99;
   opacity: 0;
   transition: var(--animation);
 }
-body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) * {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) * {
   font-size: 1rem;
   cursor: pointer;
   line-height: 1rem;
 }
-body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) *::after {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):not([src*="#^"]) .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) *::after {
   content: none;
 }
-body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-title {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-title {
   opacity: 0;
   position: absolute;
   z-index: 99;
@@ -3790,16 +3796,16 @@ body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .inter
   transition: var(--animation);
   cursor: pointer;
 }
-body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
   opacity: 1;
 }
-body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover :is(.markdown-embed-title,
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover :is(.markdown-embed-title,
 .markdown-embed-link,
 .file-embed-link:hover svg) {
   opacity: 1;
   color: var(--text-normal);
 }
-body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) :is(.markdown-embed, .file-embed) .markdown-preview-view {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) :is(.markdown-embed, .file-embed) .markdown-preview-view {
   padding: calc(var(--font-text-size) * 1.5);
   padding-bottom: calc(var(--font-text-size) * 1.2);
 }
@@ -3882,7 +3888,7 @@ body:is(:not(.css-settings-manager), .embed-enable).embed-title-right-top .inter
 }
 
 .is-unresolved {
-  transition: var(--animation);
+  transition: color var(--animation);
 }
 .is-unresolved:hover {
   --link-color-hover: rgba(var(--link-color-rgb), 0.6) !important;
@@ -3903,7 +3909,7 @@ body span:is(.cm-formatting-link, .cm-formatting-link-string) {
 body:not(.link-hover-expand) :is(a.external-link,
 .cm-link .cm-underline,
 .cm-url:not(.cm-string) .cm-underline) {
-  transition: var(--animation);
+  transition: background-color var(--animation);
   color: rgba(var(--link-external-color-rgb), var(--color-opacity));
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
@@ -3921,7 +3927,7 @@ body:not(.link-hover-expand) :is(a.external-link,
 }
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved),
 .cm-hmd-internal-link > .cm-underline) {
-  transition: var(--animation);
+  transition: background-color var(--animation);
   color: rgba(var(--link-color-rgb), var(--color-opacity));
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
@@ -3959,6 +3965,7 @@ body.link-hover-expand :is(a.external-link:not(.is-unresolved),
   box-shadow: inset 0 -0.1em 0 var(--link-external-color-underline);
   text-decoration: none !important;
   transition: var(--animation);
+  transition-property: box-shadow, color;
   color: var(--link-external-color) !important;
 }
 body.link-hover-expand :is(a.external-link:not(.is-unresolved),
@@ -3980,6 +3987,7 @@ body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
   box-shadow: inset 0 -0.1em 0 var(--link-color-underline);
   text-decoration: none !important;
   transition: var(--animation);
+  transition-property: box-shadow, color;
   color: var(--link-color) !important;
 }
 body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
@@ -4007,7 +4015,6 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
 .cm-hmd-internal-link > .cm-underline)::before {
   content: "";
   display: inline-block;
-  transition: var(--animation);
   transform: translateY(var(--size-2-1));
   margin-inline: var(--size-2-1);
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8'/></g></svg>") no-repeat;
@@ -4025,7 +4032,6 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
 :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline):not(.cm-escape + .cm-link .cm-underline)::before {
   content: "";
   display: inline-block;
-  transition: var(--animation);
   transform: translateY(var(--size-2-1));
   margin-inline: var(--size-2-1);
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/><path d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/></g></svg>") no-repeat;
@@ -4862,7 +4868,7 @@ body :is(.HyperMD-quote:last-child,
 
 .quote-border .markdown-rendered blockquote {
   border: 1px solid var(--background-modifier-border);
-  transition: var(--animation);
+  transition: border-color var(--animation);
   box-shadow: none;
 }
 .quote-border .markdown-rendered blockquote:hover {
@@ -4875,19 +4881,17 @@ body :is(.HyperMD-quote:last-child,
   margin: var(--block-outline-width);
 }
 
-.quote-mark.quote-theme blockquote {
-  padding-left: 2.28rem;
+.quote-mark blockquote {
+  padding-left: calc(var(--indent-unit) * var(--indent-size));
 }
-.quote-mark.quote-theme blockquote::before {
+.quote-mark blockquote::before {
+  content: "“";
   position: absolute;
-  font-size: 3rem;
   font-family: Source Code Pro;
-  line-height: 1;
-  content: "“" !important;
-  background-color: transparent;
+  font-size: calc(var(--font-text-size) * 3);
+  line-height: 0.9;
   color: var(--text-muted);
-  top: calc(var(--font-text-size) * var(--line-height-normal) - 1.875rem);
-  transform: translateX(-1.62rem);
+  left: calc(0.4 * var(--indent-unit));
 }
 
 .quote-italic {
@@ -4998,7 +5002,7 @@ body {
 .table-col-btn,
 .table-row-drag-handle,
 .table-col-drag-handle) {
-  transition: var(--animation);
+  transition: background-color var(--animation);
 }
 .markdown-source-view.mod-cm6 .cm-table-widget .table-row-btn {
   border-end-start-radius: var(--radius-s);
@@ -5739,7 +5743,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 /* #region image */
 body.theme-dark.image-dark-hover img {
   filter: brightness(0.7);
-  transition: var(--animation);
+  transition: filter var(--animation);
 }
 body.theme-dark.image-dark-hover img:hover {
   filter: brightness(0.85);
@@ -5961,7 +5965,7 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
   transform: none;
   --metadata-padding: var(--radius-m);
   --metadata-background: var(--background-primary-alt);
-  --metadata-border-width: var(--block-outline-width);
+  --metadata-border-width: 1px;
   --metadata-border-radius: var(--radius-m);
 }
 .prop-hide-preview .metadata-container {
@@ -6412,7 +6416,7 @@ body.search-internal-enable .document-search-container .search-input-container i
   opacity: 0;
   pointer-events: none;
   cursor: none;
-  transition: var(--animation);
+  transition: opacity var(--animation);
 }
 body.search-internal-enable .document-search-container .search-input-container .document-search-count {
   letter-spacing: -0.5px;
@@ -6472,18 +6476,21 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
 body:not(.is-phone) .modal-close-button {
   height: var(--input-height);
   width: var(--input-height);
-  transition: var(--animation);
-  padding: 3px;
+  transition: background-color var(--animation);
+  z-index: calc(var(--layer-modal) + 1);
 }
 body:not(.is-phone) .modal-close-button::before {
-  content: " " !important;
-  display: block;
+  content: "";
+  position: absolute;
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--text-muted);
   width: var(--size-4-6);
   height: var(--size-4-6);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
 }
 
 input {
@@ -6494,7 +6501,7 @@ input {
   background-color: var(--color-base-20);
 }
 
-body:not(.is-mobile).modal-slider input[type=range] {
+body:not(.is-mobile) {
   --slider-track-background: var(--accent-inactive);
 }
 body:not(.is-mobile).modal-slider input[type=range]:focus {
@@ -6502,24 +6509,32 @@ body:not(.is-mobile).modal-slider input[type=range]:focus {
 }
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb {
   box-shadow: inset 0 0 0 calc(var(--slider-thumb-width) / var(--slider-thumb-ring-factor, 4) * 0.9) var(--color-base-20), inset 0 0 0 calc(var(--slider-thumb-width) / 2) var(--accent-active), var(--input-shadow);
-  transition: var(--animation);
+  transition: box-shadow var(--animation);
   border-width: 0;
 }
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:is(:hover, :active, :focus) {
   --slider-thumb-ring-factor: 5;
 }
+body:not(.is-mobile) .checkbox-container.is-enabled {
+  background-color: var(--accent-active);
+}
+body:not(.is-mobile).theme-light .checkbox-container {
+  --toggle-thumb-color: #fafafa;
+}
+body:not(.is-mobile).theme-dark .checkbox-container {
+  --toggle-thumb-color: #e0e0e0;
+}
 body:not(.is-mobile).modal-toggle-square .checkbox-container {
   height: var(--size-4-5);
   --toggle-radius: var(--size-2-3);
+  --toggle-border-width: var(--size-4-1);
   --toggle-thumb-radius: var(--size-4-1);
   --toggle-thumb-width: var(--size-4-3);
   --toggle-thumb-height: var(--size-4-3);
-}
-body:not(.is-mobile).modal-toggle-square .checkbox-container::after {
-  transform: translate3d(calc(var(--toggle-border-width) + var(--size-2-1)), var(--size-2-1), 0);
-}
-body:not(.is-mobile).modal-toggle-square .checkbox-container.is-enabled::after {
-  transform: translate3d(calc(var(--toggle-width) - var(--toggle-thumb-width) - var(--size-4-1)), var(--size-2-1), 0);
+  --toggle-s-border-width: var(--toggle-border-width);
+  --toggle-s-thumb-radius: var(--toggle-thumb-radius);
+  --toggle-s-thumb-width: var(--toggle-thumb-width);
+  --toggle-s-thumb-height: var(--toggle-thumb-height);
 }
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
@@ -6534,12 +6549,6 @@ body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-co
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container input[type=checkbox] {
   opacity: 0;
 }
-body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin).theme-light .checkbox-container {
-  --toggle-color: #fafafa;
-}
-body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin).theme-dark .checkbox-container {
-  --toggle-color: #e0e0e0;
-}
 body:not(.is-mobile).modal-toggle-floating .checkbox-container {
   --toggle-shadow: var(--color-base-40);
 }
@@ -6550,7 +6559,6 @@ body:not(.is-mobile).modal-toggle-floating .checkbox-container::after {
   bottom: 30%;
   border-radius: calc(var(--toggle-width) / 2);
   border: var(--toggle-border-width) solid var(--text-faint);
-  background-color: var(--toggle-color);
   margin: 0;
   transition: var(--animation-slow);
 }
@@ -6572,7 +6580,6 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container::after {
   bottom: 50%;
   border-radius: var(--radius-m) var(--radius-m) 0 0;
   border: var(--toggle-border-width) solid var(--text-faint);
-  background-color: var(--toggle-color);
   width: 20%;
   margin: 0;
   transition: var(--animation-slow);
@@ -6611,7 +6618,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.28");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.29");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6619,7 +6626,6 @@ body {
   font-size: calc(1.4 * var(--size-4-4));
   font-weight: 550;
   color: var(--setting-color-logo, var(--logo-color-default));
-  transition: var(--animation);
 }
 @container (max-width:750px) {
   .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
@@ -6637,8 +6643,10 @@ body {
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container {
   padding-top: var(--modal-header-height);
+  position: relative;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
+  position: unset !important;
   background-color: var(--background-primary);
   border-top: 1px solid var(--divider-color);
   padding-top: var(--size-4-6);
@@ -6680,6 +6688,7 @@ select,
 .dropdown,
 button {
   transition: var(--animation);
+  transition-property: background-color;
 }
 
 :is(select, .combobox-button, .dropdown):focus-visible {
@@ -6763,14 +6772,13 @@ html[lang=zh] .mod-community-plugin {
   position: absolute;
   margin-inline-end: var(--size-4-1);
 }
-.modal-container .community-modal-controls .search-input-container * {
-  transition: var(--animation);
-}
 .modal-container .community-modal-controls .search-input-container .search-input-clear-button {
   right: calc(var(--size-4-6) + var(--size-2-1));
 }
 .modal-container .community-modal-controls .search-input-container input {
   padding-inline-end: var(--size-4-12);
+  transition: var(--animation);
+  transition-property: border-color, background-color, box-shadow;
 }
 .modal-container .mod-settings .modal-content .setting-item-heading .setting-item-name {
   font-weight: 550;
@@ -6971,7 +6979,8 @@ body:is(:not(.css-settings-manager), .tab-float) .is-sidedock-collapsed + .mod-r
 }
 body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header {
   padding-block: 0 !important;
-  transition: color var(--animation), width var(--animation);
+  transition: var(--animation);
+  transition-property: color, width;
   --tab-curve: 0;
   --tab-radius-active: var(--radius-m);
 }
@@ -7027,8 +7036,7 @@ body.tab-title-bar-text-small .view-header {
 
 body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-container {
   opacity: 0;
-  transition: var(--animation);
-  transition-delay: var(--animation-delay);
+  transition: var(--animation) var(--animation-delay);
 }
 body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-container:hover {
   opacity: 1;
@@ -7405,7 +7413,7 @@ body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self .
   border-radius: 50%;
   position: absolute;
   top: 50%;
-  transform: translate(calc(-1 * var(--size-4-5)), -50%);
+  transform: translate(calc(-1 * var(--size-4-5) - var(--size-4-1) * 1.2 * 0.5 + 1px), -50%);
 }
 body.outline-enable .workspace-leaf-content[data-type=outline] .tree-item-self.is-active .tree-item-inner::before {
   border-color: var(--outline-guideline-color);
@@ -7566,9 +7574,6 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder-title {
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder-title-content {
   padding-left: var(--size-4-1);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder .nav-folder-children {
-  transition: var(--animation);
-}
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder .nav-folder-children:hover {
   border-color: var(--accent-inactive);
 }
@@ -7584,13 +7589,12 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder .collapse-icon 
   width: var(--size-4-4);
   height: var(--size-4-4);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder.is-collapsed .collapse-icon svg.svg-icon {
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder .collapse-icon.is-collapsed svg.svg-icon {
   transform: none;
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: var(--folder-color);
-  transition: var(--animation);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title {
   padding-inline-end: 0;
@@ -7766,7 +7770,6 @@ body.is-phone.mobile-floating-button .mod-root .workspace-leaf-content[data-type
   width: auto;
   height: auto;
   box-shadow: var(--shadow-s) !important;
-  transition: var(--animation);
 }
 
 /* #endregion floating button */
