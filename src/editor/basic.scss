@@ -26,7 +26,7 @@ body {
 }
 
 .markdown-source-view.mod-cm6 .cm-content,
-.markdown-preview-sizer {
+.markdown-reading-view > div > .markdown-preview-sizer {
   padding-bottom: var(--setting-editor-bottom-spacing, 40vh) !important;
 }
 
