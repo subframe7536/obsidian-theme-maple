@@ -163,32 +163,93 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       { format: 'px', default: 20, min: 10, max: 30, step: 1 },
     ),
   Settings.ofLevel(1, {
-    title: { en: 'Font', zh: '字体' },
+    title: { en: 'Line and Spacing', zh: '行和间距' },
   })
-    .addClassToggle(
-      'font-maple',
+    .addVarNumSlider(
+      'setting-editor-p-spacing',
       {
         title: {
-          en: 'Use "Maple Mono" as Monospace Font',
-          zh: '使用 “Maple Mono” 作为等宽字体',
-        },
-        desc: {
-          en: 'https://github.com/subframe7536/maple-font',
-          zh: 'https://github.com/subframe7536/maple-font',
+          en: 'Editor Paragraph Spacing (px)',
+          zh: '编辑器段落间距（px）',
         },
       },
-      { enable: true },
+      { default: 4, format: 'px', min: 0, max: 20, step: 1 },
     )
-    .addClassToggle('font-latex-text', {
-      title: {
-        en: 'Use Text Font in Non-formula Parts of LaTeX',
-        zh: '在 LaTeX 内非公式部分使用正文字体',
+    .addVarNumSlider(
+      'setting-editor-bottom-spacing',
+      {
+        title: {
+          en: 'Editor Page Bottom Spacing (vh)',
+          zh: '编辑器页面底部留白大小（vh）',
+        },
       },
-      desc: {
-        en: 'No effective on Latin letters and numbers',
-        zh: '用于修改中文字体',
+      { default: 40, format: 'vh', min: 0, max: 80, step: 5 },
+    )
+    .addVarNumSlider(
+      'setting-editor-p-indent',
+      {
+        title: { en: 'Editor Paragraph Indent', zh: '编辑器段落缩进' },
+        desc: {
+          en: 'If "p-indent" exists in properties.cssclasses, all paragraphs will be indented (n times font size)',
+          zh: '当文档属性的 cssclasses 中存在 “p-indent” 类时，会为所有段落添加缩进（字体大小的倍数）',
+        },
       },
-    }),
+      { default: 2, min: 0, max: 4, step: 0.2 },
+    )
+    .addVarNumSlider(
+      'setting-line-height',
+      {
+        title: { en: 'Editor Line Height', zh: '编辑器行高' },
+        desc: { en: 'Multiple of the text size', zh: '文字大小的倍数' },
+      },
+      { default: 1.8, min: 1.2, max: 2.4, step: 0.1 },
+    )
+    .addVarText(
+      'setting-file-line-width',
+      {
+        title: { en: 'Editor Line Width', zh: '编辑器行宽' },
+        desc: descValidCSS('width'),
+      },
+      { default: 'clamp(600px, 72%, 850px)' },
+    )
+    .addClassSelect(
+      'line-indicator',
+      {
+        title: { en: 'Hover Line Indicator', zh: '鼠标悬停行指示器' },
+        desc: descReference('https://github.com/Akifyss/obsidian-border'),
+      },
+      {
+        allowEmpty: false,
+        default: 'line-indicator-disable',
+        options: [
+          { label: 'None', value: 'line-indicator-disable' },
+          { label: 'Left', value: 'line-indicator-enable' },
+          { label: 'Full Line', value: 'line-indicator-full' },
+        ],
+      },
+    )
+    .addClassSelect(
+      'line-active',
+      {
+        title: { en: 'Active Line Highlight', zh: '当前行高亮' },
+      },
+      {
+        allowEmpty: false,
+        default: 'line-active-enable',
+        options: [
+          { label: 'None', value: 'line-active-disable' },
+          { label: 'Left', value: 'line-active-left' },
+          { label: 'Full Line', value: 'line-active-enable' },
+        ],
+      },
+    )
+    .addVarThemedColor(
+      'setting-line-active-color',
+      {
+        title: { en: 'Active Line Color', zh: '高亮行颜色' },
+      },
+      'hsl-values',
+    ),
   Settings.ofLevel(1, {
     title: { en: 'Text', zh: '文本' },
   })
@@ -293,93 +354,32 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         }),
     ]),
   Settings.ofLevel(1, {
-    title: { en: 'Line and Spacing', zh: '行和间距' },
+    title: { en: 'Font', zh: '字体' },
   })
-    .addVarNumSlider(
-      'setting-editor-p-spacing',
+    .addClassToggle(
+      'font-maple',
       {
         title: {
-          en: 'Editor Paragraph Spacing (px)',
-          zh: '编辑器段落间距（px）',
+          en: 'Use "Maple Mono" as Monospace Font',
+          zh: '使用 “Maple Mono” 作为等宽字体',
         },
-      },
-      { default: 4, format: 'px', min: 0, max: 20, step: 1 },
-    )
-    .addVarNumSlider(
-      'setting-editor-bottom-spacing',
-      {
-        title: {
-          en: 'Editor Page Bottom Spacing (vh)',
-          zh: '编辑器页面底部留白大小（vh）',
-        },
-      },
-      { default: 40, format: 'vh', min: 0, max: 80, step: 5 },
-    )
-    .addVarNumSlider(
-      'setting-editor-p-indent',
-      {
-        title: { en: 'Editor Paragraph Indent', zh: '编辑器段落缩进' },
         desc: {
-          en: 'If "p-indent" exists in properties.cssclasses, all paragraphs will be indented (n times font size)',
-          zh: '当文档属性的 cssclasses 中存在 “p-indent” 类时，会为所有段落添加缩进（字体大小的倍数）',
+          en: 'https://github.com/subframe7536/maple-font',
+          zh: 'https://github.com/subframe7536/maple-font',
         },
       },
-      { default: 2, min: 0, max: 4, step: 0.2 },
+      { enable: true },
     )
-    .addVarNumSlider(
-      'setting-line-height',
-      {
-        title: { en: 'Editor Line Height', zh: '编辑器行高' },
-        desc: { en: 'Multiple of the text size', zh: '文字大小的倍数' },
+    .addClassToggle('font-latex-text', {
+      title: {
+        en: 'Use Text Font in Non-formula Parts of LaTeX',
+        zh: '在 LaTeX 内非公式部分使用正文字体',
       },
-      { default: 1.8, min: 1.2, max: 2.4, step: 0.1 },
-    )
-    .addVarText(
-      'setting-file-line-width',
-      {
-        title: { en: 'Editor Line Width', zh: '编辑器行宽' },
-        desc: descValidCSS('width'),
+      desc: {
+        en: 'No effective on Latin letters and numbers',
+        zh: '用于修改中文字体',
       },
-      { default: 'clamp(600px, 72%, 850px)' },
-    )
-    .addClassSelect(
-      'line-indicator',
-      {
-        title: { en: 'Hover Line Indicator', zh: '鼠标悬停行指示器' },
-        desc: descReference('https://github.com/Akifyss/obsidian-border'),
-      },
-      {
-        allowEmpty: false,
-        default: 'line-indicator-disable',
-        options: [
-          { label: 'None', value: 'line-indicator-disable' },
-          { label: 'Left', value: 'line-indicator-enable' },
-          { label: 'Full Line', value: 'line-indicator-full' },
-        ],
-      },
-    )
-    .addClassSelect(
-      'line-active',
-      {
-        title: { en: 'Active Line Highlight', zh: '当前行高亮' },
-      },
-      {
-        allowEmpty: false,
-        default: 'line-active-enable',
-        options: [
-          { label: 'None', value: 'line-active-disable' },
-          { label: 'Left', value: 'line-active-left' },
-          { label: 'Full Line', value: 'line-active-enable' },
-        ],
-      },
-    )
-    .addVarThemedColor(
-      'setting-line-active-color',
-      {
-        title: { en: 'Active Line Color', zh: '高亮行颜色' },
-      },
-      'hsl-values',
-    ),
+    }),
   Settings.ofLevel(1, { title: { en: 'Link', zh: '链接' } })
     .addClassToggle('link-hover-expand', {
       title: {

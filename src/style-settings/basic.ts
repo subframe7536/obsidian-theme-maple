@@ -19,7 +19,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
     },
     { default: 1.5, min: 1, max: 2, step: 0.1 },
   ),
-  Settings.ofLevel(1, { title: { en: 'Colors', zh: '颜色' } })
+  Settings.ofLevel(1, { title: { en: 'Colors', zh: '颜色' }, open: true })
     .addClassSelect(
       'color-use-custom',
       {
@@ -125,6 +125,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
     ]),
   Settings.ofLevel(1, {
     title: { en: 'Layout', zh: '布局' },
+    open: true,
   })
     .addClassToggle(
       'app-layout-card',

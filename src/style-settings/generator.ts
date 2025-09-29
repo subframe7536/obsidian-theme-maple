@@ -158,18 +158,18 @@ export class Settings {
     return new Settings()
   }
 
-  static ofLevel(level: number, doc: Doc & { id?: string }) {
+  static ofLevel(level: number, config: Doc & { id?: string; open?: boolean }) {
     const defaultText = [
       'title',
-      ...doc.title.en.split(' ').map((s) => s.toLowerCase()),
+      ...config.title.en.split(' ').map((s) => s.toLowerCase()),
     ].join('-')
-    const id = doc.id ?? defaultText
+    const id = config.id ?? defaultText
     const item = {
       id,
-      ...flattenDoc(doc),
+      ...flattenDoc(config),
       type: 'heading',
       level,
-      collapsed: true,
+      collapsed: config.open ? !config.open : true,
     }
 
     return new Settings(item)
