@@ -111,14 +111,13 @@ body {
   padding-left: calc(var(--indent-unit) * var(--indent-size));
 
   &::before {
-    content: '';
+    content: '“';
     position: absolute;
-    @include use-icon(
-      'bi:quote',
-      var(--text-muted),
-      calc(var(--font-text-size) * 2)
-    );
-    left: var(--indent-unit);
+    font-family: Source Code Pro;
+    font-size: calc(var(--font-text-size) * 3);
+    line-height: 0.9;
+    color: var(--text-muted);
+    left: calc(0.4 * var(--indent-unit));
   }
 }
 
