@@ -554,19 +554,15 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       'hex',
     ),
-  Settings.ofLevel(1, { title: { en: 'Embed File', zh: '内嵌文件' } })
-    .addClassToggle(
-      'embed-enable',
-      {
-        title: { en: 'Block Style Embed File', zh: '块状内嵌文件' },
-      },
-      { enable: true },
-    )
+  Settings.ofLevel(1, { title: { en: 'Embed Block', zh: '内嵌块' } })
+    .addClassToggle('embed-border-hidden', {
+      title: { en: "Hide Embed Block's Border", zh: '隐藏内嵌块的边框' },
+    })
     .addClassToggle(
       'embed-title-right-top',
       {
         title: {
-          en: 'Move Embed Title to Top Right',
+          en: 'Move Embed File Title to Top Right',
           zh: '内嵌文件标题移至右上角',
         },
         desc: {

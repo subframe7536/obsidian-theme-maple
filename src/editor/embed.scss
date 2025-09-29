@@ -1,77 +1,54 @@
 @use '../utils.scss';
 
-@include utils.use-no-plugin('.embed-enable') {
-  .cm-embed-block {
+body {
+  --embed-background: var(--bg-editor);
+  --embed-padding: var(--size-4-5) var(--size-4-4);
+  --embed-block-shadow-hover: 0 0 0 1px var(--accent-inactive),
+    inset 0 0 0 1px var(--accent-inactive);
+  --embed-border-start: var(--size-2-1) solid var(--accent-inactive);
+  --embed-border-end: var(--embed-border-start);
+  --embed-border-top: var(--embed-border-start);
+  --embed-border-bottom: var(--embed-border-start);
+
+  // latex block
+  .markdown-source-view.mod-cm6 .cm-embed-block {
+    margin-block: var(--size-4-1) !important;
     border-radius: var(--radius-m) !important;
-    transition: var(--animation);
+    transition: box-shadow var(--animation);
 
     .edit-block-button {
-      border-radius: var(--radius-m) !important;
+      border-radius: var(--radius-s) !important;
       transition: var(--animation);
-      inset-block: 0.2rem;
+      transition-property: background-color, opacity;
       height: fit-content;
     }
   }
+
   .internal-embed.is-loaded:not(.image-embed) {
-    --embed-background: var(--background-primary);
-    --embed-max-height: initial;
     transition: var(--animation);
-    padding: var(--size-4-1) var(--size-2-1) !important;
+    transition-property: border-color, background-color;
+    border-radius: var(--radius-m);
+    margin-block: var(--size-4-1) !important;
+
+    &:hover {
+      border-color: var(--accent-active);
+    }
+
+    &:is(.mod-empty, .mod-empty-attachment) {
+      border: var(--size-2-1) dotted var(--text-faint);
+    }
 
     :is(.markdown-embed-link, .file-embed-link) {
-      padding: var(--size-2-3);
-      border-radius: var(--radius-m);
+      border-radius: var(--radius-s);
       transition: var(--animation);
-      color: var(--accent-active);
-      top: 0.2rem;
-      right: 0.2rem;
+      transition-property: color, background-color;
 
       &:hover {
         background-color: var(--nav-item-background-hover);
       }
     }
-
     .markdown-embed-title {
-      text-align: center;
-      line-height: 2.8;
-    }
-
-    &:is(.markdown-embed, .file-embed) {
-      border-radius: var(--radius-m);
-      transition: var(--animation);
-      margin-block: var(--size-4-1) !important;
-      padding: 0;
-      border: var(--block-outline-width) solid var(--background-modifier-border);
-
-      &:is(.mod-empty, .mod-empty-attachment) {
-        border-style: dotted;
-      }
-
-      .markdown-preview-view {
-        padding: calc(var(--font-text-size) * 1.2)
-          calc(var(--font-text-size) * 1.5);
-        position: initial;
-
-        .markdown-preview-section {
-          min-height: fit-content !important;
-        }
-      }
-
-      &:hover {
-        border-color: var(--background-modifier-border-hover);
-      }
-
-      &:active {
-        border-color: var(--background-modifier-border-focus);
-      }
-
-      .frontmatter + div {
-        display: none;
-      }
-    }
-
-    svg.link {
-      transform: rotate(90deg);
+      display: none;
     }
   }
 
@@ -79,6 +56,11 @@
     .internal-query-header {
       padding-inline: var(--size-4-2);
     }
+  }
+
+  &.embed-border-hidden {
+    --embed-border-start: none;
+    --embed-background: var(--background-primary-alt);
   }
 
   &.scrollbar-gutter-reserve.embed-title-right-top
