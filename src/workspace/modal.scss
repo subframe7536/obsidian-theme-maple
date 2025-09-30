@@ -3,6 +3,7 @@
 body {
   --modal-width: min(90vw, var(--modal-max-width));
   --modal-height: min(85vh, var(--modal-max-height));
+  --menu-border-color: var(--background-modifier-border);
 }
 
 body:not(.is-phone)
