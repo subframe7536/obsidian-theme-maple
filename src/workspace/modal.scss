@@ -285,6 +285,12 @@ button {
   box-shadow: 0 0 0 3px var(--background-modifier-border-focus);
 }
 
+button[disabled],
+button[aria-disabled='true'],
+button[disabled='true'] {
+  color: var(--text-faint);
+}
+
 .theme-light {
   --select-bg-img: #{icon('chevron-down', '#222')};
 }
