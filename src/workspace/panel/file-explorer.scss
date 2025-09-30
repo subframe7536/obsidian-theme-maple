@@ -20,7 +20,7 @@ svg.lucide-layout-dashboard rect {
     position: absolute;
     opacity: 0.8;
     flex-shrink: 0;
-    translate: calc(var(--size-2-1) - var(--size-4-5)) 20%;
+    translate: calc(var(--size-2-1) - var(--size-4-5)) 12%;
     --file-icon: #{icon('file-text')};
     @include use-icon(--file-icon, var(--accent-active), var(--size-4-4));
   }
@@ -88,19 +88,19 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
+:is(.nav-file-title, .nav-folder-title) {
+  --nav-item-color-active: var(--text-on-accent);
+  .is-selected {
+    font-weight: 550 !important;
+    & + .nav-folder-children :is(.nav-file-title, .nav-folder-title) {
+      font-weight: 550 !important;
+    }
+  }
+}
+
 @include use-no-plugin('.explorer-icon') {
   @include override-stack-menu();
   @include use-icon-override('.lucide-folder-closed', 'folder');
-
-  :is(.nav-file-title, .nav-folder-title) {
-    --nav-item-color-active: var(--text-on-accent);
-    .is-selected {
-      font-weight: 550 !important;
-      & + .nav-folder-children :is(.nav-file-title, .nav-folder-title) {
-        font-weight: 550 !important;
-      }
-    }
-  }
 
   .nav-folder {
     &-title {
