@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.30 For Obsidian */
+/* Maple Theme v1.0.0-beta.31 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -375,11 +375,16 @@ settings:
       description: Works best with the "Setting Search" plugin; not valid on mobile
       description.zh: 配合“设置搜索”插件使用效果更佳，移动端无效
       default: true
+    - id: modal-header-search
+      type: class-toggle
+      title: Move Some Search Bar to Modal Header
+      title.zh: 将部分搜索框移动到模态框顶部
+      default: true
     - id: setting-modal-header-title
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.30
+      default: Maple 1.0.0-beta.31
       quotes: true
     - id: enable-group-title
       type: class-toggle
@@ -2258,7 +2263,8 @@ body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 body:not(.list-bullet-thread-style) .setting-item[data-id=setting-list-guide-color],
 body:not(.code-language) .setting-item[data-id=setting-code-language-color],
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer],
-body:not(.modal-header) .setting-item[data-id=setting-modal-header-title],
+body:not(.modal-header) .setting-item:is([data-id=modal-header-search],
+[data-id=setting-modal-header-title]),
 body:not(.color-use-custom) .setting-item[data-id^=accent-hue],
 body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light],
 body:not(.color-active-custom-light) .setting-item[data-id=setting-color-inactive-custom-light],
@@ -2315,7 +2321,8 @@ body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 body:not(.list-bullet-thread-style) .setting-item[data-id=setting-list-guide-color] + .style-settings-container,
 body:not(.code-language) .setting-item[data-id=setting-code-language-color] + .style-settings-container,
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer] + .style-settings-container,
-body:not(.modal-header) .setting-item[data-id=setting-modal-header-title] + .style-settings-container,
+body:not(.modal-header) .setting-item:is([data-id=modal-header-search],
+[data-id=setting-modal-header-title]) + .style-settings-container,
 body:not(.color-use-custom) .setting-item[data-id^=accent-hue] + .style-settings-container,
 body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light] + .style-settings-container,
 body:not(.color-active-custom-light) .setting-item[data-id=setting-color-inactive-custom-light] + .style-settings-container,
@@ -6621,7 +6628,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.30");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.31");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6635,55 +6642,57 @@ body {
     opacity: 0;
   }
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content {
+.modal-header:not(.is-mobile) .mod-settings .modal-content {
   background-color: var(--titlebar-background);
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-header {
+.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-header {
   background-color: hsl(var(--background-secondary-hsl));
   border-top: 1px solid var(--divider-color);
   margin-top: var(--modal-header-height);
   padding-top: 0;
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container {
+.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container {
   padding-top: var(--modal-header-height);
   position: relative;
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
+.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
   position: unset !important;
   background-color: var(--background-primary);
   border-top: 1px solid var(--divider-color);
   padding-top: var(--size-4-6);
   padding-right: var(--size-4-8);
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
+.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .settings-search-container {
+.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .settings-search-container {
   padding: 0;
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .settings-search-container .settings-search-input {
+.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .settings-search-container .settings-search-input {
   position: absolute;
   top: var(--size-2-3);
   width: calc(clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-5));
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
+.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
   margin: 0;
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(.search-input-container) {
+.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(:is([class=search-input-container],
+[class="search-input-container mod-hotkey"])) {
   position: absolute;
   padding: 0;
   top: 0;
   right: var(--top-search-right);
   border: none;
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(.search-input-container) .setting-item-info {
+.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(:is([class=search-input-container],
+[class="search-input-container mod-hotkey"])) .setting-item-info {
   visibility: hidden;
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-filter-container {
+.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-filter-container {
   margin-bottom: var(--size-4-1);
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings .modal-content .setting-filter-container .hotkey-filter {
+.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-filter-container .hotkey-filter {
   margin-bottom: var(--size-4-3);
 }
 
