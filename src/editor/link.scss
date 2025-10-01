@@ -186,6 +186,10 @@ body.link-hover-expand {
     }
   }
 
+  .markdown-preview-view .el-pre a.internal-link:not(.is-unresolved)::before {
+    content: none;
+  }
+
   &:not(.link-click-to-edit-in-live-preview) {
     :is(
         :is(.markdown-source-view, .markdown-preview-view)
