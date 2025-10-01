@@ -217,6 +217,16 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
       { enable: true },
     )
+    .addClassToggle(
+      'modal-header-search',
+      {
+        title: {
+          en: 'Move Some Search Bar to Modal Header',
+          zh: '将部分搜索框移动到模态框顶部',
+        },
+      },
+      { enable: true },
+    )
     .addVarText(
       'setting-modal-header-title',
       { title: { en: 'Setting Panel Header Title', zh: '设置面板标题' } },
