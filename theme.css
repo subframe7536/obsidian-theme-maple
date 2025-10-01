@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.29 For Obsidian */
+/* Maple Theme v1.0.0-beta.30 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -379,7 +379,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.29
+      default: Maple 1.0.0-beta.30
       quotes: true
     - id: enable-group-title
       type: class-toggle
@@ -1789,7 +1789,6 @@ settings:
       type: class-toggle
       title: Add Outline for Property Panel
       title.zh: 属性面板添加边框
-      default: true
     - id: prop-hide-preview
       type: class-toggle
       title: Hide Property Panel in Reading View
@@ -4023,6 +4022,9 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   color: var(--link-color);
   width: calc(var(--link-text-size) * 0.9);
   height: calc(var(--link-text-size) * 0.9);
+}
+.link-icon .markdown-preview-view .el-pre a.internal-link:not(.is-unresolved)::before {
+  content: none;
 }
 .link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved),
 :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline):not(.cm-escape + .cm-link .cm-underline) {
@@ -6467,6 +6469,7 @@ body.search-remove-button .document-search-buttons > :last-child {
 body {
   --modal-width: min(90vw, var(--modal-max-width));
   --modal-height: min(85vh, var(--modal-max-height));
+  --menu-border-color: var(--background-modifier-border);
 }
 
 body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
@@ -6618,7 +6621,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.29");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.30");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6694,6 +6697,12 @@ button {
 :is(select, .combobox-button, .dropdown):focus-visible {
   outline: 0;
   box-shadow: 0 0 0 3px var(--background-modifier-border-focus);
+}
+
+button[disabled],
+button[aria-disabled=true],
+button[disabled=true] {
+  color: var(--text-faint);
 }
 
 .theme-light {
@@ -7519,6 +7528,16 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   --nav-item-background-active: var(--text-on-accent);
 }
 
+:is(.nav-file-title, .nav-folder-title) {
+  --nav-item-color-active: var(--text-on-accent);
+}
+:is(.nav-file-title, .nav-folder-title) .is-selected {
+  font-weight: 550 !important;
+}
+:is(.nav-file-title, .nav-folder-title) .is-selected + .nav-folder-children :is(.nav-file-title, .nav-folder-title) {
+  font-weight: 550 !important;
+}
+
 body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-file {
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
@@ -7559,15 +7578,6 @@ body:is(:not(.css-settings-manager), .explorer-icon) .lucide-folder-closed {
 body:is(:not(.css-settings-manager), .explorer-icon) .lucide-folder-closed path {
   display: none;
 }
-body:is(:not(.css-settings-manager), .explorer-icon) :is(.nav-file-title, .nav-folder-title) {
-  --nav-item-color-active: var(--text-on-accent);
-}
-body:is(:not(.css-settings-manager), .explorer-icon) :is(.nav-file-title, .nav-folder-title) .is-selected {
-  font-weight: 550 !important;
-}
-body:is(:not(.css-settings-manager), .explorer-icon) :is(.nav-file-title, .nav-folder-title) .is-selected + .nav-folder-children :is(.nav-file-title, .nav-folder-title) {
-  font-weight: 550 !important;
-}
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder-title {
   cursor: pointer;
 }
@@ -7604,7 +7614,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title::before {
   position: absolute;
   opacity: 0.8;
   flex-shrink: 0;
-  translate: calc(var(--size-2-1) - var(--size-4-5)) 20%;
+  translate: calc(var(--size-2-1) - var(--size-4-5)) 12%;
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8'/></g></svg>");
   -webkit-mask: var(--file-icon) no-repeat;
   -webkit-mask-size: 100% 100%;
