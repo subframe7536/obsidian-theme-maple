@@ -931,12 +931,6 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
             zh: '导出时将页面背景颜色设置为透明',
           },
         })
-        .addClassToggle('pdf-export-page-num', {
-          title: {
-            en: 'Add Page Numbers in The Footer',
-            zh: '导出时页脚添加页号',
-          },
-        })
         .addClassToggle('pdf-export-page-break', {
           title: {
             en: 'Better Page Break Strategy',
