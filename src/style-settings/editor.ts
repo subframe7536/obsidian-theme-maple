@@ -914,18 +914,46 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       { enable: true },
     )
-    .addClassToggle('pdf-export-transparent', {
-      title: {
-        en: 'Set Background to Transparent When Exporting',
-        zh: '导出时将页面背景颜色设置为透明',
-      },
-    })
-    .addClassToggle('pdf-export-page-num', {
-      title: {
-        en: 'Add Page Numbers in The Footer When Exporting',
-        zh: '导出时页脚添加页号',
-      },
-    }),
+    .children([
+      Settings.ofLevel(2, {
+        title: { en: 'PDF Export', zh: 'PDF 导出' },
+        open: true,
+      })
+        .addClassToggle('pdf-export-transparent', {
+          title: {
+            en: 'Set Background to Transparent',
+            zh: '导出时将页面背景颜色设置为透明',
+          },
+        })
+        .addClassToggle('pdf-export-page-num', {
+          title: {
+            en: 'Add Page Numbers in The Footer',
+            zh: '导出时页脚添加页号',
+          },
+        })
+        .addClassToggle('pdf-export-page-break', {
+          title: {
+            en: 'Better Page Break Strategy',
+            zh: '更好的分页策略',
+          },
+          desc: {
+            en: 'Always break page before H1 headings; avoid page breaks inside images, tables, and code blocks',
+            zh: '在 H1 标题前强制分页；避免在图片、表格和代码块内分页',
+          },
+        })
+        .addClassToggle('pdf-export-standard', {
+          title: {
+            en: 'Standard Spacing Between Paragraphs and List',
+            zh: '标准的段落和列表的间距',
+          },
+        })
+        .addClassToggle('pdf-export-default-hr', {
+          title: {
+            en: 'Use Default Style for Horizontal Rule',
+            zh: '使用默认的水平线样式',
+          },
+        }),
+    ]),
   Settings.ofLevel(1, {
     title: { en: 'Properties', zh: '文档属性' },
   })
