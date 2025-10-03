@@ -1,9 +1,15 @@
-.theme-dark.pdf-dark-hover .pdf-viewer {
-  opacity: 0.7;
-  transition: opacity var(--animation);
+.theme-dark {
+  &.pdf-dark-hover .pdfViewer {
+    opacity: 0.7;
+    transition: opacity var(--animation);
 
-  &:hover {
-    opacity: 0.85;
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &.pdf-dark-invert .pdfViewer .page {
+    filter: invert(1) contrast(0.8);
   }
 }
 

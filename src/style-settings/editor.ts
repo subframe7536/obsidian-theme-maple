@@ -914,6 +914,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       { enable: true },
     )
+    .addClassToggle('pdf-dark-invert', {
+      title: {
+        en: 'Invert Colors in Dark Mode',
+        zh: '黑暗模式下反转颜色',
+      },
+    })
     .children([
       Settings.ofLevel(2, {
         title: { en: 'PDF Export', zh: 'PDF 导出' },
