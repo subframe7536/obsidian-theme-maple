@@ -21,11 +21,7 @@ body {
     );
     --h#{$i}-weight: var(--setting-h#{$i}-weight, #{$weight});
     --h#{$i}-font: var(--setting-h#{$i}-font, var(--font-text));
-    --h#{$i}-line-height: calc(
-      var(--line-height-normal) *
-        var(--h#{$i}-size) *
-        var(--h#{$i}-size-factor, 1)
-    );
+    --h#{$i}-line-height: calc(var(--line-height-normal) * var(--h#{$i}-size));
   }
 
   &.heading-color-base {
@@ -50,13 +46,6 @@ body {
     &.heading-h#{$i}-center :is(.HyperMD-header-#{$i}, h#{$i}) {
       text-align: center;
     }
-  }
-}
-
-.markdown-source-view {
-  $size-factors: 0.8, 0.8, 0.85, 0.85, 0.9, 0.9;
-  @for $i from 1 through 6 {
-    --h#{$i}-size-factor: list.nth($size-factors, $i);
   }
 }
 
