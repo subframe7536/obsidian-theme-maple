@@ -68,8 +68,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       {
         title: { en: 'Enable Prefix Icons', zh: '启用前置图标' },
         desc: {
-          en: 'If the tree indentation appears incorrect, please collapse all directories and restart Obsidian',
-          zh: '如果缩进显示异常，请折叠所有文件夹并重启 Obsidian',
+          en: 'Recommended to disable it when using third-party icon plugins to avoid conflicts',
+          zh: '建议使用第三方图标插件时关闭以避免冲突',
         },
       },
       { enable: true },
