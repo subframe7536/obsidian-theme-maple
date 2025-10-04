@@ -173,7 +173,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           zh: '编辑器段落间距（px）',
         },
       },
-      { default: 4, format: 'px', min: 0, max: 20, step: 1 },
+      { default: 8, format: 'px', min: 0, max: 20, step: 1 },
     )
     .addVarNumSlider(
       'setting-editor-bottom-spacing',
