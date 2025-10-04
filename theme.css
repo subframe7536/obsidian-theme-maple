@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.32 For Obsidian */
+/* Maple Theme v1.0.0-beta.33 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -251,9 +251,9 @@ settings:
       type: class-toggle
       title: Enable Prefix Icons
       title.zh: 启用前置图标
-      description: If the tree indentation appears incorrect, please collapse all
-          directories and restart Obsidian
-      description.zh: 如果缩进显示异常，请折叠所有文件夹并重启 Obsidian
+      description: Recommended to disable it when using third-party icon plugins to
+          avoid conflicts
+      description.zh: 建议使用第三方图标插件时关闭以避免冲突
       default: true
     - id: explorer-folder-bold
       type: class-toggle
@@ -384,7 +384,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.32
+      default: Maple 1.0.0-beta.33
       quotes: true
     - id: enable-group-title
       type: class-toggle
@@ -877,6 +877,9 @@ settings:
       type: class-toggle
       title: Add Icon Before Link
       title.zh: 在链接前添加图标
+      description: ❗The icon will be duplicated if the link text contains space or
+          extra styles
+      description.zh: ❗如果链接文本包含空格或额外样式，图标将会重复出现
       default: true
     - id: link-heading
       type: class-toggle
@@ -1790,10 +1793,6 @@ settings:
       type: class-toggle
       title: Set Background to Transparent
       title.zh: 导出时将页面背景颜色设置为透明
-    - id: pdf-export-page-num
-      type: class-toggle
-      title: Add Page Numbers in The Footer
-      title.zh: 导出时页脚添加页号
     - id: pdf-export-page-break
       type: class-toggle
       title: Better Page Break Strategy
@@ -3885,7 +3884,7 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) :is(.markdow
   background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23DDDDDD' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 7h10v10M7 17L17 7'/></svg>");
 }
 
-:is(body, .print .markdown-rendered) {
+body {
   --link-color-rgb: var(--setting-link-internal-color, var(--color-cyan-rgb));
   --link-external-color-rgb: var(
     --setting-link-external-color,
@@ -3906,7 +3905,11 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) :is(.markdow
     --setting-link-external-color-underline,
     var(--link-external-color)
   );
-  --link-unresolved-decoration-color: var(--link-unresolve-color);
+  --link-unresolved-color: rgba(
+    var(--link-color-rgb),
+    calc(var(--color-opacity) * 0.85)
+  );
+  --link-unresolved-decoration-color: var(--link-unresolved-color);
   --link-footnote: var(--color-purple);
   --link-text-size: var(--font-text-size);
 }
@@ -5899,15 +5902,6 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
   body.pdf-export-transparent {
     --background-primary: transparent;
   }
-  @page {
-    @bottom-center {
-      body.pdf-export-page-num {
-        content: counter(page);
-        font-size: 10pt !important;
-        margin-top: 10pt !important;
-      }
-    }
-  }
   body.pdf-export-page-break :is(h1, h2, h3, h4, h5, h6) {
     page-break-after: avoid;
   }
@@ -6612,7 +6606,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.32");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.33");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
