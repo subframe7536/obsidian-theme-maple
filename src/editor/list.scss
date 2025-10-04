@@ -180,7 +180,3 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     }
   }
 }
-
-.list-enable .print {
-  --list-marker-color-alt-render: var(--list-marker-color-alt);
-}

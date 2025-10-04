@@ -3,7 +3,7 @@
 @use 'sass:meta';
 @use '../utils' as *;
 
-:is(body, .print .markdown-rendered) {
+body {
   --inline-code: var(--setting-code-inline, var(--color-red));
   --code-background: var(--setting-code-bg, var(--background-primary-alt));
   --code-function: var(--color-blue);

@@ -68,4 +68,8 @@
       content: none !important;
     }
   }
+
+  body.list-enable {
+    --list-marker-color-alt-render: var(--list-marker-color-alt);
+  }
 }

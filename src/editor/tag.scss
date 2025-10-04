@@ -1,14 +1,11 @@
 body {
   --tag-color: var(--text-accent);
+  --tag-padding-x: var(--size-4-2);
+  --tag-padding-y: 0;
 }
 
 .HyperMD-header .cm-hashtag {
   font-size: var(--tag-size) !important;
-}
-
-:is(body, .print .markdown-rendered) {
-  --tag-padding-x: var(--size-4-2);
-  --tag-padding-y: 0;
 }
 
 .cm-line span.cm-hashtag {

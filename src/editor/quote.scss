@@ -1,11 +1,8 @@
 @use '../utils.scss' as *;
 
-:is(body, .print .markdown-rendered) {
+body {
   --blockquote-background-color: var(--background-primary-alt);
   --callout-radius: var(--radius-m);
-}
-
-body {
   --blockquote-border-color: var(--accent-active);
   --blockquote-border-thickness: var(--size-4-1);
   --blockquote-radius: var(--size-2-3);
