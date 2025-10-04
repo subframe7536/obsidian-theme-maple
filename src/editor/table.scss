@@ -133,7 +133,7 @@ body {
       .table-row-drag-handle,
       .table-col-drag-handle
     ) {
-    transition: background-color var(--animation);
+    transition: opacity var(--animation);
   }
 
   .table-row-btn {
