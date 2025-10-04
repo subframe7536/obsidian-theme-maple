@@ -245,7 +245,7 @@ $full-selectors: ();
     }
     :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header), h#{$i}) {
       background-color: var(--h#{$i}-color);
-      color: var(--text-on-accent);
+      color: var(--text-on-accent) !important;
       padding: var(--size-4-1) 0.6rem;
       border-radius: var(--size-2-3);
       caret-color: currentColor;
