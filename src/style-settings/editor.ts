@@ -394,6 +394,10 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           en: 'Add Icon Before Link',
           zh: '在链接前添加图标',
         },
+        desc: {
+          en: '❗The icon will be duplicated if the link text contains space or extra styles',
+          zh: '❗如果链接文本包含空格或额外样式，图标将会重复出现',
+        },
       },
       { enable: true },
     )
