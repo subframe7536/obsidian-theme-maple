@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.33 For Obsidian */
+/* Maple Theme v1.0.0-beta.34 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -384,7 +384,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.33
+      default: Maple 1.0.0-beta.34
       quotes: true
     - id: enable-group-title
       type: class-toggle
@@ -645,7 +645,7 @@ settings:
       type: variable-number-slider
       title: Editor Paragraph Spacing (px)
       title.zh: 编辑器段落间距（px）
-      default: 4
+      default: 8
       format: px
       min: 0
       max: 20
@@ -2629,7 +2629,7 @@ body.app-layout-card:not(.is-mobile):not(.is-mobile) .workspace-split.mod-left-s
 /* #region basic */
 /* #region paragraph */
 body {
-  --p-spacing: var(--setting-editor-p-spacing, var(--size-4-1));
+  --p-spacing: var(--setting-editor-p-spacing, var(--size-4-2));
 }
 
 .p-indent {
@@ -5039,7 +5039,7 @@ body {
 .table-col-btn,
 .table-row-drag-handle,
 .table-col-drag-handle) {
-  transition: background-color var(--animation);
+  transition: opacity var(--animation);
 }
 .markdown-source-view.mod-cm6 .cm-table-widget .table-row-btn {
   border-end-start-radius: var(--radius-s);
@@ -5622,7 +5622,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 }
 .heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1) {
   background-color: var(--h1-color);
-  color: var(--text-on-accent);
+  color: var(--text-on-accent) !important;
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5643,7 +5643,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 }
 .heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2) {
   background-color: var(--h2-color);
-  color: var(--text-on-accent);
+  color: var(--text-on-accent) !important;
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5664,7 +5664,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 }
 .heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3) {
   background-color: var(--h3-color);
-  color: var(--text-on-accent);
+  color: var(--text-on-accent) !important;
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5685,7 +5685,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 }
 .heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4) {
   background-color: var(--h4-color);
-  color: var(--text-on-accent);
+  color: var(--text-on-accent) !important;
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5706,7 +5706,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 }
 .heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5) {
   background-color: var(--h5-color);
-  color: var(--text-on-accent);
+  color: var(--text-on-accent) !important;
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5727,7 +5727,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 }
 .heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6) {
   background-color: var(--h6-color);
-  color: var(--text-on-accent);
+  color: var(--text-on-accent) !important;
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -6606,7 +6606,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.33");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.34");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
