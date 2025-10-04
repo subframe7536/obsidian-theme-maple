@@ -4,8 +4,8 @@
 # Maple
 
 [![GitHub stars](https://img.shields.io/github/stars/subframe7536/obsidian-theme-maple?style=social)](https://github.com/subframe7536/obsidian-theme-maple)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Style Settings](https://img.shields.io/badge/Style%20Settings-Enabled-blue)](https://github.com/mgmeyers/obsidian-style-settings)
+![GitHub License](https://img.shields.io/github/license/subframe7536/obsidian-theme-maple)
+[![Static Badge](https://img.shields.io/badge/support-style_settings_plugin-blue)](https://github.com/mgmeyers/obsidian-style-settings)
 
 A sleek and modern Obsidian theme for desktop and mobile, featuring awesome components, graceful animation and customizable preferences via the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. It embeds the self-designed monospace font [Maple Mono](https://github.com/subframe7536/maple-font).
 
