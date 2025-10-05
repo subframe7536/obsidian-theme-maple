@@ -3,11 +3,11 @@
     opacity: 0;
   }
 
-  30% {
+  20% {
     opacity: 0.7;
   }
 
-  70% {
+  50% {
     opacity: 0.95;
   }
 
@@ -39,14 +39,10 @@
 
 @keyframes slide-up {
   from {
-    transform: translateY(3px) translateZ(0);
+    transform: translateY(4px) translateZ(0);
   }
 
-  10% {
-    transform: translateY(2px) translateZ(0);
-  }
-
-  30% {
+  20% {
     transform: translateY(1px) translateZ(0);
   }
 
