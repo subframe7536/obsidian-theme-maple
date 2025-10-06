@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.34 For Obsidian */
+/* Maple Theme v1.0.0-beta.35 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -384,7 +384,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.34
+      default: Maple 1.0.0-beta.35
       quotes: true
     - id: enable-group-title
       type: class-toggle
@@ -1001,7 +1001,7 @@ settings:
       type: variable-themed-color
       title: H1 Color
       title.zh: H1 颜色
-      format: hex
+      format: rgb-split
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -1074,7 +1074,7 @@ settings:
       type: variable-themed-color
       title: H2 Color
       title.zh: H2 颜色
-      format: hex
+      format: rgb-split
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -1147,7 +1147,7 @@ settings:
       type: variable-themed-color
       title: H3 Color
       title.zh: H3 颜色
-      format: hex
+      format: rgb-split
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -1220,7 +1220,7 @@ settings:
       type: variable-themed-color
       title: H4 Color
       title.zh: H4 颜色
-      format: hex
+      format: rgb-split
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -1293,7 +1293,7 @@ settings:
       type: variable-themed-color
       title: H5 Color
       title.zh: H5 颜色
-      format: hex
+      format: rgb-split
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -1366,7 +1366,7 @@ settings:
       type: variable-themed-color
       title: H6 Color
       title.zh: H6 颜色
-      format: hex
+      format: rgb-split
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -2583,10 +2583,10 @@ body.app-layout-card:not(.is-mobile):not(.is-mobile) .workspace-split.mod-left-s
   0% {
     opacity: 0;
   }
-  30% {
+  20% {
     opacity: 0.7;
   }
-  70% {
+  50% {
     opacity: 0.95;
   }
   100% {
@@ -2612,12 +2612,9 @@ body.app-layout-card:not(.is-mobile):not(.is-mobile) .workspace-split.mod-left-s
 }
 @keyframes slide-up {
   from {
-    transform: translateY(3px) translateZ(0);
+    transform: translateY(4px) translateZ(0);
   }
-  10% {
-    transform: translateY(2px) translateZ(0);
-  }
-  30% {
+  20% {
     transform: translateY(1px) translateZ(0);
   }
   to {
@@ -2967,7 +2964,7 @@ body {
 
 /* #endregion background */
 /* #region code */
-:is(body, .print .markdown-rendered) {
+body {
   --inline-code: var(--setting-code-inline, var(--color-red));
   --code-background: var(--setting-code-bg, var(--background-primary-alt));
   --code-function: var(--color-blue);
@@ -4230,10 +4227,6 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   margin-inline-start: calc(var(--checkbox-size) * -1.3);
 }
 
-.list-enable .print {
-  --list-marker-color-alt-render: var(--list-marker-color-alt);
-}
-
 /* #region list bullet */
 /* Reference: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1 */
 .list-enable.list-bullet-thread-style {
@@ -4822,12 +4815,9 @@ body:is(:not(.css-settings-manager), .list-checkbox-alternative) :is(input[data-
 /* #endregion checkbox */
 /* #endregion list */
 /* #region quote */
-:is(body, .print .markdown-rendered) {
+body {
   --blockquote-background-color: var(--background-primary-alt);
   --callout-radius: var(--radius-m);
-}
-
-body {
   --blockquote-border-color: var(--accent-active);
   --blockquote-border-thickness: var(--size-4-1);
   --blockquote-radius: var(--size-2-3);
@@ -5054,15 +5044,12 @@ body {
 /* #region tag */
 body {
   --tag-color: var(--text-accent);
+  --tag-padding-x: var(--size-4-2);
+  --tag-padding-y: 0;
 }
 
 .HyperMD-header .cm-hashtag {
   font-size: var(--tag-size) !important;
-}
-
-:is(body, .print .markdown-rendered) {
-  --tag-padding-x: var(--size-4-2);
-  --tag-padding-y: 0;
 }
 
 .cm-line span.cm-hashtag {
@@ -5237,30 +5224,36 @@ body.heading-h6-center :is(.HyperMD-header-6, h6) {
 }
 
 body:is(:not(.css-settings-manager), .heading-color-colorful) {
-  --h1-color: var(
+  --h1-color-rgb: var(
     --setting-h1-color,
-    var(--color-red)
+    var(--color-red-rgb)
   );
-  --h2-color: var(
+  --h1-color: rgb(var(--h1-color-rgb));
+  --h2-color-rgb: var(
     --setting-h2-color,
-    var(--color-orange)
+    var(--color-orange-rgb)
   );
-  --h3-color: var(
+  --h2-color: rgb(var(--h2-color-rgb));
+  --h3-color-rgb: var(
     --setting-h3-color,
-    var(--color-green)
+    var(--color-green-rgb)
   );
-  --h4-color: var(
+  --h3-color: rgb(var(--h3-color-rgb));
+  --h4-color-rgb: var(
     --setting-h4-color,
-    var(--color-blue)
+    var(--color-blue-rgb)
   );
-  --h5-color: var(
+  --h4-color: rgb(var(--h4-color-rgb));
+  --h5-color-rgb: var(
     --setting-h5-color,
-    var(--color-purple)
+    var(--color-purple-rgb)
   );
-  --h6-color: var(
+  --h5-color: rgb(var(--h5-color-rgb));
+  --h6-color-rgb: var(
     --setting-h6-color,
-    var(--color-cyan)
+    var(--color-cyan-rgb)
   );
+  --h6-color: rgb(var(--h6-color-rgb));
 }
 
 body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
@@ -5617,12 +5610,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
+.heading-h1-block {
+  --h1-color-bg: rgba(var(--h1-color-rgb), 0.15);
+}
 .heading-h1-block.heading-color-accent {
-  --h1-color: var(--accent-active-bg);
+  --h1-color-bg: hsla(
+    var(--theme-accent-active-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l),
+    0.15
+  );
 }
 .heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1) {
-  background-color: var(--h1-color);
-  color: var(--text-on-accent) !important;
+  --h1-color: rgb(var(--h1-color-rgb));
+  background-color: var(--h1-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5638,12 +5639,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h1-size));
 }
 
+.heading-h2-block {
+  --h2-color-bg: rgba(var(--h2-color-rgb), 0.15);
+}
 .heading-h2-block.heading-color-accent {
-  --h2-color: var(--accent-active-bg);
+  --h2-color-bg: hsla(
+    var(--theme-accent-active-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l),
+    0.15
+  );
 }
 .heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2) {
-  background-color: var(--h2-color);
-  color: var(--text-on-accent) !important;
+  --h2-color: rgb(var(--h2-color-rgb));
+  background-color: var(--h2-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5659,12 +5668,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h2-size));
 }
 
+.heading-h3-block {
+  --h3-color-bg: rgba(var(--h3-color-rgb), 0.15);
+}
 .heading-h3-block.heading-color-accent {
-  --h3-color: var(--accent-active-bg);
+  --h3-color-bg: hsla(
+    var(--theme-accent-active-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l),
+    0.15
+  );
 }
 .heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3) {
-  background-color: var(--h3-color);
-  color: var(--text-on-accent) !important;
+  --h3-color: rgb(var(--h3-color-rgb));
+  background-color: var(--h3-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5680,12 +5697,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h3-size));
 }
 
+.heading-h4-block {
+  --h4-color-bg: rgba(var(--h4-color-rgb), 0.15);
+}
 .heading-h4-block.heading-color-accent {
-  --h4-color: var(--accent-active-bg);
+  --h4-color-bg: hsla(
+    var(--theme-accent-active-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l),
+    0.15
+  );
 }
 .heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4) {
-  background-color: var(--h4-color);
-  color: var(--text-on-accent) !important;
+  --h4-color: rgb(var(--h4-color-rgb));
+  background-color: var(--h4-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5701,12 +5726,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h4-size));
 }
 
+.heading-h5-block {
+  --h5-color-bg: rgba(var(--h5-color-rgb), 0.15);
+}
 .heading-h5-block.heading-color-accent {
-  --h5-color: var(--accent-active-bg);
+  --h5-color-bg: hsla(
+    var(--theme-accent-active-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l),
+    0.15
+  );
 }
 .heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5) {
-  background-color: var(--h5-color);
-  color: var(--text-on-accent) !important;
+  --h5-color: rgb(var(--h5-color-rgb));
+  background-color: var(--h5-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5722,12 +5755,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h5-size));
 }
 
+.heading-h6-block {
+  --h6-color-bg: rgba(var(--h6-color-rgb), 0.15);
+}
 .heading-h6-block.heading-color-accent {
-  --h6-color: var(--accent-active-bg);
+  --h6-color-bg: hsla(
+    var(--theme-accent-active-h),
+    var(--theme-accent-active-s),
+    var(--theme-accent-active-l),
+    0.15
+  );
 }
 .heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6) {
-  background-color: var(--h6-color);
-  color: var(--text-on-accent) !important;
+  --h6-color: rgb(var(--h6-color-rgb));
+  background-color: var(--h6-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   caret-color: currentColor;
@@ -5937,6 +5978,9 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
   }
   body.pdf-export-default-hr hr::after {
     content: none !important;
+  }
+  body.list-enable {
+    --list-marker-color-alt-render: var(--list-marker-color-alt);
   }
 }
 /* #endregion pdf */
@@ -6606,7 +6650,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.34");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.35");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
