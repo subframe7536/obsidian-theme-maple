@@ -60,7 +60,7 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
           zh: `H${level} 颜色`,
         },
       },
-      'hex',
+      'rgb-split',
     )
     .addClassToggle(
       `heading-h${level}-center`,
