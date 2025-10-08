@@ -21,7 +21,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
   ),
   Settings.ofLevel(1, { title: { en: 'Colors', zh: '颜色' }, open: true })
     .addClassSelect(
-      'color-use-custom',
+      'color-scheme',
       {
         title: { en: 'Color Scheme', zh: '颜色方案' },
       },
