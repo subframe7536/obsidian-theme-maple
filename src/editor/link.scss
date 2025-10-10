@@ -68,6 +68,7 @@ body {
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
   text-decoration-color: $underline;
+  -webkit-box-decoration-break: clone;
 
   &:hover {
     background-color: rgba($color, 0.15);
@@ -184,7 +185,7 @@ body.link-hover-expand {
       margin-inline: var(--size-2-1);
       @include use-icon(
         'file-text',
-        var(--link-color),
+        inherit,
         calc(var(--link-text-size) * 0.9)
       );
     }
@@ -206,11 +207,7 @@ body.link-hover-expand {
         display: inline-block;
         transform: translateY(var(--size-2-1));
         margin-inline: var(--size-2-1);
-        @include use-icon(
-          'link',
-          var(--link-external-color),
-          calc(var(--link-text-size) * 0.85)
-        );
+        @include use-icon('link', inherit, calc(var(--link-text-size) * 0.85));
       }
     }
 

@@ -8,6 +8,7 @@ body.app-layout-card:not(.is-mobile) {
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;
+  --app-layout-spacing: var(--setting-app-layout-spacing, var(--size-2-3));
 
   &.theme-light {
     --background-primary-alt: hsl(var(--base-accent-h), 14%, 95%);
@@ -105,15 +106,28 @@ body.app-layout-card:not(.is-mobile) {
 
   .mod-root {
     .workspace-tab-header-container {
-      padding-left: var(--size-4-1);
+      padding-left: var(--app-layout-spacing);
     }
     .workspace-tab-container {
-      padding: var(--size-4-1);
+      padding: var(--app-layout-spacing);
       padding-top: 0;
 
       .workspace-leaf-content {
         border-radius: var(--radius-m);
       }
+    }
+    :is(
+        .workspace-tabs + .workspace-tabs.mod-top,
+        .workspace-split.mod-vertical > .workspace-tabs + .workspace-tabs,
+        .workspace-tabs + .workspace-split > .workspace-tabs,
+        .workspace-split + .workspace-tabs,
+        .workspace-split + .workspace-split:not(.mod-root) > .workspace-tabs
+      )
+      > div {
+      padding-left: 0;
+    }
+    .workspace-tabs:not(.mod-top) {
+      margin-top: -4px;
     }
   }
 

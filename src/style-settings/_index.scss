@@ -192,7 +192,8 @@ body:not(.calendar-swap-year-month)
 body:not(.app-layout-card)
   .setting-item:is(
     [data-id='app-layout-card-bg'],
-    [data-id='app-layout-card-border']
+    [data-id='app-layout-card-border'],
+    [data-id='setting-app-layout-spacing']
   ),
 body:not(.app-layout-card.app-layout-card-custom)
   .setting-item:is(

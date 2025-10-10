@@ -37,7 +37,7 @@
         &-inner {
           margin-top: var(--size-4-1);
           padding-bottom: var(--size-4-1);
-          padding-left: var(--size-4-1);
+          padding-left: 5px;
 
           &-close-button {
             padding: var(--size-2-1);
@@ -109,7 +109,9 @@ body.tab-title-bar-text-hidden
 body.tab-slide-up:not(.is-mobile):not(.is-tablet) {
   .workspace-split:not(.is-sidedock-collapsed)
     .workspace-tabs:not(.mod-stacked)
-    .workspace-leaf-content:not([data-type='undefined'])
+    .workspace-leaf-content:not([data-type='undefined']):not(
+      [data-type='empty']
+    )
     .view-content {
     animation: use-animation('op'), use-animation('slide-up');
   }
