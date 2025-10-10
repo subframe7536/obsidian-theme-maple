@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.35 For Obsidian */
+/* Maple Theme v1.0.0-beta.36 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -7,9 +7,9 @@ settings:
       type: variable-number-slider
       title: Animation Duration (ms)
       title.zh: 动画持续时间（毫秒）
-      default: 200
+      default: 500
       min: 0
-      max: 500
+      max: 1000
       step: 50
       format: ms
     - id: setting-item-line-height
@@ -29,7 +29,7 @@ settings:
       type: heading
       level: 1
       collapsed: false
-    - id: color-use-custom
+    - id: color-scheme
       type: class-select
       title: Color Scheme
       title.zh: 颜色方案
@@ -145,6 +145,15 @@ settings:
       type: class-toggle
       title: Add Border For Card
       title.zh: 为卡片添加边框
+    - id: setting-app-layout-spacing
+      type: variable-number-slider
+      title: Card Spacing
+      title.zh: 卡片间距
+      default: 6
+      max: 16
+      min: 2
+      step: 0.5
+      format: px
     - id: app-layout-card-bg
       type: class-select
       title: Background Type
@@ -384,7 +393,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.35
+      default: Maple 1.0.0-beta.36
       quotes: true
     - id: enable-group-title
       type: class-toggle
@@ -1935,10 +1944,10 @@ body {
   --input-shadow-hover: 0 0.125px 0 0.5px var(--color-base-20),
     inset 0 -0.125px 1px 0px var(--color-base-40),
     0 0.75px 2px 0.5px var(--color-base-50);
-  --animation: var(--setting-animation-time, 200ms) var(--anim-motion-smooth);
-  --animation-slow: calc(var(--setting-animation-time, 200ms) * 2)
-    var(--anim-motion-smooth);
-  --animation-delay: calc(4 * var(--setting-animation-time, 150ms));
+  --animation-dur: var(--setting-animation-time, 500ms);
+  --animation: var(--animation-dur) var(--anim-motion-smooth);
+  --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
+  --animation-delay: calc(4 * var(--animation-dur));
   --block-outline-width: var(--size-2-1);
   --divider-color: var(--color-base-30);
   --divider-width-hover: var(--size-4-1);
@@ -2257,7 +2266,8 @@ body:not(.is-mobile) div[data-id=maple-mobile],
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color],
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
 body:not(.app-layout-card) .setting-item:is([data-id=app-layout-card-bg],
-[data-id=app-layout-card-border]),
+[data-id=app-layout-card-border],
+[data-id=setting-app-layout-spacing]),
 body:not(.app-layout-card.app-layout-card-custom) .setting-item:is([data-id=setting-layout-image-light],
 [data-id=setting-layout-opacity-light],
 [data-id=setting-layout-image-dark],
@@ -2315,7 +2325,8 @@ body:not(.is-mobile) div[data-id=maple-mobile] + .style-settings-container,
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
 body:not(.app-layout-card) .setting-item:is([data-id=app-layout-card-bg],
-[data-id=app-layout-card-border]) + .style-settings-container,
+[data-id=app-layout-card-border],
+[data-id=setting-app-layout-spacing]) + .style-settings-container,
 body:not(.app-layout-card.app-layout-card-custom) .setting-item:is([data-id=setting-layout-image-light],
 [data-id=setting-layout-opacity-light],
 [data-id=setting-layout-image-dark],
@@ -2455,6 +2466,7 @@ body.app-layout-card:not(.is-mobile) {
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;
+  --app-layout-spacing: var(--setting-app-layout-spacing, var(--size-2-3));
 }
 body.app-layout-card:not(.is-mobile).theme-light {
   --background-primary-alt: hsl(var(--base-accent-h), 14%, 95%);
@@ -2463,7 +2475,7 @@ body.app-layout-card:not(.is-mobile).theme-dark {
   --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
 }
 body.app-layout-card:not(.is-mobile):is(.app-layout-card-plain, .color-use-minimal) {
-  background-color: var(--background-secondary);
+  background-color: var(--bg-surface);
   --editor-min-opacity: 1;
 }
 body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain, .color-use-minimal) {
@@ -2534,14 +2546,24 @@ body.app-layout-card:not(.is-mobile).app-layout-card-border .workspace-tab-heade
   border-color: var(--background-modifier-border);
 }
 body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-header-container {
-  padding-left: var(--size-4-1);
+  padding-left: var(--app-layout-spacing);
 }
 body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-container {
-  padding: var(--size-4-1);
+  padding: var(--app-layout-spacing);
   padding-top: 0;
 }
 body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-container .workspace-leaf-content {
   border-radius: var(--radius-m);
+}
+body.app-layout-card:not(.is-mobile) .mod-root :is(.workspace-tabs + .workspace-tabs.mod-top,
+.workspace-split.mod-vertical > .workspace-tabs + .workspace-tabs,
+.workspace-tabs + .workspace-split > .workspace-tabs,
+.workspace-split + .workspace-tabs,
+.workspace-split + .workspace-split:not(.mod-root) > .workspace-tabs) > div {
+  padding-left: 0;
+}
+body.app-layout-card:not(.is-mobile) .mod-root .workspace-tabs:not(.mod-top) {
+  margin-top: -4px;
 }
 body.app-layout-card:not(.is-mobile) .workspace-tab-header {
   --background-modifier-hover: hsla(
@@ -2557,7 +2579,9 @@ body.app-layout-card:not(.is-mobile) :is(.workspace-tab-header-container,
 .workspace-split:not(.mod-root) .workspace-tabs .workspace-leaf,
 .workspace-split.mod-root .workspace-tabs:not(.mod-stacked) .workspace-leaf,
 .workspace-split.mod-root .workspace-split,
-.pdf-toolbar) {
+.pdf-toolbar,
+.workspace-leaf-content[data-type=empty],
+.workspace-leaf-content:not([data-type=empty]) :is(.view-content, .view-header)) {
   background-color: transparent;
 }
 body.app-layout-card:not(.is-mobile) .workspace-ribbon {
@@ -2570,7 +2594,7 @@ body.app-layout-card:not(.is-mobile) .workspace-ribbon::before {
 body.app-layout-card:not(.is-mobile) .workspace-split {
   background-color: var(--bg-surface);
 }
-body.app-layout-card:not(.is-mobile) :is(.workspace-split.mod-root .view-content, .view-header) {
+body.app-layout-card:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content {
   background-color: var(--bg-editor);
 }
 body.app-layout-card:not(.is-mobile):not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
@@ -2998,10 +3022,6 @@ body {
   color: var(--inline-code);
 }
 
-.markdown-rendered code {
-  border: var(--code-border-color);
-}
-
 .markdown-preview-view pre code {
   color: var(--code-normal);
   border: none;
@@ -3020,6 +3040,11 @@ body {
 }
 .cm-inline-code.cm-header {
   color: var(--inline-code) !important;
+}
+
+code {
+  --code-radius: var(--radius-s);
+  --code-border-width: 1px;
 }
 
 .cm-formatting-code:has(+ .cm-inline-code) {
@@ -3136,7 +3161,8 @@ body .markdown-rendered pre .copy-code-button {
 
 /* https://prismjs.com/#supported-languages */
 body:is(:not(.css-settings-manager), .code-language) .markdown-rendered {
-  --code-block-padding: calc(var(--font-text-size) * 1.2);
+  --code-block-padding: calc(var(--line-height-tight) * var(--code-size))
+    calc(var(--line-height-normal) * var(--code-size));
 }
 body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre {
   padding: var(--code-block-padding);
@@ -3149,8 +3175,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   position: absolute;
   text-align: right;
   right: var(--size-4-8);
-  top: calc(var(--code-block-padding) * 0.4);
-  line-height: calc(var(--code-block-padding) * 0.8);
+  top: var(--size-4-1);
   z-index: 9;
 }
 body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-markup::before {
@@ -3945,6 +3970,7 @@ body:not(.link-hover-expand) :is(a.external-link,
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
   text-decoration-color: var(--link-external-color-underline);
+  -webkit-box-decoration-break: clone;
 }
 body:not(.link-hover-expand) :is(a.external-link,
 .cm-link .cm-underline,
@@ -3963,6 +3989,7 @@ body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved),
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
   text-decoration-color: var(--link-color-underline);
+  -webkit-box-decoration-break: clone;
 }
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved),
 .cm-hmd-internal-link > .cm-underline):hover {
@@ -4051,7 +4078,7 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
-  color: var(--link-color);
+  color: inherit;
   width: calc(var(--link-text-size) * 0.9);
   height: calc(var(--link-text-size) * 0.9);
 }
@@ -4071,7 +4098,7 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/><path d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
-  color: var(--link-external-color);
+  color: inherit;
   width: calc(var(--link-text-size) * 0.85);
   height: calc(var(--link-text-size) * 0.85);
 }
@@ -6505,6 +6532,14 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
   background-color: var(--nav-item-background-active) !important;
 }
 
+button.mod-cta {
+  transition: filter var(--animation);
+  background: linear-gradient(to bottom, transparent -240%, var(--color-accent) 100%);
+}
+button.mod-cta:hover {
+  background: linear-gradient(to bottom, transparent -240%, var(--color-accent-1) 100%);
+}
+
 body:not(.is-phone) .modal-close-button {
   height: var(--input-height);
   width: var(--input-height);
@@ -6537,15 +6572,15 @@ body:not(.is-mobile) {
   --slider-track-background: var(--accent-inactive);
 }
 body:not(.is-mobile).modal-slider input[type=range]:focus {
-  --slider-thumb-ring-factor: 5;
+  --slider-thumb-ring-factor: 6;
 }
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb {
   box-shadow: inset 0 0 0 calc(var(--slider-thumb-width) / var(--slider-thumb-ring-factor, 4) * 0.9) var(--color-base-20), inset 0 0 0 calc(var(--slider-thumb-width) / 2) var(--accent-active), var(--input-shadow);
-  transition: box-shadow var(--animation);
+  transition: box-shadow var(--animation-fast);
   border-width: 0;
 }
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:is(:hover, :active, :focus) {
-  --slider-thumb-ring-factor: 5;
+  --slider-thumb-ring-factor: 6;
 }
 body:not(.is-mobile) .checkbox-container.is-enabled {
   background-color: var(--accent-active);
@@ -6571,7 +6606,7 @@ body:not(.is-mobile).modal-toggle-square .checkbox-container {
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
   height: var(--size-4-4);
-  transition: var(--animation-slow);
+  transition: var(--animation-fast);
   border: var(--toggle-border-width) solid var(--text-faint);
 }
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container:focus-within {
@@ -6592,7 +6627,7 @@ body:not(.is-mobile).modal-toggle-floating .checkbox-container::after {
   border-radius: calc(var(--toggle-width) / 2);
   border: var(--toggle-border-width) solid var(--text-faint);
   margin: 0;
-  transition: var(--animation-slow);
+  transition: var(--animation-fast);
 }
 :is(body:not(.is-mobile).modal-toggle-floating .checkbox-container:hover, body:not(.is-mobile).modal-toggle-floating .checkbox-container:focus-within)::after {
   bottom: 10%;
@@ -6614,7 +6649,7 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container::after {
   border: var(--toggle-border-width) solid var(--text-faint);
   width: 20%;
   margin: 0;
-  transition: var(--animation-slow);
+  transition: var(--animation-fast);
 }
 :is(body:not(.is-mobile).modal-toggle-thin .checkbox-container:hover, body:not(.is-mobile).modal-toggle-thin .checkbox-container:focus-within)::after {
   height: var(--size-4-2);
@@ -6650,7 +6685,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.35");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.36");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7033,7 +7068,7 @@ body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header
 body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header-container-inner {
   margin-top: var(--size-4-1);
   padding-bottom: var(--size-4-1);
-  padding-left: var(--size-4-1);
+  padding-left: 5px;
 }
 body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header-container-inner-close-button {
   padding: var(--size-2-1);
@@ -7084,7 +7119,7 @@ body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-contai
 }
 
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]) .view-content {
+body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]):not([data-type=empty]) .view-content {
   animation: op var(--animation), slide-up var(--animation);
 }
 
