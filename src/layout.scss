@@ -18,7 +18,7 @@ body.app-layout-card:not(.is-mobile) {
   }
 
   &:is(.app-layout-card-plain, .color-use-minimal) {
-    background-color: var(--background-secondary);
+    background-color: var(--bg-surface);
     --editor-min-opacity: 1;
   }
 
@@ -151,7 +151,10 @@ body.app-layout-card:not(.is-mobile) {
         .workspace-tabs:not(.mod-stacked)
         .workspace-leaf,
       .workspace-split.mod-root .workspace-split,
-      .pdf-toolbar
+      .pdf-toolbar,
+      .workspace-leaf-content[data-type='empty'],
+      .workspace-leaf-content:not([data-type='empty'])
+        :is(.view-content, .view-header)
     ) {
     background-color: transparent;
   }
@@ -166,12 +169,9 @@ body.app-layout-card:not(.is-mobile) {
 
   .workspace-split {
     background-color: var(--bg-surface);
-    // &.mod-root {
-    //   background-color: var(--bg-surface);
-    // }
   }
 
-  :is(.workspace-split.mod-root .view-content, .view-header) {
+  .workspace-split.mod-root .workspace-leaf-content {
     background-color: var(--bg-editor);
   }
 
