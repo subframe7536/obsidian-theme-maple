@@ -6,7 +6,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
     {
       title: { en: 'Animation Duration (ms)', zh: '动画持续时间（毫秒）' },
     },
-    { default: 200, min: 0, max: 500, step: 50, format: 'ms' },
+    { default: 500, min: 0, max: 1000, step: 50, format: 'ms' },
   ),
   Settings.of().addVarNumSlider(
     'setting-item-line-height',
