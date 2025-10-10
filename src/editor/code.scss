@@ -201,7 +201,8 @@ body .markdown-rendered pre {
 /* https://prismjs.com/#supported-languages */
 @include use-no-plugin('.code-language') {
   .markdown-rendered {
-    --code-block-padding: calc(var(--font-text-size) * 1.2);
+    --code-block-padding: calc(var(--line-height-tight) * var(--code-size))
+      calc(var(--line-height-normal) * var(--code-size));
 
     pre {
       padding: var(--code-block-padding);
@@ -214,8 +215,7 @@ body .markdown-rendered pre {
         position: absolute;
         text-align: right;
         right: var(--size-4-8);
-        top: calc(var(--code-block-padding) * 0.4);
-        line-height: calc(var(--code-block-padding) * 0.8);
+        top: var(--size-4-1);
         z-index: 9;
       }
       $language: Markup, HTML, XML, SVG, MathML, SSML, Atom, RSS, CSS,
