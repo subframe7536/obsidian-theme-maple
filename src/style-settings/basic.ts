@@ -140,6 +140,16 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
     .addClassToggle('app-layout-card-border', {
       title: { en: 'Add Border For Card', zh: '为卡片添加边框' },
     })
+    .addVarNumSlider(
+      'setting-app-layout-spacing',
+      {
+        title: {
+          en: 'Card Spacing',
+          zh: '卡片间距',
+        },
+      },
+      { default: 6, max: 16, min: 2, step: 0.5, format: 'px' },
+    )
     .addClassSelect(
       'app-layout-card-bg',
       {
