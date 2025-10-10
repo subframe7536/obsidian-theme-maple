@@ -37,10 +37,6 @@ body {
   color: var(--inline-code);
 }
 
-.markdown-rendered code {
-  border: var(--code-border-color);
-}
-
 .markdown-preview-view pre code {
   color: var(--code-normal);
   border: none;
@@ -62,6 +58,11 @@ body {
   &.cm-header {
     color: var(--inline-code) !important;
   }
+}
+
+code {
+  --code-radius: var(--radius-s);
+  --code-border-width: 1px;
 }
 
 .cm-formatting-code {
