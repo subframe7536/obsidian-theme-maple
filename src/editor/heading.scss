@@ -67,6 +67,7 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   line-height: var(--line-height-normal);
 }
 
+// todo)) refactor
 @include use-no-plugin(':not(.heading-indicator-disable)') {
   $reading-view-headings: '#{$reading-view-base} > #{$headings}';
   $lp-header: '#{$lp-header-base}';
