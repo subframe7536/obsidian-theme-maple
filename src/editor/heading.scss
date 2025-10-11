@@ -146,10 +146,11 @@ body.line-active-left .cm-active.HyperMD-header {
 // underline
 
 @for $i from 1 through 6 {
-  .heading-h#{$i}-underline
+  .heading-h#{$i}-underline .app-container {
     :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting), h#{$i}) {
-    text-decoration: underline var(--size-2-1);
-    text-underline-offset: var(--size-4-2);
+      text-decoration: underline var(--size-2-1);
+      text-underline-offset: var(--size-4-2);
+    }
   }
 }
 
@@ -158,7 +159,7 @@ body.line-active-left .cm-active.HyperMD-header {
 $full-selectors: ();
 
 @for $i from 1 through 6 {
-  .heading-h#{$i}-full-line {
+  .heading-h#{$i}-full-line .app-container {
     :is(.HyperMD-header-#{$i}, h#{$i}) {
       position: relative;
       &::after {
@@ -191,7 +192,7 @@ $full-selectors: ();
 // block
 
 @for $i from 1 through 6 {
-  .heading-h#{$i}-block {
+  .heading-h#{$i}-block .app-container {
     --h#{$i}-color-bg: rgba(var(--h#{$i}-color-rgb), 0.15);
     &.heading-color-accent {
       --h#{$i}-color-bg: hsla(
