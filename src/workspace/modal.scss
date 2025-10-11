@@ -55,7 +55,7 @@ body:not(.is-mobile) {
   --slider-track-background: var(--accent-inactive);
   &.modal-slider input[type='range'] {
     &:focus {
-      --slider-thumb-ring-factor: 6;
+      --slider-thumb-ring-factor: 5.2;
     }
     &::-webkit-slider-thumb {
       box-shadow: inset 0 0 0
@@ -68,7 +68,7 @@ body:not(.is-mobile) {
       transition: box-shadow var(--animation-fast);
       border-width: 0;
       &:is(:hover, :active, :focus) {
-        --slider-thumb-ring-factor: 6;
+        --slider-thumb-ring-factor: 5.2;
       }
     }
   }
