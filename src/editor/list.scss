@@ -58,7 +58,7 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 
     --list-bullet-end-padding: 1.6rem;
 
-    .collapse-indicator {
+    .cm-list .collapse-indicator {
       transform: translateX(-0.3rem) !important;
     }
   }

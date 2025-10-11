@@ -3,14 +3,9 @@
 @use 'sass:string';
 
 $headings: ':is(h1, h2, h3, h4, h5, h6)';
-$cm-headings: '.HyperMD-header-1', '.HyperMD-header-2', '.HyperMD-header-3',
-  '.HyperMD-header-4', '.HyperMD-header-5', '.HyperMD-header-6';
 
 $default-sizes: 1.6, 1.5, 1.4, 1.3, 1.2, 1.1;
 $default-weights: 750, 700, 600, 550, 550, 500;
-
-$reading-view-base: 'div.markdown-reading-view > div > div > div';
-$lp-header-base: '.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header';
 
 body {
   @for $i from 1 through 6 {
@@ -67,117 +62,72 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   line-height: var(--line-height-normal);
 }
 
-// todo)) refactor
+@for $i from 1 through 6 {
+  $selector: ':is(h#{$i}, .HyperMD-header-#{$i})';
+
+  #{$selector} {
+    --h-indicator-content: 'H#{$i}';
+  }
+
+  .link-heading #{$selector} {
+    --link-color: var(--h#{$i}-color);
+    --link-color-underline: var(--h#{$i}-color);
+    --link-external-color: var(--h#{$i}-color);
+    --link-external-color-underline: var(--h#{$i}-color);
+    --link-text-size: var(--h#{$i}-size);
+  }
+}
+
 @include use-no-plugin(':not(.heading-indicator-disable)') {
-  $reading-view-headings: '#{$reading-view-base} > #{$headings}';
-  $lp-header: '#{$lp-header-base}';
+  $live-preview-base: '.markdown-source-view.mod-cm6.is-live-preview';
+  $reading-view-base: 'div.markdown-reading-view > div > div > div';
 
-  :is(#{$reading-view-headings}, #{$lp-header}) {
+  $live-preview-header: '#{$live-preview-base} .HyperMD-header';
+  $reading-view-header: '#{$reading-view-base} > #{$headings}';
+  $live-preview-header-collapsed: '#{$live-preview-base} .HyperMD-header:has(>.is-collapsed)';
+  $reading-view-header-collapsed: '#{$reading-view-base}.is-collpased > #{$headings}';
+
+  $normal-selector: ':is(#{$live-preview-header}, #{$reading-view-header})';
+  $collapsed-selector: ':is(#{$live-preview-header-collapsed}, #{$reading-view-header-collapsed})';
+
+  #{$normal-selector} {
     position: relative;
-
     &::before {
-      content: '';
+      content: var(--h-indicator-content, '');
       position: absolute;
-      z-index: 1;
-      padding: 0.1rem;
-      background-color: transparent;
       font-size: 0.7rem;
-      line-height: 1;
-      width: fit-content;
-      letter-spacing: 0.05rem;
-      opacity: 0;
+      translate: -150%;
+      color: var(--h-indicator-color, inherit);
+      text-decoration: var(--h-indicator-decoration, none);
       pointer-events: none;
-      top: 50%;
-      transform: translateY(-50%);
-      left: calc(var(--size-4-5) * -1);
     }
-
-    &:hover::before {
-      opacity: 0.9;
-      pointer-events: all;
-    }
-  }
-
-  $reading-view-collapsed: '#{$reading-view-base}.is-collapsed > #{$headings}';
-  $lp-header-collapsed: '#{$lp-header-base}:has(> .cm-foldPlaceholder)';
-
-  :is(#{$reading-view-collapsed}, #{$lp-header-collapsed})::before {
-    opacity: 0.9;
-    text-decoration: underline 0.1rem;
-  }
-
-  &.heading-indicator-fixed
-    :is(
-      #{$reading-view-base}:not(.is-collapsed) > #{$headings},
-      #{$lp-header-base}:not(:has(> .cm-foldPlaceholder))
-    ) {
-    &::before {
-      opacity: 0.4;
-    }
-
-    &:not(:hover)::before {
-      color: var(--text-muted);
-    }
-
-    &:hover::before {
-      opacity: 1;
-    }
-  }
-
-  #{$reading-view-headings}::before {
-    left: calc(var(--size-4-6) * -1) !important;
-  }
-
-  @for $i from 1 through 6 {
-    $reading-view-h: '#{$reading-view-base} > h#{$i}';
-    $lp-header-i: '#{$lp-header-base}-#{$i}';
-    $selector: ':is(#{$reading-view-h}, #{$lp-header-i})';
-
-    &.link-heading #{$selector} {
-      --link-color: var(--h#{$i}-color);
-      --link-color-underline: var(--h#{$i}-color);
-      --link-external-color: var(--h#{$i}-color);
-      --link-external-color-underline: var(--h#{$i}-color);
-      --link-text-size: var(--h#{$i}-size);
-    }
-
-    #{$selector}::before {
-      content: 'H#{$i}';
-    }
-  }
-
-  #{$reading-view-base} > #{$headings}::before {
-    left: calc(-1 * var(--size-4-6)) !important;
-  }
-
-  .heading-collapse-indicator {
-    position: absolute;
-    z-index: 99;
-    height: var(--size-4-4);
-    width: var(--size-4-6);
-    top: 50%;
-    transform: translateY(-50%);
-    left: calc(var(--size-2-1) * -1);
-    padding: 0 !important;
-    --cursor: pointer;
-
-    svg {
-      display: none;
-    }
-  }
-
-  .HyperMD-header {
-    position: relative;
-
-    .cm-fold-indicator .collapse-indicator {
-      --cursor: pointer;
-      z-index: 99;
+    :is(.collapse-indicator, .header-collapse-indicator) {
       opacity: 0 !important;
-      width: var(--size-4-6);
-      height: var(--size-4-4) !important;
-      left: calc(var(--size-2-1) - var(--size-4-8));
-      top: 50% !important;
-      transform: translateY(-50%) !important;
+      padding-inline-start: var(--size-4-2);
+    }
+  }
+
+  &.heading-indicator-auto {
+    #{$normal-selector} {
+      --h-indicator-color: transparent;
+      &:hover {
+        --h-indicator-color: inherit;
+      }
+    }
+    #{$collapsed-selector} {
+      --h-indicator-color: inherit;
+    }
+  }
+  &.heading-indicator-fixed {
+    #{$normal-selector} {
+      --h-indicator-color: var(--text-faint);
+      &:hover {
+        --h-indicator-color: inherit;
+      }
+    }
+    #{$collapsed-selector} {
+      --h-indicator-color: inherit;
+      --h-indicator-decoration: underline;
     }
   }
 }
