@@ -44,7 +44,7 @@ body {
   font-size: var(--link-text-size);
   box-shadow: inset 0 -0.1em 0 $underline;
   text-decoration: none !important;
-  transition: var(--animation);
+  transition: var(--animation-fast);
   transition-property: box-shadow, color;
   color: $color !important;
 
@@ -63,7 +63,7 @@ body {
 }
 
 @mixin hover-base($color, $underline) {
-  transition: background-color var(--animation);
+  transition: background-color var(--animation-fast);
   color: rgba($color, var(--color-opacity));
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
