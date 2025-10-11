@@ -35,7 +35,7 @@ body {
     var(--theme-accent-active-h),
     calc(var(--theme-accent-active-s) * 0.7),
     var(--theme-accent-active-l),
-    90%
+    60%
   );
   --background-primary: hsl(var(--background-primary-hsl));
   --background-secondary: hsl(var(--background-secondary-hsl));

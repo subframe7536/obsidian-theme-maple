@@ -11,6 +11,11 @@ body:not(.is-phone)
   background-color: var(--nav-item-background-active) !important;
 }
 
+.clickable-icon {
+  transition: var(--animation-fast);
+  transition-property: opacity, background-color;
+}
+
 button.mod-cta {
   transition: filter var(--animation);
   background: linear-gradient(
@@ -43,12 +48,24 @@ body:not(.is-phone) .modal-close-button {
   }
 }
 
-input {
-  transition-duration: var(--setting-animation-time, 200ms) !important;
-}
-
 .checkbox-container {
-  background-color: var(--color-base-20);
+  background-color: var(--color-base-25);
+
+  &.is-enabled {
+    background: linear-gradient(
+      to bottom,
+      transparent -200%,
+      var(--accent-active) 100%
+    );
+  }
+
+  .theme-light & {
+    --toggle-thumb-color: #fafafa;
+  }
+
+  .theme-dark & {
+    --toggle-thumb-color: #e0e0e0;
+  }
 }
 
 body:not(.is-mobile) {
@@ -71,17 +88,6 @@ body:not(.is-mobile) {
         --slider-thumb-ring-factor: 5.2;
       }
     }
-  }
-
-  .checkbox-container.is-enabled {
-    background-color: var(--accent-active);
-  }
-
-  &.theme-light .checkbox-container {
-    --toggle-thumb-color: #fafafa;
-  }
-  &.theme-dark .checkbox-container {
-    --toggle-thumb-color: #e0e0e0;
   }
 
   &.modal-toggle-square {
@@ -139,7 +145,7 @@ body:not(.is-mobile) {
 
     &.is-enabled {
       border-color: var(--accent-active);
-      background-color: var(--accent-inactive);
+      background: var(--accent-inactive);
 
       &::after {
         border-color: var(--accent-active);
@@ -174,7 +180,7 @@ body:not(.is-mobile) {
 
     &.is-enabled {
       border-color: var(--accent-active);
-      background-color: var(--accent-inactive);
+      background: var(--accent-inactive);
 
       &::before {
         background-color: var(--accent-active-bg);
