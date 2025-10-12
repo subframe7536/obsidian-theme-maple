@@ -100,7 +100,7 @@ body {
       border-top-right-radius: var(--radius-m);
     }
 
-    tr:last-child td:first-child {
+    tr:last-child td:first-child:not(:has(.table-row-drag-handle:hover)) {
       border-bottom-left-radius: var(--radius-m);
     }
 
@@ -108,13 +108,15 @@ body {
       border-bottom-right-radius: var(--radius-m);
     }
   }
+  .table-wrapper {
+    &:has(.table-row-btn:hover) tr:last-child td {
+      border-radius: 0 !important;
+    }
 
-  &:has(.table-row-btn:hover) tr:last-child td {
-    border-radius: 0;
-  }
-
-  &:has(.table-col-btn:hover) :is(tr:last-child td:last-child, th:last-child) {
-    border-radius: 0;
+    &:has(.table-col-btn:hover)
+      :is(tr:last-child td:last-child, th:last-child) {
+      border-radius: 0;
+    }
   }
 }
 
