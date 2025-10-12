@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.38 For Obsidian */
+/* Maple Theme v1.0.0-beta.39 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -393,7 +393,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.38
+      default: Maple 1.0.0-beta.39
       quotes: true
     - id: enable-group-title
       type: class-toggle
@@ -1437,12 +1437,27 @@ settings:
       title: Full Width Table
       title.zh: 全宽表格
       default: true
-    - id: table-colorful
-      type: class-toggle
-      title: Colorful Table
+    - id: table-style
+      type: class-select
+      title: Table Style
       title.zh: 多彩表格
-      description: Accented header and line colors; ignore DataView table
-      description.zh: 加深表头和行的颜色；忽略 DataView 表格
+      description: "Ignore DataView table. Minimal: Academic style with only
+          horizontal lines; Colorful: Accented header and line background
+          colors"
+      description.zh: "忽略 DataView 表格。Minimal: 仅显示横线的学术风格；Colorful: 加深表头和行的背景色"
+      allow-empty: false
+      default: table-style-default
+      options:
+          - label: Default
+            value: table-style-default
+          - label: Minimal
+            value: table-style-minimal
+          - label: Colorful
+            value: table-style-colorful
+    - id: table-round
+      type: class-toggle
+      title: Add Round Corner
+      title.zh: 添加圆角
       default: true
     - id: setting-table-header-text
       type: variable-themed-color
@@ -2314,7 +2329,7 @@ body:not(.heading-h3-full-line) .setting-item[data-id=heading-h3-full-line-direc
 body:not(.heading-h4-full-line) .setting-item[data-id=heading-h4-full-line-direction],
 body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direction],
 body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction],
-body:not(.table-colorful) .setting-item[data-id^=setting-table],
+body:not(.table-colorful) .setting-item:is([data-id=table-round], [data-id^=setting-table]),
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
 body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
 [data-id=setting-tag-color]) {
@@ -2373,7 +2388,7 @@ body:not(.heading-h3-full-line) .setting-item[data-id=heading-h3-full-line-direc
 body:not(.heading-h4-full-line) .setting-item[data-id=heading-h4-full-line-direction] + .style-settings-container,
 body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direction] + .style-settings-container,
 body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction] + .style-settings-container,
-body:not(.table-colorful) .setting-item[data-id^=setting-table] + .style-settings-container,
+body:not(.table-colorful) .setting-item:is([data-id=table-round], [data-id^=setting-table]) + .style-settings-container,
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon] + .style-settings-container,
 body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
 [data-id=setting-tag-color]) + .style-settings-container {
@@ -2469,7 +2484,7 @@ body.app-layout-card:not(.is-mobile) {
   --app-layout-spacing: var(--setting-app-layout-spacing, var(--size-2-3));
 }
 body.app-layout-card:not(.is-mobile).theme-light {
-  --background-primary-alt: hsl(var(--base-accent-h), 18%, 93%);
+  --background-primary-alt: hsl(var(--base-accent-h), 18%, 93.5%);
 }
 body.app-layout-card:not(.is-mobile).theme-dark {
   --background-primary-alt: hsl(var(--base-accent-h), 8%, 13.5%);
@@ -4969,49 +4984,33 @@ body {
   --table-header-background: var(--background-primary-alt);
   --table-header-background-hover: var(--table-header-background);
   --table-cell-vertical-alignment: middle;
+  --table-add-button-border-width: 0;
   --table-add-button-background: var(--background-modifier-hover);
   --table-drag-handle-background: var(--background-modifier-hover);
   --table-selection-border-radius: var(--radius-m);
   --table-selection-border-color: var(--accent-inactive);
 }
-
-/* table radius */
-.markdown-rendered table {
-  border-collapse: initial;
-  border-spacing: 0;
-}
-.markdown-rendered table :is(th, td):not(:first-child) {
-  border-left: 0;
-}
-.markdown-rendered table tbody td {
-  border-top: 0;
-}
-.markdown-rendered table thead tr {
-  background-color: transparent;
-}
-.markdown-rendered table thead tr th {
-  background-color: var(--table-header-background) !important;
-}
-.markdown-rendered table th:first-child:not(:has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)) {
-  border-top-left-radius: var(--radius-m);
-}
-.markdown-rendered table th:last-child:not(:has(.table-col-drag-handle:hover)) {
-  border-top-right-radius: var(--radius-m);
-}
-.markdown-rendered table tr:last-child td:first-child {
-  border-bottom-left-radius: var(--radius-m);
-}
-.markdown-rendered table tr:last-child td:last-child {
-  border-bottom-right-radius: var(--radius-m);
-}
-.markdown-rendered:has(.table-row-btn:hover) tr:last-child td {
-  border-radius: 0;
-}
-.markdown-rendered:has(.table-col-btn:hover) :is(tr:last-child td:last-child, th:last-child) {
-  border-radius: 0;
+body .table-drag-target::after {
+  background-color: var(--accent-active-bg);
 }
 
-.table-colorful {
+.table-style-minimal {
+  --table-header-background: transparent;
+  --table-border-color: transparent;
+  --table-header-border-color: var(--color-base-100);
+  --table-header-border-width: 3px;
+  --table-selection-border-radius: 0;
+  --table-row-last-border-width: var(--table-header-border-width);
+}
+.table-style-minimal table th {
+  border-bottom: var(--color-base-100) solid 2px;
+  border-inline: 0;
+}
+.table-style-minimal table tr:last-child > td {
+  border-bottom-color: var(--table-header-border-color);
+}
+
+.table-style-colorful {
   --table-background: var(--background-primary-alt);
   --table-header-background: var(
     --setting-table-header-text,
@@ -5022,14 +5021,50 @@ body {
   --table-column-alt-background: inherit;
   --table-column-alt-background-hover: inherit;
 }
-.table-colorful :is(.is-live-preview, .markdown-rendered) {
+.table-style-colorful :is(.is-live-preview, .markdown-rendered) {
   --table-header-color: var(--setting-table-header-bg, var(--text-on-accent));
 }
-.table-colorful th .cm-s-obsidian {
+.table-style-colorful th .cm-s-obsidian {
   color: var(--text-normal);
 }
-.table-colorful .cm-html-embed .edit-block-button {
+.table-style-colorful .cm-html-embed .edit-block-button {
   --background-modifier-hover: var(--background-secondary);
+}
+
+/* table radius */
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table {
+  border-collapse: initial;
+  border-spacing: 0;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table :is(th, td):not(:first-child) {
+  border-left: 0;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table tbody td {
+  border-top: 0;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table thead tr {
+  background-color: transparent;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table thead tr th {
+  background-color: var(--table-header-background) !important;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table th:first-child:not(:has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)) {
+  border-top-left-radius: var(--radius-m);
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table th:last-child:not(:has(.table-col-drag-handle:hover)) {
+  border-top-right-radius: var(--radius-m);
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table tr:last-child td:first-child:not(:has(.table-row-drag-handle:hover)) {
+  border-bottom-left-radius: var(--radius-m);
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table tr:last-child td:last-child {
+  border-bottom-right-radius: var(--radius-m);
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .table-wrapper:has(.table-row-btn:hover) tr:last-child td {
+  border-radius: 0 !important;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .table-wrapper:has(.table-col-btn:hover) :is(tr:last-child td:last-child, th:last-child) {
+  border-radius: 0;
 }
 
 .markdown-source-view.mod-cm6 .cm-table-widget {
@@ -6662,7 +6697,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.38");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.39");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
