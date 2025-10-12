@@ -24,6 +24,10 @@ body {
   --table-drag-handle-background: var(--background-modifier-hover);
   --table-selection-border-radius: var(--radius-m);
   --table-selection-border-color: var(--accent-inactive);
+
+  .table-drag-target::after {
+    background-color: var(--accent-active-bg);
+  }
 }
 
 .table-style-minimal {
