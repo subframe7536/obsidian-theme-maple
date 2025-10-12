@@ -55,11 +55,10 @@ body {
     inset 0 -0.125px 1px 0px var(--color-base-40),
     0 0.75px 2px 0.5px var(--color-base-50);
 
-  --animation-dur: var(--setting-animation-time, 500ms);
+  --animation-dur: var(--setting-animation-time, 250ms);
   --animation: var(--animation-dur) var(--anim-motion-smooth);
-  --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
+  --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--animation-dur));
-  --block-outline-width: var(--size-2-1);
 
   --divider-color: var(--color-base-30);
   --divider-width-hover: var(--size-4-1);

@@ -12,7 +12,7 @@ body:not(.is-phone)
 }
 
 .clickable-icon {
-  transition: var(--animation-fast);
+  transition: var(--animation);
   transition-property: opacity, background-color;
 }
 
@@ -82,7 +82,7 @@ body:not(.is-mobile) {
           var(--color-base-20),
         inset 0 0 0 calc(var(--slider-thumb-width) / 2) var(--accent-active),
         var(--input-shadow);
-      transition: box-shadow var(--animation-fast);
+      transition: box-shadow var(--animation);
       border-width: 0;
       &:is(:hover, :active, :focus) {
         --slider-thumb-ring-factor: 5.2;
@@ -109,7 +109,7 @@ body:not(.is-mobile) {
     .checkbox-container {
       --toggle-radius: var(--radius-m);
       height: var(--size-4-4);
-      transition: var(--animation-fast);
+      transition: var(--animation);
       border: var(--toggle-border-width) solid var(--text-faint);
 
       &:focus-within {
@@ -136,7 +136,7 @@ body:not(.is-mobile) {
       border-radius: calc(var(--toggle-width) / 2);
       border: var(--toggle-border-width) solid var(--text-faint);
       margin: 0;
-      transition: var(--animation-fast);
+      transition: var(--animation);
     }
 
     :is(&:hover, &:focus-within)::after {
@@ -167,7 +167,7 @@ body:not(.is-mobile) {
       border: var(--toggle-border-width) solid var(--text-faint);
       width: 20%;
       margin: 0;
-      transition: var(--animation-fast);
+      transition: var(--animation);
     }
 
     :is(&:hover, &:focus-within)::after {

@@ -96,7 +96,8 @@ body.tab-title-bar-text-hidden
   .workspace-leaf-content
   .view-header-title-container {
   opacity: 0;
-  transition: var(--animation) var(--animation-delay);
+  transition: var(--animation);
+  transition-delay: var(--animation-delay);
 
   &:hover {
     opacity: 1;

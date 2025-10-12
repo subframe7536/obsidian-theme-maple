@@ -55,7 +55,7 @@
 
 @function use-animation($name) {
   @if $name == 'op' or $name == 'slide-up' or $name == 'fade-dock' {
-    @return #{$name} var(--animation);
+    @return #{$name} var(--animation-slow);
   }
   @error "No such animation" + $name;
 }
