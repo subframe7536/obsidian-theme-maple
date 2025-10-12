@@ -526,21 +526,29 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       { enable: true },
     )
+    .addClassSelect(
+      'table-style',
+      {
+        title: { en: 'Table Style', zh: '多彩表格' },
+        desc: {
+          en: 'Ignore DataView table. Colorful: Accented header and line background colors; Minimal: Academic style with only horizontal lines',
+          zh: '忽略 DataView 表格。Colorful: 加深表头和行的背景色；Minimal: 仅显示横线的学术风格',
+        },
+      },
+      {
+        allowEmpty: false,
+        default: 'table-style-default',
+        options: [
+          { label: 'Default', value: 'table-style-default' },
+          { label: 'Minimal', value: 'table-style-minimal' },
+          { label: 'Colorful', value: 'table-style-colorful' },
+        ],
+      },
+    )
     .addClassToggle(
       'table-round',
       {
         title: { en: 'Add Round Corner', zh: '添加圆角' },
-      },
-      { enable: true },
-    )
-    .addClassToggle(
-      'table-colorful',
-      {
-        title: { en: 'Colorful Table', zh: '多彩表格' },
-        desc: {
-          en: 'Accented header and line colors; ignore DataView table',
-          zh: '加深表头和行的颜色；忽略 DataView 表格',
-        },
       },
       { enable: true },
     )

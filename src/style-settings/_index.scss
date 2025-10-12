@@ -277,7 +277,8 @@ body:not(.heading-h5-full-line)
   .setting-item[data-id='heading-h5-full-line-direction'],
 body:not(.heading-h6-full-line)
   .setting-item[data-id='heading-h6-full-line-direction'],
-body:not(.table-colorful) .setting-item[data-id^='setting-table'],
+body:not(.table-colorful)
+  .setting-item:is([data-id='table-round'], [data-id^='setting-table']),
 body:not(.hr-enable) .setting-item[data-id^='setting-hr-icon'],
 body:not(.tag-outline)
   .setting-item:is(

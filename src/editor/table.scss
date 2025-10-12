@@ -19,14 +19,57 @@ body {
   --table-header-background: var(--background-primary-alt);
   --table-header-background-hover: var(--table-header-background);
   --table-cell-vertical-alignment: middle;
+  --table-add-button-border-width: 0;
   --table-add-button-background: var(--background-modifier-hover);
   --table-drag-handle-background: var(--background-modifier-hover);
   --table-selection-border-radius: var(--radius-m);
   --table-selection-border-color: var(--accent-inactive);
 }
 
+.table-style-minimal {
+  --table-header-background: transparent;
+  --table-border-color: transparent;
+  --table-header-border-color: var(--color-base-100);
+  --table-header-border-width: 3px;
+  --table-selection-border-radius: 0;
+  --table-row-last-border-width: var(--table-header-border-width);
+  table {
+    th {
+      border-bottom: var(--color-base-100) solid 2px;
+      border-inline: 0;
+    }
+    tr:last-child > td {
+      border-bottom-color: var(--table-header-border-color);
+    }
+  }
+}
+
+.table-style-colorful {
+  --table-background: var(--background-primary-alt);
+  --table-header-background: var(
+    --setting-table-header-text,
+    var(--accent-active-bg)
+  );
+  --table-row-alt-background: var(--bg-editor);
+  --table-row-alt-background-hover: var(--bg-editor);
+  --table-column-alt-background: inherit;
+  --table-column-alt-background-hover: inherit;
+
+  :is(.is-live-preview, .markdown-rendered) {
+    --table-header-color: var(--setting-table-header-bg, var(--text-on-accent));
+  }
+
+  th .cm-s-obsidian {
+    color: var(--text-normal);
+  }
+
+  .cm-html-embed .edit-block-button {
+    --background-modifier-hover: var(--background-secondary);
+  }
+}
+
 /* table radius */
-@include use-no-plugin('.table-round') {
+@include use-no-plugin('.table-round:not(.table-style-minimal)') {
   table {
     border-collapse: initial;
     border-spacing: 0;
@@ -72,30 +115,6 @@ body {
 
   &:has(.table-col-btn:hover) :is(tr:last-child td:last-child, th:last-child) {
     border-radius: 0;
-  }
-}
-
-.table-colorful {
-  --table-background: var(--background-primary-alt);
-  --table-header-background: var(
-    --setting-table-header-text,
-    var(--accent-active-bg)
-  );
-  --table-row-alt-background: var(--bg-editor);
-  --table-row-alt-background-hover: var(--bg-editor);
-  --table-column-alt-background: inherit;
-  --table-column-alt-background-hover: inherit;
-
-  :is(.is-live-preview, .markdown-rendered) {
-    --table-header-color: var(--setting-table-header-bg, var(--text-on-accent));
-  }
-
-  th .cm-s-obsidian {
-    color: var(--text-normal);
-  }
-
-  .cm-html-embed .edit-block-button {
-    --background-modifier-hover: var(--background-secondary);
   }
 }
 
