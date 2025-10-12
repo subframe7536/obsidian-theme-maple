@@ -527,6 +527,13 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       { enable: true },
     )
     .addClassToggle(
+      'table-round',
+      {
+        title: { en: 'Add Round Corner', zh: '添加圆角' },
+      },
+      { enable: true },
+    )
+    .addClassToggle(
       'table-colorful',
       {
         title: { en: 'Colorful Table', zh: '多彩表格' },
