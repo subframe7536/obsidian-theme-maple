@@ -531,8 +531,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       {
         title: { en: 'Table Style', zh: '多彩表格' },
         desc: {
-          en: 'Ignore DataView table. Colorful: Accented header and line background colors; Minimal: Academic style with only horizontal lines',
-          zh: '忽略 DataView 表格。Colorful: 加深表头和行的背景色；Minimal: 仅显示横线的学术风格',
+          en: 'Ignore DataView table. Minimal: Academic style with only horizontal lines; Colorful: Accented header and line background colors',
+          zh: '忽略 DataView 表格。Minimal: 仅显示横线的学术风格；Colorful: 加深表头和行的背景色',
         },
       },
       {
