@@ -11,10 +11,10 @@ body.app-layout-card:not(.is-mobile) {
   --app-layout-spacing: var(--setting-app-layout-spacing, var(--size-2-3));
 
   &.theme-light {
-    --background-primary-alt: hsl(var(--base-accent-h), 14%, 95%);
+    --background-primary-alt: hsl(var(--base-accent-h), 18%, 93%);
   }
   &.theme-dark {
-    --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
+    --background-primary-alt: hsl(var(--base-accent-h), 8%, 13.5%);
   }
 
   &:is(.app-layout-card-plain, .color-use-minimal) {
@@ -58,7 +58,7 @@ body.app-layout-card:not(.is-mobile) {
 
     &.theme-light {
       --app-bg-image: linear-gradient(
-        340deg,
+        320deg,
         hsl(calc(var(--base-accent-h) + 50), 50%, 92%),
         hsl(calc(var(--base-accent-h) - 30), 36%, 87%)
       );
@@ -66,7 +66,7 @@ body.app-layout-card:not(.is-mobile) {
 
     &.theme-dark {
       --app-bg-image: linear-gradient(
-        340deg,
+        320deg,
         hsl(calc(var(--base-accent-h) + 60), 11%, 22%),
         hsl(calc(var(--base-accent-h) - 10), 24%, 28%)
       );
