@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.37 For Obsidian */
+/* Maple Theme v1.0.0-beta.38 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -7,7 +7,7 @@ settings:
       type: variable-number-slider
       title: Animation Duration (ms)
       title.zh: 动画持续时间（毫秒）
-      default: 500
+      default: 250
       min: 0
       max: 1000
       step: 50
@@ -393,7 +393,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.37
+      default: Maple 1.0.0-beta.38
       quotes: true
     - id: enable-group-title
       type: class-toggle
@@ -1944,11 +1944,10 @@ body {
   --input-shadow-hover: 0 0.125px 0 0.5px var(--color-base-20),
     inset 0 -0.125px 1px 0px var(--color-base-40),
     0 0.75px 2px 0.5px var(--color-base-50);
-  --animation-dur: var(--setting-animation-time, 500ms);
+  --animation-dur: var(--setting-animation-time, 250ms);
   --animation: var(--animation-dur) var(--anim-motion-smooth);
-  --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
+  --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--animation-dur));
-  --block-outline-width: var(--size-2-1);
   --divider-color: var(--color-base-30);
   --divider-width-hover: var(--size-4-1);
   --nav-item-background-active: var(--accent-active-bg);
@@ -1999,7 +1998,7 @@ body {
     calc(85% + var(--theme-accent-active-l) * 0.1)
   );
   --background-primary-hsl: var(--base-accent-h), 12%, 97%;
-  --background-primary-alt: hsl(var(--base-accent-h), 10%, 95.5%);
+  --background-primary-alt: hsl(var(--base-accent-h), 10%, 95%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 8%, 93%;
   --background-modifier-hover: hsl(
     var(--base-accent-h),
@@ -2079,7 +2078,7 @@ body {
     calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
   );
   --background-primary-hsl: var(--base-accent-h), 5%, 11%;
-  --background-primary-alt: hsl(var(--base-accent-h), 10%, 12%);
+  --background-primary-alt: hsl(var(--base-accent-h), 10%, 13%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 6%, 12%;
   --background-modifier-hover: hsl(
     var(--base-accent-h),
@@ -2470,10 +2469,10 @@ body.app-layout-card:not(.is-mobile) {
   --app-layout-spacing: var(--setting-app-layout-spacing, var(--size-2-3));
 }
 body.app-layout-card:not(.is-mobile).theme-light {
-  --background-primary-alt: hsl(var(--base-accent-h), 14%, 95%);
+  --background-primary-alt: hsl(var(--base-accent-h), 18%, 93%);
 }
 body.app-layout-card:not(.is-mobile).theme-dark {
-  --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
+  --background-primary-alt: hsl(var(--base-accent-h), 8%, 13.5%);
 }
 body.app-layout-card:not(.is-mobile):is(.app-layout-card-plain, .color-use-minimal) {
   background-color: var(--bg-surface);
@@ -2511,14 +2510,14 @@ body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-min
 }
 body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal).theme-light {
   --app-bg-image: linear-gradient(
-    340deg,
+    320deg,
     hsl(calc(var(--base-accent-h) + 50), 50%, 92%),
     hsl(calc(var(--base-accent-h) - 30), 36%, 87%)
   );
 }
 body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal).theme-dark {
   --app-bg-image: linear-gradient(
-    340deg,
+    320deg,
     hsl(calc(var(--base-accent-h) + 60), 11%, 22%),
     hsl(calc(var(--base-accent-h) - 10), 24%, 28%)
   );
@@ -3761,6 +3760,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
 /* #endregion code */
 /* #region embed */
 body {
+  --block-outline-width: var(--size-2-1);
   --embed-background: var(--bg-editor);
   --embed-padding: var(--size-4-5) var(--size-4-4);
   --embed-block-shadow-hover: 0 0 0 1px var(--accent-inactive),
@@ -3966,7 +3966,7 @@ body span:is(.cm-formatting-link, .cm-formatting-link-string) {
 body:not(.link-hover-expand) :is(a.external-link,
 .cm-link .cm-underline,
 .cm-url:not(.cm-string) .cm-underline) {
-  transition: background-color var(--animation-fast);
+  transition: background-color var(--animation);
   color: rgba(var(--link-external-color-rgb), var(--color-opacity));
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
@@ -3985,7 +3985,7 @@ body:not(.link-hover-expand) :is(a.external-link,
 }
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved),
 .cm-hmd-internal-link > .cm-underline) {
-  transition: background-color var(--animation-fast);
+  transition: background-color var(--animation);
   color: rgba(var(--link-color-rgb), var(--color-opacity));
   border-radius: var(--radius-s);
   text-underline-offset: var(--size-2-1);
@@ -4023,7 +4023,7 @@ body.link-hover-expand :is(a.external-link:not(.is-unresolved),
   font-size: var(--link-text-size);
   box-shadow: inset 0 -0.1em 0 var(--link-external-color-underline);
   text-decoration: none !important;
-  transition: var(--animation-fast);
+  transition: var(--animation);
   transition-property: box-shadow, color;
   color: var(--link-external-color) !important;
 }
@@ -4045,7 +4045,7 @@ body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
   font-size: var(--link-text-size);
   box-shadow: inset 0 -0.1em 0 var(--link-color-underline);
   text-decoration: none !important;
-  transition: var(--animation-fast);
+  transition: var(--animation);
   transition-property: box-shadow, color;
   color: var(--link-color) !important;
 }
@@ -6509,7 +6509,7 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
 }
 
 .clickable-icon {
-  transition: var(--animation-fast);
+  transition: var(--animation);
   transition-property: opacity, background-color;
 }
 
@@ -6562,7 +6562,7 @@ body:not(.is-mobile).modal-slider input[type=range]:focus {
 }
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb {
   box-shadow: inset 0 0 0 calc(var(--slider-thumb-width) / var(--slider-thumb-ring-factor, 4) * 0.9) var(--color-base-20), inset 0 0 0 calc(var(--slider-thumb-width) / 2) var(--accent-active), var(--input-shadow);
-  transition: box-shadow var(--animation-fast);
+  transition: box-shadow var(--animation);
   border-width: 0;
 }
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:is(:hover, :active, :focus) {
@@ -6583,7 +6583,7 @@ body:not(.is-mobile).modal-toggle-square .checkbox-container {
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
   height: var(--size-4-4);
-  transition: var(--animation-fast);
+  transition: var(--animation);
   border: var(--toggle-border-width) solid var(--text-faint);
 }
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container:focus-within {
@@ -6604,7 +6604,7 @@ body:not(.is-mobile).modal-toggle-floating .checkbox-container::after {
   border-radius: calc(var(--toggle-width) / 2);
   border: var(--toggle-border-width) solid var(--text-faint);
   margin: 0;
-  transition: var(--animation-fast);
+  transition: var(--animation);
 }
 :is(body:not(.is-mobile).modal-toggle-floating .checkbox-container:hover, body:not(.is-mobile).modal-toggle-floating .checkbox-container:focus-within)::after {
   bottom: 10%;
@@ -6626,7 +6626,7 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container::after {
   border: var(--toggle-border-width) solid var(--text-faint);
   width: 20%;
   margin: 0;
-  transition: var(--animation-fast);
+  transition: var(--animation);
 }
 :is(body:not(.is-mobile).modal-toggle-thin .checkbox-container:hover, body:not(.is-mobile).modal-toggle-thin .checkbox-container:focus-within)::after {
   height: var(--size-4-2);
@@ -6662,7 +6662,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.37");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.38");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6867,11 +6867,11 @@ body.enable-group-title .modal-container .mod-settings .modal-content .vertical-
 }
 
 :is(.menu, .modal-bg, .document-search-container, .suggestion-container) {
-  animation: op var(--animation);
+  animation: op var(--animation-slow);
 }
 
 :is(.prompt, .popover, .modal) {
-  animation: op var(--animation), slide-up var(--animation);
+  animation: op var(--animation-slow), slide-up var(--animation-slow);
 }
 
 :is(.menu-normal .menu,
@@ -7088,7 +7088,8 @@ body.tab-title-bar-text-small .view-header {
 
 body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-container {
   opacity: 0;
-  transition: var(--animation) var(--animation-delay);
+  transition: var(--animation);
+  transition-delay: var(--animation-delay);
 }
 body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-container:hover {
   opacity: 1;
@@ -7096,15 +7097,15 @@ body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-contai
 }
 
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]):not([data-type=empty]) .view-content {
-  animation: op var(--animation), slide-up var(--animation);
+body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]):not([data-type=empty]) :is(.view-content, .nav-files-container) {
+  animation: op var(--animation-slow), slide-up var(--animation-slow);
 }
 
 .workspace-split.mod-sidedock.is-sidedock-collapsed {
-  animation: fade-dock var(--animation);
+  animation: fade-dock var(--animation-slow);
 }
 .workspace-split.mod-sidedock:not(.is-sidedock-collapsed) {
-  animation: op var(--animation);
+  animation: op var(--animation-slow);
 }
 
 .search-result-file-matches {
@@ -7193,7 +7194,7 @@ body.status-bar-style-float.status-bar-scroll .status-bar:hover {
 /* #endregion statusbar */
 /* #region notice, tooltips */
 .tooltip {
-  animation: op var(--animation) !important;
+  animation: op var(--animation-slow) !important;
 }
 
 body.message-tooltip-hide .tooltip {
