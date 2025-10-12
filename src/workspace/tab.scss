@@ -113,7 +113,7 @@ body.tab-slide-up:not(.is-mobile):not(.is-tablet) {
     .workspace-leaf-content:not([data-type='undefined']):not(
       [data-type='empty']
     )
-    .view-content {
+    :is(.view-content, .nav-files-container) {
     animation: use-animation('op'), use-animation('slide-up');
   }
 }
