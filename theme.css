@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.39 For Obsidian */
+/* Maple Theme v1.0.0-beta.40 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -376,7 +376,6 @@ settings:
       title.zh: 启用模态框背景模糊
       description: If scrolling experiences delay, try disabling this option
       description.zh: 如果滚动时出现卡顿，请尝试关闭此选项
-      default: true
     - id: modal-header
       type: class-toggle
       title: Add Header To Setting Panel
@@ -393,7 +392,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.39
+      default: Maple 1.0.0-beta.40
       quotes: true
     - id: enable-group-title
       type: class-toggle
@@ -3046,6 +3045,10 @@ body {
 .cm-inline-code {
   --code-normal: var(--inline-code);
   --code-radius: var(--radius-s);
+  color: var(--inline-code) !important;
+}
+.cm-inline-code * {
+  color: var(--inline-code) !important;
 }
 .cm-inline-code:not(.cm-formatting) {
   padding-inline: var(--size-2-1);
@@ -3998,6 +4001,12 @@ body:not(.link-hover-expand) :is(a.external-link,
 .cm-url:not(.cm-string) .cm-underline):active {
   background-color: rgba(var(--link-external-color-rgb), 0.35);
 }
+body:not(.link-hover-expand) :is(a.external-link,
+.cm-link .cm-underline,
+.cm-url:not(.cm-string) .cm-underline) code {
+  padding-inline-end: var(--size-4-1) !important;
+  background-color: transparent;
+}
 body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved),
 .cm-hmd-internal-link > .cm-underline) {
   transition: background-color var(--animation);
@@ -4055,6 +4064,15 @@ body.link-hover-expand :is(a.external-link:not(.is-unresolved),
     var(--text-on-accent)
   );
 }
+body.link-hover-expand :is(a.external-link:not(.is-unresolved),
+:is(.cm-link, .cm-url) > .cm-underline) code {
+  padding-inline-end: var(--size-4-1) !important;
+  background-color: transparent;
+}
+body.link-hover-expand :is(a.external-link:not(.is-unresolved),
+:is(.cm-link, .cm-url) > .cm-underline):hover code {
+  color: inherit;
+}
 body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
 .cm-hmd-internal-link > .cm-underline) {
   font-size: var(--link-text-size);
@@ -4098,14 +4116,17 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   width: calc(var(--link-text-size) * 0.9);
   height: calc(var(--link-text-size) * 0.9);
 }
-.link-icon .markdown-preview-view .el-pre a.internal-link:not(.is-unresolved)::before {
-  content: none;
+.link-icon .markdown-preview-view :is(.el-pre a.internal-link:not(.is-unresolved),
+a.external-link:has(> code))::before {
+  content: none !important;
 }
 .link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved),
+a.external-link:not(.is-resolved) code,
 :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline):not(.cm-escape + .cm-link .cm-underline) {
   padding-inline-end: var(--size-2-1);
 }
 .link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved),
+a.external-link:not(.is-resolved) code,
 :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline):not(.cm-escape + .cm-link .cm-underline)::before {
   content: "";
   display: inline-block;
@@ -4134,6 +4155,7 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
 /* #endregion link */
 /* #region list */
 body:is(:not(.css-settings-manager), .list-enable) {
+  --list-indent: 2rem;
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
   --list-marker-color-alt: var(
     --setting-list-marker-alt,
@@ -4171,17 +4193,15 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .task-l
 body:is(:not(.css-settings-manager), .list-enable) .markdown-preview-view .task-list-item-checkbox {
   margin-inline-start: calc(var(--checkbox-size) * -1.3);
 }
-body:is(:not(.css-settings-manager), .list-enable) .collapse-indicator {
-  --cursor: pointer;
-}
 body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 {
-  --list-bullet-end-padding: 1.6rem;
+  --list-bullet-end-padding: 1.5rem;
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 .cm-indent::before {
   transform: translateX(-0.4rem);
 }
-body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 .cm-list .collapse-indicator {
-  transform: translateX(-0.3rem) !important;
+body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 .HyperMD-list-line .collapse-indicator {
+  --cursor: pointer;
+  transform: translateX(-0.15rem) !important;
 }
 body:is(:not(.css-settings-manager), .list-enable) li .list-collapse-indicator {
   margin-inline-start: 0 !important;
@@ -4273,11 +4293,14 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
 /* #region list bullet */
 /* Reference: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1 */
 .list-enable.list-bullet-thread-style {
-  --list-threading-width: var(--size-2-1);
+  --list-threading-width: max(0.1rem, var(--size-2-1));
   --list-threading-color: var(
     --setting-list-guide-color,
     var(--accent-inactive)
   );
+}
+.list-enable.list-bullet-thread-style .list-bullet {
+  transform: none !important;
 }
 .list-enable.list-bullet-thread-style .list-bullet::after {
   --list-bullet-radius: 50%;
@@ -4289,10 +4312,10 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
 .list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-2.cm-active, ~ .HyperMD-list-line-2 ~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    var(--list-indent-editing) +
+    0.4rem +
       0 *
-      var(--list-indent) -
-      var(--list-threading-width) *
+      var(--list-indent) +
+      var(--list-threading-width) /
       2
   );
 }
@@ -4300,10 +4323,10 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
 .list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-3.cm-active, ~ .HyperMD-list-line-3 ~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    var(--list-indent-editing) +
+    0.4rem +
       1 *
-      var(--list-indent) -
-      var(--list-threading-width) *
+      var(--list-indent) +
+      var(--list-threading-width) /
       2
   );
 }
@@ -4311,10 +4334,10 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
 .list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-4.cm-active, ~ .HyperMD-list-line-4 ~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    var(--list-indent-editing) +
+    0.4rem +
       2 *
-      var(--list-indent) -
-      var(--list-threading-width) *
+      var(--list-indent) +
+      var(--list-threading-width) /
       2
   );
 }
@@ -4322,10 +4345,10 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
 .list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-5.cm-active, ~ .HyperMD-list-line-5 ~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    var(--list-indent-editing) +
+    0.4rem +
       3 *
-      var(--list-indent) -
-      var(--list-threading-width) *
+      var(--list-indent) +
+      var(--list-threading-width) /
       2
   );
 }
@@ -4333,10 +4356,10 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
 .list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-6.cm-active, ~ .HyperMD-list-line-6 ~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    var(--list-indent-editing) +
+    0.4rem +
       4 *
-      var(--list-indent) -
-      var(--list-threading-width) *
+      var(--list-indent) +
+      var(--list-threading-width) /
       2
   );
 }
@@ -4344,10 +4367,10 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
 .list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-7.cm-active, ~ .HyperMD-list-line-7 ~ :is(.HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    var(--list-indent-editing) +
+    0.4rem +
       5 *
-      var(--list-indent) -
-      var(--list-threading-width) *
+      var(--list-indent) +
+      var(--list-threading-width) /
       2
   );
 }
@@ -4355,10 +4378,10 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
 .list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-8.cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-8:not(:has(~ .HyperMD-list-line-8 ~ .HyperMD-list-line.cm-active)):is(.cm-active) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    var(--list-indent-editing) +
+    0.4rem +
       6 *
-      var(--list-indent) -
-      var(--list-threading-width) *
+      var(--list-indent) +
+      var(--list-threading-width) /
       2
   );
 }
@@ -4369,7 +4392,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   bottom: 0;
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
-  height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
+  top: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 1.5);
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-2, .HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
@@ -4381,7 +4404,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   bottom: 0;
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
-  height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
+  top: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 1.5);
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
@@ -4393,7 +4416,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   bottom: 0;
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
-  height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
+  top: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 1.5);
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
@@ -4405,7 +4428,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   bottom: 0;
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
-  height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
+  top: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 1.5);
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
@@ -4417,7 +4440,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   bottom: 0;
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
-  height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
+  top: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 1.5);
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
@@ -4429,7 +4452,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   bottom: 0;
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
-  height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
+  top: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 1.5);
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
@@ -4441,7 +4464,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
   bottom: 0;
   width: var(--list-threading-width);
   background-color: var(--list-threading-color);
-  height: calc(100% - var(--line-height-normal) * var(--font-text-size) + var(--list-bullet-size) + var(--size-2-1));
+  top: calc(var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 1.5);
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-8).cm-active)::after:is(.HyperMD-task-line) {
   max-height: calc(100% - 1.3em);
@@ -5398,29 +5421,44 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   --link-text-size: var(--h6-size);
 }
 
+.markdown-source-view.mod-cm6 .HyperMD-header .cm-fold-indicator {
+  position: unset;
+}
+.markdown-source-view.mod-cm6 .HyperMD-header .cm-fold-indicator .collapse-indicator {
+  inset-inline-start: -1.4rem;
+  inset-inline-end: unset;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  position: relative;
+}
+
+.markdown-preview-view .heading-collapse-indicator {
+  margin: 0;
+  inset-inline-start: -1.4rem;
+}
+
 body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)) {
+  --h-indicator-color: transparent;
   position: relative;
 }
 body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6))::before {
   content: var(--h-indicator-content, "");
   position: absolute;
-  font-size: 0.7rem;
-  translate: -150%;
+  font-size: calc(var(--font-text-size) * 0.7);
+  left: -1.2rem;
   color: var(--h-indicator-color, inherit);
   text-decoration: var(--h-indicator-decoration, none);
   pointer-events: none;
+}
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)):hover {
+  --h-indicator-color: inherit;
 }
 body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)) :is(.collapse-indicator, .header-collapse-indicator) {
   opacity: 0 !important;
   padding-inline-start: var(--size-4-2);
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-auto :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)) {
-  --h-indicator-color: transparent;
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-auto :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)):hover {
-  --h-indicator-color: inherit;
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-auto :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(> .is-collapsed), div.markdown-reading-view > div > div > div.is-collpased > :is(h1, h2, h3, h4, h5, h6)) {
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(> .is-collapsed), div.markdown-reading-view > div > div > div.is-collpased > :is(h1, h2, h3, h4, h5, h6)) {
   --h-indicator-color: inherit;
 }
 body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-fixed :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)) {
@@ -5674,7 +5712,13 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h1-block .app-container h1 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h1-size));
+  --heading-spacing: calc(
+    var(--h2-line-height) - 1.2 * var(--h1-size)
+  );
+}
+.heading-h1-block:not(.heading-indicator-disable) h1::before {
+  top: -0.3rem;
+  line-height: var(--h1-line-height);
 }
 
 .heading-h2-block .app-container {
@@ -5703,7 +5747,13 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h2-block .app-container h2 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h2-size));
+  --heading-spacing: calc(
+    var(--h2-line-height) - 1.2 * var(--h2-size)
+  );
+}
+.heading-h2-block:not(.heading-indicator-disable) h2::before {
+  top: -0.3rem;
+  line-height: var(--h2-line-height);
 }
 
 .heading-h3-block .app-container {
@@ -5732,7 +5782,13 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h3-block .app-container h3 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h3-size));
+  --heading-spacing: calc(
+    var(--h2-line-height) - 1.2 * var(--h3-size)
+  );
+}
+.heading-h3-block:not(.heading-indicator-disable) h3::before {
+  top: -0.3rem;
+  line-height: var(--h3-line-height);
 }
 
 .heading-h4-block .app-container {
@@ -5761,7 +5817,13 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h4-block .app-container h4 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h4-size));
+  --heading-spacing: calc(
+    var(--h2-line-height) - 1.2 * var(--h4-size)
+  );
+}
+.heading-h4-block:not(.heading-indicator-disable) h4::before {
+  top: -0.3rem;
+  line-height: var(--h4-line-height);
 }
 
 .heading-h5-block .app-container {
@@ -5790,7 +5852,13 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h5-block .app-container h5 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h5-size));
+  --heading-spacing: calc(
+    var(--h2-line-height) - 1.2 * var(--h5-size)
+  );
+}
+.heading-h5-block:not(.heading-indicator-disable) h5::before {
+  top: -0.3rem;
+  line-height: var(--h5-line-height);
 }
 
 .heading-h6-block .app-container {
@@ -5819,7 +5887,13 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h6-block .app-container h6 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h6-size));
+  --heading-spacing: calc(
+    var(--h2-line-height) - 1.2 * var(--h6-size)
+  );
+}
+.heading-h6-block:not(.heading-indicator-disable) h6::before {
+  top: -0.3rem;
+  line-height: var(--h6-line-height);
 }
 
 /* #endregion heading */
@@ -6697,7 +6771,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.39");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.40");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6917,11 +6991,13 @@ body.enable-group-title .modal-container .mod-settings .modal-content .vertical-
   will-change: backdrop-filter;
 }
 
-body.modal-blur .modal-bg {
+.modal-bg {
   opacity: 1 !important;
-  background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
-  backdrop-filter: blur(var(--size-4-1));
-  will-change: backdrop-filter;
+  background-color: hsla(var(--background-secondary-hsl), 0.6) !important;
+}
+.modal-blur .modal-bg {
+  backdrop-filter: blur(6px);
+  transform: translateZ(0);
 }
 
 .mod-search-suggestion .suggestion {
