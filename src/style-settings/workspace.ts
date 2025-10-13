@@ -189,20 +189,16 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, {
     title: { en: 'Modal and Setting Panel', zh: '模态框和设置面板' },
   })
-    .addClassToggle(
-      'modal-blur',
-      {
-        title: {
-          en: 'Enable Blurred Modal Background',
-          zh: '启用模态框背景模糊',
-        },
-        desc: {
-          en: 'If scrolling experiences delay, try disabling this option',
-          zh: '如果滚动时出现卡顿，请尝试关闭此选项',
-        },
+    .addClassToggle('modal-blur', {
+      title: {
+        en: 'Enable Blurred Modal Background',
+        zh: '启用模态框背景模糊',
       },
-      { enable: true },
-    )
+      desc: {
+        en: 'If scrolling experiences delay, try disabling this option',
+        zh: '如果滚动时出现卡顿，请尝试关闭此选项',
+      },
+    })
     .addClassToggle(
       'modal-header',
       {

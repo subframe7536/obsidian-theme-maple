@@ -486,11 +486,14 @@ body.enable-group-title
   will-change: backdrop-filter;
 }
 
-body.modal-blur .modal-bg {
+.modal-bg {
   opacity: 1 !important;
-  background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
-  backdrop-filter: blur(var(--size-4-1));
-  will-change: backdrop-filter;
+  background-color: hsla(var(--background-secondary-hsl), 0.6) !important;
+
+  .modal-blur & {
+    backdrop-filter: blur(6px);
+    transform: translateZ(0);
+  }
 }
 
 .mod-search-suggestion .suggestion {
