@@ -123,6 +123,9 @@ body {
     .cm-line.cm-active {
     background-color: hsl(var(--active-line));
   }
+  .table-cell-wrapper .cm-line.cm-active {
+    background-color: transparent !important;
+  }
   .workspace-leaf .markdown-source-view .cm-scroller {
     .cm-line:is(.cm-active, :hover):not(.HyperMD-quote) {
       border-radius: var(--radius-s);
