@@ -213,6 +213,11 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
       { enable: true },
     )
+    .addVarText(
+      'setting-modal-header-title',
+      { title: { en: 'Setting Panel Header Title', zh: '设置面板标题' } },
+      { default: `Maple ${version}`, quotes: true },
+    )
     .addClassToggle(
       'modal-header-search',
       {
@@ -222,11 +227,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         },
       },
       { enable: true },
-    )
-    .addVarText(
-      'setting-modal-header-title',
-      { title: { en: 'Setting Panel Header Title', zh: '设置面板标题' } },
-      { default: `Maple ${version}`, quotes: true },
     )
     .addClassToggle(
       'enable-group-title',
@@ -240,7 +240,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     )
     .addClassToggle(
       'modal-slider',
-      { title: { en: 'Styled Slider Thumb', zh: '美化滑动条按钮' } },
+      { title: { en: 'Styled Slider', zh: '美化滑动条' } },
       { enable: true },
     )
     .addClassSelect(
