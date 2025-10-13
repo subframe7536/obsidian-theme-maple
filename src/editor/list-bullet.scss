@@ -17,16 +17,19 @@ $action: '.cm-active';
 $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
 
 .list-enable.list-bullet-thread-style {
-  --list-threading-width: var(--size-2-1);
+  --list-threading-width: max(0.1rem, var(--size-2-1));
   --list-threading-color: var(
     --setting-list-guide-color,
     var(--accent-inactive)
   );
-  .list-bullet::after {
-    --list-bullet-radius: 50%;
-    --list-bullet-border: 0;
-    --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
-    --list-marker-color: var(--setting-list-marker, var(--accent-active-bg));
+  .list-bullet {
+    transform: none !important;
+    &::after {
+      --list-bullet-radius: 50%;
+      --list-bullet-border: 0;
+      --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
+      --list-marker-color: var(--setting-list-marker, var(--accent-active-bg));
+    }
   }
 
   @for $i from 1 through $supported-level - 1 {
@@ -77,11 +80,12 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
       > .cm-hmd-list-indent {
       &::after {
         $prev-level: $current-level - 1;
+        // indent size + offset
         --list-threading-offset: calc(
-          var(--list-indent-editing) +
+          0.4rem +
             #{$prev-level} *
-            var(--list-indent) -
-            var(--list-threading-width) *
+            var(--list-indent) +
+            var(--list-threading-width) /
             2
         );
       }
@@ -109,12 +113,12 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
         bottom: 0;
         width: var(--list-threading-width);
         background-color: var(--list-threading-color);
-        height: calc(
-          100% -
-            var(--line-height-normal) *
-            var(--font-text-size) +
-            var(--list-bullet-size) +
-            var(--size-2-1)
+        top: calc(
+          var(--line-height-normal) *
+            var(--font-text-size) /
+            2 +
+            var(--list-bullet-size) /
+            1.5
         );
 
         &:is(.HyperMD-task-line) {
