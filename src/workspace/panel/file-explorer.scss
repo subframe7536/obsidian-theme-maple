@@ -98,6 +98,10 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   }
 }
 
+:is(.collapse-indicator, .collapse-icon) {
+  --cursor: pointer;
+}
+
 @include use-no-plugin('.explorer-icon') {
   @include override-stack-menu();
   @include use-icon-override('.lucide-folder-closed', 'folder');
