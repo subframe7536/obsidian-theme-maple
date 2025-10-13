@@ -116,6 +116,11 @@ body:not(.link-hover-expand) {
       var(--link-external-color-rgb),
       var(--link-external-color-underline)
     );
+
+    code {
+      padding-inline-end: var(--size-4-1) !important;
+      background-color: transparent;
+    }
   }
 
   :is(
@@ -157,6 +162,13 @@ body.link-hover-expand {
       var(--link-external-color),
       var(--link-external-color-underline)
     );
+    code {
+      padding-inline-end: var(--size-4-1) !important;
+      background-color: transparent;
+    }
+    &:hover code {
+      color: inherit;
+    }
   }
 
   :is(
@@ -191,14 +203,20 @@ body.link-hover-expand {
     }
   }
 
-  .markdown-preview-view .el-pre a.internal-link:not(.is-unresolved)::before {
-    content: none;
+  .markdown-preview-view {
+    :is(
+        .el-pre a.internal-link:not(.is-unresolved),
+        a.external-link:has(> code)
+      )::before {
+      content: none !important;
+    }
   }
 
   &:not(.link-click-to-edit-in-live-preview) {
     :is(
         :is(.markdown-source-view, .markdown-preview-view)
           a.external-link:not(.is-resolved),
+        a.external-link:not(.is-resolved) code,
         :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline
       ):not(.cm-escape + .cm-link .cm-underline) {
       padding-inline-end: var(--size-2-1);

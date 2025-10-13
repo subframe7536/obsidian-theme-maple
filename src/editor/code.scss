@@ -46,6 +46,11 @@ body {
 .cm-inline-code {
   --code-normal: var(--inline-code);
   --code-radius: var(--radius-s);
+  color: var(--inline-code) !important;
+
+  * {
+    color: var(--inline-code) !important;
+  }
 
   &:not(.cm-formatting) {
     padding-inline: var(--size-2-1);
