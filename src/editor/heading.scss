@@ -78,24 +78,24 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   }
 }
 
-@include use-no-plugin(':not(.heading-indicator-disable)') {
-  #{$headings} {
-    position: relative;
-  }
-
-  .markdown-source-view.mod-cm6 .cm-fold-indicator {
-    position: unset;
-    .collapse-indicator {
-      inset-inline-start: -1.4rem;
-      inset-inline-end: unset;
-    }
-  }
-
-  .markdown-preview-view .heading-collapse-indicator {
-    margin: 0;
+.markdown-source-view.mod-cm6 .HyperMD-header .cm-fold-indicator {
+  position: unset;
+  .collapse-indicator {
     inset-inline-start: -1.4rem;
+    inset-inline-end: unset;
   }
+}
 
+#{$headings} {
+  position: relative;
+}
+
+.markdown-preview-view .heading-collapse-indicator {
+  margin: 0;
+  inset-inline-start: -1.4rem;
+}
+
+@include use-no-plugin(':not(.heading-indicator-disable)') {
   $live-preview-base: '.markdown-source-view.mod-cm6.is-live-preview';
   $reading-view-base: 'div.markdown-reading-view > div > div > div';
 
@@ -108,6 +108,7 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   $collapsed-selector: ':is(#{$live-preview-header-collapsed}, #{$reading-view-header-collapsed})';
 
   #{$normal-selector} {
+    --h-indicator-color: transparent;
     position: relative;
     &::before {
       content: var(--h-indicator-content, '');
@@ -118,23 +119,19 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
       text-decoration: var(--h-indicator-decoration, none);
       pointer-events: none;
     }
+    &:hover {
+      --h-indicator-color: inherit;
+    }
     :is(.collapse-indicator, .header-collapse-indicator) {
       opacity: 0 !important;
       padding-inline-start: var(--size-4-2);
     }
   }
 
-  &.heading-indicator-auto {
-    #{$normal-selector} {
-      --h-indicator-color: transparent;
-      &:hover {
-        --h-indicator-color: inherit;
-      }
-    }
-    #{$collapsed-selector} {
-      --h-indicator-color: inherit;
-    }
+  #{$collapsed-selector} {
+    --h-indicator-color: inherit;
   }
+
   &.heading-indicator-fixed {
     #{$normal-selector} {
       --h-indicator-color: var(--text-faint);
