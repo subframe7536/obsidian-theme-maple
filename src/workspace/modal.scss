@@ -305,7 +305,7 @@ select,
 .dropdown,
 button {
   transition: var(--animation);
-  transition-property: background-color;
+  transition-property: background-color, box-shadow;
 }
 
 :is(select, .combobox-button, .dropdown):focus-visible {
