@@ -52,6 +52,12 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
         ],
       },
     )
+    .addClassToggle(`heading-h${level}-block-contrast`, {
+      title: {
+        en: `H${level} Block Decoration Use Higher Contrast Color`,
+        zh: `H${level} 块状装饰颜色提高对比度`,
+      },
+    })
     .addVarThemedColor(
       `setting-h${level}-color`,
       {

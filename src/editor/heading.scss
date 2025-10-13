@@ -221,6 +221,18 @@ $full-selectors: ();
     &.heading-color-colorful {
       --h#{$i}-color-bg: rgba(var(--h#{$i}-color-rgb), 0.15);
     }
+    &.heading-h#{$i}-block-contrast {
+      --h#{$i}-color-bg: rgba(var(--h#{$i}-color-rgb));
+      .app-container {
+        :is(
+            .HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header),
+            h#{$i}
+          ) {
+          color: var(--text-on-accent);
+          caret-color: currentColor;
+        }
+      }
+    }
     .app-container {
       :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header), h#{$i}) {
         background-color: var(--h#{$i}-color-bg);
