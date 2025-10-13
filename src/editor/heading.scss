@@ -79,6 +79,23 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
 }
 
 @include use-no-plugin(':not(.heading-indicator-disable)') {
+  #{$headings} {
+    position: relative;
+  }
+
+  .markdown-source-view.mod-cm6 .cm-fold-indicator {
+    position: unset;
+    .collapse-indicator {
+      inset-inline-start: -1.4rem;
+      inset-inline-end: unset;
+    }
+  }
+
+  .markdown-preview-view .heading-collapse-indicator {
+    margin: 0;
+    inset-inline-start: -1.4rem;
+  }
+
   $live-preview-base: '.markdown-source-view.mod-cm6.is-live-preview';
   $reading-view-base: 'div.markdown-reading-view > div > div > div';
 
@@ -95,8 +112,8 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
     &::before {
       content: var(--h-indicator-content, '');
       position: absolute;
-      font-size: 0.7rem;
-      translate: -150%;
+      font-size: calc(var(--font-text-size) * 0.7);
+      left: -1.2rem;
       color: var(--h-indicator-color, inherit);
       text-decoration: var(--h-indicator-decoration, none);
       pointer-events: none;
@@ -192,33 +209,41 @@ $full-selectors: ();
 // block
 
 @for $i from 1 through 6 {
-  .heading-h#{$i}-block .app-container {
-    --h#{$i}-color-bg: rgba(var(--h#{$i}-color-rgb), 0.15);
-    &.heading-color-accent {
-      --h#{$i}-color-bg: hsla(
-        var(--theme-accent-active-h),
-        var(--theme-accent-active-s),
-        var(--theme-accent-active-l),
-        0.15
-      );
-    }
-    :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header), h#{$i}) {
-      --h#{$i}-color: rgb(var(--h#{$i}-color-rgb));
-      background-color: var(--h#{$i}-color-bg);
-      padding: var(--size-4-1) 0.6rem;
-      border-radius: var(--size-2-3);
-      caret-color: currentColor;
-      -webkit-box-decoration-break: clone;
-      box-decoration-break: ignore;
-      &::selection {
-        color: var(--h#{$i}-color);
-        background-color: var(--background-secondary);
+  .heading-h#{$i}-block {
+    .app-container {
+      --h#{$i}-color-bg: rgba(var(--h#{$i}-color-rgb), 0.15);
+      &.heading-color-accent {
+        --h#{$i}-color-bg: hsla(
+          var(--theme-accent-active-h),
+          var(--theme-accent-active-s),
+          var(--theme-accent-active-l),
+          0.15
+        );
+      }
+      :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header), h#{$i}) {
+        --h#{$i}-color: rgb(var(--h#{$i}-color-rgb));
+        background-color: var(--h#{$i}-color-bg);
+        padding: var(--size-4-1) 0.6rem;
+        border-radius: var(--size-2-3);
+        caret-color: currentColor;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: ignore;
+        &::selection {
+          color: var(--h#{$i}-color);
+          background-color: var(--background-secondary);
+        }
+      }
+      h#{$i} {
+        width: fit-content;
+        line-height: 1.2;
+        --heading-spacing: calc(
+          var(--h2-line-height) - 1.2 * var(--h#{$i}-size)
+        );
       }
     }
-    h#{$i} {
-      width: fit-content;
-      line-height: 1.2;
-      --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h#{$i}-size));
+    &:not(.heading-indicator-disable) h#{$i}::before {
+      top: -0.3rem;
+      line-height: var(--h#{$i}-line-height);
     }
   }
 }
