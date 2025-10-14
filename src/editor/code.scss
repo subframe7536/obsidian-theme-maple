@@ -24,14 +24,6 @@ body {
   --code-border-width: 1px;
 }
 
-.theme-light {
-  --code-mac-style-header-bg: #333;
-}
-
-.theme-dark {
-  --code-mac-style-header-bg: #000;
-}
-
 .cm-hmd-codeblock.cm-formatting,
 .markdown-rendered :not(pre) code {
   color: var(--inline-code);
@@ -174,10 +166,11 @@ body .markdown-rendered pre {
     --icon-size: var(--size-4-4);
     margin: var(--size-4-1);
     padding: var(--size-4-1);
-    padding-bottom: var(--size-2-1) !important;
+    padding-bottom: 0;
     display: block !important;
     opacity: 0;
-    transition: opacity var(--animation);
+    transition: var(--animation);
+    transition-property: opacity, background-color;
     cursor: pointer;
   }
 }
@@ -204,6 +197,46 @@ body .markdown-rendered pre {
 
 /* https://prismjs.com/#supported-languages */
 @include use-no-plugin('.code-language') {
+  $language: Markup, HTML, XML, SVG, MathML, SSML, Atom, RSS, CSS,
+    (JavaScript, js), (Typescript, ts), JSX, (TypeScript-JSX, tsx), Ada, Apex,
+    AppleScript, AQL, (Arduino, ino), (ArmAsm, arm-asm), (AsciiDoc, adoc),
+    AspNet, Asm6502, AutoHotKey, (AWK, gawk), (bash, sh, shell), basic, batch,
+    Bison, C, ('C\\#', csharp, cs, dotnet), ('C\\+\\+', cpp), Clojure, CMake,
+    COBOL, (CoffeeScript, coffee), CSP, Crystal, CSV, CUE, D, Dart, Diff, Django,
+    Jinja2, Docker, Dockerfile, EBNF, EditorConfig, EJS, Elixir, Elm, ERB,
+    (Excel-Formula, xlsx, xls), ('F\\#', fsharp), Flow, Fortran, GDScript, Git,
+    GLSL, Go, (Go-Module, go-mod), Gradle, GraphQL, Groovy, HAML,
+    (Handlebars, hbs, mustache), (Haskell, hs), HCL, HLSL, HTTP, Icon,
+    ICU-Message-Format, gitignore, Ini, Java, JavaDoc, JQ, JSDoc, JSON, JSON5,
+    JSONP, Julia, (Kotlin, kt, kts), (Latex, tex), Less, Liquid,
+    (Lisp, emacs, elisp, emacs-lisp), LLVM, Log, Lua, Makefile, (Markdown, md),
+    MATLAB, Mermaid, MongoDB, Monkey, Neon, Nginx, Nim, Nix, NSIS,
+    (ObjectC, objc), OCaml, odin, OpenCL, Pascal, Perl, PHP, PHPDoc, PowerShell,
+    Properties, ProtoBuf, Pug, (Python, py), QML, R, Regex, (ReScript, res), Rip,
+    (Ruby, rb), (Rust, rs), Sass, Scss, Scala, Solidity, SQL, stylus, Swift, TCL,
+    TOML, (URI, url), (UnrealScript, uscript, uc), V, VBNet, Velocity, VHDL, Vim,
+    (Visual-Basic, vb, vba), WASM, WGSL, WIKI, Wren, (YAML, yml), Zig;
+
+  @each $lan in $language {
+    @if meta.type-of($lan) == list {
+      $name: list.nth($lan, 1);
+      $aliases: ();
+      @each $l in $lan {
+        $aliases: list.append(
+          $aliases,
+          '.language-' + string.to-lower-case($l),
+          comma
+        );
+      }
+      pre:is(#{$aliases}) {
+        --code-lang: '#{unescape($name)}';
+      }
+    } @else {
+      pre.language-#{string.to-lower-case($lan)} {
+        --code-lang: '#{$lan}';
+      }
+    }
+  }
   .markdown-rendered {
     --code-block-padding: calc(var(--line-height-tight) * var(--code-size))
       calc(var(--line-height-normal) * var(--code-size));
@@ -211,56 +244,18 @@ body .markdown-rendered pre {
     pre {
       padding: var(--code-block-padding);
 
-      code[class*='language-']::before {
-        content: 'Unkown';
-        font-family: var(--font-monospace);
-        color: var(--setting-code-language-color, var(--inline-code));
-        font-weight: 550;
-        position: absolute;
-        text-align: right;
-        right: var(--size-4-8);
-        top: var(--size-4-1);
-        z-index: 9;
-      }
-      $language: Markup, HTML, XML, SVG, MathML, SSML, Atom, RSS, CSS,
-        (JavaScript, js), (Typescript, ts), JSX, (TypeScript-JSX, tsx), Ada,
-        Apex, AppleScript, AQL, (Arduino, ino), (ArmAsm, arm-asm),
-        (AsciiDoc, adoc), AspNet, Asm6502, AutoHotKey, (AWK, gawk),
-        (bash, sh, shell), basic, batch, Bison, C, ('C\\#', csharp, cs, dotnet),
-        ('C\\+\\+', cpp), Clojure, CMake, COBOL, (CoffeeScript, coffee), CSP,
-        Crystal, CSV, CUE, D, Dart, Diff, Django, Jinja2, Docker, Dockerfile,
-        EBNF, EditorConfig, EJS, Elixir, Elm, ERB, (Excel-Formula, xlsx, xls),
-        ('F\\#', fsharp), Flow, Fortran, GDScript, Git, GLSL, Go,
-        (Go-Module, go-mod), Gradle, GraphQL, Groovy, HAML,
-        (Handlebars, hbs, mustache), (Haskell, hs), HCL, HLSL, HTTP, Icon,
-        ICU-Message-Format, gitignore, Ini, Java, JavaDoc, JQ, JSDoc, JSON,
-        JSON5, JSONP, Julia, (Kotlin, kt, kts), (Latex, tex), Less, Liquid,
-        (Lisp, emacs, elisp, emacs-lisp), LLVM, Log, Lua, Makefile,
-        (Markdown, md), MATLAB, Mermaid, MongoDB, Monkey, Neon, Nginx, Nim, Nix,
-        NSIS, (ObjectC, objc), OCaml, odin, OpenCL, Pascal, Perl, PHP, PHPDoc,
-        PowerShell, Properties, ProtoBuf, Pug, (Python, py), QML, R, Regex,
-        (ReScript, res), Rip, (Ruby, rb), (Rust, rs), Sass, Scss, Scala,
-        Solidity, SQL, stylus, Swift, TCL, TOML, (URI, url),
-        (UnrealScript, uscript, uc), V, VBNet, Velocity, VHDL, Vim,
-        (Visual-Basic, vb, vba), WASM, WGSL, WIKI, Wren, (YAML, yml), Zig;
-
-      @each $lan in $language {
-        @if meta.type-of($lan) == list {
-          $name: list.nth($lan, 1);
-          $aliases: ();
-          @each $l in $lan {
-            $aliases: list.append(
-              $aliases,
-              '.language-' + string.to-lower-case($l),
-              comma
-            );
+      &[class*='language-'] .copy-code-button {
+        padding-block: var(--size-2-1);
+        opacity: 1;
+        &:not([style='color: var(--text-success); display: inline-flex;']) {
+          svg {
+            display: none;
           }
-          code:is(#{$aliases})::before {
-            content: unescape($name);
-          }
-        } @else {
-          code.language-#{string.to-lower-case($lan)}::before {
-            content: string.quote($lan);
+          &::before {
+            content: var(--code-lang, 'Unkown');
+            font-family: var(--font-monospace);
+            color: var(--setting-code-language-color, var(--inline-code));
+            font-weight: 550;
           }
         }
       }
@@ -362,16 +357,22 @@ body .markdown-rendered pre {
   }
 }
 
+.theme-light {
+  --code-mac-style-header-bg: #333;
+  --code-mac-style-header-color: #ddd;
+}
+
+.theme-dark {
+  --code-mac-style-header-bg: #111;
+  --code-mac-style-header-color: #aaa;
+}
+
 .code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(
     var(--code-size) * var(--line-height-normal) * 0.5
   ) !important;
-
-  code[class*='language-']::before {
-    color: var(--setting-code-language-color, var(--accent-active));
-  }
 
   &::after {
     content: '';
@@ -403,9 +404,11 @@ body .markdown-rendered pre {
   }
 
   .copy-code-button {
-    position: absolute;
     z-index: 10;
-    color: var(--setting-code-language-color, var(--accent-active));
+    color: var(--code-mac-style-header-color);
+    &::before {
+      color: inherit !important;
+    }
   }
 }
 
