@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.43 For Obsidian */
+/* Maple Theme v1.0.0-beta.44 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -387,7 +387,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.43
+      default: Maple 1.0.0-beta.44
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -408,6 +408,8 @@ settings:
       type: class-select
       title: Styled Toggle Button
       title.zh: 美化开关按钮
+      description: '"Thin" and "Floating" will fallback to "Default" on mobile'
+      description.zh: “Thin” 和 “Floating” 选项在移动端会回退到 “默认” 风格
       allow-empty: false
       default: modal-toggle-default
       options:
@@ -1972,7 +1974,8 @@ body {
   --background-primary: hsl(var(--background-primary-hsl));
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-border-focus: var(--background-modifier-border-hover);
-  --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
+  --background-modifier-error: rgba(var(--color-red-rgb), 1);
+  --background-modifier-error-hover: rgba(var(--color-red-rgb), 0.9);
   --background-modifier-cover: hsla(var(--background-secondary-hsl), 0.6);
   --tab-container-background: var(--frame-bg);
   --titlebar-background: var(--frame-bg);
@@ -2301,7 +2304,12 @@ body:not(.color-use-default) .mod-settings .vertical-tab-content-container > .ve
 
 /* #endregion */
 /* #region Hide Options */
-body.is-mobile .setting-item:is([data-id=modal-slider], [data-id=modal-toggle]),
+body.is-mobile .setting-item:is([data-id=title-layout],
+[data-id=modal-slider],
+[data-id*=modal-header],
+[data-id=image-zoom],
+[data-id=scrollbar-enable],
+[data-id=tab-slide-up]),
 body:not(.is-mobile) div[data-id=maple-mobile],
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color],
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
@@ -2366,7 +2374,12 @@ body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
 [data-id=setting-tag-color]) {
   display: none;
 }
-body.is-mobile .setting-item:is([data-id=modal-slider], [data-id=modal-toggle]) + .style-settings-container,
+body.is-mobile .setting-item:is([data-id=title-layout],
+[data-id=modal-slider],
+[data-id*=modal-header],
+[data-id=image-zoom],
+[data-id=scrollbar-enable],
+[data-id=tab-slide-up]) + .style-settings-container,
 body:not(.is-mobile) div[data-id=maple-mobile] + .style-settings-container,
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
@@ -2655,7 +2668,7 @@ body.app-layout-card:not(.is-mobile) .workspace-split {
 body.app-layout-card:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content {
   background-color: var(--bg-editor);
 }
-body.app-layout-card:not(.is-mobile):not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
   background-color: hsla(var(--background-secondary-hsl), calc(var(--bg-opacity) / 4));
 }
 
@@ -6749,11 +6762,19 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
 }
 
 button.mod-cta {
-  transition: filter var(--animation);
+  transition: box-shadow var(--animation);
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent) 100%);
 }
 button.mod-cta:hover {
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent-1) 100%);
+}
+
+button.mod-warning {
+  transition: box-shadow var(--animation);
+  background: linear-gradient(to bottom, transparent -240%, var(--background-modifier-error) 100%);
+}
+button.mod-warning:hover {
+  background: linear-gradient(to bottom, transparent -240%, var(--background-modifier-error-hover) 100%);
 }
 
 body:not(.is-phone).modal-header .modal-close-button {
@@ -6775,6 +6796,19 @@ body:not(.is-phone).modal-header .modal-close-button {
   --toggle-thumb-color: #e0e0e0;
 }
 
+.modal-toggle-square .checkbox-container {
+  height: var(--size-4-5);
+  --toggle-radius: var(--size-2-3);
+  --toggle-border-width: var(--size-4-1);
+  --toggle-thumb-radius: var(--size-4-1);
+  --toggle-thumb-width: var(--size-4-3);
+  --toggle-thumb-height: var(--size-4-3);
+  --toggle-s-border-width: var(--toggle-border-width);
+  --toggle-s-thumb-radius: var(--toggle-thumb-radius);
+  --toggle-s-thumb-width: var(--toggle-thumb-width);
+  --toggle-s-thumb-height: var(--toggle-thumb-height);
+}
+
 body:not(.is-mobile) {
   --slider-track-background: var(--accent-inactive);
 }
@@ -6789,18 +6823,6 @@ body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb {
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:is(:hover, :active, :focus) {
   --slider-thumb-ring-factor: 5.2;
 }
-body:not(.is-mobile).modal-toggle-square .checkbox-container {
-  height: var(--size-4-5);
-  --toggle-radius: var(--size-2-3);
-  --toggle-border-width: var(--size-4-1);
-  --toggle-thumb-radius: var(--size-4-1);
-  --toggle-thumb-width: var(--size-4-3);
-  --toggle-thumb-height: var(--size-4-3);
-  --toggle-s-border-width: var(--toggle-border-width);
-  --toggle-s-thumb-radius: var(--toggle-thumb-radius);
-  --toggle-s-thumb-width: var(--toggle-thumb-width);
-  --toggle-s-thumb-height: var(--toggle-thumb-height);
-}
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
   height: var(--size-4-4);
@@ -6813,9 +6835,6 @@ body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-co
 }
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container input[type=checkbox] {
   opacity: 0;
-}
-body:not(.is-mobile).modal-toggle-floating .checkbox-container {
-  --toggle-shadow: var(--color-base-40);
 }
 body:not(.is-mobile).modal-toggle-floating .checkbox-container::after {
   left: 0;
@@ -6883,7 +6902,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.43");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.44");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6986,12 +7005,13 @@ body:not(.is-phone) .modal-container .is-loading {
 }
 body:not(.is-phone) .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-sidebar .setting-item:first-child {
   max-width: var(--modal-community-sidebar-width);
+  margin-bottom: var(--size-4-1);
 }
 body:not(.is-phone) .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-header {
   display: inline-block;
   position: absolute;
   top: var(--size-4-3);
-  inset-inline-start: var(--size-4-3);
+  inset-inline-start: var(--size-4-4);
 }
 body:not(.is-phone) .modal-container .community-item {
   --interactive-accent: var(--accent-active-bg);
@@ -7288,7 +7308,7 @@ body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-contai
 }
 
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]):not([data-type=empty]) :is(.view-content, .nav-files-container) {
+body.tab-slide-up:not(.is-mobile) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]):not([data-type=empty]) :is(.view-content, .nav-files-container) {
   animation: op var(--animation-slow), slide-up var(--animation-slow);
 }
 
@@ -7988,7 +8008,7 @@ body.explorer-folder-bold .nav-folder-title {
 /* #region basic */
 .is-mobile {
   --interactive-hover: var(--background-modifier-hover);
-  --system-access-override-text-width: auto;
+  --system-access-override-text-width: 115%;
   --scrollbar-thumb-bg: var(--interactive-hover);
   --scrollbar-active-thumb-bg: var(--interactive-accent);
 }
