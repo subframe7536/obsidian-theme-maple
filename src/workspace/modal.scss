@@ -323,10 +323,16 @@ body:not(.is-phone) .modal-container {
     position: initial;
   }
 
-  :is(.mod-community-plugin, .mod-community-theme)
-    .modal-sidebar
-    .setting-item:first-child {
-    max-width: var(--modal-community-sidebar-width);
+  :is(.mod-community-plugin, .mod-community-theme) {
+    .modal-sidebar .setting-item:first-child {
+      max-width: var(--modal-community-sidebar-width);
+    }
+    .modal-header {
+      display: inline-block;
+      position: absolute;
+      top: var(--size-4-3);
+      inset-inline-start: var(--size-4-3);
+    }
   }
 
   .community-item {
@@ -337,41 +343,11 @@ body:not(.is-phone) .modal-container {
   .modal-sidebar:not(:has(+ .community-modal-details)) {
     .community-modal-controls {
       display: flex;
-      flex-direction: row;
+      flex-direction: row-reverse;
       align-items: center;
       justify-content: flex-start;
       height: calc(var(--font-ui-small) + var(--size-4-3) * 2);
-
-      &::before {
-        content: var(--community-title);
-        font-weight: 550;
-        font-size: var(--font-ui-large);
-        display: inline-block;
-        margin-inline-start: var(--size-4-4);
-        margin-block-end: var(--size-2-3);
-      }
-
-      @at-root {
-        .mod-community-theme {
-          --community-title: 'Community Theme';
-        }
-        .mod-community-plugin {
-          --community-title: 'Community Plugin';
-        }
-        html[lang='zh'] {
-          .mod-community-theme {
-            --community-title: '社区主题';
-          }
-          .mod-community-plugin {
-            --community-title: '社区主题';
-          }
-        }
-      }
-
-      .setting-item:not(.mod-toggle) {
-        position: absolute;
-        right: var(--size-4-9);
-      }
+      padding-inline-end: var(--size-4-9);
     }
   }
 
