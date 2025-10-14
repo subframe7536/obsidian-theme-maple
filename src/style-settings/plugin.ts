@@ -30,7 +30,7 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
       {
         title: { en: 'Year Suffix', zh: '年份后缀' },
       },
-      { default: "'年'" },
+      { default: '年', quotes: true },
     )
     .addVarText(
       'setting-calendar-max-width',

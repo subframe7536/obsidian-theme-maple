@@ -522,7 +522,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           zh: '分隔线中部图标',
         },
       },
-      { default: "'⭐'" },
+      { default: '⭐', quotes: true },
     ),
   Settings.ofLevel(1, { title: { en: 'Table', zh: '表格' } })
     .addClassToggle(
@@ -535,7 +535,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassSelect(
       'table-style',
       {
-        title: { en: 'Table Style', zh: '多彩表格' },
+        title: { en: 'Table Style', zh: '表格样式' },
         desc: {
           en: 'Ignore DataView table. Minimal: Academic style with only horizontal lines; Colorful: Accented header and line background colors',
           zh: '忽略 DataView 表格。Minimal: 仅显示横线的学术风格；Colorful: 加深表头和行的背景色',
@@ -554,21 +554,21 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassToggle(
       'table-round',
       {
-        title: { en: 'Add Round Corner', zh: '添加圆角' },
+        title: { en: 'Add Round Corner For Table', zh: '表格添加圆角' },
       },
       { enable: true },
     )
     .addVarThemedColor(
       'setting-table-header-text',
       {
-        title: { en: 'Header Text Color', zh: '表头文字颜色' },
+        title: { en: 'Table Header Text Color', zh: '表头文字颜色' },
       },
       'hex',
     )
     .addVarThemedColor(
       'setting-table-header-bg',
       {
-        title: { en: 'Header Background Color', zh: '表头背景颜色' },
+        title: { en: 'Table Header Background Color', zh: '表头背景颜色' },
       },
       'hex',
     )

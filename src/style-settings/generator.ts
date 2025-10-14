@@ -124,7 +124,7 @@ function flattenDoc(doc: Doc) {
  *           {
  *             title: { en: 'Year Suffix', zh: '年份后缀' },
  *           },
- *           { default: "'年'" },
+ *           { default: "年", quotes: true },
  *         )
  *     ])
  * ])
