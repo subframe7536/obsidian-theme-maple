@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.41 For Obsidian */
+/* Maple Theme v1.0.0-beta.42 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -387,7 +387,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.41
+      default: Maple 1.0.0-beta.42
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -1005,6 +1005,10 @@ settings:
             value: heading-h1-full-line-left
           - label: Right
             value: heading-h1-full-line-right
+    - id: heading-h1-block-contrast
+      type: class-toggle
+      title: H1 Block Decoration Use Higher Contrast Color
+      title.zh: H1 块状装饰颜色提高对比度
     - id: setting-h1-color
       type: variable-themed-color
       title: H1 Color
@@ -1078,6 +1082,10 @@ settings:
             value: heading-h2-full-line-left
           - label: Right
             value: heading-h2-full-line-right
+    - id: heading-h2-block-contrast
+      type: class-toggle
+      title: H2 Block Decoration Use Higher Contrast Color
+      title.zh: H2 块状装饰颜色提高对比度
     - id: setting-h2-color
       type: variable-themed-color
       title: H2 Color
@@ -1151,6 +1159,10 @@ settings:
             value: heading-h3-full-line-left
           - label: Right
             value: heading-h3-full-line-right
+    - id: heading-h3-block-contrast
+      type: class-toggle
+      title: H3 Block Decoration Use Higher Contrast Color
+      title.zh: H3 块状装饰颜色提高对比度
     - id: setting-h3-color
       type: variable-themed-color
       title: H3 Color
@@ -1224,6 +1236,10 @@ settings:
             value: heading-h4-full-line-left
           - label: Right
             value: heading-h4-full-line-right
+    - id: heading-h4-block-contrast
+      type: class-toggle
+      title: H4 Block Decoration Use Higher Contrast Color
+      title.zh: H4 块状装饰颜色提高对比度
     - id: setting-h4-color
       type: variable-themed-color
       title: H4 Color
@@ -1297,6 +1313,10 @@ settings:
             value: heading-h5-full-line-left
           - label: Right
             value: heading-h5-full-line-right
+    - id: heading-h5-block-contrast
+      type: class-toggle
+      title: H5 Block Decoration Use Higher Contrast Color
+      title.zh: H5 块状装饰颜色提高对比度
     - id: setting-h5-color
       type: variable-themed-color
       title: H5 Color
@@ -1370,6 +1390,10 @@ settings:
             value: heading-h6-full-line-left
           - label: Right
             value: heading-h6-full-line-right
+    - id: heading-h6-block-contrast
+      type: class-toggle
+      title: H6 Block Decoration Use Higher Contrast Color
+      title.zh: H6 块状装饰颜色提高对比度
     - id: setting-h6-color
       type: variable-themed-color
       title: H6 Color
@@ -1424,7 +1448,8 @@ settings:
       type: variable-text
       title: Set Icon in the Center of Horizontal Rule
       title.zh: 分隔线中部图标
-      default: "'⭐'"
+      default: ⭐
+      quotes: true
     - id: title-table
       title: Table
       title.zh: 表格
@@ -1439,7 +1464,7 @@ settings:
     - id: table-style
       type: class-select
       title: Table Style
-      title.zh: 多彩表格
+      title.zh: 表格样式
       description: "Ignore DataView table. Minimal: Academic style with only
           horizontal lines; Colorful: Accented header and line background
           colors"
@@ -1455,12 +1480,12 @@ settings:
             value: table-style-colorful
     - id: table-round
       type: class-toggle
-      title: Add Round Corner
-      title.zh: 添加圆角
+      title: Add Round Corner For Table
+      title.zh: 表格添加圆角
       default: true
     - id: setting-table-header-text
       type: variable-themed-color
-      title: Header Text Color
+      title: Table Header Text Color
       title.zh: 表头文字颜色
       format: hex
       opacity: true
@@ -1468,7 +1493,7 @@ settings:
       default-dark: "#"
     - id: setting-table-header-bg
       type: variable-themed-color
-      title: Header Background Color
+      title: Table Header Background Color
       title.zh: 表头背景颜色
       format: hex
       opacity: true
@@ -1887,7 +1912,8 @@ settings:
       type: variable-text
       title: Year Suffix
       title.zh: 年份后缀
-      default: "'年'"
+      default: 年
+      quotes: true
     - id: setting-calendar-max-width
       type: variable-text
       title: Maximum Width
@@ -2323,11 +2349,17 @@ body:not(.image-zoom) .setting-item[data-id^=image-zoom-out],
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix],
 body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom],
 body:not(.heading-h1-full-line) .setting-item[data-id=heading-h1-full-line-direction],
+body:not(.heading-h1-block) .setting-item[data-id=heading-h1-block-contrast],
 body:not(.heading-h2-full-line) .setting-item[data-id=heading-h2-full-line-direction],
+body:not(.heading-h2-block) .setting-item[data-id=heading-h2-block-contrast],
 body:not(.heading-h3-full-line) .setting-item[data-id=heading-h3-full-line-direction],
+body:not(.heading-h3-block) .setting-item[data-id=heading-h3-block-contrast],
 body:not(.heading-h4-full-line) .setting-item[data-id=heading-h4-full-line-direction],
+body:not(.heading-h4-block) .setting-item[data-id=heading-h4-block-contrast],
 body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direction],
+body:not(.heading-h5-block) .setting-item[data-id=heading-h5-block-contrast],
 body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction],
+body:not(.heading-h6-block) .setting-item[data-id=heading-h6-block-contrast],
 body:not(.table-style-colorful) .setting-item:is([data-id=table-round], [data-id^=setting-table]),
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
 body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
@@ -2382,11 +2414,17 @@ body:not(.image-zoom) .setting-item[data-id^=image-zoom-out] + .style-settings-c
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix] + .style-settings-container,
 body:not(.heading-color-colorful) .setting-item[data-id=heading-color-custom] + .style-settings-container,
 body:not(.heading-h1-full-line) .setting-item[data-id=heading-h1-full-line-direction] + .style-settings-container,
+body:not(.heading-h1-block) .setting-item[data-id=heading-h1-block-contrast] + .style-settings-container,
 body:not(.heading-h2-full-line) .setting-item[data-id=heading-h2-full-line-direction] + .style-settings-container,
+body:not(.heading-h2-block) .setting-item[data-id=heading-h2-block-contrast] + .style-settings-container,
 body:not(.heading-h3-full-line) .setting-item[data-id=heading-h3-full-line-direction] + .style-settings-container,
+body:not(.heading-h3-block) .setting-item[data-id=heading-h3-block-contrast] + .style-settings-container,
 body:not(.heading-h4-full-line) .setting-item[data-id=heading-h4-full-line-direction] + .style-settings-container,
+body:not(.heading-h4-block) .setting-item[data-id=heading-h4-block-contrast] + .style-settings-container,
 body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direction] + .style-settings-container,
+body:not(.heading-h5-block) .setting-item[data-id=heading-h5-block-contrast] + .style-settings-container,
 body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction] + .style-settings-container,
+body:not(.heading-h6-block) .setting-item[data-id=heading-h6-block-contrast] + .style-settings-container,
 body:not(.table-style-colorful) .setting-item:is([data-id=table-round], [data-id^=setting-table]) + .style-settings-container,
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon] + .style-settings-container,
 body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
@@ -2485,8 +2523,14 @@ body.app-layout-card:not(.is-mobile) {
 body.app-layout-card:not(.is-mobile).theme-light {
   --background-primary-alt: hsl(var(--base-accent-h), 18%, 93.5%);
 }
+body.app-layout-card:not(.is-mobile).theme-light.color-use-minimal {
+  --background-primary-alt: hsl(var(--base-accent-h), 2%, 94%);
+}
 body.app-layout-card:not(.is-mobile).theme-dark {
   --background-primary-alt: hsl(var(--base-accent-h), 8%, 13.5%);
+}
+body.app-layout-card:not(.is-mobile).theme-dark.color-use-minimal {
+  --background-primary-alt: hsl(var(--base-accent-h), 4%, 13%);
 }
 body.app-layout-card:not(.is-mobile):is(.app-layout-card-plain, .color-use-minimal) {
   background-color: var(--bg-surface);
@@ -3026,14 +3070,6 @@ body {
   --code-border-width: 1px;
 }
 
-.theme-light {
-  --code-mac-style-header-bg: #333;
-}
-
-.theme-dark {
-  --code-mac-style-header-bg: #000;
-}
-
 .cm-hmd-codeblock.cm-formatting,
 .markdown-rendered :not(pre) code {
   color: var(--inline-code);
@@ -3160,10 +3196,11 @@ body .markdown-rendered pre .copy-code-button {
   --icon-size: var(--size-4-4);
   margin: var(--size-4-1);
   padding: var(--size-4-1);
-  padding-bottom: var(--size-2-1) !important;
+  padding-bottom: 0;
   display: block !important;
   opacity: 0;
-  transition: opacity var(--animation);
+  transition: var(--animation);
+  transition-property: opacity, background-color;
   cursor: pointer;
 }
 
@@ -3180,6 +3217,438 @@ body .markdown-rendered pre .copy-code-button {
 }
 
 /* https://prismjs.com/#supported-languages */
+body:is(:not(.css-settings-manager), .code-language) pre.language-markup {
+  --code-lang: "Markup";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-html {
+  --code-lang: "HTML";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-xml {
+  --code-lang: "XML";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-svg {
+  --code-lang: "SVG";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-mathml {
+  --code-lang: "MathML";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-ssml {
+  --code-lang: "SSML";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-atom {
+  --code-lang: "Atom";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-rss {
+  --code-lang: "RSS";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-css {
+  --code-lang: "CSS";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-javascript, .language-js) {
+  --code-lang: "JavaScript";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-typescript, .language-ts) {
+  --code-lang: "Typescript";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-jsx {
+  --code-lang: "JSX";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-typescript-jsx, .language-tsx) {
+  --code-lang: "TypeScript-JSX";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-ada {
+  --code-lang: "Ada";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-apex {
+  --code-lang: "Apex";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-applescript {
+  --code-lang: "AppleScript";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-aql {
+  --code-lang: "AQL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-arduino, .language-ino) {
+  --code-lang: "Arduino";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-armasm, .language-arm-asm) {
+  --code-lang: "ArmAsm";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-asciidoc, .language-adoc) {
+  --code-lang: "AsciiDoc";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-aspnet {
+  --code-lang: "AspNet";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-asm6502 {
+  --code-lang: "Asm6502";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-autohotkey {
+  --code-lang: "AutoHotKey";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-awk, .language-gawk) {
+  --code-lang: "AWK";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-bash, .language-sh, .language-shell) {
+  --code-lang: "bash";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-basic {
+  --code-lang: "basic";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-batch {
+  --code-lang: "batch";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-bison {
+  --code-lang: "Bison";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-c {
+  --code-lang: "C";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-c\#, .language-csharp, .language-cs, .language-dotnet) {
+  --code-lang: "C#";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-c\+\+, .language-cpp) {
+  --code-lang: "C++";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-clojure {
+  --code-lang: "Clojure";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-cmake {
+  --code-lang: "CMake";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-cobol {
+  --code-lang: "COBOL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-coffeescript, .language-coffee) {
+  --code-lang: "CoffeeScript";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-csp {
+  --code-lang: "CSP";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-crystal {
+  --code-lang: "Crystal";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-csv {
+  --code-lang: "CSV";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-cue {
+  --code-lang: "CUE";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-d {
+  --code-lang: "D";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-dart {
+  --code-lang: "Dart";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-diff {
+  --code-lang: "Diff";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-django {
+  --code-lang: "Django";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-jinja2 {
+  --code-lang: "Jinja2";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-docker {
+  --code-lang: "Docker";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-dockerfile {
+  --code-lang: "Dockerfile";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-ebnf {
+  --code-lang: "EBNF";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-editorconfig {
+  --code-lang: "EditorConfig";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-ejs {
+  --code-lang: "EJS";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-elixir {
+  --code-lang: "Elixir";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-elm {
+  --code-lang: "Elm";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-erb {
+  --code-lang: "ERB";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-excel-formula, .language-xlsx, .language-xls) {
+  --code-lang: "Excel-Formula";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-f\#, .language-fsharp) {
+  --code-lang: "F#";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-flow {
+  --code-lang: "Flow";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-fortran {
+  --code-lang: "Fortran";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-gdscript {
+  --code-lang: "GDScript";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-git {
+  --code-lang: "Git";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-glsl {
+  --code-lang: "GLSL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-go {
+  --code-lang: "Go";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-go-module, .language-go-mod) {
+  --code-lang: "Go-Module";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-gradle {
+  --code-lang: "Gradle";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-graphql {
+  --code-lang: "GraphQL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-groovy {
+  --code-lang: "Groovy";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-haml {
+  --code-lang: "HAML";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-handlebars, .language-hbs, .language-mustache) {
+  --code-lang: "Handlebars";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-haskell, .language-hs) {
+  --code-lang: "Haskell";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-hcl {
+  --code-lang: "HCL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-hlsl {
+  --code-lang: "HLSL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-http {
+  --code-lang: "HTTP";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-icon {
+  --code-lang: "Icon";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-icu-message-format {
+  --code-lang: "ICU-Message-Format";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-gitignore {
+  --code-lang: "gitignore";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-ini {
+  --code-lang: "Ini";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-java {
+  --code-lang: "Java";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-javadoc {
+  --code-lang: "JavaDoc";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-jq {
+  --code-lang: "JQ";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-jsdoc {
+  --code-lang: "JSDoc";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-json {
+  --code-lang: "JSON";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-json5 {
+  --code-lang: "JSON5";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-jsonp {
+  --code-lang: "JSONP";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-julia {
+  --code-lang: "Julia";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-kotlin, .language-kt, .language-kts) {
+  --code-lang: "Kotlin";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-latex, .language-tex) {
+  --code-lang: "Latex";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-less {
+  --code-lang: "Less";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-liquid {
+  --code-lang: "Liquid";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-lisp, .language-emacs, .language-elisp, .language-emacs-lisp) {
+  --code-lang: "Lisp";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-llvm {
+  --code-lang: "LLVM";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-log {
+  --code-lang: "Log";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-lua {
+  --code-lang: "Lua";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-makefile {
+  --code-lang: "Makefile";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-markdown, .language-md) {
+  --code-lang: "Markdown";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-matlab {
+  --code-lang: "MATLAB";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-mermaid {
+  --code-lang: "Mermaid";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-mongodb {
+  --code-lang: "MongoDB";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-monkey {
+  --code-lang: "Monkey";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-neon {
+  --code-lang: "Neon";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-nginx {
+  --code-lang: "Nginx";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-nim {
+  --code-lang: "Nim";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-nix {
+  --code-lang: "Nix";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-nsis {
+  --code-lang: "NSIS";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-objectc, .language-objc) {
+  --code-lang: "ObjectC";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-ocaml {
+  --code-lang: "OCaml";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-odin {
+  --code-lang: "odin";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-opencl {
+  --code-lang: "OpenCL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-pascal {
+  --code-lang: "Pascal";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-perl {
+  --code-lang: "Perl";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-php {
+  --code-lang: "PHP";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-phpdoc {
+  --code-lang: "PHPDoc";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-powershell {
+  --code-lang: "PowerShell";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-properties {
+  --code-lang: "Properties";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-protobuf {
+  --code-lang: "ProtoBuf";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-pug {
+  --code-lang: "Pug";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-python, .language-py) {
+  --code-lang: "Python";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-qml {
+  --code-lang: "QML";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-r {
+  --code-lang: "R";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-regex {
+  --code-lang: "Regex";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-rescript, .language-res) {
+  --code-lang: "ReScript";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-rip {
+  --code-lang: "Rip";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-ruby, .language-rb) {
+  --code-lang: "Ruby";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-rust, .language-rs) {
+  --code-lang: "Rust";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-sass {
+  --code-lang: "Sass";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-scss {
+  --code-lang: "Scss";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-scala {
+  --code-lang: "Scala";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-solidity {
+  --code-lang: "Solidity";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-sql {
+  --code-lang: "SQL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-stylus {
+  --code-lang: "stylus";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-swift {
+  --code-lang: "Swift";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-tcl {
+  --code-lang: "TCL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-toml {
+  --code-lang: "TOML";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-uri, .language-url) {
+  --code-lang: "URI";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-unrealscript, .language-uscript, .language-uc) {
+  --code-lang: "UnrealScript";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-v {
+  --code-lang: "V";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-vbnet {
+  --code-lang: "VBNet";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-velocity {
+  --code-lang: "Velocity";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-vhdl {
+  --code-lang: "VHDL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-vim {
+  --code-lang: "Vim";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-visual-basic, .language-vb, .language-vba) {
+  --code-lang: "Visual-Basic";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-wasm {
+  --code-lang: "WASM";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-wgsl {
+  --code-lang: "WGSL";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-wiki {
+  --code-lang: "WIKI";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-wren {
+  --code-lang: "Wren";
+}
+body:is(:not(.css-settings-manager), .code-language) pre:is(.language-yaml, .language-yml) {
+  --code-lang: "YAML";
+}
+body:is(:not(.css-settings-manager), .code-language) pre.language-zig {
+  --code-lang: "Zig";
+}
 body:is(:not(.css-settings-manager), .code-language) .markdown-rendered {
   --code-block-padding: calc(var(--line-height-tight) * var(--code-size))
     calc(var(--line-height-normal) * var(--code-size));
@@ -3187,448 +3656,18 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered {
 body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre {
   padding: var(--code-block-padding);
 }
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code[class*=language-]::before {
-  content: "Unkown";
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class*=language-] .copy-code-button {
+  padding-block: var(--size-2-1);
+  opacity: 1;
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class*=language-] .copy-code-button:not([style="color: var(--text-success); display: inline-flex;"]) svg {
+  display: none;
+}
+body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[class*=language-] .copy-code-button:not([style="color: var(--text-success); display: inline-flex;"])::before {
+  content: var(--code-lang, "Unkown");
   font-family: var(--font-monospace);
   color: var(--setting-code-language-color, var(--inline-code));
   font-weight: 550;
-  position: absolute;
-  text-align: right;
-  right: var(--size-4-8);
-  top: var(--size-4-1);
-  z-index: 9;
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-markup::before {
-  content: "Markup";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-html::before {
-  content: "HTML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-xml::before {
-  content: "XML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-svg::before {
-  content: "SVG";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-mathml::before {
-  content: "MathML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ssml::before {
-  content: "SSML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-atom::before {
-  content: "Atom";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-rss::before {
-  content: "RSS";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-css::before {
-  content: "CSS";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-javascript, .language-js)::before {
-  content: "JavaScript";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-typescript, .language-ts)::before {
-  content: "Typescript";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-jsx::before {
-  content: "JSX";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-typescript-jsx, .language-tsx)::before {
-  content: "TypeScript-JSX";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ada::before {
-  content: "Ada";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-apex::before {
-  content: "Apex";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-applescript::before {
-  content: "AppleScript";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-aql::before {
-  content: "AQL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-arduino, .language-ino)::before {
-  content: "Arduino";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-armasm, .language-arm-asm)::before {
-  content: "ArmAsm";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-asciidoc, .language-adoc)::before {
-  content: "AsciiDoc";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-aspnet::before {
-  content: "AspNet";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-asm6502::before {
-  content: "Asm6502";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-autohotkey::before {
-  content: "AutoHotKey";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-awk, .language-gawk)::before {
-  content: "AWK";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-bash, .language-sh, .language-shell)::before {
-  content: "bash";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-basic::before {
-  content: "basic";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-batch::before {
-  content: "batch";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-bison::before {
-  content: "Bison";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-c::before {
-  content: "C";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-c\#, .language-csharp, .language-cs, .language-dotnet)::before {
-  content: "C#";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-c\+\+, .language-cpp)::before {
-  content: "C++";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-clojure::before {
-  content: "Clojure";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-cmake::before {
-  content: "CMake";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-cobol::before {
-  content: "COBOL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-coffeescript, .language-coffee)::before {
-  content: "CoffeeScript";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-csp::before {
-  content: "CSP";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-crystal::before {
-  content: "Crystal";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-csv::before {
-  content: "CSV";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-cue::before {
-  content: "CUE";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-d::before {
-  content: "D";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-dart::before {
-  content: "Dart";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-diff::before {
-  content: "Diff";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-django::before {
-  content: "Django";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-jinja2::before {
-  content: "Jinja2";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-docker::before {
-  content: "Docker";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-dockerfile::before {
-  content: "Dockerfile";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ebnf::before {
-  content: "EBNF";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-editorconfig::before {
-  content: "EditorConfig";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ejs::before {
-  content: "EJS";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-elixir::before {
-  content: "Elixir";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-elm::before {
-  content: "Elm";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-erb::before {
-  content: "ERB";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-excel-formula, .language-xlsx, .language-xls)::before {
-  content: "Excel-Formula";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-f\#, .language-fsharp)::before {
-  content: "F#";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-flow::before {
-  content: "Flow";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-fortran::before {
-  content: "Fortran";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-gdscript::before {
-  content: "GDScript";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-git::before {
-  content: "Git";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-glsl::before {
-  content: "GLSL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-go::before {
-  content: "Go";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-go-module, .language-go-mod)::before {
-  content: "Go-Module";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-gradle::before {
-  content: "Gradle";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-graphql::before {
-  content: "GraphQL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-groovy::before {
-  content: "Groovy";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-haml::before {
-  content: "HAML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-handlebars, .language-hbs, .language-mustache)::before {
-  content: "Handlebars";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-haskell, .language-hs)::before {
-  content: "Haskell";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-hcl::before {
-  content: "HCL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-hlsl::before {
-  content: "HLSL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-http::before {
-  content: "HTTP";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-icon::before {
-  content: "Icon";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-icu-message-format::before {
-  content: "ICU-Message-Format";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-gitignore::before {
-  content: "gitignore";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ini::before {
-  content: "Ini";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-java::before {
-  content: "Java";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-javadoc::before {
-  content: "JavaDoc";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-jq::before {
-  content: "JQ";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-jsdoc::before {
-  content: "JSDoc";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-json::before {
-  content: "JSON";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-json5::before {
-  content: "JSON5";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-jsonp::before {
-  content: "JSONP";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-julia::before {
-  content: "Julia";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-kotlin, .language-kt, .language-kts)::before {
-  content: "Kotlin";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-latex, .language-tex)::before {
-  content: "Latex";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-less::before {
-  content: "Less";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-liquid::before {
-  content: "Liquid";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-lisp, .language-emacs, .language-elisp, .language-emacs-lisp)::before {
-  content: "Lisp";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-llvm::before {
-  content: "LLVM";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-log::before {
-  content: "Log";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-lua::before {
-  content: "Lua";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-makefile::before {
-  content: "Makefile";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-markdown, .language-md)::before {
-  content: "Markdown";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-matlab::before {
-  content: "MATLAB";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-mermaid::before {
-  content: "Mermaid";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-mongodb::before {
-  content: "MongoDB";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-monkey::before {
-  content: "Monkey";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-neon::before {
-  content: "Neon";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-nginx::before {
-  content: "Nginx";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-nim::before {
-  content: "Nim";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-nix::before {
-  content: "Nix";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-nsis::before {
-  content: "NSIS";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-objectc, .language-objc)::before {
-  content: "ObjectC";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-ocaml::before {
-  content: "OCaml";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-odin::before {
-  content: "odin";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-opencl::before {
-  content: "OpenCL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-pascal::before {
-  content: "Pascal";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-perl::before {
-  content: "Perl";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-php::before {
-  content: "PHP";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-phpdoc::before {
-  content: "PHPDoc";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-powershell::before {
-  content: "PowerShell";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-properties::before {
-  content: "Properties";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-protobuf::before {
-  content: "ProtoBuf";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-pug::before {
-  content: "Pug";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-python, .language-py)::before {
-  content: "Python";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-qml::before {
-  content: "QML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-r::before {
-  content: "R";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-regex::before {
-  content: "Regex";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-rescript, .language-res)::before {
-  content: "ReScript";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-rip::before {
-  content: "Rip";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-ruby, .language-rb)::before {
-  content: "Ruby";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-rust, .language-rs)::before {
-  content: "Rust";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-sass::before {
-  content: "Sass";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-scss::before {
-  content: "Scss";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-scala::before {
-  content: "Scala";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-solidity::before {
-  content: "Solidity";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-sql::before {
-  content: "SQL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-stylus::before {
-  content: "stylus";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-swift::before {
-  content: "Swift";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-tcl::before {
-  content: "TCL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-toml::before {
-  content: "TOML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-uri, .language-url)::before {
-  content: "URI";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-unrealscript, .language-uscript, .language-uc)::before {
-  content: "UnrealScript";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-v::before {
-  content: "V";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-vbnet::before {
-  content: "VBNet";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-velocity::before {
-  content: "Velocity";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-vhdl::before {
-  content: "VHDL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-vim::before {
-  content: "Vim";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-visual-basic, .language-vb, .language-vba)::before {
-  content: "Visual-Basic";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-wasm::before {
-  content: "WASM";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-wgsl::before {
-  content: "WGSL";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-wiki::before {
-  content: "WIKI";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-wren::before {
-  content: "Wren";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code:is(.language-yaml, .language-yml)::before {
-  content: "YAML";
-}
-body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code.language-zig::before {
-  content: "Zig";
 }
 
 :is(.cm-tag, .cm-attribute, .cm-string:not(.cm-url)) {
@@ -3704,13 +3743,20 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   filter: hue-rotate(40deg);
 }
 
+.theme-light {
+  --code-mac-style-header-bg: #333;
+  --code-mac-style-header-color: #ddd;
+}
+
+.theme-dark {
+  --code-mac-style-header-bg: #111;
+  --code-mac-style-header-color: #aaa;
+}
+
 .code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) {
   border: none;
   padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
   padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5) !important;
-}
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) code[class*=language-]::before {
-  color: var(--setting-code-language-color, var(--accent-active));
 }
 .code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview)::after {
   content: "";
@@ -3734,9 +3780,11 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
   box-shadow: calc(var(--size-4-5) * 0.9) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-5) * 1.8) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
 }
 .code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) .copy-code-button {
-  position: absolute;
   z-index: 10;
-  color: var(--setting-code-language-color, var(--accent-active));
+  color: var(--code-mac-style-header-color);
+}
+.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) .copy-code-button::before {
+  color: inherit !important;
 }
 
 .code-line-number .cm-contentContainer {
@@ -5709,6 +5757,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h1-block.heading-color-colorful {
   --h1-color-bg: rgba(var(--h1-color-rgb), 0.15);
 }
+.heading-h1-block.heading-h1-block-contrast {
+  --h1-color-bg: rgba(var(--h1-color-rgb));
+}
+.heading-h1-block.heading-h1-block-contrast .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header),
+h1) {
+  color: var(--text-on-accent);
+  caret-color: currentColor;
+}
 .heading-h1-block .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1) {
   background-color: var(--h1-color-bg);
   padding: var(--size-4-1) 0.6rem;
@@ -5744,6 +5800,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 }
 .heading-h2-block.heading-color-colorful {
   --h2-color-bg: rgba(var(--h2-color-rgb), 0.15);
+}
+.heading-h2-block.heading-h2-block-contrast {
+  --h2-color-bg: rgba(var(--h2-color-rgb));
+}
+.heading-h2-block.heading-h2-block-contrast .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header),
+h2) {
+  color: var(--text-on-accent);
+  caret-color: currentColor;
 }
 .heading-h2-block .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2) {
   background-color: var(--h2-color-bg);
@@ -5781,6 +5845,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h3-block.heading-color-colorful {
   --h3-color-bg: rgba(var(--h3-color-rgb), 0.15);
 }
+.heading-h3-block.heading-h3-block-contrast {
+  --h3-color-bg: rgba(var(--h3-color-rgb));
+}
+.heading-h3-block.heading-h3-block-contrast .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header),
+h3) {
+  color: var(--text-on-accent);
+  caret-color: currentColor;
+}
 .heading-h3-block .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3) {
   background-color: var(--h3-color-bg);
   padding: var(--size-4-1) 0.6rem;
@@ -5816,6 +5888,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 }
 .heading-h4-block.heading-color-colorful {
   --h4-color-bg: rgba(var(--h4-color-rgb), 0.15);
+}
+.heading-h4-block.heading-h4-block-contrast {
+  --h4-color-bg: rgba(var(--h4-color-rgb));
+}
+.heading-h4-block.heading-h4-block-contrast .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header),
+h4) {
+  color: var(--text-on-accent);
+  caret-color: currentColor;
 }
 .heading-h4-block .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4) {
   background-color: var(--h4-color-bg);
@@ -5853,6 +5933,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h5-block.heading-color-colorful {
   --h5-color-bg: rgba(var(--h5-color-rgb), 0.15);
 }
+.heading-h5-block.heading-h5-block-contrast {
+  --h5-color-bg: rgba(var(--h5-color-rgb));
+}
+.heading-h5-block.heading-h5-block-contrast .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header),
+h5) {
+  color: var(--text-on-accent);
+  caret-color: currentColor;
+}
 .heading-h5-block .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5) {
   background-color: var(--h5-color-bg);
   padding: var(--size-4-1) 0.6rem;
@@ -5888,6 +5976,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 }
 .heading-h6-block.heading-color-colorful {
   --h6-color-bg: rgba(var(--h6-color-rgb), 0.15);
+}
+.heading-h6-block.heading-h6-block-contrast {
+  --h6-color-bg: rgba(var(--h6-color-rgb));
+}
+.heading-h6-block.heading-h6-block-contrast .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header),
+h6) {
+  color: var(--text-on-accent);
+  caret-color: currentColor;
 }
 .heading-h6-block .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6) {
   background-color: var(--h6-color-bg);
@@ -6786,7 +6882,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.41");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.42");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
