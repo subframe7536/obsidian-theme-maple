@@ -17,7 +17,7 @@ body:not(.is-phone)
 }
 
 button.mod-cta {
-  transition: filter var(--animation);
+  transition: box-shadow var(--animation);
   background: linear-gradient(
     to bottom,
     transparent -240%,
@@ -28,6 +28,22 @@ button.mod-cta {
       to bottom,
       transparent -240%,
       var(--color-accent-1) 100%
+    );
+  }
+}
+
+button.mod-warning {
+  transition: box-shadow var(--animation);
+  background: linear-gradient(
+    to bottom,
+    transparent -240%,
+    var(--background-modifier-error) 100%
+  );
+  &:hover {
+    background: linear-gradient(
+      to bottom,
+      transparent -240%,
+      var(--background-modifier-error-hover) 100%
     );
   }
 }

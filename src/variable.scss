@@ -40,7 +40,8 @@ body {
   --background-primary: hsl(var(--background-primary-hsl));
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-border-focus: var(--background-modifier-border-hover);
-  --background-modifier-error: rgba(var(--color-red-rgb), 0.8);
+  --background-modifier-error: rgba(var(--color-red-rgb), 1);
+  --background-modifier-error-hover: rgba(var(--color-red-rgb), 0.9);
   --background-modifier-cover: hsla(var(--background-secondary-hsl), 0.6);
 
   --tab-container-background: var(--frame-bg);
