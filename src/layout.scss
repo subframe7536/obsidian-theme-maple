@@ -181,9 +181,7 @@ body.app-layout-card:not(.is-mobile) {
     background-color: var(--bg-editor);
   }
 
-  &:not(.is-mobile)
-    .workspace-split.mod-left-split
-    .workspace-sidedock-vault-profile {
+  .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
     background-color: hsla(
       var(--background-secondary-hsl),
       calc(var(--bg-opacity) / 4)

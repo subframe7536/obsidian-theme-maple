@@ -107,7 +107,7 @@ body.tab-title-bar-text-hidden
 
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
 
-body.tab-slide-up:not(.is-mobile):not(.is-tablet) {
+body.tab-slide-up:not(.is-mobile) {
   .workspace-split:not(.is-sidedock-collapsed)
     .workspace-tabs:not(.mod-stacked)
     .workspace-leaf-content:not([data-type='undefined']):not(

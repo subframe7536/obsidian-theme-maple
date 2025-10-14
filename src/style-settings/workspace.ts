@@ -245,7 +245,13 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     )
     .addClassSelect(
       'modal-toggle',
-      { title: { en: 'Styled Toggle Button', zh: '美化开关按钮' } },
+      {
+        title: { en: 'Styled Toggle Button', zh: '美化开关按钮' },
+        desc: {
+          en: '"Thin" and "Floating" will fallback to "Default" on mobile',
+          zh: '“Thin” 和 “Floating” 选项在移动端会回退到 “默认” 风格',
+        },
+      },
       {
         allowEmpty: false,
         default: 'modal-toggle-default',

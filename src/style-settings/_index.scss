@@ -183,7 +183,14 @@ body:not(.color-use-default) {
 /* #region Hide Options */
 
 body.is-mobile
-  .setting-item:is([data-id='modal-slider'], [data-id='modal-toggle']),
+  .setting-item:is(
+    [data-id='title-layout'],
+    [data-id='modal-slider'],
+    [data-id*='modal-header'],
+    [data-id='image-zoom'],
+    [data-id='scrollbar-enable'],
+    [data-id='tab-slide-up']
+  ),
 body:not(.is-mobile) div[data-id='maple-mobile'],
 body:not(.line-active-enable)
   .setting-item[data-id='setting-line-active-color'],
