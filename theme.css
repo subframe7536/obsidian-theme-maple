@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.42 For Obsidian */
+/* Maple Theme v1.0.0-beta.43 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -387,7 +387,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.42
+      default: Maple 1.0.0-beta.43
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -6634,6 +6634,21 @@ body #calendar-container .day {
 }
 
 /* #endregion shiki */
+/* #region settings-search */
+body:not(.is-mobile).modal-header.modal-header-search .settings-search-container {
+  padding: 0;
+}
+body:not(.is-mobile).modal-header.modal-header-search .settings-search-container .settings-search-input {
+  position: absolute;
+  top: var(--size-2-3);
+  width: calc(clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-5));
+}
+
+.is-mobile .settings-search-container .settings-search-input input {
+  background-color: var(--bg-editor);
+}
+
+/* #endregion settings-search */
 /* #endregion [plugins] */
 /* #region [workspace] */
 /* #region document-search */
@@ -6741,24 +6756,10 @@ button.mod-cta:hover {
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent-1) 100%);
 }
 
-body:not(.is-phone) .modal-close-button {
-  height: var(--input-height);
-  width: var(--input-height);
+body:not(.is-phone).modal-header .modal-close-button {
   transition: background-color var(--animation);
   z-index: calc(var(--layer-modal) + 1);
-}
-body:not(.is-phone) .modal-close-button::before {
-  content: "";
-  position: absolute;
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/></svg>") no-repeat;
-  -webkit-mask-size: 100% 100%;
-  background-color: currentColor;
-  color: var(--text-muted);
-  width: var(--size-4-6);
-  height: var(--size-4-6);
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
+  top: var(--size-4-3);
 }
 
 .checkbox-container {
@@ -6882,7 +6883,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.42");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.43");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6919,14 +6920,6 @@ body {
 .modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
-}
-.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .settings-search-container {
-  padding: 0;
-}
-.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .settings-search-container .settings-search-input {
-  position: absolute;
-  top: var(--size-2-3);
-  width: calc(clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-5));
 }
 .modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
   margin: 0;
@@ -6988,71 +6981,47 @@ button[disabled=true] {
   --flair-color: var(--text-accent);
 }
 
-.modal-container .is-loading {
+body:not(.is-phone) .modal-container .is-loading {
   position: initial;
 }
-.modal-container .modal-close-button {
-  top: 9px;
-  right: 9px !important;
-}
-.modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-sidebar .setting-item:first-child {
+body:not(.is-phone) .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-sidebar .setting-item:first-child {
   max-width: var(--modal-community-sidebar-width);
 }
-.modal-container .community-item {
+body:not(.is-phone) .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-header {
+  display: inline-block;
+  position: absolute;
+  top: var(--size-4-3);
+  inset-inline-start: var(--size-4-3);
+}
+body:not(.is-phone) .modal-container .community-item {
   --interactive-accent: var(--accent-active-bg);
   transition: border-color var(--animation);
 }
-.modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls {
+body:not(.is-phone) .modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: flex-start;
   height: calc(var(--font-ui-small) + var(--size-4-3) * 2);
+  padding-inline-end: var(--size-4-9);
 }
-.modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls::before {
-  content: var(--community-title);
-  font-weight: 550;
-  font-size: var(--font-ui-large);
-  display: inline-block;
-  margin-inline-start: var(--size-4-4);
-  margin-block-end: var(--size-2-3);
-}
-.mod-community-theme {
-  --community-title: "Community Theme";
-}
-
-.mod-community-plugin {
-  --community-title: "Community Plugin";
-}
-
-html[lang=zh] .mod-community-theme {
-  --community-title: "社区主题";
-}
-html[lang=zh] .mod-community-plugin {
-  --community-title: "社区主题";
-}
-
-.modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls .setting-item:not(.mod-toggle) {
-  position: absolute;
-  right: var(--size-4-9);
-}
-.modal-container .community-modal-search-summary {
+body:not(.is-phone) .modal-container .community-modal-search-summary {
   display: none;
 }
-.modal-container .community-modal-controls button.clickable-icon {
+body:not(.is-phone) .modal-container .community-modal-controls button.clickable-icon {
   padding: var(--size-2-1) var(--size-2-2);
   position: absolute;
   margin-inline-end: var(--size-4-1);
 }
-.modal-container .community-modal-controls .search-input-container .search-input-clear-button {
+body:not(.is-phone) .modal-container .community-modal-controls .search-input-container .search-input-clear-button {
   right: calc(var(--size-4-6) + var(--size-2-1));
 }
-.modal-container .community-modal-controls .search-input-container input {
+body:not(.is-phone) .modal-container .community-modal-controls .search-input-container input {
   padding-inline-end: var(--size-4-12);
   transition: var(--animation);
   transition-property: border-color, background-color, box-shadow;
 }
-.modal-container .mod-settings .modal-content .setting-item-heading .setting-item-name {
+body:not(.is-phone) .modal-container .mod-settings .modal-content .setting-item-heading .setting-item-name {
   font-weight: 550;
   font-size: var(--font-ui-medium);
 }
