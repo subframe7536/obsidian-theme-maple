@@ -430,29 +430,30 @@ body.enable-group-title
   }
 }
 
-:is(.menu, .modal-bg, .document-search-container, .suggestion-container) {
-  animation: use-animation('op');
-}
+body:not(.is-phone) {
+  :is(.menu, .modal-bg, .document-search-container, .suggestion-container) {
+    animation: use-animation('op');
+  }
 
-:is(.prompt, .popover, .modal) {
-  animation: use-animation('op'), use-animation('slide-up');
-}
+  :is(.prompt, .popover, .modal) {
+    animation: use-animation('op'), use-animation('slide-up');
+  }
 
-:is(
-    .menu-normal .menu,
-    .menu-suggestion .suggestion-container,
-    .menu-graph .graph-control-section
-  ) {
-  background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
-  backdrop-filter: blur(var(--size-4-8));
-  will-change: backdrop-filter;
-}
+  :is(
+      .menu-normal .menu,
+      .menu-suggestion .suggestion-container,
+      .menu-graph .graph-control-section
+    ) {
+    background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
+    backdrop-filter: blur(24px);
+    will-change: backdrop-filter;
+  }
 
-.modal-bg {
-  opacity: 1 !important;
-  background-color: hsla(var(--background-secondary-hsl), 0.6) !important;
-
-  .modal-blur & {
+  .modal-bg {
+    opacity: 1 !important;
+    background-color: hsla(var(--background-secondary-hsl), 0.6) !important;
+  }
+  .modal-blur .modal-bg {
     backdrop-filter: blur(6px);
     transform: translateZ(0);
   }

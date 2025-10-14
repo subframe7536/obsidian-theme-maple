@@ -186,6 +186,7 @@ body.is-mobile
   .setting-item:is(
     [data-id='title-layout'],
     [data-id='modal-slider'],
+    [data-id='modal-blur'],
     [data-id*='modal-header'],
     [data-id='image-zoom'],
     [data-id='scrollbar-enable'],
