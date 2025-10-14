@@ -317,7 +317,8 @@ button[disabled='true'] {
   --flair-color: var(--text-accent);
 }
 
-.modal-container {
+// community resource panel optimization
+body:not(.is-phone) .modal-container {
   .is-loading {
     position: initial;
   }
