@@ -32,20 +32,10 @@ button.mod-cta {
   }
 }
 
-body:not(.is-phone) .modal-close-button {
-  height: var(--input-height);
-  width: var(--input-height);
+body:not(.is-phone).modal-header .modal-close-button {
   transition: background-color var(--animation);
   z-index: calc(var(--layer-modal) + 1);
-
-  &::before {
-    content: '';
-    position: absolute;
-    @include use-icon('x', var(--text-muted), var(--size-4-6));
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-  }
+  top: var(--size-4-3);
 }
 
 .checkbox-container {
@@ -260,18 +250,6 @@ body {
   }
 
   &.modal-header-search .mod-settings .modal-content {
-    .settings-search-container {
-      padding: 0;
-
-      .settings-search-input {
-        position: absolute;
-        top: var(--size-2-3);
-        width: calc(
-          clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-5)
-        );
-      }
-    }
-
     .plugin-list-plugins .setting-item-heading {
       margin: 0;
     }
@@ -342,11 +320,6 @@ button[disabled='true'] {
 .modal-container {
   .is-loading {
     position: initial;
-  }
-
-  .modal-close-button {
-    top: 9px;
-    right: 9px !important;
   }
 
   :is(.mod-community-plugin, .mod-community-theme)

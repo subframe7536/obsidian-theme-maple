@@ -1,0 +1,18 @@
+body:not(.is-mobile).modal-header.modal-header-search {
+  .settings-search-container {
+    padding: 0;
+
+    .settings-search-input {
+      position: absolute;
+      top: var(--size-2-3);
+      width: calc(
+        clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-5)
+      );
+    }
+  }
+}
+.is-mobile .settings-search-container {
+  .settings-search-input input {
+    background-color: var(--bg-editor);
+  }
+}
