@@ -12,9 +12,15 @@ body.app-layout-card:not(.is-mobile) {
 
   &.theme-light {
     --background-primary-alt: hsl(var(--base-accent-h), 18%, 93.5%);
+    &.color-use-minimal {
+      --background-primary-alt: hsl(var(--base-accent-h), 2%, 94%);
+    }
   }
   &.theme-dark {
     --background-primary-alt: hsl(var(--base-accent-h), 8%, 13.5%);
+    &.color-use-minimal {
+      --background-primary-alt: hsl(var(--base-accent-h), 4%, 13%);
+    }
   }
 
   &:is(.app-layout-card-plain, .color-use-minimal) {
