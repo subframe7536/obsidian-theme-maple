@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.46 For Obsidian */
+/* Maple Theme v1.0.0-beta.47 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -361,7 +361,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.46
+      default: Maple 1.0.0-beta.47
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -1586,20 +1586,33 @@ settings:
       level: 2
       collapsed: true
     - id: list-checkbox-line
+      type: class-select
+      title: Completed Items Decoration Style
+      title.zh: 已完成事项的样式
+      allow-empty: false
+      default: list-checkbox-decoration-default
+      options:
+          - label: Strikethrough
+            value: list-checkbox-decoration-default
+          - label: Underline
+            value: list-checkbox-decoration-underline
+          - label: None
+            value: list-checkbox-decoration-none
+    - id: list-checkbox-gray
       type: class-toggle
-      title: Remove Strikethrough on Completed Items
-      title.zh: 移除已完成事项上的删除线
+      title: Gray Out Completed Items
+      title.zh: 已完成的事项使用灰色文字
     - id: list-checkbox-alternative
       type: class-toggle
       title: Enhanced Checkbox Styles
-      title.zh: 更多的复选框样式
+      title.zh: 更多的勾选框样式
       description: Disable this if you are using your own implementation via a CSS snippet
       description.zh: 如果您正在使用自己的 CSS 片段实现，请禁用此选项
       default: true
     - id: setting-list-checkbox-color
       type: variable-themed-color
       title: Checkbox Marker Color
-      title.zh: 复选框标记颜色
+      title.zh: 勾选框标记颜色
       format: hex
       opacity: true
       default-light: "#"
@@ -1607,7 +1620,7 @@ settings:
     - id: setting-list-checkbox-color-hover
       type: variable-themed-color
       title: Checkbox Marker Hover Color
-      title.zh: 复选框标记悬停颜色
+      title.zh: 勾选框标记悬停颜色
       format: hex
       opacity: true
       default-light: "#"
@@ -1615,7 +1628,7 @@ settings:
     - id: setting-list-checkbox-border
       type: variable-themed-color
       title: Checkbox Marker Border Color
-      title.zh: 复选框标记边框颜色
+      title.zh: 勾选框标记边框颜色
       format: hex
       opacity: true
       default-light: "#"
@@ -2214,8 +2227,35 @@ body:not(.color-use-default) .mod-settings .vertical-tab-content-container > .ve
 
 /* #endregion */
 /* #region Controls */
-.pickr .pcr-button::before, .pickr .pcr-button::after {
-  border-radius: var(--radius-s);
+.style-settings-container .themed-color-wrapper {
+  display: flex;
+}
+.style-settings-container .themed-color-wrapper > div {
+  gap: var(--size-4-2);
+}
+.style-settings-container .themed-color-wrapper > div + div {
+  margin-top: 0;
+}
+.style-settings-container .themed-color-wrapper > div .pickr > button {
+  width: var(--input-height);
+  height: var(--input-height);
+  border-radius: var(--button-radius);
+}
+.style-settings-container .themed-color-wrapper > div .pickr > button::before, .style-settings-container .themed-color-wrapper > div .pickr > button::after {
+  border-radius: var(--button-radius);
+}
+.style-settings-container .themed-color-wrapper > div .pickr-reset > button {
+  cursor: pointer;
+  margin: 0;
+  width: var(--input-height);
+  height: var(--input-height);
+  position: relative;
+}
+.style-settings-container .themed-color-wrapper > div .pickr-reset > button svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
 }
 
 .style-settings-container .setting-item:is([data-id=setting-accent-h-light],
@@ -4295,15 +4335,24 @@ body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li >
   --list-bullet-radius: var(--radius-s);
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
 }
-body:is(:not(.css-settings-manager), .list-enable).list-checkbox-line {
-  --checklist-done-decoration: none;
-}
 body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callout ul > li > ul > li {
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callout .task-list-item-checkbox {
   vertical-align: middle;
   margin-inline-start: calc(var(--checkbox-size) * -1.3);
+}
+
+.list-checkbox-gray {
+  --checklist-done-color: var(--text-faint);
+}
+
+.list-checkbox-decoration-underline {
+  --checklist-done-decoration: underline;
+}
+
+.list-checkbox-decoration-none {
+  --checklist-done-decoration: none;
 }
 
 /* #region list bullet */
@@ -6204,14 +6253,6 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
 .metadata-container [data-property-key=tag] .lucide-list path {
   display: none;
 }
-.metadata-container [data-property-key=date] .lucide-text {
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M8 2v4m8-4v4'/><rect width='18' height='18' x='3' y='4' rx='2'/><path d='M3 10h18'/></g></svg>") no-repeat;
-  -webkit-mask-size: 100% 100%;
-  background-color: currentColor;
-}
-.metadata-container [data-property-key=date] .lucide-text path {
-  display: none;
-}
 .metadata-container [data-property-key=alias] .lucide-text {
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='m15 17l5-5l-5-5'/><path d='M4 18v-2a4 4 0 0 1 4-4h12'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
@@ -6260,12 +6301,12 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
 .metadata-container [data-property-key=source] .lucide-text path {
   display: none;
 }
-.metadata-container [data-property-key=published] .lucide-text {
+.metadata-container :is([data-property-key=published], [data-property-key*=date]) .lucide-text {
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M8 2v4m8-4v4'/><rect width='18' height='18' x='3' y='4' rx='2'/><path d='M3 10h18'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
 }
-.metadata-container [data-property-key=published] .lucide-text path {
+.metadata-container :is([data-property-key=published], [data-property-key*=date]) .lucide-text path {
   display: none;
 }
 
@@ -6855,7 +6896,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.46");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.47");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
