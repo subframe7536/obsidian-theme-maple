@@ -61,7 +61,7 @@ body {
 
   &.embed-border-hidden {
     --embed-border-start: none;
-    --embed-background: var(--background-primary-alt);
+    --embed-background: hsl(var(--background-primary-alt-hsl), 0.4);
   }
 
   &.scrollbar-gutter-reserve.embed-title-right-top
