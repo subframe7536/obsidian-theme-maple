@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.47 For Obsidian */
+/* Maple Theme v1.0.0-beta.48 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -361,7 +361,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.47
+      default: Maple 1.0.0-beta.48
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -6791,12 +6791,13 @@ body:not(.is-phone).modal-header .modal-close-button {
 }
 
 .modal-toggle-square .checkbox-container {
-  height: var(--size-4-5);
-  --toggle-radius: var(--size-2-3);
   --toggle-border-width: var(--size-4-1);
-  --toggle-thumb-radius: var(--size-4-1);
-  --toggle-thumb-width: var(--size-4-3);
-  --toggle-thumb-height: var(--size-4-3);
+  --toggle-thumb-width: calc(var(--input-height) / 2);
+  --toggle-thumb-height: var(--toggle-thumb-width);
+  --toggle-thumb-radius: calc(var(--toggle-thumb-width) / 3);
+  --toggle-radius: calc(
+    var(--toggle-s-thumb-radius) + var(--toggle-border-width) / 2
+  );
   --toggle-s-border-width: var(--toggle-border-width);
   --toggle-s-thumb-radius: var(--toggle-thumb-radius);
   --toggle-s-thumb-width: var(--toggle-thumb-width);
@@ -6896,7 +6897,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.47");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.48");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7411,7 +7412,7 @@ body.message-modify {
   --background-modifier-message: var(
     --setting-message-bg,
     var(--accent-active-bg)
-  );
+  ) !important;
 }
 body.message-modify :is(.tooltip, .notice) {
   color: var(--setting-message-fg, var(--text-on-accent));
