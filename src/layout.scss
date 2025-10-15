@@ -4,7 +4,7 @@ body {
 }
 
 body.app-layout-card:not(.is-mobile) {
-  --divider-color: transparent;
+  --divider-color: var(--setting-divider-color, transparent);
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;

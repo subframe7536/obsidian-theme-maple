@@ -61,7 +61,7 @@ body {
   --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--animation-dur));
 
-  --divider-color: var(--color-base-30);
+  --divider-color: var(--setting-divider-color, var(--color-base-30));
   --divider-width-hover: var(--size-4-1);
 
   // tree item color
