@@ -174,3 +174,7 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     }
   }
 }
+
+.list-checkbox-gray {
+  --checklist-done-color: var(--text-faint);
+}

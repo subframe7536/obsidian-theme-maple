@@ -725,12 +725,18 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
             zh: '移除已完成事项上的删除线',
           },
         })
+        .addClassToggle('list-checkbox-gray', {
+          title: {
+            en: 'Gray Out Completed Items',
+            zh: '已完成的事项使用灰色文字',
+          },
+        })
         .addClassToggle(
           'list-checkbox-alternative',
           {
             title: {
               en: 'Enhanced Checkbox Styles',
-              zh: '更多的复选框样式',
+              zh: '更多的勾选框样式',
             },
             desc: {
               en: 'Disable this if you are using your own implementation via a CSS snippet',
@@ -742,7 +748,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         .addVarThemedColor(
           'setting-list-checkbox-color',
           {
-            title: { en: 'Checkbox Marker Color', zh: '复选框标记颜色' },
+            title: { en: 'Checkbox Marker Color', zh: '勾选框标记颜色' },
           },
           'hex',
         )
@@ -751,7 +757,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: {
               en: 'Checkbox Marker Hover Color',
-              zh: '复选框标记悬停颜色',
+              zh: '勾选框标记悬停颜色',
             },
           },
           'hex',
@@ -761,7 +767,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: {
               en: 'Checkbox Marker Border Color',
-              zh: '复选框标记边框颜色',
+              zh: '勾选框标记边框颜色',
             },
           },
           'hex',
