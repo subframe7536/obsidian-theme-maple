@@ -719,12 +719,30 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       Settings.ofLevel(2, {
         title: { en: 'Task List (Checkbox)', zh: '待办事项（勾选框）' },
       })
-        .addClassToggle('list-checkbox-line', {
-          title: {
-            en: 'Remove Strikethrough on Completed Items',
-            zh: '移除已完成事项上的删除线',
+        .addClassSelect(
+          'list-checkbox-line',
+          {
+            title: {
+              en: 'Completed Items Decoration Style',
+              zh: '已完成事项的样式',
+            },
           },
-        })
+          {
+            allowEmpty: false,
+            default: 'list-checkbox-decoration-default',
+            options: [
+              {
+                label: 'Strikethrough',
+                value: 'list-checkbox-decoration-default',
+              },
+              {
+                label: 'Underline',
+                value: 'list-checkbox-decoration-underline',
+              },
+              { label: 'None', value: 'list-checkbox-decoration-none' },
+            ],
+          },
+        )
         .addClassToggle('list-checkbox-gray', {
           title: {
             en: 'Gray Out Completed Items',

@@ -159,10 +159,6 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     }
   }
 
-  &.list-checkbox-line {
-    --checklist-done-decoration: none;
-  }
-
   .markdown-source-view .callout {
     ul > li > ul > li {
       --list-marker-color: #{$marker-color};
@@ -177,4 +173,12 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 
 .list-checkbox-gray {
   --checklist-done-color: var(--text-faint);
+}
+
+.list-checkbox-decoration-underline {
+  --checklist-done-decoration: underline;
+}
+
+.list-checkbox-decoration-none {
+  --checklist-done-decoration: none;
 }
