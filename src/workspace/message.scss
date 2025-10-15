@@ -19,7 +19,7 @@ body.message-modify {
   --background-modifier-message: var(
     --setting-message-bg,
     var(--accent-active-bg)
-  );
+  ) !important;
 
   :is(.tooltip, .notice) {
     color: var(--setting-message-fg, var(--text-on-accent));
