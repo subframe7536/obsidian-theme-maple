@@ -367,47 +367,49 @@ body .markdown-rendered pre {
   --code-mac-style-header-color: #aaa;
 }
 
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) {
-  border: none;
-  padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
-  padding-bottom: calc(
-    var(--code-size) * var(--line-height-normal) * 0.5
-  ) !important;
+@media screen {
+  .code-mac-style-header .markdown-rendered pre:not(.dataview) {
+    border: none;
+    padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
+    padding-bottom: calc(
+      var(--code-size) * var(--line-height-normal) * 0.5
+    ) !important;
 
-  &::after {
-    content: '';
-    width: 100%;
-    height: calc(var(--code-size) * var(--line-height-normal) * 1.2);
-    background-color: var(--code-mac-style-header-bg);
-    top: 0;
-    left: 0;
-    position: absolute;
-  }
+    &::after {
+      content: '';
+      width: 100%;
+      height: calc(var(--code-size) * var(--line-height-normal) * 1.2);
+      background-color: var(--code-mac-style-header-bg);
+      top: 0;
+      left: 0;
+      position: absolute;
+    }
 
-  $light-size: calc(var(--code-size) - var(--size-2-1));
+    $light-size: calc(var(--code-size) - var(--size-2-1));
 
-  &::before {
-    content: '';
-    width: $light-size;
-    height: $light-size;
-    position: absolute;
-    left: 0.6rem;
-    top: calc(
-      $light-size * var(--line-height-normal) * 0.6 - var(--code-size) / 4
-    );
-    border-radius: 50%;
-    z-index: 9;
-    background-color: rgba(255, 94, 92, var(--color-opacity));
-    box-shadow: calc(var(--size-4-5) * 0.9) 0 0 0
-        rgba(255, 187, 78, var(--color-opacity)),
-      calc(var(--size-4-5) * 1.8) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
-  }
-
-  .copy-code-button {
-    z-index: 10;
-    color: var(--code-mac-style-header-color);
     &::before {
-      color: inherit !important;
+      content: '';
+      width: $light-size;
+      height: $light-size;
+      position: absolute;
+      left: 0.6rem;
+      top: calc(
+        $light-size * var(--line-height-normal) * 0.6 - var(--code-size) / 4
+      );
+      border-radius: 50%;
+      z-index: 9;
+      background-color: rgba(255, 94, 92, var(--color-opacity));
+      box-shadow: calc(var(--size-4-5) * 0.9) 0 0 0
+          rgba(255, 187, 78, var(--color-opacity)),
+        calc(var(--size-4-5) * 1.8) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
+    }
+
+    .copy-code-button {
+      z-index: 10;
+      color: var(--code-mac-style-header-color);
+      &::before {
+        color: inherit !important;
+      }
     }
   }
 }
