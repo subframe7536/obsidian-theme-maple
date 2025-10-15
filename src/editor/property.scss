@@ -28,9 +28,6 @@
   [data-property-key='tag'] {
     @include use-icon-override('.lucide-list', 'tags');
   }
-  [data-property-key='date'] {
-    @include use-icon-override('.lucide-text', 'calendar');
-  }
   [data-property-key='alias'] {
     @include use-icon-override('.lucide-text', 'forward');
   }
@@ -49,7 +46,7 @@
   [data-property-key='source'] {
     @include use-icon-override('.lucide-text', 'link');
   }
-  [data-property-key='published'] {
+  :is([data-property-key='published'], [data-property-key*='date']) {
     @include use-icon-override('.lucide-text', 'calendar');
   }
 }
