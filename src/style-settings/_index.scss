@@ -192,6 +192,7 @@ body.is-mobile
     [data-id='scrollbar-enable'],
     [data-id='tab-slide-up']
   ),
+body.is-phone .setting-item:is([data-id='enable-blur']),
 body:not(.is-mobile) div[data-id='maple-mobile'],
 body:not(.line-active-enable)
   .setting-item[data-id='setting-line-active-color'],
@@ -331,7 +332,7 @@ body:not(.tag-outline)
   padding: var(--size-4-2);
   margin: var(--size-4-1) 0;
   border-radius: var(--radius-m);
-  padding-left: var(--size-4-3);
+  padding-left: var(--size-4-2);
 
   &:hover {
     background-color: var(--background-modifier-hover);

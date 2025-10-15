@@ -1,61 +1,25 @@
-import { descReference, descValidCSS, Settings } from './generator'
+import { descReference, Settings } from './generator'
 import { version } from '../../package.json'
 
 export default Settings.create('maple-workspace', 'Maple Workspace').children([
-  Settings.ofLevel(1, {
-    title: { en: 'Titlebar and Background Image', zh: '标题栏和背景图片' },
-  })
-    .addClassToggle('app-bg-image-enable', {
-      title: {
-        en: 'Add Background Image In Workspace',
-        zh: '添加应用的背景图片',
-      },
-      desc: {
-        en: 'Only works in Desktop Version',
-        zh: '只在桌面端生效',
-      },
-    })
-    .addVarText(
-      'setting-layout-image-light',
+  Settings.of()
+    .addClassToggle(
+      'enable-blur',
       {
-        title: {
-          en: 'Light Theme Background Image URL',
-          zh: '浅色主题背景图片地址',
+        title: { en: 'Enable Background Blur', zh: '启用背景模糊' },
+        desc: {
+          en: 'Works in menus, modals, popups, graph control panel, etc.; close if it is laggy while scrolling; disabled on mobile phones',
+          zh: '在菜单、弹出框、图谱控制面板中生效；如果滚动卡顿请关闭此选项；手机端不生效',
         },
-        desc: descValidCSS('background-image'),
       },
-      { default: '' },
+      { enable: true },
     )
-    .addVarNumSlider(
-      'setting-layout-opacity-light',
+    .addVarThemedColor(
+      'setting-divider-color',
       {
-        title: {
-          en: 'Light Theme Background Opacity',
-          zh: '浅色主题背景不透明度',
-        },
+        title: { en: 'Panel Divider Color', zh: '面板分割线颜色' },
       },
-      { default: 0.6, max: 0.9, min: 0.1, step: 0.05 },
-    )
-    .addVarText(
-      'setting-layout-image-dark',
-      {
-        title: {
-          en: 'Dark Theme Background Image URL',
-          zh: '深色主题背景图片地址',
-        },
-        desc: descValidCSS('background-image'),
-      },
-      { default: '' },
-    )
-    .addVarNumSlider(
-      'setting-layout-opacity-dark',
-      {
-        title: {
-          en: 'Dark Theme Background Opacity',
-          zh: '深色主题背景不透明度',
-        },
-      },
-      { default: 0.6, max: 0.9, min: 0.1, step: 0.05 },
+      'hsl',
     ),
   Settings.ofLevel(1, {
     title: { en: 'File Explorer', zh: '文件管理器' },
@@ -387,23 +351,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       'setting-message-fg',
       { title: { en: 'Foreground Color', zh: '文字颜色' } },
       'hex',
-    ),
-
-  Settings.ofLevel(1, { title: { en: 'Blurred Menu', zh: '菜单模糊效果' } })
-    .addClassToggle(
-      'menu-normal',
-      { title: { en: 'Normal Menu', zh: '普通菜单' } },
-      { enable: true },
-    )
-    .addClassToggle(
-      'menu-suggestion',
-      { title: { en: 'Suggestion Menu', zh: '提示菜单' } },
-      { enable: true },
-    )
-    .addClassToggle(
-      'menu-graph',
-      { title: { en: 'Graph Menu', zh: '图谱菜单' } },
-      { enable: true },
     ),
   Settings.ofLevel(1, { title: { en: 'Scrollbar', zh: '滚动条' } })
     .addClassToggle('scrollbar-hide', {
