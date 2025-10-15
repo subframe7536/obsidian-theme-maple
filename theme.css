@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.45 For Obsidian */
+/* Maple Theme v1.0.0-beta.46 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -204,48 +204,22 @@ settings:
 id: maple-workspace
 name: Maple Workspace
 settings:
-    - id: title-titlebar-and-background-image
-      title: Titlebar and Background Image
-      title.zh: 标题栏和背景图片
-      type: heading
-      level: 1
-      collapsed: true
-    - id: app-bg-image-enable
+    - id: enable-blur
       type: class-toggle
-      title: Add Background Image In Workspace
-      title.zh: 添加应用的背景图片
-      description: Only works in Desktop Version
-      description.zh: 只在桌面端生效
-    - id: setting-layout-image-light
-      type: variable-text
-      title: Light Theme Background Image URL
-      title.zh: 浅色主题背景图片地址
-      description: Any CSS "background-image" value, e.g. url("/your/image/url")
-      description.zh: 任何 CSS “background-image” 值，例如：url("图片链接地址")
-      default: ""
-    - id: setting-layout-opacity-light
-      type: variable-number-slider
-      title: Light Theme Background Opacity
-      title.zh: 浅色主题背景不透明度
-      default: 0.6
-      max: 0.9
-      min: 0.1
-      step: 0.05
-    - id: setting-layout-image-dark
-      type: variable-text
-      title: Dark Theme Background Image URL
-      title.zh: 深色主题背景图片地址
-      description: Any CSS "background-image" value, e.g. url("/your/image/url")
-      description.zh: 任何 CSS “background-image” 值，例如：url("图片链接地址")
-      default: ""
-    - id: setting-layout-opacity-dark
-      type: variable-number-slider
-      title: Dark Theme Background Opacity
-      title.zh: 深色主题背景不透明度
-      default: 0.6
-      max: 0.9
-      min: 0.1
-      step: 0.05
+      title: Enable Background Blur
+      title.zh: 启用背景模糊
+      description: Works in menus, modals, popups, graph control panel, etc.; close if
+          it is laggy while scrolling; disabled on mobile phones
+      description.zh: 在菜单、弹出框、图谱控制面板中生效；如果滚动卡顿请关闭此选项；手机端不生效
+      default: true
+    - id: setting-divider-color
+      type: variable-themed-color
+      title: Panel Divider Color
+      title.zh: 面板分割线颜色
+      format: hsl
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
     - id: title-file-explorer
       title: File Explorer
       title.zh: 文件管理器
@@ -387,7 +361,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.45
+      default: Maple 1.0.0-beta.46
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -539,27 +513,6 @@ settings:
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: title-blurred-menu
-      title: Blurred Menu
-      title.zh: 菜单模糊效果
-      type: heading
-      level: 1
-      collapsed: true
-    - id: menu-normal
-      type: class-toggle
-      title: Normal Menu
-      title.zh: 普通菜单
-      default: true
-    - id: menu-suggestion
-      type: class-toggle
-      title: Suggestion Menu
-      title.zh: 提示菜单
-      default: true
-    - id: menu-graph
-      type: class-toggle
-      title: Graph Menu
-      title.zh: 图谱菜单
-      default: true
     - id: title-scrollbar
       title: Scrollbar
       title.zh: 滚动条
@@ -1991,7 +1944,7 @@ body {
   --animation: var(--animation-dur) var(--anim-motion-smooth);
   --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--animation-dur));
-  --divider-color: var(--color-base-30);
+  --divider-color: var(--setting-divider-color, var(--color-base-30));
   --divider-width-hover: var(--size-4-1);
   --nav-item-background-active: var(--accent-active-bg);
   --nav-item-background-selected: var(--background-modifier-hover);
@@ -2311,6 +2264,7 @@ body.is-mobile .setting-item:is([data-id=title-layout],
 [data-id=image-zoom],
 [data-id=scrollbar-enable],
 [data-id=tab-slide-up]),
+body.is-phone .setting-item:is([data-id=enable-blur]),
 body:not(.is-mobile) div[data-id=maple-mobile],
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color],
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
@@ -2382,6 +2336,7 @@ body.is-mobile .setting-item:is([data-id=title-layout],
 [data-id=image-zoom],
 [data-id=scrollbar-enable],
 [data-id=tab-slide-up]) + .style-settings-container,
+body.is-phone .setting-item:is([data-id=enable-blur]) + .style-settings-container,
 body:not(.is-mobile) div[data-id=maple-mobile] + .style-settings-container,
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
@@ -2463,7 +2418,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type=style-settings] .view-con
   padding: var(--size-4-2);
   margin: var(--size-4-1) 0;
   border-radius: var(--radius-m);
-  padding-left: var(--size-4-3);
+  padding-left: var(--size-4-2);
 }
 .setting-item.setting-item-heading.style-settings-heading:hover {
   background-color: var(--background-modifier-hover);
@@ -2529,7 +2484,7 @@ body {
 }
 
 body.app-layout-card:not(.is-mobile) {
-  --divider-color: transparent;
+  --divider-color: var(--setting-divider-color, transparent);
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;
@@ -6900,7 +6855,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.45");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.46");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7073,24 +7028,24 @@ body.enable-group-title .modal-container .mod-settings .modal-content .vertical-
   --settings-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M18 21a8 8 0 0 0-16 0'/><circle cx='10' cy='8' r='5'/><path d='M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3'/></g></svg>");
 }
 
-body:not(.is-phone) :is(.menu, .modal-bg, .document-search-container, .suggestion-container) {
+:is(.menu, .modal-bg, .document-search-container, .suggestion-container) {
   animation: op var(--animation-slow);
 }
-body:not(.is-phone) :is(.prompt, .popover, .modal) {
+
+:is(.prompt, .popover, .modal) {
   animation: op var(--animation-slow), slide-up var(--animation-slow);
 }
-body:not(.is-phone) :is(.menu-normal .menu,
-.menu-suggestion .suggestion-container,
-.menu-graph .graph-control-section) {
-  background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
-  backdrop-filter: blur(24px);
-  will-change: backdrop-filter;
-}
+
 body:not(.is-phone) .modal-bg {
   opacity: 1 !important;
   background-color: hsla(var(--background-secondary-hsl), 0.6) !important;
 }
-body:not(.is-phone) .modal-blur .modal-bg {
+body:not(.is-phone).enable-blur :is(.menu, .suggestion-container, .graph-control-section) {
+  background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
+  backdrop-filter: blur(24px);
+  will-change: backdrop-filter;
+}
+body:not(.is-phone).enable-blur .modal-bg {
   backdrop-filter: blur(6px);
   transform: translateZ(0);
 }
@@ -7343,7 +7298,7 @@ body.is-hidden-frameless:is(.mod-windows, .mod-linux) .titlebar-button svg:not([
   width: 100%;
   height: 35%;
 }
-body .mod-maximize svg rect {
+body.mod-maximize svg rect {
   rx: 1.8;
 }
 body .titlebar-button.mod-close:hover {
