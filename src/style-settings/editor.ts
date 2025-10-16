@@ -834,8 +834,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'code-nowrap',
       {
         title: {
-          en: "Don't Wrap Line in Reading View Code Blocks",
+          en: 'Prevent Code Wrapping in Reading View',
           zh: '阅读视图下代码过长时不换行',
+        },
+        desc: {
+          en: 'Only effective in editor',
+          zh: '仅在编辑器内生效',
         },
       },
       { enable: true },

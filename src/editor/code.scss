@@ -149,7 +149,6 @@ pre {
 
 body .markdown-rendered pre {
   transition: border-color var(--animation);
-  overflow-x: hidden;
 
   &:hover {
     border-color: var(--background-modifier-border-hover);
@@ -188,10 +187,16 @@ body .markdown-rendered pre {
     }
   }
 
-  pre code {
-    word-break: normal;
-    word-wrap: break-word;
-    white-space: pre;
+  .el-pre {
+    position: relative;
+    pre {
+      position: unset;
+      code {
+        word-break: normal;
+        word-wrap: break-word;
+        white-space: pre;
+      }
+    }
   }
 }
 
@@ -368,12 +373,10 @@ body .markdown-rendered pre {
 }
 
 @media screen {
-  .code-mac-style-header .markdown-rendered pre:not(.dataview) {
+  .code-mac-style-header .markdown-rendered pre {
     border: none;
     padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
-    padding-bottom: calc(
-      var(--code-size) * var(--line-height-normal) * 0.5
-    ) !important;
+    padding-bottom: calc(var(--code-size) * 0.5);
 
     &::after {
       content: '';
@@ -383,6 +386,8 @@ body .markdown-rendered pre {
       top: 0;
       left: 0;
       position: absolute;
+      border-top-left-radius: var(--code-radius);
+      border-top-right-radius: var(--code-radius);
     }
 
     $light-size: calc(var(--code-size) - var(--size-2-1));
