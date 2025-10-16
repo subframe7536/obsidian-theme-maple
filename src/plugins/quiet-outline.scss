@@ -1,0 +1,16 @@
+.quiet-outline {
+  .n-tree.n-tree--block-line .n-tree-node {
+    &:not(.n-tree-node--disabled) {
+      border-radius: var(--radius-s);
+      &:hover {
+        background-color: var(--nav-item-background-hover);
+      }
+    }
+    &.located p {
+      color: var(--accent-active);
+    }
+  }
+  .n-input {
+    --input-border-width-focus: 0;
+  }
+}
