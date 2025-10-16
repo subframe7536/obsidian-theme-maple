@@ -335,6 +335,7 @@ body {
   }
 }
 
+i,
 em,
 .cm-em {
   --blockquote-color: var(--italic-color);
@@ -342,11 +343,13 @@ em,
   font-family: var(--setting-text-italic-font, inherit);
 }
 
+b,
 strong,
 .cm-strong {
   --blockquote-color: var(--bold-color);
   text-decoration: var(--setting-text-bold-style, underline dotted);
   font-family: var(--setting-text-bold-font, inherit);
+  font-weight: var(--setting-text-bold-weight, 600);
 }
 
 :is(em, .cm-em, strong, .cm-strong, u) {

@@ -326,6 +326,13 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           },
           'hex',
         )
+        .addVarNumSlider(
+          'setting-text-bold-weight',
+          {
+            title: { en: 'Bold Font Weight', zh: '粗体字重' },
+          },
+          { default: 600, min: 100, max: 800, step: 50 },
+        )
         .addVarText(
           'setting-text-bold-style',
           {
