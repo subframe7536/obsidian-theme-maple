@@ -83,7 +83,7 @@ body.scrollbar-enable:not(.is-mobile) {
       }
     }
 
-    textarea {
+    :is(textarea, pre) {
       color: transparent;
       transition: color var(--animation);
       -webkit-text-fill-color: var(--text-normal);
