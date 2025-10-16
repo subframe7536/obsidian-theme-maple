@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.48 For Obsidian */
+/* Maple Theme v1.0.0-beta.49 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -361,7 +361,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.48
+      default: Maple 1.0.0-beta.49
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -1670,8 +1670,10 @@ settings:
       default: true
     - id: code-nowrap
       type: class-toggle
-      title: Don't Wrap Line in Reading View Code Blocks
+      title: Prevent Code Wrapping in Reading View
       title.zh: 阅读视图下代码过长时不换行
+      description: Only effective in editor
+      description.zh: 仅在编辑器内生效
       default: true
     - id: setting-code-ligature
       type: variable-text
@@ -1938,6 +1940,7 @@ body {
     60%
   );
   --background-primary: hsl(var(--background-primary-hsl));
+  --background-primary-alt: hsl(var(--background-primary-alt-hsl));
   --background-secondary: hsl(var(--background-secondary-hsl));
   --background-modifier-border-focus: var(--background-modifier-border-hover);
   --background-modifier-error: rgba(var(--color-red-rgb), 1);
@@ -2007,7 +2010,7 @@ body {
     calc(85% + var(--theme-accent-active-l) * 0.1)
   );
   --background-primary-hsl: var(--base-accent-h), 12%, 97%;
-  --background-primary-alt: hsl(var(--base-accent-h), 10%, 95%);
+  --background-primary-alt-hsl: var(--base-accent-h), 10%, 95%;
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 8%, 93%;
   --background-modifier-hover: hsl(
     var(--base-accent-h),
@@ -2020,7 +2023,7 @@ body {
 .theme-light.color-use-minimal {
   --base-accent-h: 210;
   --background-primary-hsl: var(--base-accent-h), 6%, 97%;
-  --background-primary-alt: hsl(var(--base-accent-h), 10%, 95.5%);
+  --background-primary-alt-hsl: var(--base-accent-h), 10%, 95.5%;
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 93%;
   --theme-accent-active-s: 6%;
   --theme-accent-active-l: 36%;
@@ -2087,7 +2090,7 @@ body {
     calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
   );
   --background-primary-hsl: var(--base-accent-h), 5%, 11%;
-  --background-primary-alt: hsl(var(--base-accent-h), 10%, 13%);
+  --background-primary-alt-hsl: var(--base-accent-h), 10%, 13%;
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 6%, 12%;
   --background-modifier-hover: hsl(
     var(--base-accent-h),
@@ -2102,7 +2105,7 @@ body {
   --text-on-accent: #1e1e1f !important;
   --base-accent-h: 210;
   --background-primary-hsl: var(--base-accent-h), 4%, 10%;
-  --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
+  --background-primary-alt-hsl: var(--base-accent-h), 8%, 12%;
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 12%;
   --theme-accent-active-s: 4%;
   --theme-accent-active-l: 72%;
@@ -2531,16 +2534,16 @@ body.app-layout-card:not(.is-mobile) {
   --app-layout-spacing: var(--setting-app-layout-spacing, var(--size-2-3));
 }
 body.app-layout-card:not(.is-mobile).theme-light {
-  --background-primary-alt: hsl(var(--base-accent-h), 18%, 93.5%);
+  --background-primary-alt-hsl: var(--base-accent-h), 18%, 93.5%;
 }
 body.app-layout-card:not(.is-mobile).theme-light.color-use-minimal {
-  --background-primary-alt: hsl(var(--base-accent-h), 2%, 94%);
+  --background-primary-alt-hsl: var(--base-accent-h), 2%, 94%;
 }
 body.app-layout-card:not(.is-mobile).theme-dark {
-  --background-primary-alt: hsl(var(--base-accent-h), 8%, 13.5%);
+  --background-primary-alt-hsl: var(--base-accent-h), 8%, 13.5%;
 }
 body.app-layout-card:not(.is-mobile).theme-dark.color-use-minimal {
-  --background-primary-alt: hsl(var(--base-accent-h), 4%, 13%);
+  --background-primary-alt-hsl: var(--base-accent-h), 4%, 13%;
 }
 body.app-layout-card:not(.is-mobile):is(.app-layout-card-plain, .color-use-minimal) {
   background-color: var(--bg-surface);
@@ -3191,7 +3194,6 @@ pre {
 
 body .markdown-rendered pre {
   transition: border-color var(--animation);
-  overflow-x: hidden;
 }
 body .markdown-rendered pre:hover {
   border-color: var(--background-modifier-border-hover);
@@ -3220,7 +3222,13 @@ body .markdown-rendered pre .copy-code-button {
 .code-nowrap.scrollbar-gutter-overlay pre code {
   padding-bottom: var(--size-2-3);
 }
-.code-nowrap pre code {
+.code-nowrap .el-pre {
+  position: relative;
+}
+.code-nowrap .el-pre pre {
+  position: unset;
+}
+.code-nowrap .el-pre pre code {
   word-break: normal;
   word-wrap: break-word;
   white-space: pre;
@@ -3763,40 +3771,43 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   --code-mac-style-header-color: #aaa;
 }
 
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) {
-  border: none;
-  padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
-  padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.5) !important;
+@media screen {
+  .code-mac-style-header .markdown-rendered pre {
+    border: none;
+    padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
+    padding-bottom: calc(var(--code-size) * 0.5);
+  }
+  .code-mac-style-header .markdown-rendered pre::after {
+    content: "";
+    width: 100%;
+    height: calc(var(--code-size) * var(--line-height-normal) * 1.2);
+    background-color: var(--code-mac-style-header-bg);
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-top-left-radius: var(--code-radius);
+    border-top-right-radius: var(--code-radius);
+  }
+  .code-mac-style-header .markdown-rendered pre::before {
+    content: "";
+    width: calc(var(--code-size) - var(--size-2-1));
+    height: calc(var(--code-size) - var(--size-2-1));
+    position: absolute;
+    left: 0.6rem;
+    top: calc((var(--code-size) - var(--size-2-1)) * var(--line-height-normal) * 0.6 - var(--code-size) / 4);
+    border-radius: 50%;
+    z-index: 9;
+    background-color: rgba(255, 94, 92, var(--color-opacity));
+    box-shadow: calc(var(--size-4-5) * 0.9) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-5) * 1.8) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
+  }
+  .code-mac-style-header .markdown-rendered pre .copy-code-button {
+    z-index: 10;
+    color: var(--code-mac-style-header-color);
+  }
+  .code-mac-style-header .markdown-rendered pre .copy-code-button::before {
+    color: inherit !important;
+  }
 }
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview)::after {
-  content: "";
-  width: 100%;
-  height: calc(var(--code-size) * var(--line-height-normal) * 1.2);
-  background-color: var(--code-mac-style-header-bg);
-  top: 0;
-  left: 0;
-  position: absolute;
-}
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview)::before {
-  content: "";
-  width: calc(var(--code-size) - var(--size-2-1));
-  height: calc(var(--code-size) - var(--size-2-1));
-  position: absolute;
-  left: 0.6rem;
-  top: calc((var(--code-size) - var(--size-2-1)) * var(--line-height-normal) * 0.6 - var(--code-size) / 4);
-  border-radius: 50%;
-  z-index: 9;
-  background-color: rgba(255, 94, 92, var(--color-opacity));
-  box-shadow: calc(var(--size-4-5) * 0.9) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-5) * 1.8) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
-}
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) .copy-code-button {
-  z-index: 10;
-  color: var(--code-mac-style-header-color);
-}
-.code-mac-style-header:not(:has(.print)) .markdown-rendered pre:not(.dataview) .copy-code-button::before {
-  color: inherit !important;
-}
-
 .code-line-number .cm-contentContainer {
   counter-reset: code-line;
 }
@@ -3887,7 +3898,7 @@ body .cm-lang-query .internal-query-header {
 }
 body.embed-border-hidden {
   --embed-border-start: none;
-  --embed-background: var(--background-primary-alt);
+  --embed-background: hsl(var(--background-primary-alt-hsl), 0.4);
 }
 body.scrollbar-gutter-reserve.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-embed-heading .markdown-preview-section > div:nth-child(2) {
   right: var(--size-4-3);
@@ -5421,11 +5432,11 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   line-height: var(--line-height-normal);
 }
 
-:is(h1, .HyperMD-header-1) {
+:is(.HyperMD-header-1, .markdown-rendered h1) {
   --h-indicator-content: "H1";
 }
 
-.link-heading :is(h1, .HyperMD-header-1) {
+.link-heading :is(.HyperMD-header-1, .markdown-rendered h1) {
   --link-color: var(--h1-color);
   --link-color-underline: var(--h1-color);
   --link-external-color: var(--h1-color);
@@ -5433,11 +5444,11 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   --link-text-size: var(--h1-size);
 }
 
-:is(h2, .HyperMD-header-2) {
+:is(.HyperMD-header-2, .markdown-rendered h2) {
   --h-indicator-content: "H2";
 }
 
-.link-heading :is(h2, .HyperMD-header-2) {
+.link-heading :is(.HyperMD-header-2, .markdown-rendered h2) {
   --link-color: var(--h2-color);
   --link-color-underline: var(--h2-color);
   --link-external-color: var(--h2-color);
@@ -5445,11 +5456,11 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   --link-text-size: var(--h2-size);
 }
 
-:is(h3, .HyperMD-header-3) {
+:is(.HyperMD-header-3, .markdown-rendered h3) {
   --h-indicator-content: "H3";
 }
 
-.link-heading :is(h3, .HyperMD-header-3) {
+.link-heading :is(.HyperMD-header-3, .markdown-rendered h3) {
   --link-color: var(--h3-color);
   --link-color-underline: var(--h3-color);
   --link-external-color: var(--h3-color);
@@ -5457,11 +5468,11 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   --link-text-size: var(--h3-size);
 }
 
-:is(h4, .HyperMD-header-4) {
+:is(.HyperMD-header-4, .markdown-rendered h4) {
   --h-indicator-content: "H4";
 }
 
-.link-heading :is(h4, .HyperMD-header-4) {
+.link-heading :is(.HyperMD-header-4, .markdown-rendered h4) {
   --link-color: var(--h4-color);
   --link-color-underline: var(--h4-color);
   --link-external-color: var(--h4-color);
@@ -5469,11 +5480,11 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   --link-text-size: var(--h4-size);
 }
 
-:is(h5, .HyperMD-header-5) {
+:is(.HyperMD-header-5, .markdown-rendered h5) {
   --h-indicator-content: "H5";
 }
 
-.link-heading :is(h5, .HyperMD-header-5) {
+.link-heading :is(.HyperMD-header-5, .markdown-rendered h5) {
   --link-color: var(--h5-color);
   --link-color-underline: var(--h5-color);
   --link-external-color: var(--h5-color);
@@ -5481,11 +5492,11 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   --link-text-size: var(--h5-size);
 }
 
-:is(h6, .HyperMD-header-6) {
+:is(.HyperMD-header-6, .markdown-rendered h6) {
   --h-indicator-content: "H6";
 }
 
-.link-heading :is(h6, .HyperMD-header-6) {
+.link-heading :is(.HyperMD-header-6, .markdown-rendered h6) {
   --link-color: var(--h6-color);
   --link-color-underline: var(--h6-color);
   --link-external-color: var(--h6-color);
@@ -5566,40 +5577,46 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   color: var(--h6-color) !important;
 }
 
-.heading-h1-underline .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting), h1) {
+.heading-h1-underline .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting),
+.markdown-rendered h1) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h2-underline .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting), h2) {
+.heading-h2-underline .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting),
+.markdown-rendered h2) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h3-underline .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting), h3) {
+.heading-h3-underline .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting),
+.markdown-rendered h3) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h4-underline .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting), h4) {
+.heading-h4-underline .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting),
+.markdown-rendered h4) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h5-underline .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting), h5) {
+.heading-h5-underline .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting),
+.markdown-rendered h5) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h6-underline .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting), h6) {
+.heading-h6-underline .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting),
+.markdown-rendered h6) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h1-full-line .app-container :is(.HyperMD-header-1, h1) {
+.heading-h1-full-line :is(.HyperMD-header-1, .markdown-rendered h1) {
   position: relative;
 }
-.heading-h1-full-line .app-container :is(.HyperMD-header-1, h1)::after {
+.heading-h1-full-line :is(.HyperMD-header-1, .markdown-rendered h1)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5608,14 +5625,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h1-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h1-full-line .app-container.heading-h1-full-line-left {
+.heading-h1-full-line.heading-h1-full-line-left {
   --heading-h1-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h1-full-line .app-container.heading-h1-full-line-right {
+.heading-h1-full-line.heading-h1-full-line-right {
   --heading-h1-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5623,10 +5640,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h2-full-line .app-container :is(.HyperMD-header-2, h2) {
+.heading-h2-full-line :is(.HyperMD-header-2, .markdown-rendered h2) {
   position: relative;
 }
-.heading-h2-full-line .app-container :is(.HyperMD-header-2, h2)::after {
+.heading-h2-full-line :is(.HyperMD-header-2, .markdown-rendered h2)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5635,14 +5652,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h2-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h2-full-line .app-container.heading-h2-full-line-left {
+.heading-h2-full-line.heading-h2-full-line-left {
   --heading-h2-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h2-full-line .app-container.heading-h2-full-line-right {
+.heading-h2-full-line.heading-h2-full-line-right {
   --heading-h2-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5650,10 +5667,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h3-full-line .app-container :is(.HyperMD-header-3, h3) {
+.heading-h3-full-line :is(.HyperMD-header-3, .markdown-rendered h3) {
   position: relative;
 }
-.heading-h3-full-line .app-container :is(.HyperMD-header-3, h3)::after {
+.heading-h3-full-line :is(.HyperMD-header-3, .markdown-rendered h3)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5662,14 +5679,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h3-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h3-full-line .app-container.heading-h3-full-line-left {
+.heading-h3-full-line.heading-h3-full-line-left {
   --heading-h3-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h3-full-line .app-container.heading-h3-full-line-right {
+.heading-h3-full-line.heading-h3-full-line-right {
   --heading-h3-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5677,10 +5694,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h4-full-line .app-container :is(.HyperMD-header-4, h4) {
+.heading-h4-full-line :is(.HyperMD-header-4, .markdown-rendered h4) {
   position: relative;
 }
-.heading-h4-full-line .app-container :is(.HyperMD-header-4, h4)::after {
+.heading-h4-full-line :is(.HyperMD-header-4, .markdown-rendered h4)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5689,14 +5706,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h4-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h4-full-line .app-container.heading-h4-full-line-left {
+.heading-h4-full-line.heading-h4-full-line-left {
   --heading-h4-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h4-full-line .app-container.heading-h4-full-line-right {
+.heading-h4-full-line.heading-h4-full-line-right {
   --heading-h4-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5704,10 +5721,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h5-full-line .app-container :is(.HyperMD-header-5, h5) {
+.heading-h5-full-line :is(.HyperMD-header-5, .markdown-rendered h5) {
   position: relative;
 }
-.heading-h5-full-line .app-container :is(.HyperMD-header-5, h5)::after {
+.heading-h5-full-line :is(.HyperMD-header-5, .markdown-rendered h5)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5716,14 +5733,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h5-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h5-full-line .app-container.heading-h5-full-line-left {
+.heading-h5-full-line.heading-h5-full-line-left {
   --heading-h5-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h5-full-line .app-container.heading-h5-full-line-right {
+.heading-h5-full-line.heading-h5-full-line-right {
   --heading-h5-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5731,10 +5748,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h6-full-line .app-container :is(.HyperMD-header-6, h6) {
+.heading-h6-full-line :is(.HyperMD-header-6, .markdown-rendered h6) {
   position: relative;
 }
-.heading-h6-full-line .app-container :is(.HyperMD-header-6, h6)::after {
+.heading-h6-full-line :is(.HyperMD-header-6, .markdown-rendered h6)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5743,14 +5760,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h6-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h6-full-line .app-container.heading-h6-full-line-left {
+.heading-h6-full-line.heading-h6-full-line-left {
   --heading-h6-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h6-full-line .app-container.heading-h6-full-line-right {
+.heading-h6-full-line.heading-h6-full-line-right {
   --heading-h6-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5776,28 +5793,28 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   --h1-color-bg: rgba(var(--h1-color-rgb));
 }
 .heading-h1-block.heading-h1-block-contrast .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header),
-h1) {
+.markdown-rendered h1) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h1-block .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1) {
+.heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h1) {
   background-color: var(--h1-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h1-block .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1)::selection {
+.heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h1)::selection {
   color: var(--h1-color);
   background-color: var(--background-secondary);
 }
-.heading-h1-block .app-container h1 {
+.heading-h1-block .markdown-rendered h1 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(
-    var(--h2-line-height) - 1.2 * var(--h1-size)
-  );
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h1-size));
 }
-.heading-h1-block:not(.heading-indicator-disable) h1::before {
+.heading-h1-block:not(.heading-indicator-disable) .markdown-rendered h1::before {
   top: -0.3rem;
   line-height: var(--h1-line-height);
 }
@@ -5820,28 +5837,28 @@ h1) {
   --h2-color-bg: rgba(var(--h2-color-rgb));
 }
 .heading-h2-block.heading-h2-block-contrast .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header),
-h2) {
+.markdown-rendered h2) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h2-block .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2) {
+.heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h2) {
   background-color: var(--h2-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h2-block .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2)::selection {
+.heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h2)::selection {
   color: var(--h2-color);
   background-color: var(--background-secondary);
 }
-.heading-h2-block .app-container h2 {
+.heading-h2-block .markdown-rendered h2 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(
-    var(--h2-line-height) - 1.2 * var(--h2-size)
-  );
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h2-size));
 }
-.heading-h2-block:not(.heading-indicator-disable) h2::before {
+.heading-h2-block:not(.heading-indicator-disable) .markdown-rendered h2::before {
   top: -0.3rem;
   line-height: var(--h2-line-height);
 }
@@ -5864,28 +5881,28 @@ h2) {
   --h3-color-bg: rgba(var(--h3-color-rgb));
 }
 .heading-h3-block.heading-h3-block-contrast .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header),
-h3) {
+.markdown-rendered h3) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h3-block .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3) {
+.heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h3) {
   background-color: var(--h3-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h3-block .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3)::selection {
+.heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h3)::selection {
   color: var(--h3-color);
   background-color: var(--background-secondary);
 }
-.heading-h3-block .app-container h3 {
+.heading-h3-block .markdown-rendered h3 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(
-    var(--h2-line-height) - 1.2 * var(--h3-size)
-  );
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h3-size));
 }
-.heading-h3-block:not(.heading-indicator-disable) h3::before {
+.heading-h3-block:not(.heading-indicator-disable) .markdown-rendered h3::before {
   top: -0.3rem;
   line-height: var(--h3-line-height);
 }
@@ -5908,28 +5925,28 @@ h3) {
   --h4-color-bg: rgba(var(--h4-color-rgb));
 }
 .heading-h4-block.heading-h4-block-contrast .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header),
-h4) {
+.markdown-rendered h4) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h4-block .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4) {
+.heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h4) {
   background-color: var(--h4-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h4-block .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4)::selection {
+.heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h4)::selection {
   color: var(--h4-color);
   background-color: var(--background-secondary);
 }
-.heading-h4-block .app-container h4 {
+.heading-h4-block .markdown-rendered h4 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(
-    var(--h2-line-height) - 1.2 * var(--h4-size)
-  );
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h4-size));
 }
-.heading-h4-block:not(.heading-indicator-disable) h4::before {
+.heading-h4-block:not(.heading-indicator-disable) .markdown-rendered h4::before {
   top: -0.3rem;
   line-height: var(--h4-line-height);
 }
@@ -5952,28 +5969,28 @@ h4) {
   --h5-color-bg: rgba(var(--h5-color-rgb));
 }
 .heading-h5-block.heading-h5-block-contrast .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header),
-h5) {
+.markdown-rendered h5) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h5-block .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5) {
+.heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h5) {
   background-color: var(--h5-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h5-block .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5)::selection {
+.heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h5)::selection {
   color: var(--h5-color);
   background-color: var(--background-secondary);
 }
-.heading-h5-block .app-container h5 {
+.heading-h5-block .markdown-rendered h5 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(
-    var(--h2-line-height) - 1.2 * var(--h5-size)
-  );
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h5-size));
 }
-.heading-h5-block:not(.heading-indicator-disable) h5::before {
+.heading-h5-block:not(.heading-indicator-disable) .markdown-rendered h5::before {
   top: -0.3rem;
   line-height: var(--h5-line-height);
 }
@@ -5996,28 +6013,28 @@ h5) {
   --h6-color-bg: rgba(var(--h6-color-rgb));
 }
 .heading-h6-block.heading-h6-block-contrast .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header),
-h6) {
+.markdown-rendered h6) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h6-block .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6) {
+.heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h6) {
   background-color: var(--h6-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h6-block .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6)::selection {
+.heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header),
+.markdown-rendered h6)::selection {
   color: var(--h6-color);
   background-color: var(--background-secondary);
 }
-.heading-h6-block .app-container h6 {
+.heading-h6-block .markdown-rendered h6 {
   width: fit-content;
   line-height: 1.2;
-  --heading-spacing: calc(
-    var(--h2-line-height) - 1.2 * var(--h6-size)
-  );
+  --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h6-size));
 }
-.heading-h6-block:not(.heading-indicator-disable) h6::before {
+.heading-h6-block:not(.heading-indicator-disable) .markdown-rendered h6::before {
   top: -0.3rem;
   line-height: var(--h6-line-height);
 }
@@ -6656,6 +6673,21 @@ body:not(.is-mobile).modal-header.modal-header-search .settings-search-container
 }
 
 /* #endregion settings-search */
+/* #region quiet-outline */
+.quiet-outline .n-tree.n-tree--block-line .n-tree-node:not(.n-tree-node--disabled) {
+  border-radius: var(--radius-s);
+}
+.quiet-outline .n-tree.n-tree--block-line .n-tree-node:not(.n-tree-node--disabled):hover {
+  background-color: var(--nav-item-background-hover);
+}
+.quiet-outline .n-tree.n-tree--block-line .n-tree-node.located p {
+  color: var(--accent-active);
+}
+.quiet-outline .n-input {
+  --input-border-width-focus: 0;
+}
+
+/* #endregion quiet-outline */
 /* #endregion [plugins] */
 /* #region [workspace] */
 /* #region document-search */
@@ -6897,7 +6929,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.48");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.49");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7166,18 +7198,18 @@ body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.ver
 body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code):hover {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable textarea {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre) {
   color: transparent;
   transition: color var(--animation);
   -webkit-text-fill-color: var(--text-normal);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable textarea:hover {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre):hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable textarea * {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre) * {
   -webkit-text-fill-color: initial;
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable textarea::-webkit-scrollbar-thumb {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre)::-webkit-scrollbar-thumb {
   box-shadow: 0 0 0 10px inset;
   border-width: 3.2px;
   background-clip: content-box;
