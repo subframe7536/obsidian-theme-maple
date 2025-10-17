@@ -10,15 +10,15 @@
 }
 
 body.search-internal-enable .document-search-container {
-  background-color: var(--background-secondary) !important;
+  background-color: var(--background-secondary);
   position: absolute;
   top: var(--size-4-10);
   right: var(--size-4-4);
   border-radius: var(--radius-m);
   height: fit-content;
-  border: 1px solid var(--color-base-25) !important;
+  border: 1px solid var(--background-modifier-border);
   box-shadow: var(--shadow-s);
-  padding: var(--size-4-2);
+  padding: var(--size-4-2) 0;
   margin: 0;
 
   :is(.document-replace, .document-search) {
