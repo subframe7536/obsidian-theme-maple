@@ -172,7 +172,7 @@ body {
       .table-row-drag-handle,
       .table-col-drag-handle
     ) {
-    transition: opacity var(--animation);
+    transition: opacity var(--animation-fast);
   }
 
   .table-row-btn {

@@ -12,7 +12,7 @@ body:not(.is-phone)
 }
 
 .clickable-icon {
-  transition: var(--animation);
+  transition: var(--animation-fast);
   transition-property: opacity, background-color;
 }
 

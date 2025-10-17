@@ -58,6 +58,7 @@ body {
     0 0.75px 2px 0.5px var(--color-base-50);
 
   --animation-dur: var(--setting-animation-time, 250ms);
+  --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
   --animation: var(--animation-dur) var(--anim-motion-smooth);
   --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--animation-dur));

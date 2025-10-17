@@ -168,7 +168,7 @@ body .markdown-rendered pre {
     padding-bottom: 0;
     display: block !important;
     opacity: 0;
-    transition: var(--animation);
+    transition: var(--animation-fast);
     transition-property: opacity, background-color;
     cursor: pointer;
   }

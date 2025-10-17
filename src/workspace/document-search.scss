@@ -33,7 +33,7 @@ body.search-internal-enable .document-search-container {
         opacity: 0;
         pointer-events: none;
         cursor: none;
-        transition: opacity var(--animation);
+        transition: opacity var(--animation-fast);
       }
     }
 
@@ -46,7 +46,7 @@ body.search-internal-enable .document-search-container {
       right: var(--size-4-1);
       border-radius: var(--radius-s);
       opacity: 1;
-      transition: var(--animation);
+      transition: var(--animation-fast);
       transition-delay: 0.5s;
     }
   }

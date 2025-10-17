@@ -19,7 +19,7 @@ body {
 
     .edit-block-button {
       border-radius: var(--radius-s) !important;
-      transition: var(--animation);
+      transition: var(--animation-fast);
       transition-property: background-color, opacity;
       height: fit-content;
     }
