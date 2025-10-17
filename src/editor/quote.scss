@@ -104,7 +104,8 @@ body {
 }
 
 .quote-mark blockquote {
-  padding-left: calc(var(--indent-unit) * var(--indent-size) + var(--size-4-1));
+  padding-inline-start: calc(var(--indent-unit) * var(--indent-size));
+  padding-block: calc(var(--indent-unit) * var(--indent-size) / 4) !important;
 
   &::before {
     content: '“';
@@ -113,7 +114,10 @@ body {
     font-size: calc(var(--font-text-size) * 3);
     line-height: 0.9;
     color: var(--text-muted);
-    left: calc(var(--indent-unit) / 2);
+    left: calc(var(--indent-unit) * 0.3);
+  }
+  &::after {
+    content: none !important;
   }
 }
 
