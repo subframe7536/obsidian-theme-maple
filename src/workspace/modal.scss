@@ -16,54 +16,53 @@ body:not(.is-phone)
   transition-property: opacity, background-color;
 }
 
-button.mod-cta {
-  transition: box-shadow var(--animation);
-  background: linear-gradient(
-    to bottom,
-    transparent -240%,
-    var(--color-accent) 100%
-  );
-  &:hover {
+@include use-no-plugin('.modal-control-gradient') {
+  button.mod-cta {
+    transition: box-shadow var(--animation);
     background: linear-gradient(
       to bottom,
       transparent -240%,
-      var(--color-accent-1) 100%
+      var(--color-accent) 100%
     );
+    &:hover {
+      background: linear-gradient(
+        to bottom,
+        transparent -240%,
+        var(--color-accent-1) 100%
+      );
+    }
   }
-}
 
-button.mod-warning {
-  transition: box-shadow var(--animation);
-  background: linear-gradient(
-    to bottom,
-    transparent -240%,
-    var(--background-modifier-error) 100%
-  );
-  &:hover {
+  button.mod-warning {
+    transition: box-shadow var(--animation);
     background: linear-gradient(
       to bottom,
       transparent -240%,
-      var(--background-modifier-error-hover) 100%
+      var(--background-modifier-error) 100%
     );
+    &:hover {
+      background: linear-gradient(
+        to bottom,
+        transparent -240%,
+        var(--background-modifier-error-hover) 100%
+      );
+    }
   }
-}
 
-body:not(.is-phone).modal-header .modal-close-button {
-  transition: background-color var(--animation);
-  z-index: calc(var(--layer-modal) + 1);
-  top: var(--size-4-3);
+  .checkbox-container {
+    &.is-enabled {
+      background: linear-gradient(
+        to bottom,
+        transparent -200%,
+        var(--accent-active) 100%
+      );
+    }
+  }
 }
 
 .checkbox-container {
   background-color: var(--color-base-25);
-
-  &.is-enabled {
-    background: linear-gradient(
-      to bottom,
-      transparent -200%,
-      var(--accent-active) 100%
-    );
-  }
+  --interactive-accent: var(--accent-active);
 
   .theme-light & {
     --toggle-thumb-color: #fafafa;
@@ -208,7 +207,13 @@ body {
   --logo-color-default: var(--text-accent);
 }
 
-.modal-header:not(.is-mobile) {
+body.modal-header:not(.is-mobile) {
+  .modal-close-button {
+    transition: background-color var(--animation);
+    z-index: calc(var(--layer-modal) + 1);
+    top: var(--size-4-3);
+  }
+
   .modal-container {
     --modal-header-height: var(--size-4-12);
     --top-search-right: var(--size-4-12);

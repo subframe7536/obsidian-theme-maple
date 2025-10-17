@@ -153,16 +153,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, {
     title: { en: 'Modal and Setting Panel', zh: '模态框和设置面板' },
   })
-    .addClassToggle('modal-blur', {
-      title: {
-        en: 'Enable Blurred Modal Background',
-        zh: '启用模态框背景模糊',
-      },
-      desc: {
-        en: 'If scrolling experiences delay, try disabling this option',
-        zh: '如果滚动时出现卡顿，请尝试关闭此选项',
-      },
-    })
     .addClassToggle(
       'modal-header',
       {
@@ -202,31 +192,39 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
       { enable: true },
     )
-    .addClassToggle(
-      'modal-slider',
-      { title: { en: 'Styled Slider', zh: '美化滑动条' } },
-      { enable: true },
-    )
-    .addClassSelect(
-      'modal-toggle',
-      {
-        title: { en: 'Styled Toggle Button', zh: '美化开关按钮' },
-        desc: {
-          en: '"Thin" and "Floating" will fallback to "Default" on mobile',
-          zh: '“Thin” 和 “Floating” 选项在移动端会回退到 “默认” 风格',
-        },
-      },
-      {
-        allowEmpty: false,
-        default: 'modal-toggle-default',
-        options: [
-          { label: 'Default', value: 'modal-toggle-default' },
-          { label: 'Square', value: 'modal-toggle-square' },
-          { label: 'Thin', value: 'modal-toggle-thin' },
-          { label: 'Floating', value: 'modal-toggle-floating' },
-        ],
-      },
-    ),
+    .children([
+      Settings.ofLevel(2, { title: { en: 'Control', zh: '控件' } })
+        .addClassToggle(
+          'modal-control-gradient',
+          { title: { en: 'Enable Gradient Style', zh: '启用渐变样式' } },
+          { enable: true },
+        )
+        .addClassToggle(
+          'modal-slider',
+          { title: { en: 'Styled Slider', zh: '美化滑动条' } },
+          { enable: true },
+        )
+        .addClassSelect(
+          'modal-toggle',
+          {
+            title: { en: 'Styled Toggle Button', zh: '美化开关按钮' },
+            desc: {
+              en: '"Thin" and "Floating" will fallback to "Default" on mobile',
+              zh: '“Thin” 和 “Floating” 选项在移动端会回退到 “默认” 风格',
+            },
+          },
+          {
+            allowEmpty: false,
+            default: 'modal-toggle-default',
+            options: [
+              { label: 'Default', value: 'modal-toggle-default' },
+              { label: 'Square', value: 'modal-toggle-square' },
+              { label: 'Thin', value: 'modal-toggle-thin' },
+              { label: 'Floating', value: 'modal-toggle-floating' },
+            ],
+          },
+        ),
+    ]),
   Settings.ofLevel(1, {
     title: { en: 'Tab and Navigation Bar', zh: '标签页和导航栏' },
   })
