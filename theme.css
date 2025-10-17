@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.49 For Obsidian */
+/* Maple Theme v1.0.0-beta.50 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -344,12 +344,6 @@ settings:
       type: heading
       level: 1
       collapsed: true
-    - id: modal-blur
-      type: class-toggle
-      title: Enable Blurred Modal Background
-      title.zh: 启用模态框背景模糊
-      description: If scrolling experiences delay, try disabling this option
-      description.zh: 如果滚动时出现卡顿，请尝试关闭此选项
     - id: modal-header
       type: class-toggle
       title: Add Header To Setting Panel
@@ -361,7 +355,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.49
+      default: Maple 1.0.0-beta.50
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -373,15 +367,26 @@ settings:
       title: Add Icons For Left Navigation Group Title
       title.zh: 为左侧导航组标题添加图标
       default: true
+    - id: title-control
+      title: Control
+      title.zh: 控件
+      type: heading
+      level: 2
+      collapsed: true
+    - id: modal-control-gradient
+      type: class-toggle
+      title: Enable Gradient Style on Controls
+      title.zh: 控件启用渐变样式
+      default: true
     - id: modal-slider
       type: class-toggle
       title: Styled Slider
-      title.zh: 美化滑动条
+      title.zh: 启用滑块样式
       default: true
     - id: modal-toggle
       type: class-select
       title: Styled Toggle Button
-      title.zh: 美化开关按钮
+      title.zh: 启用开关按钮样式
       description: '"Thin" and "Floating" will fallback to "Default" on mobile'
       description.zh: “Thin” 和 “Floating” 选项在移动端会回退到 “默认” 风格
       allow-empty: false
@@ -436,8 +441,8 @@ settings:
             value: tab-show-close-part
     - id: tab-title-bar-text
       type: class-select
-      title: File Name On Tab Title Bar
-      title.zh: 标签页标题栏的文件名
+      title: Font Size of File Name On Tab Title Bar
+      title.zh: 标签页标题栏的文件名的字体大小
       allow-empty: false
       default: tab-title-bar-text-default
       options:
@@ -456,7 +461,7 @@ settings:
     - id: status-bar-style-float
       type: class-toggle
       title: Enable Floating Style
-      title.zh: 启用浮动风格
+      title.zh: 启用浮动样式
       default: true
     - id: status-bar-style
       type: class-select
@@ -500,7 +505,7 @@ settings:
     - id: setting-message-bg
       type: variable-themed-color
       title: Background Color
-      title.zh: 背景颜色
+      title.zh: 背景色
       format: hex
       opacity: true
       default-light: "#"
@@ -508,7 +513,7 @@ settings:
     - id: setting-message-fg
       type: variable-themed-color
       title: Foreground Color
-      title.zh: 文字颜色
+      title.zh: 文字色
       format: hex
       opacity: true
       default-light: "#"
@@ -525,8 +530,8 @@ settings:
       title.zh: 始终隐藏滚动条
     - id: scrollbar-enable
       type: class-toggle
-      title: Enable Styled Scrollbar
-      title.zh: 启用美化滚动条
+      title: Enable Scrollbar Style
+      title.zh: 启用滚动条样式
       default: true
     - id: scrollbar-hover
       type: class-select
@@ -652,8 +657,8 @@ settings:
       default: clamp(600px, 72%, 850px)
     - id: line-indicator
       type: class-select
-      title: Hover Line Indicator
-      title.zh: 鼠标悬停行指示器
+      title: Hover Line Marker
+      title.zh: 鼠标悬停行标记
       description: Reference from https://github.com/Akifyss/obsidian-border
       description.zh: 参考自 https://github.com/Akifyss/obsidian-border
       allow-empty: false
@@ -718,14 +723,14 @@ settings:
     - id: setting-text-highlight-bg
       type: variable-text
       title: Highlight Text Background Color
-      title.zh: 文本高亮背景颜色
+      title.zh: 文本高亮背景色
       description: Any CSS "background" value, e.g. url("/your/image/url")
       description.zh: 任何 CSS “background” 值，例如：url("图片链接地址")
       default: rgba(255, 208, 0, 0.4)
     - id: setting-text-highlight-color
       type: variable-themed-color
       title: Highlight Text Color
-      title.zh: 文本高亮文字颜色
+      title.zh: 文本高亮文字色
       format: hex
       opacity: true
       default-light: "#"
@@ -735,11 +740,12 @@ settings:
       title: Highlight Background Radius
       title.zh: 高亮背景圆角大小
       description: Value in pixels (px)
-      description.zh: 单位：像素 (px)
+      description.zh: 单位：像素（px）
       default: 4
       min: 0
       max: 8
       step: 1
+      format: px
     - id: text-highlight-all-round
       type: class-toggle
       title: Maintain Radius When Wrapping
@@ -747,10 +753,6 @@ settings:
       description: Except during editing
       description.zh: 编辑时除外
       default: true
-    - id: text-highlight-margin
-      type: class-toggle
-      title: Add Spacing Around Highlight
-      title.zh: 增加高亮周围边距
     - id: title-bold
       title: Bold
       title.zh: 粗体
@@ -765,6 +767,14 @@ settings:
       opacity: true
       default-light: "#"
       default-dark: "#"
+    - id: setting-text-bold-weight
+      type: variable-number-slider
+      title: Bold Font Weight
+      title.zh: 粗体字重
+      default: 600
+      min: 100
+      max: 800
+      step: 50
     - id: setting-text-bold-style
       type: variable-text
       title: Bold Style
@@ -820,12 +830,20 @@ settings:
       description: https://github.com/subframe7536/maple-font
       description.zh: https://github.com/subframe7536/maple-font
       default: true
+    - id: setting-code-ligature
+      type: variable-text
+      title: Monospace Font Features
+      title.zh: 等宽字体特性
+      description: If using "Maple Mono" as monospace font, recommend setting to
+          'calt','cv01','cv02' to bring back normal glyphs
+      description.zh: 如果您使用 “Maple Mono” 作为等宽字体，建议设置为 'calt','cv01','cv02' 以改为正常的字形
+      default: "'calt'"
     - id: font-latex-text
       type: class-toggle
       title: Use Text Font in Non-formula Parts of LaTeX
       title.zh: 在 LaTeX 内非公式部分使用正文字体
       description: No effective on Latin letters and numbers
-      description.zh: 用于修改中文字体
+      description.zh: 仅修改中文字体
     - id: title-link
       title: Link
       title.zh: 链接
@@ -915,8 +933,8 @@ settings:
             value: heading-color-colorful
     - id: heading-indicator
       type: class-select
-      title: Heading Level Indicator
-      title.zh: 标题等级指示器
+      title: Heading Level Marker
+      title.zh: 标题等级标记
       allow-empty: false
       default: heading-indicator-auto
       options:
@@ -1441,7 +1459,7 @@ settings:
     - id: setting-table-header-text
       type: variable-themed-color
       title: Table Header Text Color
-      title.zh: 表头文字颜色
+      title.zh: 表头文字色
       format: hex
       opacity: true
       default-light: "#"
@@ -1449,7 +1467,7 @@ settings:
     - id: setting-table-header-bg
       type: variable-themed-color
       title: Table Header Background Color
-      title.zh: 表头背景颜色
+      title.zh: 表头背景色
       format: hex
       opacity: true
       default-light: "#"
@@ -1457,7 +1475,7 @@ settings:
     - id: setting-table-line-bg
       type: variable-themed-color
       title: Striped Background Color
-      title.zh: 斑马纹背景颜色
+      title.zh: 斑马纹背景色
       format: hex
       opacity: true
       default-light: "#"
@@ -1642,7 +1660,7 @@ settings:
     - id: setting-code-inline
       type: variable-themed-color
       title: Inline Code Color
-      title.zh: 行内代码文字颜色
+      title.zh: 行内代码文字色
       format: hex
       opacity: true
       default-light: "#"
@@ -1650,7 +1668,7 @@ settings:
     - id: setting-code-bg
       type: variable-themed-color
       title: Code Block Background Color
-      title.zh: 代码块背景颜色
+      title.zh: 代码块背景色
       format: hex
       opacity: true
       default-light: "#"
@@ -1675,14 +1693,6 @@ settings:
       description: Only effective in editor
       description.zh: 仅在编辑器内生效
       default: true
-    - id: setting-code-ligature
-      type: variable-text
-      title: Monospace Font Features
-      title.zh: 等宽字体特性
-      description: If using "Maple Mono" as monospace, recommend setting to
-          'calt','cv01','cv02'
-      description.zh: 如果您使用 “Maple Mono” 作为等宽字体，建议设置为 'calt','cv01','cv02'
-      default: "'calt'"
     - id: code-preview-bg
       type: class-toggle
       title: Enable Code Block Background in Reading View
@@ -1747,7 +1757,7 @@ settings:
     - id: setting-tag-bg
       type: variable-themed-color
       title: Tag Background Color
-      title.zh: 标签背景颜色
+      title.zh: 标签背景色
       format: hex
       opacity: true
       default-light: "#"
@@ -1755,7 +1765,7 @@ settings:
     - id: setting-tag-color
       type: variable-themed-color
       title: Tag Text Color
-      title.zh: 标签文字颜色
+      title.zh: 标签文字色
       format: hex
       opacity: true
       default-light: "#"
@@ -1810,7 +1820,7 @@ settings:
     - id: pdf-export-transparent
       type: class-toggle
       title: Set Background to Transparent
-      title.zh: 导出时将页面背景颜色设置为透明
+      title.zh: 导出时将页面背景色设置为透明
     - id: pdf-export-page-break
       type: class-toggle
       title: Better Page Break Strategy
@@ -1957,6 +1967,7 @@ body {
     inset 0 -0.125px 1px 0px var(--color-base-40),
     0 0.75px 2px 0.5px var(--color-base-50);
   --animation-dur: var(--setting-animation-time, 250ms);
+  --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
   --animation: var(--animation-dur) var(--anim-motion-smooth);
   --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--animation-dur));
@@ -2679,10 +2690,10 @@ body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split .workspace-
     opacity: 0;
   }
   20% {
-    opacity: 0.7;
+    opacity: 0.5;
   }
   50% {
-    opacity: 0.95;
+    opacity: 0.9;
   }
   100% {
     opacity: 1;
@@ -2946,14 +2957,9 @@ body {
 
 .markdown-source-view span.cm-highlight,
 .markdown-rendered mark {
-  border-radius: calc(var(--setting-text-highlight-radius, 4) * 1px);
+  border-radius: var(--setting-text-highlight-radius, 4);
   color: var(--setting-text-highlight-color);
   background: var(--text-highlight-bg);
-}
-
-body.text-highlight-margin :is(.markdown-source-view span.cm-highlight, .markdown-rendered mark) {
-  margin: 0 var(--size-2-1);
-  padding: var(--size-2-1) var(--size-4-1);
 }
 
 .markdown-source-view :is(:not(.cm-highlight) + .cm-formatting-highlight,
@@ -2989,6 +2995,7 @@ body :is(.cm-highlight.cm-em, mark > em) {
   color: var(--setting-text-highlight-color, var(--bold-color));
 }
 
+i,
 em,
 .cm-em {
   --blockquote-color: var(--italic-color);
@@ -2996,11 +3003,13 @@ em,
   font-family: var(--setting-text-italic-font, inherit);
 }
 
+b,
 strong,
 .cm-strong {
   --blockquote-color: var(--bold-color);
   text-decoration: var(--setting-text-bold-style, underline dotted);
   font-family: var(--setting-text-bold-font, inherit);
+  font-weight: var(--setting-text-bold-weight, 600);
 }
 
 :is(em, .cm-em, strong, .cm-strong, u) {
@@ -3211,7 +3220,7 @@ body .markdown-rendered pre .copy-code-button {
   padding-bottom: 0;
   display: block !important;
   opacity: 0;
-  transition: var(--animation);
+  transition: var(--animation-fast);
   transition-property: opacity, background-color;
   cursor: pointer;
 }
@@ -3866,7 +3875,7 @@ body .markdown-source-view.mod-cm6 .cm-embed-block {
 }
 body .markdown-source-view.mod-cm6 .cm-embed-block .edit-block-button {
   border-radius: var(--radius-s) !important;
-  transition: var(--animation);
+  transition: var(--animation-fast);
   transition-property: background-color, opacity;
   height: fit-content;
 }
@@ -4990,10 +4999,9 @@ body .markdown-rendered blockquote :is(p, h1, h2, h3, h4, h5, h6) {
 body .markdown-rendered blockquote::after {
   content: "";
   position: absolute;
-  left: calc(var(--blockquote-radius) * 4 / 5);
-  top: var(--blockquote-radius);
+  left: var(--size-4-2);
+  inset-block: var(--size-4-2);
   border-radius: var(--blockquote-radius);
-  height: calc(100% - var(--blockquote-radius) * 2);
   width: var(--blockquote-border-thickness);
   background-color: var(--accent-active-bg);
 }
@@ -5051,7 +5059,8 @@ body :is(.HyperMD-quote:last-child,
 }
 
 .quote-mark blockquote {
-  padding-left: calc(var(--indent-unit) * var(--indent-size));
+  padding-inline-start: calc(var(--indent-unit) * var(--indent-size));
+  padding-block: calc(var(--indent-unit) * var(--indent-size) / 4) !important;
 }
 .quote-mark blockquote::before {
   content: "“";
@@ -5060,7 +5069,10 @@ body :is(.HyperMD-quote:last-child,
   font-size: calc(var(--font-text-size) * 3);
   line-height: 0.9;
   color: var(--text-muted);
-  left: calc(0.4 * var(--indent-unit));
+  left: calc(var(--indent-unit) * 0.3);
+}
+.quote-mark blockquote::after {
+  content: none !important;
 }
 
 .quote-italic {
@@ -5198,7 +5210,7 @@ body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .ta
 .table-col-btn,
 .table-row-drag-handle,
 .table-col-drag-handle) {
-  transition: opacity var(--animation);
+  transition: opacity var(--animation-fast);
 }
 .markdown-source-view.mod-cm6 .cm-table-widget .table-row-btn {
   border-end-start-radius: var(--radius-s);
@@ -6703,15 +6715,15 @@ body:not(.is-mobile).modal-header.modal-header-search .settings-search-container
 }
 
 body.search-internal-enable .document-search-container {
-  background-color: var(--background-secondary) !important;
+  background-color: var(--background-secondary);
   position: absolute;
   top: var(--size-4-10);
   right: var(--size-4-4);
   border-radius: var(--radius-m);
   height: fit-content;
-  border: 1px solid var(--color-base-25) !important;
+  border: 1px solid var(--background-modifier-border);
   box-shadow: var(--shadow-s);
-  padding: var(--size-4-2);
+  padding: var(--size-4-2) 0;
   margin: 0;
 }
 body.search-internal-enable .document-search-container :is(.document-replace, .document-search) {
@@ -6724,7 +6736,7 @@ body.search-internal-enable .document-search-container .search-input-container i
   opacity: 0;
   pointer-events: none;
   cursor: none;
-  transition: opacity var(--animation);
+  transition: opacity var(--animation-fast);
 }
 body.search-internal-enable .document-search-container .search-input-container .document-search-count {
   letter-spacing: -0.5px;
@@ -6735,7 +6747,7 @@ body.search-internal-enable .document-search-container .search-input-container .
   right: var(--size-4-1);
   border-radius: var(--radius-s);
   opacity: 1;
-  transition: var(--animation);
+  transition: var(--animation-fast);
   transition-delay: 0.5s;
 }
 body.search-internal-enable .document-search-container .document-search-buttons .document-search-button {
@@ -6783,37 +6795,31 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
 }
 
 .clickable-icon {
-  transition: var(--animation);
+  transition: var(--animation-fast);
   transition-property: opacity, background-color;
 }
 
-button.mod-cta {
+body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta {
   transition: box-shadow var(--animation);
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent) 100%);
 }
-button.mod-cta:hover {
+body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta:hover {
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent-1) 100%);
 }
-
-button.mod-warning {
+body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-warning {
   transition: box-shadow var(--animation);
   background: linear-gradient(to bottom, transparent -240%, var(--background-modifier-error) 100%);
 }
-button.mod-warning:hover {
+body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-warning:hover {
   background: linear-gradient(to bottom, transparent -240%, var(--background-modifier-error-hover) 100%);
 }
-
-body:not(.is-phone).modal-header .modal-close-button {
-  transition: background-color var(--animation);
-  z-index: calc(var(--layer-modal) + 1);
-  top: var(--size-4-3);
+body:is(:not(.css-settings-manager), .modal-control-gradient) .checkbox-container.is-enabled {
+  background: linear-gradient(to bottom, transparent -200%, var(--accent-active) 100%);
 }
 
 .checkbox-container {
   background-color: var(--color-base-25);
-}
-.checkbox-container.is-enabled {
-  background: linear-gradient(to bottom, transparent -200%, var(--accent-active) 100%);
+  --interactive-accent: var(--accent-active);
 }
 .theme-light .checkbox-container {
   --toggle-thumb-color: #fafafa;
@@ -6921,15 +6927,20 @@ body {
   --logo-color-default: var(--text-accent);
 }
 
-.modal-header:not(.is-mobile) .modal-container {
+body.modal-header:not(.is-mobile) .modal-close-button {
+  transition: background-color var(--animation);
+  z-index: calc(var(--layer-modal) + 1);
+  top: var(--size-4-3);
+}
+body.modal-header:not(.is-mobile) .modal-container {
   --modal-header-height: var(--size-4-12);
   --top-search-right: var(--size-4-12);
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings {
+body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
-.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.49");
+body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.50");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6939,38 +6950,38 @@ body {
   color: var(--setting-color-logo, var(--logo-color-default));
 }
 @container (max-width:750px) {
-  .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
+  body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
     opacity: 0;
   }
 }
-.modal-header:not(.is-mobile) .mod-settings .modal-content {
+body.modal-header:not(.is-mobile) .mod-settings .modal-content {
   background-color: var(--titlebar-background);
 }
-.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-header {
+body.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-header {
   background-color: hsl(var(--background-secondary-hsl));
   border-top: 1px solid var(--divider-color);
   margin-top: var(--modal-header-height);
   padding-top: 0;
 }
-.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container {
+body.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container {
   padding-top: var(--modal-header-height);
   position: relative;
 }
-.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
+body.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
   position: unset !important;
   background-color: var(--background-primary);
   border-top: 1px solid var(--divider-color);
   padding-top: var(--size-4-6);
   padding-right: var(--size-4-8);
 }
-.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
+body.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
 }
-.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
+body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
   margin: 0;
 }
-.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(:is([class=search-input-container],
+body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(:is([class=search-input-container],
 [class="search-input-container mod-hotkey"])) {
   position: absolute;
   padding: 0;
@@ -6978,14 +6989,14 @@ body {
   right: var(--top-search-right);
   border: none;
 }
-.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(:is([class=search-input-container],
+body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(:is([class=search-input-container],
 [class="search-input-container mod-hotkey"])) .setting-item-info {
   visibility: hidden;
 }
-.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-filter-container {
+body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-filter-container {
   margin-bottom: var(--size-4-1);
 }
-.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-filter-container .hotkey-filter {
+body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-filter-container .hotkey-filter {
   margin-bottom: var(--size-4-3);
 }
 
@@ -7332,7 +7343,7 @@ body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-contai
 }
 
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body.tab-slide-up:not(.is-mobile) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]):not([data-type=empty]) :is(.view-content, .nav-files-container) {
+body.tab-slide-up:not(.is-mobile) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]):not([data-type=empty]) :is(.view-content, .nav-files-container, .tag-container) {
   animation: op var(--animation-slow), slide-up var(--animation-slow);
 }
 
