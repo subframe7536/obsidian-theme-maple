@@ -221,7 +221,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassSelect(
       'line-indicator',
       {
-        title: { en: 'Hover Line Indicator', zh: '鼠标悬停行指示器' },
+        title: { en: 'Hover Line Marker', zh: '鼠标悬停行标记' },
         desc: descReference('https://github.com/Akifyss/obsidian-border'),
       },
       {
@@ -280,7 +280,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: {
               en: 'Highlight Text Background Color',
-              zh: '文本高亮背景颜色',
+              zh: '文本高亮背景色',
             },
             desc: descValidCSS('background'),
           },
@@ -289,7 +289,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         .addVarThemedColor(
           'setting-text-highlight-color',
           {
-            title: { en: 'Highlight Text Color', zh: '文本高亮文字颜色' },
+            title: { en: 'Highlight Text Color', zh: '文本高亮文字色' },
           },
           'hex',
         )
@@ -383,6 +383,17 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       { enable: true },
     )
+    .addVarText(
+      'setting-code-ligature',
+      {
+        title: { en: 'Monospace Font Features', zh: '等宽字体特性' },
+        desc: {
+          en: "If using \"Maple Mono\" as monospace font, recommend setting to 'calt','cv01','cv02' to bring back normal glyphs",
+          zh: "如果您使用 “Maple Mono” 作为等宽字体，建议设置为 'calt','cv01','cv02' 以改为正常的字形",
+        },
+      },
+      { default: "'calt'" },
+    )
     .addClassToggle('font-latex-text', {
       title: {
         en: 'Use Text Font in Non-formula Parts of LaTeX',
@@ -390,7 +401,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       desc: {
         en: 'No effective on Latin letters and numbers',
-        zh: '用于修改中文字体',
+        zh: '仅修改中文字体',
       },
     }),
   Settings.ofLevel(1, { title: { en: 'Link', zh: '链接' } })
@@ -487,7 +498,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addClassSelect(
       'heading-indicator',
       {
-        title: { en: 'Heading Level Indicator', zh: '标题等级指示器' },
+        title: { en: 'Heading Level Marker', zh: '标题等级标记' },
       },
       {
         allowEmpty: false,
@@ -568,21 +579,21 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-table-header-text',
       {
-        title: { en: 'Table Header Text Color', zh: '表头文字颜色' },
+        title: { en: 'Table Header Text Color', zh: '表头文字色' },
       },
       'hex',
     )
     .addVarThemedColor(
       'setting-table-header-bg',
       {
-        title: { en: 'Table Header Background Color', zh: '表头背景颜色' },
+        title: { en: 'Table Header Background Color', zh: '表头背景色' },
       },
       'hex',
     )
     .addVarThemedColor(
       'setting-table-line-bg',
       {
-        title: { en: 'Striped Background Color', zh: '斑马纹背景颜色' },
+        title: { en: 'Striped Background Color', zh: '斑马纹背景色' },
       },
       'hex',
     ),
@@ -802,14 +813,14 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-code-inline',
       {
-        title: { en: 'Inline Code Color', zh: '行内代码文字颜色' },
+        title: { en: 'Inline Code Color', zh: '行内代码文字色' },
       },
       'hex',
     )
     .addVarThemedColor(
       'setting-code-bg',
       {
-        title: { en: 'Code Block Background Color', zh: '代码块背景颜色' },
+        title: { en: 'Code Block Background Color', zh: '代码块背景色' },
       },
       'hex',
     )
@@ -850,17 +861,6 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         },
       },
       { enable: true },
-    )
-    .addVarText(
-      'setting-code-ligature',
-      {
-        title: { en: 'Monospace Font Features', zh: '等宽字体特性' },
-        desc: {
-          en: "If using \"Maple Mono\" as monospace, recommend setting to 'calt','cv01','cv02'",
-          zh: "如果您使用 “Maple Mono” 作为等宽字体，建议设置为 'calt','cv01','cv02'",
-        },
-      },
-      { default: "'calt'" },
     )
     .addClassToggle('code-preview-bg', {
       title: {
@@ -927,14 +927,14 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-tag-bg',
       {
-        title: { en: 'Tag Background Color', zh: '标签背景颜色' },
+        title: { en: 'Tag Background Color', zh: '标签背景色' },
       },
       'hex',
     )
     .addVarThemedColor(
       'setting-tag-color',
       {
-        title: { en: 'Tag Text Color', zh: '标签文字颜色' },
+        title: { en: 'Tag Text Color', zh: '标签文字色' },
       },
       'hex',
     )
@@ -988,7 +988,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         .addClassToggle('pdf-export-transparent', {
           title: {
             en: 'Set Background to Transparent',
-            zh: '导出时将页面背景颜色设置为透明',
+            zh: '导出时将页面背景色设置为透明',
           },
         })
         .addClassToggle('pdf-export-page-break', {

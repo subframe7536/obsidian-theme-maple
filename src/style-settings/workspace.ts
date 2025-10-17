@@ -196,18 +196,23 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       Settings.ofLevel(2, { title: { en: 'Control', zh: '控件' } })
         .addClassToggle(
           'modal-control-gradient',
-          { title: { en: 'Enable Gradient Style', zh: '启用渐变样式' } },
+          {
+            title: {
+              en: 'Enable Gradient Style on Controls',
+              zh: '控件启用渐变样式',
+            },
+          },
           { enable: true },
         )
         .addClassToggle(
           'modal-slider',
-          { title: { en: 'Styled Slider', zh: '美化滑动条' } },
+          { title: { en: 'Styled Slider', zh: '启用滑块样式' } },
           { enable: true },
         )
         .addClassSelect(
           'modal-toggle',
           {
-            title: { en: 'Styled Toggle Button', zh: '美化开关按钮' },
+            title: { en: 'Styled Toggle Button', zh: '启用开关按钮样式' },
             desc: {
               en: '"Thin" and "Floating" will fallback to "Default" on mobile',
               zh: '“Thin” 和 “Floating” 选项在移动端会回退到 “默认” 风格',
@@ -279,8 +284,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       'tab-title-bar-text',
       {
         title: {
-          en: 'File Name On Tab Title Bar',
-          zh: '标签页标题栏的文件名',
+          en: 'Font Size of File Name On Tab Title Bar',
+          zh: '标签页标题栏的文件名的字体大小',
         },
       },
       {
@@ -296,7 +301,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.ofLevel(1, { title: { en: 'Status Bar', zh: '状态栏' } })
     .addClassToggle(
       'status-bar-style-float',
-      { title: { en: 'Enable Floating Style', zh: '启用浮动风格' } },
+      { title: { en: 'Enable Floating Style', zh: '启用浮动样式' } },
       { enable: true },
     )
     .addClassSelect(
@@ -342,12 +347,12 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     )
     .addVarThemedColor(
       'setting-message-bg',
-      { title: { en: 'Background Color', zh: '背景颜色' } },
+      { title: { en: 'Background Color', zh: '背景色' } },
       'hex',
     )
     .addVarThemedColor(
       'setting-message-fg',
-      { title: { en: 'Foreground Color', zh: '文字颜色' } },
+      { title: { en: 'Foreground Color', zh: '文字色' } },
       'hex',
     ),
   Settings.ofLevel(1, { title: { en: 'Scrollbar', zh: '滚动条' } })
@@ -356,7 +361,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     })
     .addClassToggle(
       'scrollbar-enable',
-      { title: { en: 'Enable Styled Scrollbar', zh: '启用美化滚动条' } },
+      { title: { en: 'Enable Scrollbar Style', zh: '启用滚动条样式' } },
       { enable: true },
     )
     .addClassSelect(
