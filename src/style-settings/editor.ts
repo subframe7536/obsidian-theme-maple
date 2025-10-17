@@ -300,9 +300,9 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
               en: 'Highlight Background Radius',
               zh: '高亮背景圆角大小',
             },
-            desc: { en: 'Value in pixels (px)', zh: '单位：像素 (px)' },
+            desc: { en: 'Value in pixels (px)', zh: '单位：像素（px）' },
           },
-          { default: 4, min: 0, max: 8, step: 1 },
+          { default: 4, min: 0, max: 8, step: 1, format: 'px' },
         )
         .addClassToggle(
           'text-highlight-all-round',
@@ -314,10 +314,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
             desc: { en: 'Except during editing', zh: '编辑时除外' },
           },
           { enable: true },
-        )
-        .addClassToggle('text-highlight-margin', {
-          title: { en: 'Add Spacing Around Highlight', zh: '增加高亮周围边距' },
-        }),
+        ),
       Settings.ofLevel(2, { title: { en: 'Bold', zh: '粗体' } })
         .addVarThemedColor(
           'setting-text-bold-color',
