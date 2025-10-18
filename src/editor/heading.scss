@@ -160,7 +160,7 @@ body.line-active-left .cm-active.HyperMD-header {
 // underline
 
 @for $i from 1 through 6 {
-  .heading-h#{$i}-underline .app-container {
+  .heading-h#{$i}-underline {
     :is(
         .HyperMD-header-#{$i} .cm-header:not(.cm-formatting),
         .markdown-rendered h#{$i}
@@ -228,14 +228,13 @@ $full-selectors: ();
     }
     &.heading-h#{$i}-block-contrast {
       --h#{$i}-color-bg: rgba(var(--h#{$i}-color-rgb));
-      .app-container {
-        :is(
-            .HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header),
-            #{$selector}
-          ) {
-          color: var(--text-on-accent);
-          caret-color: currentColor;
-        }
+
+      :is(
+          .HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header),
+          #{$selector}
+        ) {
+        color: var(--text-on-accent);
+        caret-color: currentColor;
       }
     }
 
