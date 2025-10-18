@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.50 For Obsidian */
+/* Maple Theme v1.0.0-beta.51 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -16,13 +16,21 @@ settings:
       type: variable-number-slider
       title: List Item Line Height
       title.zh: 列表行高
-      description: Line height of item in file explorer, outline panel, setting modal
-          sidebar and so on
-      description.zh: 文件管理器、大纲面板、设置框侧边栏等列表的行高
+      description: Adjust the line height for items in file explorer, outline panel,
+          and setting modal sidebar.
+      description.zh: 调整文件管理器、大纲面板和设置面板侧边栏中行高。
       default: 1.5
       min: 1
       max: 2
       step: 0.1
+    - id: setting-divider-color
+      type: variable-themed-color
+      title: Panel Divider Color
+      title.zh: 面板分割线颜色
+      format: hsl
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
     - id: title-colors
       title: Colors
       title.zh: 颜色
@@ -71,18 +79,17 @@ settings:
             value: color-active-custom-light
     - id: setting-color-active-custom-light
       type: variable-color
-      title: Custom Highlight Color for Active State
-      title.zh: 自定义激活状态的高亮色
-      description: This option will also affect the saturation and brightness of the
-          background color.
-      description.zh: 这个选项也会影响背景色的饱和度和亮度
+      title: Custom Highlight Color (Active)
+      title.zh: 自定义高亮色（激活状态）
+      description: Affects saturation and brightness of the background color.
+      description.zh: 影响背景色的饱和度和亮度。
       default: "#"
       format: hsl-split
       opacity: false
     - id: setting-color-inactive-custom-light
       type: variable-color
-      title: Custom Highlight Color for Inactive State
-      title.zh: 自定义非激活状态的高亮色
+      title: Custom Highlight Color (Inactive)
+      title.zh: 自定义高亮色（非激活状态）
       default: "#"
       format: hsl-split
       opacity: false
@@ -115,18 +122,17 @@ settings:
             value: color-active-custom-dark
     - id: setting-color-active-custom-dark
       type: variable-color
-      title: Custom Highlight Color for Active State
-      title.zh: 自定义激活状态的高亮色
-      description: This option will also affect the saturation and brightness of the
-          background color.
-      description.zh: 这个选项也会影响背景色的饱和度和亮度
+      title: Custom Highlight Color (Active)
+      title.zh: 自定义高亮色（激活状态）
+      description: Affects saturation and brightness of the background color.
+      description.zh: 影响背景色的饱和度和亮度。
       default: "#"
       format: hsl-split
       opacity: false
     - id: setting-color-inactive-custom-dark
       type: variable-color
-      title: Custom Highlight Color for Inactive State
-      title.zh: 自定义非激活状态的高亮色
+      title: Custom Highlight Color (Inactive)
+      title.zh: 自定义高亮色（非激活状态）
       default: "#"
       format: hsl-split
       opacity: false
@@ -143,7 +149,7 @@ settings:
       default: true
     - id: app-layout-card-border
       type: class-toggle
-      title: Add Border For Card
+      title: Add Border to Cards
       title.zh: 为卡片添加边框
     - id: setting-app-layout-spacing
       type: variable-number-slider
@@ -158,7 +164,7 @@ settings:
       type: class-select
       title: Background Type
       title.zh: 背景类型
-      description: '"gradient" is not effective when color scheme is "Minimal"'
+      description: '"gradient" is ineffective when the color scheme is "Minimal"'
       description.zh: 当颜色方案为 "Minimal" 时，"gradient" 不会生效
       allow-empty: false
       default: app-layout-card-gradient
@@ -208,18 +214,10 @@ settings:
       type: class-toggle
       title: Enable Background Blur
       title.zh: 启用背景模糊
-      description: Works in menus, modals, popups, graph control panel, etc.; close if
-          it is laggy while scrolling; disabled on mobile phones
-      description.zh: 在菜单、弹出框、图谱控制面板中生效；如果滚动卡顿请关闭此选项；手机端不生效
+      description: Applies to menus, modals, popups, and graph control panels. Disable
+          if scrolling becomes laggy. Not available on mobile devices.
+      description.zh: 在菜单、弹出框和图谱控制面板中生效；若滚动卡顿，请关闭此选项；手机端不支持
       default: true
-    - id: setting-divider-color
-      type: variable-themed-color
-      title: Panel Divider Color
-      title.zh: 面板分割线颜色
-      format: hsl
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
     - id: title-file-explorer
       title: File Explorer
       title.zh: 文件管理器
@@ -234,13 +232,13 @@ settings:
       type: class-toggle
       title: Enable Prefix Icons
       title.zh: 启用前置图标
-      description: Recommended to disable it when using third-party icon plugins to
-          avoid conflicts
-      description.zh: 建议使用第三方图标插件时关闭以避免冲突
+      description: Please turn off this option when using third-party icon plugins to
+          avoid conflicts.
+      description.zh: 使用第三方图标插件时建议关闭以避免冲突。
       default: true
     - id: explorer-folder-bold
       type: class-toggle
-      title: Bolder Folder Title
+      title: Bold Folder Titles
       title.zh: 加粗文件夹标题
     - id: setting-color-dirs
       type: variable-themed-color
@@ -258,9 +256,9 @@ settings:
       collapsed: true
     - id: outline-enable
       type: class-toggle
-      title: Logseq Bullet Thread Style Outline
-      title.zh: Logseq 样式的文档大纲视图
-      description: Please reload Obsidian after enabling this feature. Reference from
+      title: Enable Logseq Bullet Thread Style of outline
+      title.zh: 启用 Logseq 样式的大纲
+      description: Reload Obsidian after enabling this feature. Reference from
           https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
       description.zh: 启用此功能后请重启 Obsidian。参考自
           https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css
@@ -299,8 +297,8 @@ settings:
       type: class-toggle
       title: Enable Floating Style
       title.zh: 启用浮动风格
-      description: Similar to VSCode's document search widget
-      description.zh: 和 VSCode 的文档搜索框类似
+      description: Similar to VSCode document search widget
+      description.zh: 类似于 VSCode 的文档搜索框
       default: true
     - id: search-remove-button
       type: class-toggle
@@ -318,7 +316,7 @@ settings:
       type: variable-themed-color
       title: Normal Node Color
       title.zh: 普通节点颜色
-      format: hex
+      format: hsl
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -326,7 +324,7 @@ settings:
       type: variable-themed-color
       title: Unresolved Node Color
       title.zh: 未连接节点颜色
-      format: hex
+      format: hsl
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -334,7 +332,7 @@ settings:
       type: variable-themed-color
       title: Focused Node Color
       title.zh: 聚焦节点颜色
-      format: hex
+      format: hsl
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -355,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.50
+      default: Maple 1.0.0-beta.51
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -580,7 +578,7 @@ settings:
             value: editor-bg-grid-line
     - id: setting-editor-bg-grid-dots
       type: variable-themed-color
-      title: Editor Background Dot Color
+      title: Dot Color for Editor Background
       title.zh: 编辑器背景点颜色
       format: rgb
       opacity: true
@@ -588,7 +586,7 @@ settings:
       default-dark: "#"
     - id: setting-editor-bg-grid-line
       type: variable-themed-color
-      title: Editor Background Grid Line Color
+      title: Grid Line Color for Editor Background
       title.zh: 编辑器背景网格线颜色
       format: rgb
       opacity: true
@@ -596,7 +594,7 @@ settings:
       default-dark: "#"
     - id: setting-editor-bg-grid-spacing
       type: variable-number-slider
-      title: Editor Background Grid Spacing
+      title: Grid Spacing for Editor Background
       title.zh: 编辑器背景网格间距
       format: px
       default: 20
@@ -611,8 +609,8 @@ settings:
       collapsed: true
     - id: setting-editor-p-spacing
       type: variable-number-slider
-      title: Editor Paragraph Spacing (px)
-      title.zh: 编辑器段落间距（px）
+      title: Paragraph Spacing (px)
+      title.zh: 段落间距（px）
       default: 8
       format: px
       min: 0
@@ -620,8 +618,8 @@ settings:
       step: 1
     - id: setting-editor-bottom-spacing
       type: variable-number-slider
-      title: Editor Page Bottom Spacing (vh)
-      title.zh: 编辑器页面底部留白大小（vh）
+      title: Page Bottom Spacing (vh)
+      title.zh: 页面底部留白大小（vh）
       default: 40
       format: vh
       min: 0
@@ -629,20 +627,19 @@ settings:
       step: 5
     - id: setting-editor-p-indent
       type: variable-number-slider
-      title: Editor Paragraph Indent
-      title.zh: 编辑器段落缩进
-      description: If "p-indent" exists in properties.cssclasses, all paragraphs will
-          be indented (n times font size)
-      description.zh: 当文档属性的 cssclasses 中存在 “p-indent” 类时，会为所有段落添加缩进（字体大小的倍数）
+      title: Paragraph Indent
+      title.zh: 段落缩进
+      description: Indent all paragraphs if "p-indent" exists in properties.cssclasses
+      description.zh: 当文档属性的 cssclasses 中存在 “p-indent” 类时，为所有段落添加缩进
       default: 2
       min: 0
       max: 4
       step: 0.2
     - id: setting-line-height
       type: variable-number-slider
-      title: Editor Line Height
-      title.zh: 编辑器行高
-      description: Multiple of the text size
+      title: Line Height
+      title.zh: 行高
+      description: Multiple of text size
       description.zh: 文字大小的倍数
       default: 1.8
       min: 1.2
@@ -650,8 +647,8 @@ settings:
       step: 0.1
     - id: setting-file-line-width
       type: variable-text
-      title: Editor Line Width
-      title.zh: 编辑器行宽
+      title: Line Width
+      title.zh: 行宽
       description: Any CSS "width" value, e.g. clamp(MinWidth, WidthPercent, MaxWidth)
       description.zh: 任何 CSS “width” 值，例如：clamp(最小值, 宽度百分比, 最大值)
       default: clamp(600px, 72%, 850px)
@@ -1536,8 +1533,10 @@ settings:
       title.zh: 使用斜体
     - id: quote-mark
       type: class-toggle
-      title: Add Front Blockquote Mark in Reading View
-      title.zh: 阅读视图下引言块添加前置引号
+      title: Enable Quote Mark Style in Reading View
+      title.zh: 阅读视图下添加前置大引号
+      description: Replace front line border with a quotation mark
+      description.zh: 用引号替代前置边框
     - id: quote-outline-style
       type: class-select
       title: Blockquote Style in Reading View
@@ -1886,18 +1885,18 @@ settings:
             value: calendar-end-7-1
     - id: calendar-swap-year-month
       type: class-toggle
-      title: Swap Year and Month
-      title.zh: 交换年份和月份的位置
+      title: Swap Year and Month Display
+      title.zh: 交换年份和月份显示
     - id: setting-calendar-year-suffix
       type: variable-text
-      title: Year Suffix
-      title.zh: 年份后缀
+      title: Year Suffix Text
+      title.zh: 年份后缀文本
       default: 年
       quotes: true
     - id: setting-calendar-max-width
       type: variable-text
-      title: Maximum Width
-      title.zh: 最大宽度
+      title: Calendar Maximum Width
+      title.zh: 日历最大宽度
       description: Any CSS "max-width" value
       description.zh: 任何 CSS “max-width” 值
       default: 500px
@@ -1908,8 +1907,8 @@ name: Maple Mobile
 settings:
     - id: mobile-floating-button
       type: class-toggle
-      title: Floating Mode Switch Button
-      title.zh: 浮动的模式切换按钮
+      title: Enable Floating Mode Switch Button
+      title.zh: 启用浮动的模式切换按钮
       default: true
 */
 
@@ -5589,37 +5588,37 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   color: var(--h6-color) !important;
 }
 
-.heading-h1-underline .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting),
+.heading-h1-underline :is(.HyperMD-header-1 .cm-header:not(.cm-formatting),
 .markdown-rendered h1) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h2-underline .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting),
+.heading-h2-underline :is(.HyperMD-header-2 .cm-header:not(.cm-formatting),
 .markdown-rendered h2) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h3-underline .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting),
+.heading-h3-underline :is(.HyperMD-header-3 .cm-header:not(.cm-formatting),
 .markdown-rendered h3) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h4-underline .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting),
+.heading-h4-underline :is(.HyperMD-header-4 .cm-header:not(.cm-formatting),
 .markdown-rendered h4) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h5-underline .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting),
+.heading-h5-underline :is(.HyperMD-header-5 .cm-header:not(.cm-formatting),
 .markdown-rendered h5) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h6-underline .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting),
+.heading-h6-underline :is(.HyperMD-header-6 .cm-header:not(.cm-formatting),
 .markdown-rendered h6) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
@@ -5804,7 +5803,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h1-block.heading-h1-block-contrast {
   --h1-color-bg: rgba(var(--h1-color-rgb));
 }
-.heading-h1-block.heading-h1-block-contrast .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header),
+.heading-h1-block.heading-h1-block-contrast :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header),
 .markdown-rendered h1) {
   color: var(--text-on-accent);
   caret-color: currentColor;
@@ -5848,7 +5847,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h2-block.heading-h2-block-contrast {
   --h2-color-bg: rgba(var(--h2-color-rgb));
 }
-.heading-h2-block.heading-h2-block-contrast .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header),
+.heading-h2-block.heading-h2-block-contrast :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header),
 .markdown-rendered h2) {
   color: var(--text-on-accent);
   caret-color: currentColor;
@@ -5892,7 +5891,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h3-block.heading-h3-block-contrast {
   --h3-color-bg: rgba(var(--h3-color-rgb));
 }
-.heading-h3-block.heading-h3-block-contrast .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header),
+.heading-h3-block.heading-h3-block-contrast :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header),
 .markdown-rendered h3) {
   color: var(--text-on-accent);
   caret-color: currentColor;
@@ -5936,7 +5935,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h4-block.heading-h4-block-contrast {
   --h4-color-bg: rgba(var(--h4-color-rgb));
 }
-.heading-h4-block.heading-h4-block-contrast .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header),
+.heading-h4-block.heading-h4-block-contrast :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header),
 .markdown-rendered h4) {
   color: var(--text-on-accent);
   caret-color: currentColor;
@@ -5980,7 +5979,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h5-block.heading-h5-block-contrast {
   --h5-color-bg: rgba(var(--h5-color-rgb));
 }
-.heading-h5-block.heading-h5-block-contrast .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header),
+.heading-h5-block.heading-h5-block-contrast :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header),
 .markdown-rendered h5) {
   color: var(--text-on-accent);
   caret-color: currentColor;
@@ -6024,7 +6023,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h6-block.heading-h6-block-contrast {
   --h6-color-bg: rgba(var(--h6-color-rgb));
 }
-.heading-h6-block.heading-h6-block-contrast .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header),
+.heading-h6-block.heading-h6-block-contrast :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header),
 .markdown-rendered h6) {
   color: var(--text-on-accent);
   caret-color: currentColor;
@@ -6258,6 +6257,8 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
   --metadata-property-background-hover: var(--background-primary-alt);
   --metadata-label-background-active: var(--background-primary);
   --metadata-input-background-active: var(--background-primary);
+  --pill-radius: var(--size-4-1);
+  --pill-focus-width: calc(100% + var(--size-4-2));
 }
 .prop-outline .metadata-container {
   transform: none;
@@ -6940,7 +6941,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.50");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.51");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
