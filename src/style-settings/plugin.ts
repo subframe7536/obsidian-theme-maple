@@ -23,19 +23,19 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
       },
     )
     .addClassToggle('calendar-swap-year-month', {
-      title: { en: 'Swap Year and Month', zh: '交换年份和月份的位置' },
+      title: { en: 'Swap Year and Month Display', zh: '交换年份和月份显示' },
     })
     .addVarText(
       'setting-calendar-year-suffix',
       {
-        title: { en: 'Year Suffix', zh: '年份后缀' },
+        title: { en: 'Year Suffix Text', zh: '年份后缀文本' },
       },
       { default: '年', quotes: true },
     )
     .addVarText(
       'setting-calendar-max-width',
       {
-        title: { en: 'Maximum Width', zh: '最大宽度' },
+        title: { en: 'Calendar Maximum Width', zh: '日历最大宽度' },
         desc: descValidCSS('max-width'),
       },
       { default: '500px' },

@@ -8,8 +8,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       {
         title: { en: 'Enable Background Blur', zh: '启用背景模糊' },
         desc: {
-          en: 'Works in menus, modals, popups, graph control panel, etc.; close if it is laggy while scrolling; disabled on mobile phones',
-          zh: '在菜单、弹出框、图谱控制面板中生效；如果滚动卡顿请关闭此选项；手机端不生效',
+          en: 'Applies to menus, modals, popups, and graph control panels. Disable if scrolling becomes laggy. Not available on mobile devices.',
+          zh: '在菜单、弹出框和图谱控制面板中生效；若滚动卡顿，请关闭此选项；手机端不支持',
         },
       },
       { enable: true },
@@ -32,14 +32,14 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       {
         title: { en: 'Enable Prefix Icons', zh: '启用前置图标' },
         desc: {
-          en: 'Recommended to disable it when using third-party icon plugins to avoid conflicts',
-          zh: '建议使用第三方图标插件时关闭以避免冲突',
+          en: 'Please turn off this option when using third-party icon plugins to avoid conflicts.',
+          zh: '使用第三方图标插件时建议关闭以避免冲突。',
         },
       },
       { enable: true },
     )
     .addClassToggle('explorer-folder-bold', {
-      title: { en: 'Bolder Folder Title', zh: '加粗文件夹标题' },
+      title: { en: 'Bold Folder Titles', zh: '加粗文件夹标题' },
     })
     .addVarThemedColor(
       'setting-color-dirs',
@@ -56,13 +56,13 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   })
     .addClassToggle('outline-enable', {
       title: {
-        en: 'Logseq Bullet Thread Style Outline',
-        zh: 'Logseq 样式的文档大纲视图',
+        en: 'Enable Logseq Bullet Thread Style of outline',
+        zh: '启用 Logseq 样式的大纲',
       },
       desc: descReference(
         'https://github.com/pengx17/logseq-dev-theme/blob/main/bullet_threading.css',
         {
-          en: 'Please reload Obsidian after enabling this feature',
+          en: 'Reload Obsidian after enabling this feature',
           zh: '启用此功能后请重启 Obsidian',
         },
       ),
@@ -103,7 +103,6 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
       'hsl',
     ),
-
   Settings.ofLevel(1, {
     title: {
       en: 'Search and Replace',
@@ -118,8 +117,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
           zh: '启用浮动风格',
         },
         desc: {
-          en: "Similar to VSCode's document search widget",
-          zh: '和 VSCode 的文档搜索框类似',
+          en: 'Similar to VSCode document search widget',
+          zh: '类似于 VSCode 的文档搜索框',
         },
       },
       { enable: true },
@@ -138,17 +137,17 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addVarThemedColor(
       'setting-graph-node',
       { title: { en: 'Normal Node Color', zh: '普通节点颜色' } },
-      'hex',
+      'hsl',
     )
     .addVarThemedColor(
       'setting-graph-node-unresolved',
       { title: { en: 'Unresolved Node Color', zh: '未连接节点颜色' } },
-      'hex',
+      'hsl',
     )
     .addVarThemedColor(
       'setting-graph-node-focus',
       { title: { en: 'Focused Node Color', zh: '聚焦节点颜色' } },
-      'hex',
+      'hsl',
     ),
   Settings.ofLevel(1, {
     title: { en: 'Modal and Setting Panel', zh: '模态框和设置面板' },

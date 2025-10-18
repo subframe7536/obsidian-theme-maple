@@ -144,7 +144,10 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarThemedColor(
       'setting-editor-bg-grid-dots',
       {
-        title: { en: 'Editor Background Dot Color', zh: '编辑器背景点颜色' },
+        title: {
+          en: 'Dot Color for Editor Background',
+          zh: '编辑器背景点颜色',
+        },
       },
       { format: 'rgb', opacity: true, defaultLight: '#', defaultDark: '#' },
     )
@@ -152,7 +155,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'setting-editor-bg-grid-line',
       {
         title: {
-          en: 'Editor Background Grid Line Color',
+          en: 'Grid Line Color for Editor Background',
           zh: '编辑器背景网格线颜色',
         },
       },
@@ -162,7 +165,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'setting-editor-bg-grid-spacing',
       {
         title: {
-          en: 'Editor Background Grid Spacing',
+          en: 'Grid Spacing for Editor Background',
           zh: '编辑器背景网格间距',
         },
       },
@@ -175,8 +178,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'setting-editor-p-spacing',
       {
         title: {
-          en: 'Editor Paragraph Spacing (px)',
-          zh: '编辑器段落间距（px）',
+          en: 'Paragraph Spacing (px)',
+          zh: '段落间距（px）',
         },
       },
       { default: 8, format: 'px', min: 0, max: 20, step: 1 },
@@ -185,8 +188,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'setting-editor-bottom-spacing',
       {
         title: {
-          en: 'Editor Page Bottom Spacing (vh)',
-          zh: '编辑器页面底部留白大小（vh）',
+          en: 'Page Bottom Spacing (vh)',
+          zh: '页面底部留白大小（vh）',
         },
       },
       { default: 40, format: 'vh', min: 0, max: 80, step: 5 },
@@ -194,10 +197,10 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarNumSlider(
       'setting-editor-p-indent',
       {
-        title: { en: 'Editor Paragraph Indent', zh: '编辑器段落缩进' },
+        title: { en: 'Paragraph Indent', zh: '段落缩进' },
         desc: {
-          en: 'If "p-indent" exists in properties.cssclasses, all paragraphs will be indented (n times font size)',
-          zh: '当文档属性的 cssclasses 中存在 “p-indent” 类时，会为所有段落添加缩进（字体大小的倍数）',
+          en: 'Indent all paragraphs if "p-indent" exists in properties.cssclasses',
+          zh: '当文档属性的 cssclasses 中存在 “p-indent” 类时，为所有段落添加缩进',
         },
       },
       { default: 2, min: 0, max: 4, step: 0.2 },
@@ -205,15 +208,15 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarNumSlider(
       'setting-line-height',
       {
-        title: { en: 'Editor Line Height', zh: '编辑器行高' },
-        desc: { en: 'Multiple of the text size', zh: '文字大小的倍数' },
+        title: { en: 'Line Height', zh: '行高' },
+        desc: { en: 'Multiple of text size', zh: '文字大小的倍数' },
       },
       { default: 1.8, min: 1.2, max: 2.4, step: 0.1 },
     )
     .addVarText(
       'setting-file-line-width',
       {
-        title: { en: 'Editor Line Width', zh: '编辑器行宽' },
+        title: { en: 'Line Width', zh: '行宽' },
         desc: descValidCSS('width'),
       },
       { default: 'clamp(600px, 72%, 850px)' },
@@ -658,8 +661,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     })
     .addClassToggle('quote-mark', {
       title: {
-        en: 'Add Front Blockquote Mark in Reading View',
-        zh: '阅读视图下引言块添加前置引号',
+        en: 'Enable Quote Mark Style in Reading View',
+        zh: '阅读视图下添加前置大引号',
+      },
+      desc: {
+        en: 'Replace front line border with a quotation mark',
+        zh: '用引号替代前置边框',
       },
     })
     .addClassSelect(

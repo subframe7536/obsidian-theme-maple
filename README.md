@@ -100,7 +100,7 @@ Maple is optimized for Obsidian on mobile devices, ensuring a seamless experienc
 
 ## Development
 
-Please ensure [`Bun`](https://bun.sh) (better `Node.js`) is installed.
+Please ensure [`Bun`](https://bun.sh) is installed.
 
 ```sh
 # Install deps

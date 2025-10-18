@@ -5,8 +5,8 @@ export default Settings.create('maple-mobile', 'Maple Mobile').children([
     'mobile-floating-button',
     {
       title: {
-        en: 'Floating Mode Switch Button',
-        zh: '浮动的模式切换按钮',
+        en: 'Enable Floating Mode Switch Button',
+        zh: '启用浮动的模式切换按钮',
       },
     },
     { enable: true },

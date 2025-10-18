@@ -13,8 +13,8 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
     {
       title: { en: 'List Item Line Height', zh: '列表行高' },
       desc: {
-        en: 'Line height of item in file explorer, outline panel, setting modal sidebar and so on',
-        zh: '文件管理器、大纲面板、设置框侧边栏等列表的行高',
+        en: 'Adjust the line height for items in file explorer, outline panel, and setting modal sidebar.',
+        zh: '调整文件管理器、大纲面板和设置面板侧边栏中行高。',
       },
     },
     { default: 1.5, min: 1, max: 2, step: 0.1 },
@@ -59,12 +59,12 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
           'setting-color-active-custom-light',
           {
             title: {
-              en: 'Custom Highlight Color for Active State',
-              zh: '自定义激活状态的高亮色',
+              en: 'Custom Highlight Color (Active)',
+              zh: '自定义高亮色（激活状态）',
             },
             desc: {
-              en: 'This option will also affect the saturation and brightness of the background color.',
-              zh: '这个选项也会影响背景色的饱和度和亮度',
+              en: 'Affects saturation and brightness of the background color.',
+              zh: '影响背景色的饱和度和亮度。',
             },
           },
           { default: '#', format: 'hsl-split', opacity: false },
@@ -73,8 +73,8 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
           'setting-color-inactive-custom-light',
           {
             title: {
-              en: 'Custom Highlight Color for Inactive State',
-              zh: '自定义非激活状态的高亮色',
+              en: 'Custom Highlight Color (Inactive)',
+              zh: '自定义高亮色（非激活状态）',
             },
           },
           { default: '#', format: 'hsl-split', opacity: false },
@@ -102,12 +102,12 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
           'setting-color-active-custom-dark',
           {
             title: {
-              en: 'Custom Highlight Color for Active State',
-              zh: '自定义激活状态的高亮色',
+              en: 'Custom Highlight Color (Active)',
+              zh: '自定义高亮色（激活状态）',
             },
             desc: {
-              en: 'This option will also affect the saturation and brightness of the background color.',
-              zh: '这个选项也会影响背景色的饱和度和亮度',
+              en: 'Affects saturation and brightness of the background color.',
+              zh: '影响背景色的饱和度和亮度。',
             },
           },
           { default: '#', format: 'hsl-split', opacity: false },
@@ -116,8 +116,8 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
           'setting-color-inactive-custom-dark',
           {
             title: {
-              en: 'Custom Highlight Color for Inactive State',
-              zh: '自定义非激活状态的高亮色',
+              en: 'Custom Highlight Color (Inactive)',
+              zh: '自定义高亮色（非激活状态）',
             },
           },
           { default: '#', format: 'hsl-split', opacity: false },
@@ -138,7 +138,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
       { enable: true },
     )
     .addClassToggle('app-layout-card-border', {
-      title: { en: 'Add Border For Card', zh: '为卡片添加边框' },
+      title: { en: 'Add Border to Cards', zh: '为卡片添加边框' },
     })
     .addVarNumSlider(
       'setting-app-layout-spacing',
@@ -158,7 +158,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
           zh: '背景类型',
         },
         desc: {
-          en: '"gradient" is not effective when color scheme is "Minimal"',
+          en: '"gradient" is ineffective when the color scheme is "Minimal"',
           zh: '当颜色方案为 "Minimal" 时，"gradient" 不会生效',
         },
       },
