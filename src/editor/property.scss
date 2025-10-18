@@ -6,6 +6,8 @@
   --metadata-property-background-hover: var(--background-primary-alt);
   --metadata-label-background-active: var(--background-primary);
   --metadata-input-background-active: var(--background-primary);
+  --pill-radius: var(--size-4-1);
+  --pill-focus-width: calc(100% + var(--size-4-2));
 
   .prop-outline & {
     transform: none;
