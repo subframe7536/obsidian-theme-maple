@@ -1,24 +1,32 @@
 import { descValidCSS, Settings } from './generator'
 
 export default Settings.create('maple-basic', 'Maple Basic').children([
-  Settings.of().addVarNumSlider(
-    'setting-animation-time',
-    {
-      title: { en: 'Animation Duration (ms)', zh: '动画持续时间（毫秒）' },
-    },
-    { default: 250, min: 0, max: 1000, step: 50, format: 'ms' },
-  ),
-  Settings.of().addVarNumSlider(
-    'setting-item-line-height',
-    {
-      title: { en: 'List Item Line Height', zh: '列表行高' },
-      desc: {
-        en: 'Adjust the line height for items in file explorer, outline panel, and setting modal sidebar.',
-        zh: '调整文件管理器、大纲面板和设置面板侧边栏中行高。',
+  Settings.of()
+    .addVarNumSlider(
+      'setting-animation-time',
+      {
+        title: { en: 'Animation Duration (ms)', zh: '动画持续时间（毫秒）' },
       },
-    },
-    { default: 1.5, min: 1, max: 2, step: 0.1 },
-  ),
+      { default: 250, min: 0, max: 1000, step: 50, format: 'ms' },
+    )
+    .addVarNumSlider(
+      'setting-item-line-height',
+      {
+        title: { en: 'List Item Line Height', zh: '列表行高' },
+        desc: {
+          en: 'Adjust the line height for items in file explorer, outline panel, and setting modal sidebar.',
+          zh: '调整文件管理器、大纲面板和设置面板侧边栏中行高。',
+        },
+      },
+      { default: 1.5, min: 1, max: 2, step: 0.1 },
+    )
+    .addVarThemedColor(
+      'setting-divider-color',
+      {
+        title: { en: 'Panel Divider Color', zh: '面板分割线颜色' },
+      },
+      'hsl',
+    ),
   Settings.ofLevel(1, { title: { en: 'Colors', zh: '颜色' }, open: true })
     .addClassSelect(
       'color-scheme',

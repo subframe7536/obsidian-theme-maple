@@ -2,25 +2,17 @@ import { descReference, Settings } from './generator'
 import { version } from '../../package.json'
 
 export default Settings.create('maple-workspace', 'Maple Workspace').children([
-  Settings.of()
-    .addClassToggle(
-      'enable-blur',
-      {
-        title: { en: 'Enable Background Blur', zh: '启用背景模糊' },
-        desc: {
-          en: 'Applies to menus, modals, popups, and graph control panels. Disable if scrolling becomes laggy. Not available on mobile devices.',
-          zh: '在菜单、弹出框和图谱控制面板中生效；若滚动卡顿，请关闭此选项；手机端不支持',
-        },
+  Settings.of().addClassToggle(
+    'enable-blur',
+    {
+      title: { en: 'Enable Background Blur', zh: '启用背景模糊' },
+      desc: {
+        en: 'Applies to menus, modals, popups, and graph control panels. Disable if scrolling becomes laggy. Not available on mobile devices.',
+        zh: '在菜单、弹出框和图谱控制面板中生效；若滚动卡顿，请关闭此选项；手机端不支持',
       },
-      { enable: true },
-    )
-    .addVarThemedColor(
-      'setting-divider-color',
-      {
-        title: { en: 'Panel Divider Color', zh: '面板分割线颜色' },
-      },
-      'hsl',
-    ),
+    },
+    { enable: true },
+  ),
   Settings.ofLevel(1, {
     title: { en: 'File Explorer', zh: '文件管理器' },
   })
