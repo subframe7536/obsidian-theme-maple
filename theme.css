@@ -1,13 +1,8 @@
-/* Maple Theme v1.0.0-beta.52 For Obsidian */
+/* Maple Theme v1.0.0 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
 settings:
-    - id: info-basic-intro
-      type: info-text
-      description: Basic settings for customizing the overall style of the Maple theme.
-      description.zh: 用于修改 Maple 主题整体样式的基础设置。
-      markdown: true
     - id: setting-animation-time
       type: variable-number-slider
       title: Animation Duration (ms)
@@ -215,12 +210,6 @@ settings:
 id: maple-workspace
 name: Maple Workspace
 settings:
-    - id: info-workspace-intro
-      type: info-text
-      description: Settings for customizing the interface appearance and behavior in
-          Obsidian.
-      description.zh: 用于自定义 Obsidian 应用界面外观和行为的设置。
-      markdown: true
     - id: enable-blur
       type: class-toggle
       title: Enable Background Blur
@@ -364,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.52
+      default: Maple 1.0.0
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -568,11 +557,6 @@ settings:
 id: maple-editor
 name: Maple Editor
 settings:
-    - id: info-editor-intro
-      type: info-text
-      description: Settings for customizing the style of the editor area.
-      description.zh: 用于修改编辑器区域样式的设置。
-      markdown: true
     - id: title-background-pattern
       title: Background Pattern
       title.zh: 背景图案
@@ -1873,9 +1857,8 @@ settings:
     - id: info-plugin-intro
       type: info-text
       description: >-
-          Settings for customizing styles for specific Obsidian plugins. If you
-          find any plugin not displaying properly, please open an issue at the
-          [GitHub
+          If you find any plugin not displaying properly, please open an issue
+          at the [GitHub
           repository](https://github.com/subframe7536/obsidian-theme-maple).
 
           > [!info]- Adapted plugins
@@ -1896,7 +1879,7 @@ settings:
 
           > - Shiki Highlighter
       description.zh: >-
-          用于修改特定 Obsidian 插件的样式设置。如果您发现某个插件显示不正常，请前往 [GitHub
+          如果您发现某个插件显示不正常，请前往 [GitHub
           仓库](https://github.com/subframe7536/obsidian-theme-maple) 提交 issue。
 
           > [!info]- 已适配的插件
@@ -2439,7 +2422,8 @@ body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direc
 body:not(.heading-h5-block) .setting-item[data-id=heading-h5-block-contrast],
 body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction],
 body:not(.heading-h6-block) .setting-item[data-id=heading-h6-block-contrast],
-body:not(.table-style-colorful) .setting-item:is([data-id=table-round], [data-id^=setting-table]),
+body:not(.table-style-colorful) .setting-item[data-id^=setting-table],
+body.table-style-minimal .setting-item[data-id=table-round],
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
 body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
 [data-id=setting-tag-color]) {
@@ -2511,7 +2495,8 @@ body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direc
 body:not(.heading-h5-block) .setting-item[data-id=heading-h5-block-contrast] + .style-settings-container,
 body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction] + .style-settings-container,
 body:not(.heading-h6-block) .setting-item[data-id=heading-h6-block-contrast] + .style-settings-container,
-body:not(.table-style-colorful) .setting-item:is([data-id=table-round], [data-id^=setting-table]) + .style-settings-container,
+body:not(.table-style-colorful) .setting-item[data-id^=setting-table] + .style-settings-container,
+body.table-style-minimal .setting-item[data-id=table-round] + .style-settings-container,
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon] + .style-settings-container,
 body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
 [data-id=setting-tag-color]) + .style-settings-container {
@@ -3791,7 +3776,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   color: var(--code-important);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.selector, .inserted, .char, .attr-value) {
-  color: var(--color-cyan);
+  color: var(--color-green);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.class-name, .maybe-class-name, .color) {
   color: var(--code-class);
@@ -5226,41 +5211,43 @@ body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) tab
   border-collapse: initial;
   border-spacing: 0;
 }
-body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table :is(th, td):not(:first-child) {
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) :is(th, td):not(:first-child) {
   border-left: 0;
 }
-body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table tbody td {
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) tbody td {
   border-top: 0;
 }
-body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table thead tr {
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) thead tr {
   background-color: transparent;
 }
-body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table thead tr th {
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) thead tr th {
   background-color: var(--table-header-background) !important;
 }
-body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table :is(th:first-child:not(:has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)),
-th:first-child .table-cell-wrapper) {
-  border-top-left-radius: var(--radius-m);
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) :is(th:first-child:not(:has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)),
+th:first-child:not(:has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)) .table-cell-wrapper) {
+  border-start-start-radius: var(--radius-m);
 }
-body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table :is(th:last-child:not(:has(.table-col-drag-handle:hover)),
-th:last-child .table-cell-wrapper) {
-  border-top-right-radius: var(--radius-m);
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) :is(th:last-child:not(:has(.table-col-drag-handle:hover)),
+th:last-child:not(:has(.table-col-drag-handle:hover)) .table-cell-wrapper) {
+  border-start-end-radius: var(--radius-m);
 }
-body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table tr:last-child :is(td:first-child:not(:has(.table-row-drag-handle:hover)),
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) tr:last-child :is(td:first-child:not(:has(.table-row-drag-handle:hover)),
 td:first-child .table-cell-wrapper) {
-  border-bottom-left-radius: var(--radius-m);
+  border-end-start-radius: var(--radius-m);
 }
-body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table tr:last-child :is(td:last-child, td:last-child .table-cell-wrapper) {
-  border-bottom-right-radius: var(--radius-m);
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) tr:last-child :is(td:last-child, td:last-child .table-cell-wrapper) {
+  border-end-end-radius: var(--radius-m);
 }
 body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .table-wrapper:has(.table-row-btn:hover) tr:last-child td {
   border-radius: 0 !important;
 }
-body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .table-wrapper:has(.table-col-btn:hover) :is(tr:last-child td:last-child, th:last-child) {
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .table-wrapper:has(.table-col-btn:hover) :is(tr:last-child td:last-child,
+th:last-child,
+th:last-child .table-cell-wrapper) {
   border-radius: 0;
 }
 
-.table-cell-wrapper:is(:active, :focus, :focus-within) {
+.table-cell-wrapper[data-ignore-swipe] {
   background-color: hsl(var(--active-line));
 }
 
@@ -6141,8 +6128,11 @@ body.theme-dark.image-dark-hover img:hover {
 }
 
 img {
-  border-radius: var(--radius-m);
   cursor: pointer;
+}
+
+:is(div, span) > img {
+  border-radius: var(--radius-m);
 }
 
 /* hint text, reference from https://github.com/chrisgrieser/shimmering-focus */
@@ -7031,7 +7021,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.52");
+  content: var(--setting-modal-header-title, "Maple 1.0.0");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7302,7 +7292,8 @@ body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.ver
 }
 body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre) {
   color: transparent;
-  transition: color var(--animation);
+  transition: var(--animation);
+  transition-property: color, border-color;
   -webkit-text-fill-color: var(--text-normal);
 }
 body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre):hover {
@@ -7896,7 +7887,7 @@ body {
   color: var(--text-normal);
 }
 :is(.nav-file-title, .nav-folder-title).is-being-renamed {
-  background-color: var(--nav-item-background-selected);
+  background-color: var(--nav-item-background-selected) !important;
   --nav-item-color-active: var(--text-normal) !important;
 }
 
@@ -8028,7 +8019,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsuppor
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=canvas])::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><rect width='7' height='9' x='3' y='3' rx='1'/><rect width='7' height='5' x='14' y='3' rx='1'/><rect width='7' height='9' x='14' y='12' rx='1'/><rect width='7' height='5' x='3' y='16' rx='1'/></g></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 22a1 1 0 0 1 0-20a10 9 0 0 1 10 9a5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z'/><circle cx='13.5' cy='6.5' r='.5' fill='currentColor'/><circle cx='17.5' cy='10.5' r='.5' fill='currentColor'/><circle cx='6.5' cy='12.5' r='.5' fill='currentColor'/><circle cx='8.5' cy='7.5' r='.5' fill='currentColor'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
