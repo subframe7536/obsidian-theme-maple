@@ -10,8 +10,11 @@ body.theme-dark.image-dark-hover img {
 }
 
 img {
-  border-radius: var(--radius-m);
   cursor: pointer;
+}
+
+:is(div, span) > img {
+  border-radius: var(--radius-m);
 }
 
 /* hint text, reference from https://github.com/chrisgrieser/shimmering-focus */
