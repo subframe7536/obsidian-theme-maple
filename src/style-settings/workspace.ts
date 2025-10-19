@@ -231,8 +231,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
   })
     .addClassToggle('labeled-nav', {
       title: {
-        en: 'Enable Labeled Navigation Bar',
-        zh: '启用带文字的导航栏',
+        en: 'Enable Vertical Navigation Bar',
+        zh: '启用竖向导航栏',
       },
       desc: descReference(
         'https://github.com/kepano/obsidian-minimal/blob/master/src/scss/features/labeled-nav.scss',

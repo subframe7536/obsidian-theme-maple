@@ -187,4 +187,12 @@ body.app-layout-card:not(.is-mobile) {
       calc(var(--bg-opacity) / 4)
     );
   }
+
+  &.labeled-nav
+    .mod-left-split
+    .mod-top
+    .workspace-tab-header-container
+    .workspace-tab-header-container-inner {
+    padding-top: 0;
+  }
 }
