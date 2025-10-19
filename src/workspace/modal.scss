@@ -113,6 +113,10 @@ body:not(.is-mobile) {
 
   &:is(.modal-toggle-floating, .modal-toggle-thin) {
     .checkbox-container {
+      --toggle-target-width: var(--toggle-width);
+      &.mod-small {
+        --toggle-target-width: var(--toggle-s-width);
+      }
       --toggle-radius: var(--radius-m);
       height: var(--size-4-4);
       transition: var(--animation);
@@ -134,10 +138,10 @@ body:not(.is-mobile) {
   &.modal-toggle-floating .checkbox-container {
     &::after {
       left: 0;
-      height: calc(var(--toggle-width) / 3);
-      width: calc(var(--toggle-width) / 3);
+      height: calc(var(--toggle-target-width) / 3);
+      width: calc(var(--toggle-target-width) / 3);
       bottom: 30%;
-      border-radius: calc(var(--toggle-width) / 2);
+      border-radius: calc(var(--toggle-target-width) / 2);
       border: var(--toggle-border-width) solid var(--text-faint);
       margin: 0;
       transition: var(--animation);
@@ -155,7 +159,7 @@ body:not(.is-mobile) {
         border-color: var(--accent-active);
         transform: none;
         left: calc(
-          100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width)
+          100% - var(--toggle-target-width) / 3 - 3 * var(--toggle-border-width)
         );
       }
     }
@@ -165,7 +169,7 @@ body:not(.is-mobile) {
   &.modal-toggle-thin .checkbox-container {
     &::after {
       left: var(--toggle-border-width);
-      height: var(--size-4-3);
+      height: calc(var(--toggle-target-width) / 4 + var(--toggle-border-width));
       bottom: 50%;
       border-radius: var(--radius-m) var(--radius-m) 0 0;
       border: var(--toggle-border-width) solid var(--text-faint);
@@ -175,7 +179,7 @@ body:not(.is-mobile) {
     }
 
     :is(&:hover, &:focus-within)::after {
-      height: var(--size-4-2);
+      height: calc(var(--toggle-target-width) / 6 + var(--toggle-border-width));
     }
 
     &:active::after {
