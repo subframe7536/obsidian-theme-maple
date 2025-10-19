@@ -97,8 +97,8 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     ),
   Settings.ofLevel(1, {
     title: {
-      en: 'Search and Replace',
-      zh: '搜索和替换',
+      en: 'Document Search and Replace',
+      zh: '文档搜索和替换',
     },
   })
     .addClassToggle(

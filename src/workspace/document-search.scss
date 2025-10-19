@@ -27,8 +27,6 @@ body.search-internal-enable .document-search-container {
 
   .search-input-container {
     input {
-      padding-inline: var(--size-4-8) var(--size-4-1);
-
       &:hover + .document-search-count {
         opacity: 0;
         pointer-events: none;

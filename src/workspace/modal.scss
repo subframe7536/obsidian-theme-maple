@@ -60,6 +60,10 @@ body:not(.is-phone)
   }
 }
 
+.search-input-container input {
+  padding-inline: var(--size-4-8) var(--size-4-1);
+}
+
 .checkbox-container {
   background-color: var(--color-base-25);
   --interactive-accent: var(--accent-active);
@@ -167,13 +171,14 @@ body:not(.is-mobile) {
 
   // https://uiverse.io/martinval9/white-lionfish-18
   &.modal-toggle-thin .checkbox-container {
+    $width: calc(var(--toggle-target-width) / 8 + var(--toggle-border-width));
     &::after {
       left: var(--toggle-border-width);
       height: calc(var(--toggle-target-width) / 4 + var(--toggle-border-width));
       bottom: 50%;
-      border-radius: var(--radius-m) var(--radius-m) 0 0;
+      border-radius: #{$width} #{$width} 0 0;
       border: var(--toggle-border-width) solid var(--text-faint);
-      width: 20%;
+      width: #{$width};
       margin: 0;
       transition: var(--animation);
     }
@@ -393,7 +398,7 @@ body:not(.is-phone) .modal-container {
         right: calc(var(--size-4-6) + var(--size-2-1));
       }
       input {
-        padding-inline-end: var(--size-4-12);
+        padding-inline-end: var(--size-4-8);
         transition: var(--animation);
         transition-property: border-color, background-color, box-shadow;
       }
