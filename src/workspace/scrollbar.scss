@@ -85,7 +85,8 @@ body.scrollbar-enable:not(.is-mobile) {
 
     :is(textarea, pre) {
       color: transparent;
-      transition: color var(--animation);
+      transition: var(--animation);
+      transition-property: color, border-color;
       -webkit-text-fill-color: var(--text-normal);
 
       &:hover {
