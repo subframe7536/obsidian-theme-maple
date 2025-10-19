@@ -321,8 +321,8 @@ body:not(.heading-h5-block) .setting-item[data-id='heading-h5-block-contrast'],
 body:not(.heading-h6-full-line)
   .setting-item[data-id='heading-h6-full-line-direction'],
 body:not(.heading-h6-block) .setting-item[data-id='heading-h6-block-contrast'],
-body:not(.table-style-colorful)
-  .setting-item:is([data-id='table-round'], [data-id^='setting-table']),
+body:not(.table-style-colorful) .setting-item[data-id^='setting-table'],
+body.table-style-minimal .setting-item[data-id='table-round'],
 body:not(.hr-enable) .setting-item[data-id^='setting-hr-icon'],
 body:not(.tag-outline)
   .setting-item:is(
