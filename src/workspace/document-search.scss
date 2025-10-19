@@ -9,6 +9,10 @@
   }
 }
 
+.mod-active .document-search-container {
+  background-color: transparent;
+}
+
 body.search-internal-enable .document-search-container {
   background-color: var(--background-secondary);
   position: absolute;
