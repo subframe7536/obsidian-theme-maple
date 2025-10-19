@@ -77,50 +77,52 @@ body {
   table {
     border-collapse: initial;
     border-spacing: 0;
+  }
+  :is(th, td):not(:first-child) {
+    border-left: 0;
+  }
 
-    :is(th, td):not(:first-child) {
-      border-left: 0;
+  tbody td {
+    border-top: 0;
+  }
+
+  // 😅 fix: background color does not update when `border-radius` is changed
+  thead tr {
+    background-color: transparent;
+    th {
+      background-color: var(--table-header-background) !important;
     }
+  }
 
-    tbody td {
-      border-top: 0;
-    }
+  :is(
+      th:first-child:not(
+          :has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)
+        ),
+      th:first-child:not(
+          :has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)
+        )
+        .table-cell-wrapper
+    ) {
+    border-start-start-radius: var(--radius-m);
+  }
 
-    // 😅 fix: background color does not update when `border-radius` is changed
-    thead tr {
-      background-color: transparent;
-      th {
-        background-color: var(--table-header-background) !important;
-      }
-    }
+  :is(
+      th:last-child:not(:has(.table-col-drag-handle:hover)),
+      th:last-child:not(:has(.table-col-drag-handle:hover)) .table-cell-wrapper
+    ) {
+    border-start-end-radius: var(--radius-m);
+  }
 
+  tr:last-child
     :is(
-        th:first-child:not(
-            :has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)
-          ),
-        th:first-child .table-cell-wrapper
-      ) {
-      border-top-left-radius: var(--radius-m);
-    }
+      td:first-child:not(:has(.table-row-drag-handle:hover)),
+      td:first-child .table-cell-wrapper
+    ) {
+    border-end-start-radius: var(--radius-m);
+  }
 
-    :is(
-        th:last-child:not(:has(.table-col-drag-handle:hover)),
-        th:last-child .table-cell-wrapper
-      ) {
-      border-top-right-radius: var(--radius-m);
-    }
-
-    tr:last-child
-      :is(
-        td:first-child:not(:has(.table-row-drag-handle:hover)),
-        td:first-child .table-cell-wrapper
-      ) {
-      border-bottom-left-radius: var(--radius-m);
-    }
-
-    tr:last-child :is(td:last-child, td:last-child .table-cell-wrapper) {
-      border-bottom-right-radius: var(--radius-m);
-    }
+  tr:last-child :is(td:last-child, td:last-child .table-cell-wrapper) {
+    border-end-end-radius: var(--radius-m);
   }
   .table-wrapper {
     &:has(.table-row-btn:hover) tr:last-child td {
@@ -128,13 +130,17 @@ body {
     }
 
     &:has(.table-col-btn:hover)
-      :is(tr:last-child td:last-child, th:last-child) {
+      :is(
+        tr:last-child td:last-child,
+        th:last-child,
+        th:last-child .table-cell-wrapper
+      ) {
       border-radius: 0;
     }
   }
 }
 
-.table-cell-wrapper:is(:active, :focus, :focus-within) {
+.table-cell-wrapper[data-ignore-swipe] {
   background-color: hsl(var(--active-line));
 }
 
