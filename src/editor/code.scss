@@ -285,7 +285,7 @@ body .markdown-rendered pre {
       color: var(--code-important);
     }
     &:is(.selector, .inserted, .char, .attr-value) {
-      color: var(--color-cyan);
+      color: var(--color-green);
     }
     &:is(.class-name, .maybe-class-name, .color) {
       color: var(--code-class);
