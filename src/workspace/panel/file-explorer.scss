@@ -6,7 +6,7 @@ $file-icon: (
   (png, svg, jpeg, jpg, bmp, gif, webp, tiff, 'image'),
   (mp3, flac, wav, ape, alac, aac, m4a, 'music-4'),
   (mkv, mp4, flv, webm, avi, mov, 'film'),
-  (canvas, 'layout-dashboard'),
+  (canvas, 'palette'),
   (base, 'database'),
   ('excalidraw.md', excalidraw, pencil)
 );
@@ -79,7 +79,7 @@ body {
     color: var(--text-normal);
   }
   &.is-being-renamed {
-    background-color: var(--nav-item-background-selected);
+    background-color: var(--nav-item-background-selected) !important;
     --nav-item-color-active: var(--text-normal) !important;
   }
 }
