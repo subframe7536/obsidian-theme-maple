@@ -1,12 +1,17 @@
-/* Maple Theme v1.0.0-beta.51 For Obsidian */
+/* Maple Theme v1.0.0-beta.52 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
 settings:
+    - id: info-basic-intro
+      type: info-text
+      description: Basic settings for customizing the overall style of the Maple theme.
+      description.zh: 用于修改 Maple 主题整体样式的基础设置。
+      markdown: true
     - id: setting-animation-time
       type: variable-number-slider
       title: Animation Duration (ms)
-      title.zh: 动画持续时间（毫秒）
+      title.zh: 动画时长（毫秒）
       default: 250
       min: 0
       max: 1000
@@ -210,6 +215,12 @@ settings:
 id: maple-workspace
 name: Maple Workspace
 settings:
+    - id: info-workspace-intro
+      type: info-text
+      description: Settings for customizing the interface appearance and behavior in
+          Obsidian.
+      description.zh: 用于自定义 Obsidian 应用界面外观和行为的设置。
+      markdown: true
     - id: enable-blur
       type: class-toggle
       title: Enable Background Blur
@@ -287,9 +298,9 @@ settings:
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: title-search-and-replace
-      title: Search and Replace
-      title.zh: 搜索和替换
+    - id: title-document-search-and-replace
+      title: Document Search and Replace
+      title.zh: 文档搜索和替换
       type: heading
       level: 1
       collapsed: true
@@ -353,7 +364,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.51
+      default: Maple 1.0.0-beta.52
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -406,8 +417,8 @@ settings:
       collapsed: true
     - id: labeled-nav
       type: class-toggle
-      title: Enable Labeled Navigation Bar
-      title.zh: 启用带文字的导航栏
+      title: Enable Vertical Navigation Bar
+      title.zh: 启用竖向导航栏
       description: Reference from
           https://github.com/kepano/obsidian-minimal/blob/master/src/scss/features/labeled-nav.scss
       description.zh: 参考自
@@ -557,6 +568,11 @@ settings:
 id: maple-editor
 name: Maple Editor
 settings:
+    - id: info-editor-intro
+      type: info-text
+      description: Settings for customizing the style of the editor area.
+      description.zh: 用于修改编辑器区域样式的设置。
+      markdown: true
     - id: title-background-pattern
       title: Background Pattern
       title.zh: 背景图案
@@ -1854,6 +1870,53 @@ settings:
 id: maple-plugin
 name: Maple Plugin
 settings:
+    - id: info-plugin-intro
+      type: info-text
+      description: >-
+          Settings for customizing styles for specific Obsidian plugins. If you
+          find any plugin not displaying properly, please open an issue at the
+          [GitHub
+          repository](https://github.com/subframe7536/obsidian-theme-maple).
+
+          > [!info]- Adapted plugins
+
+          > - Better Command Palette
+
+          > - Calendar
+
+          > - Obsidian Git
+
+          > - MySnippets
+
+          > - Quite Outline
+
+          > - Recent Files
+
+          > - Settings Search
+
+          > - Shiki Highlighter
+      description.zh: >-
+          用于修改特定 Obsidian 插件的样式设置。如果您发现某个插件显示不正常，请前往 [GitHub
+          仓库](https://github.com/subframe7536/obsidian-theme-maple) 提交 issue。
+
+          > [!info]- 已适配的插件
+
+          > - Better Command Palette
+
+          > - Calendar
+
+          > - Obsidian Git
+
+          > - MySnippets
+
+          > - Quite Outline
+
+          > - Recent Files
+
+          > - Settings Search
+
+          > - Shiki Highlighter
+      markdown: true
     - id: title-calendar
       title: Calendar
       title.zh: 日历
@@ -2529,6 +2592,20 @@ body:not(.is-mobile) .workspace-leaf-content[data-type=style-settings] .view-con
   align-items: center;
 }
 
+.style-settings-markdown {
+  --callout-padding: var(--size-4-3);
+  --callout-content-padding: var(--size-4-2) 0 0 0;
+}
+.style-settings-markdown code {
+  color: var(--inline-code);
+  background-color: var(--code-background);
+  border-radius: var(--code-radius);
+  font-size: var(--code-size);
+  padding: 0.15em 0.3em;
+  border: var(--code-border-width) solid var(--code-border-color);
+  -webkit-box-decoration-break: clone;
+}
+
 /* #endregion style settings */
 /* #region layout */
 body {
@@ -2680,6 +2757,9 @@ body.app-layout-card:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-c
 }
 body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
   background-color: hsla(var(--background-secondary-hsl), calc(var(--bg-opacity) / 4));
+}
+body.app-layout-card:not(.is-mobile).labeled-nav .mod-left-split .mod-top .workspace-tab-header-container .workspace-tab-header-container-inner {
+  padding-top: 0;
 }
 
 /* #endregion layout */
@@ -3092,7 +3172,7 @@ body {
 }
 
 .cm-hmd-codeblock.cm-formatting,
-.markdown-rendered :not(pre) code {
+.markdown-rendered code {
   color: var(--inline-code);
 }
 
@@ -6715,6 +6795,10 @@ body:not(.is-mobile).modal-header.modal-header-search .settings-search-container
   padding-inline-start: var(--size-4-2);
 }
 
+.mod-active .document-search-container {
+  background-color: transparent;
+}
+
 body.search-internal-enable .document-search-container {
   background-color: var(--background-secondary);
   position: absolute;
@@ -6729,9 +6813,6 @@ body.search-internal-enable .document-search-container {
 }
 body.search-internal-enable .document-search-container :is(.document-replace, .document-search) {
   gap: var(--size-4-1);
-}
-body.search-internal-enable .document-search-container .search-input-container input {
-  padding-inline: var(--size-4-8) var(--size-4-1);
 }
 body.search-internal-enable .document-search-container .search-input-container input:hover + .document-search-count {
   opacity: 0;
@@ -6818,6 +6899,10 @@ body:is(:not(.css-settings-manager), .modal-control-gradient) .checkbox-containe
   background: linear-gradient(to bottom, transparent -200%, var(--accent-active) 100%);
 }
 
+.search-input-container input {
+  padding-inline: var(--size-4-8) var(--size-4-1);
+}
+
 .checkbox-container {
   background-color: var(--color-base-25);
   --interactive-accent: var(--accent-active);
@@ -6858,10 +6943,14 @@ body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:is(:ho
   --slider-thumb-ring-factor: 5.2;
 }
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container {
+  --toggle-target-width: var(--toggle-width);
   --toggle-radius: var(--radius-m);
   height: var(--size-4-4);
   transition: var(--animation);
   border: var(--toggle-border-width) solid var(--text-faint);
+}
+body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container.mod-small {
+  --toggle-target-width: var(--toggle-s-width);
 }
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container:focus-within {
   outline: none;
@@ -6872,10 +6961,10 @@ body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-co
 }
 body:not(.is-mobile).modal-toggle-floating .checkbox-container::after {
   left: 0;
-  height: calc(var(--toggle-width) / 3);
-  width: calc(var(--toggle-width) / 3);
+  height: calc(var(--toggle-target-width) / 3);
+  width: calc(var(--toggle-target-width) / 3);
   bottom: 30%;
-  border-radius: calc(var(--toggle-width) / 2);
+  border-radius: calc(var(--toggle-target-width) / 2);
   border: var(--toggle-border-width) solid var(--text-faint);
   margin: 0;
   transition: var(--animation);
@@ -6890,20 +6979,20 @@ body:not(.is-mobile).modal-toggle-floating .checkbox-container.is-enabled {
 body:not(.is-mobile).modal-toggle-floating .checkbox-container.is-enabled::after {
   border-color: var(--accent-active);
   transform: none;
-  left: calc(100% - var(--toggle-width) / 3 - 3 * var(--toggle-border-width));
+  left: calc(100% - var(--toggle-target-width) / 3 - 3 * var(--toggle-border-width));
 }
 body:not(.is-mobile).modal-toggle-thin .checkbox-container::after {
   left: var(--toggle-border-width);
-  height: var(--size-4-3);
+  height: calc(var(--toggle-target-width) / 4 + var(--toggle-border-width));
   bottom: 50%;
-  border-radius: var(--radius-m) var(--radius-m) 0 0;
+  border-radius: calc(var(--toggle-target-width) / 8 + var(--toggle-border-width)) calc(var(--toggle-target-width) / 8 + var(--toggle-border-width)) 0 0;
   border: var(--toggle-border-width) solid var(--text-faint);
-  width: 20%;
+  width: calc(var(--toggle-target-width) / 8 + var(--toggle-border-width));
   margin: 0;
   transition: var(--animation);
 }
 :is(body:not(.is-mobile).modal-toggle-thin .checkbox-container:hover, body:not(.is-mobile).modal-toggle-thin .checkbox-container:focus-within)::after {
-  height: var(--size-4-2);
+  height: calc(var(--toggle-target-width) / 6 + var(--toggle-border-width));
 }
 body:not(.is-mobile).modal-toggle-thin .checkbox-container:active::after {
   width: calc(100% - var(--toggle-border-width) * 6);
@@ -6932,6 +7021,7 @@ body.modal-header:not(.is-mobile) .modal-close-button {
   transition: background-color var(--animation);
   z-index: calc(var(--layer-modal) + 1);
   top: var(--size-4-3);
+  inset-inline-end: var(--size-4-3);
 }
 body.modal-header:not(.is-mobile) .modal-container {
   --modal-header-height: var(--size-4-12);
@@ -6941,7 +7031,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.51");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.52");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7076,7 +7166,7 @@ body:not(.is-phone) .modal-container .community-modal-controls .search-input-con
   right: calc(var(--size-4-6) + var(--size-2-1));
 }
 body:not(.is-phone) .modal-container .community-modal-controls .search-input-container input {
-  padding-inline-end: var(--size-4-12);
+  padding-inline-end: var(--size-4-8);
   transition: var(--animation);
   transition-property: border-color, background-color, box-shadow;
 }
@@ -7396,8 +7486,6 @@ body .workspace-tab-header-new-tab {
 }
 
 /* #endregion titlebar */
-/* #region print */
-/* #endregion print */
 /* #region statusbar */
 body {
   --status-bar-background: var(--background-secondary);
