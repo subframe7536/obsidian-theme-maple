@@ -2,10 +2,6 @@ import { descValidCSS, Settings } from './generator'
 
 export default Settings.create('maple-basic', 'Maple Basic').children([
   Settings.of()
-    .addInfo('basic-intro', {
-      en: 'Basic settings for customizing the overall style of the Maple theme.',
-      zh: '用于修改 Maple 主题整体样式的基础设置。',
-    })
     .addVarNumSlider(
       'setting-animation-time',
       {

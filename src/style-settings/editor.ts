@@ -123,10 +123,6 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
 }
 
 export default Settings.create('maple-editor', 'Maple Editor').children([
-  Settings.of().addInfo('editor-intro', {
-    en: 'Settings for customizing the style of the editor area.',
-    zh: '用于修改编辑器区域样式的设置。',
-  }),
   Settings.ofLevel(1, {
     title: { en: 'Background Pattern', zh: '背景图案' },
   })
