@@ -180,9 +180,9 @@ export class Settings {
     return this
   }
 
-  addInfo(text: Translate) {
+  addInfo(id: string, text: Translate) {
     this.items.push({
-      id: `info-${text}`,
+      id: `info-${id}`,
       type: 'info-text',
       description: text.en,
       'description.zh': text.zh,

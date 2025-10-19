@@ -2,10 +2,14 @@ import { descValidCSS, Settings } from './generator'
 
 export default Settings.create('maple-basic', 'Maple Basic').children([
   Settings.of()
+    .addInfo('basic-intro', {
+      en: 'Basic settings for customizing the overall style of the Maple theme.',
+      zh: '用于修改 Maple 主题整体样式的基础设置。',
+    })
     .addVarNumSlider(
       'setting-animation-time',
       {
-        title: { en: 'Animation Duration (ms)', zh: '动画持续时间（毫秒）' },
+        title: { en: 'Animation Duration (ms)', zh: '动画时长（毫秒）' },
       },
       { default: 250, min: 0, max: 1000, step: 50, format: 'ms' },
     )

@@ -1,6 +1,25 @@
 import { descValidCSS, Settings } from './generator'
 
+const pluginList = [
+  'Better Command Palette',
+  'Calendar',
+  'Obsidian Git',
+  'MySnippets',
+  'Quite Outline',
+  'Recent Files',
+  'Settings Search',
+  'Shiki Highlighter',
+].map((name) => `> - ${name}`)
+
 export default Settings.create('maple-plugin', 'Maple Plugin').children([
+  Settings.of().addInfo('plugin-intro', {
+    en:
+      'Settings for customizing styles for specific Obsidian plugins. If you find any plugin not displaying properly, please open an issue at the [GitHub repository](https://github.com/subframe7536/obsidian-theme-maple).\n> [!info]- Adapted plugins\n' +
+      pluginList.join('\n'),
+    zh:
+      '用于修改特定 Obsidian 插件的样式设置。如果您发现某个插件显示不正常，请前往 [GitHub 仓库](https://github.com/subframe7536/obsidian-theme-maple) 提交 issue。\n> [!info]- 已适配的插件\n' +
+      pluginList.join('\n'),
+  }),
   Settings.ofLevel(1, { title: { en: 'Calendar', zh: '日历' } })
     .addClassSelect(
       'calendar-weekend',

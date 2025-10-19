@@ -430,3 +430,18 @@ body:not(.tag-outline)
     align-items: center;
   }
 }
+
+.style-settings-markdown {
+  --callout-padding: var(--size-4-3);
+  --callout-content-padding: var(--size-4-2) 0 0 0;
+  code {
+    color: var(--inline-code);
+    background-color: var(--code-background);
+    border-radius: var(--code-radius);
+    font-size: var(--code-size);
+    padding: 0.15em 0.3em;
+    border: var(--code-border-width) solid var(--code-border-color);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: ignore;
+  }
+}
