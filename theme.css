@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.1 For Obsidian */
+/* Maple Theme v1.0.2 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.1
+      default: Maple 1.0.2
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -3076,14 +3076,15 @@ strong,
   font-weight: var(--setting-text-bold-weight, 600);
 }
 
-:is(em, .cm-em, strong, .cm-strong, u) {
+.markdown-source-view *,
+.markdown-rendered * {
   text-underline-offset: var(--setting-underline-offset, var(--size-2-1));
 }
 
-a :is(em, strong) {
+a :is(em, i, strong, b) {
   text-decoration: none;
 }
-a :is(em, strong):hover {
+a :is(em, i, strong, b):hover {
   --bold-color: var(--text-on-accent);
   --italic-color: var(--text-on-accent);
 }
@@ -4131,7 +4132,6 @@ body:not(.link-hover-expand) :is(a.external-link,
   transition: background-color var(--animation);
   color: rgba(var(--link-external-color-rgb), var(--color-opacity));
   border-radius: var(--radius-s);
-  text-underline-offset: var(--size-2-1);
   text-decoration-color: var(--link-external-color-underline);
   -webkit-box-decoration-break: clone;
 }
@@ -4156,7 +4156,6 @@ body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved),
   transition: background-color var(--animation);
   color: rgba(var(--link-color-rgb), var(--color-opacity));
   border-radius: var(--radius-s);
-  text-underline-offset: var(--size-2-1);
   text-decoration-color: var(--link-color-underline);
   -webkit-box-decoration-break: clone;
 }
@@ -4189,7 +4188,7 @@ body.link-hover-expand .cm-hmd-internal-link > .cm-underline {
 body.link-hover-expand :is(a.external-link:not(.is-unresolved),
 :is(.cm-link, .cm-url) > .cm-underline) {
   font-size: var(--link-text-size);
-  box-shadow: inset 0 -0.1em 0 var(--link-external-color-underline);
+  box-shadow: inset 0 calc(-1 * var(--size-2-1)) 0 var(--link-external-color-underline);
   text-decoration: none !important;
   transition: var(--animation);
   transition-property: box-shadow, color;
@@ -4198,7 +4197,7 @@ body.link-hover-expand :is(a.external-link:not(.is-unresolved),
 body.link-hover-expand :is(a.external-link:not(.is-unresolved),
 :is(.cm-link, .cm-url) > .cm-underline):hover, body.link-hover-expand :is(a.external-link:not(.is-unresolved),
 :is(.cm-link, .cm-url) > .cm-underline):focus {
-  box-shadow: inset 0 -1.3em 0 var(--link-external-color-underline);
+  box-shadow: inset 0 calc(-1 * var(--font-text-size) * var(--line-height-normal)) 0 var(--link-external-color-underline);
   --link-color: var(
     --setting-link-internal-color-hover,
     var(--text-on-accent)
@@ -4220,7 +4219,7 @@ body.link-hover-expand :is(a.external-link:not(.is-unresolved),
 body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
 .cm-hmd-internal-link > .cm-underline) {
   font-size: var(--link-text-size);
-  box-shadow: inset 0 -0.1em 0 var(--link-color-underline);
+  box-shadow: inset 0 calc(-1 * var(--size-2-1)) 0 var(--link-color-underline);
   text-decoration: none !important;
   transition: var(--animation);
   transition-property: box-shadow, color;
@@ -4229,7 +4228,7 @@ body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
 body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
 .cm-hmd-internal-link > .cm-underline):hover, body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
 .cm-hmd-internal-link > .cm-underline):focus {
-  box-shadow: inset 0 -1.3em 0 var(--link-color-underline);
+  box-shadow: inset 0 calc(-1 * var(--font-text-size) * var(--line-height-normal)) 0 var(--link-color-underline);
   --link-color: var(
     --setting-link-internal-color-hover,
     var(--text-on-accent)
@@ -5658,37 +5657,31 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h1-underline :is(.HyperMD-header-1 .cm-header:not(.cm-formatting),
 .markdown-rendered h1) {
   text-decoration: underline var(--size-2-1);
-  text-underline-offset: var(--size-4-2);
 }
 
 .heading-h2-underline :is(.HyperMD-header-2 .cm-header:not(.cm-formatting),
 .markdown-rendered h2) {
   text-decoration: underline var(--size-2-1);
-  text-underline-offset: var(--size-4-2);
 }
 
 .heading-h3-underline :is(.HyperMD-header-3 .cm-header:not(.cm-formatting),
 .markdown-rendered h3) {
   text-decoration: underline var(--size-2-1);
-  text-underline-offset: var(--size-4-2);
 }
 
 .heading-h4-underline :is(.HyperMD-header-4 .cm-header:not(.cm-formatting),
 .markdown-rendered h4) {
   text-decoration: underline var(--size-2-1);
-  text-underline-offset: var(--size-4-2);
 }
 
 .heading-h5-underline :is(.HyperMD-header-5 .cm-header:not(.cm-formatting),
 .markdown-rendered h5) {
   text-decoration: underline var(--size-2-1);
-  text-underline-offset: var(--size-4-2);
 }
 
 .heading-h6-underline :is(.HyperMD-header-6 .cm-header:not(.cm-formatting),
 .markdown-rendered h6) {
   text-decoration: underline var(--size-2-1);
-  text-underline-offset: var(--size-4-2);
 }
 
 .heading-h1-full-line :is(.HyperMD-header-1, .markdown-rendered h1) {
@@ -7021,7 +7014,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.1");
+  content: var(--setting-modal-header-title, "Maple 1.0.2");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
