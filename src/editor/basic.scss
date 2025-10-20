@@ -346,11 +346,12 @@ strong,
   font-weight: var(--setting-text-bold-weight, 600);
 }
 
-:is(em, .cm-em, strong, .cm-strong, u) {
+.markdown-source-view *,
+.markdown-rendered * {
   text-underline-offset: var(--setting-underline-offset, var(--size-2-1));
 }
 
-a :is(em, strong) {
+a :is(em, i, strong, b) {
   text-decoration: none;
 
   &:hover {

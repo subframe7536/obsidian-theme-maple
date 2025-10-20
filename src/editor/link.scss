@@ -42,7 +42,7 @@ body {
 
 @mixin hover-underline($color, $underline) {
   font-size: var(--link-text-size);
-  box-shadow: inset 0 -0.1em 0 $underline;
+  box-shadow: inset 0 calc(-1 * var(--size-2-1)) 0 $underline;
   text-decoration: none !important;
   transition: var(--animation);
   transition-property: box-shadow, color;
@@ -50,7 +50,8 @@ body {
 
   &:hover,
   &:focus {
-    box-shadow: inset 0 -1.3em 0 $underline;
+    box-shadow: inset 0
+      calc(-1 * var(--font-text-size) * var(--line-height-normal)) 0 $underline;
     --link-color: var(
       --setting-link-internal-color-hover,
       var(--text-on-accent)
@@ -66,7 +67,6 @@ body {
   transition: background-color var(--animation);
   color: rgba($color, var(--color-opacity));
   border-radius: var(--radius-s);
-  text-underline-offset: var(--size-2-1);
   text-decoration-color: $underline;
   -webkit-box-decoration-break: clone;
 
