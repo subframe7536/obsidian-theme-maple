@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.2 For Obsidian */
+/* Maple Theme v1.0.3 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.2
+      default: Maple 1.0.3
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -778,7 +778,7 @@ settings:
       title.zh: 粗体样式
       description: Any CSS "text-decoration" value
       description.zh: 任何 CSS “text-decoration” 值
-      default: underline dotted
+      default: ""
     - id: setting-text-bold-font
       type: variable-text
       title: Bold Font
@@ -806,7 +806,7 @@ settings:
       title.zh: 斜体样式
       description: Any CSS "text-decoration" value
       description.zh: 任何 CSS “text-decoration” 值
-      default: underline dotted
+      default: ""
     - id: setting-text-italic-font
       type: variable-text
       title: Italic Font
@@ -3063,7 +3063,7 @@ i,
 em,
 .cm-em {
   --blockquote-color: var(--italic-color);
-  text-decoration: var(--setting-text-italic-style, underline dotted);
+  text-decoration: var(--setting-text-italic-style, none);
   font-family: var(--setting-text-italic-font, inherit);
 }
 
@@ -3071,7 +3071,7 @@ b,
 strong,
 .cm-strong {
   --blockquote-color: var(--bold-color);
-  text-decoration: var(--setting-text-bold-style, underline dotted);
+  text-decoration: var(--setting-text-bold-style, none);
   font-family: var(--setting-text-bold-font, inherit);
   font-weight: var(--setting-text-bold-weight, 600);
 }
@@ -7014,7 +7014,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.2");
+  content: var(--setting-modal-header-title, "Maple 1.0.3");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
