@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0 For Obsidian */
+/* Maple Theme v1.0.1 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0
+      default: Maple 1.0.1
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -1707,8 +1707,8 @@ settings:
       type: class-toggle
       title: Add Mac Style Code Block Header in Reading View
       title.zh: 在阅读视图下为代码块添加 Mac 风格标题栏
-      description: No code block border
-      description.zh: 无代码块边框
+      description: No code block border; No effective when exporting PDF
+      description.zh: 无代码块边框；导出 PDF 时不生效
     - id: setting-code-language-color
       type: variable-themed-color
       title: Language Indicator Color
@@ -3845,12 +3845,12 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
 }
 
 @media screen {
-  .code-mac-style-header .markdown-rendered pre {
+  body.code-mac-style-header .markdown-rendered pre {
     border: none;
     padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
     padding-bottom: calc(var(--code-size) * 0.5);
   }
-  .code-mac-style-header .markdown-rendered pre::after {
+  body.code-mac-style-header .markdown-rendered pre::after {
     content: "";
     width: 100%;
     height: calc(var(--code-size) * var(--line-height-normal) * 1.2);
@@ -3861,7 +3861,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
     border-top-left-radius: var(--code-radius);
     border-top-right-radius: var(--code-radius);
   }
-  .code-mac-style-header .markdown-rendered pre::before {
+  body.code-mac-style-header .markdown-rendered pre::before {
     content: "";
     width: calc(var(--code-size) - var(--size-2-1));
     height: calc(var(--code-size) - var(--size-2-1));
@@ -3873,11 +3873,11 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
     background-color: rgba(255, 94, 92, var(--color-opacity));
     box-shadow: calc(var(--size-4-5) * 0.9) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-5) * 1.8) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
   }
-  .code-mac-style-header .markdown-rendered pre .copy-code-button {
+  body.code-mac-style-header .markdown-rendered pre .copy-code-button {
     z-index: 10;
     color: var(--code-mac-style-header-color);
   }
-  .code-mac-style-header .markdown-rendered pre .copy-code-button::before {
+  body.code-mac-style-header .markdown-rendered pre .copy-code-button::before {
     color: inherit !important;
   }
 }
@@ -7021,7 +7021,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0");
+  content: var(--setting-modal-header-title, "Maple 1.0.1");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
