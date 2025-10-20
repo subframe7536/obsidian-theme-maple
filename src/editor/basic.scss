@@ -333,7 +333,7 @@ i,
 em,
 .cm-em {
   --blockquote-color: var(--italic-color);
-  text-decoration: var(--setting-text-italic-style, underline dotted);
+  text-decoration: var(--setting-text-italic-style, none);
   font-family: var(--setting-text-italic-font, inherit);
 }
 
@@ -341,7 +341,7 @@ b,
 strong,
 .cm-strong {
   --blockquote-color: var(--bold-color);
-  text-decoration: var(--setting-text-bold-style, underline dotted);
+  text-decoration: var(--setting-text-bold-style, none);
   font-family: var(--setting-text-bold-font, inherit);
   font-weight: var(--setting-text-bold-weight, 600);
 }

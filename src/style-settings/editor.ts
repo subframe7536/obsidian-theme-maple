@@ -339,7 +339,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
             title: { en: 'Bold Style', zh: '粗体样式' },
             desc: descValidCSS('text-decoration'),
           },
-          { default: 'underline dotted' },
+          { default: '' },
         )
         .addVarText('setting-text-bold-font', {
           title: { en: 'Bold Font', zh: '粗体字体' },
@@ -359,7 +359,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
             title: { en: 'Italic Style', zh: '斜体样式' },
             desc: descValidCSS('text-decoration'),
           },
-          { default: 'underline dotted' },
+          { default: '' },
         )
         .addVarText('setting-text-italic-font', {
           title: { en: 'Italic Font', zh: '斜体字体' },
