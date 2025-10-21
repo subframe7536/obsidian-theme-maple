@@ -29,4 +29,8 @@ body.message-modify {
     color: var(--text-on-accent);
     text-decoration: underline;
   }
+
+  .notice.is-loading::before {
+    background-color: var(--accent-inactive);
+  }
 }
