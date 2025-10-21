@@ -3,6 +3,7 @@
   --system-access-override-text-width: 115%;
   --scrollbar-thumb-bg: var(--interactive-hover);
   --scrollbar-active-thumb-bg: var(--interactive-accent);
+  --toggle-s-width: 42px;
 
   .modal-close-button::before {
     transform: translate(20%, 20%);
@@ -12,5 +13,13 @@
     &.tree-item-self.is-clickable.is-active {
       background-color: var(--nav-item-background-active);
     }
+  }
+}
+
+body.is-tablet {
+  .modal-container
+    .modal-sidebar:not(:has(+ .community-modal-details))
+    .community-modal-controls {
+    padding-inline-end: var(--size-4-10);
   }
 }
