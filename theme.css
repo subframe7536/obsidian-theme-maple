@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.3 For Obsidian */
+/* Maple Theme v1.0.4 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.3
+      default: Maple 1.0.4
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -6403,10 +6403,6 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
   display: none;
 }
 
-.metadata-properties-heading .collapse-indicator {
-  left: calc(var(--size-4-8) * -1);
-}
-
 .metadata-property-icon,
 input.metadata-property-key-input,
 .multi-select-pill,
@@ -7014,7 +7010,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.3");
+  content: var(--setting-modal-header-title, "Maple 1.0.4");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -8119,12 +8115,17 @@ body.explorer-folder-bold .nav-folder-title {
   --system-access-override-text-width: 115%;
   --scrollbar-thumb-bg: var(--interactive-hover);
   --scrollbar-active-thumb-bg: var(--interactive-accent);
+  --toggle-s-width: 42px;
 }
 .is-mobile .modal-close-button::before {
   transform: translate(20%, 20%);
 }
 .is-mobile .mobile-tap.tree-item-self.is-clickable.is-active {
   background-color: var(--nav-item-background-active);
+}
+
+body.is-tablet .modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls {
+  padding-inline-end: var(--size-4-10);
 }
 
 /* #endregion basic */
