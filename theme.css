@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.5 For Obsidian */
+/* Maple Theme v1.0.6 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.5
+      default: Maple 1.0.6
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -983,7 +983,7 @@ settings:
       type: variable-themed-color
       title: H1 Color
       title.zh: H1 颜色
-      format: rgb-split
+      format: rgb-values
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -1060,7 +1060,7 @@ settings:
       type: variable-themed-color
       title: H2 Color
       title.zh: H2 颜色
-      format: rgb-split
+      format: rgb-values
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -1137,7 +1137,7 @@ settings:
       type: variable-themed-color
       title: H3 Color
       title.zh: H3 颜色
-      format: rgb-split
+      format: rgb-values
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -1214,7 +1214,7 @@ settings:
       type: variable-themed-color
       title: H4 Color
       title.zh: H4 颜色
-      format: rgb-split
+      format: rgb-values
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -1291,7 +1291,7 @@ settings:
       type: variable-themed-color
       title: H5 Color
       title.zh: H5 颜色
-      format: rgb-split
+      format: rgb-values
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -1368,7 +1368,7 @@ settings:
       type: variable-themed-color
       title: H6 Color
       title.zh: H6 颜色
-      format: rgb-split
+      format: rgb-values
       opacity: true
       default-light: "#"
       default-dark: "#"
@@ -7060,7 +7060,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.5");
+  content: var(--setting-modal-header-title, "Maple 1.0.6");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
