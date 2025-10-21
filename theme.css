@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.4 For Obsidian */
+/* Maple Theme v1.0.5 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.4
+      default: Maple 1.0.5
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -1956,6 +1956,53 @@ settings:
       title: Enable Floating Mode Switch Button
       title.zh: 启用浮动的模式切换按钮
       default: true
+    - id: title-font-settings
+      title: Font Settings
+      title.zh: 字体设置
+      description: It is inconvenient to install fonts on mobile devices, so maybe you
+          need this option
+      description.zh: 移动端不方便安装字体，所以有了这个选项
+      type: heading
+      level: 1
+      collapsed: true
+    - id: info-info-font-mobile
+      type: info-text
+      description: >-
+          > [!tip]
+
+          > 1. Reset options in **Appearance > Font** to make this work
+
+          > 2. Type "**maplemono**" if you want to use the theme's built-in
+          monospace font Maple Mono
+
+          > 3. External font can load from CSS Snippets.
+      description.zh: |-
+          > [!tip]
+          > 1. 需要先重置 **外观 > 字体** 中的选项才能生效
+          > 2. 如果想使用主题内置的等宽字体 Maple Mono，请输入 **maplemono**
+          > 3. 外部字体可以通过 CSS 片段加载
+      markdown: true
+    - id: setting-mobile-font-interface
+      type: variable-text
+      title: Interface Font
+      title.zh: 页面字体
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
+    - id: setting-mobile-font-text
+      type: variable-text
+      title: Text Font
+      title.zh: 正文字体
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: ""
+    - id: setting-mobile-font-monospace
+      type: variable-text
+      title: Monospace Font
+      title.zh: 等宽字体
+      description: Any CSS "font-family" value
+      description.zh: 任何 CSS “font-family” 值
+      default: maplemono
 */
 
 /* #region global variables */
@@ -2590,6 +2637,9 @@ body:not(.is-mobile) .workspace-leaf-content[data-type=style-settings] .view-con
   border: var(--code-border-width) solid var(--code-border-color);
   -webkit-box-decoration-break: clone;
 }
+.style-settings-markdown :is(ol, ul) {
+  padding-inline-start: var(--size-4-8);
+}
 
 /* #endregion style settings */
 /* #region layout */
@@ -2831,7 +2881,7 @@ mjx-stretchy-h > mjx-ext > mjx-c::before {
 
 /* #endregion fix latex */
 /* #region monospace */
-body:is(:not(.css-settings-manager), .font-maple) {
+body:is(:not(.css-settings-manager), :not(.is-mobile).font-maple) {
   --font-monospace-theme: "maplemono";
 }
 
@@ -7010,7 +7060,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.4");
+  content: var(--setting-modal-header-title, "Maple 1.0.5");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7532,6 +7582,9 @@ body.message-modify :is(.tooltip, .notice) {
 body.message-modify .notice-cta {
   color: var(--text-on-accent);
   text-decoration: underline;
+}
+body.message-modify .notice.is-loading::before {
+  background-color: var(--accent-inactive);
 }
 
 /* #endregion message */
@@ -8116,6 +8169,9 @@ body.explorer-folder-bold .nav-folder-title {
   --scrollbar-thumb-bg: var(--interactive-hover);
   --scrollbar-active-thumb-bg: var(--interactive-accent);
   --toggle-s-width: 42px;
+  --font-interface-theme: var(--setting-mobile-font-interface, "");
+  --font-text-theme: var(--setting-mobile-font-text, "");
+  --font-monospace-theme: var(--setting-mobile-font-monospace, maplemono);
 }
 .is-mobile .modal-close-button::before {
   transform: translate(20%, 20%);
