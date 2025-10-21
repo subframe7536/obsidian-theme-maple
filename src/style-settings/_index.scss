@@ -444,4 +444,7 @@ body:not(.tag-outline)
     -webkit-box-decoration-break: clone;
     box-decoration-break: ignore;
   }
+  :is(ol, ul) {
+    padding-inline-start: var(--size-4-8);
+  }
 }

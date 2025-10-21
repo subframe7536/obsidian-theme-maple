@@ -5,6 +5,10 @@
   --scrollbar-active-thumb-bg: var(--interactive-accent);
   --toggle-s-width: 42px;
 
+  --font-interface-theme: var(--setting-mobile-font-interface, '');
+  --font-text-theme: var(--setting-mobile-font-text, '');
+  --font-monospace-theme: var(--setting-mobile-font-monospace, maplemono);
+
   .modal-close-button::before {
     transform: translate(20%, 20%);
   }

@@ -46,7 +46,7 @@ mjx-stretchy-h > mjx-ext > mjx-c::before {
 
 /* #region monospace */
 
-@include use-no-plugin('.font-maple') {
+@include use-no-plugin(':not(.is-mobile).font-maple') {
   --font-monospace-theme: 'maplemono';
 }
 
