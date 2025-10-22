@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.6 For Obsidian */
+/* Maple Theme v1.1.0 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.6
+      default: Maple 1.1.0
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -2124,14 +2124,22 @@ body {
   --text-on-accent: #fafafa !important;
 }
 .theme-light.color-use-minimal {
-  --base-accent-h: 210;
+  --base-accent-h: var(--setting-color-active-custom-light-h, 210);
   --background-primary-hsl: var(--base-accent-h), 6%, 97%;
   --background-primary-alt-hsl: var(--base-accent-h), 10%, 95.5%;
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 93%;
-  --theme-accent-active-s: 6%;
-  --theme-accent-active-l: 36%;
-  --theme-accent-inactive-s: 8%;
-  --theme-accent-inactive-l: 70%;
+  --frame-bg: hsl(
+    var(--base-accent-h),
+    calc(var(--theme-accent-active-s) * 0.2),
+    calc(85% + var(--theme-accent-active-l) * 0.1)
+  );
+  --theme-accent-active-s: var(--setting-color-active-custom-light-s, 6%);
+  --theme-accent-active-l: var(--setting-color-active-custom-light-l, 36%);
+  --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s, 8%);
+  --theme-accent-inactive-l: var(
+    --setting-color-inactive-custom-light-l,
+    70%
+  );
 }
 .theme-light.color-use-custom {
   --base-accent-h: var(--setting-accent-h-light, 35);
@@ -2206,14 +2214,19 @@ body {
 }
 .theme-dark.color-use-minimal {
   --text-on-accent: #1e1e1f !important;
-  --base-accent-h: 210;
+  --base-accent-h: var(--setting-color-active-custom-dark-h, 210);
   --background-primary-hsl: var(--base-accent-h), 4%, 10%;
   --background-primary-alt-hsl: var(--base-accent-h), 8%, 12%;
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 12%;
-  --theme-accent-active-s: 4%;
-  --theme-accent-active-l: 72%;
-  --theme-accent-inactive-s: 12%;
-  --theme-accent-inactive-l: 42%;
+  --frame-bg: hsl(
+    var(--base-accent-h),
+    calc(var(--theme-accent-active-s) * 0.1),
+    calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
+  );
+  --theme-accent-active-s: var(--setting-color-active-custom-dark-s, 4%);
+  --theme-accent-active-l: var(--setting-color-active-custom-dark-l, 72%);
+  --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s, 12%);
+  --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l, 42%);
 }
 .theme-dark.color-use-custom {
   --base-accent-h: var(--setting-accent-h-dark, 207);
@@ -2439,7 +2452,11 @@ body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expa
 body:not(.outline-enable) .setting-item:is([data-id=setting-outline-width],
 [data-id=setting-outline-line-color],
 [data-id=setting-outline-dot-color]),
-body:not(.color-use-custom) .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]),
+body.color-use-default .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]),
+body.color-use-minimal .setting-item:is([data-id=setting-accent-h-light],
+[data-id=setting-accent-h-dark],
+[data-id=color-active-light],
+[data-id=color-active-dark]),
 body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
 [data-id=list-bullet-thread-style]),
@@ -2448,11 +2465,6 @@ body:not(.code-language) .setting-item[data-id=setting-code-language-color],
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer],
 body:not(.modal-header) .setting-item:is([data-id=modal-header-search],
 [data-id=setting-modal-header-title]),
-body:not(.color-use-custom) .setting-item[data-id^=accent-hue],
-body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light],
-body:not(.color-active-custom-light) .setting-item[data-id=setting-color-inactive-custom-light],
-body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-active-custom-dark],
-body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-inactive-custom-dark],
 body:not(.message-modify) .setting-item[data-id^=setting-message],
 body:not(.image-zoom) .setting-item[data-id^=image-zoom-out],
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix],
@@ -2512,7 +2524,11 @@ body:not(.search-internal-enable) .setting-item:is([data-id=search-internal-expa
 body:not(.outline-enable) .setting-item:is([data-id=setting-outline-width],
 [data-id=setting-outline-line-color],
 [data-id=setting-outline-dot-color]) + .style-settings-container,
-body:not(.color-use-custom) .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]) + .style-settings-container,
+body.color-use-default .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]) + .style-settings-container,
+body.color-use-minimal .setting-item:is([data-id=setting-accent-h-light],
+[data-id=setting-accent-h-dark],
+[data-id=color-active-light],
+[data-id=color-active-dark]) + .style-settings-container,
 body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
 [data-id=list-bullet-thread-style]) + .style-settings-container,
@@ -2521,11 +2537,6 @@ body:not(.code-language) .setting-item[data-id=setting-code-language-color] + .s
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer] + .style-settings-container,
 body:not(.modal-header) .setting-item:is([data-id=modal-header-search],
 [data-id=setting-modal-header-title]) + .style-settings-container,
-body:not(.color-use-custom) .setting-item[data-id^=accent-hue] + .style-settings-container,
-body:not(.color-active-custom-light) .setting-item[data-id=setting-color-active-custom-light] + .style-settings-container,
-body:not(.color-active-custom-light) .setting-item[data-id=setting-color-inactive-custom-light] + .style-settings-container,
-body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-active-custom-dark] + .style-settings-container,
-body:not(.color-active-custom-dark) .setting-item[data-id=setting-color-inactive-custom-dark] + .style-settings-container,
 body:not(.message-modify) .setting-item[data-id^=setting-message] + .style-settings-container,
 body:not(.image-zoom) .setting-item[data-id^=image-zoom-out] + .style-settings-container,
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix] + .style-settings-container,
@@ -7042,10 +7053,6 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled:active::af
   left: calc(2 * var(--toggle-border-width));
 }
 
-body {
-  --logo-color-default: var(--text-accent);
-}
-
 body.modal-header:not(.is-mobile) .modal-close-button {
   transition: background-color var(--animation);
   z-index: calc(var(--layer-modal) + 1);
@@ -7060,14 +7067,14 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.6");
+  content: var(--setting-modal-header-title, "Maple 1.1.0");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
   transform: translate(-50%, -50%);
   font-size: calc(1.4 * var(--size-4-4));
   font-weight: 550;
-  color: var(--setting-color-logo, var(--logo-color-default));
+  color: var(--setting-color-logo, var(--text-accent));
 }
 @container (max-width:750px) {
   body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
@@ -7996,6 +8003,9 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder-title {
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder-title-content {
   padding-left: var(--size-4-1);
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder .nav-folder-children {
+  transition: border-color var(--animation-fast);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder .nav-folder-children:hover {
   border-color: var(--accent-inactive);
