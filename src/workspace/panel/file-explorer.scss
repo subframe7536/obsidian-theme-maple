@@ -115,8 +115,11 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
       }
     }
 
-    .nav-folder-children:hover {
-      border-color: var(--accent-inactive);
+    .nav-folder-children {
+      transition: border-color var(--animation-fast);
+      &:hover {
+        border-color: var(--accent-inactive);
+      }
     }
 
     .collapse-icon {
