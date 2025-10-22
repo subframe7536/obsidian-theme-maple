@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.0 For Obsidian */
+/* Maple Theme v1.1.1 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.0
+      default: Maple 1.1.1
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -3993,10 +3993,12 @@ body {
   --embed-border-end: var(--embed-border-start);
   --embed-border-top: var(--embed-border-start);
   --embed-border-bottom: var(--embed-border-start);
+  --embed-radius: var(--radius-m);
+  --bases-embed-border-radius: var(--embed-radius);
 }
 body .markdown-source-view.mod-cm6 .cm-embed-block {
   margin-block: var(--size-4-1) !important;
-  border-radius: var(--radius-m) !important;
+  border-radius: var(--embed-radius) !important;
   transition: box-shadow var(--animation);
 }
 body .markdown-source-view.mod-cm6 .cm-embed-block .edit-block-button {
@@ -4008,7 +4010,7 @@ body .markdown-source-view.mod-cm6 .cm-embed-block .edit-block-button {
 body .internal-embed.is-loaded:not(.image-embed) {
   transition: var(--animation);
   transition-property: border-color, background-color;
-  border-radius: var(--radius-m);
+  border-radius: var(--embed-radius);
   margin-block: var(--size-4-1) !important;
 }
 body .internal-embed.is-loaded:not(.image-embed):hover {
@@ -4069,7 +4071,6 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-em
   line-height: 28px;
   height: 28px;
   padding: 0 var(--size-4-2);
-  border-radius: var(--radius-m);
   transition: var(--animation);
   cursor: pointer;
 }
@@ -6786,7 +6787,7 @@ body #calendar-container .day {
 
 /* #endregion recent-files */
 /* #region shiki */
-.code-mac-style-header .cm-preview-code-block[class*=cm-lang]:not(.cm-lang-query) .edit-block-button {
+.code-mac-style-header .cm-preview-code-block[class*=cm-lang]:not(.cm-lang-query):not(.cm-lang-base) .edit-block-button {
   color: #ddd;
 }
 
@@ -7067,7 +7068,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.0");
+  content: var(--setting-modal-header-title, "Maple 1.1.1");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7253,8 +7254,8 @@ body:not(.is-phone) .modal-bg {
   background-color: hsla(var(--background-secondary-hsl), 0.6) !important;
 }
 body:not(.is-phone).enable-blur :is(.menu, .suggestion-container, .graph-control-section) {
-  background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
-  backdrop-filter: blur(24px);
+  background-color: hsla(var(--background-secondary-hsl), 0.7) !important;
+  backdrop-filter: blur(20px);
   will-change: backdrop-filter;
 }
 body:not(.is-phone).enable-blur .modal-bg {
@@ -7729,13 +7730,8 @@ body.message-modify .notice.is-loading::before {
 /* #endregion labeled-navigator */
 /* #region [[panel]] */
 /* #region panel-base*/
-.nav-buttons-container {
-  justify-content: flex-start;
-  padding-left: var(--size-4-1);
-}
-
-body {
-  --nav-item-children-padding-left: var(--size-4-2);
+.query-toolbar-item .text-icon-button {
+  transition: background-color var(--animation-fast);
 }
 
 /* #endregion panel-base */
@@ -7911,6 +7907,15 @@ body.outline-enable .workspace-leaf-content[data-type=outline] :is(.tree-item-ch
 
 /* #endregion outline */
 /* #region file-explorer */
+.nav-buttons-container {
+  justify-content: flex-start;
+  padding-left: var(--size-4-1);
+}
+
+body {
+  --nav-item-children-padding-left: var(--size-4-2);
+}
+
 svg.lucide-layout-dashboard rect {
   rx: 2;
 }
