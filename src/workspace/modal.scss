@@ -458,8 +458,8 @@ body:not(.is-phone) {
 
   &.enable-blur {
     :is(.menu, .suggestion-container, .graph-control-section) {
-      background-color: hsla(var(--background-secondary-hsl), 0.5) !important;
-      backdrop-filter: blur(24px);
+      background-color: hsla(var(--background-secondary-hsl), 0.7) !important;
+      backdrop-filter: blur(20px);
       will-change: backdrop-filter;
     }
     .modal-bg {
