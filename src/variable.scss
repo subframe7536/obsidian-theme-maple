@@ -124,14 +124,23 @@ body {
   --text-on-accent: #fafafa !important;
 
   &.color-use-minimal {
-    --base-accent-h: 210;
+    --base-accent-h: var(--setting-color-active-custom-light-h, 210);
     --background-primary-hsl: var(--base-accent-h), 6%, 97%;
     --background-primary-alt-hsl: var(--base-accent-h), 10%, 95.5%;
     --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 93%;
-    --theme-accent-active-s: 6%;
-    --theme-accent-active-l: 36%;
-    --theme-accent-inactive-s: 8%;
-    --theme-accent-inactive-l: 70%;
+    --frame-bg: hsl(
+      var(--base-accent-h),
+      calc(var(--theme-accent-active-s) * 0.2),
+      calc(85% + var(--theme-accent-active-l) * 0.1)
+    );
+
+    --theme-accent-active-s: var(--setting-color-active-custom-light-s, 6%);
+    --theme-accent-active-l: var(--setting-color-active-custom-light-l, 36%);
+    --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s, 8%);
+    --theme-accent-inactive-l: var(
+      --setting-color-inactive-custom-light-l,
+      70%
+    );
   }
 
   &.color-use-custom {
@@ -207,14 +216,21 @@ body {
 
   &.color-use-minimal {
     --text-on-accent: #1e1e1f !important;
-    --base-accent-h: 210;
+    --base-accent-h: var(--setting-color-active-custom-dark-h, 210);
+
     --background-primary-hsl: var(--base-accent-h), 4%, 10%;
     --background-primary-alt-hsl: var(--base-accent-h), 8%, 12%;
     --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 12%;
-    --theme-accent-active-s: 4%;
-    --theme-accent-active-l: 72%;
-    --theme-accent-inactive-s: 12%;
-    --theme-accent-inactive-l: 42%;
+    --frame-bg: hsl(
+      var(--base-accent-h),
+      calc(var(--theme-accent-active-s) * 0.1),
+      calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
+    );
+
+    --theme-accent-active-s: var(--setting-color-active-custom-dark-s, 4%);
+    --theme-accent-active-l: var(--setting-color-active-custom-dark-l, 72%);
+    --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s, 12%);
+    --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l, 42%);
   }
 
   &.color-use-custom {
