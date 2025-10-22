@@ -1,6 +1,17 @@
 @use '../../utils' as *;
 @use 'sass:list';
 
+// align left
+.nav-buttons-container {
+  justify-content: flex-start;
+  padding-left: var(--size-4-1);
+}
+
+// increase tree indent
+body {
+  --nav-item-children-padding-left: var(--size-4-2);
+}
+
 $file-icon: (
   (pdf, 'book-open'),
   (png, svg, jpeg, jpg, bmp, gif, webp, tiff, 'image'),
