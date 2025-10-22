@@ -10,11 +10,13 @@ body {
   --embed-border-end: var(--embed-border-start);
   --embed-border-top: var(--embed-border-start);
   --embed-border-bottom: var(--embed-border-start);
+  --embed-radius: var(--radius-m);
+  --bases-embed-border-radius: var(--embed-radius);
 
   // latex block
   .markdown-source-view.mod-cm6 .cm-embed-block {
     margin-block: var(--size-4-1) !important;
-    border-radius: var(--radius-m) !important;
+    border-radius: var(--embed-radius) !important;
     transition: box-shadow var(--animation);
 
     .edit-block-button {
@@ -28,7 +30,7 @@ body {
   .internal-embed.is-loaded:not(.image-embed) {
     transition: var(--animation);
     transition-property: border-color, background-color;
-    border-radius: var(--radius-m);
+    border-radius: var(--embed-radius);
     margin-block: var(--size-4-1) !important;
 
     &:hover {
@@ -112,7 +114,6 @@ body {
       line-height: 28px;
       height: 28px;
       padding: 0 var(--size-4-2);
-      border-radius: var(--radius-m);
       transition: var(--animation);
       cursor: pointer;
     }
