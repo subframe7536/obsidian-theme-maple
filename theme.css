@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.1 For Obsidian */
+/* Maple Theme v1.1.2 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.1
+      default: Maple 1.1.2
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -616,6 +616,10 @@ settings:
       min: 0
       max: 20
       step: 1
+    - id: editor-custom-bottom-spacing
+      type: class-toggle
+      title: Custom Page Bottom Spacing
+      title.zh: 自定义页面底部留白
     - id: setting-editor-bottom-spacing
       type: variable-number-slider
       title: Page Bottom Spacing (vh)
@@ -2457,6 +2461,7 @@ body.color-use-minimal .setting-item:is([data-id=setting-accent-h-light],
 [data-id=setting-accent-h-dark],
 [data-id=color-active-light],
 [data-id=color-active-dark]),
+body:not(.editor-custom-bottom-spacing) .setting-item[data-id=setting-editor-bottom-spacing],
 body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
 [data-id=list-bullet-thread-style]),
@@ -2529,6 +2534,7 @@ body.color-use-minimal .setting-item:is([data-id=setting-accent-h-light],
 [data-id=setting-accent-h-dark],
 [data-id=color-active-light],
 [data-id=color-active-dark]) + .style-settings-container,
+body:not(.editor-custom-bottom-spacing) .setting-item[data-id=setting-editor-bottom-spacing] + .style-settings-container,
 body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
 [data-id=list-bullet-thread-style]) + .style-settings-container,
@@ -2875,8 +2881,8 @@ body {
   margin-inline-end: var(--indent);
 }
 
-.markdown-source-view.mod-cm6 .cm-contentContainer > .cm-content,
-.markdown-reading-view > div > .markdown-preview-sizer {
+.editor-custom-bottom-spacing :is(.markdown-source-view.mod-cm6 .cm-contentContainer > .cm-content,
+.markdown-reading-view > div > .markdown-preview-sizer) {
   padding-bottom: var(--setting-editor-bottom-spacing, 40vh) !important;
 }
 
@@ -7068,7 +7074,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.1");
+  content: var(--setting-modal-header-title, "Maple 1.1.2");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7729,12 +7735,12 @@ body.message-modify .notice.is-loading::before {
 
 /* #endregion labeled-navigator */
 /* #region [[panel]] */
-/* #region panel-base*/
+/* #region base*/
 .query-toolbar-item .text-icon-button {
   transition: background-color var(--animation-fast);
 }
 
-/* #endregion panel-base */
+/* #endregion base */
 /* #region tag */
 .workspace-leaf-content[data-type=tag] .tree-item-self::before {
   line-height: var(--line-height-tight);
