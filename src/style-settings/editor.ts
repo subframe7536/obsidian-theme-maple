@@ -184,6 +184,9 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       { default: 8, format: 'px', min: 0, max: 20, step: 1 },
     )
+    .addClassToggle('editor-custom-bottom-spacing', {
+      title: { en: 'Custom Page Bottom Spacing', zh: '自定义页面底部留白' },
+    })
     .addVarNumSlider(
       'setting-editor-bottom-spacing',
       {

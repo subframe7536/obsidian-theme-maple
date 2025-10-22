@@ -282,6 +282,8 @@ body.color-use-minimal
     [data-id='color-active-light'],
     [data-id='color-active-dark']
   ),
+body:not(.editor-custom-bottom-spacing)
+  .setting-item[data-id='setting-editor-bottom-spacing'],
 body:not(.list-enable)
   .setting-item:is(
     [data-id*='setting-list-'],

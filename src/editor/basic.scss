@@ -25,8 +25,11 @@ body {
   }
 }
 
-.markdown-source-view.mod-cm6 .cm-contentContainer > .cm-content,
-.markdown-reading-view > div > .markdown-preview-sizer {
+.editor-custom-bottom-spacing
+  :is(
+    .markdown-source-view.mod-cm6 .cm-contentContainer > .cm-content,
+    .markdown-reading-view > div > .markdown-preview-sizer
+  ) {
   padding-bottom: var(--setting-editor-bottom-spacing, 40vh) !important;
 }
 
