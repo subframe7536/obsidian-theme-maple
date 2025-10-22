@@ -212,10 +212,6 @@ body:not(.is-mobile) {
   }
 }
 
-body {
-  --logo-color-default: var(--text-accent);
-}
-
 body.modal-header:not(.is-mobile) {
   .modal-close-button {
     transition: background-color var(--animation);
@@ -239,7 +235,7 @@ body.modal-header:not(.is-mobile) {
         transform: translate(-50%, -50%);
         font-size: calc(1.4 * var(--size-4-4));
         font-weight: 550;
-        color: var(--setting-color-logo, var(--logo-color-default));
+        color: var(--setting-color-logo, var(--text-accent));
       }
 
       @container (max-width:750px) {
