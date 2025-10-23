@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.3 For Obsidian */
+/* Maple Theme v1.1.4 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.3
+      default: Maple 1.1.4
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -1678,16 +1678,24 @@ settings:
       default-dark: "#"
     - id: code-line-number
       type: class-toggle
-      title: Add Code Block Line Numbers in Live Preview Mode
-      title.zh: 在实时预览模式下为代码块添加行号
+      title: Enable Code Block Line Numbers in Live Preview Mode
+      title.zh: 在实时预览模式下启用代码块行号
       description: Due to the limitation of Obsidian's render strategy, if the code
           block has too many lines, line numbering may be incorrect
       description.zh: 由于 Obsidian 渲染方式的限制，如果代码块行数过多，行号可能会出现错误
       default: true
+    - id: setting-code-language-color
+      type: variable-themed-color
+      title: Language Indicator Color
+      title.zh: 语言标识颜色
+      format: hex
+      opacity: true
+      default-light: "#"
+      default-dark: "#"
     - id: code-language
       type: class-toggle
-      title: Add Code Block Language Indicator in Reading View
-      title.zh: 在阅读视图下为代码块添加语言标识
+      title: Enable Code Block Language Indicator in Reading View
+      title.zh: 在阅读视图下启用代码块语言标识
       default: true
     - id: code-nowrap
       type: class-toggle
@@ -1713,14 +1721,6 @@ settings:
       title.zh: 在阅读视图下为代码块添加 macOS 风格标题栏
       description: No code block border; No effective when exporting PDF
       description.zh: 无代码块边框；导出 PDF 时不生效
-    - id: setting-code-language-color
-      type: variable-themed-color
-      title: Language Indicator Color
-      title.zh: 语言标识颜色
-      format: hex
-      opacity: true
-      default-light: "#"
-      default-dark: "#"
     - id: code-theme
       type: class-toggle
       title: Use Theme's Color Scheme
@@ -2466,7 +2466,6 @@ body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
 [data-id=list-bullet-thread-style]),
 body:not(.list-bullet-thread-style) .setting-item[data-id=setting-list-guide-color],
-body:not(.code-language) .setting-item[data-id=setting-code-language-color],
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer],
 body:not(.modal-header) .setting-item:is([data-id=modal-header-search],
 [data-id=setting-modal-header-title]),
@@ -2539,7 +2538,6 @@ body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
 [data-id=list-bullet-thread-style]) + .style-settings-container,
 body:not(.list-bullet-thread-style) .setting-item[data-id=setting-list-guide-color] + .style-settings-container,
-body:not(.code-language) .setting-item[data-id=setting-code-language-color] + .style-settings-container,
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer] + .style-settings-container,
 body:not(.modal-header) .setting-item:is([data-id=modal-header-search],
 [data-id=setting-modal-header-title]) + .style-settings-container,
@@ -3034,7 +3032,7 @@ body.line-indicator-full .cm-line.HyperMD-codeblock:hover {
 :is(kbd, .setting-hotkey, .prompt-instruction-command) {
   user-select: none;
   text-transform: capitalize;
-  font-family: var(--font-interface) !important;
+  font-family: -apple-system, BlinkMacSystemFont, var(--font-monospace);
   border-radius: 6px;
   background-color: var(--color-base-05);
   padding: 2px var(--size-2-3);
@@ -3307,7 +3305,7 @@ code {
 .markdown-source-view.mod-cm6 .code-block-flair {
   --cursor: pointer;
   padding-block: 0;
-  color: var(--inline-code);
+  color: var(--setting-code-language-color, var(--inline-code));
   transition: background-color var(--animation);
   font-family: var(--font-monospace);
   font-weight: 550;
@@ -6525,6 +6523,9 @@ input.metadata-property-key-input,
 .better-command-palette .prompt-instruction {
   display: none;
 }
+.better-command-palette .prompt-instruction-command {
+  font-family: -apple-system, BlinkMacSystemFont, var(--font-monospace);
+}
 .better-command-palette .prompt-instructions::before {
   content: var(var(--prompt-text));
   position: absolute;
@@ -6536,6 +6537,10 @@ input.metadata-property-key-input,
 }
 .better-command-palette .prompt-instructions:hover .prompt-instruction {
   display: inline-block;
+}
+.better-command-palette .suggestion-item .suggestion-hotkey {
+  padding: 0 var(--size-4-2);
+  font-family: -apple-system, BlinkMacSystemFont, var(--font-monospace);
 }
 .better-command-palette[palette-mode=commands] {
   --action: var(--action-text-command, "Command");
@@ -7083,7 +7088,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.3");
+  content: var(--setting-modal-header-title, "Maple 1.1.4");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
