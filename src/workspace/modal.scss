@@ -276,16 +276,14 @@ body.modal-header:not(.is-mobile) {
   }
 
   &.modal-header-search .mod-settings .modal-content {
-    .plugin-list-plugins .setting-item-heading {
-      margin: 0;
-    }
-
-    .setting-item:not(:has(.style-settings-import)):has(
-        :is(
-            [class='search-input-container'],
-            [class='search-input-container mod-hotkey']
+    :is(
+        .plugin-list-plugins,
+        .vertical-tab-content:is(
+            :has(> .installed-plugins-container),
+            :has(> .hotkey-list-container)
           )
-      ) {
+      )
+      > .setting-item:has(input) {
       position: absolute;
       padding: 0;
       top: 0;
@@ -295,7 +293,9 @@ body.modal-header:not(.is-mobile) {
         visibility: hidden;
       }
     }
-
+    .plugin-list-plugins .setting-item-heading {
+      margin: 0;
+    }
     .setting-filter-container {
       margin-bottom: var(--size-4-1);
       .hotkey-filter {
