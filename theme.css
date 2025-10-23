@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.4 For Obsidian */
+/* Maple Theme v1.1.5 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.4
+      default: Maple 1.1.5
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -2664,7 +2664,7 @@ body {
 }
 
 body.app-layout-card:not(.is-mobile) {
-  --divider-color: var(--setting-divider-color, transparent);
+  --divider-color: transparent;
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;
@@ -2712,6 +2712,11 @@ body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split > .workspac
 }
 body.app-layout-card:not(.is-mobile) .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
   translate: calc(-1 * var(--size-4-1));
+}
+body.app-layout-card:not(.is-mobile) .workspace-split:is(.mod-left-split, .mod-right-split) .workspace-tabs > .workspace-leaf-resize-handle {
+  border-color: var(--setting-divider-color, transparent);
+  inset-inline: var(--size-4-1);
+  width: unset;
 }
 body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal) {
   --bg-opacity: 0.6;
@@ -7088,7 +7093,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.4");
+  content: var(--setting-modal-header-title, "Maple 1.1.5");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
