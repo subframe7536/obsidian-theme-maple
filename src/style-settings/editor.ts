@@ -72,16 +72,16 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
       `heading-h${level}-center`,
       {
         title: {
-          en: `H${level} Centered Text`,
-          zh: `H${level} 居中文本`,
+          en: `H${level} Centered`,
+          zh: `H${level} 居中`,
         },
       },
       { enable: align === 'center' },
     )
     .addClassToggle(`heading-h${level}-italic`, {
       title: {
-        en: `H${level} Italic Text`,
-        zh: `H${level} 斜体文本`,
+        en: `H${level} Italic Style`,
+        zh: `H${level} 斜体样式`,
       },
     })
     .addVarText(
