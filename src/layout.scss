@@ -4,7 +4,7 @@ body {
 }
 
 body.app-layout-card:not(.is-mobile) {
-  --divider-color: var(--setting-divider-color, transparent);
+  --divider-color: transparent;
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;
@@ -55,8 +55,17 @@ body.app-layout-card:not(.is-mobile) {
   .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
     translate: var(--size-4-1);
   }
+
   .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
     translate: calc(-1 * var(--size-4-1));
+  }
+
+  .workspace-split:is(.mod-left-split, .mod-right-split)
+    .workspace-tabs
+    > .workspace-leaf-resize-handle {
+    border-color: var(--setting-divider-color, transparent);
+    inset-inline: var(--size-4-1);
+    width: unset;
   }
 
   &.app-layout-card-gradient:not(.color-use-minimal) {
