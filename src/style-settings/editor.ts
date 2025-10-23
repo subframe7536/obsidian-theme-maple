@@ -835,8 +835,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       'code-line-number',
       {
         title: {
-          en: 'Add Code Block Line Numbers in Live Preview Mode',
-          zh: '在实时预览模式下为代码块添加行号',
+          en: 'Enable Code Block Line Numbers in Live Preview Mode',
+          zh: '在实时预览模式下启用代码块行号',
         },
         desc: {
           en: "Due to the limitation of Obsidian's render strategy, if the code block has too many lines, line numbering may be incorrect",
@@ -845,12 +845,19 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       { enable: true },
     )
+    .addVarThemedColor(
+      'setting-code-language-color',
+      {
+        title: { en: 'Language Indicator Color', zh: '语言标识颜色' },
+      },
+      'hex',
+    )
     .addClassToggle(
       'code-language',
       {
         title: {
-          en: 'Add Code Block Language Indicator in Reading View',
-          zh: '在阅读视图下为代码块添加语言标识',
+          en: 'Enable Code Block Language Indicator in Reading View',
+          zh: '在阅读视图下启用代码块语言标识',
         },
       },
       { enable: true },
@@ -892,13 +899,6 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         zh: '无代码块边框；导出 PDF 时不生效',
       },
     })
-    .addVarThemedColor(
-      'setting-code-language-color',
-      {
-        title: { en: 'Language Indicator Color', zh: '语言标识颜色' },
-      },
-      'hex',
-    )
     .addClassToggle(
       'code-theme',
       {

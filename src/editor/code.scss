@@ -118,7 +118,7 @@ code {
 .markdown-source-view.mod-cm6 .code-block-flair {
   --cursor: pointer;
   padding-block: 0;
-  color: var(--inline-code);
+  color: var(--setting-code-language-color, var(--inline-code));
   transition: background-color var(--animation);
   font-family: var(--font-monospace);
   font-weight: 550;
