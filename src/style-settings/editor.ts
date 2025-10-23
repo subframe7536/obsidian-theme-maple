@@ -884,8 +884,8 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     })
     .addClassToggle('code-mac-style-header', {
       title: {
-        en: 'Add Mac Style Code Block Header in Reading View',
-        zh: '在阅读视图下为代码块添加 Mac 风格标题栏',
+        en: 'Add macOS Style Code Block Header in Reading View',
+        zh: '在阅读视图下为代码块添加 macOS 风格标题栏',
       },
       desc: {
         en: 'No code block border; No effective when exporting PDF',
