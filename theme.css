@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.2 For Obsidian */
+/* Maple Theme v1.1.3 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.2
+      default: Maple 1.1.3
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -993,13 +993,13 @@ settings:
       default-dark: "#"
     - id: heading-h1-center
       type: class-toggle
-      title: H1 Centered Text
-      title.zh: H1 居中文本
+      title: H1 Centered
+      title.zh: H1 居中
       default: true
     - id: heading-h1-italic
       type: class-toggle
-      title: H1 Italic Text
-      title.zh: H1 斜体文本
+      title: H1 Italic Style
+      title.zh: H1 斜体样式
     - id: setting-h1-font
       type: variable-text
       title: H1 Font Family
@@ -1070,13 +1070,13 @@ settings:
       default-dark: "#"
     - id: heading-h2-center
       type: class-toggle
-      title: H2 Centered Text
-      title.zh: H2 居中文本
+      title: H2 Centered
+      title.zh: H2 居中
       default: false
     - id: heading-h2-italic
       type: class-toggle
-      title: H2 Italic Text
-      title.zh: H2 斜体文本
+      title: H2 Italic Style
+      title.zh: H2 斜体样式
     - id: setting-h2-font
       type: variable-text
       title: H2 Font Family
@@ -1147,13 +1147,13 @@ settings:
       default-dark: "#"
     - id: heading-h3-center
       type: class-toggle
-      title: H3 Centered Text
-      title.zh: H3 居中文本
+      title: H3 Centered
+      title.zh: H3 居中
       default: false
     - id: heading-h3-italic
       type: class-toggle
-      title: H3 Italic Text
-      title.zh: H3 斜体文本
+      title: H3 Italic Style
+      title.zh: H3 斜体样式
     - id: setting-h3-font
       type: variable-text
       title: H3 Font Family
@@ -1224,13 +1224,13 @@ settings:
       default-dark: "#"
     - id: heading-h4-center
       type: class-toggle
-      title: H4 Centered Text
-      title.zh: H4 居中文本
+      title: H4 Centered
+      title.zh: H4 居中
       default: false
     - id: heading-h4-italic
       type: class-toggle
-      title: H4 Italic Text
-      title.zh: H4 斜体文本
+      title: H4 Italic Style
+      title.zh: H4 斜体样式
     - id: setting-h4-font
       type: variable-text
       title: H4 Font Family
@@ -1301,13 +1301,13 @@ settings:
       default-dark: "#"
     - id: heading-h5-center
       type: class-toggle
-      title: H5 Centered Text
-      title.zh: H5 居中文本
+      title: H5 Centered
+      title.zh: H5 居中
       default: false
     - id: heading-h5-italic
       type: class-toggle
-      title: H5 Italic Text
-      title.zh: H5 斜体文本
+      title: H5 Italic Style
+      title.zh: H5 斜体样式
     - id: setting-h5-font
       type: variable-text
       title: H5 Font Family
@@ -1378,13 +1378,13 @@ settings:
       default-dark: "#"
     - id: heading-h6-center
       type: class-toggle
-      title: H6 Centered Text
-      title.zh: H6 居中文本
+      title: H6 Centered
+      title.zh: H6 居中
       default: false
     - id: heading-h6-italic
       type: class-toggle
-      title: H6 Italic Text
-      title.zh: H6 斜体文本
+      title: H6 Italic Style
+      title.zh: H6 斜体样式
     - id: setting-h6-font
       type: variable-text
       title: H6 Font Family
@@ -1709,8 +1709,8 @@ settings:
       default: ""
     - id: code-mac-style-header
       type: class-toggle
-      title: Add Mac Style Code Block Header in Reading View
-      title.zh: 在阅读视图下为代码块添加 Mac 风格标题栏
+      title: Add macOS Style Code Block Header in Reading View
+      title.zh: 在阅读视图下为代码块添加 macOS 风格标题栏
       description: No code block border; No effective when exporting PDF
       description.zh: 无代码块边框；导出 PDF 时不生效
     - id: setting-code-language-color
@@ -3920,11 +3920,10 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   }
   body.code-mac-style-header .markdown-rendered pre::after {
     content: "";
-    width: 100%;
     height: calc(var(--code-size) * var(--line-height-normal) * 1.2);
     background-color: var(--code-mac-style-header-bg);
     top: 0;
-    left: 0;
+    inset-inline: 0;
     position: absolute;
     border-top-left-radius: var(--code-radius);
     border-top-right-radius: var(--code-radius);
@@ -3976,15 +3975,25 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   --code-bg-s: 50%;
   --code-bg-l: 85%;
 }
-.code-preview-bg .markdown-preview-view .markdown-preview-section div:has(> pre:not([class*=frontmatter])) {
-  padding: var(--size-4-4) var(--size-4-8);
-  margin-block: var(--size-4-4);
-  background-image: var(--setting-code-bg-outer, linear-gradient(-30deg, hsl(calc(var(--base-accent-h) + 145), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 115), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 90), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 65), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 35), var(--code-bg-s), var(--code-bg-l))));
-}
-
-.theme-dark {
+.code-preview-bg.theme-dark {
   --code-bg-s: 20%;
   --code-bg-l: 45%;
+}
+.code-preview-bg .markdown-preview-view .markdown-preview-section .el-pre {
+  padding: var(--size-4-4) var(--size-4-8);
+  margin-block: var(--size-4-4);
+  border-radius: var(--code-radius);
+  background-image: var(--setting-code-bg-outer, linear-gradient(-30deg, hsl(calc(var(--base-accent-h) + 145), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 115), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 90), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 65), var(--code-bg-s), var(--code-bg-l)), hsl(calc(var(--base-accent-h) + 35), var(--code-bg-s), var(--code-bg-l))));
+}
+.code-preview-bg .markdown-preview-view .markdown-preview-section .el-pre pre::before {
+  translate: var(--size-4-8) var(--size-4-4);
+}
+.code-preview-bg .markdown-preview-view .markdown-preview-section .el-pre pre::after {
+  top: var(--size-4-4);
+  inset-inline: var(--size-4-8);
+}
+.code-preview-bg .markdown-preview-view .markdown-preview-section .el-pre button.copy-code-button {
+  translate: calc(var(--size-4-8) * -1) var(--size-4-4);
 }
 
 /* #endregion code */
@@ -7074,7 +7083,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.2");
+  content: var(--setting-modal-header-title, "Maple 1.1.3");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -7112,20 +7121,22 @@ body.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-con
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
 }
-body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
-  margin: 0;
-}
-body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(:is([class=search-input-container],
-[class="search-input-container mod-hotkey"])) {
+body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
+.vertical-tab-content:is(:has(> .installed-plugins-container),
+:has(> .hotkey-list-container))) > .setting-item:has(input) {
   position: absolute;
   padding: 0;
   top: 0;
   right: var(--top-search-right);
   border: none;
 }
-body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-item:not(:has(.style-settings-import)):has(:is([class=search-input-container],
-[class="search-input-container mod-hotkey"])) .setting-item-info {
+body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
+.vertical-tab-content:is(:has(> .installed-plugins-container),
+:has(> .hotkey-list-container))) > .setting-item:has(input) .setting-item-info {
   visibility: hidden;
+}
+body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
+  margin: 0;
 }
 body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-filter-container {
   margin-bottom: var(--size-4-1);
