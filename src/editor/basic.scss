@@ -223,7 +223,7 @@ body.line-indicator-full {
 :is(kbd, .setting-hotkey, .prompt-instruction-command) {
   user-select: none;
   text-transform: capitalize;
-  font-family: var(--font-interface) !important;
+  font-family: -apple-system, BlinkMacSystemFont, var(--font-monospace);
   border-radius: 6px;
   background-color: var(--color-base-05);
   padding: 2px var(--size-2-3);

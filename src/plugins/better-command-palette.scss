@@ -2,6 +2,9 @@
   --prompt-text: 'Better Command Palette';
   .prompt-instruction {
     display: none;
+    &-command {
+      font-family: -apple-system, BlinkMacSystemFont, var(--font-monospace);
+    }
     &s {
       &::before {
         content: var(var(--prompt-text));
@@ -17,6 +20,10 @@
         }
       }
     }
+  }
+  .suggestion-item .suggestion-hotkey {
+    padding: 0 var(--size-4-2);
+    font-family: -apple-system, BlinkMacSystemFont, var(--font-monospace);
   }
   &[palette-mode='commands'] {
     --action: var(--action-text-command, 'Command');
