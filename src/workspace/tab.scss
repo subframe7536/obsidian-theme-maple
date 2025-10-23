@@ -9,6 +9,13 @@
   }
 }
 
+@media (hover: hover) {
+  .workspace-tab-header-inner,
+  .workspace-drawer-vault-switcher {
+    transition: background-color var(--animation-fast);
+  }
+}
+
 @include use-no-plugin('.tab-float') {
   --tab-radius: var(--size-2-3);
 

@@ -25,6 +25,7 @@
     padding: var(--size-4-1);
     margin-top: var(--size-4-2);
     gap: var(--size-2-3);
+    transition: background-color var(--animation-fast);
   }
 
   [data-property-key='tag'] {
