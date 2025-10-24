@@ -24,6 +24,7 @@ body:not(.is-phone)
       transparent -240%,
       var(--color-accent) 100%
     );
+    color: var(--text-on-accent);
     &:hover {
       background: linear-gradient(
         to bottom,
@@ -40,6 +41,7 @@ body:not(.is-phone)
       transparent -240%,
       var(--background-modifier-error) 100%
     );
+    color: var(--text-on-accent);
     &:hover {
       background: linear-gradient(
         to bottom,
