@@ -213,17 +213,17 @@ body:not(.is-mobile) {
 }
 
 body.modal-header:not(.is-mobile) {
+  --modal-close-button-padding: var(--size-4-2);
+  --modal-header-height: var(--size-4-10);
+
   .modal-close-button {
     transition: background-color var(--animation);
     z-index: calc(var(--layer-modal) + 1);
-    top: var(--size-4-3);
-    inset-inline-end: var(--size-4-3);
+    top: var(--modal-close-button-padding);
+    inset-inline-end: var(--modal-close-button-padding);
   }
 
   .modal-container {
-    --modal-header-height: var(--size-4-12);
-    --top-search-right: var(--size-4-12);
-
     .mod-settings {
       container-type: inline-size;
 
@@ -231,9 +231,9 @@ body.modal-header:not(.is-mobile) {
         content: var(--setting-modal-header-title, version());
         position: absolute;
         left: 50%;
-        top: var(--size-4-6);
-        transform: translate(-50%, -50%);
-        font-size: calc(1.4 * var(--size-4-4));
+        top: calc(var(--modal-header-height) / 2);
+        translate: -50% -50%;
+        font-size: 18px;
         font-weight: 550;
         color: var(--setting-color-logo, var(--text-accent));
       }
@@ -275,31 +275,41 @@ body.modal-header:not(.is-mobile) {
     }
   }
 
-  &.modal-header-search .mod-settings .modal-content {
-    :is(
-        .plugin-list-plugins,
-        .vertical-tab-content:is(
-            :has(> .installed-plugins-container),
-            :has(> .hotkey-list-container)
-          )
-      )
-      > .setting-item:has(input) {
-      position: absolute;
-      padding: 0;
-      top: 0;
-      right: var(--top-search-right);
-      border: none;
-      .setting-item-info {
-        visibility: hidden;
+  &.modal-header-search {
+    --modal-close-button-padding: var(--size-4-3);
+    --modal-header-height: var(--size-4-12);
+
+    .mod-settings {
+      &::before {
+        font-size: 20px;
       }
-    }
-    .plugin-list-plugins .setting-item-heading {
-      margin: 0;
-    }
-    .setting-filter-container {
-      margin-bottom: var(--size-4-1);
-      .hotkey-filter {
-        margin-bottom: var(--size-4-3);
+      .modal-content {
+        :is(
+            .plugin-list-plugins,
+            .vertical-tab-content:is(
+                :has(> .installed-plugins-container),
+                :has(> .hotkey-list-container)
+              )
+          )
+          > .setting-item:has(input) {
+          position: absolute;
+          padding: 0;
+          top: 0;
+          right: var(--modal-header-height);
+          border: none;
+          .setting-item-info {
+            visibility: hidden;
+          }
+        }
+        .plugin-list-plugins .setting-item-heading {
+          margin: 0;
+        }
+        .setting-filter-container {
+          margin-bottom: var(--size-4-1);
+          .hotkey-filter {
+            margin-bottom: var(--size-4-3);
+          }
+        }
       }
     }
   }
