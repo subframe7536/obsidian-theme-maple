@@ -452,7 +452,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: { en: 'Internal Link Color', zh: '内部链接颜色' },
           },
-          'rgb-values',
+          {
+            defaultDark: '#',
+            defaultLight: '#',
+            format: 'rgb-values',
+            opacity: false,
+          },
         )
         .addVarThemedColor(
           'setting-link-internal-color-underline',
@@ -469,7 +474,12 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           {
             title: { en: 'External Link Color', zh: '外部链接颜色' },
           },
-          'rgb-values',
+          {
+            defaultDark: '#',
+            defaultLight: '#',
+            format: 'rgb-values',
+            opacity: false,
+          },
         )
         .addVarThemedColor(
           'setting-link-external-color-underline',
