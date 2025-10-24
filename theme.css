@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.6 For Obsidian */
+/* Maple Theme v1.1.7 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.6
+      default: Maple 1.1.7
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -6951,6 +6951,7 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
 body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta {
   transition: box-shadow var(--animation);
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent) 100%);
+  color: var(--text-on-accent);
 }
 body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta:hover {
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent-1) 100%);
@@ -6958,6 +6959,7 @@ body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta:hov
 body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-warning {
   transition: box-shadow var(--animation);
   background: linear-gradient(to bottom, transparent -240%, var(--background-modifier-error) 100%);
+  color: var(--text-on-accent);
 }
 body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-warning:hover {
   background: linear-gradient(to bottom, transparent -240%, var(--background-modifier-error-hover) 100%);
@@ -7080,26 +7082,26 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled:active::af
   left: calc(2 * var(--toggle-border-width));
 }
 
+body.modal-header:not(.is-mobile) {
+  --modal-close-button-padding: var(--size-4-2);
+  --modal-header-height: var(--size-4-10);
+}
 body.modal-header:not(.is-mobile) .modal-close-button {
   transition: background-color var(--animation);
   z-index: calc(var(--layer-modal) + 1);
-  top: var(--size-4-3);
-  inset-inline-end: var(--size-4-3);
-}
-body.modal-header:not(.is-mobile) .modal-container {
-  --modal-header-height: var(--size-4-12);
-  --top-search-right: var(--size-4-12);
+  top: var(--modal-close-button-padding);
+  inset-inline-end: var(--modal-close-button-padding);
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.6");
+  content: var(--setting-modal-header-title, "Maple 1.1.7");
   position: absolute;
   left: 50%;
-  top: var(--size-4-6);
-  transform: translate(-50%, -50%);
-  font-size: calc(1.4 * var(--size-4-4));
+  top: calc(var(--modal-header-height) / 2);
+  translate: -50% -50%;
+  font-size: 18px;
   font-weight: 550;
   color: var(--setting-color-logo, var(--text-accent));
 }
@@ -7132,13 +7134,20 @@ body.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-con
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
 }
+body.modal-header:not(.is-mobile).modal-header-search {
+  --modal-close-button-padding: var(--size-4-3);
+  --modal-header-height: var(--size-4-12);
+}
+body.modal-header:not(.is-mobile).modal-header-search .mod-settings::before {
+  font-size: 20px;
+}
 body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
 .vertical-tab-content:is(:has(> .installed-plugins-container),
 :has(> .hotkey-list-container))) > .setting-item:has(input) {
   position: absolute;
   padding: 0;
   top: 0;
-  right: var(--top-search-right);
+  right: var(--modal-header-height);
   border: none;
 }
 body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
