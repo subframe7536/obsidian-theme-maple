@@ -38,6 +38,8 @@ body.calendar-swap-year-month #calendar-container .nav {
 #calendar-container {
   --color-text-today: var(--text-on-accent);
   --color-text-weeknum: var(--accent-active);
+  max-width: var(--setting-calendar-max-width, 500px);
+  margin-inline: auto;
 
   thead {
     border-bottom: var(--size-2-1) solid var(--accent-active);
@@ -47,6 +49,7 @@ body.calendar-swap-year-month #calendar-container .nav {
     padding: 2px 0 4px;
     font-weight: 550;
     letter-spacing: 0.1em;
+    background-color: transparent !important;
   }
 
   .nav {
@@ -61,8 +64,8 @@ body.calendar-swap-year-month #calendar-container .nav {
   }
 
   .day {
-    border: 1px solid transparent;
-    // font-size: var(--font-ui-smaller);
+    padding: var(--size-2-1) var(--size-4-1) !important;
+    border: none;
 
     &:hover {
       border-color: var(--accent-inactive);
@@ -119,15 +122,5 @@ body.calendar-swap-year-month #calendar-container .nav {
   .view-content {
     padding-inline: var(--size-4-1);
     padding-block: 0;
-  }
-}
-
-body #calendar-container {
-  max-width: var(--setting-calendar-max-width, 500px);
-  margin-inline: auto;
-
-  .day {
-    padding: var(--size-2-1) var(--size-4-1) !important;
-    border: none;
   }
 }
