@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.7 For Obsidian */
+/* Maple Theme v1.1.8 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.7
+      default: Maple 1.1.8
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -3917,13 +3917,14 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
 
 @media screen {
   body.code-mac-style-header .markdown-rendered pre {
+    --mac-header-height: calc(var(--font-ui-smaller) + var(--size-4-4));
     border: none;
-    padding-top: calc(var(--code-size) * var(--line-height-normal) * 1.5);
-    padding-bottom: calc(var(--code-size) * 0.5);
+    padding-top: calc(var(--font-ui-smaller) * 0.5 + var(--mac-header-height));
+    padding-bottom: calc(var(--font-ui-smaller) * 0.5);
   }
   body.code-mac-style-header .markdown-rendered pre::after {
     content: "";
-    height: calc(var(--code-size) * var(--line-height-normal) * 1.2);
+    height: var(--mac-header-height);
     background-color: var(--code-mac-style-header-bg);
     top: 0;
     inset-inline: 0;
@@ -3933,15 +3934,16 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
   }
   body.code-mac-style-header .markdown-rendered pre::before {
     content: "";
-    width: calc(var(--code-size) - var(--size-2-1));
-    height: calc(var(--code-size) - var(--size-2-1));
     position: absolute;
-    left: 0.6rem;
-    top: calc((var(--code-size) - var(--size-2-1)) * var(--line-height-normal) * 0.6 - var(--code-size) / 4);
+    width: calc(var(--mac-header-height) * 0.4);
+    height: calc(var(--mac-header-height) * 0.4);
+    left: calc(var(--mac-header-height) * 0.4);
+    top: calc(var(--mac-header-height) / 2);
+    translate: 0 -50%;
     border-radius: 50%;
     z-index: 9;
     background-color: rgba(255, 94, 92, var(--color-opacity));
-    box-shadow: calc(var(--size-4-5) * 0.9) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--size-4-5) * 1.8) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
+    box-shadow: calc(var(--mac-header-height) * 0.6) 0 0 0 rgba(255, 187, 78, var(--color-opacity)), calc(var(--mac-header-height) * 1.2) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
   }
   body.code-mac-style-header .markdown-rendered pre .copy-code-button {
     z-index: 10;
@@ -6609,11 +6611,9 @@ body.calendar-swap-year-month #calendar-container .nav .title {
   display: flex;
   flex-direction: row-reverse;
   font-weight: normal;
-  font-size: 1.2rem;
 }
 body.calendar-swap-year-month #calendar-container .nav .title .year {
   color: var(--text-normal);
-  letter-spacing: 0.1rem;
   display: flex;
   align-items: center;
 }
@@ -6625,7 +6625,6 @@ body.calendar-swap-year-month #calendar-container .nav .title .year::after {
 body.calendar-swap-year-month #calendar-container .nav .title .month {
   height: var(--size-4-6);
   line-height: var(--size-4-6);
-  letter-spacing: 0.1rem;
   font-weight: 550;
   color: var(--accent-active);
 }
@@ -6633,6 +6632,8 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 #calendar-container {
   --color-text-today: var(--text-on-accent);
   --color-text-weeknum: var(--accent-active);
+  max-width: var(--setting-calendar-max-width, 500px);
+  margin-inline: auto;
 }
 #calendar-container thead {
   border-bottom: var(--size-2-1) solid var(--accent-active);
@@ -6640,7 +6641,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 #calendar-container th {
   padding: 2px 0 4px;
   font-weight: 550;
-  letter-spacing: 0.1em;
+  background-color: transparent !important;
 }
 #calendar-container .nav {
   padding: 0;
@@ -6652,7 +6653,8 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   margin-left: unset;
 }
 #calendar-container .day {
-  border: 1px solid transparent;
+  padding: var(--size-2-1) var(--size-4-1) !important;
+  border: none;
 }
 #calendar-container .day:hover {
   border-color: var(--accent-inactive);
@@ -6677,7 +6679,6 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 }
 #calendar-container .title {
   line-height: 1;
-  font-size: 1.4rem;
   white-space: nowrap;
 }
 #calendar-container .dot-container {
@@ -6715,15 +6716,6 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 .workspace-leaf-content[data-type=calendar] .view-content {
   padding-inline: var(--size-4-1);
   padding-block: 0;
-}
-
-body #calendar-container {
-  max-width: var(--setting-calendar-max-width, 500px);
-  margin-inline: auto;
-}
-body #calendar-container .day {
-  padding: var(--size-2-1) var(--size-4-1) !important;
-  border: none;
 }
 
 /* #endregion calender */
@@ -7096,7 +7088,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.7");
+  content: var(--setting-modal-header-title, "Maple 1.1.8");
   position: absolute;
   left: 50%;
   top: calc(var(--modal-header-height) / 2);
@@ -7346,8 +7338,8 @@ body.scrollbar-enable:not(.is-mobile).scrollbar-hover-expand ::-webkit-scrollbar
   border-width: var(--size-2-1) !important;
 }
 body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar {
-  width: 0.8rem !important;
-  height: 0.8rem !important;
+  width: 12px !important;
+  height: 12px !important;
   background-color: transparent !important;
 }
 body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-track {
@@ -7356,8 +7348,8 @@ body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-track {
 }
 body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-thumb {
   background-clip: padding-box;
-  border-radius: 0.4rem !important;
-  border: 0.2rem solid transparent !important;
+  border-radius: 8px !important;
+  border: 2.8px solid transparent !important;
   background-color: var(--scrollbar-color) !important;
 }
 body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-thumb:hover {
