@@ -25,7 +25,7 @@ body.scrollbar-enable:not(.is-mobile) {
   $base-color: hsla(var(--color-accent-hsl), 24%);
   $hover-color: hsla(var(--color-accent-hsl), 40%);
   $active-color: hsla(var(--color-accent-hsl), 64%);
-  $scrollbar-width: 0.8rem !important;
+  $scrollbar-width: 12px !important;
 
   .mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
     scrollbar-gutter: stable;
@@ -53,8 +53,8 @@ body.scrollbar-enable:not(.is-mobile) {
 
     &-thumb {
       background-clip: padding-box;
-      border-radius: 0.4rem !important;
-      border: 0.2rem solid transparent !important;
+      border-radius: 8px !important;
+      border: 2.8px solid transparent !important;
       background-color: var(--scrollbar-color) !important;
 
       &:hover {
