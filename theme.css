@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.8 For Obsidian */
+/* Maple Theme v1.1.9 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.8
+      default: Maple 1.1.9
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -3225,6 +3225,10 @@ body {
   --code-radius: var(--radius-m);
   --code-border-color: var(--background-modifier-border);
   --code-border-width: 1px;
+}
+
+code {
+  font-family: var(--font-monospace);
 }
 
 .cm-hmd-codeblock.cm-formatting,
@@ -6805,7 +6809,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 
 /* #endregion recent-files */
 /* #region shiki */
-.code-mac-style-header .cm-preview-code-block[class*=cm-lang]:not(.cm-lang-query):not(.cm-lang-base) .edit-block-button {
+.code-mac-style-header .cm-preview-code-block[class*=cm-lang]:not(.cm-lang-query):not(.cm-lang-base):not(.cm-lang-dataview) .edit-block-button {
   color: #ddd;
 }
 
@@ -6943,10 +6947,12 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
 body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta {
   transition: box-shadow var(--animation);
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent) 100%);
-  color: var(--text-on-accent);
 }
 body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta:hover {
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent-1) 100%);
+}
+body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta:not(.mod-loading) {
+  color: var(--text-on-accent);
 }
 body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-warning {
   transition: box-shadow var(--animation);
@@ -7088,7 +7094,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.8");
+  content: var(--setting-modal-header-title, "Maple 1.1.9");
   position: absolute;
   left: 50%;
   top: calc(var(--modal-header-height) / 2);
@@ -7376,7 +7382,7 @@ body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(text
 body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre):hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre) * {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre) :not(code) {
   -webkit-text-fill-color: initial;
 }
 body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre)::-webkit-scrollbar-thumb {
