@@ -24,13 +24,15 @@ body:not(.is-phone)
       transparent -240%,
       var(--color-accent) 100%
     );
-    color: var(--text-on-accent);
     &:hover {
       background: linear-gradient(
         to bottom,
         transparent -240%,
         var(--color-accent-1) 100%
       );
+    }
+    &:not(.mod-loading) {
+      color: var(--text-on-accent);
     }
   }
 
