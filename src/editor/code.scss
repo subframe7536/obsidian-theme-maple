@@ -24,6 +24,10 @@ body {
   --code-border-width: 1px;
 }
 
+code {
+  font-family: var(--font-monospace);
+}
+
 .cm-hmd-codeblock.cm-formatting,
 .markdown-rendered code {
   color: var(--inline-code);

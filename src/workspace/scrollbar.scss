@@ -93,7 +93,7 @@ body.scrollbar-enable:not(.is-mobile) {
         color: #{$base-color};
       }
 
-      * {
+      :not(code) {
         -webkit-text-fill-color: initial;
       }
 
