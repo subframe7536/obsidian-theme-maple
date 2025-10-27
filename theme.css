@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.9 For Obsidian */
+/* Maple Theme v1.1.10 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -353,7 +353,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.9
+      default: Maple 1.1.10
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -7094,7 +7094,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.9");
+  content: var(--setting-modal-header-title, "Maple 1.1.10");
   position: absolute;
   left: 50%;
   top: calc(var(--modal-header-height) / 2);
@@ -7799,22 +7799,9 @@ body.message-modify .notice.is-loading::before {
 
 /* #endregion tag */
 /* #region bookmark */
-.workspace-leaf-content[data-type=bookmarks] {
+.workspace-leaf-content[data-type=bookmarks] .is-active:not(.is-selected) {
   --nav-item-color-active: var(--text-on-accent);
-}
-.workspace-leaf-content[data-type=bookmarks] .tree-item-self.mod-collapsible .tree-item-icon {
-  margin-right: var(--size-4-1);
-}
-.workspace-leaf-content[data-type=bookmarks] .tree-item-self:not(.mod-collapsible) {
-  padding-left: var(--size-2-3);
-}
-.workspace-leaf-content[data-type=bookmarks] .tree-item-self:not(.mod-collapsible) .tree-item-icon {
-  transform: translateY(var(--size-2-1));
-  color: var(--accent-active);
-  width: calc(1.3 * var(--size-4-4));
-}
-.workspace-leaf-content[data-type=bookmarks] .tree-item-self.is-active .tree-item-icon {
-  color: var(--nav-item-color-active);
+  --icon-color: var(--nav-item-color-active);
 }
 
 /* #endregion bookmark */
