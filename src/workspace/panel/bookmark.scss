@@ -1,25 +1,8 @@
 @use '../../utils.scss' as *;
 
 @include use-panel('bookmarks') {
-  --nav-item-color-active: var(--text-on-accent);
-
-  .tree-item-self {
-    &.mod-collapsible .tree-item-icon {
-      margin-right: var(--size-4-1);
-    }
-
-    &:not(.mod-collapsible) {
-      padding-left: var(--size-2-3);
-
-      .tree-item-icon {
-        transform: translateY(var(--size-2-1));
-        color: var(--accent-active);
-        width: calc(1.3 * var(--size-4-4));
-      }
-    }
-  }
-
-  .tree-item-self.is-active .tree-item-icon {
-    color: var(--nav-item-color-active);
+  .is-active:not(.is-selected) {
+    --nav-item-color-active: var(--text-on-accent);
+    --icon-color: var(--nav-item-color-active);
   }
 }
