@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.11 For Obsidian */
+/* Maple Theme v1.2.0 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -118,6 +118,17 @@ settings:
             value: color-active-alt-dark
           - label: Custom
             value: color-active-custom-dark
+    - id: setting-bg-delta-dark
+      type: variable-number-slider
+      title: Background Brightness
+      title.zh: 背景亮度
+      description: Increase the brightness of background color
+      description.zh: 增加背景色的亮度
+      default: 0
+      format: "%"
+      min: 0
+      max: 8
+      step: 0.1
     - id: setting-color-active-custom-dark
       type: variable-color
       title: Custom Highlight Color (Active)
@@ -349,7 +360,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.11
+      default: Maple 1.2.0
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -2229,6 +2240,13 @@ body {
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l, 42%);
 }
 .theme-dark.color-use-custom {
+  --bg-delta-dark: var(--setting-bg-delta-dark, 0%);
+  --background-primary-hsl: var(--base-accent-h),
+    calc(5% + var(--bg-delta-dark) / 2), calc(11% + var(--bg-delta-dark));
+  --background-primary-alt-hsl: var(--base-accent-h),
+    calc(10% + var(--bg-delta-dark) / 2), calc(13% + var(--bg-delta-dark));
+  --background-secondary-hsl: calc(var(--base-accent-h) - 18),
+    calc(6% + var(--bg-delta-dark) / 2), calc(12% + var(--bg-delta-dark));
   --base-accent-h: var(--setting-accent-h-dark, 207);
   --theme-accent-active-s: 24%;
   --theme-accent-active-l: 52%;
@@ -2293,14 +2311,14 @@ html[lang=zh] {
   padding: var(--size-4-1);
 }
 
-body:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) {
+body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) {
   position: relative;
 }
-body:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) :is(div, input) {
+body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) :is(div, input) {
   visibility: hidden;
   pointer-events: none;
 }
-body:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color])::before {
+body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color])::before {
   content: var(--system-accent-override-text-cotent, "Controlled by Style Settings Plugin");
   font-family: var(--font-interface);
   font-size: var(--font-ui-smaller);
@@ -7098,7 +7116,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.11");
+  content: var(--setting-modal-header-title, "Maple 1.2.0");
   position: absolute;
   left: 50%;
   top: calc(var(--modal-header-height) / 2);
