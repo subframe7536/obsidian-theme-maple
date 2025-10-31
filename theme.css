@@ -1,4 +1,4 @@
-/* Maple Theme v1.1.10 For Obsidian */
+/* Maple Theme v1.1.11 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -81,8 +81,6 @@ settings:
       type: variable-color
       title: Custom Highlight Color (Active)
       title.zh: 自定义高亮色（激活状态）
-      description: Affects saturation and brightness of the background color.
-      description.zh: 影响背景色的饱和度和亮度。
       default: "#"
       format: hsl-split
       opacity: false
@@ -124,8 +122,6 @@ settings:
       type: variable-color
       title: Custom Highlight Color (Active)
       title.zh: 自定义高亮色（激活状态）
-      description: Affects saturation and brightness of the background color.
-      description.zh: 影响背景色的饱和度和亮度。
       default: "#"
       format: hsl-split
       opacity: false
@@ -353,7 +349,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.1.10
+      default: Maple 1.1.11
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -2204,9 +2200,9 @@ body {
     calc(var(--theme-accent-active-s) * 0.5),
     calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
   );
-  --background-primary-hsl: var(--base-accent-h), 5%, 11%;
+  --background-primary-hsl: var(--base-accent-h), 6%, 11%;
   --background-primary-alt-hsl: var(--base-accent-h), 10%, 13%;
-  --background-secondary-hsl: calc(var(--base-accent-h) - 18), 6%, 12%;
+  --background-secondary-hsl: calc(var(--base-accent-h) - 8), 6%, 12%;
   --background-modifier-hover: hsl(
     var(--base-accent-h),
     var(--theme-accent-active-s),
@@ -2221,7 +2217,7 @@ body {
   --base-accent-h: var(--setting-color-active-custom-dark-h, 210);
   --background-primary-hsl: var(--base-accent-h), 4%, 10%;
   --background-primary-alt-hsl: var(--base-accent-h), 8%, 12%;
-  --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 12%;
+  --background-secondary-hsl: calc(var(--base-accent-h) - 8), 4%, 12%;
   --frame-bg: hsl(
     var(--base-accent-h),
     calc(var(--theme-accent-active-s) * 0.1),
@@ -2461,6 +2457,10 @@ body.color-use-minimal .setting-item:is([data-id=setting-accent-h-light],
 [data-id=setting-accent-h-dark],
 [data-id=color-active-light],
 [data-id=color-active-dark]),
+body:not(.color-active-custom-light) .setting-item:is([data-id=setting-color-active-custom-light],
+[data-id=setting-color-inactive-custom-light]),
+body:not(.color-active-custom-dark) .setting-item:is([data-id=setting-color-active-custom-dark],
+[data-id=setting-color-inactive-custom-dark]),
 body:not(.editor-custom-bottom-spacing) .setting-item[data-id=setting-editor-bottom-spacing],
 body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
@@ -2533,6 +2533,10 @@ body.color-use-minimal .setting-item:is([data-id=setting-accent-h-light],
 [data-id=setting-accent-h-dark],
 [data-id=color-active-light],
 [data-id=color-active-dark]) + .style-settings-container,
+body:not(.color-active-custom-light) .setting-item:is([data-id=setting-color-active-custom-light],
+[data-id=setting-color-inactive-custom-light]) + .style-settings-container,
+body:not(.color-active-custom-dark) .setting-item:is([data-id=setting-color-active-custom-dark],
+[data-id=setting-color-inactive-custom-dark]) + .style-settings-container,
 body:not(.editor-custom-bottom-spacing) .setting-item[data-id=setting-editor-bottom-spacing] + .style-settings-container,
 body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
@@ -7094,7 +7098,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.1.10");
+  content: var(--setting-modal-header-title, "Maple 1.1.11");
   position: absolute;
   left: 50%;
   top: calc(var(--modal-header-height) / 2);
