@@ -43,7 +43,7 @@ html[lang='zh'] {
   padding: var(--size-4-1);
 }
 
-body:not(.color-use-default) {
+body.css-settings-manager:not(.color-use-default) {
   .mod-settings
     .vertical-tab-content-container
     > .vertical-tab-content
