@@ -234,16 +234,13 @@ body {
   }
 
   &.color-use-custom {
-    // --setting-bg-delta: 4%;
-    // --background-primary-hsl: var(--base-accent-h),
-    //   calc(5% + var(--setting-bg-delta) / 2),
-    //   calc(11% + var(--setting-bg-delta));
-    // --background-primary-alt-hsl: var(--base-accent-h),
-    //   calc(10% + var(--setting-bg-delta) / 2),
-    //   calc(13% + var(--setting-bg-delta));
-    // --background-secondary-hsl: calc(var(--base-accent-h) - 18),
-    //   calc(6% + var(--setting-bg-delta) / 2),
-    //   calc(12% + var(--setting-bg-delta));
+    --bg-delta-dark: var(--setting-bg-delta-dark, 0%);
+    --background-primary-hsl: var(--base-accent-h),
+      calc(5% + var(--bg-delta-dark) / 2), calc(11% + var(--bg-delta-dark));
+    --background-primary-alt-hsl: var(--base-accent-h),
+      calc(10% + var(--bg-delta-dark) / 2), calc(13% + var(--bg-delta-dark));
+    --background-secondary-hsl: calc(var(--base-accent-h) - 18),
+      calc(6% + var(--bg-delta-dark) / 2), calc(12% + var(--bg-delta-dark));
 
     --base-accent-h: var(--setting-accent-h-dark, 207);
     --theme-accent-active-s: 24%;

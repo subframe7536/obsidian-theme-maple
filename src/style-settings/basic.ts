@@ -102,6 +102,20 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
             ],
           },
         )
+        .addVarNumSlider(
+          'setting-bg-delta-dark',
+          {
+            title: {
+              en: 'Background Brightness',
+              zh: '背景亮度',
+            },
+            desc: {
+              en: 'Increase the brightness of background color',
+              zh: '增加背景色的亮度',
+            },
+          },
+          { default: 0, format: '%', min: 0, max: 8, step: 0.1 },
+        )
         .addVarColor(
           'setting-color-active-custom-dark',
           {
