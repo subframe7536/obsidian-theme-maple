@@ -148,6 +148,10 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
           en: 'Enable Card Layout',
           zh: '启用卡片布局',
         },
+        desc: {
+          en: 'Styles maybe broken when using stacked tabs',
+          zh: '当使用堆叠标签页时，样式可能不符合预期',
+        },
       },
       { enable: true },
     )
