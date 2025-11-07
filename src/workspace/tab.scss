@@ -16,6 +16,13 @@
   }
 }
 
+body {
+  --tab-stacked-header-width: var(
+    --setting-tab-stack-header-width,
+    var(--header-height)
+  );
+}
+
 @include use-no-plugin('.tab-float') {
   --tab-radius: var(--size-2-3);
 

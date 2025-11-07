@@ -243,6 +243,16 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
       { enable: true },
     )
+    .addVarNumSlider(
+      'setting-tab-stack-header-width',
+      {
+        title: {
+          en: 'Stacked Tab Header Width (px)',
+          zh: '堆叠标签页的标签宽度（px）',
+        },
+      },
+      { default: 40, max: 60, min: 20, step: 1, format: 'px' },
+    )
     .addClassToggle('tab-slide-up', {
       title: {
         en: 'Enable Tab Slide Up Animation',
