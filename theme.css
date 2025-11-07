@@ -1,4 +1,4 @@
-/* Maple Theme v1.2.0 For Obsidian */
+/* Maple Theme v1.2.1 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -153,6 +153,8 @@ settings:
       type: class-toggle
       title: Enable Card Layout
       title.zh: 启用卡片布局
+      description: Styles maybe broken when using stacked tabs
+      description.zh: 当使用堆叠标签页时，样式可能不符合预期
       default: true
     - id: app-layout-card-border
       type: class-toggle
@@ -360,7 +362,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.2.0
+      default: Maple 1.2.1
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -424,6 +426,15 @@ settings:
       title: Enable Floating Style Tab Bar
       title.zh: 启用浮动风格的标签栏
       default: true
+    - id: setting-tab-stack-header-width
+      type: variable-number-slider
+      title: Stacked Tab Header Width (px)
+      title.zh: 堆叠标签页的标签宽度（px）
+      default: 40
+      max: 60
+      min: 20
+      step: 1
+      format: px
     - id: tab-slide-up
       type: class-toggle
       title: Enable Tab Slide Up Animation
@@ -7116,7 +7127,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.2.0");
+  content: var(--setting-modal-header-title, "Maple 1.2.1");
   position: absolute;
   left: 50%;
   top: calc(var(--modal-header-height) / 2);
@@ -7459,6 +7470,13 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-tab-header-inner
     transition: background-color var(--animation-fast);
   }
 }
+body {
+  --tab-stacked-header-width: var(
+    --setting-tab-stack-header-width,
+    var(--header-height)
+  );
+}
+
 body:is(:not(.css-settings-manager), .tab-float) {
   --tab-radius: var(--size-2-3);
 }
