@@ -13,7 +13,7 @@
   background-color: transparent;
 }
 
-body.search-internal-enable .document-search-container {
+body.search-internal-enable .document-search-container:not(.excalidraw-search) {
   background-color: var(--background-secondary);
   position: absolute;
   top: var(--size-4-10);
