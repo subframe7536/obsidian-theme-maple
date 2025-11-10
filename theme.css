@@ -1,4 +1,4 @@
-/* Maple Theme v1.2.1 For Obsidian */
+/* Maple Theme v1.2.2 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -362,7 +362,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.2.1
+      default: Maple 1.2.2
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -6895,7 +6895,7 @@ body:not(.is-mobile).modal-header.modal-header-search .settings-search-container
   background-color: transparent;
 }
 
-body.search-internal-enable .document-search-container {
+body.search-internal-enable .document-search-container:not(.excalidraw-search) {
   background-color: var(--background-secondary);
   position: absolute;
   top: var(--size-4-10);
@@ -6907,16 +6907,16 @@ body.search-internal-enable .document-search-container {
   padding: var(--size-4-2) 0;
   margin: 0;
 }
-body.search-internal-enable .document-search-container :is(.document-replace, .document-search) {
+body.search-internal-enable .document-search-container:not(.excalidraw-search) :is(.document-replace, .document-search) {
   gap: var(--size-4-1);
 }
-body.search-internal-enable .document-search-container .search-input-container input:hover + .document-search-count {
+body.search-internal-enable .document-search-container:not(.excalidraw-search) .search-input-container input:hover + .document-search-count {
   opacity: 0;
   pointer-events: none;
   cursor: none;
   transition: opacity var(--animation-fast);
 }
-body.search-internal-enable .document-search-container .search-input-container .document-search-count {
+body.search-internal-enable .document-search-container:not(.excalidraw-search) .search-input-container .document-search-count {
   letter-spacing: -0.5px;
   background-color: var(--background-secondary);
   height: calc(var(--input-height) - var(--size-2-3));
@@ -6928,7 +6928,7 @@ body.search-internal-enable .document-search-container .search-input-container .
   transition: var(--animation-fast);
   transition-delay: 0.5s;
 }
-body.search-internal-enable .document-search-container .document-search-buttons .document-search-button {
+body.search-internal-enable .document-search-container:not(.excalidraw-search) .document-search-buttons .document-search-button {
   font-size: 0;
   background-color: transparent !important;
   color: var(--text-muted);
@@ -6938,7 +6938,7 @@ body.search-internal-enable .document-search-container .document-search-buttons 
   padding: var(--size-4-1);
   box-shadow: unset !important;
 }
-body.search-internal-enable .document-search-container .document-search-buttons .document-search-button:hover {
+body.search-internal-enable .document-search-container:not(.excalidraw-search) .document-search-buttons .document-search-button:hover {
   background-color: var(--background-modifier-hover) !important;
   color: var(--text-normal);
 }
@@ -7127,7 +7127,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.2.1");
+  content: var(--setting-modal-header-title, "Maple 1.2.2");
   position: absolute;
   left: 50%;
   top: calc(var(--modal-header-height) / 2);
@@ -7406,19 +7406,19 @@ body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.ver
 body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code):hover {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre) {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea:not(.excalidraw-wysiwyg), pre) {
   color: transparent;
   transition: var(--animation);
   transition-property: color, border-color;
   -webkit-text-fill-color: var(--text-normal);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre):hover {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea:not(.excalidraw-wysiwyg), pre):hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre) :not(code) {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea:not(.excalidraw-wysiwyg), pre) :not(code) {
   -webkit-text-fill-color: initial;
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea, pre)::-webkit-scrollbar-thumb {
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea:not(.excalidraw-wysiwyg), pre)::-webkit-scrollbar-thumb {
   box-shadow: 0 0 0 10px inset;
   border-width: 3.2px;
   background-clip: content-box;
