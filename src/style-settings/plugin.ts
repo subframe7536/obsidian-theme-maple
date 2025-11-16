@@ -24,20 +24,20 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
     .addClassSelect(
       'calendar-weekend',
       {
-        title: { en: 'Highlight Weekends', zh: '突出显示周末' },
+        title: { en: 'Highlighted Weekend Column', zh: '高亮周末列' },
       },
       {
         allowEmpty: false,
         default: 'calendar-end-disable',
         options: [
           { label: 'Disable', value: 'calendar-end-disable' },
-          { label: 'Day 1 and Day 2', value: 'calendar-end-1-2' },
-          { label: 'Day 2 and Day 3', value: 'calendar-end-2-3' },
-          { label: 'Day 3 and Day 4', value: 'calendar-end-3-4' },
-          { label: 'Day 4 and Day 5', value: 'calendar-end-4-5' },
-          { label: 'Day 5 and Day 6', value: 'calendar-end-5-6' },
-          { label: 'Day 6 and Day 7', value: 'calendar-end-6-7' },
-          { label: 'Day 7 and Day 1', value: 'calendar-end-7-1' },
+          { label: 'Column 1 and 2', value: 'calendar-end-1-2' },
+          { label: 'Column 2 and 3', value: 'calendar-end-2-3' },
+          { label: 'Column 3 and 4', value: 'calendar-end-3-4' },
+          { label: 'Column 4 and 5', value: 'calendar-end-4-5' },
+          { label: 'Column 5 and 6', value: 'calendar-end-5-6' },
+          { label: 'Column 6 and 7', value: 'calendar-end-6-7' },
+          { label: 'Column 7 and 1', value: 'calendar-end-7-1' },
         ],
       },
     )
