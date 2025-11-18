@@ -1,4 +1,4 @@
-/* Maple Theme v1.2.3 For Obsidian */
+/* Maple Theme v1.2.4 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -362,7 +362,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.2.3
+      default: Maple 1.2.4
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -1032,6 +1032,16 @@ settings:
       description: Any CSS "font-weight" value
       description.zh: 任何 CSS “font-weight” 值
       default: "750"
+    - id: setting-h1-size
+      type: variable-number-slider
+      title: H1 Font Size
+      title.zh: H1 字号
+      description: Scale factor of normal text font size
+      description.zh: 普通文本字号大小的倍数
+      default: 1.6
+      min: 1
+      max: 2
+      step: 0.1
     - id: heading-h1-caps
       type: class-toggle
       title: H1 Small Caps Text Variant
@@ -1109,6 +1119,16 @@ settings:
       description: Any CSS "font-weight" value
       description.zh: 任何 CSS “font-weight” 值
       default: "700"
+    - id: setting-h2-size
+      type: variable-number-slider
+      title: H2 Font Size
+      title.zh: H2 字号
+      description: Scale factor of normal text font size
+      description.zh: 普通文本字号大小的倍数
+      default: 1.5
+      min: 1
+      max: 2
+      step: 0.1
     - id: heading-h2-caps
       type: class-toggle
       title: H2 Small Caps Text Variant
@@ -1186,6 +1206,16 @@ settings:
       description: Any CSS "font-weight" value
       description.zh: 任何 CSS “font-weight” 值
       default: "600"
+    - id: setting-h3-size
+      type: variable-number-slider
+      title: H3 Font Size
+      title.zh: H3 字号
+      description: Scale factor of normal text font size
+      description.zh: 普通文本字号大小的倍数
+      default: 1.4
+      min: 1
+      max: 2
+      step: 0.1
     - id: heading-h3-caps
       type: class-toggle
       title: H3 Small Caps Text Variant
@@ -1263,6 +1293,16 @@ settings:
       description: Any CSS "font-weight" value
       description.zh: 任何 CSS “font-weight” 值
       default: "550"
+    - id: setting-h4-size
+      type: variable-number-slider
+      title: H4 Font Size
+      title.zh: H4 字号
+      description: Scale factor of normal text font size
+      description.zh: 普通文本字号大小的倍数
+      default: 1.3
+      min: 1
+      max: 2
+      step: 0.1
     - id: heading-h4-caps
       type: class-toggle
       title: H4 Small Caps Text Variant
@@ -1340,6 +1380,16 @@ settings:
       description: Any CSS "font-weight" value
       description.zh: 任何 CSS “font-weight” 值
       default: "550"
+    - id: setting-h5-size
+      type: variable-number-slider
+      title: H5 Font Size
+      title.zh: H5 字号
+      description: Scale factor of normal text font size
+      description.zh: 普通文本字号大小的倍数
+      default: 1.2
+      min: 1
+      max: 2
+      step: 0.1
     - id: heading-h5-caps
       type: class-toggle
       title: H5 Small Caps Text Variant
@@ -1417,6 +1467,16 @@ settings:
       description: Any CSS "font-weight" value
       description.zh: 任何 CSS “font-weight” 值
       default: "500"
+    - id: setting-h6-size
+      type: variable-number-slider
+      title: H6 Font Size
+      title.zh: H6 字号
+      description: Scale factor of normal text font size
+      description.zh: 普通文本字号大小的倍数
+      default: 1.1
+      min: 1
+      max: 2
+      step: 0.1
     - id: heading-h6-caps
       type: class-toggle
       title: H6 Small Caps Text Variant
@@ -7127,7 +7187,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.2.3");
+  content: var(--setting-modal-header-title, "Maple 1.2.4");
   position: absolute;
   left: 50%;
   top: calc(var(--modal-header-height) / 2);
