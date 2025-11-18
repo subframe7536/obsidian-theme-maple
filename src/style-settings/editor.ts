@@ -7,6 +7,7 @@ interface HeadingConfig {
 }
 const CN_NUMBERS = ['一', '二', '三', '四', '五', '六']
 const FONT_WEIGHTS = [750, 700, 600, 550, 550, 500]
+const FONT_SIZE = [1.6, 1.5, 1.4, 1.3, 1.2, 1.1]
 function createHeadingSettings(level: number, config: HeadingConfig = {}) {
   const { align = 'left', style = 'normal', smallCaps = false } = config
   return Settings.ofLevel(2, {
@@ -105,6 +106,20 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
         desc: descValidCSS('font-weight'),
       },
       { default: FONT_WEIGHTS[level - 1].toString() },
+    )
+    .addVarNumSlider(
+      `setting-h${level}-size`,
+      {
+        title: {
+          en: `H${level} Font Size`,
+          zh: `H${level} 字号`,
+        },
+        desc: {
+          en: 'Scale factor of normal text font size',
+          zh: '普通文本字号大小的倍数'
+        },
+      },
+      { default: FONT_SIZE[level - 1], min: 1, max: 2, step: 0.1 },
     )
     .addClassToggle(
       `heading-h${level}-caps`,
