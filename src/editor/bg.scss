@@ -6,11 +6,13 @@ body {
 }
 
 :is(
-    .markdown-reading-view .markdown-rendered,
-    .markdown-source-view.mod-cm6 .cm-scroller
-  ) {
-  background-size: var(--grid-spacing) var(--grid-spacing);
-  background-position: center center;
+  .markdown-reading-view .markdown-rendered,
+  .markdown-source-view.mod-cm6 .cm-scroller
+) {
+  :is(.editor-bg-grid-dots, .editor-bg-grid-line) & {
+    background-size: var(--grid-spacing) var(--grid-spacing);
+    background-position: center center;
+  }
 
   .editor-bg-grid-dots & {
     background-image: radial-gradient(
@@ -21,11 +23,8 @@ body {
   }
 
   .editor-bg-grid-line & {
-    background-image: linear-gradient(
-        to right,
-        var(--grid-line-color) 1px,
-        transparent 1px
-      ),
+    background-image:
+      linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
   }
 }
