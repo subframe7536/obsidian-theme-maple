@@ -288,21 +288,30 @@ body:not(.outline-enable)
 body.color-use-default
   .setting-item:is([data-id='title-light-mode'], [data-id='title-dark-mode']),
 body.color-use-minimal
-  .setting-item:is(
-    [data-id='setting-accent-h-light'],
-    [data-id='setting-accent-h-dark'],
-    [data-id='color-active-light'],
-    [data-id='color-active-dark']
-  ),
+  .setting-item:is([data-id='title-light-mode'], [data-id='title-dark-mode']),
 body:not(.color-active-custom-light)
   .setting-item:is(
     [data-id='setting-color-active-custom-light'],
     [data-id='setting-color-inactive-custom-light']
   ),
+body:not(.color-modify-bg-light)
+  .setting-item:is(
+    [data-id='setting-bg-primary-light-hsl'],
+    [data-id='setting-bg-primary-alt-light-hsl'],
+    [data-id='setting-bg-secondary-light-hsl'],
+    [data-id='setting-bg-frame-light']
+  ),
 body:not(.color-active-custom-dark)
   .setting-item:is(
     [data-id='setting-color-active-custom-dark'],
     [data-id='setting-color-inactive-custom-dark']
+  ),
+body:not(.color-modify-bg-dark)
+  .setting-item:is(
+    [data-id='setting-bg-primary-dark-hsl'],
+    [data-id='setting-bg-primary-alt-dark-hsl'],
+    [data-id='setting-bg-secondary-dark-hsl'],
+    [data-id='setting-bg-frame-dark']
   ),
 body:not(.editor-custom-bottom-spacing)
   .setting-item[data-id='setting-editor-bottom-spacing'],

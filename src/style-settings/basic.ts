@@ -82,6 +82,65 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
             },
           },
           { default: '#', format: 'hsl-split', opacity: false },
+        )
+        .addClassToggle('color-modify-bg-light', {
+          title: { en: 'Modify Background Colors', zh: '修改背景颜色' },
+        })
+        .addVarColor(
+          'setting-bg-primary-light-hsl',
+          {
+            title: {
+              en: 'Primary Background Color',
+              zh: '主背景色',
+            },
+            desc: {
+              en: 'Background color for main area, e.g. editor, setting panel',
+              zh: '主要区域的背景色，例如编辑器和设置面板',
+            },
+          },
+          { default: '#', format: 'hsl-values', opacity: false },
+        )
+        .addVarColor(
+          'setting-bg-primary-alt-light-hsl',
+          {
+            title: {
+              en: 'Block Background Color',
+              zh: '块背景色',
+            },
+            desc: {
+              en: 'Background color for blocks in main area, e.g. codeblock, blockquote',
+              zh: '主要区域内的块的背景色，例如代码块、引言块',
+            },
+          },
+          { default: '#', format: 'hsl-values', opacity: false },
+        )
+        .addVarColor(
+          'setting-bg-secondary-light-hsl',
+          {
+            title: {
+              en: 'Secondary Background Color',
+              zh: '次背景色',
+            },
+            desc: {
+              en: 'Background color in secondary area, e.g. sidebar',
+              zh: '次要区域的背景色，例如侧边栏',
+            },
+          },
+          { default: '#', format: 'hsl-values', opacity: false },
+        )
+        .addVarColor(
+          'setting-bg-frame-light',
+          {
+            title: {
+              en: 'Top Bar Background Color',
+              zh: '顶栏背景色',
+            },
+            desc: {
+              en: 'Background color in the top area, e.g. titlebar, tab container',
+              zh: '顶栏的背景色，例如标题栏、标签栏',
+            },
+          },
+          { default: '#', format: 'hsl', opacity: false },
         ),
       Settings.ofLevel(2, { title: { en: 'Dark Mode', zh: '暗色模式' } })
         .addVarNumSlider(
@@ -135,6 +194,65 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
             },
           },
           { default: '#', format: 'hsl-split', opacity: false },
+        )
+        .addClassToggle('color-modify-bg-dark', {
+          title: { en: 'Modify Background Colors', zh: '修改背景颜色' },
+        })
+        .addVarColor(
+          'setting-bg-primary-dark-hsl',
+          {
+            title: {
+              en: 'Primary Background Color',
+              zh: '主背景色',
+            },
+            desc: {
+              en: 'Background color for main area, e.g. editor, setting panel',
+              zh: '主要区域的背景色，例如编辑器和设置面板',
+            },
+          },
+          { default: '#111', format: 'hsl-values', opacity: false },
+        )
+        .addVarColor(
+          'setting-bg-primary-alt-dark-hsl',
+          {
+            title: {
+              en: 'Block Background Color',
+              zh: '块背景色',
+            },
+            desc: {
+              en: 'Background color for blocks in main area, e.g. codeblock, blockquote',
+              zh: '主要区域内的块的背景色，例如代码块、引言块',
+            },
+          },
+          { default: '#111', format: 'hsl-values', opacity: false },
+        )
+        .addVarColor(
+          'setting-bg-secondary-dark-hsl',
+          {
+            title: {
+              en: 'Secondary Background Color',
+              zh: '次背景色',
+            },
+            desc: {
+              en: 'Background color in secondary area, e.g. sidebar',
+              zh: '次要区域的背景色，例如侧边栏',
+            },
+          },
+          { default: '#111', format: 'hsl-values', opacity: false },
+        )
+        .addVarColor(
+          'setting-bg-frame-dark',
+          {
+            title: {
+              en: 'Top Bar Background Color',
+              zh: '顶栏背景色',
+            },
+            desc: {
+              en: 'Background color in the top area, e.g. titlebar, tab container',
+              zh: '顶栏的背景色，例如标题栏、标签栏',
+            },
+          },
+          { default: '#111', format: 'hsl', opacity: false },
         ),
     ]),
   Settings.ofLevel(1, {

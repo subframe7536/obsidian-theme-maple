@@ -162,6 +162,23 @@ body {
       --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s);
       --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l);
     }
+
+    &.color-modify-bg-light {
+      --default-mod-bg-hsl: 0, 0%, 93%;
+      --background-primary-hsl: var(
+        --setting-bg-primary-light-hsl,
+        var(--default-mod-bg-hsl)
+      );
+      --background-primary-alt-hsl: var(
+        --setting-bg-primary-alt-light-hsl,
+        var(--default-mod-bg-hsl)
+      );
+      --background-secondary-hsl: var(
+        --setting-bg-secondary-light-hsl,
+        var(--default-mod-bg-hsl)
+      );
+      --frame-bg: var(--setting-bg-frame-light, hsl(var(--default-mod-bg-hsl)));
+    }
   }
 }
 
@@ -252,13 +269,30 @@ body {
       --theme-accent-h: calc(var(--base-accent-h) + 60);
     }
 
-    &.theme-dark.color-use-custom.color-active-custom-dark {
+    &.color-active-custom-dark {
       --theme-accent-active-h: var(--setting-color-active-custom-dark-h);
       --theme-accent-active-s: var(--setting-color-active-custom-dark-s);
       --theme-accent-active-l: var(--setting-color-active-custom-dark-l);
       --theme-accent-inactive-h: var(--setting-color-inactive-custom-dark-h);
       --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s);
       --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l);
+    }
+
+    &.color-modify-bg-dark {
+      --default-mod-bg-hsl: 0, 0%, 7%;
+      --background-primary-hsl: var(
+        --setting-bg-primary-dark-hsl,
+        var(--default-mod-bg-hsl)
+      );
+      --background-primary-alt-hsl: var(
+        --setting-bg-primary-alt-dark-hsl,
+        var(--default-mod-bg-hsl)
+      );
+      --background-secondary-hsl: var(
+        --setting-bg-secondary-dark-hsl,
+        var(--default-mod-bg-hsl)
+      );
+      --frame-bg: var(--setting-bg-frame-dark, hsl(var(--default-mod-bg-hsl)));
     }
   }
 }
