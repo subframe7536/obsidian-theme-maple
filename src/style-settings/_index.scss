@@ -108,38 +108,50 @@ body.css-settings-manager:not(.color-use-default) {
 
 /* #region Controls */
 
-.style-settings-container .themed-color-wrapper {
-  display: flex;
-  & > div {
-    gap: var(--size-4-2);
+.pcr-app {
+  border-radius: var(--radius-m);
+  .pcr-interaction input {
+    border-radius: var(--radius-s);
+  }
+}
 
-    & + div {
-      margin-top: 0;
+.style-settings-container {
+  .themed-color-wrapper {
+    display: flex;
+    & > div {
+      background-color: transparent;
+      gap: var(--size-4-2);
+
+      & + div {
+        margin-top: 0;
+      }
     }
-
-    .pickr > button {
-      width: var(--input-height);
-      height: var(--input-height);
+  }
+  .pickr > button {
+    width: var(--input-height);
+    height: var(--input-height);
+    border-radius: var(--button-radius);
+    border: 1px solid var(--background-modifier-border);
+    &::before,
+    &::after {
       border-radius: var(--button-radius);
-      &::before,
-      &::after {
-        border-radius: var(--button-radius);
-      }
     }
+  }
 
-    .pickr-reset > button {
-      cursor: pointer;
-      margin: 0;
-      width: var(--input-height);
-      height: var(--input-height);
-      position: relative;
+  .pickr-reset > button {
+    cursor: pointer;
+    margin: 0;
+    width: var(--input-height);
+    height: var(--input-height);
+    position: relative;
+    background-color: var(--color-base-10);
+    color: var(--color-base-70);
 
-      svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        translate: -50% -50%;
-      }
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
     }
   }
 }
