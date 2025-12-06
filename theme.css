@@ -1,4 +1,4 @@
-/* Maple Theme v1.2.5 For Obsidian */
+/* Maple Theme v1.3.0 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -91,6 +91,46 @@ settings:
       default: "#"
       format: hsl-split
       opacity: false
+    - id: color-modify-bg-light
+      type: class-toggle
+      title: Modify Background Colors
+      title.zh: 修改背景颜色
+    - id: setting-bg-primary-light-hsl
+      type: variable-color
+      title: Primary Background Color
+      title.zh: 主背景色
+      description: Background color for main area, e.g. editor, setting panel
+      description.zh: 主要区域的背景色，例如编辑器和设置面板
+      default: "#"
+      format: hsl-values
+      opacity: false
+    - id: setting-bg-primary-alt-light-hsl
+      type: variable-color
+      title: Block Background Color
+      title.zh: 块背景色
+      description: Background color for blocks in main area, e.g. codeblock, blockquote
+      description.zh: 主要区域内的块的背景色，例如代码块、引言块
+      default: "#"
+      format: hsl-values
+      opacity: false
+    - id: setting-bg-secondary-light-hsl
+      type: variable-color
+      title: Secondary Background Color
+      title.zh: 次背景色
+      description: Background color in secondary area, e.g. sidebar
+      description.zh: 次要区域的背景色，例如侧边栏
+      default: "#"
+      format: hsl-values
+      opacity: false
+    - id: setting-bg-frame-light
+      type: variable-color
+      title: Top Bar Background Color
+      title.zh: 顶栏背景色
+      description: Background color in the top area, e.g. titlebar, tab container
+      description.zh: 顶栏的背景色，例如标题栏、标签栏
+      default: "#"
+      format: hsl
+      opacity: false
     - id: title-dark-mode
       title: Dark Mode
       title.zh: 暗色模式
@@ -142,6 +182,46 @@ settings:
       title.zh: 自定义高亮色（非激活状态）
       default: "#"
       format: hsl-split
+      opacity: false
+    - id: color-modify-bg-dark
+      type: class-toggle
+      title: Modify Background Colors
+      title.zh: 修改背景颜色
+    - id: setting-bg-primary-dark-hsl
+      type: variable-color
+      title: Primary Background Color
+      title.zh: 主背景色
+      description: Background color for main area, e.g. editor, setting panel
+      description.zh: 主要区域的背景色，例如编辑器和设置面板
+      default: "#111"
+      format: hsl-values
+      opacity: false
+    - id: setting-bg-primary-alt-dark-hsl
+      type: variable-color
+      title: Block Background Color
+      title.zh: 块背景色
+      description: Background color for blocks in main area, e.g. codeblock, blockquote
+      description.zh: 主要区域内的块的背景色，例如代码块、引言块
+      default: "#111"
+      format: hsl-values
+      opacity: false
+    - id: setting-bg-secondary-dark-hsl
+      type: variable-color
+      title: Secondary Background Color
+      title.zh: 次背景色
+      description: Background color in secondary area, e.g. sidebar
+      description.zh: 次要区域的背景色，例如侧边栏
+      default: "#111"
+      format: hsl-values
+      opacity: false
+    - id: setting-bg-frame-dark
+      type: variable-color
+      title: Top Bar Background Color
+      title.zh: 顶栏背景色
+      description: Background color in the top area, e.g. titlebar, tab container
+      description.zh: 顶栏的背景色，例如标题栏、标签栏
+      default: "#111"
+      format: hsl
       opacity: false
     - id: title-layout
       title: Layout
@@ -362,7 +442,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.2.5
+      default: Maple 1.3.0
       quotes: true
     - id: modal-header-search
       type: class-toggle
@@ -2241,6 +2321,22 @@ body {
   --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s);
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l);
 }
+.theme-light.color-use-custom.color-modify-bg-light {
+  --default-mod-bg-hsl: 0, 0%, 93%;
+  --background-primary-hsl: var(
+    --setting-bg-primary-light-hsl,
+    var(--default-mod-bg-hsl)
+  );
+  --background-primary-alt-hsl: var(
+    --setting-bg-primary-alt-light-hsl,
+    var(--default-mod-bg-hsl)
+  );
+  --background-secondary-hsl: var(
+    --setting-bg-secondary-light-hsl,
+    var(--default-mod-bg-hsl)
+  );
+  --frame-bg: var(--setting-bg-frame-light, hsl(var(--default-mod-bg-hsl)));
+}
 
 .theme-dark {
   --color-red-rgb: 209.304, 137.496, 137.496;
@@ -2327,13 +2423,29 @@ body {
 .theme-dark.color-use-custom.color-active-alt-dark {
   --theme-accent-h: calc(var(--base-accent-h) + 60);
 }
-.theme-dark.color-use-custom.theme-dark.color-use-custom.color-active-custom-dark {
+.theme-dark.color-use-custom.color-active-custom-dark {
   --theme-accent-active-h: var(--setting-color-active-custom-dark-h);
   --theme-accent-active-s: var(--setting-color-active-custom-dark-s);
   --theme-accent-active-l: var(--setting-color-active-custom-dark-l);
   --theme-accent-inactive-h: var(--setting-color-inactive-custom-dark-h);
   --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s);
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l);
+}
+.theme-dark.color-use-custom.color-modify-bg-dark {
+  --default-mod-bg-hsl: 0, 0%, 7%;
+  --background-primary-hsl: var(
+    --setting-bg-primary-dark-hsl,
+    var(--default-mod-bg-hsl)
+  );
+  --background-primary-alt-hsl: var(
+    --setting-bg-primary-alt-dark-hsl,
+    var(--default-mod-bg-hsl)
+  );
+  --background-secondary-hsl: var(
+    --setting-bg-secondary-dark-hsl,
+    var(--default-mod-bg-hsl)
+  );
+  --frame-bg: var(--setting-bg-frame-dark, hsl(var(--default-mod-bg-hsl)));
 }
 
 /* #endregion global variables */
@@ -2435,31 +2547,42 @@ body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-co
 
 /* #endregion */
 /* #region Controls */
+.pcr-app {
+  border-radius: var(--radius-m);
+}
+.pcr-app .pcr-interaction input {
+  border-radius: var(--radius-s);
+}
+
 .style-settings-container .themed-color-wrapper {
   display: flex;
 }
 .style-settings-container .themed-color-wrapper > div {
+  background-color: transparent;
   gap: var(--size-4-2);
 }
 .style-settings-container .themed-color-wrapper > div + div {
   margin-top: 0;
 }
-.style-settings-container .themed-color-wrapper > div .pickr > button {
+.style-settings-container .pickr > button {
   width: var(--input-height);
   height: var(--input-height);
   border-radius: var(--button-radius);
+  border: 1px solid var(--background-modifier-border);
 }
-.style-settings-container .themed-color-wrapper > div .pickr > button::before, .style-settings-container .themed-color-wrapper > div .pickr > button::after {
+.style-settings-container .pickr > button::before, .style-settings-container .pickr > button::after {
   border-radius: var(--button-radius);
 }
-.style-settings-container .themed-color-wrapper > div .pickr-reset > button {
+.style-settings-container .pickr-reset > button {
   cursor: pointer;
   margin: 0;
   width: var(--input-height);
   height: var(--input-height);
   position: relative;
+  background-color: var(--color-base-10);
+  color: var(--color-base-70);
 }
-.style-settings-container .themed-color-wrapper > div .pickr-reset > button svg {
+.style-settings-container .pickr-reset > button svg {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2542,14 +2665,19 @@ body:not(.outline-enable) .setting-item:is([data-id=setting-outline-width],
 [data-id=setting-outline-line-color],
 [data-id=setting-outline-dot-color]),
 body.color-use-default .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]),
-body.color-use-minimal .setting-item:is([data-id=setting-accent-h-light],
-[data-id=setting-accent-h-dark],
-[data-id=color-active-light],
-[data-id=color-active-dark]),
+body.color-use-minimal .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]),
 body:not(.color-active-custom-light) .setting-item:is([data-id=setting-color-active-custom-light],
 [data-id=setting-color-inactive-custom-light]),
+body:not(.color-modify-bg-light) .setting-item:is([data-id=setting-bg-primary-light-hsl],
+[data-id=setting-bg-primary-alt-light-hsl],
+[data-id=setting-bg-secondary-light-hsl],
+[data-id=setting-bg-frame-light]),
 body:not(.color-active-custom-dark) .setting-item:is([data-id=setting-color-active-custom-dark],
 [data-id=setting-color-inactive-custom-dark]),
+body:not(.color-modify-bg-dark) .setting-item:is([data-id=setting-bg-primary-dark-hsl],
+[data-id=setting-bg-primary-alt-dark-hsl],
+[data-id=setting-bg-secondary-dark-hsl],
+[data-id=setting-bg-frame-dark]),
 body:not(.editor-custom-bottom-spacing) .setting-item[data-id=setting-editor-bottom-spacing],
 body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
@@ -2618,14 +2746,19 @@ body:not(.outline-enable) .setting-item:is([data-id=setting-outline-width],
 [data-id=setting-outline-line-color],
 [data-id=setting-outline-dot-color]) + .style-settings-container,
 body.color-use-default .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]) + .style-settings-container,
-body.color-use-minimal .setting-item:is([data-id=setting-accent-h-light],
-[data-id=setting-accent-h-dark],
-[data-id=color-active-light],
-[data-id=color-active-dark]) + .style-settings-container,
+body.color-use-minimal .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]) + .style-settings-container,
 body:not(.color-active-custom-light) .setting-item:is([data-id=setting-color-active-custom-light],
 [data-id=setting-color-inactive-custom-light]) + .style-settings-container,
+body:not(.color-modify-bg-light) .setting-item:is([data-id=setting-bg-primary-light-hsl],
+[data-id=setting-bg-primary-alt-light-hsl],
+[data-id=setting-bg-secondary-light-hsl],
+[data-id=setting-bg-frame-light]) + .style-settings-container,
 body:not(.color-active-custom-dark) .setting-item:is([data-id=setting-color-active-custom-dark],
 [data-id=setting-color-inactive-custom-dark]) + .style-settings-container,
+body:not(.color-modify-bg-dark) .setting-item:is([data-id=setting-bg-primary-dark-hsl],
+[data-id=setting-bg-primary-alt-dark-hsl],
+[data-id=setting-bg-secondary-dark-hsl],
+[data-id=setting-bg-frame-dark]) + .style-settings-container,
 body:not(.editor-custom-bottom-spacing) .setting-item[data-id=setting-editor-bottom-spacing] + .style-settings-container,
 body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-checkbox],
@@ -7187,7 +7320,7 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.2.5");
+  content: var(--setting-modal-header-title, "Maple 1.3.0");
   position: absolute;
   left: 50%;
   top: calc(var(--modal-header-height) / 2);
