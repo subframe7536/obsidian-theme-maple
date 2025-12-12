@@ -145,7 +145,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     title: { en: 'Modal and Setting Panel', zh: '模态框和设置面板' },
   })
     .addClassToggle(
-      'modal-header',
+      'modal-setting-header',
       {
         title: {
           en: 'Add Header To Setting Panel',
@@ -164,7 +164,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       { default: `Maple ${version}`, quotes: true },
     )
     .addClassToggle(
-      'modal-header-search',
+      'modal-setting-header-search',
       {
         title: {
           en: 'Move Some Search Bar to Modal Header',

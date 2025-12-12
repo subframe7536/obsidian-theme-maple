@@ -216,7 +216,7 @@ body:not(.is-mobile) {
   }
 }
 
-body.modal-header:not(.is-mobile) {
+body.modal-setting-header:not(.is-mobile) {
   --modal-close-button-padding: var(--size-4-2);
   --modal-header-height: var(--size-4-10);
 
@@ -279,7 +279,7 @@ body.modal-header:not(.is-mobile) {
     }
   }
 
-  &.modal-header-search {
+  &.modal-setting-header-search {
     --modal-close-button-padding: var(--size-4-3);
     --modal-header-height: var(--size-4-12);
 
