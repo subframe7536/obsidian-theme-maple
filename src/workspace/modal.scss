@@ -317,6 +317,33 @@ body.modal-setting-header:not(.is-mobile) {
             margin-bottom: var(--size-4-3);
           }
         }
+
+        :is(
+            .setting-group-search .search-input-container,
+            .setting-item-control:has(.search-input-container.mod-hotkey)
+          ) {
+          position: absolute;
+          padding: 0;
+          top: calc(var(--size-4-2) + var(--size-2-1));
+          right: var(--modal-header-height);
+          border: none;
+          .setting-item-info {
+            visibility: hidden;
+          }
+        }
+        .setting-group-search {
+          padding-block: calc(var(--size-4-2) + var(--size-2-1));
+        }
+        .setting-item:has(~ .hotkey-list-container) .setting-item-info {
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
+          gap: var(--size-4-2);
+          .setting-item-name {
+            font-size: var(--h4-size);
+            font-weight: bold;
+          }
+        }
       }
     }
   }
