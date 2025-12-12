@@ -108,6 +108,10 @@ body.css-settings-manager:not(.color-use-default) {
 
 /* #region Controls */
 
+.style-settings-container {
+  --setting-items-background: transparent;
+}
+
 .pcr-app {
   border-radius: var(--radius-m);
   .pcr-interaction input {
