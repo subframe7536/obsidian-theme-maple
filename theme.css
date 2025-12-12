@@ -1,4 +1,4 @@
-/* Maple Theme v1.3.1 For Obsidian */
+/* Maple Theme v1.3.2 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -442,8 +442,13 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.3.1
+      default: Maple 1.3.2
       quotes: true
+    - id: modal-setting-header-title-center
+      type: class-toggle
+      title: Center the Setting Panel Header Title
+      title.zh: 设置面板标题居中
+      default: true
     - id: modal-setting-header-search
       type: class-toggle
       title: Move Some Search Bar to Modal Header
@@ -2494,14 +2499,14 @@ html[lang=zh] {
   padding: var(--size-4-1);
 }
 
-body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) {
+body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]), body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-group > .setting-items > .setting-item.mod-toggle > .setting-item-control:has(> input[type=color]) {
   position: relative;
 }
-body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) :is(div, input) {
+body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color]) :is(div, input), body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-group > .setting-items > .setting-item.mod-toggle > .setting-item-control:has(> input[type=color]) :is(div, input) {
   visibility: hidden;
   pointer-events: none;
 }
-body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color])::before {
+body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-item:nth-child(2) > .setting-item-control:has(> input[type=color])::before, body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-content-container > .vertical-tab-content > .setting-group > .setting-items > .setting-item.mod-toggle > .setting-item-control:has(> input[type=color])::before {
   content: var(--system-accent-override-text-cotent, "Controlled by Style Settings Plugin");
   font-family: var(--font-interface);
   font-size: var(--font-ui-smaller);
@@ -2547,6 +2552,10 @@ body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-co
 
 /* #endregion */
 /* #region Controls */
+.style-settings-container {
+  --setting-items-background: transparent;
+}
+
 .pcr-app {
   border-radius: var(--radius-m);
 }
@@ -7041,10 +7050,10 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
 
 /* #endregion shiki */
 /* #region settings-search */
-body:not(.is-mobile).modal-header.modal-header-search .settings-search-container {
+body:not(.is-mobile).modal-setting-header.modal-setting-header-search .settings-search-container {
   padding: 0;
 }
-body:not(.is-mobile).modal-header.modal-header-search .settings-search-container .settings-search-input {
+body:not(.is-mobile).modal-setting-header.modal-setting-header-search .settings-search-container .settings-search-input {
   position: absolute;
   top: var(--size-2-3);
   width: calc(clamp(180px, var(--modal-width) / 4, 250px) - var(--size-4-5));
@@ -7323,17 +7332,21 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.3.1");
+  content: var(--setting-modal-header-title, "Maple 1.3.2");
   position: absolute;
-  left: 50%;
+  left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
-  translate: -50% -50%;
+  translate: 0 -50%;
   font-size: 18px;
   font-weight: 550;
   color: var(--setting-color-logo, var(--text-accent));
 }
+body.modal-setting-header:not(.is-mobile).modal-setting-header-title-center .modal-container .mod-settings::before {
+  left: 50%;
+  translate: -50% -50%;
+}
 @container (max-width:750px) {
-  body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
+  body.modal-setting-header:not(.is-mobile).modal-setting-header-title-center .modal-container .mod-settings::before {
     opacity: 0;
   }
 }
@@ -7390,6 +7403,31 @@ body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-setti
 }
 body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-filter-container .hotkey-filter {
   margin-bottom: var(--size-4-3);
+}
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content :is(.setting-group-search .search-input-container,
+.setting-item-control:has(.search-input-container.mod-hotkey)) {
+  position: absolute;
+  padding: 0;
+  top: calc(var(--size-4-2) + var(--size-2-1));
+  right: var(--modal-header-height);
+  border: none;
+}
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content :is(.setting-group-search .search-input-container,
+.setting-item-control:has(.search-input-container.mod-hotkey)) .setting-item-info {
+  visibility: hidden;
+}
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-group-search {
+  padding-block: calc(var(--size-4-2) + var(--size-2-1));
+}
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-item:has(~ .hotkey-list-container) .setting-item-info {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: var(--size-4-2);
+}
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-item:has(~ .hotkey-list-container) .setting-item-info .setting-item-name {
+  font-size: var(--h4-size);
+  font-weight: bold;
 }
 
 select,
