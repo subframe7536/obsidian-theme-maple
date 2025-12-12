@@ -44,28 +44,29 @@ html[lang='zh'] {
 }
 
 body.css-settings-manager:not(.color-use-default) {
-  .mod-settings
-    .vertical-tab-content-container
-    > .vertical-tab-content
-    > .setting-item:nth-child(2)
-    > .setting-item-control:has(> input[type='color']) {
-    position: relative;
-    :is(div, input) {
-      visibility: hidden;
-      pointer-events: none;
-    }
-    &::before {
-      content: var(
-        --system-accent-override-text-cotent,
-        'Controlled by Style Settings Plugin'
-      );
-      font-family: var(--font-interface);
-      font-size: var(--font-ui-smaller);
-      position: absolute;
-      width: var(--system-access-override-text-width, max-content);
-      top: 50%;
-      translate: 0 -50%;
-      pointer-events: none;
+  .mod-settings .vertical-tab-content-container > .vertical-tab-content {
+    & > .setting-item:nth-child(2),
+    & > .setting-group > .setting-items > .setting-item.mod-toggle {
+      & > .setting-item-control:has(> input[type='color']) {
+        position: relative;
+        :is(div, input) {
+          visibility: hidden;
+          pointer-events: none;
+        }
+        &::before {
+          content: var(
+            --system-accent-override-text-cotent,
+            'Controlled by Style Settings Plugin'
+          );
+          font-family: var(--font-interface);
+          font-size: var(--font-ui-smaller);
+          position: absolute;
+          width: var(--system-access-override-text-width, max-content);
+          top: 50%;
+          translate: 0 -50%;
+          pointer-events: none;
+        }
+      }
     }
   }
 }
