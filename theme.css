@@ -1,4 +1,4 @@
-/* Maple Theme v1.3.0 For Obsidian */
+/* Maple Theme v1.3.1 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -431,7 +431,7 @@ settings:
       type: heading
       level: 1
       collapsed: true
-    - id: modal-header
+    - id: modal-setting-header
       type: class-toggle
       title: Add Header To Setting Panel
       title.zh: 为设置面板添加顶部标题
@@ -442,9 +442,9 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.3.0
+      default: Maple 1.3.1
       quotes: true
-    - id: modal-header-search
+    - id: modal-setting-header-search
       type: class-toggle
       title: Move Some Search Bar to Modal Header
       title.zh: 将部分搜索框移动到模态框顶部
@@ -7164,6 +7164,9 @@ body {
 body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
   background-color: var(--nav-item-background-active) !important;
 }
+body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active > div {
+  color: var(--text-on-accent);
+}
 
 .clickable-icon {
   transition: var(--animation-fast);
@@ -7306,21 +7309,21 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled:active::af
   left: calc(2 * var(--toggle-border-width));
 }
 
-body.modal-header:not(.is-mobile) {
+body.modal-setting-header:not(.is-mobile) {
   --modal-close-button-padding: var(--size-4-2);
   --modal-header-height: var(--size-4-10);
 }
-body.modal-header:not(.is-mobile) .modal-close-button {
+body.modal-setting-header:not(.is-mobile) .modal-close-button {
   transition: background-color var(--animation);
   z-index: calc(var(--layer-modal) + 1);
   top: var(--modal-close-button-padding);
   inset-inline-end: var(--modal-close-button-padding);
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings {
+body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
-body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.3.0");
+body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
+  content: var(--setting-modal-header-title, "Maple 1.3.1");
   position: absolute;
   left: 50%;
   top: calc(var(--modal-header-height) / 2);
@@ -7330,42 +7333,42 @@ body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
   color: var(--setting-color-logo, var(--text-accent));
 }
 @container (max-width:750px) {
-  body.modal-header:not(.is-mobile) .modal-container .mod-settings::before {
+  body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
     opacity: 0;
   }
 }
-body.modal-header:not(.is-mobile) .mod-settings .modal-content {
+body.modal-setting-header:not(.is-mobile) .mod-settings .modal-content {
   background-color: var(--titlebar-background);
 }
-body.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-header {
+body.modal-setting-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-header {
   background-color: hsl(var(--background-secondary-hsl));
   border-top: 1px solid var(--divider-color);
   margin-top: var(--modal-header-height);
   padding-top: 0;
 }
-body.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container {
+body.modal-setting-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container {
   padding-top: var(--modal-header-height);
   position: relative;
 }
-body.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
+body.modal-setting-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
   position: unset !important;
   background-color: var(--background-primary);
   border-top: 1px solid var(--divider-color);
   padding-top: var(--size-4-6);
   padding-right: var(--size-4-8);
 }
-body.modal-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
+body.modal-setting-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
 }
-body.modal-header:not(.is-mobile).modal-header-search {
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search {
   --modal-close-button-padding: var(--size-4-3);
   --modal-header-height: var(--size-4-12);
 }
-body.modal-header:not(.is-mobile).modal-header-search .mod-settings::before {
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings::before {
   font-size: 20px;
 }
-body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
 .vertical-tab-content:is(:has(> .installed-plugins-container),
 :has(> .hotkey-list-container))) > .setting-item:has(input) {
   position: absolute;
@@ -7374,18 +7377,18 @@ body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-conte
   right: var(--modal-header-height);
   border: none;
 }
-body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
 .vertical-tab-content:is(:has(> .installed-plugins-container),
 :has(> .hotkey-list-container))) > .setting-item:has(input) .setting-item-info {
   visibility: hidden;
 }
-body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
   margin: 0;
 }
-body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-filter-container {
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-filter-container {
   margin-bottom: var(--size-4-1);
 }
-body.modal-header:not(.is-mobile).modal-header-search .mod-settings .modal-content .setting-filter-container .hotkey-filter {
+body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-filter-container .hotkey-filter {
   margin-bottom: var(--size-4-3);
 }
 
@@ -7479,12 +7482,13 @@ body.enable-group-title .modal-container .mod-settings .modal-content .vertical-
 body.enable-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group-title {
   color: var(--text-accent);
   font-size: var(--size-4-4);
+  font-weight: var(--font-bold);
 }
 body.enable-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group-title::before {
   content: "";
   display: inline-block;
   translate: 0 var(--size-2-1);
-  margin-right: var(--size-4-1);
+  margin-inline-end: var(--size-4-2);
   -webkit-mask: var(--settings-icon) no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
