@@ -9,6 +9,9 @@ body {
 body:not(.is-phone)
   :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
   background-color: var(--nav-item-background-active) !important;
+  & > div {
+    color: var(--text-on-accent);
+  }
 }
 
 .clickable-icon {
@@ -434,11 +437,12 @@ body.enable-group-title
     $title-size: var(--size-4-4);
     color: var(--text-accent);
     font-size: $title-size;
+    font-weight: var(--font-bold);
     &::before {
       content: '';
       display: inline-block;
       translate: 0 var(--size-2-1);
-      margin-right: var(--size-4-1);
+      margin-inline-end: var(--size-4-2);
       @include use-icon(--settings-icon, inherit, $title-size);
     }
   }
