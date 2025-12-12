@@ -237,12 +237,21 @@ body.modal-setting-header:not(.is-mobile) {
       &::before {
         content: var(--setting-modal-header-title, version());
         position: absolute;
-        left: 50%;
+        left: var(--size-4-4);
         top: calc(var(--modal-header-height) / 2);
-        translate: -50% -50%;
+        translate: 0 -50%;
         font-size: 18px;
         font-weight: 550;
         color: var(--setting-color-logo, var(--text-accent));
+      }
+    }
+  }
+
+  &.modal-setting-header-title-center .modal-container {
+    .mod-settings {
+      &::before {
+        left: 50%;
+        translate: -50% -50%;
       }
 
       @container (max-width:750px) {

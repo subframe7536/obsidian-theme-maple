@@ -164,6 +164,16 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       { default: `Maple ${version}`, quotes: true },
     )
     .addClassToggle(
+      'modal-setting-header-title-center',
+      {
+        title: {
+          en: 'Center the Setting Panel Header Title',
+          zh: '设置面板标题居中',
+        },
+      },
+      { enable: true },
+    )
+    .addClassToggle(
       'modal-setting-header-search',
       {
         title: {
