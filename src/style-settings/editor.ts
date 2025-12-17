@@ -116,7 +116,7 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
         },
         desc: {
           en: 'Scale factor of normal text font size',
-          zh: '普通文本字号大小的倍数'
+          zh: '普通文本字号大小的倍数',
         },
       },
       { default: FONT_SIZE[level - 1], min: 1, max: 2, step: 0.1 },
@@ -198,6 +198,16 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
         },
       },
       { default: 8, format: 'px', min: 0, max: 20, step: 1 },
+    )
+    .addVarNumSlider(
+      'setting-editor-letter-spacing',
+      {
+        title: {
+          en: 'Letter Spacing (px)',
+          zh: '文字间距（px）',
+        },
+      },
+      { default: 0, format: 'px', min: -1, max: 1, step: 0.1 },
     )
     .addClassToggle('editor-custom-bottom-spacing', {
       title: { en: 'Custom Page Bottom Spacing', zh: '自定义页面底部留白' },

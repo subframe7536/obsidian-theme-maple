@@ -365,6 +365,15 @@ a :is(em, i, strong, b) {
 
 /* #endregion bold & italic */
 
+/* #region letter spacing */
+
+.cm-line *,
+.markdown-rendered * {
+  letter-spacing: var(--setting-editor-letter-spacing, 0);
+}
+
+/* #endregion letter spacing */
+
 /* #region others */
 
 @include use-panel('markdown') {
