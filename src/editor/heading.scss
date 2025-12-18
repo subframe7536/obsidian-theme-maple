@@ -70,9 +70,9 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   }
 
   .link-heading #{$selector} {
-    --link-color: var(--h#{$i}-color);
+    --link-color-rgb: var(--h#{$i}-color-rgb);
     --link-color-underline: var(--h#{$i}-color);
-    --link-external-color: var(--h#{$i}-color);
+    --link-external-color-rgb: var(--h#{$i}-color-rgb);
     --link-external-color-underline: var(--h#{$i}-color);
     --link-text-size: var(--h#{$i}-size);
   }
