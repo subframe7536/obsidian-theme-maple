@@ -1,4 +1,4 @@
-/* Maple Theme v1.3.4 For Obsidian */
+/* Maple Theme v1.3.5 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -442,7 +442,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.3.4
+      default: Maple 1.3.5
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2702,7 +2702,7 @@ body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-bullet-thread-style]),
 body:not(.list-bullet-thread-style) .setting-item[data-id=setting-list-guide-color],
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer],
-body:not(.modal-header) .setting-item:is([data-id=modal-header-search],
+body:not(.modal-setting-header) .setting-item:is([data-id=modal-header-search],
 [data-id=setting-modal-header-title]),
 body:not(.message-modify) .setting-item[data-id^=setting-message],
 body:not(.image-zoom) .setting-item[data-id^=image-zoom-out],
@@ -2783,7 +2783,7 @@ body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-bullet-thread-style]) + .style-settings-container,
 body:not(.list-bullet-thread-style) .setting-item[data-id=setting-list-guide-color] + .style-settings-container,
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer] + .style-settings-container,
-body:not(.modal-header) .setting-item:is([data-id=modal-header-search],
+body:not(.modal-setting-header) .setting-item:is([data-id=modal-header-search],
 [data-id=setting-modal-header-title]) + .style-settings-container,
 body:not(.message-modify) .setting-item[data-id^=setting-message] + .style-settings-container,
 body:not(.image-zoom) .setting-item[data-id^=image-zoom-out] + .style-settings-container,
@@ -4261,7 +4261,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
 body {
   --block-outline-width: var(--size-2-1);
   --embed-background: var(--bg-editor);
-  --embed-padding: var(--size-4-5) var(--size-4-4);
+  --embed-padding: var(--size-4-4) var(--size-4-5);
   --embed-block-shadow-hover: 0 0 0 1px var(--accent-inactive),
     inset 0 0 0 1px var(--accent-inactive);
   --embed-border-start: var(--size-2-1) solid var(--accent-inactive);
@@ -7348,7 +7348,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.3.4");
+  content: var(--setting-modal-header-title, "Maple 1.3.5");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
