@@ -1,4 +1,4 @@
-/* Maple Theme v1.3.5 For Obsidian */
+/* Maple Theme v1.3.6 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -37,6 +37,10 @@ settings:
       type: heading
       level: 1
       collapsed: false
+    - id: color-dark-dim-disable
+      type: class-toggle
+      title: Disable Opacity Reduction in Dark Mode
+      title.zh: 深色模式下，颜色的不透明度不降低
     - id: color-scheme
       type: class-select
       title: Color Scheme
@@ -442,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.3.5
+      default: Maple 1.3.6
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2246,6 +2250,7 @@ body {
   --line-height-normal: var(--setting-line-height, 1.8);
   --line-height-tight: var(--setting-item-line-height, 1.5);
   --menu-padding: 4px;
+  --color-opacity: 1;
 }
 
 .theme-light {
@@ -2263,7 +2268,6 @@ body {
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity));
   --color-purple-rgb: 114.24, 97.92, 146.88;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity));
-  --color-opacity: 1;
   --theme-accent-active-h: var(--theme-accent-h);
   --theme-accent-active-s: calc(20% + var(--accent-s) / 10);
   --theme-accent-active-l: calc(50% + var(--accent-l) / 10);
@@ -2367,7 +2371,6 @@ body {
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity));
   --color-purple-rgb: 186.2265, 179.265, 238.935;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity));
-  --color-opacity: 0.85;
   --theme-accent-active-h: var(--theme-accent-h);
   --theme-accent-active-s: calc(20% + var(--accent-s) / 10);
   --theme-accent-active-l: calc(40% + var(--accent-l) / 10);
@@ -2403,6 +2406,9 @@ body {
   );
   --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
+}
+.theme-dark:not(.color-dark-dim-disable) {
+  --color-opacity: 0.85;
 }
 .theme-dark.color-use-minimal {
   --text-on-accent: #1e1e1f !important;
@@ -7348,7 +7354,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.3.5");
+  content: var(--setting-modal-header-title, "Maple 1.3.6");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
