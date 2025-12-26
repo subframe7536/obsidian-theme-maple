@@ -28,6 +28,12 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
       'hsl',
     ),
   Settings.ofLevel(1, { title: { en: 'Colors', zh: '颜色' }, open: true })
+    .addClassToggle('color-dark-dim-disable', {
+      title: {
+        en: 'Disable Opacity Reduction in Dark Mode',
+        zh: '深色模式下，颜色的不透明度不降低',
+      },
+    })
     .addClassSelect(
       'color-scheme',
       {

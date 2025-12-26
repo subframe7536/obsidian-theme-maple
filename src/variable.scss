@@ -74,6 +74,7 @@ body {
   --line-height-tight: var(--setting-item-line-height, 1.5);
 
   --menu-padding: 4px;
+  --color-opacity: 1;
 }
 
 .theme-light {
@@ -84,7 +85,6 @@ body {
   @include var-color('cyan', hsl(156, 75%, 28%));
   @include var-color('blue', hsl(193, 94%, 34%));
   @include var-color('purple', hsl(260, 20%, 48%));
-  --color-opacity: 1;
 
   --theme-accent-active-h: var(--theme-accent-h);
   --theme-accent-active-s: calc(20% + var(--accent-s) / 10);
@@ -190,7 +190,10 @@ body {
   @include var-color('cyan', hsl(178, 40%, 64%));
   @include var-color('blue', hsl(210, 80%, 72%));
   @include var-color('purple', hsl(247, 65%, 82%));
-  --color-opacity: 0.85;
+
+  &:not(.color-dark-dim-disable) {
+    --color-opacity: 0.85;
+  }
 
   --theme-accent-active-h: var(--theme-accent-h);
   --theme-accent-active-s: calc(20% + var(--accent-s) / 10);
