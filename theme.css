@@ -1,4 +1,4 @@
-/* Maple Theme v1.3.6 For Obsidian */
+/* Maple Theme v1.3.7 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.3.6
+      default: Maple 1.3.7
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -3239,6 +3239,10 @@ body.line-active-left .markdown-source-view .cm-line.cm-active:not(.HyperMD-head
   border-radius: var(--size-2-1);
 }
 
+.cm-editor.cm-focused .cm-line.cm-active {
+  transform: translateZ(0);
+}
+
 /* #endregion current line highlight */
 /* #region line indicator */
 /* reference from https://github.com/Akifyss/obsidian-border */
@@ -3258,14 +3262,29 @@ audio,
 video))),
 .markdown-source-view .cm-line:not(.HyperMD-header,
 .HyperMD-quote,
-.HyperMD-list-line-1:has(.collapse-indicator))):hover::after {
+.HyperMD-list-line-1:has(.collapse-indicator)))::after {
   content: "";
   width: var(--size-4-1);
   position: absolute;
   inset-block: var(--size-4-1);
   left: calc(var(--size-4-3) * -1);
-  background-color: var(--indicator-color);
   border-radius: var(--radius-s);
+  background-color: var(--indicator-color);
+  opacity: 0;
+  will-change: opacity;
+}
+body.line-indicator-enable :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator,
+hr,
+pre,
+blockquote,
+table,
+p img,
+audio,
+video))),
+.markdown-source-view .cm-line:not(.HyperMD-header,
+.HyperMD-quote,
+.HyperMD-list-line-1:has(.collapse-indicator))):hover::after {
+  opacity: 1;
 }
 
 body.line-indicator-full .cm-line:not(.HyperMD-codeblock):hover {
@@ -7354,7 +7373,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.3.6");
+  content: var(--setting-modal-header-title, "Maple 1.3.7");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -8545,40 +8564,6 @@ body.is-phone.mobile-floating-button .mod-root .workspace-leaf-content[data-type
 }
 
 /* #endregion floating button */
-/* #region ios hdr */
-/* Reference: https://github.com/aaaaalexis/obsidian-cupertino/blob/a7b045b1267728f6535fc8ed1b0925f8b49bc05d/src/app/mobile.scss#L488C1-L523C2 */
-body.is-ios.theme-light .mod-left-split-toggle.clickable-icon::after,
-body.is-ios.theme-light .mod-root .workspace-leaf-content .view-action::after,
-body.is-ios.theme-light .mobile-navbar-actions::after,
-body.is-ios.theme-light .mobile-toolbar-options-list::after,
-body.is-ios.theme-light .workspace-drawer .nav-buttons-container::after,
-body.is-ios.theme-light .workspace-drawer-header-icon.clickable-icon::after,
-body.is-ios.theme-light .prompt-input-container::after,
-body.is-ios.theme-light .prompt-input-container .search-input-clear-button::before,
-body.is-ios.theme-light .modal-setting-back-button::after,
-body.is-ios.theme-light .modal-close-button::after {
-  position: absolute;
-  backdrop-filter: brightness(1.5);
-  mask: linear-gradient(white, white) padding-box, linear-gradient(white, white) border-box;
-  mask-composite: exclude, add;
-  filter: blur(1px);
-  inset: 0;
-  border: 1px solid transparent;
-  border-radius: inherit;
-  background: linear-gradient(to bottom left, white, transparent, white) border-box no-repeat;
-  pointer-events: none;
-  content: "";
-}
-body.is-ios.theme-light .prompt-input-container::after {
-  margin-right: 56px;
-  border-radius: var(--clickable-icon-radius);
-}
-body.is-ios.theme-light .prompt-input-container::after,
-body.is-ios.theme-light .search-input-clear-button::before {
-  backdrop-filter: brightness(1.2);
-}
-
-/* #endregion ios hdr */
 /* #endregion [mobile] */
 /* #region built-in fonts */
 @font-face {
