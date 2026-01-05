@@ -153,6 +153,10 @@ body.line-active-left {
   }
 }
 
+.cm-editor.cm-focused .cm-line.cm-active {
+  transform: translateZ(0);
+}
+
 /* #endregion current line highlight */
 
 /* #region line indicator */
@@ -187,14 +191,21 @@ body.line-indicator-enable {
           .HyperMD-quote,
           .HyperMD-list-line-1:has(.collapse-indicator)
         )
-    ):hover::after {
-    content: '';
-    width: var(--size-4-1);
-    position: absolute;
-    inset-block: var(--size-4-1);
-    left: calc(var(--size-4-3) * -1);
-    background-color: var(--indicator-color);
-    border-radius: var(--radius-s);
+    ) {
+    &::after {
+      content: '';
+      width: var(--size-4-1);
+      position: absolute;
+      inset-block: var(--size-4-1);
+      left: calc(var(--size-4-3) * -1);
+      border-radius: var(--radius-s);
+      background-color: var(--indicator-color);
+      opacity: 0;
+      will-change: opacity;
+    }
+    &:hover::after {
+      opacity: 1;
+    }
   }
 }
 
