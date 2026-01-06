@@ -1,4 +1,12 @@
 body.is-phone.mobile-floating-button {
+  --navbar-bottom-padding: max(var(--safe-area-inset-bottom), 28px);
+  --navbar-side-padding: var(--safe-area-inset-side);
+
+  &.is-ios {
+    --navbar-bottom-padding: 28px;
+    --navbar-side-padding: var(--navbar-bottom-padding);
+  }
+
   .mod-root .view-header {
     z-index: 3;
   }
@@ -7,11 +15,10 @@ body.is-phone.mobile-floating-button {
     .view-actions
     button:nth-last-child(2) {
     position: fixed;
-    right: var(--size-4-4);
-    bottom: 0;
+    right: var(--navbar-side-padding);
+    bottom: var(--navbar-bottom-padding);
     color: var(--text-on-accent);
     background-color: var(--accent-active-bg);
-    margin-bottom: calc(var(--safe-area-inset-bottom) + var(--size-4-4));
     border-radius: 100%;
     padding: var(--size-4-3);
     width: auto;
