@@ -1,4 +1,4 @@
-/* Maple Theme v1.3.7 For Obsidian */
+/* Maple Theme v1.3.8 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.3.7
+      default: Maple 1.3.8
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -7373,7 +7373,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.3.7");
+  content: var(--setting-modal-header-title, "Maple 1.3.8");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -8546,16 +8546,23 @@ body.is-tablet .modal-container .modal-sidebar:not(:has(+ .community-modal-detai
 
 /* #endregion basic */
 /* #region floating button */
+body.is-phone.mobile-floating-button {
+  --navbar-bottom-padding: max(var(--safe-area-inset-bottom), 28px);
+  --navbar-side-padding: var(--safe-area-inset-side);
+}
+body.is-phone.mobile-floating-button.is-ios {
+  --navbar-bottom-padding: 28px;
+  --navbar-side-padding: var(--navbar-bottom-padding);
+}
 body.is-phone.mobile-floating-button .mod-root .view-header {
   z-index: 3;
 }
 body.is-phone.mobile-floating-button .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
   position: fixed;
-  right: var(--size-4-4);
-  bottom: 0;
+  right: var(--navbar-side-padding);
+  bottom: var(--navbar-bottom-padding);
   color: var(--text-on-accent);
   background-color: var(--accent-active-bg);
-  margin-bottom: calc(var(--safe-area-inset-bottom) + var(--size-4-4));
   border-radius: 100%;
   padding: var(--size-4-3);
   width: auto;
