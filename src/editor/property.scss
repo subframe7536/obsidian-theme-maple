@@ -90,3 +90,10 @@ input.metadata-property-key-input,
 .multi-select-pill-content {
   line-height: 1.6;
 }
+
+.metadata-properties {
+  column-count: var(--setting-properties-columns, 1);
+  column-rule: 2px dotted var(--metadata-border-color);
+  column-gap: var(--size-4-3);
+  display: block;
+}

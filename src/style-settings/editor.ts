@@ -1062,6 +1062,16 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, {
     title: { en: 'Properties', zh: '文档属性' },
   })
+    .addVarNumSlider(
+      'setting-properties-columns',
+      {
+        title: {
+          en: 'Property Column Number',
+          zh: `文档属性列数`,
+        },
+      },
+      { default: 1, min: 1, max: 4, step: 1 },
+    )
     .addClassToggle('prop-outline', {
       title: { en: 'Add Outline for Property Panel', zh: '属性面板添加边框' },
     })
