@@ -1,4 +1,4 @@
-/* Maple Theme v1.3.8 For Obsidian */
+/* Maple Theme v1.3.9 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.3.8
+      default: Maple 1.3.9
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2021,6 +2021,14 @@ settings:
       type: heading
       level: 1
       collapsed: true
+    - id: setting-properties-columns
+      type: variable-number-slider
+      title: Property Column Number
+      title.zh: 文档属性列数
+      default: 1
+      min: 1
+      max: 4
+      step: 1
     - id: prop-outline
       type: class-toggle
       title: Add Outline for Property Panel
@@ -6801,6 +6809,13 @@ input.metadata-property-key-input,
   line-height: 1.6;
 }
 
+.metadata-properties {
+  column-count: var(--setting-properties-columns, 1);
+  column-rule: 2px dotted var(--metadata-border-color);
+  column-gap: var(--size-4-3);
+  display: block;
+}
+
 /* #endregion property */
 /* #endregion [editor] */
 /* #region [plugins] */
@@ -7373,7 +7388,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.3.8");
+  content: var(--setting-modal-header-title, "Maple 1.3.9");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
