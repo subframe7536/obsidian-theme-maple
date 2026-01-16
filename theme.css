@@ -1,4 +1,4 @@
-/* Maple Theme v1.3.9 For Obsidian */
+/* Maple Theme v1.3.10 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.3.9
+      default: Maple 1.3.10
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -6819,6 +6819,13 @@ input.metadata-property-key-input,
 /* #endregion property */
 /* #endregion [editor] */
 /* #region [plugins] */
+/* #region excalidraw */
+.excalidraw__embeddable__outer {
+  --embed-background: transparent;
+  --blockquote-background-color: transparent;
+}
+
+/* #endregion excalidraw */
 /* #region better-command-palette */
 .better-command-palette {
   --prompt-text: "Better Command Palette";
@@ -7388,7 +7395,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.3.9");
+  content: var(--setting-modal-header-title, "Maple 1.3.10");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
