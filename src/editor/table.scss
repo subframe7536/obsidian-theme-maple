@@ -15,6 +15,11 @@
   }
 }
 
+.table-remove-line-before
+  .cm-line:has(+ .cm-embed-block.cm-table-widget.markdown-rendered) {
+  display: none;
+}
+
 body {
   --table-header-background: var(--background-primary-alt);
   --table-header-background-hover: var(--table-header-background);

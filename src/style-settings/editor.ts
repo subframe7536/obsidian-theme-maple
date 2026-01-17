@@ -588,6 +588,16 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       { enable: true },
     )
+    .addClassToggle('table-remove-line-before', {
+      title: {
+        en: 'Remove the Empty Line Before Table',
+        zh: '移除表格前的空白行',
+      },
+      desc: {
+        en: '❗ Once enabled, the cursor will jump out of the table when moving down into it.',
+        zh: '❗ 启用后会导致光标往下移动到表格内时直接跳出表格',
+      },
+    })
     .addClassSelect(
       'table-style',
       {
