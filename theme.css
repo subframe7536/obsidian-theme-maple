@@ -1,4 +1,4 @@
-/* Maple Theme v1.3.11 For Obsidian */
+/* Maple Theme v1.3.12 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.3.11
+      default: Maple 1.3.12
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -1611,6 +1611,13 @@ settings:
       title: Full Width Table
       title.zh: 全宽表格
       default: true
+    - id: table-remove-line-before
+      type: class-toggle
+      title: Remove the Empty Line Before Table
+      title.zh: 移除表格前的空白行
+      description: ❗ Once enabled, the cursor will jump out of the table when moving
+          down into it.
+      description.zh: ❗ 启用后会导致光标往下移动到表格内时直接跳出表格
     - id: table-style
       type: class-select
       title: Table Style
@@ -5524,6 +5531,10 @@ body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-
   width: 100%;
 }
 
+.table-remove-line-before .cm-line:has(+ .cm-embed-block.cm-table-widget.markdown-rendered) {
+  display: none;
+}
+
 body {
   --table-header-background: var(--background-primary-alt);
   --table-header-background-hover: var(--table-header-background);
@@ -7401,7 +7412,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.3.11");
+  content: var(--setting-modal-header-title, "Maple 1.3.12");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
