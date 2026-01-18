@@ -1,6 +1,6 @@
 body.is-phone.mobile-floating-button {
   --navbar-bottom-padding: max(var(--safe-area-inset-bottom), 28px);
-  --navbar-side-padding: var(--safe-area-inset-side);
+  --navbar-side-padding: var(--size-4-5);
 
   &.is-ios {
     --navbar-bottom-padding: 28px;
@@ -10,19 +10,31 @@ body.is-phone.mobile-floating-button {
   .mod-root .view-header {
     z-index: 3;
   }
-  .mod-root
+
+  .mobile-navbar {
+    inset: auto var(--navbar-side-padding) var(--navbar-bottom-padding);
+    margin: 0;
+    padding: var(--size-4-1);
+  }
+
+  &:not(.mod-toolbar-open)
+    .mod-root
     .workspace-leaf-content[data-type='markdown']
     .view-actions
     button:nth-last-child(2) {
     position: fixed;
     right: var(--navbar-side-padding);
-    bottom: var(--navbar-bottom-padding);
+    bottom: calc(
+      var(--size-4-1) + var(--touch-size-m) + var(--safe-area-inset-top) +
+        var(--navbar-bottom-padding) - 100vh
+    );
     color: var(--text-on-accent);
     background-color: var(--accent-active-bg);
     border-radius: 100%;
-    padding: var(--size-4-3);
-    width: auto;
-    height: auto;
+    width: var(--touch-size-m);
+    height: var(--touch-size-m);
     box-shadow: var(--shadow-s) !important;
+    transition: bottom var(--animation);
+    will-change: bottom;
   }
 }
