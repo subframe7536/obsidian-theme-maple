@@ -87,6 +87,9 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 
       & > li {
         margin-inline-start: calc(var(--font-text-size) + 0.25rem);
+        &.task-list-item > .task-list-item-checkbox {
+          margin-inline-start: calc(var(--size-2-1) * -1);
+        }
       }
 
       li > ol {
