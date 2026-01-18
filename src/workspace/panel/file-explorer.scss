@@ -31,7 +31,8 @@ svg.lucide-layout-dashboard rect {
     position: absolute;
     opacity: 0.8;
     flex-shrink: 0;
-    translate: calc(var(--size-2-1) - var(--size-4-5)) 12%;
+    translate: calc(var(--size-2-1) - var(--size-4-5)) -50%;
+    top: 50%;
     --file-icon: #{icon('file-text')};
     @include use-icon(--file-icon, var(--accent-active), var(--size-4-4));
   }
