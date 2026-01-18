@@ -1,4 +1,4 @@
-/* Maple Theme v1.3.12 For Obsidian */
+/* Maple Theme v1.4.0 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.3.12
+      default: Maple 1.4.0
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -653,12 +653,11 @@ settings:
             value: scrollbar-hover-expand
     - id: scrollbar-movein-animation-enable
       type: class-toggle
-      title: Enable Scrollbar Animation
-      title.zh: 启用滚动条动画
-      description: When disabled, the scrollbar is always visible; when enabled, the
-          scrollbar hides when the mouse moves outside the container
-      description.zh: 禁用时，滚动条始终可见；启用后，当鼠标移出容器时滚动条将隐藏
-      default: true
+      title: Enable Scrollbar Move In/Out Animation
+      title.zh: 启用滚动条移入移出动画
+      description: ❗ This can cause severe lag when typing on some old computers or
+          mobile devices
+      description.zh: ❗ 会导致在某些旧的电脑或者移动设备上输入时严重卡顿
 */
 /* @settings
 id: maple-editor
@@ -7316,6 +7315,9 @@ body:is(:not(.css-settings-manager), .modal-control-gradient) .checkbox-containe
 body:not(.is-mobile) {
   --slider-track-background: var(--accent-inactive);
 }
+body:not(.is-mobile).modal-slider {
+  --slider-thumb-width: 18px !important;
+}
 body:not(.is-mobile).modal-slider input[type=range]:focus {
   --slider-thumb-ring-factor: 5.2;
 }
@@ -7412,7 +7414,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.3.12");
+  content: var(--setting-modal-header-title, "Maple 1.4.0");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
