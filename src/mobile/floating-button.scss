@@ -1,20 +1,21 @@
 body.is-phone.mobile-floating-button {
   --navbar-bottom-padding: max(var(--safe-area-inset-bottom), 28px);
-  --navbar-side-padding: var(--size-4-5);
-
-  &.is-ios {
-    --navbar-bottom-padding: 28px;
-    --navbar-side-padding: var(--navbar-bottom-padding);
-  }
 
   .mod-root .view-header {
     z-index: 3;
   }
 
   .mobile-navbar {
-    inset: auto var(--navbar-side-padding) var(--navbar-bottom-padding);
-    margin: 0;
+    bottom: var(--navbar-bottom-padding);
+    transform: translate(-10%);
+    margin-bottom: 0;
     padding: var(--size-4-1);
+    max-width: unset;
+    width: 70%;
+  }
+
+  .mobile-navbar-action > * {
+    padding: 0;
   }
 
   &:not(.mod-toolbar-open)
@@ -23,7 +24,7 @@ body.is-phone.mobile-floating-button {
     .view-actions
     button:nth-last-child(2) {
     position: fixed;
-    right: var(--navbar-side-padding);
+    transform: translate(-2vw);
     bottom: calc(
       var(--size-4-1) + var(--touch-size-m) + var(--safe-area-inset-top) +
         var(--navbar-bottom-padding) - 100vh
