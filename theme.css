@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.0 For Obsidian */
+/* Maple Theme v1.4.1 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.0
+      default: Maple 1.4.1
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -3080,6 +3080,44 @@ body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split .workspace-
 body.app-layout-card:not(.is-mobile).labeled-nav .mod-left-split .mod-top .workspace-tab-header-container .workspace-tab-header-container-inner {
   padding-top: 0;
 }
+body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content {
+  background-color: var(--bg-surface);
+}
+body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content .vertical-tab-header {
+  background-color: transparent;
+}
+body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content {
+  background-color: transparent;
+}
+body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content :is(.setting-group .setting-items,
+.setting-item:not(.setting-item-heading),
+.setting-group-search) {
+  background-color: var(--bg-editor);
+}
+body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
+.style-settings-container) {
+  border: none;
+}
+body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
+.style-settings-container) > .setting-item {
+  padding: var(--size-4-3) var(--size-4-4);
+}
+body.app-layout-card:not(.is-mobile).modal-setting-header.modal-setting-header-search .installed-plugins-container .setting-group-search {
+  padding: 0;
+}
+body.app-layout-card:not(.is-mobile).modal-setting-header.modal-setting-header-search .installed-plugins-container .setting-items {
+  padding-top: var(--size-4-6);
+  border-start-start-radius: var(--setting-items-radius);
+  border-start-end-radius: var(--setting-items-radius);
+}
+body.app-layout-card:not(.is-mobile).modal-setting-header.modal-setting-header-search .setting-group-search {
+  padding: 0 !important;
+}
+body.app-layout-card:not(.is-mobile).modal-setting-header.modal-setting-header-search .setting-group-search + .setting-items {
+  padding-top: var(--size-4-5);
+  border-start-start-radius: var(--setting-items-radius);
+  border-start-end-radius: var(--setting-items-radius);
+}
 
 /* #endregion layout */
 /* #region animation */
@@ -4740,6 +4778,9 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol {
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol > li {
   margin-inline-start: calc(var(--font-text-size) + 0.25rem);
+}
+body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol > li.task-list-item > .task-list-item-checkbox {
+  margin-inline-start: calc(var(--size-2-1) * -1);
 }
 body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol li > ol {
   padding-left: calc(var(--font-text-size));
@@ -6920,6 +6961,11 @@ html[lang=zh] {
   --action-text-tag: "标签";
 }
 
+.is-mobile .better-command-palette-title::before {
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+
 /* #endregion better-command-palette */
 /* #region calender */
 body.calendar-swap-year-month #calendar-container .nav {
@@ -7414,7 +7460,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.0");
+  content: var(--setting-modal-header-title, "Maple 1.4.1");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -8428,7 +8474,8 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title::before {
   position: absolute;
   opacity: 0.8;
   flex-shrink: 0;
-  translate: calc(var(--size-2-1) - var(--size-4-5)) 12%;
+  translate: calc(var(--size-2-1) - var(--size-4-5)) -50%;
+  top: 50%;
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8'/></g></svg>");
   -webkit-mask: var(--file-icon) no-repeat;
   -webkit-mask-size: 100% 100%;
@@ -8589,7 +8636,7 @@ body.is-tablet .modal-container .modal-sidebar:not(:has(+ .community-modal-detai
 /* #region floating button */
 body.is-phone.mobile-floating-button {
   --navbar-bottom-padding: max(var(--safe-area-inset-bottom), 28px);
-  --navbar-side-padding: var(--safe-area-inset-side);
+  --navbar-side-padding: var(--size-4-5);
 }
 body.is-phone.mobile-floating-button.is-ios {
   --navbar-bottom-padding: 28px;
@@ -8598,17 +8645,23 @@ body.is-phone.mobile-floating-button.is-ios {
 body.is-phone.mobile-floating-button .mod-root .view-header {
   z-index: 3;
 }
-body.is-phone.mobile-floating-button .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
+body.is-phone.mobile-floating-button .mobile-navbar {
+  inset: auto var(--navbar-side-padding) var(--navbar-bottom-padding);
+  margin: 0;
+  padding: var(--size-4-1);
+}
+body.is-phone.mobile-floating-button:not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
   position: fixed;
   right: var(--navbar-side-padding);
-  bottom: var(--navbar-bottom-padding);
+  bottom: calc(var(--size-4-1) + var(--touch-size-m) + var(--safe-area-inset-top) + var(--navbar-bottom-padding) - 100vh);
   color: var(--text-on-accent);
   background-color: var(--accent-active-bg);
   border-radius: 100%;
-  padding: var(--size-4-3);
-  width: auto;
-  height: auto;
+  width: var(--touch-size-m);
+  height: var(--touch-size-m);
   box-shadow: var(--shadow-s) !important;
+  transition: bottom var(--animation);
+  will-change: bottom;
 }
 
 /* #endregion floating button */
