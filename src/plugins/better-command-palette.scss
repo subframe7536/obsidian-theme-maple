@@ -83,3 +83,8 @@ html[lang='zh'] {
   --action-text-file: '文件';
   --action-text-tag: '标签';
 }
+
+.is-mobile .better-command-palette-title::before {
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
