@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.1 For Obsidian */
+/* Maple Theme v1.4.2 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.1
+      default: Maple 1.4.2
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -7460,7 +7460,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.1");
+  content: var(--setting-modal-header-title, "Maple 1.4.2");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -8636,23 +8636,24 @@ body.is-tablet .modal-container .modal-sidebar:not(:has(+ .community-modal-detai
 /* #region floating button */
 body.is-phone.mobile-floating-button {
   --navbar-bottom-padding: max(var(--safe-area-inset-bottom), 28px);
-  --navbar-side-padding: var(--size-4-5);
-}
-body.is-phone.mobile-floating-button.is-ios {
-  --navbar-bottom-padding: 28px;
-  --navbar-side-padding: var(--navbar-bottom-padding);
 }
 body.is-phone.mobile-floating-button .mod-root .view-header {
   z-index: 3;
 }
 body.is-phone.mobile-floating-button .mobile-navbar {
-  inset: auto var(--navbar-side-padding) var(--navbar-bottom-padding);
-  margin: 0;
+  bottom: var(--navbar-bottom-padding);
+  transform: translate(-10%);
+  margin-bottom: 0;
   padding: var(--size-4-1);
+  max-width: unset;
+  width: 70%;
+}
+body.is-phone.mobile-floating-button .mobile-navbar-action > * {
+  padding: 0;
 }
 body.is-phone.mobile-floating-button:not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
   position: fixed;
-  right: var(--navbar-side-padding);
+  transform: translate(-2vw);
   bottom: calc(var(--size-4-1) + var(--touch-size-m) + var(--safe-area-inset-top) + var(--navbar-bottom-padding) - 100vh);
   color: var(--text-on-accent);
   background-color: var(--accent-active-bg);
