@@ -388,15 +388,14 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
         ],
       },
     )
-    .addClassToggle(
-      'scrollbar-movein-animation-enable',
-      {
-        title: { en: 'Enable Scrollbar Animation', zh: '启用滚动条动画' },
-        desc: {
-          en: 'When disabled, the scrollbar is always visible; when enabled, the scrollbar hides when the mouse moves outside the container',
-          zh: '禁用时，滚动条始终可见；启用后，当鼠标移出容器时滚动条将隐藏',
-        },
+    .addClassToggle('scrollbar-movein-animation-enable', {
+      title: {
+        en: 'Enable Scrollbar Move In/Out Animation',
+        zh: '启用滚动条移入移出动画',
       },
-      { enable: true },
-    ),
+      desc: {
+        en: '❗ This can cause severe lag when typing on some old computers or mobile devices',
+        zh: '❗ 会导致在某些旧的电脑或者移动设备上输入时严重卡顿',
+      },
+    }),
 ])
