@@ -252,4 +252,12 @@ body.app-layout-card:not(.is-mobile) {
       }
     }
   }
+
+  .modal-sidebar {
+    background-color: var(--bg-surface);
+  }
+
+  .modal-setting-nav-bar {
+    border-color: transparent;
+  }
 }
