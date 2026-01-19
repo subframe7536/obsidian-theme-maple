@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.2 For Obsidian */
+/* Maple Theme v1.4.3 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.2
+      default: Maple 1.4.3
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -3080,25 +3080,25 @@ body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split .workspace-
 body.app-layout-card:not(.is-mobile).labeled-nav .mod-left-split .mod-top .workspace-tab-header-container .workspace-tab-header-container-inner {
   padding-top: 0;
 }
-body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content {
+body.app-layout-card:not(.is-mobile) .mod-settings .modal-content {
   background-color: var(--bg-surface);
 }
-body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content .vertical-tab-header {
+body.app-layout-card:not(.is-mobile) .mod-settings .modal-content .vertical-tab-header {
   background-color: transparent;
 }
-body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content {
+body.app-layout-card:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content {
   background-color: transparent;
 }
-body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content :is(.setting-group .setting-items,
+body.app-layout-card:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content :is(.setting-group .setting-items,
 .setting-item:not(.setting-item-heading),
 .setting-group-search) {
   background-color: var(--bg-editor);
 }
-body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
+body.app-layout-card:not(.is-mobile) .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
 .style-settings-container) {
   border: none;
 }
-body.app-layout-card:not(.is-mobile).modal-setting-header .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
+body.app-layout-card:not(.is-mobile) .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
 .style-settings-container) > .setting-item {
   padding: var(--size-4-3) var(--size-4-4);
 }
@@ -3117,6 +3117,12 @@ body.app-layout-card:not(.is-mobile).modal-setting-header.modal-setting-header-s
   padding-top: var(--size-4-5);
   border-start-start-radius: var(--setting-items-radius);
   border-start-end-radius: var(--setting-items-radius);
+}
+body.app-layout-card:not(.is-mobile) .modal-sidebar {
+  background-color: var(--bg-surface);
+}
+body.app-layout-card:not(.is-mobile) .modal-setting-nav-bar {
+  border-color: transparent;
 }
 
 /* #endregion layout */
@@ -7460,7 +7466,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.2");
+  content: var(--setting-modal-header-title, "Maple 1.4.3");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -7601,7 +7607,7 @@ body:not(.is-phone) .modal-container .is-loading {
 }
 body:not(.is-phone) .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-sidebar .setting-item:first-child {
   max-width: var(--modal-community-sidebar-width);
-  margin-bottom: var(--size-4-1);
+  margin-bottom: var(--size-4-2);
 }
 body:not(.is-phone) .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-header {
   display: inline-block;
