@@ -205,32 +205,33 @@ body.app-layout-card:not(.is-mobile) {
     padding-top: 0;
   }
 
-  &.modal-setting-header {
-    .mod-settings .modal-content {
-      background-color: var(--bg-surface);
-      .vertical-tab-header {
-        background-color: transparent;
-      }
-      .vertical-tab-content-container > .vertical-tab-content {
-        background-color: transparent;
-        :is(
-            .setting-group .setting-items,
-            .setting-item:not(.setting-item-heading),
-            .setting-group-search
-          ) {
-          background-color: var(--bg-editor);
-        }
-      }
+  .mod-settings .modal-content {
+    background-color: var(--bg-surface);
+    .vertical-tab-header {
+      background-color: transparent;
+    }
+    .vertical-tab-content-container > .vertical-tab-content {
+      background-color: transparent;
       :is(
-          .style-settings-heading[data-level='0'] + .style-settings-container,
-          .style-settings-container
+          .setting-group .setting-items,
+          .setting-item:not(.setting-item-heading),
+          .setting-group-search
         ) {
-        border: none;
-        & > .setting-item {
-          padding: var(--size-4-3) var(--size-4-4);
-        }
+        background-color: var(--bg-editor);
       }
     }
+    :is(
+        .style-settings-heading[data-level='0'] + .style-settings-container,
+        .style-settings-container
+      ) {
+      border: none;
+      & > .setting-item {
+        padding: var(--size-4-3) var(--size-4-4);
+      }
+    }
+  }
+
+  &.modal-setting-header {
     &.modal-setting-header-search {
       .installed-plugins-container {
         .setting-group-search {
