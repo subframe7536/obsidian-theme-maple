@@ -244,7 +244,7 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     .addVarText(
       'setting-file-line-width',
       {
-        title: { en: 'Line Width', zh: '行宽' },
+        title: { en: 'Line Width (Editor Width)', zh: '行宽（编辑器宽度）' },
         desc: descValidCSS('width'),
       },
       { default: 'clamp(600px, 72%, 850px)' },
