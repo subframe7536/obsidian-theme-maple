@@ -372,7 +372,13 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     })
     .addClassToggle(
       'scrollbar-enable',
-      { title: { en: 'Enable Scrollbar Style', zh: '启用滚动条样式' } },
+      {
+        title: { en: 'Enable Scrollbar Style', zh: '启用滚动条样式' },
+        desc: {
+          en: 'Styled scrollbar, auto hide when mouse is out of the container',
+          zh: '美化滚动条样式，鼠标移出容器自动隐藏',
+        },
+      },
       { enable: true },
     )
     .addClassSelect(

@@ -70,18 +70,16 @@ body.scrollbar-enable:not(.is-mobile) {
     }
   }
 
-  &:not(.scrollbar-movein-animation-enable) {
-    --scrollbar-color: #{$base-color};
+  :is(#{$base-panel}, #{$editor}, #{$horizon}) {
+    transition: var(--scrollbar-transition, none);
+
+    &:hover {
+      --scrollbar-color: #{$base-color};
+    }
   }
 
   &.scrollbar-movein-animation-enable {
-    :is(#{$base-panel}, #{$editor}, #{$horizon}) {
-      transition: --scrollbar-color var(--animation);
-
-      &:hover {
-        --scrollbar-color: #{$base-color};
-      }
-    }
+    --scrollbar-transition: --scrollbar-color var(--animation);
 
     :is(textarea:not(.excalidraw-wysiwyg), pre) {
       color: transparent;
