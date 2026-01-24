@@ -205,7 +205,7 @@ body.app-layout-card:not(.is-mobile) {
     padding-top: 0;
   }
 
-  .mod-settings .modal-content {
+  .modal-container .mod-settings .modal-content {
     background-color: var(--bg-surface);
     .vertical-tab-header {
       background-color: transparent;
