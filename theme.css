@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.3 For Obsidian */
+/* Maple Theme v1.4.4 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.3
+      default: Maple 1.4.4
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -637,6 +637,8 @@ settings:
       type: class-toggle
       title: Enable Scrollbar Style
       title.zh: 启用滚动条样式
+      description: Styled scrollbar, auto hide when mouse is out of the container
+      description.zh: 美化滚动条样式，鼠标移出容器自动隐藏
       default: true
     - id: scrollbar-hover
       type: class-select
@@ -766,8 +768,8 @@ settings:
       step: 0.1
     - id: setting-file-line-width
       type: variable-text
-      title: Line Width
-      title.zh: 行宽
+      title: Line Width (Editor Width)
+      title.zh: 行宽（编辑器宽度）
       description: Any CSS "width" value, e.g. clamp(MinWidth, WidthPercent, MaxWidth)
       description.zh: 任何 CSS “width” 值，例如：clamp(最小值, 宽度百分比, 最大值)
       default: clamp(600px, 72%, 850px)
@@ -3080,25 +3082,25 @@ body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split .workspace-
 body.app-layout-card:not(.is-mobile).labeled-nav .mod-left-split .mod-top .workspace-tab-header-container .workspace-tab-header-container-inner {
   padding-top: 0;
 }
-body.app-layout-card:not(.is-mobile) .mod-settings .modal-content {
+body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content {
   background-color: var(--bg-surface);
 }
-body.app-layout-card:not(.is-mobile) .mod-settings .modal-content .vertical-tab-header {
+body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-header {
   background-color: transparent;
 }
-body.app-layout-card:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content {
+body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content {
   background-color: transparent;
 }
-body.app-layout-card:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content :is(.setting-group .setting-items,
+body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content :is(.setting-group .setting-items,
 .setting-item:not(.setting-item-heading),
 .setting-group-search) {
   background-color: var(--bg-editor);
 }
-body.app-layout-card:not(.is-mobile) .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
+body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
 .style-settings-container) {
   border: none;
 }
-body.app-layout-card:not(.is-mobile) .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
+body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
 .style-settings-container) > .setting-item {
   padding: var(--size-4-3) var(--size-4-4);
 }
@@ -7466,7 +7468,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.3");
+  content: var(--setting-modal-header-title, "Maple 1.4.4");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -7766,14 +7768,14 @@ body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-thumb:hover {
 body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-thumb:active {
   --scrollbar-color: hsla(var(--color-accent-hsl), 64%);
 }
-body.scrollbar-enable:not(.is-mobile):not(.scrollbar-movein-animation-enable) {
+body.scrollbar-enable:not(.is-mobile) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code) {
+  transition: var(--scrollbar-transition, none);
+}
+body.scrollbar-enable:not(.is-mobile) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code):hover {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code) {
-  transition: --scrollbar-color var(--animation);
-}
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code):hover {
-  --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
+body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable {
+  --scrollbar-transition: --scrollbar-color var(--animation);
 }
 body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea:not(.excalidraw-wysiwyg), pre) {
   color: transparent;
