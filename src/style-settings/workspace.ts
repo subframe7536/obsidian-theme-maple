@@ -193,6 +193,20 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
       },
       { enable: true },
     )
+    .addClassToggle(
+      'modal-will-change',
+      {
+        title: {
+          en: 'Enable Modal Open Animation Optimization for Low-Performance Devices',
+          zh: '为低性能设备提供更流畅的打开动画',
+        },
+        desc: {
+          en: '❗ May cause font blurriness when APP scaling is not set to 100%',
+          zh: '❗ 应用缩放比例不等于100%时可能会导致字体模糊',
+        },
+      },
+      { enable: true },
+    )
     .children([
       Settings.ofLevel(2, { title: { en: 'Control', zh: '控件' } })
         .addClassToggle(

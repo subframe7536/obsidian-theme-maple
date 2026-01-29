@@ -506,7 +506,9 @@ body.enable-group-title
 
 :is(.prompt, .popover, .modal) {
   animation: use-animation('op'), use-animation('slide-up');
-  will-change: transform, opacity;
+  body.modal-will-change & {
+    will-change: transform, opacity;
+  }
 }
 
 body:not(.is-phone) {
