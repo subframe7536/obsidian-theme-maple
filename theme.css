@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.4 For Obsidian */
+/* Maple Theme v1.4.5 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.4
+      default: Maple 1.4.5
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -462,6 +462,13 @@ settings:
       type: class-toggle
       title: Add Icons For Left Navigation Group Title
       title.zh: 为左侧导航组标题添加图标
+      default: true
+    - id: modal-will-change
+      type: class-toggle
+      title: Enable Modal Open Animation Optimization for Low-Performance Devices
+      title.zh: 为低性能设备提供更流畅的打开动画
+      description: ❗ May cause font blurriness when APP scaling is not set to 100%
+      description.zh: ❗ 应用缩放比例不等于100%时可能会导致字体模糊
       default: true
     - id: title-control
       title: Control
@@ -7468,7 +7475,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.4");
+  content: var(--setting-modal-header-title, "Maple 1.4.5");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -7686,6 +7693,8 @@ body.enable-group-title .modal-container .mod-settings .modal-content .vertical-
 
 :is(.prompt, .popover, .modal) {
   animation: op var(--animation-slow), slide-up var(--animation-slow);
+}
+body.modal-will-change :is(.prompt, .popover, .modal) {
   will-change: transform, opacity;
 }
 
