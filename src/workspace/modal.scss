@@ -390,9 +390,12 @@ button[disabled='true'] {
 }
 
 :is(select, .dropdown) {
-  background-size: calc(1.2 * var(--size-4-4));
-  background-position: right calc(0.4 * var(--size-4-4)) top 56%, 0 0;
+  background-size: calc(1.2 * var(--size-4-4)) !important;
+  background-position: right calc(0.4 * var(--size-4-4)) top 56%, 0 0 !important;
   background-image: var(--select-bg-img) !important;
+  background-repeat: no-repeat !important;
+  padding: var(--dropdown-padding) !important;
+  border: none !important;
 }
 
 .flair.mod-pop {
