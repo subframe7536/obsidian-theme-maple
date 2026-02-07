@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.6 For Obsidian */
+/* Maple Theme v1.4.7 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -446,7 +446,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.6
+      default: Maple 1.4.7
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -4826,27 +4826,27 @@ body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-4 .list-bu
   --list-bullet-radius: 0;
   transform: rotate(45deg);
 }
-body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li {
+body:is(:not(.css-settings-manager), .list-enable) ul.has-list-bullet > li > ul > li {
   --list-marker-color: var(--list-marker-color-alt-render);
   --list-bullet-border: var(--setting-list-marker, var(--accent-active)) var(--size-2-1) solid;
   --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) - var(--size-2-1));
 }
-body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li {
+body:is(:not(.css-settings-manager), .list-enable) ul.has-list-bullet > li > ul > li > ul > li {
   --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.5);
   --list-bullet-radius: 0;
   --list-marker-color: var(--list-marker-color-alt);
   --deg: 45deg;
 }
-body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li .list-bullet {
+body:is(:not(.css-settings-manager), .list-enable) ul.has-list-bullet > li > ul > li > ul > li .list-bullet {
   transform: rotate(var(--deg));
 }
-body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li > ul > li {
+body:is(:not(.css-settings-manager), .list-enable) ul.has-list-bullet > li > ul > li > ul > li > ul > li {
   --list-bullet-size: calc(
     calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.9 - var(--size-2-1)
   );
   --list-marker-color: var(--list-marker-color-alt-render);
 }
-body:is(:not(.css-settings-manager), .list-enable) ul > li > ul > li > ul > li > ul > li ul > li {
+body:is(:not(.css-settings-manager), .list-enable) ul.has-list-bullet > li > ul > li > ul > li > ul > li ul > li {
   --list-bullet-radius: var(--radius-s);
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
 }
@@ -7475,7 +7475,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.6");
+  content: var(--setting-modal-header-title, "Maple 1.4.7");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
