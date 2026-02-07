@@ -133,7 +133,7 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     transform: rotate(45deg);
   }
 
-  ul > li > ul > li {
+  ul.has-list-bullet > li > ul > li {
     --list-marker-color: var(--list-marker-color-alt-render);
     --list-bullet-border: #{$marker-color} var(--size-2-1) solid;
     --list-bullet-size: calc(#{$marker-size} - var(--size-2-1));
