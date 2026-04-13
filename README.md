@@ -112,6 +112,12 @@ Ensure you have the Style Settings plugin installed and enabled to access these 
 5. Turn on **Modify Background Colors** switch.
 6. Change the Primary/Secondary/Block/TopBar colors as you like.
 
+#### Experimental Change Highlight Color Only
+
+Enable `Only change highlight color` and all background color will restore to default theme.
+
+It is still experimental and not fully tested, feel free to report bug about this option.
+
 ### Override Highlight Colors
 
 1. Open **Settings > Style Settings**.

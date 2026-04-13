@@ -3,7 +3,7 @@ body {
   --bg-surface: var(--background-secondary);
 }
 
-body.app-layout-card:not(.is-mobile) {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) {
   --divider-color: transparent;
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);

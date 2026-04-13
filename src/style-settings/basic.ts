@@ -34,6 +34,16 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
         zh: '深色模式下，颜色的不透明度不降低',
       },
     })
+    .addClassToggle('color-highlight-only', {
+      title: {
+        en: '[Experimental] Only change highlight color',
+        zh: '【实验性】只修改高亮颜色',
+      },
+      desc: {
+        en: 'Not fully test. Feel free to report bugs',
+        zh: '没有经过完整测试，欢迎提交 bug',
+      },
+    })
     .addClassSelect(
       'color-scheme',
       {

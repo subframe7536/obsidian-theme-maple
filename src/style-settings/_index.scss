@@ -227,6 +227,7 @@ body.is-phone .setting-item:is([data-id='enable-blur']),
 body:not(.is-mobile) div[data-id='maple-mobile'],
 body:not(.line-active-enable) .setting-item[data-id='setting-line-active-color'],
 body:not(.calendar-swap-year-month) .setting-item[data-id='setting-calendar-year-suffix'],
+body.color-highlight-only .setting-item[data-id='title-layout'],
 body:not(.app-layout-card)
   .setting-item:is(
     [data-id='app-layout-card-bg'],
