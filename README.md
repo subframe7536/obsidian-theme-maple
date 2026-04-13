@@ -99,6 +99,28 @@ Maple is optimized for Obsidian on mobile devices, ensuring a seamless experienc
 
 ![Mobile Showcase](img/mobile.webp)
 
+## Override Colors
+
+Ensure you have the Style Settings plugin installed and enabled to access these options.
+
+### Override Background Colors
+
+1. Open **Settings > Style Settings**.
+2. Open the **Maple Basic > Colors** section.
+3. Ensure **Color Scheme** is set to **Custom**.
+4. Open **Light Mode** or **Dark Mode** section
+5. Turn on **Modify Background Colors** switch.
+6. Change the Primary/Secondary/Block/TopBar colors as you like.
+
+### Override Highlight Colors
+
+1. Open **Settings > Style Settings**.
+2. Open the **Maple Basic > Colors** section.
+3. Ensure **Color Scheme** is set to **Custom**.
+4. Open **Light Mode** or **Dark Mode** section
+5. Set **Highlight Colors** to **Custom**.
+6. Change the Active/Inactive colors as you like.
+
 ## Development
 
 Please ensure [`Bun`](https://bun.sh) is installed.
