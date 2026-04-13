@@ -216,7 +216,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
               zh: '主要区域的背景色，例如编辑器和设置面板',
             },
           },
-          { default: '#111', format: 'hsl-values', opacity: false },
+          { default: '#', format: 'hsl-values', opacity: false },
         )
         .addVarColor(
           'setting-bg-primary-alt-dark-hsl',
@@ -230,7 +230,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
               zh: '主要区域内的块的背景色，例如代码块、引言块',
             },
           },
-          { default: '#111', format: 'hsl-values', opacity: false },
+          { default: '#', format: 'hsl-values', opacity: false },
         )
         .addVarColor(
           'setting-bg-secondary-dark-hsl',
@@ -244,7 +244,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
               zh: '次要区域的背景色，例如侧边栏',
             },
           },
-          { default: '#111', format: 'hsl-values', opacity: false },
+          { default: '#', format: 'hsl-values', opacity: false },
         )
         .addVarColor(
           'setting-bg-frame-dark',
@@ -258,7 +258,7 @@ export default Settings.create('maple-basic', 'Maple Basic').children([
               zh: '顶栏的背景色，例如标题栏、标签栏',
             },
           },
-          { default: '#111', format: 'hsl', opacity: false },
+          { default: '#', format: 'hsl', opacity: false },
         ),
     ]),
   Settings.ofLevel(1, {

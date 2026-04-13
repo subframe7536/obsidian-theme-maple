@@ -105,7 +105,7 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
         },
         desc: descValidCSS('font-weight'),
       },
-      { default: FONT_WEIGHTS[level - 1].toString() },
+      { default: FONT_WEIGHTS[level - 1]!.toString() },
     )
     .addVarNumSlider(
       `setting-h${level}-size`,
@@ -119,7 +119,7 @@ function createHeadingSettings(level: number, config: HeadingConfig = {}) {
           zh: '普通文本字号大小的倍数',
         },
       },
-      { default: FONT_SIZE[level - 1], min: 1, max: 2, step: 0.1 },
+      { default: FONT_SIZE[level - 1]!, min: 1, max: 2, step: 0.1 },
     )
     .addClassToggle(
       `heading-h${level}-caps`,
