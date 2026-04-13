@@ -4,8 +4,8 @@ body {
   --block-outline-width: var(--size-2-1);
   --embed-background: var(--bg-editor);
   --embed-padding: var(--size-4-4) var(--size-4-5);
-  --embed-block-shadow-hover: 0 0 0 1px var(--accent-inactive),
-    inset 0 0 0 1px var(--accent-inactive);
+  --embed-block-shadow-hover:
+    0 0 0 1px var(--accent-inactive), inset 0 0 0 1px var(--accent-inactive);
   --embed-border-start: var(--size-2-1) solid var(--accent-inactive);
   --embed-border-end: var(--embed-border-start);
   --embed-border-top: var(--embed-border-start);
@@ -119,18 +119,11 @@ body {
     }
 
     &:hover {
-      .embed-title:empty
-        + .markdown-embed-content
-        .markdown-preview-section
-        > div:nth-child(3) {
+      .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
         opacity: 1;
       }
 
-      :is(
-          .markdown-embed-title,
-          .markdown-embed-link,
-          .file-embed-link:hover svg
-        ) {
+      :is(.markdown-embed-title, .markdown-embed-link, .file-embed-link:hover svg) {
         opacity: 1;
         color: var(--text-normal);
       }

@@ -5,21 +5,12 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 
 @include utils.use-no-plugin('.list-enable') {
   --list-marker-color: #{$marker-color};
-  --list-marker-color-alt: var(
-    --setting-list-marker-alt,
-    var(--list-marker-color)
-  );
+  --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
   --list-marker-color-alt-render: transparent;
   --checkbox-color: var(--accent-active);
   --checkbox-marker-color: var(--text-on-accent);
-  --checkbox-border-color: var(
-    --setting-list-checkbox-color,
-    var(--accent-inactive)
-  );
-  --checkbox-border-color-hover: var(
-    --setting-list-checkbox-color-hover,
-    var(--accent-active)
-  );
+  --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
+  --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
 
   .cm-formatting-list {
     padding-inline-start: var(--size-4-1);
@@ -126,9 +117,7 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
   .HyperMD-list-line-4 .list-bullet {
     --list-marker-color: transparent;
     --list-bullet-border: var(--list-marker-color-alt) var(--size-2-1) solid;
-    --list-bullet-size: calc(
-      #{$marker-size} * #{$optical-factor} - var(--size-2-1)
-    );
+    --list-bullet-size: calc(#{$marker-size} * #{$optical-factor} - var(--size-2-1));
     --list-bullet-radius: 0;
     transform: rotate(45deg);
   }
@@ -149,9 +138,7 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
       }
 
       & > ul > li {
-        --list-bullet-size: calc(
-          #{$marker-size} * #{$optical-factor} - var(--size-2-1)
-        );
+        --list-bullet-size: calc(#{$marker-size} * #{$optical-factor} - var(--size-2-1));
         --list-marker-color: var(--list-marker-color-alt-render);
 
         ul > li {

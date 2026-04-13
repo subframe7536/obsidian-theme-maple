@@ -13,12 +13,8 @@ const pluginList = [
 
 export default Settings.create('maple-plugin', 'Maple Plugin').children([
   Settings.of().addInfo('plugin-intro', {
-    en:
-      'If you find any plugin not displaying properly, please open an issue at the [GitHub repository](https://github.com/subframe7536/obsidian-theme-maple).\n> [!info]- Adapted plugins\n' +
-      pluginList.join('\n'),
-    zh:
-      '如果您发现某个插件显示不正常，请前往 [GitHub 仓库](https://github.com/subframe7536/obsidian-theme-maple) 提交 issue。\n> [!info]- 已适配的插件\n' +
-      pluginList.join('\n'),
+    en: `If you find any plugin not displaying properly, please open an issue at the [GitHub repository](https://github.com/subframe7536/obsidian-theme-maple).\n> [!info]- Adapted plugins\n${pluginList.join('\n')}`,
+    zh: `如果您发现某个插件显示不正常，请前往 [GitHub 仓库](https://github.com/subframe7536/obsidian-theme-maple) 提交 issue。\n> [!info]- 已适配的插件\n${pluginList.join('\n')}`,
   }),
   Settings.ofLevel(1, { title: { en: 'Calendar', zh: '日历' } })
     .addClassSelect(

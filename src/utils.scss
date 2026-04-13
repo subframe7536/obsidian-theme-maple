@@ -2,8 +2,8 @@
 @use 'sass:color';
 
 @mixin var-color($name, $color) {
-  $rgb: color.channel($color, 'red', $space: rgb),
-    color.channel($color, 'green', $space: rgb),
+  $rgb:
+    color.channel($color, 'red', $space: rgb), color.channel($color, 'green', $space: rgb),
     color.channel($color, 'blue', $space: rgb);
   --color-#{$name}-rgb: #{$rgb};
   --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity));

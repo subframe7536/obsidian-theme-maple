@@ -11,9 +11,7 @@ body {
   @for $i from 1 through 6 {
     $size: list.nth($default-sizes, $i);
     $weight: list.nth($default-weights, $i);
-    --h#{$i}-size: calc(
-      var(--font-text-size) * var(--setting-h#{$i}-size, #{$size})
-    );
+    --h#{$i}-size: calc(var(--font-text-size) * var(--setting-h#{$i}-size, #{$size}));
     --h#{$i}-weight: var(--setting-h#{$i}-weight, #{$weight});
     --h#{$i}-font: var(--setting-h#{$i}-font, var(--font-text));
     --h#{$i}-line-height: calc(var(--line-height-normal) * var(--h#{$i}-size));
@@ -161,10 +159,7 @@ body.line-active-left .cm-active.HyperMD-header {
 
 @for $i from 1 through 6 {
   .heading-h#{$i}-underline {
-    :is(
-        .HyperMD-header-#{$i} .cm-header:not(.cm-formatting),
-        .markdown-rendered h#{$i}
-      ) {
+    :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting), .markdown-rendered h#{$i}) {
       text-decoration: underline var(--size-2-1);
     }
   }
@@ -189,18 +184,10 @@ $full-selectors: ();
       }
     }
     &.heading-h#{$i}-full-line-left {
-      --heading-h#{$i}-full-line-bg: linear-gradient(
-        to right,
-        currentColor 10%,
-        transparent 90%
-      );
+      --heading-h#{$i}-full-line-bg: linear-gradient(to right, currentColor 10%, transparent 90%);
     }
     &.heading-h#{$i}-full-line-right {
-      --heading-h#{$i}-full-line-bg: linear-gradient(
-        to left,
-        currentColor 10%,
-        transparent 90%
-      );
+      --heading-h#{$i}-full-line-bg: linear-gradient(to left, currentColor 10%, transparent 90%);
     }
   }
 }
@@ -228,19 +215,13 @@ $full-selectors: ();
     &.heading-h#{$i}-block-contrast {
       --h#{$i}-color-bg: rgba(var(--h#{$i}-color-rgb));
 
-      :is(
-          .HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header),
-          #{$selector}
-        ) {
+      :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header), #{$selector}) {
         color: var(--text-on-accent);
         caret-color: currentColor;
       }
     }
 
-    :is(
-        .HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header),
-        #{$selector}
-      ) {
+    :is(.HyperMD-header-#{$i} .cm-header:not(.cm-formatting-header), #{$selector}) {
       background-color: var(--h#{$i}-color-bg);
       padding: var(--size-4-1) 0.6rem;
       border-radius: var(--size-2-3);

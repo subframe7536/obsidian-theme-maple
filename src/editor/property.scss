@@ -66,8 +66,7 @@ input.metadata-property-key-input,
   padding-block: var(--size-2-1);
 }
 
-.metadata-property:not([data-property-key='tags'])
-  .metadata-property-key-input {
+.metadata-property:not([data-property-key='tags']) .metadata-property-key-input {
   padding-block: var(--size-2-3);
 }
 

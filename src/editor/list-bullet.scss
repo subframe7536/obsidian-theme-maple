@@ -18,10 +18,7 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
 
 .list-enable.list-bullet-thread-style {
   --list-threading-width: max(0.1rem, var(--size-2-1));
-  --list-threading-color: var(
-    --setting-list-guide-color,
-    var(--accent-inactive)
-  );
+  --list-threading-color: var(--setting-list-guide-color, var(--accent-inactive));
   .list-bullet {
     transform: none !important;
     &::after {
@@ -36,30 +33,15 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
     $current-level: $i;
     $next-level: $i + 1;
 
-    $levels-up-for-current: generate-line-selector-list(
-      $next-level,
-      $supported-level
-    );
-    $levels-down-for-next: generate-line-selector-list(
-      $next-level + 1,
-      $supported-level
-    );
-    $levels-for-target: generate-line-selector-list(
-      $next-level + 1,
-      $supported-level
-    );
+    $levels-up-for-current: generate-line-selector-list($next-level, $supported-level);
+    $levels-down-for-next: generate-line-selector-list($next-level + 1, $supported-level);
+    $levels-for-target: generate-line-selector-list($next-level + 1, $supported-level);
 
     .HyperMD-list-line-#{$current-level}:not(
-        :has(
-            ~ .HyperMD-list-line-#{$current-level}
-              ~ .HyperMD-list-line#{$action}
-          )
+        :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line#{$action})
       ):has(~ :is(#{$levels-up-for-current})#{$action}),
     .HyperMD-list-line-#{$current-level}:not(
-        :has(
-            ~ .HyperMD-list-line-#{$current-level}
-              ~ .HyperMD-list-line#{$action}
-          )
+        :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line#{$action})
       )
       ~ .HyperMD-list-line:has(
         ~ .HyperMD-list-line-#{$next-level}#{$action}#{if(
@@ -82,11 +64,7 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
         $prev-level: $current-level - 1;
         // indent size + offset
         --list-threading-offset: calc(
-          0.4rem +
-            #{$prev-level} *
-            var(--list-indent) +
-            var(--list-threading-width) /
-            2
+          0.4rem + #{$prev-level} * var(--list-indent) + var(--list-threading-width) / 2
         );
       }
     }
@@ -95,16 +73,10 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
   // Tails
   @for $i from 1 through $supported-level - 1 {
     $current-level: $i;
-    $level-selectors: generate-line-selector-list(
-      $current-level + 1,
-      $supported-level
-    );
+    $level-selectors: generate-line-selector-list($current-level + 1, $supported-level);
 
     .HyperMD-list-line-#{$current-level}:not(
-        :has(
-            ~ .HyperMD-list-line-#{$current-level}
-              ~ .HyperMD-list-line#{$action}
-          )
+        :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line#{$action})
       )#{$exclude-selector}:has(~ :is(#{$level-selectors})#{$action}) {
       &::after {
         content: '';
@@ -114,11 +86,7 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
         width: var(--list-threading-width);
         background-color: var(--list-threading-color);
         top: calc(
-          var(--line-height-normal) *
-            var(--font-text-size) /
-            2 +
-            var(--list-bullet-size) /
-            1.5
+          var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 1.5
         );
 
         &:is(.HyperMD-task-line) {
@@ -132,16 +100,10 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
   @for $i from 1 through $supported-level - 1 {
     $current-level: $i;
     $next-level: $i + 1;
-    $levels-down-for-next: generate-line-selector-list(
-      $next-level + 1,
-      $supported-level
-    );
+    $levels-down-for-next: generate-line-selector-list($next-level + 1, $supported-level);
 
     .HyperMD-list-line-#{$current-level}:not(
-        :has(
-            ~ .HyperMD-list-line-#{$current-level}
-              ~ .HyperMD-list-line#{$action}
-          )
+        :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line#{$action})
       )#{$exclude-selector}
       ~ .HyperMD-list-line:has(
         ~ .HyperMD-list-line-#{$next-level}#{$action}#{if(
@@ -165,16 +127,10 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
   // Elbows
   @for $i from 2 through $supported-level {
     $current-level: $i;
-    $levels-for-target: generate-line-selector-list(
-      $current-level + 1,
-      $supported-level
-    );
+    $levels-for-target: generate-line-selector-list($current-level + 1, $supported-level);
 
     .HyperMD-list-line-#{$current-level}:not(
-        :has(
-            ~ .HyperMD-list-line-#{$current-level}
-              ~ .HyperMD-list-line#{$action}
-          )
+        :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line#{$action})
       )#{$exclude-selector}:is(
         #{$action}#{if(
             $levels-for-target != (),
@@ -189,18 +145,10 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
         width: calc(var(--list-indent) - var(--list-threading-width));
         top: 0;
         border-bottom-left-radius: var(--radius-m);
-        border-bottom: var(--list-threading-width)
-          solid
-          var(--list-threading-color);
-        border-left: var(--list-threading-width)
-          solid
-          var(--list-threading-color);
+        border-bottom: var(--list-threading-width) solid var(--list-threading-color);
+        border-left: var(--list-threading-width) solid var(--list-threading-color);
         height: calc(
-          var(--line-height-normal) *
-            var(--font-text-size) /
-            2 +
-            var(--list-bullet-size) /
-            8
+          var(--line-height-normal) * var(--font-text-size) / 2 + var(--list-bullet-size) / 8
         );
       }
     }

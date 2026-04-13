@@ -1,18 +1,14 @@
-import { basename, extname, resolve, join, parse } from 'path'
-import {
-  copyFileSync,
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  writeFileSync,
-} from 'fs'
-import { homedir, platform } from 'os'
-import { compile } from 'sass'
-import settings from './src/style-settings/index'
+import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { homedir, platform } from 'node:os'
+import { basename, extname, resolve, join, parse } from 'node:path'
+import { styleText } from 'node:util'
+
 import { watch } from 'chokidar'
-import { styleText } from 'util'
+import { compile } from 'sass'
+
 import { version } from './package.json'
 import { FUNCTIONS } from './src/custom-functions'
+import settings from './src/style-settings/index'
 
 function setup(baseDir: string) {
   if (!existsSync(baseDir)) {
@@ -69,10 +65,10 @@ function compileCss(output: string, src: string, prepend?: string) {
 
     css = css.replace(/\s+[\w-]+\b:\s*ignore;/g, '')
 
-    writeFileSync(output, prepend ? prepend + '\n' + css : css, 'utf-8')
+    writeFileSync(output, prepend ? `${prepend}\n${css}` : css, 'utf-8')
     console.log(
       styleText('gray', new Date().toLocaleTimeString(['zh'])),
-      styleText('greenBright', 'Compile to ' + output),
+      styleText('greenBright', `Compile to ${output}`),
     )
   } catch (err) {
     console.error(err)
@@ -98,13 +94,12 @@ function build(src: string, out: string) {
 
 function test(src: string) {
   const p = parse(src)
-  compileCss(p.dir + '/' + p.name + '.css', src)
+  compileCss(`${p.dir}/${p.name}.css`, src)
 }
 
 async function dev(src: string, out: string) {
   try {
-    const latestSettings =
-      await Bun.$`bun ${process.cwd()}/src/style-settings/index.ts`.text()
+    const latestSettings = await Bun.$`bun ${process.cwd()}/src/style-settings/index.ts`.text()
     compileCss(out, src, latestSettings)
   } catch (err) {
     console.error(err)
@@ -135,17 +130,12 @@ function move() {
 
 function main() {
   const devVaultRoot =
-    platform() === 'win32'
-      ? 'D:/note/dev-vault'
-      : homedir() + '/Desktop/note/dev-vault'
+    platform() === 'win32' ? 'D:/note/dev-vault' : `${homedir()}/Desktop/note/dev-vault`
 
   const baseDir = resolve(devVaultRoot, 'test')
   setup(baseDir)
-  const input =
-    process.argv?.filter((s) => !s.startsWith('--'))[2] ?? 'src/index.scss'
-  const output =
-    `${devVaultRoot}/.obsidian/snippets/` +
-    basename(input).replace(extname(input), '.css')
+  const input = process.argv?.filter((s) => !s.startsWith('--'))[2] ?? 'src/index.scss'
+  const output = `${devVaultRoot}/.obsidian/snippets/${basename(input).replace(extname(input), '.css')}`
   const isBuild = process.argv?.includes('--build')
   const isTest = process.argv?.includes('--test')
 
@@ -161,9 +151,7 @@ function main() {
 
   void dev(input, output)
   watch(join(process.cwd(), 'src')).on('change', () => dev(input, output))
-  watch(join(process.cwd(), 'compile.ts')).on('change', () =>
-    dev(input, output),
-  )
+  watch(join(process.cwd(), 'compile.ts')).on('change', () => dev(input, output))
 }
 
 main()

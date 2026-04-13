@@ -28,7 +28,7 @@ export function descReference(source: string, prefix?: Translate): Translate {
 function kebabCase(str: string): string {
   return str
     .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/[^a-zA-Z0-9\.]+/g, '-')
+    .replace(/[^a-zA-Z0-9.]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .toLowerCase()
 }
@@ -159,10 +159,9 @@ export class Settings {
   }
 
   static ofLevel(level: number, config: Doc & { id?: string; open?: boolean }) {
-    const defaultText = [
-      'title',
-      ...config.title.en.split(' ').map((s) => s.toLowerCase()),
-    ].join('-')
+    const defaultText = ['title', ...config.title.en.split(' ').map((s) => s.toLowerCase())].join(
+      '-',
+    )
     const id = config.id ?? defaultText
     const item = {
       id,
@@ -216,11 +215,7 @@ export class Settings {
     })
     return this
   }
-  addVarText(
-    id: string,
-    doc: Doc,
-    opt: { default?: string; quotes?: boolean } = {},
-  ) {
+  addVarText(id: string, doc: Doc, opt: { default?: string; quotes?: boolean } = {}) {
     opt.default ??= ''
     this.items.push({
       id,

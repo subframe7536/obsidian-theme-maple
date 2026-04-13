@@ -23,8 +23,7 @@ body.status-bar-style-float {
     box-shadow: var(--shadow-s);
   }
 
-  &.status-bar-style-center:is(.status-bar-default, .status-bar-hidden)
-    .status-bar {
+  &.status-bar-style-center:is(.status-bar-default, .status-bar-hidden) .status-bar {
     left: 50%;
     transform: translateX(-50%);
   }

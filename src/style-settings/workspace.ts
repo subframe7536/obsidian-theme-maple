@@ -1,5 +1,6 @@
-import { descReference, Settings } from './generator'
 import { version } from '../../package.json'
+
+import { descReference, Settings } from './generator'
 
 export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.of().addClassToggle(

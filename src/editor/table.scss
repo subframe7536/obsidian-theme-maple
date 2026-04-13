@@ -1,10 +1,7 @@
 @use '../utils' as *;
 
 @include use-no-plugin('.table-full') {
-  :is(
-      .markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-      .markdown-rendered table
-    ) {
+  :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
     // expand width
     --table-white-space: break-all;
     width: 100%;
@@ -15,8 +12,7 @@
   }
 }
 
-.table-remove-line-before
-  .cm-line:has(+ .cm-embed-block.cm-table-widget.markdown-rendered) {
+.table-remove-line-before .cm-line:has(+ .cm-embed-block.cm-table-widget.markdown-rendered) {
   display: none;
 }
 
@@ -55,10 +51,7 @@ body {
 
 .table-style-colorful {
   --table-background: var(--background-primary-alt);
-  --table-header-background: var(
-    --setting-table-header-text,
-    var(--accent-active-bg)
-  );
+  --table-header-background: var(--setting-table-header-text, var(--accent-active-bg));
   --table-row-alt-background: var(--bg-editor);
   --table-row-alt-background-hover: var(--bg-editor);
   --table-column-alt-background: inherit;
@@ -100,21 +93,17 @@ body {
   }
 
   :is(
-      th:first-child:not(
-          :has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)
-        ),
-      th:first-child:not(
-          :has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)
-        )
-        .table-cell-wrapper
-    ) {
+    th:first-child:not(:has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)),
+    th:first-child:not(:has(:is(.table-col-drag-handle, .table-row-drag-handle):hover))
+      .table-cell-wrapper
+  ) {
     border-start-start-radius: var(--radius-m);
   }
 
   :is(
-      th:last-child:not(:has(.table-col-drag-handle:hover)),
-      th:last-child:not(:has(.table-col-drag-handle:hover)) .table-cell-wrapper
-    ) {
+    th:last-child:not(:has(.table-col-drag-handle:hover)),
+    th:last-child:not(:has(.table-col-drag-handle:hover)) .table-cell-wrapper
+  ) {
     border-start-end-radius: var(--radius-m);
   }
 
@@ -135,11 +124,7 @@ body {
     }
 
     &:has(.table-col-btn:hover)
-      :is(
-        tr:last-child td:last-child,
-        th:last-child,
-        th:last-child .table-cell-wrapper
-      ) {
+      :is(tr:last-child td:last-child, th:last-child, th:last-child .table-cell-wrapper) {
       border-radius: 0;
     }
   }
@@ -177,12 +162,7 @@ body {
     }
   }
 
-  :is(
-      .table-row-btn,
-      .table-col-btn,
-      .table-row-drag-handle,
-      .table-col-drag-handle
-    ) {
+  :is(.table-row-btn, .table-col-btn, .table-row-drag-handle, .table-col-drag-handle) {
     transition: opacity var(--animation-fast);
   }
 

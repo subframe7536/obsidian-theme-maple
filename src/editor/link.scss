@@ -1,40 +1,30 @@
 @use '../utils.scss' as *;
 
 .external-link {
-  background-image: linear-gradient(transparent, transparent),
+  background-image:
+    linear-gradient(transparent, transparent),
     #{icon('arrow-up-right', '#222')};
   background-size: var(--font-text-size);
   padding-inline-end: var(--size-4-4);
 }
 .theme-dark .external-link {
-  background-image: linear-gradient(transparent, transparent),
+  background-image:
+    linear-gradient(transparent, transparent),
     #{icon('arrow-up-right', '#ddd')};
 }
 body {
   --link-color-rgb: var(--setting-link-internal-color, var(--color-cyan-rgb));
-  --link-external-color-rgb: var(
-    --setting-link-external-color,
-    var(--color-yellow-rgb)
-  );
+  --link-external-color-rgb: var(--setting-link-external-color, var(--color-yellow-rgb));
   --link-color: rgba(var(--link-color-rgb), var(--color-opacity));
   --link-color-hover: var(--link-color);
-  --link-color-underline: var(
-    --setting-link-internal-color-underline,
-    var(--link-color)
-  );
-  --link-external-color: rgba(
-    var(--link-external-color-rgb),
-    var(--color-opacity)
-  );
+  --link-color-underline: var(--setting-link-internal-color-underline, var(--link-color));
+  --link-external-color: rgba(var(--link-external-color-rgb), var(--color-opacity));
   --link-external-color-hover: var(--link-external-color);
   --link-external-color-underline: var(
     --setting-link-external-color-underline,
     var(--link-external-color)
   );
-  --link-unresolved-color: rgba(
-    var(--link-color-rgb),
-    calc(var(--color-opacity) * 0.85)
-  );
+  --link-unresolved-color: rgba(var(--link-color-rgb), calc(var(--color-opacity) * 0.85));
   --link-unresolved-decoration-color: var(--link-unresolved-color);
   --link-footnote: var(--color-purple);
   --link-text-size: var(--font-text-size);
@@ -50,16 +40,9 @@ body {
 
   &:hover,
   &:focus {
-    box-shadow: inset 0
-      calc(-1 * var(--font-text-size) * var(--line-height-normal)) 0 $underline;
-    --link-color: var(
-      --setting-link-internal-color-hover,
-      var(--text-on-accent)
-    );
-    --link-external-color: var(
-      --setting-link-external-color-hover,
-      var(--text-on-accent)
-    );
+    box-shadow: inset 0 calc(-1 * var(--font-text-size) * var(--line-height-normal)) 0 $underline;
+    --link-color: var(--setting-link-internal-color-hover, var(--text-on-accent));
+    --link-external-color: var(--setting-link-external-color-hover, var(--text-on-accent));
   }
 }
 
@@ -107,15 +90,8 @@ body span:is(.cm-formatting-link, .cm-formatting-link-string) {
 }
 
 body:not(.link-hover-expand) {
-  :is(
-      a.external-link,
-      .cm-link .cm-underline,
-      .cm-url:not(.cm-string) .cm-underline
-    ) {
-    @include hover-base(
-      var(--link-external-color-rgb),
-      var(--link-external-color-underline)
-    );
+  :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline) {
+    @include hover-base(var(--link-external-color-rgb), var(--link-external-color-underline));
 
     code {
       padding-inline-end: var(--size-4-1) !important;
@@ -123,20 +99,12 @@ body:not(.link-hover-expand) {
     }
   }
 
-  :is(
-      a.internal-link:not(.is-unresolved),
-      .cm-hmd-internal-link > .cm-underline
-    ) {
+  :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline) {
     @include hover-base(var(--link-color-rgb), var(--link-color-underline));
   }
 }
 
-span:is(
-    .cm-url,
-    .cm-link,
-    .cm-hmd-internal-link,
-    .cm-formatting-link.cm-url
-  ):hover {
+span:is(.cm-url, .cm-link, .cm-hmd-internal-link, .cm-formatting-link.cm-url):hover {
   text-decoration: none;
 }
 
@@ -154,14 +122,8 @@ body.link-hover-expand {
     --link-decoration-hover: none;
   }
 
-  :is(
-      a.external-link:not(.is-unresolved),
-      :is(.cm-link, .cm-url) > .cm-underline
-    ) {
-    @include hover-underline(
-      var(--link-external-color),
-      var(--link-external-color-underline)
-    );
+  :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline) {
+    @include hover-underline(var(--link-external-color), var(--link-external-color-underline));
     code {
       padding-inline-end: var(--size-4-1) !important;
       background-color: transparent;
@@ -171,10 +133,7 @@ body.link-hover-expand {
     }
   }
 
-  :is(
-      a.internal-link:not(.is-unresolved),
-      .cm-hmd-internal-link > .cm-underline
-    ) {
+  :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline) {
     @include hover-underline(var(--link-color), var(--link-color-underline));
   }
 
@@ -185,40 +144,31 @@ body.link-hover-expand {
 
 .link-icon {
   :is(
-      :is(.markdown-source-view, .markdown-preview-view)
-        a.internal-link:not(.is-unresolved),
-      .cm-hmd-internal-link > .cm-underline
-    ) {
+    :is(.markdown-source-view, .markdown-preview-view) a.internal-link:not(.is-unresolved),
+    .cm-hmd-internal-link > .cm-underline
+  ) {
     padding-inline-end: var(--size-2-1);
     &::before {
       content: '';
       display: inline-block;
       transform: translateY(var(--size-2-1));
       margin-inline: var(--size-2-1);
-      @include use-icon(
-        'file-text',
-        inherit,
-        calc(var(--link-text-size) * 0.9)
-      );
+      @include use-icon('file-text', inherit, calc(var(--link-text-size) * 0.9));
     }
   }
 
   .markdown-preview-view {
-    :is(
-        .el-pre a.internal-link:not(.is-unresolved),
-        a.external-link:has(> code)
-      )::before {
+    :is(.el-pre a.internal-link:not(.is-unresolved), a.external-link:has(> code))::before {
       content: none !important;
     }
   }
 
   &:not(.link-click-to-edit-in-live-preview) {
     :is(
-        :is(.markdown-source-view, .markdown-preview-view)
-          a.external-link:not(.is-resolved),
-        a.external-link:not(.is-resolved) code,
-        :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline
-      ):not(.cm-escape + .cm-link .cm-underline) {
+      :is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved),
+      a.external-link:not(.is-resolved) code,
+      :is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline
+    ):not(.cm-escape + .cm-link .cm-underline) {
       padding-inline-end: var(--size-2-1);
       &::before {
         content: '';
@@ -241,8 +191,6 @@ body.link-hover-expand {
   }
 }
 
-.link-click-to-edit-in-live-preview
-  :is(.cm-url, .cm-link, .cm-hmd-internal-link)
-  .cm-underline {
+.link-click-to-edit-in-live-preview :is(.cm-url, .cm-link, .cm-hmd-internal-link) .cm-underline {
   pointer-events: none;
 }

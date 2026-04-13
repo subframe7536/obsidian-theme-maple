@@ -9,17 +9,12 @@
   --labeled-nav-top-margin: var(--header-height);
 
   &.is-translucent {
-    .mod-left-split
-      .mod-top
-      .workspace-tab-header-container
-      .workspace-tab-header-container-inner {
+    .mod-left-split .mod-top .workspace-tab-header-container .workspace-tab-header-container-inner {
       background-color: transparent;
     }
   }
 
-  &.is-hidden-frameless:not(.is-fullscreen)
-    .mod-left-split
-    .workspace-tabs.mod-top-left-space {
+  &.is-hidden-frameless:not(.is-fullscreen) .mod-left-split .workspace-tabs.mod-top-left-space {
     .workspace-tab-header-container {
       padding-left: 0;
     }
@@ -47,10 +42,10 @@
   }
 
   &:is(
-      :not(.is-hidden-frameless),
-      .mod-macos:not(.hider-ribbon),
-      .colorful-frame.is-hidden-frameless:not(.is-fullscreen)
-    ) {
+    :not(.is-hidden-frameless),
+    .mod-macos:not(.hider-ribbon),
+    .colorful-frame.is-hidden-frameless:not(.is-fullscreen)
+  ) {
     .mod-left-split .mod-top .workspace-tab-header-container:before {
       border-bottom: var(--tab-outline-width) solid var(--tab-outline-color);
     }
@@ -70,9 +65,7 @@
     }
   }
 
-  &.hider-ribbon.mod-macos.is-hidden-frameless:not(.is-fullscreen):not(
-      .is-popout-window
-    ) {
+  &.hider-ribbon.mod-macos.is-hidden-frameless:not(.is-fullscreen):not(.is-popout-window) {
     .mod-left-split:not(.is-sidedock-collapsed)
       .workspace-tabs.mod-top-left-space
       .workspace-tab-header-container {

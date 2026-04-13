@@ -1,9 +1,10 @@
+import { version } from '../../package.json'
+
 import basic from './basic'
 import editor from './editor'
+import mobile from './mobile'
 import plugin from './plugin'
 import workspace from './workspace'
-import { version } from '../../package.json'
-import mobile from './mobile'
 
 const settings = `/* Maple Theme v${version} For Obsidian */
 ${basic}

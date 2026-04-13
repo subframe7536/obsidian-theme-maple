@@ -50,11 +50,11 @@ body {
   --titlebar-background-focused: var(--frame-bg);
 
   --input-radius: var(--size-2-3);
-  --input-shadow: 0 0.125px 0 0.5px var(--color-base-10),
-    inset 0 -0.125px 1px 0px var(--color-base-30),
+  --input-shadow:
+    0 0.125px 0 0.5px var(--color-base-10), inset 0 -0.125px 1px 0px var(--color-base-30),
     0 0.75px 2px 0.5px var(--color-base-50);
-  --input-shadow-hover: 0 0.125px 0 0.5px var(--color-base-20),
-    inset 0 -0.125px 1px 0px var(--color-base-40),
+  --input-shadow-hover:
+    0 0.125px 0 0.5px var(--color-base-20), inset 0 -0.125px 1px 0px var(--color-base-40),
     0 0.75px 2px 0.5px var(--color-base-50);
 
   --animation-dur: var(--setting-animation-time, 250ms);
@@ -93,8 +93,8 @@ body {
   --theme-accent-inactive-s: calc(15% + var(--accent-s) / 10);
   --theme-accent-inactive-l: calc(75% + var(--accent-l) / 10);
 
-  --color-accent-hsl: var(--base-accent-h), var(--theme-accent-active-s),
-    var(--theme-accent-active-l);
+  --color-accent-hsl:
+    var(--base-accent-h), var(--theme-accent-active-s), var(--theme-accent-active-l);
   --color-accent: hsl(var(--color-accent-hsl));
   --color-accent-1: hsl(
     calc(var(--base-accent-h) - 1),
@@ -137,10 +137,7 @@ body {
     --theme-accent-active-s: var(--setting-color-active-custom-light-s, 6%);
     --theme-accent-active-l: var(--setting-color-active-custom-light-l, 36%);
     --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s, 8%);
-    --theme-accent-inactive-l: var(
-      --setting-color-inactive-custom-light-l,
-      70%
-    );
+    --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l, 70%);
   }
 
   &.color-use-custom {
@@ -165,18 +162,12 @@ body {
 
     &.color-modify-bg-light {
       --default-mod-bg-hsl: 0, 0%, 93%;
-      --background-primary-hsl: var(
-        --setting-bg-primary-light-hsl,
-        var(--default-mod-bg-hsl)
-      );
+      --background-primary-hsl: var(--setting-bg-primary-light-hsl, var(--default-mod-bg-hsl));
       --background-primary-alt-hsl: var(
         --setting-bg-primary-alt-light-hsl,
         var(--default-mod-bg-hsl)
       );
-      --background-secondary-hsl: var(
-        --setting-bg-secondary-light-hsl,
-        var(--default-mod-bg-hsl)
-      );
+      --background-secondary-hsl: var(--setting-bg-secondary-light-hsl, var(--default-mod-bg-hsl));
       --frame-bg: var(--setting-bg-frame-light, hsl(var(--default-mod-bg-hsl)));
     }
   }
@@ -202,7 +193,8 @@ body {
   --theme-accent-inactive-s: calc(15% + var(--accent-s) / 10);
   --theme-accent-inactive-l: calc(30% + var(--accent-l) / 10);
 
-  --color-accent-hsl: var(--base-accent-h), var(--theme-accent-active-s),
+  --color-accent-hsl:
+    var(--base-accent-h), var(--theme-accent-active-s),
     calc(var(--theme-accent-active-l) * var(--color-opacity));
   --color-accent: hsl(var(--color-accent-hsl));
   --color-accent-1: hsl(
@@ -255,12 +247,13 @@ body {
 
   &.color-use-custom {
     --bg-delta-dark: var(--setting-bg-delta-dark, 0%);
-    --background-primary-hsl: var(--base-accent-h),
-      calc(5% + var(--bg-delta-dark) / 2), calc(11% + var(--bg-delta-dark));
-    --background-primary-alt-hsl: var(--base-accent-h),
-      calc(10% + var(--bg-delta-dark) / 2), calc(13% + var(--bg-delta-dark));
-    --background-secondary-hsl: calc(var(--base-accent-h) - 18),
-      calc(6% + var(--bg-delta-dark) / 2), calc(12% + var(--bg-delta-dark));
+    --background-primary-hsl:
+      var(--base-accent-h), calc(5% + var(--bg-delta-dark) / 2), calc(11% + var(--bg-delta-dark));
+    --background-primary-alt-hsl:
+      var(--base-accent-h), calc(10% + var(--bg-delta-dark) / 2), calc(13% + var(--bg-delta-dark));
+    --background-secondary-hsl:
+      calc(var(--base-accent-h) - 18), calc(6% + var(--bg-delta-dark) / 2),
+      calc(12% + var(--bg-delta-dark));
 
     --base-accent-h: var(--setting-accent-h-dark, 207);
     --theme-accent-active-s: 24%;
@@ -283,18 +276,12 @@ body {
 
     &.color-modify-bg-dark {
       --default-mod-bg-hsl: 0, 0%, 7%;
-      --background-primary-hsl: var(
-        --setting-bg-primary-dark-hsl,
-        var(--default-mod-bg-hsl)
-      );
+      --background-primary-hsl: var(--setting-bg-primary-dark-hsl, var(--default-mod-bg-hsl));
       --background-primary-alt-hsl: var(
         --setting-bg-primary-alt-dark-hsl,
         var(--default-mod-bg-hsl)
       );
-      --background-secondary-hsl: var(
-        --setting-bg-secondary-dark-hsl,
-        var(--default-mod-bg-hsl)
-      );
+      --background-secondary-hsl: var(--setting-bg-secondary-dark-hsl, var(--default-mod-bg-hsl));
       --frame-bg: var(--setting-bg-frame-dark, hsl(var(--default-mod-bg-hsl)));
     }
   }

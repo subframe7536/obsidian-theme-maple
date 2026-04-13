@@ -1,15 +1,16 @@
-$base-panel: '.vertical-tab-header', '.vertical-tab-content',
-  '.nav-files-container', '.workspace-leaf-content .view-content',
-  '.search-result-container', '.git-view-body',
-  '.suggestion-container .suggestion', '.prompt-results',
-  '.community-modal-search-results-wrapper', '.community-modal-info',
-  '.modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin)',
+$base-panel:
+  '.vertical-tab-header', '.vertical-tab-content', '.nav-files-container',
+  '.workspace-leaf-content .view-content', '.search-result-container', '.git-view-body',
+  '.suggestion-container .suggestion', '.prompt-results', '.community-modal-search-results-wrapper',
+  '.community-modal-info', '.modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin)',
   '.tag-container', '.backlink-pane';
 
-$editor: '.markdown-source-view .cm-scroller', '.markdown-preview-view',
-  '.pdf-thumbnail-view', '.pdf-viewer-container';
+$editor:
+  '.markdown-source-view .cm-scroller', '.markdown-preview-view', '.pdf-thumbnail-view',
+  '.pdf-viewer-container';
 
-$horizon: '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
+$horizon:
+  '.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container',
   '.markdown-embed-content .markdown-rendered', 'pre code';
 
 @property --scrollbar-color {

@@ -17,10 +17,7 @@
 }
 
 body {
-  --tab-stacked-header-width: var(
-    --setting-tab-stack-header-width,
-    var(--header-height)
-  );
+  --tab-stacked-header-width: var(--setting-tab-stack-header-width, var(--header-height));
 }
 
 @include use-no-plugin('.tab-float') {
@@ -64,8 +61,7 @@ body {
       }
     }
 
-    .workspace-tabs:not(.mod-stacked):not(.mod-active)
-      .workspace-tab-header.is-active {
+    .workspace-tabs:not(.mod-stacked):not(.mod-active) .workspace-tab-header.is-active {
       --tab-background-active: hsla(var(--background-primary-hsl), 0.5);
     }
   }
@@ -106,9 +102,7 @@ body.tab-title-bar-text-small .view-header {
   --file-header-font-size: calc(var(--font-ui-smaller) - var(--size-2-1));
 }
 
-body.tab-title-bar-text-hidden
-  .workspace-leaf-content
-  .view-header-title-container {
+body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-container {
   opacity: 0;
   transition: var(--animation);
   transition-delay: var(--animation-delay);
@@ -124,9 +118,7 @@ body.tab-title-bar-text-hidden
 body.tab-slide-up:not(.is-mobile) {
   .workspace-split:not(.is-sidedock-collapsed)
     .workspace-tabs:not(.mod-stacked)
-    .workspace-leaf-content:not([data-type='undefined']):not(
-      [data-type='empty']
-    )
+    .workspace-leaf-content:not([data-type='undefined']):not([data-type='empty'])
     :is(.view-content, .nav-files-container, .tag-container) {
     animation: use-animation('op'), use-animation('slide-up');
   }

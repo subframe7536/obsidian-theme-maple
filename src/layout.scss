@@ -147,30 +147,22 @@ body.app-layout-card:not(.is-mobile) {
   }
 
   .workspace-tab-header {
-    --background-modifier-hover: hsla(
-      var(--background-primary-hsl),
-      var(--bg-opacity)
-    );
+    --background-modifier-hover: hsla(var(--background-primary-hsl), var(--bg-opacity));
   }
 
   :is(
-      .workspace-tab-header-container,
-      .workspace-tab-header-container-inner,
-      .titlebar-button-container,
-      .sidebar-toggle-button,
-      .workspace-fake-target-overlay:not(.is-in-sidebar)
-        .workspace-tabs
-        .workspace-leaf,
-      .workspace-split:not(.mod-root) .workspace-tabs .workspace-leaf,
-      .workspace-split.mod-root
-        .workspace-tabs:not(.mod-stacked)
-        .workspace-leaf,
-      .workspace-split.mod-root .workspace-split,
-      .pdf-toolbar,
-      .workspace-leaf-content[data-type='empty'],
-      .workspace-leaf-content:not([data-type='empty'])
-        :is(.view-content, .view-header)
-    ) {
+    .workspace-tab-header-container,
+    .workspace-tab-header-container-inner,
+    .titlebar-button-container,
+    .sidebar-toggle-button,
+    .workspace-fake-target-overlay:not(.is-in-sidebar) .workspace-tabs .workspace-leaf,
+    .workspace-split:not(.mod-root) .workspace-tabs .workspace-leaf,
+    .workspace-split.mod-root .workspace-tabs:not(.mod-stacked) .workspace-leaf,
+    .workspace-split.mod-root .workspace-split,
+    .pdf-toolbar,
+    .workspace-leaf-content[data-type='empty'],
+    .workspace-leaf-content:not([data-type='empty']) :is(.view-content, .view-header)
+  ) {
     background-color: transparent;
   }
 
@@ -191,10 +183,7 @@ body.app-layout-card:not(.is-mobile) {
   }
 
   .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
-    background-color: hsla(
-      var(--background-secondary-hsl),
-      calc(var(--bg-opacity) / 4)
-    );
+    background-color: hsla(var(--background-secondary-hsl), calc(var(--bg-opacity) / 4));
   }
 
   &.labeled-nav
@@ -213,17 +202,17 @@ body.app-layout-card:not(.is-mobile) {
     .vertical-tab-content-container > .vertical-tab-content {
       background-color: transparent;
       :is(
-          .setting-group .setting-items,
-          .setting-item:not(.setting-item-heading),
-          .setting-group-search
-        ) {
+        .setting-group .setting-items,
+        .setting-item:not(.setting-item-heading),
+        .setting-group-search
+      ) {
         background-color: var(--bg-editor);
       }
     }
     :is(
-        .style-settings-heading[data-level='0'] + .style-settings-container,
-        .style-settings-container
-      ) {
+      .style-settings-heading[data-level='0'] + .style-settings-container,
+      .style-settings-container
+    ) {
       border: none;
       & > .setting-item {
         padding: var(--size-4-3) var(--size-4-4);

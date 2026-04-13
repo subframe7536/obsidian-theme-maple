@@ -6,8 +6,7 @@ body {
   --menu-border-color: var(--background-modifier-border);
 }
 
-body:not(.is-phone)
-  :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
+body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
   background-color: var(--nav-item-background-active) !important;
   & > div {
     color: var(--text-on-accent);
@@ -22,17 +21,9 @@ body:not(.is-phone)
 @include use-no-plugin('.modal-control-gradient') {
   button.mod-cta {
     transition: box-shadow var(--animation);
-    background: linear-gradient(
-      to bottom,
-      transparent -240%,
-      var(--color-accent) 100%
-    );
+    background: linear-gradient(to bottom, transparent -240%, var(--color-accent) 100%);
     &:hover {
-      background: linear-gradient(
-        to bottom,
-        transparent -240%,
-        var(--color-accent-1) 100%
-      );
+      background: linear-gradient(to bottom, transparent -240%, var(--color-accent-1) 100%);
     }
     &:not(.mod-loading) {
       color: var(--text-on-accent);
@@ -58,11 +49,7 @@ body:not(.is-phone)
 
   .checkbox-container {
     &.is-enabled {
-      background: linear-gradient(
-        to bottom,
-        transparent -200%,
-        var(--accent-active) 100%
-      );
+      background: linear-gradient(to bottom, transparent -200%, var(--accent-active) 100%);
     }
   }
 }
@@ -90,9 +77,7 @@ body:not(.is-phone)
     --toggle-thumb-width: calc(var(--input-height) / 2);
     --toggle-thumb-height: var(--toggle-thumb-width);
     --toggle-thumb-radius: calc(var(--toggle-thumb-width) / 3);
-    --toggle-radius: calc(
-      var(--toggle-s-thumb-radius) + var(--toggle-border-width) / 2
-    );
+    --toggle-radius: calc(var(--toggle-s-thumb-radius) + var(--toggle-border-width) / 2);
     --toggle-s-border-width: var(--toggle-border-width);
     --toggle-s-thumb-radius: var(--toggle-thumb-radius);
     --toggle-s-thumb-width: var(--toggle-thumb-width);
@@ -109,11 +94,8 @@ body:not(.is-mobile) {
         --slider-thumb-ring-factor: 5.2;
       }
       &::-webkit-slider-thumb {
-        box-shadow: inset 0 0 0
-            calc(
-              var(--slider-thumb-width) / var(--slider-thumb-ring-factor, 4) *
-                0.9
-            )
+        box-shadow:
+          inset 0 0 0 calc(var(--slider-thumb-width) / var(--slider-thumb-ring-factor, 4) * 0.9)
             var(--color-base-20),
           inset 0 0 0 calc(var(--slider-thumb-width) / 2) var(--accent-active),
           var(--input-shadow);
@@ -139,7 +121,8 @@ body:not(.is-mobile) {
 
       &:focus-within {
         outline: none;
-        box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.14),
+        box-shadow:
+          inset 0 6px 20px rgba(0, 0, 0, 0.14),
           inset 0 0 1px rgba(0, 0, 0, 0.28);
       }
 
@@ -173,9 +156,7 @@ body:not(.is-mobile) {
       &::after {
         border-color: var(--accent-active);
         transform: none;
-        left: calc(
-          100% - var(--toggle-target-width) / 3 - 3 * var(--toggle-border-width)
-        );
+        left: calc(100% - var(--toggle-target-width) / 3 - 3 * var(--toggle-border-width));
       }
     }
   }
@@ -307,9 +288,9 @@ body.modal-setting-header:not(.is-mobile) {
         :is(
             .plugin-list-plugins,
             .vertical-tab-content:is(
-                :has(> .installed-plugins-container),
-                :has(> .hotkey-list-container)
-              )
+              :has(> .installed-plugins-container),
+              :has(> .hotkey-list-container)
+            )
           )
           > .setting-item:has(input) {
           position: absolute;
@@ -332,9 +313,9 @@ body.modal-setting-header:not(.is-mobile) {
         }
 
         :is(
-            .setting-group-search .search-input-container,
-            .setting-item-control:has(.search-input-container.mod-hotkey)
-          ) {
+          .setting-group-search .search-input-container,
+          .setting-item-control:has(.search-input-container.mod-hotkey)
+        ) {
           position: absolute;
           padding: 0;
           top: calc(var(--size-4-2) + var(--size-2-1));
@@ -391,7 +372,9 @@ button[disabled='true'] {
 
 :is(select, .dropdown) {
   background-size: calc(1.2 * var(--size-4-4)) !important;
-  background-position: right calc(0.4 * var(--size-4-4)) top 56%, 0 0 !important;
+  background-position:
+    right calc(0.4 * var(--size-4-4)) top 56%,
+    0 0 !important;
   background-image: var(--select-bg-img) !important;
   background-repeat: no-repeat !important;
   padding: var(--dropdown-padding) !important;
@@ -469,11 +452,7 @@ body:not(.is-phone) .modal-container {
   }
 }
 
-body.enable-group-title
-  .modal-container
-  .mod-settings
-  .modal-content
-  .vertical-tab-header-group {
+body.enable-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group {
   padding-bottom: 0;
 
   &-title {

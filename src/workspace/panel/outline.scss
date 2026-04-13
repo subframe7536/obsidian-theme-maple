@@ -2,10 +2,7 @@
 
 body {
   --outline-guideline-width: var(--setting-outline-width, 2px);
-  --outline-guideline-color: var(
-    --settingoutline-line-color,
-    var(--accent-inactive)
-  );
+  --outline-guideline-color: var(--settingoutline-line-color, var(--accent-inactive));
   --outline-guideline-color-alt: var(--outline-dot-color, var(--accent-active));
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }
@@ -50,10 +47,7 @@ body.outline-enable {
             border-radius: 50%;
             position: absolute;
             top: 50%;
-            transform: translate(
-              calc(-1 * var(--size-4-5) - $size * 0.5 + 1px),
-              -50%
-            );
+            transform: translate(calc(-1 * var(--size-4-5) - $size * 0.5 + 1px), -50%);
           }
         }
 
@@ -131,15 +125,11 @@ body.outline-enable {
           position: absolute;
           top: calc(var(--outline-item-height) / 2 * -1);
           left: $indent-width;
-          bottom: calc(
-            100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px
-          );
+          bottom: calc(100% - (var(--outline-item-height) + var(--size-4-2)) / 2 - 1px);
           width: var(--size-4-6);
           border-bottom-left-radius: var(--radius-m);
-          border-bottom: var(--outline-guideline-width) solid
-            var(--outline-guideline-color);
-          border-left: var(--outline-guideline-width) solid
-            var(--outline-guideline-color);
+          border-bottom: var(--outline-guideline-width) solid var(--outline-guideline-color);
+          border-left: var(--outline-guideline-width) solid var(--outline-guideline-color);
           z-index: 9;
         }
       }

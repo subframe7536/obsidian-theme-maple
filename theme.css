@@ -2255,11 +2255,11 @@ body {
   --titlebar-background: var(--frame-bg);
   --titlebar-background-focused: var(--frame-bg);
   --input-radius: var(--size-2-3);
-  --input-shadow: 0 0.125px 0 0.5px var(--color-base-10),
-    inset 0 -0.125px 1px 0px var(--color-base-30),
+  --input-shadow:
+    0 0.125px 0 0.5px var(--color-base-10), inset 0 -0.125px 1px 0px var(--color-base-30),
     0 0.75px 2px 0.5px var(--color-base-50);
-  --input-shadow-hover: 0 0.125px 0 0.5px var(--color-base-20),
-    inset 0 -0.125px 1px 0px var(--color-base-40),
+  --input-shadow-hover:
+    0 0.125px 0 0.5px var(--color-base-20), inset 0 -0.125px 1px 0px var(--color-base-40),
     0 0.75px 2px 0.5px var(--color-base-50);
   --animation-dur: var(--setting-animation-time, 250ms);
   --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
@@ -2297,8 +2297,8 @@ body {
   --theme-accent-inactive-h: var(--theme-accent-h);
   --theme-accent-inactive-s: calc(15% + var(--accent-s) / 10);
   --theme-accent-inactive-l: calc(75% + var(--accent-l) / 10);
-  --color-accent-hsl: var(--base-accent-h), var(--theme-accent-active-s),
-    var(--theme-accent-active-l);
+  --color-accent-hsl:
+    var(--base-accent-h), var(--theme-accent-active-s), var(--theme-accent-active-l);
   --color-accent: hsl(var(--color-accent-hsl));
   --color-accent-1: hsl(
     calc(var(--base-accent-h) - 1),
@@ -2339,10 +2339,7 @@ body {
   --theme-accent-active-s: var(--setting-color-active-custom-light-s, 6%);
   --theme-accent-active-l: var(--setting-color-active-custom-light-l, 36%);
   --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s, 8%);
-  --theme-accent-inactive-l: var(
-    --setting-color-inactive-custom-light-l,
-    70%
-  );
+  --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l, 70%);
 }
 .theme-light.color-use-custom {
   --base-accent-h: var(--setting-accent-h-light, 35);
@@ -2364,18 +2361,12 @@ body {
 }
 .theme-light.color-use-custom.color-modify-bg-light {
   --default-mod-bg-hsl: 0, 0%, 93%;
-  --background-primary-hsl: var(
-    --setting-bg-primary-light-hsl,
-    var(--default-mod-bg-hsl)
-  );
+  --background-primary-hsl: var(--setting-bg-primary-light-hsl, var(--default-mod-bg-hsl));
   --background-primary-alt-hsl: var(
     --setting-bg-primary-alt-light-hsl,
     var(--default-mod-bg-hsl)
   );
-  --background-secondary-hsl: var(
-    --setting-bg-secondary-light-hsl,
-    var(--default-mod-bg-hsl)
-  );
+  --background-secondary-hsl: var(--setting-bg-secondary-light-hsl, var(--default-mod-bg-hsl));
   --frame-bg: var(--setting-bg-frame-light, hsl(var(--default-mod-bg-hsl)));
 }
 
@@ -2400,7 +2391,8 @@ body {
   --theme-accent-inactive-h: var(--theme-accent-h);
   --theme-accent-inactive-s: calc(15% + var(--accent-s) / 10);
   --theme-accent-inactive-l: calc(30% + var(--accent-l) / 10);
-  --color-accent-hsl: var(--base-accent-h), var(--theme-accent-active-s),
+  --color-accent-hsl:
+    var(--base-accent-h), var(--theme-accent-active-s),
     calc(var(--theme-accent-active-l) * var(--color-opacity));
   --color-accent: hsl(var(--color-accent-hsl));
   --color-accent-1: hsl(
@@ -2451,12 +2443,13 @@ body {
 }
 .theme-dark.color-use-custom {
   --bg-delta-dark: var(--setting-bg-delta-dark, 0%);
-  --background-primary-hsl: var(--base-accent-h),
-    calc(5% + var(--bg-delta-dark) / 2), calc(11% + var(--bg-delta-dark));
-  --background-primary-alt-hsl: var(--base-accent-h),
-    calc(10% + var(--bg-delta-dark) / 2), calc(13% + var(--bg-delta-dark));
-  --background-secondary-hsl: calc(var(--base-accent-h) - 18),
-    calc(6% + var(--bg-delta-dark) / 2), calc(12% + var(--bg-delta-dark));
+  --background-primary-hsl:
+    var(--base-accent-h), calc(5% + var(--bg-delta-dark) / 2), calc(11% + var(--bg-delta-dark));
+  --background-primary-alt-hsl:
+    var(--base-accent-h), calc(10% + var(--bg-delta-dark) / 2), calc(13% + var(--bg-delta-dark));
+  --background-secondary-hsl:
+    calc(var(--base-accent-h) - 18), calc(6% + var(--bg-delta-dark) / 2),
+    calc(12% + var(--bg-delta-dark));
   --base-accent-h: var(--setting-accent-h-dark, 207);
   --theme-accent-active-s: 24%;
   --theme-accent-active-l: 52%;
@@ -2476,18 +2469,12 @@ body {
 }
 .theme-dark.color-use-custom.color-modify-bg-dark {
   --default-mod-bg-hsl: 0, 0%, 7%;
-  --background-primary-hsl: var(
-    --setting-bg-primary-dark-hsl,
-    var(--default-mod-bg-hsl)
-  );
+  --background-primary-hsl: var(--setting-bg-primary-dark-hsl, var(--default-mod-bg-hsl));
   --background-primary-alt-hsl: var(
     --setting-bg-primary-alt-dark-hsl,
     var(--default-mod-bg-hsl)
   );
-  --background-secondary-hsl: var(
-    --setting-bg-secondary-dark-hsl,
-    var(--default-mod-bg-hsl)
-  );
+  --background-secondary-hsl: var(--setting-bg-secondary-dark-hsl, var(--default-mod-bg-hsl));
   --frame-bg: var(--setting-bg-frame-dark, hsl(var(--default-mod-bg-hsl)));
 }
 
@@ -2636,25 +2623,20 @@ body.css-settings-manager:not(.color-use-default) .mod-settings .vertical-tab-co
   translate: -50% -50%;
 }
 
-.style-settings-container .setting-item:is([data-id=setting-accent-h-light],
-[data-id=setting-accent-h-dark]) input.slider {
+.style-settings-container .setting-item:is([data-id=setting-accent-h-light], [data-id=setting-accent-h-dark]) input.slider {
   --slider-thumb-height: var(--size-4-6);
   --slider-thumb-width: var(--size-2-2);
   --slider-track-height: calc(var(--slider-thumb-height) - var(--size-4-3));
   --slider-thumb-radius: var(--slider-thumb-width);
-  --slider-thumb-y: calc(
-    (var(--slider-track-height) - var(--slider-thumb-height)) / 1.4
-  );
+  --slider-thumb-y: calc((var(--slider-track-height) - var(--slider-thumb-height)) / 1.4);
   border-radius: var(--radius-s);
   background: linear-gradient(to right, hsl(0, 60%, 60%), hsl(30, 60%, 60%), hsl(60, 60%, 60%), hsl(90, 60%, 60%), hsl(120, 60%, 60%), hsl(150, 60%, 60%), hsl(180, 60%, 60%), hsl(210, 60%, 60%), hsl(240, 60%, 60%), hsl(270, 60%, 60%), hsl(300, 60%, 60%), hsl(330, 60%, 60%), hsl(0, 60%, 60%));
 }
-.style-settings-container .setting-item:is([data-id=setting-accent-h-light],
-[data-id=setting-accent-h-dark]) input.slider::-webkit-slider-thumb {
+.style-settings-container .setting-item:is([data-id=setting-accent-h-light], [data-id=setting-accent-h-dark]) input.slider::-webkit-slider-thumb {
   box-shadow: none;
   border-width: 1px;
 }
-.style-settings-container .setting-item:is([data-id=setting-accent-h-light],
-[data-id=setting-accent-h-dark]) .setting-item-control::before {
+.style-settings-container .setting-item:is([data-id=setting-accent-h-light], [data-id=setting-accent-h-dark]) .setting-item-control::before {
   content: "";
   font-size: 0.7em;
   text-align: center;
@@ -2697,8 +2679,7 @@ body:not(.editor-bg-plain) .setting-item[data-id=setting-editor-bg],
 body.editor-bg-plain .setting-item[data-id=setting-editor-bg-grid-spacing],
 body:not(.editor-bg-grid-dots) .setting-item[data-id=setting-editor-bg-grid-dots],
 body:not(.editor-bg-grid-line) .setting-item[data-id=setting-editor-bg-grid-line],
-body:not(.scrollbar-enable) .setting-item:is([data-id=scrollbar-hover],
-[data-id=scrollbar-movein-animation-enable]),
+body:not(.scrollbar-enable) .setting-item:is([data-id=scrollbar-hover], [data-id=scrollbar-movein-animation-enable]),
 body.bg-default .setting-item[data-id=setting-bg-color],
 body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover],
 [data-id=scrollbar-movein-animation],
@@ -2731,8 +2712,7 @@ body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-bullet-thread-style]),
 body:not(.list-bullet-thread-style) .setting-item[data-id=setting-list-guide-color],
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer],
-body:not(.modal-setting-header) .setting-item:is([data-id=modal-header-search],
-[data-id=setting-modal-header-title]),
+body:not(.modal-setting-header) .setting-item:is([data-id=modal-header-search], [data-id=setting-modal-header-title]),
 body:not(.message-modify) .setting-item[data-id^=setting-message],
 body:not(.image-zoom) .setting-item[data-id^=image-zoom-out],
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix],
@@ -2752,8 +2732,7 @@ body:not(.heading-h6-block) .setting-item[data-id=heading-h6-block-contrast],
 body:not(.table-style-colorful) .setting-item[data-id^=setting-table],
 body.table-style-minimal .setting-item[data-id=table-round],
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
-body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
-[data-id=setting-tag-color]) {
+body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border], [data-id=setting-tag-color]) {
   display: none;
 }
 body.is-mobile .setting-item:is([data-id=title-layout],
@@ -2778,8 +2757,7 @@ body:not(.editor-bg-plain) .setting-item[data-id=setting-editor-bg] + .style-set
 body.editor-bg-plain .setting-item[data-id=setting-editor-bg-grid-spacing] + .style-settings-container,
 body:not(.editor-bg-grid-dots) .setting-item[data-id=setting-editor-bg-grid-dots] + .style-settings-container,
 body:not(.editor-bg-grid-line) .setting-item[data-id=setting-editor-bg-grid-line] + .style-settings-container,
-body:not(.scrollbar-enable) .setting-item:is([data-id=scrollbar-hover],
-[data-id=scrollbar-movein-animation-enable]) + .style-settings-container,
+body:not(.scrollbar-enable) .setting-item:is([data-id=scrollbar-hover], [data-id=scrollbar-movein-animation-enable]) + .style-settings-container,
 body.bg-default .setting-item[data-id=setting-bg-color] + .style-settings-container,
 body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover],
 [data-id=scrollbar-movein-animation],
@@ -2812,8 +2790,7 @@ body:not(.list-enable) .setting-item:is([data-id*=setting-list-],
 [data-id=list-bullet-thread-style]) + .style-settings-container,
 body:not(.list-bullet-thread-style) .setting-item[data-id=setting-list-guide-color] + .style-settings-container,
 body:not(.code-preview-bg) .setting-item[data-id=setting-code-bg-outer] + .style-settings-container,
-body:not(.modal-setting-header) .setting-item:is([data-id=modal-header-search],
-[data-id=setting-modal-header-title]) + .style-settings-container,
+body:not(.modal-setting-header) .setting-item:is([data-id=modal-header-search], [data-id=setting-modal-header-title]) + .style-settings-container,
 body:not(.message-modify) .setting-item[data-id^=setting-message] + .style-settings-container,
 body:not(.image-zoom) .setting-item[data-id^=image-zoom-out] + .style-settings-container,
 body:not(.heading-level-enable) .setting-item[data-id^=heading-level-fix] + .style-settings-container,
@@ -2833,8 +2810,7 @@ body:not(.heading-h6-block) .setting-item[data-id=heading-h6-block-contrast] + .
 body:not(.table-style-colorful) .setting-item[data-id^=setting-table] + .style-settings-container,
 body.table-style-minimal .setting-item[data-id=table-round] + .style-settings-container,
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon] + .style-settings-container,
-body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
-[data-id=setting-tag-color]) + .style-settings-container {
+body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border], [data-id=setting-tag-color]) + .style-settings-container {
   display: none;
 }
 
@@ -3052,10 +3028,7 @@ body.app-layout-card:not(.is-mobile) .mod-root .workspace-tabs:not(.mod-top) {
   margin-top: -4px;
 }
 body.app-layout-card:not(.is-mobile) .workspace-tab-header {
-  --background-modifier-hover: hsla(
-    var(--background-primary-hsl),
-    var(--bg-opacity)
-  );
+  --background-modifier-hover: hsla(var(--background-primary-hsl), var(--bg-opacity));
 }
 body.app-layout-card:not(.is-mobile) :is(.workspace-tab-header-container,
 .workspace-tab-header-container-inner,
@@ -3319,17 +3292,8 @@ body.line-indicator-enable {
 body.line-indicator-enable .markdown-preview-sizer > div:not(.search-highlight) {
   position: relative;
 }
-body.line-indicator-enable :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator,
-hr,
-pre,
-blockquote,
-table,
-p img,
-audio,
-video))),
-.markdown-source-view .cm-line:not(.HyperMD-header,
-.HyperMD-quote,
-.HyperMD-list-line-1:has(.collapse-indicator)))::after {
+body.line-indicator-enable :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
+.markdown-source-view .cm-line:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator)))::after {
   content: "";
   width: var(--size-4-1);
   position: absolute;
@@ -3340,17 +3304,8 @@ video))),
   opacity: 0;
   will-change: opacity;
 }
-body.line-indicator-enable :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator,
-hr,
-pre,
-blockquote,
-table,
-p img,
-audio,
-video))),
-.markdown-source-view .cm-line:not(.HyperMD-header,
-.HyperMD-quote,
-.HyperMD-list-line-1:has(.collapse-indicator))):hover::after {
+body.line-indicator-enable :is(.markdown-reading-view .markdown-preview-sizer > div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
+.markdown-source-view .cm-line:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator))):hover::after {
   opacity: 1;
 }
 
@@ -3415,10 +3370,7 @@ mark {
 }
 
 body {
-  --text-highlight-bg: var(
-    --setting-text-highlight-bg,
-    rgba(var(--color-yellow-rgb), 0.3)
-  );
+  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(var(--color-yellow-rgb), 0.3));
 }
 
 .text-highlight-all-round :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
@@ -3432,8 +3384,7 @@ body {
   background: var(--text-highlight-bg);
 }
 
-.markdown-source-view :is(:not(.cm-highlight) + .cm-formatting-highlight,
-.cm-formatting-highlight:first-child) {
+.markdown-source-view :is(:not(.cm-highlight) + .cm-formatting-highlight, .cm-formatting-highlight:first-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   margin-right: 0;
@@ -3533,17 +3484,14 @@ body {
   --grid-spacing: var(--setting-editor-bg-grid-spacing, var(--size-4-5));
 }
 
-:is(.editor-bg-grid-dots, .editor-bg-grid-line) :is(.markdown-reading-view .markdown-rendered,
-.markdown-source-view.mod-cm6 .cm-scroller) {
+:is(.editor-bg-grid-dots, .editor-bg-grid-line) :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6 .cm-scroller) {
   background-size: var(--grid-spacing) var(--grid-spacing);
   background-position: center center;
 }
-.editor-bg-grid-dots :is(.markdown-reading-view .markdown-rendered,
-.markdown-source-view.mod-cm6 .cm-scroller) {
+.editor-bg-grid-dots :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6 .cm-scroller) {
   background-image: radial-gradient(circle, var(--grid-dots-color) 1px, var(--bg-editor) 1px);
 }
-.editor-bg-grid-line :is(.markdown-reading-view .markdown-rendered,
-.markdown-source-view.mod-cm6 .cm-scroller) {
+.editor-bg-grid-line :is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6 .cm-scroller) {
   background-image: linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
 }
 
@@ -4199,13 +4147,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.class-name, .maybe-class-name, .color) {
   color: var(--code-class);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.property-access,
-.attr-name,
-.annotation,
-.key,
-.entity,
-.parameter,
-.url) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.property-access, .attr-name, .annotation, .key, .entity, .parameter, .url) {
   color: var(--code-variable);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .token:is(.comment, .prolog, .doctype, .cdata) {
@@ -4220,17 +4162,10 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre[clas
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-number {
   color: var(--code-value);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-qualifier,
-.cm-string:not(.cm-url),
-.cm-string-2,
-.cm-meta:not(.cm-hashtag)) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta:not(.cm-hashtag)) {
   color: var(--code-string);
 }
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-def,
-.cm-property,
-.cm-number + .cm-variable,
-.cm-attribute,
-.cm-atom) {
+.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-def, .cm-property, .cm-number + .cm-variable, .cm-attribute, .cm-atom) {
   color: var(--code-property);
 }
 .code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) :is(.cm-type, .cm-builtin) {
@@ -4354,8 +4289,8 @@ body {
   --block-outline-width: var(--size-2-1);
   --embed-background: var(--bg-editor);
   --embed-padding: var(--size-4-4) var(--size-4-5);
-  --embed-block-shadow-hover: 0 0 0 1px var(--accent-inactive),
-    inset 0 0 0 1px var(--accent-inactive);
+  --embed-block-shadow-hover:
+    0 0 0 1px var(--accent-inactive), inset 0 0 0 1px var(--accent-inactive);
   --embed-border-start: var(--size-2-1) solid var(--accent-inactive);
   --embed-border-end: var(--embed-border-start);
   --embed-border-top: var(--embed-border-start);
@@ -4444,9 +4379,7 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) .markdown-em
 body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover .embed-title:empty + .markdown-embed-content .markdown-preview-section > div:nth-child(3) {
   opacity: 1;
 }
-body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover :is(.markdown-embed-title,
-.markdown-embed-link,
-.file-embed-link:hover svg) {
+body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]):hover :is(.markdown-embed-title, .markdown-embed-link, .file-embed-link:hover svg) {
   opacity: 1;
   color: var(--text-normal);
 }
@@ -4501,29 +4434,17 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) :is(.markdow
 
 body {
   --link-color-rgb: var(--setting-link-internal-color, var(--color-cyan-rgb));
-  --link-external-color-rgb: var(
-    --setting-link-external-color,
-    var(--color-yellow-rgb)
-  );
+  --link-external-color-rgb: var(--setting-link-external-color, var(--color-yellow-rgb));
   --link-color: rgba(var(--link-color-rgb), var(--color-opacity));
   --link-color-hover: var(--link-color);
-  --link-color-underline: var(
-    --setting-link-internal-color-underline,
-    var(--link-color)
-  );
-  --link-external-color: rgba(
-    var(--link-external-color-rgb),
-    var(--color-opacity)
-  );
+  --link-color-underline: var(--setting-link-internal-color-underline, var(--link-color));
+  --link-external-color: rgba(var(--link-external-color-rgb), var(--color-opacity));
   --link-external-color-hover: var(--link-external-color);
   --link-external-color-underline: var(
     --setting-link-external-color-underline,
     var(--link-external-color)
   );
-  --link-unresolved-color: rgba(
-    var(--link-color-rgb),
-    calc(var(--color-opacity) * 0.85)
-  );
+  --link-unresolved-color: rgba(var(--link-color-rgb), calc(var(--color-opacity) * 0.85));
   --link-unresolved-decoration-color: var(--link-unresolved-color);
   --link-footnote: var(--color-purple);
   --link-text-size: var(--font-text-size);
@@ -4555,52 +4476,38 @@ body span:is(.cm-formatting-link, .cm-formatting-link-string) {
   color: rgba(var(--color-green-rgb), 0.6) !important;
 }
 
-body:not(.link-hover-expand) :is(a.external-link,
-.cm-link .cm-underline,
-.cm-url:not(.cm-string) .cm-underline) {
+body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline) {
   transition: background-color var(--animation);
   color: rgba(var(--link-external-color-rgb), var(--color-opacity));
   border-radius: var(--radius-s);
   text-decoration-color: var(--link-external-color-underline);
   -webkit-box-decoration-break: clone;
 }
-body:not(.link-hover-expand) :is(a.external-link,
-.cm-link .cm-underline,
-.cm-url:not(.cm-string) .cm-underline):hover {
+body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline):hover {
   background-color: rgba(var(--link-external-color-rgb), 0.15);
 }
-body:not(.link-hover-expand) :is(a.external-link,
-.cm-link .cm-underline,
-.cm-url:not(.cm-string) .cm-underline):active {
+body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline):active {
   background-color: rgba(var(--link-external-color-rgb), 0.35);
 }
-body:not(.link-hover-expand) :is(a.external-link,
-.cm-link .cm-underline,
-.cm-url:not(.cm-string) .cm-underline) code {
+body:not(.link-hover-expand) :is(a.external-link, .cm-link .cm-underline, .cm-url:not(.cm-string) .cm-underline) code {
   padding-inline-end: var(--size-4-1) !important;
   background-color: transparent;
 }
-body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved),
-.cm-hmd-internal-link > .cm-underline) {
+body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline) {
   transition: background-color var(--animation);
   color: rgba(var(--link-color-rgb), var(--color-opacity));
   border-radius: var(--radius-s);
   text-decoration-color: var(--link-color-underline);
   -webkit-box-decoration-break: clone;
 }
-body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved),
-.cm-hmd-internal-link > .cm-underline):hover {
+body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):hover {
   background-color: rgba(var(--link-color-rgb), 0.15);
 }
-body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved),
-.cm-hmd-internal-link > .cm-underline):active {
+body:not(.link-hover-expand) :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):active {
   background-color: rgba(var(--link-color-rgb), 0.35);
 }
 
-span:is(.cm-url,
-.cm-link,
-.cm-hmd-internal-link,
-.cm-formatting-link.cm-url):hover {
+span:is(.cm-url, .cm-link, .cm-hmd-internal-link, .cm-formatting-link.cm-url):hover {
   text-decoration: none;
 }
 
@@ -4614,8 +4521,7 @@ body.link-hover-expand .cm-link {
 body.link-hover-expand .cm-hmd-internal-link > .cm-underline {
   --link-decoration-hover: none;
 }
-body.link-hover-expand :is(a.external-link:not(.is-unresolved),
-:is(.cm-link, .cm-url) > .cm-underline) {
+body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline) {
   font-size: var(--link-text-size);
   box-shadow: inset 0 calc(-1 * var(--size-2-1)) 0 var(--link-external-color-underline);
   text-decoration: none !important;
@@ -4623,30 +4529,19 @@ body.link-hover-expand :is(a.external-link:not(.is-unresolved),
   transition-property: box-shadow, color;
   color: var(--link-external-color) !important;
 }
-body.link-hover-expand :is(a.external-link:not(.is-unresolved),
-:is(.cm-link, .cm-url) > .cm-underline):hover, body.link-hover-expand :is(a.external-link:not(.is-unresolved),
-:is(.cm-link, .cm-url) > .cm-underline):focus {
+body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline):hover, body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline):focus {
   box-shadow: inset 0 calc(-1 * var(--font-text-size) * var(--line-height-normal)) 0 var(--link-external-color-underline);
-  --link-color: var(
-    --setting-link-internal-color-hover,
-    var(--text-on-accent)
-  );
-  --link-external-color: var(
-    --setting-link-external-color-hover,
-    var(--text-on-accent)
-  );
+  --link-color: var(--setting-link-internal-color-hover, var(--text-on-accent));
+  --link-external-color: var(--setting-link-external-color-hover, var(--text-on-accent));
 }
-body.link-hover-expand :is(a.external-link:not(.is-unresolved),
-:is(.cm-link, .cm-url) > .cm-underline) code {
+body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline) code {
   padding-inline-end: var(--size-4-1) !important;
   background-color: transparent;
 }
-body.link-hover-expand :is(a.external-link:not(.is-unresolved),
-:is(.cm-link, .cm-url) > .cm-underline):hover code {
+body.link-hover-expand :is(a.external-link:not(.is-unresolved), :is(.cm-link, .cm-url) > .cm-underline):hover code {
   color: inherit;
 }
-body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
-.cm-hmd-internal-link > .cm-underline) {
+body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline) {
   font-size: var(--link-text-size);
   box-shadow: inset 0 calc(-1 * var(--size-2-1)) 0 var(--link-color-underline);
   text-decoration: none !important;
@@ -4654,18 +4549,10 @@ body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
   transition-property: box-shadow, color;
   color: var(--link-color) !important;
 }
-body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
-.cm-hmd-internal-link > .cm-underline):hover, body.link-hover-expand :is(a.internal-link:not(.is-unresolved),
-.cm-hmd-internal-link > .cm-underline):focus {
+body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):hover, body.link-hover-expand :is(a.internal-link:not(.is-unresolved), .cm-hmd-internal-link > .cm-underline):focus {
   box-shadow: inset 0 calc(-1 * var(--font-text-size) * var(--line-height-normal)) 0 var(--link-color-underline);
-  --link-color: var(
-    --setting-link-internal-color-hover,
-    var(--text-on-accent)
-  );
-  --link-external-color: var(
-    --setting-link-external-color-hover,
-    var(--text-on-accent)
-  );
+  --link-color: var(--setting-link-internal-color-hover, var(--text-on-accent));
+  --link-external-color: var(--setting-link-external-color-hover, var(--text-on-accent));
 }
 body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   transition: color var(--animation);
@@ -4688,8 +4575,7 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   width: calc(var(--link-text-size) * 0.9);
   height: calc(var(--link-text-size) * 0.9);
 }
-.link-icon .markdown-preview-view :is(.el-pre a.internal-link:not(.is-unresolved),
-a.external-link:has(> code))::before {
+.link-icon .markdown-preview-view :is(.el-pre a.internal-link:not(.is-unresolved), a.external-link:has(> code))::before {
   content: none !important;
 }
 .link-icon:not(.link-click-to-edit-in-live-preview) :is(:is(.markdown-source-view, .markdown-preview-view) a.external-link:not(.is-resolved),
@@ -4728,21 +4614,12 @@ a.external-link:not(.is-resolved) code,
 /* #region list */
 body:is(:not(.css-settings-manager), .list-enable) {
   --list-marker-color: var(--setting-list-marker, var(--accent-active));
-  --list-marker-color-alt: var(
-    --setting-list-marker-alt,
-    var(--list-marker-color)
-  );
+  --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
   --list-marker-color-alt-render: transparent;
   --checkbox-color: var(--accent-active);
   --checkbox-marker-color: var(--text-on-accent);
-  --checkbox-border-color: var(
-    --setting-list-checkbox-color,
-    var(--accent-inactive)
-  );
-  --checkbox-border-color-hover: var(
-    --setting-list-checkbox-color-hover,
-    var(--accent-active)
-  );
+  --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
+  --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
   --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 }
 body:is(:not(.css-settings-manager), .list-enable) .cm-formatting-list {
@@ -4820,9 +4697,7 @@ body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-3 .list-bu
 body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-4 .list-bullet {
   --list-marker-color: transparent;
   --list-bullet-border: var(--list-marker-color-alt) var(--size-2-1) solid;
-  --list-bullet-size: calc(
-    calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.9 - var(--size-2-1)
-  );
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.9 - var(--size-2-1));
   --list-bullet-radius: 0;
   transform: rotate(45deg);
 }
@@ -4841,9 +4716,7 @@ body:is(:not(.css-settings-manager), .list-enable) ul.has-list-bullet > li > ul 
   transform: rotate(var(--deg));
 }
 body:is(:not(.css-settings-manager), .list-enable) ul.has-list-bullet > li > ul > li > ul > li > ul > li {
-  --list-bullet-size: calc(
-    calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.9 - var(--size-2-1)
-  );
+  --list-bullet-size: calc(calc(var(--font-text-size) / 3 + var(--size-2-1)) * 0.9 - var(--size-2-1));
   --list-marker-color: var(--list-marker-color-alt-render);
 }
 body:is(:not(.css-settings-manager), .list-enable) ul.has-list-bullet > li > ul > li > ul > li > ul > li ul > li {
@@ -4874,10 +4747,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
 /* Reference: https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1 */
 .list-enable.list-bullet-thread-style {
   --list-threading-width: max(0.1rem, var(--size-2-1));
-  --list-threading-color: var(
-    --setting-list-guide-color,
-    var(--accent-inactive)
-  );
+  --list-threading-color: var(--setting-list-guide-color, var(--accent-inactive));
 }
 .list-enable.list-bullet-thread-style .list-bullet {
   transform: none !important;
@@ -4892,77 +4762,49 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view .callou
 .list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-2.cm-active, ~ .HyperMD-list-line-2 ~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    0.4rem +
-      0 *
-      var(--list-indent) +
-      var(--list-threading-width) /
-      2
+    0.4rem + 0 * var(--list-indent) + var(--list-threading-width) / 2
   );
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-2:not(:has(~ .HyperMD-list-line-2 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-3.cm-active, ~ .HyperMD-list-line-3 ~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    0.4rem +
-      1 *
-      var(--list-indent) +
-      var(--list-threading-width) /
-      2
+    0.4rem + 1 * var(--list-indent) + var(--list-threading-width) / 2
   );
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-3:not(:has(~ .HyperMD-list-line-3 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-4.cm-active, ~ .HyperMD-list-line-4 ~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    0.4rem +
-      2 *
-      var(--list-indent) +
-      var(--list-threading-width) /
-      2
+    0.4rem + 2 * var(--list-indent) + var(--list-threading-width) / 2
   );
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-4:not(:has(~ .HyperMD-list-line-4 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-5.cm-active, ~ .HyperMD-list-line-5 ~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    0.4rem +
-      3 *
-      var(--list-indent) +
-      var(--list-threading-width) /
-      2
+    0.4rem + 3 * var(--list-indent) + var(--list-threading-width) / 2
   );
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-5:not(:has(~ .HyperMD-list-line-5 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-6.cm-active, ~ .HyperMD-list-line-6 ~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    0.4rem +
-      4 *
-      var(--list-indent) +
-      var(--list-threading-width) /
-      2
+    0.4rem + 4 * var(--list-indent) + var(--list-threading-width) / 2
   );
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-6:not(:has(~ .HyperMD-list-line-6 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-7.cm-active, ~ .HyperMD-list-line-7 ~ :is(.HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):is(.cm-active, :has(~ :is(.HyperMD-list-line-8).cm-active)) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    0.4rem +
-      5 *
-      var(--list-indent) +
-      var(--list-threading-width) /
-      2
+    0.4rem + 5 * var(--list-indent) + var(--list-threading-width) / 2
   );
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)):has(~ :is(.HyperMD-list-line-8).cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-7:not(:has(~ .HyperMD-list-line-7 ~ .HyperMD-list-line.cm-active)) ~ .HyperMD-list-line:has(~ .HyperMD-list-line-8.cm-active)::after,
 .list-enable.list-bullet-thread-style .HyperMD-list-line-8:not(:has(~ .HyperMD-list-line-8 ~ .HyperMD-list-line.cm-active)):is(.cm-active) > .cm-hmd-list-indent::after {
   --list-threading-offset: calc(
-    0.4rem +
-      6 *
-      var(--list-indent) +
-      var(--list-threading-width) /
-      2
+    0.4rem + 6 * var(--list-indent) + var(--list-threading-width) / 2
   );
 }
 .list-enable.list-bullet-thread-style .HyperMD-list-line-1:not(:has(~ .HyperMD-list-line-1 ~ .HyperMD-list-line.cm-active)):not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol)):has(~ :is(.HyperMD-list-line-2, .HyperMD-list-line-3, .HyperMD-list-line-4, .HyperMD-list-line-5, .HyperMD-list-line-6, .HyperMD-list-line-7, .HyperMD-list-line-8).cm-active)::after {
@@ -5511,14 +5353,12 @@ body .HyperMD-quote {
 body .HyperMD-quote::before {
   width: 0 !important;
 }
-body :is(.HyperMD-quote:first-child,
-.cm-sizer > div > div > *:not(.HyperMD-quote) + .HyperMD-quote) {
+body :is(.HyperMD-quote:first-child, .cm-sizer > div > div > *:not(.HyperMD-quote) + .HyperMD-quote) {
   border-top-width: var(--size-4-2);
   border-start-start-radius: var(--blockquote-border-thickness);
   border-start-end-radius: var(--blockquote-border-thickness);
 }
-body :is(.HyperMD-quote:first-child,
-.cm-sizer > div > div > *:not(.HyperMD-quote) + .HyperMD-quote)::before {
+body :is(.HyperMD-quote:first-child, .cm-sizer > div > div > *:not(.HyperMD-quote) + .HyperMD-quote)::before {
   border-start-start-radius: var(--blockquote-border-thickness);
   border-start-end-radius: var(--blockquote-border-thickness);
 }
@@ -5576,13 +5416,11 @@ body :is(.HyperMD-quote:last-child,
 
 /* #endregion quote */
 /* #region table */
-body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) {
+body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) {
   --table-white-space: break-all;
   width: 100%;
 }
-body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
-.markdown-rendered table) .table-editor {
+body:is(:not(.css-settings-manager), .table-full) :is(.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, .markdown-rendered table) .table-editor {
   width: 100%;
 }
 
@@ -5622,10 +5460,7 @@ body .table-drag-target::after {
 
 .table-style-colorful {
   --table-background: var(--background-primary-alt);
-  --table-header-background: var(
-    --setting-table-header-text,
-    var(--accent-active-bg)
-  );
+  --table-header-background: var(--setting-table-header-text, var(--accent-active-bg));
   --table-row-alt-background: var(--bg-editor);
   --table-row-alt-background-hover: var(--bg-editor);
   --table-column-alt-background: inherit;
@@ -5676,9 +5511,7 @@ body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) tr:
 body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .table-wrapper:has(.table-row-btn:hover) tr:last-child td {
   border-radius: 0 !important;
 }
-body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .table-wrapper:has(.table-col-btn:hover) :is(tr:last-child td:last-child,
-th:last-child,
-th:last-child .table-cell-wrapper) {
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .table-wrapper:has(.table-col-btn:hover) :is(tr:last-child td:last-child, th:last-child, th:last-child .table-cell-wrapper) {
   border-radius: 0;
 }
 
@@ -5707,10 +5540,7 @@ th:last-child .table-cell-wrapper) {
 .markdown-source-view.mod-cm6 .cm-table-widget .table-cell-wrapper:has(.is-live-preview .image-embed) [class=cm-line] {
   display: none;
 }
-.markdown-source-view.mod-cm6 .cm-table-widget :is(.table-row-btn,
-.table-col-btn,
-.table-row-drag-handle,
-.table-col-drag-handle) {
+.markdown-source-view.mod-cm6 .cm-table-widget :is(.table-row-btn, .table-col-btn, .table-row-drag-handle, .table-col-drag-handle) {
   transition: opacity var(--animation-fast);
 }
 .markdown-source-view.mod-cm6 .cm-table-widget .table-row-btn {
@@ -5797,39 +5627,27 @@ body {
 /* #endregion tag */
 /* #region heading */
 body {
-  --h1-size: calc(
-    var(--font-text-size) * var(--setting-h1-size, 1.6)
-  );
+  --h1-size: calc(var(--font-text-size) * var(--setting-h1-size, 1.6));
   --h1-weight: var(--setting-h1-weight, 750);
   --h1-font: var(--setting-h1-font, var(--font-text));
   --h1-line-height: calc(var(--line-height-normal) * var(--h1-size));
-  --h2-size: calc(
-    var(--font-text-size) * var(--setting-h2-size, 1.5)
-  );
+  --h2-size: calc(var(--font-text-size) * var(--setting-h2-size, 1.5));
   --h2-weight: var(--setting-h2-weight, 700);
   --h2-font: var(--setting-h2-font, var(--font-text));
   --h2-line-height: calc(var(--line-height-normal) * var(--h2-size));
-  --h3-size: calc(
-    var(--font-text-size) * var(--setting-h3-size, 1.4)
-  );
+  --h3-size: calc(var(--font-text-size) * var(--setting-h3-size, 1.4));
   --h3-weight: var(--setting-h3-weight, 600);
   --h3-font: var(--setting-h3-font, var(--font-text));
   --h3-line-height: calc(var(--line-height-normal) * var(--h3-size));
-  --h4-size: calc(
-    var(--font-text-size) * var(--setting-h4-size, 1.3)
-  );
+  --h4-size: calc(var(--font-text-size) * var(--setting-h4-size, 1.3));
   --h4-weight: var(--setting-h4-weight, 550);
   --h4-font: var(--setting-h4-font, var(--font-text));
   --h4-line-height: calc(var(--line-height-normal) * var(--h4-size));
-  --h5-size: calc(
-    var(--font-text-size) * var(--setting-h5-size, 1.2)
-  );
+  --h5-size: calc(var(--font-text-size) * var(--setting-h5-size, 1.2));
   --h5-weight: var(--setting-h5-weight, 550);
   --h5-font: var(--setting-h5-font, var(--font-text));
   --h5-line-height: calc(var(--line-height-normal) * var(--h5-size));
-  --h6-size: calc(
-    var(--font-text-size) * var(--setting-h6-size, 1.1)
-  );
+  --h6-size: calc(var(--font-text-size) * var(--setting-h6-size, 1.1));
   --h6-weight: var(--setting-h6-weight, 500);
   --h6-font: var(--setting-h6-font, var(--font-text));
   --h6-line-height: calc(var(--line-height-normal) * var(--h6-size));
@@ -6090,33 +5908,27 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   color: var(--h6-color) !important;
 }
 
-.heading-h1-underline :is(.HyperMD-header-1 .cm-header:not(.cm-formatting),
-.markdown-rendered h1) {
+.heading-h1-underline :is(.HyperMD-header-1 .cm-header:not(.cm-formatting), .markdown-rendered h1) {
   text-decoration: underline var(--size-2-1);
 }
 
-.heading-h2-underline :is(.HyperMD-header-2 .cm-header:not(.cm-formatting),
-.markdown-rendered h2) {
+.heading-h2-underline :is(.HyperMD-header-2 .cm-header:not(.cm-formatting), .markdown-rendered h2) {
   text-decoration: underline var(--size-2-1);
 }
 
-.heading-h3-underline :is(.HyperMD-header-3 .cm-header:not(.cm-formatting),
-.markdown-rendered h3) {
+.heading-h3-underline :is(.HyperMD-header-3 .cm-header:not(.cm-formatting), .markdown-rendered h3) {
   text-decoration: underline var(--size-2-1);
 }
 
-.heading-h4-underline :is(.HyperMD-header-4 .cm-header:not(.cm-formatting),
-.markdown-rendered h4) {
+.heading-h4-underline :is(.HyperMD-header-4 .cm-header:not(.cm-formatting), .markdown-rendered h4) {
   text-decoration: underline var(--size-2-1);
 }
 
-.heading-h5-underline :is(.HyperMD-header-5 .cm-header:not(.cm-formatting),
-.markdown-rendered h5) {
+.heading-h5-underline :is(.HyperMD-header-5 .cm-header:not(.cm-formatting), .markdown-rendered h5) {
   text-decoration: underline var(--size-2-1);
 }
 
-.heading-h6-underline :is(.HyperMD-header-6 .cm-header:not(.cm-formatting),
-.markdown-rendered h6) {
+.heading-h6-underline :is(.HyperMD-header-6 .cm-header:not(.cm-formatting), .markdown-rendered h6) {
   text-decoration: underline var(--size-2-1);
 }
 
@@ -6133,18 +5945,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   border-radius: var(--size-2-1);
 }
 .heading-h1-full-line.heading-h1-full-line-left {
-  --heading-h1-full-line-bg: linear-gradient(
-    to right,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h1-full-line-bg: linear-gradient(to right, currentColor 10%, transparent 90%);
 }
 .heading-h1-full-line.heading-h1-full-line-right {
-  --heading-h1-full-line-bg: linear-gradient(
-    to left,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h1-full-line-bg: linear-gradient(to left, currentColor 10%, transparent 90%);
 }
 
 .heading-h2-full-line :is(.HyperMD-header-2, .markdown-rendered h2) {
@@ -6160,18 +5964,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   border-radius: var(--size-2-1);
 }
 .heading-h2-full-line.heading-h2-full-line-left {
-  --heading-h2-full-line-bg: linear-gradient(
-    to right,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h2-full-line-bg: linear-gradient(to right, currentColor 10%, transparent 90%);
 }
 .heading-h2-full-line.heading-h2-full-line-right {
-  --heading-h2-full-line-bg: linear-gradient(
-    to left,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h2-full-line-bg: linear-gradient(to left, currentColor 10%, transparent 90%);
 }
 
 .heading-h3-full-line :is(.HyperMD-header-3, .markdown-rendered h3) {
@@ -6187,18 +5983,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   border-radius: var(--size-2-1);
 }
 .heading-h3-full-line.heading-h3-full-line-left {
-  --heading-h3-full-line-bg: linear-gradient(
-    to right,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h3-full-line-bg: linear-gradient(to right, currentColor 10%, transparent 90%);
 }
 .heading-h3-full-line.heading-h3-full-line-right {
-  --heading-h3-full-line-bg: linear-gradient(
-    to left,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h3-full-line-bg: linear-gradient(to left, currentColor 10%, transparent 90%);
 }
 
 .heading-h4-full-line :is(.HyperMD-header-4, .markdown-rendered h4) {
@@ -6214,18 +6002,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   border-radius: var(--size-2-1);
 }
 .heading-h4-full-line.heading-h4-full-line-left {
-  --heading-h4-full-line-bg: linear-gradient(
-    to right,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h4-full-line-bg: linear-gradient(to right, currentColor 10%, transparent 90%);
 }
 .heading-h4-full-line.heading-h4-full-line-right {
-  --heading-h4-full-line-bg: linear-gradient(
-    to left,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h4-full-line-bg: linear-gradient(to left, currentColor 10%, transparent 90%);
 }
 
 .heading-h5-full-line :is(.HyperMD-header-5, .markdown-rendered h5) {
@@ -6241,18 +6021,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   border-radius: var(--size-2-1);
 }
 .heading-h5-full-line.heading-h5-full-line-left {
-  --heading-h5-full-line-bg: linear-gradient(
-    to right,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h5-full-line-bg: linear-gradient(to right, currentColor 10%, transparent 90%);
 }
 .heading-h5-full-line.heading-h5-full-line-right {
-  --heading-h5-full-line-bg: linear-gradient(
-    to left,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h5-full-line-bg: linear-gradient(to left, currentColor 10%, transparent 90%);
 }
 
 .heading-h6-full-line :is(.HyperMD-header-6, .markdown-rendered h6) {
@@ -6268,18 +6040,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   border-radius: var(--size-2-1);
 }
 .heading-h6-full-line.heading-h6-full-line-left {
-  --heading-h6-full-line-bg: linear-gradient(
-    to right,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h6-full-line-bg: linear-gradient(to right, currentColor 10%, transparent 90%);
 }
 .heading-h6-full-line.heading-h6-full-line-right {
-  --heading-h6-full-line-bg: linear-gradient(
-    to left,
-    currentColor 10%,
-    transparent 90%
-  );
+  --heading-h6-full-line-bg: linear-gradient(to left, currentColor 10%, transparent 90%);
 }
 
 .heading-h1-block.heading-color-base {
@@ -6299,20 +6063,17 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h1-block.heading-h1-block-contrast {
   --h1-color-bg: rgba(var(--h1-color-rgb));
 }
-.heading-h1-block.heading-h1-block-contrast :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h1) {
+.heading-h1-block.heading-h1-block-contrast :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), .markdown-rendered h1) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h1) {
+.heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), .markdown-rendered h1) {
   background-color: var(--h1-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h1)::selection {
+.heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), .markdown-rendered h1)::selection {
   color: var(--h1-color);
   background-color: var(--background-secondary);
 }
@@ -6343,20 +6104,17 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h2-block.heading-h2-block-contrast {
   --h2-color-bg: rgba(var(--h2-color-rgb));
 }
-.heading-h2-block.heading-h2-block-contrast :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h2) {
+.heading-h2-block.heading-h2-block-contrast :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), .markdown-rendered h2) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h2) {
+.heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), .markdown-rendered h2) {
   background-color: var(--h2-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h2)::selection {
+.heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), .markdown-rendered h2)::selection {
   color: var(--h2-color);
   background-color: var(--background-secondary);
 }
@@ -6387,20 +6145,17 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h3-block.heading-h3-block-contrast {
   --h3-color-bg: rgba(var(--h3-color-rgb));
 }
-.heading-h3-block.heading-h3-block-contrast :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h3) {
+.heading-h3-block.heading-h3-block-contrast :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), .markdown-rendered h3) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h3) {
+.heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), .markdown-rendered h3) {
   background-color: var(--h3-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h3)::selection {
+.heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), .markdown-rendered h3)::selection {
   color: var(--h3-color);
   background-color: var(--background-secondary);
 }
@@ -6431,20 +6186,17 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h4-block.heading-h4-block-contrast {
   --h4-color-bg: rgba(var(--h4-color-rgb));
 }
-.heading-h4-block.heading-h4-block-contrast :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h4) {
+.heading-h4-block.heading-h4-block-contrast :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), .markdown-rendered h4) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h4) {
+.heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), .markdown-rendered h4) {
   background-color: var(--h4-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h4)::selection {
+.heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), .markdown-rendered h4)::selection {
   color: var(--h4-color);
   background-color: var(--background-secondary);
 }
@@ -6475,20 +6227,17 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h5-block.heading-h5-block-contrast {
   --h5-color-bg: rgba(var(--h5-color-rgb));
 }
-.heading-h5-block.heading-h5-block-contrast :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h5) {
+.heading-h5-block.heading-h5-block-contrast :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), .markdown-rendered h5) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h5) {
+.heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), .markdown-rendered h5) {
   background-color: var(--h5-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h5)::selection {
+.heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), .markdown-rendered h5)::selection {
   color: var(--h5-color);
   background-color: var(--background-secondary);
 }
@@ -6519,20 +6268,17 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
 .heading-h6-block.heading-h6-block-contrast {
   --h6-color-bg: rgba(var(--h6-color-rgb));
 }
-.heading-h6-block.heading-h6-block-contrast :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h6) {
+.heading-h6-block.heading-h6-block-contrast :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), .markdown-rendered h6) {
   color: var(--text-on-accent);
   caret-color: currentColor;
 }
-.heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h6) {
+.heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), .markdown-rendered h6) {
   background-color: var(--h6-color-bg);
   padding: var(--size-4-1) 0.6rem;
   border-radius: var(--size-2-3);
   -webkit-box-decoration-break: clone;
 }
-.heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header),
-.markdown-rendered h6)::selection {
+.heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), .markdown-rendered h6)::selection {
   color: var(--h6-color);
   background-color: var(--background-secondary);
 }
@@ -7364,9 +7110,7 @@ body:is(:not(.css-settings-manager), .modal-control-gradient) .checkbox-containe
   --toggle-thumb-width: calc(var(--input-height) / 2);
   --toggle-thumb-height: var(--toggle-thumb-width);
   --toggle-thumb-radius: calc(var(--toggle-thumb-width) / 3);
-  --toggle-radius: calc(
-    var(--toggle-s-thumb-radius) + var(--toggle-border-width) / 2
-  );
+  --toggle-radius: calc(var(--toggle-s-thumb-radius) + var(--toggle-border-width) / 2);
   --toggle-s-border-width: var(--toggle-border-width);
   --toggle-s-thumb-radius: var(--toggle-thumb-radius);
   --toggle-s-thumb-width: var(--toggle-thumb-width);
@@ -7854,10 +7598,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-tab-header-inner
   }
 }
 body {
-  --tab-stacked-header-width: var(
-    --setting-tab-stack-header-width,
-    var(--header-height)
-  );
+  --tab-stacked-header-width: var(--setting-tab-stack-header-width, var(--header-height));
 }
 
 body:is(:not(.css-settings-manager), .tab-float) {
@@ -8044,10 +7785,7 @@ body.message-tooltip-hide-arrow .tooltip-arrow {
 }
 
 body.message-modify {
-  --background-modifier-message: var(
-    --setting-message-bg,
-    var(--accent-active-bg)
-  ) !important;
+  --background-modifier-message: var(--setting-message-bg, var(--accent-active-bg)) !important;
 }
 body.message-modify :is(.tooltip, .notice) {
   color: var(--setting-message-fg, var(--text-on-accent));
@@ -8231,10 +7969,7 @@ body.message-modify .notice.is-loading::before {
 /* #region graph */
 body {
   --graph-node: var(--setting-graph-node, var(--text-muted));
-  --graph-node-unresolved: var(
-    --setting-graph-node-unresolved,
-    var(--text-faint)
-  );
+  --graph-node-unresolved: var(--setting-graph-node-unresolved, var(--text-faint));
   --graph-node-focused: var(--setting-graph-node-focus, var(--accent-active));
 }
 
@@ -8247,10 +7982,7 @@ body {
 /* #region outline */
 body {
   --outline-guideline-width: var(--setting-outline-width, 2px);
-  --outline-guideline-color: var(
-    --settingoutline-line-color,
-    var(--accent-inactive)
-  );
+  --outline-guideline-color: var(--settingoutline-line-color, var(--accent-inactive));
   --outline-guideline-color-alt: var(--outline-dot-color, var(--accent-active));
   --outline-item-height: calc(var(--nav-item-size) * 1.8);
 }

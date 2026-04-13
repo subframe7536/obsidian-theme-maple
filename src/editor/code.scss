@@ -181,9 +181,7 @@ body .markdown-rendered pre {
 .code-nowrap {
   &.scrollbar-gutter-overlay {
     &:not(.code-mac-style-header) .app-container div pre {
-      padding-bottom: calc(
-        var(--code-size) * var(--line-height-normal) * 0.8
-      ) !important;
+      padding-bottom: calc(var(--code-size) * var(--line-height-normal) * 0.8) !important;
     }
 
     pre code {
@@ -206,36 +204,29 @@ body .markdown-rendered pre {
 
 /* https://prismjs.com/#supported-languages */
 @include use-no-plugin('.code-language') {
-  $language: Markup, HTML, XML, SVG, MathML, SSML, Atom, RSS, CSS,
-    (JavaScript, js), (Typescript, ts), JSX, (TypeScript-JSX, tsx), Ada, Apex,
-    AppleScript, AQL, (Arduino, ino), (ArmAsm, arm-asm), (AsciiDoc, adoc),
-    AspNet, Asm6502, AutoHotKey, (AWK, gawk), (bash, sh, shell), basic, batch,
-    Bison, C, ('C\\#', csharp, cs, dotnet), ('C\\+\\+', cpp), Clojure, CMake,
-    COBOL, (CoffeeScript, coffee), CSP, Crystal, CSV, CUE, D, Dart, Diff, Django,
-    Jinja2, Docker, Dockerfile, EBNF, EditorConfig, EJS, Elixir, Elm, ERB,
-    (Excel-Formula, xlsx, xls), ('F\\#', fsharp), Flow, Fortran, GDScript, Git,
-    GLSL, Go, (Go-Module, go-mod), Gradle, GraphQL, Groovy, HAML,
-    (Handlebars, hbs, mustache), (Haskell, hs), HCL, HLSL, HTTP, Icon,
-    ICU-Message-Format, gitignore, Ini, Java, JavaDoc, JQ, JSDoc, JSON, JSON5,
-    JSONP, Julia, (Kotlin, kt, kts), (Latex, tex), Less, Liquid,
-    (Lisp, emacs, elisp, emacs-lisp), LLVM, Log, Lua, Makefile, (Markdown, md),
-    MATLAB, Mermaid, MongoDB, Monkey, Neon, Nginx, Nim, Nix, NSIS,
-    (ObjectC, objc), OCaml, odin, OpenCL, Pascal, Perl, PHP, PHPDoc, PowerShell,
-    Properties, ProtoBuf, Pug, (Python, py), QML, R, Regex, (ReScript, res), Rip,
-    (Ruby, rb), (Rust, rs), Sass, Scss, Scala, Solidity, SQL, stylus, Swift, TCL,
-    TOML, (URI, url), (UnrealScript, uscript, uc), V, VBNet, Velocity, VHDL, Vim,
-    (Visual-Basic, vb, vba), WASM, WGSL, WIKI, Wren, (YAML, yml), Zig;
+  $language:
+    Markup, HTML, XML, SVG, MathML, SSML, Atom, RSS, CSS, (JavaScript, js), (Typescript, ts), JSX,
+    (TypeScript-JSX, tsx), Ada, Apex, AppleScript, AQL, (Arduino, ino), (ArmAsm, arm-asm),
+    (AsciiDoc, adoc), AspNet, Asm6502, AutoHotKey, (AWK, gawk), (bash, sh, shell), basic, batch,
+    Bison, C, ('C\\#', csharp, cs, dotnet), ('C\\+\\+', cpp), Clojure, CMake, COBOL,
+    (CoffeeScript, coffee), CSP, Crystal, CSV, CUE, D, Dart, Diff, Django, Jinja2, Docker,
+    Dockerfile, EBNF, EditorConfig, EJS, Elixir, Elm, ERB, (Excel-Formula, xlsx, xls),
+    ('F\\#', fsharp), Flow, Fortran, GDScript, Git, GLSL, Go, (Go-Module, go-mod), Gradle, GraphQL,
+    Groovy, HAML, (Handlebars, hbs, mustache), (Haskell, hs), HCL, HLSL, HTTP, Icon,
+    ICU-Message-Format, gitignore, Ini, Java, JavaDoc, JQ, JSDoc, JSON, JSON5, JSONP, Julia,
+    (Kotlin, kt, kts), (Latex, tex), Less, Liquid, (Lisp, emacs, elisp, emacs-lisp), LLVM, Log, Lua,
+    Makefile, (Markdown, md), MATLAB, Mermaid, MongoDB, Monkey, Neon, Nginx, Nim, Nix, NSIS,
+    (ObjectC, objc), OCaml, odin, OpenCL, Pascal, Perl, PHP, PHPDoc, PowerShell, Properties,
+    ProtoBuf, Pug, (Python, py), QML, R, Regex, (ReScript, res), Rip, (Ruby, rb), (Rust, rs), Sass,
+    Scss, Scala, Solidity, SQL, stylus, Swift, TCL, TOML, (URI, url), (UnrealScript, uscript, uc),
+    V, VBNet, Velocity, VHDL, Vim, (Visual-Basic, vb, vba), WASM, WGSL, WIKI, Wren, (YAML, yml), Zig;
 
   @each $lan in $language {
     @if meta.type-of($lan) == list {
       $name: list.nth($lan, 1);
       $aliases: ();
       @each $l in $lan {
-        $aliases: list.append(
-          $aliases,
-          '.language-' + string.to-lower-case($l),
-          comma
-        );
+        $aliases: list.append($aliases, '.language-' + string.to-lower-case($l), comma);
       }
       pre:is(#{$aliases}) {
         --code-lang: '#{unescape($name)}';
@@ -294,15 +285,7 @@ body .markdown-rendered pre {
     &:is(.class-name, .maybe-class-name, .color) {
       color: var(--code-class);
     }
-    &:is(
-        .property-access,
-        .attr-name,
-        .annotation,
-        .key,
-        .entity,
-        .parameter,
-        .url
-      ) {
+    &:is(.property-access, .attr-name, .annotation, .key, .entity, .parameter, .url) {
       color: var(--code-variable);
     }
     &:is(.comment, .prolog, .doctype, .cdata) {
@@ -322,22 +305,11 @@ body .markdown-rendered pre {
     color: var(--code-value);
   }
 
-  :is(
-      .cm-qualifier,
-      .cm-string:not(.cm-url),
-      .cm-string-2,
-      .cm-meta:not(.cm-hashtag)
-    ) {
+  :is(.cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta:not(.cm-hashtag)) {
     color: var(--code-string);
   }
 
-  :is(
-      .cm-def,
-      .cm-property,
-      .cm-number + .cm-variable,
-      .cm-attribute,
-      .cm-atom
-    ) {
+  :is(.cm-def, .cm-property, .cm-number + .cm-variable, .cm-attribute, .cm-atom) {
     color: var(--code-property);
   }
 
@@ -407,10 +379,9 @@ body .markdown-rendered pre {
       border-radius: 50%;
       z-index: 9;
       background-color: rgba(255, 94, 92, var(--color-opacity));
-      box-shadow: calc(var(--mac-header-height) * 0.6) 0 0 0
-          rgba(255, 187, 78, var(--color-opacity)),
-        calc(var(--mac-header-height) * 1.2) 0 0 0
-          rgba(81, 188, 0, var(--color-opacity));
+      box-shadow:
+        calc(var(--mac-header-height) * 0.6) 0 0 0 rgba(255, 187, 78, var(--color-opacity)),
+        calc(var(--mac-header-height) * 1.2) 0 0 0 rgba(81, 188, 0, var(--color-opacity));
     }
 
     .copy-code-button {

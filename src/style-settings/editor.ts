@@ -754,13 +754,10 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
           en: 'Logseq Bullet Thread Style List',
           zh: 'Logseq Bullet Thread 样式的列表',
         },
-        desc: descReference(
-          'https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1',
-          {
-            en: 'Only support bullet list in Live Preview mode',
-            zh: '仅支持实时预览模式中的无序列表',
-          },
-        ),
+        desc: descReference('https://gist.github.com/KillyMXI/cbef8edff6dd55d9e6ea4df66567e9b1', {
+          en: 'Only support bullet list in Live Preview mode',
+          zh: '仅支持实时预览模式中的无序列表',
+        }),
       },
       { enable: true },
     )

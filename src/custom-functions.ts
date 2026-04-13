@@ -1,10 +1,12 @@
-import { readdirSync, readFileSync } from 'fs'
-import { SassString, type CustomFunction } from 'sass'
-import { version } from '../package.json'
+import { readdirSync, readFileSync } from 'node:fs'
 
-import { icons as lucide } from '@iconify-json/lucide'
 import { icons as bootstrap } from '@iconify-json/bi'
+import { icons as lucide } from '@iconify-json/lucide'
 import { icons as tabler } from '@iconify-json/tabler'
+import { SassString } from 'sass'
+import type { CustomFunction } from 'sass'
+
+import { version } from '../package.json'
 
 const resourceDir = 'resource'
 
@@ -20,7 +22,7 @@ function getIconUrl(name: string, color?: string) {
       .replace(/\s+/g, ' ')
       .replace(/> </g, '><')
 
-    return 'url("data:image/svg+xml,' + svg + '")'
+    return `url("data:image/svg+xml,${svg}")`
   }
 
   let data
@@ -39,7 +41,7 @@ function getIconUrl(name: string, color?: string) {
   const fileIcons = readdirSync(fileIconDir)
   if (!data) {
     if (fileIcons.some((i) => i.startsWith(name))) {
-      const svg = readFileSync(fileIconDir + '/' + name + '.svg', 'utf-8')
+      const svg = readFileSync(`${fileIconDir}/${name}.svg`, 'utf-8')
       return parseSvgUrl(svg, color)
     }
     throw new Error(`No such icon: ${name}`)
@@ -56,25 +58,20 @@ export const FUNCTIONS: Record<string, CustomFunction<'sync'>> = {
     return new SassString(`Maple ${version}`)
   },
   'unescape($str)': ([str]) => {
-    return new SassString(str.assertString().text.replace(/\\/g, ''))
+    return new SassString(str!.assertString().text.replace(/\\/g, ''))
   },
   'icon($icon-name, $color: "")': ([name, color]) => {
-    return new SassString(
-      getIconUrl(name.assertString().text, color.assertString().text),
-      {
-        quotes: false,
-      },
-    )
+    return new SassString(getIconUrl(name!.assertString().text, color!.assertString().text), {
+      quotes: false,
+    })
   },
   'font($style)': ([name]) => {
-    const styleVar = name.assertString().text
+    const styleVar = name!.assertString().text
     const style = styleVar.charAt(0).toUpperCase() + styleVar.slice(1)
     if (style !== 'Regular' && style !== 'Italic') {
       throw new Error('style must be regular or italic')
     }
-    const source = readFileSync(
-      `${resourceDir}/font/MapleMono-${style}.woff2`,
-    ).toBase64()
+    const source = readFileSync(`${resourceDir}/font/MapleMono-${style}.woff2`).toBase64()
     return new SassString(`url("data:font/woff2;base64,${source}")`, {
       quotes: false,
     })

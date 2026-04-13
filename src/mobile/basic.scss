@@ -21,9 +21,7 @@
 }
 
 body.is-tablet {
-  .modal-container
-    .modal-sidebar:not(:has(+ .community-modal-details))
-    .community-modal-controls {
+  .modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls {
     padding-inline-end: var(--size-4-10);
   }
 }

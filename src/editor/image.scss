@@ -59,10 +59,10 @@ img {
 body.image-zoom:not(.is-mobile) {
   @include use-panel('markdown') {
     :is(
-        .image-embed:not(.canvas-node-content),
-        img[referrerpolicy='no-referrer'],
-        .cm-content > img
-      ) {
+      .image-embed:not(.canvas-node-content),
+      img[referrerpolicy='no-referrer'],
+      .cm-content > img
+    ) {
       cursor: zoom-in;
     }
   }

@@ -87,8 +87,7 @@ body {
   --file-line-width: var(--setting-file-line-width, clamp(600px, 72%, 820px));
 }
 
-.markdown-source-view.mod-cm6.is-readable-line-width
-  :is(.cm-content, .cm-line) {
+.markdown-source-view.mod-cm6.is-readable-line-width :is(.cm-content, .cm-line) {
   max-width: 100%;
 }
 
@@ -120,10 +119,7 @@ body {
 }
 
 @include use-no-plugin('.line-active-enable') {
-  .workspace-leaf.mod-active
-    .markdown-source-view
-    .cm-scroller
-    .cm-line.cm-active {
+  .workspace-leaf.mod-active .markdown-source-view .cm-scroller .cm-line.cm-active {
     background-color: hsl(var(--active-line));
   }
   .table-cell-wrapper .cm-line.cm-active {
@@ -169,29 +165,12 @@ body.line-indicator-enable {
   }
 
   :is(
-      .markdown-reading-view
-        .markdown-preview-sizer
-        > div:not(
-          :has(
-              :is(
-                  .collapse-indicator,
-                  hr,
-                  pre,
-                  blockquote,
-                  table,
-                  p img,
-                  audio,
-                  video
-                )
-            )
-        ),
-      .markdown-source-view
-        .cm-line:not(
-          .HyperMD-header,
-          .HyperMD-quote,
-          .HyperMD-list-line-1:has(.collapse-indicator)
-        )
-    ) {
+    .markdown-reading-view
+      .markdown-preview-sizer
+      > div:not(:has(:is(.collapse-indicator, hr, pre, blockquote, table, p img, audio, video))),
+    .markdown-source-view
+      .cm-line:not(.HyperMD-header, .HyperMD-quote, .HyperMD-list-line-1:has(.collapse-indicator))
+  ) {
     &::after {
       content: '';
       width: var(--size-4-1);
@@ -280,14 +259,10 @@ mark {
 }
 
 body {
-  --text-highlight-bg: var(
-    --setting-text-highlight-bg,
-    rgba(var(--color-yellow-rgb), 0.3)
-  );
+  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(var(--color-yellow-rgb), 0.3));
 }
 
-.text-highlight-all-round
-  :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
+.text-highlight-all-round :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
   -webkit-box-decoration-break: clone;
   box-decoration-break: ignore;
 }
@@ -300,10 +275,7 @@ body {
 }
 
 .markdown-source-view {
-  :is(
-      :not(.cm-highlight) + .cm-formatting-highlight,
-      .cm-formatting-highlight:first-child
-    ) {
+  :is(:not(.cm-highlight) + .cm-formatting-highlight, .cm-formatting-highlight:first-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     margin-right: 0;

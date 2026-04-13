@@ -5,21 +5,14 @@ body {
   --grid-spacing: var(--setting-editor-bg-grid-spacing, var(--size-4-5));
 }
 
-:is(
-  .markdown-reading-view .markdown-rendered,
-  .markdown-source-view.mod-cm6 .cm-scroller
-) {
+:is(.markdown-reading-view .markdown-rendered, .markdown-source-view.mod-cm6 .cm-scroller) {
   :is(.editor-bg-grid-dots, .editor-bg-grid-line) & {
     background-size: var(--grid-spacing) var(--grid-spacing);
     background-position: center center;
   }
 
   .editor-bg-grid-dots & {
-    background-image: radial-gradient(
-      circle,
-      var(--grid-dots-color) 1px,
-      var(--bg-editor) 1px
-    );
+    background-image: radial-gradient(circle, var(--grid-dots-color) 1px, var(--bg-editor) 1px);
   }
 
   .editor-bg-grid-line & {

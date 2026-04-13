@@ -8,8 +8,8 @@
     $mark: ($mark);
   }
   @each $single-mark in $mark {
-    $l: "input[data-task='#{$single-mark}']",
-      "li[data-task='#{$single-mark}'] > input",
+    $l:
+      "input[data-task='#{$single-mark}']", "li[data-task='#{$single-mark}'] > input",
       "li[data-task='#{$single-mark}'] > p > input";
     $result: list.append($result, $l, 'comma');
   }
@@ -23,11 +23,7 @@
     border: none;
     &::after {
       inset: 0 !important;
-      @include use-icon(
-        $icon-name,
-        var(--background-primary),
-        var(--checkbox-size)
-      );
+      @include use-icon($icon-name, var(--background-primary), var(--checkbox-size));
     }
   }
 }
@@ -50,16 +46,8 @@
   @include create-symbol-override('/', 'bi:circle-half', var(--color-yellow));
   @include create-symbol-override('a', 'bi:alarm-fill', var(--color-orange));
   @include create-symbol-override('B', 'bi:bug-fill', var(--color-purple));
-  @include create-symbol-override(
-    '<',
-    'bi:calendar-plus-fill',
-    var(--color-base-60)
-  );
-  @include create-symbol-override(
-    '>',
-    'tb:arrow-big-right-filled',
-    var(--color-cyan)
-  );
+  @include create-symbol-override('<', 'bi:calendar-plus-fill', var(--color-base-60));
+  @include create-symbol-override('>', 'tb:arrow-big-right-filled', var(--color-cyan));
   @include create-symbol('R', 'tb:letter-r', var(--color-blue));
   @include create-symbol('-', 'bi:dash', var(--color-base-60));
   [data-task='-'] {
@@ -69,27 +57,11 @@
   @include create-symbol-override('I', 'tb:bulb-filled', var(--color-yellow));
   @include create-symbol-override('l', 'tb:map-pin-filled', var(--color-red));
   @include create-symbol-override('b', 'bi:bookmark-fill', var(--color-blue));
-  @include create-symbol-override(
-    ('n', 'N'),
-    'bi:file-earmark-text-fill',
-    var(--color-cyan)
-  );
-  @include create-symbol-override(
-    ('P', 'p'),
-    'tb:thumb-up-filled',
-    var(--color-green)
-  );
-  @include create-symbol-override(
-    ('C', 'c'),
-    'tb:thumb-down-filled',
-    var(--color-red)
-  );
+  @include create-symbol-override(('n', 'N'), 'bi:file-earmark-text-fill', var(--color-cyan));
+  @include create-symbol-override(('P', 'p'), 'tb:thumb-up-filled', var(--color-green));
+  @include create-symbol-override(('C', 'c'), 'tb:thumb-down-filled', var(--color-red));
   @include create-symbol-override(('“', '"'), 'bi:quote', var(--color-purple));
-  @include create-symbol-override(
-    ('W', 'w'),
-    'tb:trophy-filled',
-    var(--color-yellow)
-  );
+  @include create-symbol-override(('W', 'w'), 'tb:trophy-filled', var(--color-yellow));
   @include create-symbol('S', 'bi:currency-dollar', var(--color-green));
   @include create-symbol-override('u', 'tb:trending-up', var(--color-green));
   @include create-symbol-override('d', 'tb:trending-down', var(--color-red));

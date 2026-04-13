@@ -55,10 +55,7 @@ body {
       width: 0 !important;
     }
   }
-  :is(
-      .HyperMD-quote:first-child,
-      .cm-sizer > div > div > *:not(.HyperMD-quote) + .HyperMD-quote
-    ) {
+  :is(.HyperMD-quote:first-child, .cm-sizer > div > div > *:not(.HyperMD-quote) + .HyperMD-quote) {
     border-top-width: var(--size-4-2);
     border-start-start-radius: var(--blockquote-border-thickness);
     border-start-end-radius: var(--blockquote-border-thickness);
@@ -68,9 +65,9 @@ body {
     }
   }
   :is(
-      .HyperMD-quote:last-child,
-      .cm-sizer > div > div > .HyperMD-quote:has(+ *:not(.HyperMD-quote))
-    ) {
+    .HyperMD-quote:last-child,
+    .cm-sizer > div > div > .HyperMD-quote:has(+ *:not(.HyperMD-quote))
+  ) {
     border-bottom-width: var(--size-4-2);
     border-end-start-radius: var(--blockquote-border-thickness);
     border-end-end-radius: var(--blockquote-border-thickness);

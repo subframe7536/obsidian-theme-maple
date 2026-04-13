@@ -2,15 +2,21 @@
   font-family: 'maplemono';
   font-display: swap;
   font-style: normal;
-  src: local('Maple Mono NF CN Regular'), local('Maple Mono CN Regular'),
-    local('Maple Mono NF Regular'), local('Maple Mono Regular'),
+  src:
+    local('Maple Mono NF CN Regular'),
+    local('Maple Mono CN Regular'),
+    local('Maple Mono NF Regular'),
+    local('Maple Mono Regular'),
     font('regular') format('woff2');
 }
 @font-face {
   font-family: 'maplemono';
   font-display: swap;
   font-style: italic;
-  src: local('Maple Mono NF CN Italic'), local('Maple Mono CN Italic'),
-    local('Maple Mono NF Italic'), local('Maple Mono Italic'),
+  src:
+    local('Maple Mono NF CN Italic'),
+    local('Maple Mono CN Italic'),
+    local('Maple Mono NF Italic'),
+    local('Maple Mono Italic'),
     font('italic') format('woff2');
 }

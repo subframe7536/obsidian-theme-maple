@@ -42,11 +42,7 @@ svg.lucide-layout-dashboard rect {
 
     @if list.length($i) >2 {
       @for $item from 2 through list.length($i) - 1 {
-        $arr: list.append(
-          $arr,
-          '[data-path$=".#{list.nth($i, $item)}"]',
-          comma
-        );
+        $arr: list.append($arr, '[data-path$=".#{list.nth($i, $item)}"]', comma);
       }
     }
 
@@ -181,8 +177,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
   }
 }
 
-body.explorer-title-wrap
-  :is(.nav-file-title-content, .nav-folder-title-content) {
+body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content) {
   overflow: visible;
   white-space: pre-wrap;
 }
