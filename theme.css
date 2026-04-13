@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.7 For Obsidian */
+/* Maple Theme v1.4.8 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -41,6 +41,12 @@ settings:
       type: class-toggle
       title: Disable Opacity Reduction in Dark Mode
       title.zh: 深色模式下，颜色的不透明度不降低
+    - id: color-highlight-only
+      type: class-toggle
+      title: "[Experimental] Only change highlight color"
+      title.zh: 【实验性】只修改高亮颜色
+      description: Not fully test. Feel free to report bugs
+      description.zh: 没有经过完整测试，欢迎提交 bug
     - id: color-scheme
       type: class-select
       title: Color Scheme
@@ -197,7 +203,7 @@ settings:
       title.zh: 主背景色
       description: Background color for main area, e.g. editor, setting panel
       description.zh: 主要区域的背景色，例如编辑器和设置面板
-      default: "#111"
+      default: "#"
       format: hsl-values
       opacity: false
     - id: setting-bg-primary-alt-dark-hsl
@@ -206,7 +212,7 @@ settings:
       title.zh: 块背景色
       description: Background color for blocks in main area, e.g. codeblock, blockquote
       description.zh: 主要区域内的块的背景色，例如代码块、引言块
-      default: "#111"
+      default: "#"
       format: hsl-values
       opacity: false
     - id: setting-bg-secondary-dark-hsl
@@ -215,7 +221,7 @@ settings:
       title.zh: 次背景色
       description: Background color in secondary area, e.g. sidebar
       description.zh: 次要区域的背景色，例如侧边栏
-      default: "#111"
+      default: "#"
       format: hsl-values
       opacity: false
     - id: setting-bg-frame-dark
@@ -224,7 +230,7 @@ settings:
       title.zh: 顶栏背景色
       description: Background color in the top area, e.g. titlebar, tab container
       description.zh: 顶栏的背景色，例如标题栏、标签栏
-      default: "#111"
+      default: "#"
       format: hsl
       opacity: false
     - id: title-layout
@@ -446,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.7
+      default: Maple 1.4.8
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2232,6 +2238,28 @@ body {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
+  --input-radius: var(--size-2-3);
+  --input-shadow:
+    0 0.125px 0 0.5px var(--color-base-10), inset 0 -0.125px 1px 0px var(--color-base-30),
+    0 0.75px 2px 0.5px var(--color-base-50);
+  --input-shadow-hover:
+    0 0.125px 0 0.5px var(--color-base-20), inset 0 -0.125px 1px 0px var(--color-base-40),
+    0 0.75px 2px 0.5px var(--color-base-50);
+  --animation-dur: var(--setting-animation-time, 250ms);
+  --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
+  --animation: var(--animation-dur) var(--anim-motion-smooth);
+  --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
+  --animation-delay: calc(4 * var(--animation-dur));
+  --divider-color: var(--setting-divider-color, var(--color-base-30));
+  --divider-width-hover: var(--size-4-1);
+  --nav-item-background-active: var(--accent-active-bg);
+  --nav-item-background-selected: var(--background-modifier-hover);
+  --line-height-normal: var(--setting-line-height, 1.8);
+  --line-height-tight: var(--setting-item-line-height, 1.5);
+  --menu-padding: 4px;
+  --color-opacity: 1;
+}
+body:not(.color-highlight-only) {
   --background-modifier-border: hsla(
     var(--theme-accent-inactive-h),
     calc(var(--theme-accent-inactive-s) / 2),
@@ -2254,26 +2282,6 @@ body {
   --tab-container-background: var(--frame-bg);
   --titlebar-background: var(--frame-bg);
   --titlebar-background-focused: var(--frame-bg);
-  --input-radius: var(--size-2-3);
-  --input-shadow:
-    0 0.125px 0 0.5px var(--color-base-10), inset 0 -0.125px 1px 0px var(--color-base-30),
-    0 0.75px 2px 0.5px var(--color-base-50);
-  --input-shadow-hover:
-    0 0.125px 0 0.5px var(--color-base-20), inset 0 -0.125px 1px 0px var(--color-base-40),
-    0 0.75px 2px 0.5px var(--color-base-50);
-  --animation-dur: var(--setting-animation-time, 250ms);
-  --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
-  --animation: var(--animation-dur) var(--anim-motion-smooth);
-  --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
-  --animation-delay: calc(4 * var(--animation-dur));
-  --divider-color: var(--setting-divider-color, var(--color-base-30));
-  --divider-width-hover: var(--size-4-1);
-  --nav-item-background-active: var(--accent-active-bg);
-  --nav-item-background-selected: var(--background-modifier-hover);
-  --line-height-normal: var(--setting-line-height, 1.8);
-  --line-height-tight: var(--setting-item-line-height, 1.5);
-  --menu-padding: 4px;
-  --color-opacity: 1;
 }
 
 .theme-light {
@@ -2310,11 +2318,9 @@ body {
     calc(var(--theme-accent-active-s) * 1.02),
     calc(var(--theme-accent-active-l) * 1.15)
   );
-  --frame-bg: hsl(
-    var(--base-accent-h),
-    calc(var(--theme-accent-active-s) * 0.6),
-    calc(85% + var(--theme-accent-active-l) * 0.1)
-  );
+  --text-on-accent: #fafafa !important;
+}
+.theme-light:not(.color-highlight-only) {
   --background-primary-hsl: var(--base-accent-h), 12%, 97%;
   --background-primary-alt-hsl: var(--base-accent-h), 10%, 95%;
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 8%, 93%;
@@ -2324,9 +2330,19 @@ body {
     max(70%, var(--accent-l) * 0.8),
     25%
   );
-  --text-on-accent: #fafafa !important;
+  --frame-bg: hsl(
+    var(--base-accent-h),
+    calc(var(--theme-accent-active-s) * 0.6),
+    calc(85% + var(--theme-accent-active-l) * 0.1)
+  );
 }
 .theme-light.color-use-minimal {
+  --theme-accent-active-s: var(--setting-color-active-custom-light-s, 6%);
+  --theme-accent-active-l: var(--setting-color-active-custom-light-l, 36%);
+  --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s, 8%);
+  --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l, 70%);
+}
+.theme-light.color-use-minimal:not(.color-highlight-only) {
   --base-accent-h: var(--setting-color-active-custom-light-h, 210);
   --background-primary-hsl: var(--base-accent-h), 6%, 97%;
   --background-primary-alt-hsl: var(--base-accent-h), 10%, 95.5%;
@@ -2336,10 +2352,6 @@ body {
     calc(var(--theme-accent-active-s) * 0.2),
     calc(85% + var(--theme-accent-active-l) * 0.1)
   );
-  --theme-accent-active-s: var(--setting-color-active-custom-light-s, 6%);
-  --theme-accent-active-l: var(--setting-color-active-custom-light-l, 36%);
-  --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s, 8%);
-  --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l, 70%);
 }
 .theme-light.color-use-custom {
   --base-accent-h: var(--setting-accent-h-light, 35);
@@ -2359,7 +2371,7 @@ body {
   --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s);
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l);
 }
-.theme-light.color-use-custom.color-modify-bg-light {
+.theme-light.color-use-custom.color-modify-bg-light:not(.color-highlight-only) {
   --default-mod-bg-hsl: 0, 0%, 93%;
   --background-primary-hsl: var(--setting-bg-primary-light-hsl, var(--default-mod-bg-hsl));
   --background-primary-alt-hsl: var(
@@ -2405,11 +2417,13 @@ body {
     calc(var(--theme-accent-active-s) * 1.05),
     calc(var(--theme-accent-active-l) * 1.29 * var(--color-opacity))
   );
-  --frame-bg: hsl(
-    var(--base-accent-h),
-    calc(var(--theme-accent-active-s) * 0.5),
-    calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
-  );
+  --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
+  --text-on-accent: #eaeaea !important;
+}
+.theme-dark:not(.color-dark-dim-disable) {
+  --color-opacity: 0.85;
+}
+.theme-dark:not(.color-highlight-only) {
   --background-primary-hsl: var(--base-accent-h), 6%, 11%;
   --background-primary-alt-hsl: var(--base-accent-h), 10%, 13%;
   --background-secondary-hsl: calc(var(--base-accent-h) - 8), 6%, 12%;
@@ -2419,15 +2433,21 @@ body {
     max(50%, var(--accent-l) * 0.6),
     20%
   );
-  --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
-  --text-on-accent: #eaeaea !important;
-}
-.theme-dark:not(.color-dark-dim-disable) {
-  --color-opacity: 0.85;
+  --frame-bg: hsl(
+    var(--base-accent-h),
+    calc(var(--theme-accent-active-s) * 0.5),
+    calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
+  );
 }
 .theme-dark.color-use-minimal {
   --text-on-accent: #1e1e1f !important;
   --base-accent-h: var(--setting-color-active-custom-dark-h, 210);
+  --theme-accent-active-s: var(--setting-color-active-custom-dark-s, 4%);
+  --theme-accent-active-l: var(--setting-color-active-custom-dark-l, 72%);
+  --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s, 12%);
+  --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l, 42%);
+}
+.theme-dark.color-use-minimal:not(.color-highlight-only) {
   --background-primary-hsl: var(--base-accent-h), 4%, 10%;
   --background-primary-alt-hsl: var(--base-accent-h), 8%, 12%;
   --background-secondary-hsl: calc(var(--base-accent-h) - 8), 4%, 12%;
@@ -2436,10 +2456,6 @@ body {
     calc(var(--theme-accent-active-s) * 0.1),
     calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
   );
-  --theme-accent-active-s: var(--setting-color-active-custom-dark-s, 4%);
-  --theme-accent-active-l: var(--setting-color-active-custom-dark-l, 72%);
-  --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s, 12%);
-  --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l, 42%);
 }
 .theme-dark.color-use-custom {
   --bg-delta-dark: var(--setting-bg-delta-dark, 0%);
@@ -2467,7 +2483,7 @@ body {
   --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s);
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l);
 }
-.theme-dark.color-use-custom.color-modify-bg-dark {
+.theme-dark.color-use-custom.color-modify-bg-dark:not(.color-highlight-only) {
   --default-mod-bg-hsl: 0, 0%, 7%;
   --background-primary-hsl: var(--setting-bg-primary-dark-hsl, var(--default-mod-bg-hsl));
   --background-primary-alt-hsl: var(
@@ -2668,6 +2684,7 @@ body.is-phone .setting-item:is([data-id=enable-blur]),
 body:not(.is-mobile) div[data-id=maple-mobile],
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color],
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix],
+body.color-highlight-only .setting-item[data-id=title-layout],
 body:not(.app-layout-card) .setting-item:is([data-id=app-layout-card-bg],
 [data-id=app-layout-card-border],
 [data-id=setting-app-layout-spacing]),
@@ -2746,6 +2763,7 @@ body.is-phone .setting-item:is([data-id=enable-blur]) + .style-settings-containe
 body:not(.is-mobile) div[data-id=maple-mobile] + .style-settings-container,
 body:not(.line-active-enable) .setting-item[data-id=setting-line-active-color] + .style-settings-container,
 body:not(.calendar-swap-year-month) .setting-item[data-id=setting-calendar-year-suffix] + .style-settings-container,
+body.color-highlight-only .setting-item[data-id=title-layout] + .style-settings-container,
 body:not(.app-layout-card) .setting-item:is([data-id=app-layout-card-bg],
 [data-id=app-layout-card-border],
 [data-id=setting-app-layout-spacing]) + .style-settings-container,
@@ -2912,30 +2930,30 @@ body {
   --bg-surface: var(--background-secondary);
 }
 
-body.app-layout-card:not(.is-mobile) {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) {
   --divider-color: transparent;
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);
   --tab-active-shadow: none !important;
   --app-layout-spacing: var(--setting-app-layout-spacing, var(--size-2-3));
 }
-body.app-layout-card:not(.is-mobile).theme-light {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).theme-light {
   --background-primary-alt-hsl: var(--base-accent-h), 18%, 93.5%;
 }
-body.app-layout-card:not(.is-mobile).theme-light.color-use-minimal {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).theme-light.color-use-minimal {
   --background-primary-alt-hsl: var(--base-accent-h), 2%, 94%;
 }
-body.app-layout-card:not(.is-mobile).theme-dark {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).theme-dark {
   --background-primary-alt-hsl: var(--base-accent-h), 8%, 13.5%;
 }
-body.app-layout-card:not(.is-mobile).theme-dark.color-use-minimal {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).theme-dark.color-use-minimal {
   --background-primary-alt-hsl: var(--base-accent-h), 4%, 13%;
 }
-body.app-layout-card:not(.is-mobile):is(.app-layout-card-plain, .color-use-minimal) {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only):is(.app-layout-card-plain, .color-use-minimal) {
   background-color: var(--bg-surface);
   --editor-min-opacity: 1;
 }
-body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain, .color-use-minimal) {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only):not(.app-layout-card-plain, .color-use-minimal) {
   background-color: transparent;
   background-image: var(--app-bg-image);
   background-repeat: no-repeat;
@@ -2947,90 +2965,90 @@ body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain, .color-use-mini
   );
   --bg-surface: hsla(var(--background-secondary-hsl), var(--bg-opacity));
 }
-body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain, .color-use-minimal) :is(.titlebar, .workspace) {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only):not(.app-layout-card-plain, .color-use-minimal) :is(.titlebar, .workspace) {
   --frame-bg: transparent !important;
 }
-body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain, .color-use-minimal).theme-light {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only):not(.app-layout-card-plain, .color-use-minimal).theme-light {
   --editor-min-opacity: 0.8;
 }
-body.app-layout-card:not(.is-mobile):not(.app-layout-card-plain, .color-use-minimal).theme-dark {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only):not(.app-layout-card-plain, .color-use-minimal).theme-dark {
   --editor-min-opacity: 0.85;
 }
-body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
   translate: var(--size-4-1);
 }
-body.app-layout-card:not(.is-mobile) .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
   translate: calc(-1 * var(--size-4-1));
 }
-body.app-layout-card:not(.is-mobile) .workspace-split:is(.mod-left-split, .mod-right-split) .workspace-tabs > .workspace-leaf-resize-handle {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .workspace-split:is(.mod-left-split, .mod-right-split) .workspace-tabs > .workspace-leaf-resize-handle {
   border-color: var(--setting-divider-color, transparent);
   inset-inline: var(--size-4-1);
   width: unset;
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal) {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).app-layout-card-gradient:not(.color-use-minimal) {
   --bg-opacity: 0.6;
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal).theme-light {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).app-layout-card-gradient:not(.color-use-minimal).theme-light {
   --app-bg-image: linear-gradient(
     320deg,
     hsl(calc(var(--base-accent-h) + 50), 50%, 92%),
     hsl(calc(var(--base-accent-h) - 30), 36%, 87%)
   );
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal).theme-dark {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).app-layout-card-gradient:not(.color-use-minimal).theme-dark {
   --app-bg-image: linear-gradient(
     320deg,
     hsl(calc(var(--base-accent-h) + 60), 11%, 22%),
     hsl(calc(var(--base-accent-h) - 10), 24%, 28%)
   );
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-custom.theme-light {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).app-layout-card-custom.theme-light {
   --bg-opacity: var(--setting-layout-opacity-light, 0.6);
   --app-bg-image: var(
     --setting-layout-image-light,
     linear-gradient(to bottom, var(--color-base-25))
   );
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-custom.theme-dark {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).app-layout-card-custom.theme-dark {
   --bg-opacity: var(--setting-layout-opacity-dark, 0.6);
   --app-bg-image: var(
     --setting-layout-image-dark,
     linear-gradient(to bottom, var(--color-base-20))
   );
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-border .mod-root .workspace-leaf-content {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).app-layout-card-border .mod-root .workspace-leaf-content {
   border: 1px solid var(--background-modifier-border);
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-border .workspace-tab-header {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).app-layout-card-border .workspace-tab-header {
   border: 1px solid transparent;
 }
-body.app-layout-card:not(.is-mobile).app-layout-card-border .workspace-tab-header.is-active {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).app-layout-card-border .workspace-tab-header.is-active {
   border-color: var(--background-modifier-border);
 }
-body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-header-container {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .mod-root .workspace-tab-header-container {
   padding-left: var(--app-layout-spacing);
 }
-body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-container {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .mod-root .workspace-tab-container {
   padding: var(--app-layout-spacing);
   padding-top: 0;
 }
-body.app-layout-card:not(.is-mobile) .mod-root .workspace-tab-container .workspace-leaf-content {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .mod-root .workspace-tab-container .workspace-leaf-content {
   border-radius: var(--radius-m);
 }
-body.app-layout-card:not(.is-mobile) .mod-root :is(.workspace-tabs + .workspace-tabs.mod-top,
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .mod-root :is(.workspace-tabs + .workspace-tabs.mod-top,
 .workspace-split.mod-vertical > .workspace-tabs + .workspace-tabs,
 .workspace-tabs + .workspace-split > .workspace-tabs,
 .workspace-split + .workspace-tabs,
 .workspace-split + .workspace-split:not(.mod-root) > .workspace-tabs) > div {
   padding-left: 0;
 }
-body.app-layout-card:not(.is-mobile) .mod-root .workspace-tabs:not(.mod-top) {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .mod-root .workspace-tabs:not(.mod-top) {
   margin-top: -4px;
 }
-body.app-layout-card:not(.is-mobile) .workspace-tab-header {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .workspace-tab-header {
   --background-modifier-hover: hsla(var(--background-primary-hsl), var(--bg-opacity));
 }
-body.app-layout-card:not(.is-mobile) :is(.workspace-tab-header-container,
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) :is(.workspace-tab-header-container,
 .workspace-tab-header-container-inner,
 .titlebar-button-container,
 .sidebar-toggle-button,
@@ -3043,67 +3061,67 @@ body.app-layout-card:not(.is-mobile) :is(.workspace-tab-header-container,
 .workspace-leaf-content:not([data-type=empty]) :is(.view-content, .view-header)) {
   background-color: transparent;
 }
-body.app-layout-card:not(.is-mobile) .workspace-ribbon {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .workspace-ribbon {
   --ribbon-background: var(--bg-surface);
   --ribbon-background-collapsed: var(--bg-surface);
 }
-body.app-layout-card:not(.is-mobile) .workspace-ribbon::before {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .workspace-ribbon::before {
   background-color: var(--bg-surface);
 }
-body.app-layout-card:not(.is-mobile) .workspace-split {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .workspace-split {
   background-color: var(--bg-surface);
 }
-body.app-layout-card:not(.is-mobile) .workspace-split.mod-root .workspace-leaf-content {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .workspace-split.mod-root .workspace-leaf-content {
   background-color: var(--bg-editor);
 }
-body.app-layout-card:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
   background-color: hsla(var(--background-secondary-hsl), calc(var(--bg-opacity) / 4));
 }
-body.app-layout-card:not(.is-mobile).labeled-nav .mod-left-split .mod-top .workspace-tab-header-container .workspace-tab-header-container-inner {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).labeled-nav .mod-left-split .mod-top .workspace-tab-header-container .workspace-tab-header-container-inner {
   padding-top: 0;
 }
-body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-container .mod-settings .modal-content {
   background-color: var(--bg-surface);
 }
-body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-header {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-container .mod-settings .modal-content .vertical-tab-header {
   background-color: transparent;
 }
-body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-container .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content {
   background-color: transparent;
 }
-body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content :is(.setting-group .setting-items,
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-container .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content :is(.setting-group .setting-items,
 .setting-item:not(.setting-item-heading),
 .setting-group-search) {
   background-color: var(--bg-editor);
 }
-body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-container .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
 .style-settings-container) {
   border: none;
 }
-body.app-layout-card:not(.is-mobile) .modal-container .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-container .mod-settings .modal-content :is(.style-settings-heading[data-level="0"] + .style-settings-container,
 .style-settings-container) > .setting-item {
   padding: var(--size-4-3) var(--size-4-4);
 }
-body.app-layout-card:not(.is-mobile).modal-setting-header.modal-setting-header-search .installed-plugins-container .setting-group-search {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).modal-setting-header.modal-setting-header-search .installed-plugins-container .setting-group-search {
   padding: 0;
 }
-body.app-layout-card:not(.is-mobile).modal-setting-header.modal-setting-header-search .installed-plugins-container .setting-items {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).modal-setting-header.modal-setting-header-search .installed-plugins-container .setting-items {
   padding-top: var(--size-4-6);
   border-start-start-radius: var(--setting-items-radius);
   border-start-end-radius: var(--setting-items-radius);
 }
-body.app-layout-card:not(.is-mobile).modal-setting-header.modal-setting-header-search .setting-group-search {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).modal-setting-header.modal-setting-header-search .setting-group-search {
   padding: 0 !important;
 }
-body.app-layout-card:not(.is-mobile).modal-setting-header.modal-setting-header-search .setting-group-search + .setting-items {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).modal-setting-header.modal-setting-header-search .setting-group-search + .setting-items {
   padding-top: var(--size-4-5);
   border-start-start-radius: var(--setting-items-radius);
   border-start-end-radius: var(--setting-items-radius);
 }
-body.app-layout-card:not(.is-mobile) .modal-sidebar {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-sidebar {
   background-color: var(--bg-surface);
 }
-body.app-layout-card:not(.is-mobile) .modal-setting-nav-bar {
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-setting-nav-bar {
   border-color: transparent;
 }
 
@@ -7219,7 +7237,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.7");
+  content: var(--setting-modal-header-title, "Maple 1.4.8");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
