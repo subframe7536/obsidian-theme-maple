@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.8 For Obsidian */
+/* Maple Theme v1.4.9 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.8
+      default: Maple 1.4.9
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2337,13 +2337,13 @@ body:not(.color-highlight-only) {
   );
 }
 .theme-light.color-use-minimal {
+  --base-accent-h: var(--setting-color-active-custom-light-h, 210);
   --theme-accent-active-s: var(--setting-color-active-custom-light-s, 6%);
   --theme-accent-active-l: var(--setting-color-active-custom-light-l, 36%);
   --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s, 8%);
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l, 70%);
 }
 .theme-light.color-use-minimal:not(.color-highlight-only) {
-  --base-accent-h: var(--setting-color-active-custom-light-h, 210);
   --background-primary-hsl: var(--base-accent-h), 6%, 97%;
   --background-primary-alt-hsl: var(--base-accent-h), 10%, 95.5%;
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 4%, 93%;
@@ -2458,6 +2458,13 @@ body:not(.color-highlight-only) {
   );
 }
 .theme-dark.color-use-custom {
+  --base-accent-h: var(--setting-accent-h-dark, 207);
+  --theme-accent-active-s: 24%;
+  --theme-accent-active-l: 52%;
+  --theme-accent-inactive-s: 12%;
+  --theme-accent-inactive-l: 32%;
+}
+.theme-dark.color-use-custom:not(.color-highlight-only) {
   --bg-delta-dark: var(--setting-bg-delta-dark, 0%);
   --background-primary-hsl:
     var(--base-accent-h), calc(5% + var(--bg-delta-dark) / 2), calc(11% + var(--bg-delta-dark));
@@ -2466,11 +2473,6 @@ body:not(.color-highlight-only) {
   --background-secondary-hsl:
     calc(var(--base-accent-h) - 18), calc(6% + var(--bg-delta-dark) / 2),
     calc(12% + var(--bg-delta-dark));
-  --base-accent-h: var(--setting-accent-h-dark, 207);
-  --theme-accent-active-s: 24%;
-  --theme-accent-active-l: 52%;
-  --theme-accent-inactive-s: 12%;
-  --theme-accent-inactive-l: 32%;
 }
 .theme-dark.color-use-custom.color-active-alt-dark {
   --theme-accent-h: calc(var(--base-accent-h) + 60);
@@ -7237,7 +7239,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.8");
+  content: var(--setting-modal-header-title, "Maple 1.4.9");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
