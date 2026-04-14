@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.9 For Obsidian */
+/* Maple Theme v1.4.10 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.9
+      default: Maple 1.4.10
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2371,7 +2371,7 @@ body:not(.color-highlight-only) {
   --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s);
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l);
 }
-.theme-light.color-use-custom.color-modify-bg-light:not(.color-highlight-only) {
+.theme-light.color-use-custom.color-modify-bg-light, .theme-light.color-use-custom:not(.color-highlight-only) {
   --default-mod-bg-hsl: 0, 0%, 93%;
   --background-primary-hsl: var(--setting-bg-primary-light-hsl, var(--default-mod-bg-hsl));
   --background-primary-alt-hsl: var(
@@ -2485,7 +2485,7 @@ body:not(.color-highlight-only) {
   --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s);
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l);
 }
-.theme-dark.color-use-custom.color-modify-bg-dark:not(.color-highlight-only) {
+.theme-dark.color-use-custom.color-modify-bg-dark, .theme-dark.color-use-custom:not(.color-highlight-only) {
   --default-mod-bg-hsl: 0, 0%, 7%;
   --background-primary-hsl: var(--setting-bg-primary-dark-hsl, var(--default-mod-bg-hsl));
   --background-primary-alt-hsl: var(
@@ -7239,7 +7239,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.9");
+  content: var(--setting-modal-header-title, "Maple 1.4.10");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
