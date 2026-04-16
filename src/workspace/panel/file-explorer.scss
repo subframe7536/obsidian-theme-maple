@@ -19,7 +19,8 @@ $file-icon: (
   (mkv, mp4, flv, webm, avi, mov, 'film'),
   (canvas, 'palette'),
   (base, 'database'),
-  ('excalidraw.md', excalidraw, pencil)
+  ('excalidraw.md', excalidraw, pencil),
+  ('.smm.md', 'mindmap')
 );
 
 svg.lucide-layout-dashboard rect {
