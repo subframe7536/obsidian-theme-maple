@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.10 For Obsidian */
+/* Maple Theme v1.4.11 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.10
+      default: Maple 1.4.11
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -7239,7 +7239,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.10");
+  content: var(--setting-modal-header-title, "Maple 1.4.11");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -8294,6 +8294,12 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsuppor
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$="excalidraw.md"], [data-path$=".excalidraw"])::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497zM15 5l4 4'/></svg>");
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=".smm.md"])::before {
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1026 1024'><path fill='currentColor' d='M981.333 473.173h-417.28a42.667 42.667 0 0 0 0 85.334h417.28a42.667 42.667 0 0 0 0-85.334m0 365.014h-417.28a42.667 42.667 0 0 0 0 85.333h417.28a42.667 42.667 0 0 0 0-85.333m-417.28-644.694h417.28a42.667 42.667 0 0 0 0-85.333h-417.28a42.667 42.667 0 0 0 0 85.333M398.293 515.84a42.667 42.667 0 0 0-42.666-42.667h-89.174a527 527 0 0 0 27.52-117.12c13.654-88.96 26.24-149.333 75.094-164.906a42.667 42.667 0 1 0-27.094-80.854c-101.76 33.92-118.826 144.214-132.48 232.747-15.146 99.2-25.813 130.133-62.506 130.133H42.667a42.667 42.667 0 0 0 0 85.334h104.32c36.693 0 47.36 30.933 62.506 130.133 13.654 88.533 30.72 198.613 132.48 232.747a42.7 42.7 0 0 0 13.654 2.133 42.667 42.667 0 0 0 13.44-83.2c-48.854-16.213-61.44-75.733-75.094-164.693a527 527 0 0 0-27.52-117.12h89.174a42.667 42.667 0 0 0 42.666-42.667'/></svg> ");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
