@@ -397,6 +397,26 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, {
     title: { en: 'Font', zh: '字体' },
   })
+    .addClassToggle('font-maple-interface', {
+      title: {
+        en: 'Use "Maple Mono" as Interface Font',
+        zh: '使用 “Maple Mono” 作为界面字体',
+      },
+      desc: {
+        en: 'https://github.com/subframe7536/maple-font',
+        zh: 'https://github.com/subframe7536/maple-font',
+      },
+    })
+    .addClassToggle('font-maple-text', {
+      title: {
+        en: 'Use "Maple Mono" as Text Font',
+        zh: '使用 “Maple Mono” 作为正文字体',
+      },
+      desc: {
+        en: 'https://github.com/subframe7536/maple-font',
+        zh: 'https://github.com/subframe7536/maple-font',
+      },
+    })
     .addClassToggle(
       'font-maple',
       {
