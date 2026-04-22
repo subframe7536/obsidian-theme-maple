@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.11 For Obsidian */
+/* Maple Theme v1.4.12 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.11
+      default: Maple 1.4.12
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -954,6 +954,18 @@ settings:
       type: heading
       level: 1
       collapsed: true
+    - id: font-maple-interface
+      type: class-toggle
+      title: Use "Maple Mono" as Interface Font
+      title.zh: 使用 “Maple Mono” 作为界面字体
+      description: https://github.com/subframe7536/maple-font
+      description.zh: https://github.com/subframe7536/maple-font
+    - id: font-maple-text
+      type: class-toggle
+      title: Use "Maple Mono" as Text Font
+      title.zh: 使用 “Maple Mono” 作为正文字体
+      description: https://github.com/subframe7536/maple-font
+      description.zh: https://github.com/subframe7536/maple-font
     - id: font-maple
       type: class-toggle
       title: Use "Maple Mono" as Monospace Font
@@ -3211,8 +3223,16 @@ mjx-stretchy-h > mjx-ext > mjx-c::before {
 
 /* #endregion fix latex */
 /* #region monospace */
-body:is(:not(.css-settings-manager), :not(.is-mobile).font-maple) {
+body:is(:not(.css-settings-manager), .font-maple) {
   --font-monospace-theme: "maplemono";
+}
+
+.font-maple-text {
+  --font-text-theme: "maplemono";
+}
+
+.font-maple-interface {
+  --font-interface-theme: "maplemono";
 }
 
 code,
@@ -7239,7 +7259,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.11");
+  content: var(--setting-modal-header-title, "Maple 1.4.12");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
