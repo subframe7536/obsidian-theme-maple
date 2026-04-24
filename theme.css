@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.12 For Obsidian */
+/* Maple Theme v1.4.13 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.12
+      default: Maple 1.4.13
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -3038,9 +3038,6 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only).app-layout-card-
 }
 body.app-layout-card:not(.is-mobile):not(.color-highlight-only).app-layout-card-border .workspace-tab-header.is-active {
   border-color: var(--background-modifier-border);
-}
-body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .mod-root .workspace-tab-header-container {
-  padding-left: var(--app-layout-spacing);
 }
 body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .mod-root .workspace-tab-container {
   padding: var(--app-layout-spacing);
@@ -7259,7 +7256,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.12");
+  content: var(--setting-modal-header-title, "Maple 1.4.13");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -7661,7 +7658,7 @@ body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header
   box-shadow: var(--tab-active-shadow);
 }
 body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header-container {
-  padding-left: var(--size-4-1);
+  translate: calc(-1 * var(--size-4-1));
 }
 body:is(:not(.css-settings-manager), .tab-float) .mod-root .workspace-tab-header-container-inner {
   margin-top: var(--size-4-1);
@@ -7722,10 +7719,10 @@ body.tab-slide-up:not(.is-mobile) .workspace-split:not(.is-sidedock-collapsed) .
   animation: op var(--animation-slow), slide-up var(--animation-slow);
 }
 
-.workspace-split.mod-sidedock.is-sidedock-collapsed {
+body:not(.app-layout-card) .workspace-split.mod-sidedock.is-sidedock-collapsed {
   animation: fade-dock var(--animation-slow);
 }
-.workspace-split.mod-sidedock:not(.is-sidedock-collapsed) {
+body:not(.app-layout-card) .workspace-split.mod-sidedock:not(.is-sidedock-collapsed) {
   animation: op var(--animation-slow);
 }
 
