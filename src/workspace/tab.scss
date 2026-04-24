@@ -43,7 +43,7 @@ body {
         box-shadow: var(--tab-active-shadow);
       }
       &-container {
-        padding-left: var(--size-4-1);
+        translate: calc(-1 * var(--size-4-1));
 
         &-inner {
           margin-top: var(--size-4-1);
@@ -124,7 +124,7 @@ body.tab-slide-up:not(.is-mobile) {
   }
 }
 
-.workspace-split.mod-sidedock {
+body:not(.app-layout-card) .workspace-split.mod-sidedock {
   &.is-sidedock-collapsed {
     animation: use-animation('fade-dock');
   }

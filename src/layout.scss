@@ -120,9 +120,9 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) {
   }
 
   .mod-root {
-    .workspace-tab-header-container {
-      padding-left: var(--app-layout-spacing);
-    }
+    // .workspace-tab-header-container {
+    //   padding-left: var(--app-layout-spacing);
+    // }
     .workspace-tab-container {
       padding: var(--app-layout-spacing);
       padding-top: 0;
