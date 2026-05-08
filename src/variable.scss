@@ -170,7 +170,7 @@ body {
 
     &.color-modify-bg-light,
     &:not(.color-highlight-only) {
-      --default-mod-bg-hsl: 0, 0%, 93%;
+      --default-mod-bg-hsl: 0, 0%, 97%;
       --background-primary-hsl: var(--setting-bg-primary-light-hsl, var(--default-mod-bg-hsl));
       --background-primary-alt-hsl: var(
         --setting-bg-primary-alt-light-hsl,
@@ -290,7 +290,7 @@ body {
 
     &.color-modify-bg-dark,
     &:not(.color-highlight-only) {
-      --default-mod-bg-hsl: 0, 0%, 7%;
+      --default-mod-bg-hsl: 0, 0%, 8%;
       --background-primary-hsl: var(--setting-bg-primary-dark-hsl, var(--default-mod-bg-hsl));
       --background-primary-alt-hsl: var(
         --setting-bg-primary-alt-dark-hsl,
