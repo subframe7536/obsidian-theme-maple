@@ -82,6 +82,13 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
     --toggle-s-thumb-radius: var(--toggle-thumb-radius);
     --toggle-s-thumb-width: var(--toggle-thumb-width);
     --toggle-s-thumb-height: var(--toggle-thumb-height);
+    &:active:after {
+      width: var(--toggle-thumb-width);
+      height: var(--toggle-thumb-height);
+      opacity: 1;
+      margin-top: var(--toggle-border-width);
+      left: var(--size-4-1);
+    }
   }
 }
 
