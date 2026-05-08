@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.14 For Obsidian */
+/* Maple Theme v1.4.15 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.14
+      default: Maple 1.4.15
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2384,7 +2384,7 @@ body:not(.color-highlight-only) {
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l);
 }
 .theme-light.color-use-custom.color-modify-bg-light, .theme-light.color-use-custom:not(.color-highlight-only) {
-  --default-mod-bg-hsl: 0, 0%, 93%;
+  --default-mod-bg-hsl: 0, 0%, 97%;
   --background-primary-hsl: var(--setting-bg-primary-light-hsl, var(--default-mod-bg-hsl));
   --background-primary-alt-hsl: var(
     --setting-bg-primary-alt-light-hsl,
@@ -2498,7 +2498,7 @@ body:not(.color-highlight-only) {
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l);
 }
 .theme-dark.color-use-custom.color-modify-bg-dark, .theme-dark.color-use-custom:not(.color-highlight-only) {
-  --default-mod-bg-hsl: 0, 0%, 7%;
+  --default-mod-bg-hsl: 0, 0%, 8%;
   --background-primary-hsl: var(--setting-bg-primary-dark-hsl, var(--default-mod-bg-hsl));
   --background-primary-alt-hsl: var(
     --setting-bg-primary-alt-dark-hsl,
@@ -7156,6 +7156,13 @@ body:is(:not(.css-settings-manager), .modal-control-gradient) .checkbox-containe
   --toggle-s-thumb-width: var(--toggle-thumb-width);
   --toggle-s-thumb-height: var(--toggle-thumb-height);
 }
+.modal-toggle-square .checkbox-container:active:after {
+  width: var(--toggle-thumb-width);
+  height: var(--toggle-thumb-height);
+  opacity: 1;
+  margin-top: var(--toggle-border-width);
+  left: var(--size-4-1);
+}
 
 body:not(.is-mobile) {
   --slider-track-background: var(--accent-inactive);
@@ -7259,7 +7266,7 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.14");
+  content: var(--setting-modal-header-title, "Maple 1.4.15");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
