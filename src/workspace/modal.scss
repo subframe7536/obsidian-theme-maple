@@ -211,11 +211,11 @@ body:not(.is-mobile) {
   }
 }
 
-body.modal-setting-header:not(.is-mobile) {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) {
   --modal-close-button-padding: var(--size-4-2);
   --modal-header-height: var(--size-4-10);
 
-  .modal-close-button {
+  :is(.modal-close-button, .modal-header-button) {
     transition: background-color var(--animation);
     z-index: calc(var(--layer-modal) + 1);
     top: var(--modal-close-button-padding);
@@ -325,6 +325,7 @@ body.modal-setting-header:not(.is-mobile) {
         ) {
           position: absolute;
           padding: 0;
+          margin: 0;
           top: calc(var(--size-4-2) + var(--size-2-1));
           right: var(--modal-header-height);
           border: none;

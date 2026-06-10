@@ -28,7 +28,7 @@ body.scrollbar-enable:not(.is-mobile) {
   $active-color: hsla(var(--color-accent-hsl), 64%);
   $scrollbar-width: 12px !important;
 
-  .mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
+  &:not(.is-popup-window).mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
     scrollbar-gutter: stable;
   }
   &.scrollbar-hover-accent {
