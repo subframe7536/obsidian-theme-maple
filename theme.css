@@ -1,4 +1,4 @@
-/* Maple Theme v1.4.15 For Obsidian */
+/* Maple Theme v1.5.0 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.4.15
+      default: Maple 1.5.0
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2383,7 +2383,7 @@ body:not(.color-highlight-only) {
   --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s);
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l);
 }
-.theme-light.color-use-custom.color-modify-bg-light, .theme-light.color-use-custom:not(.color-highlight-only) {
+.theme-light.color-use-custom:is(.color-modify-bg-light, .color-highlight-only) {
   --default-mod-bg-hsl: 0, 0%, 97%;
   --background-primary-hsl: var(--setting-bg-primary-light-hsl, var(--default-mod-bg-hsl));
   --background-primary-alt-hsl: var(
@@ -2497,7 +2497,7 @@ body:not(.color-highlight-only) {
   --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s);
   --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l);
 }
-.theme-dark.color-use-custom.color-modify-bg-dark, .theme-dark.color-use-custom:not(.color-highlight-only) {
+.theme-dark.color-use-custom:is(.color-modify-bg-dark, .color-highlight-only) {
   --default-mod-bg-hsl: 0, 0%, 8%;
   --background-primary-hsl: var(--setting-bg-primary-dark-hsl, var(--default-mod-bg-hsl));
   --background-primary-alt-hsl: var(
@@ -7252,21 +7252,21 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled:active::af
   left: calc(2 * var(--toggle-border-width));
 }
 
-body.modal-setting-header:not(.is-mobile) {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) {
   --modal-close-button-padding: var(--size-4-2);
   --modal-header-height: var(--size-4-10);
 }
-body.modal-setting-header:not(.is-mobile) .modal-close-button {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) :is(.modal-close-button, .modal-header-button) {
   transition: background-color var(--animation);
   z-index: calc(var(--layer-modal) + 1);
   top: var(--modal-close-button-padding);
   inset-inline-end: var(--modal-close-button-padding);
 }
-body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings {
   container-type: inline-size;
 }
-body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.4.15");
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
+  content: var(--setting-modal-header-title, "Maple 1.5.0");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -7275,47 +7275,47 @@ body.modal-setting-header:not(.is-mobile) .modal-container .mod-settings::before
   font-weight: 550;
   color: var(--setting-color-logo, var(--text-accent));
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-title-center .modal-container .mod-settings::before {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-title-center .modal-container .mod-settings::before {
   left: 50%;
   translate: -50% -50%;
 }
 @container (max-width:750px) {
-  body.modal-setting-header:not(.is-mobile).modal-setting-header-title-center .modal-container .mod-settings::before {
+  body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-title-center .modal-container .mod-settings::before {
     opacity: 0;
   }
 }
-body.modal-setting-header:not(.is-mobile) .mod-settings .modal-content {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .mod-settings .modal-content {
   background-color: var(--titlebar-background);
 }
-body.modal-setting-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-header {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .mod-settings .modal-content .vertical-tab-header {
   background-color: hsl(var(--background-secondary-hsl));
   border-top: 1px solid var(--divider-color);
   margin-top: var(--modal-header-height);
   padding-top: 0;
 }
-body.modal-setting-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .mod-settings .modal-content .vertical-tab-content-container {
   padding-top: var(--modal-header-height);
   position: relative;
 }
-body.modal-setting-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
   position: unset !important;
   background-color: var(--background-primary);
   border-top: 1px solid var(--divider-color);
   padding-top: var(--size-4-6);
   padding-right: var(--size-4-8);
 }
-body.modal-setting-header:not(.is-mobile) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content h2 {
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search {
   --modal-close-button-padding: var(--size-4-3);
   --modal-header-height: var(--size-4-12);
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings::before {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings::before {
   font-size: 20px;
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
 .vertical-tab-content:is(:has(> .installed-plugins-container),
 :has(> .hotkey-list-container))) > .setting-item:has(input) {
   position: absolute;
@@ -7324,42 +7324,43 @@ body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-setti
   right: var(--modal-header-height);
   border: none;
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings .modal-content :is(.plugin-list-plugins,
 .vertical-tab-content:is(:has(> .installed-plugins-container),
 :has(> .hotkey-list-container))) > .setting-item:has(input) .setting-item-info {
   visibility: hidden;
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings .modal-content .plugin-list-plugins .setting-item-heading {
   margin: 0;
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-filter-container {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings .modal-content .setting-filter-container {
   margin-bottom: var(--size-4-1);
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-filter-container .hotkey-filter {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings .modal-content .setting-filter-container .hotkey-filter {
   margin-bottom: var(--size-4-3);
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content :is(.setting-group-search .search-input-container,
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings .modal-content :is(.setting-group-search .search-input-container,
 .setting-item-control:has(.search-input-container.mod-hotkey)) {
   position: absolute;
   padding: 0;
+  margin: 0;
   top: calc(var(--size-4-2) + var(--size-2-1));
   right: var(--modal-header-height);
   border: none;
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content :is(.setting-group-search .search-input-container,
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings .modal-content :is(.setting-group-search .search-input-container,
 .setting-item-control:has(.search-input-container.mod-hotkey)) .setting-item-info {
   visibility: hidden;
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-group-search {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings .modal-content .setting-group-search {
   padding-block: calc(var(--size-4-2) + var(--size-2-1));
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-item:has(~ .hotkey-list-container) .setting-item-info {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings .modal-content .setting-item:has(~ .hotkey-list-container) .setting-item-info {
   display: flex;
   flex-direction: row;
   align-items: baseline;
   gap: var(--size-4-2);
 }
-body.modal-setting-header:not(.is-mobile).modal-setting-header-search .mod-settings .modal-content .setting-item:has(~ .hotkey-list-container) .setting-item-info .setting-item-name {
+body.modal-setting-header:not(.is-mobile):not(.is-popout-modal).modal-setting-header-search .mod-settings .modal-content .setting-item:has(~ .hotkey-list-container) .setting-item-info .setting-item-name {
   font-size: var(--h4-size);
   font-weight: bold;
 }
@@ -7541,7 +7542,7 @@ body:not(.is-phone).enable-blur .modal-bg {
 /* !Chrome >= 121 no longer support `-webkit-scrollbar-*`, no effect currently */
 /* usage of `@property`: https://stackoverflow.com/a/74050413/20058211 */
 /* usage of `-webkit-text-fill-color`: https://stackoverflow.com/a/46304690/20058211 */
-body.scrollbar-enable:not(.is-mobile) .mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
+body.scrollbar-enable:not(.is-mobile):not(.is-popup-window).mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
   scrollbar-gutter: stable;
 }
 body.scrollbar-enable:not(.is-mobile).scrollbar-hover-accent {
