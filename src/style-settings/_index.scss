@@ -245,6 +245,7 @@ body:not(.editor-bg-plain) .setting-item[data-id='setting-editor-bg'],
 body.editor-bg-plain .setting-item[data-id='setting-editor-bg-grid-spacing'],
 body:not(.editor-bg-grid-dots) .setting-item[data-id='setting-editor-bg-grid-dots'],
 body:not(.editor-bg-grid-line) .setting-item[data-id='setting-editor-bg-grid-line'],
+body:not(.font-override-editor-font-size) .setting-item[data-id='setting-editor-font-size'],
 body:not(.scrollbar-enable)
   .setting-item:is([data-id='scrollbar-hover'], [data-id='scrollbar-movein-animation-enable']),
 body.bg-default .setting-item[data-id='setting-bg-color'],

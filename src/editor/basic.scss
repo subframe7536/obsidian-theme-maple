@@ -74,6 +74,9 @@ code *,
 
 body {
   --text-selection: hsla(var(--color-accent-hsl), 0.25);
+  &.font-override-editor-font-size .workspace-leaf-content[data-type='markdown'] {
+    --font-text-size: var(--setting-editor-font-size, inherit);
+  }
 }
 
 .markdown-source-view,

@@ -397,6 +397,24 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
   Settings.ofLevel(1, {
     title: { en: 'Font', zh: '字体' },
   })
+    .addClassToggle('font-override-editor-font-size', {
+      title: {
+        en: 'Override Editor Font Size',
+        zh: '覆盖编辑器字体大小',
+      },
+      desc: {
+        en: 'Override the font size set in Appearance settings; may cause unexpected layout issues if the value is too large',
+        zh: '覆盖外观设置中编辑器的字体大小；如果数值过大可能会导致意想不到的布局问题',
+      },
+    })
+    .addVarNumSlider(
+      'setting-editor-font-size',
+      {
+        title: { en: 'Editor Font Size', zh: '编辑器字体大小' },
+        desc: { en: 'Font size for the editor', zh: '编辑器的字体大小' },
+      },
+      { default: 16, min: 10, max: 24, step: 1, format: 'px' },
+    )
     .addClassToggle('font-maple-interface', {
       title: {
         en: 'Use "Maple Mono" as Interface Font',
