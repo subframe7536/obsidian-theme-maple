@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.0 For Obsidian */
+/* Maple Theme v1.5.1 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.0
+      default: Maple 1.5.1
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -954,6 +954,24 @@ settings:
       type: heading
       level: 1
       collapsed: true
+    - id: font-override-editor-font-size
+      type: class-toggle
+      title: Override Editor Font Size
+      title.zh: 覆盖编辑器字体大小
+      description: Override the font size set in Appearance settings; may cause
+          unexpected layout issues if the value is too large
+      description.zh: 覆盖外观设置中编辑器的字体大小；如果数值过大可能会导致意想不到的布局问题
+    - id: setting-editor-font-size
+      type: variable-number-slider
+      title: Editor Font Size
+      title.zh: 编辑器字体大小
+      description: Font size for the editor
+      description.zh: 编辑器的字体大小
+      default: 16
+      min: 10
+      max: 24
+      step: 1
+      format: px
     - id: font-maple-interface
       type: class-toggle
       title: Use "Maple Mono" as Interface Font
@@ -2710,6 +2728,7 @@ body:not(.editor-bg-plain) .setting-item[data-id=setting-editor-bg],
 body.editor-bg-plain .setting-item[data-id=setting-editor-bg-grid-spacing],
 body:not(.editor-bg-grid-dots) .setting-item[data-id=setting-editor-bg-grid-dots],
 body:not(.editor-bg-grid-line) .setting-item[data-id=setting-editor-bg-grid-line],
+body:not(.font-override-editor-font-size) .setting-item[data-id=setting-editor-font-size],
 body:not(.scrollbar-enable) .setting-item:is([data-id=scrollbar-hover], [data-id=scrollbar-movein-animation-enable]),
 body.bg-default .setting-item[data-id=setting-bg-color],
 body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover],
@@ -2789,6 +2808,7 @@ body:not(.editor-bg-plain) .setting-item[data-id=setting-editor-bg] + .style-set
 body.editor-bg-plain .setting-item[data-id=setting-editor-bg-grid-spacing] + .style-settings-container,
 body:not(.editor-bg-grid-dots) .setting-item[data-id=setting-editor-bg-grid-dots] + .style-settings-container,
 body:not(.editor-bg-grid-line) .setting-item[data-id=setting-editor-bg-grid-line] + .style-settings-container,
+body:not(.font-override-editor-font-size) .setting-item[data-id=setting-editor-font-size] + .style-settings-container,
 body:not(.scrollbar-enable) .setting-item:is([data-id=scrollbar-hover], [data-id=scrollbar-movein-animation-enable]) + .style-settings-container,
 body.bg-default .setting-item[data-id=setting-bg-color] + .style-settings-container,
 body.scrollbar-hide .setting-item:is([data-id*=scrollbar-hover],
@@ -3243,6 +3263,9 @@ code *,
 /* #region text */
 body {
   --text-selection: hsla(var(--color-accent-hsl), 0.25);
+}
+body.font-override-editor-font-size .workspace-leaf-content[data-type=markdown] {
+  --font-text-size: var(--setting-editor-font-size, inherit);
 }
 
 .markdown-source-view,
@@ -7266,7 +7289,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.0");
+  content: var(--setting-modal-header-title, "Maple 1.5.1");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
