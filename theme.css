@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.1 For Obsidian */
+/* Maple Theme v1.5.2 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.1
+      default: Maple 1.5.2
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -4362,7 +4362,6 @@ body {
   --bases-embed-border-radius: var(--embed-radius);
 }
 body .markdown-source-view.mod-cm6 .cm-embed-block {
-  margin-block: var(--size-4-1) !important;
   border-radius: var(--embed-radius) !important;
   transition: box-shadow var(--animation);
 }
@@ -4372,27 +4371,26 @@ body .markdown-source-view.mod-cm6 .cm-embed-block .edit-block-button {
   transition-property: background-color, opacity;
   height: fit-content;
 }
-body .internal-embed.is-loaded:not(.image-embed) {
+body .internal-embed.is-loaded {
   transition: var(--animation);
   transition-property: border-color, background-color;
   border-radius: var(--embed-radius);
-  margin-block: var(--size-4-1) !important;
 }
-body .internal-embed.is-loaded:not(.image-embed):hover {
+body .internal-embed.is-loaded:hover {
   border-color: var(--accent-active);
 }
-body .internal-embed.is-loaded:not(.image-embed):is(.mod-empty, .mod-empty-attachment) {
+body .internal-embed.is-loaded:is(.mod-empty, .mod-empty-attachment) {
   border: var(--size-2-1) dotted var(--text-faint);
 }
-body .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link) {
+body .internal-embed.is-loaded :is(.markdown-embed-link, .file-embed-link) {
   border-radius: var(--radius-s);
   transition: var(--animation);
   transition-property: color, background-color;
 }
-body .internal-embed.is-loaded:not(.image-embed) :is(.markdown-embed-link, .file-embed-link):hover {
+body .internal-embed.is-loaded :is(.markdown-embed-link, .file-embed-link):hover {
   background-color: var(--nav-item-background-hover);
 }
-body .internal-embed.is-loaded:not(.image-embed) .markdown-embed-title {
+body .internal-embed.is-loaded .markdown-embed-title {
   display: none;
 }
 body .cm-lang-query .internal-query-header {
@@ -7289,7 +7287,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.1");
+  content: var(--setting-modal-header-title, "Maple 1.5.2");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
