@@ -15,7 +15,6 @@ body {
 
   // latex block
   .markdown-source-view.mod-cm6 .cm-embed-block {
-    margin-block: var(--size-4-1) !important;
     border-radius: var(--embed-radius) !important;
     transition: box-shadow var(--animation);
 
@@ -27,11 +26,10 @@ body {
     }
   }
 
-  .internal-embed.is-loaded:not(.image-embed) {
+  .internal-embed.is-loaded {
     transition: var(--animation);
     transition-property: border-color, background-color;
     border-radius: var(--embed-radius);
-    margin-block: var(--size-4-1) !important;
 
     &:hover {
       border-color: var(--accent-active);
