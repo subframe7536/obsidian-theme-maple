@@ -20,13 +20,14 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
 
 @include use-no-plugin('.modal-control-gradient') {
   button.mod-cta {
+    --interactive-accent: transparent;
     transition: box-shadow var(--animation);
     background: linear-gradient(to bottom, transparent -240%, var(--color-accent) 100%);
     &:hover {
       background: linear-gradient(to bottom, transparent -240%, var(--color-accent-1) 100%);
     }
-    &:not(.mod-loading) {
-      color: var(--text-on-accent);
+    &.mod-loading {
+      color: transparent !important;
     }
   }
 
