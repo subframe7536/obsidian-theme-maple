@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.2 For Obsidian */
+/* Maple Theme v1.5.3 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.2
+      default: Maple 1.5.3
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -7019,7 +7019,7 @@ body:not(.is-mobile).modal-setting-header.modal-setting-header-search .settings-
   background-color: var(--nav-item-background-hover);
 }
 .quiet-outline .n-tree.n-tree--block-line .n-tree-node.located p {
-  color: var(--accent-active);
+  color: var(--text-on-accent);
 }
 .quiet-outline .n-input {
   --input-border-width-focus: 0;
@@ -7130,14 +7130,15 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
 }
 
 body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta {
+  --interactive-accent: transparent;
   transition: box-shadow var(--animation);
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent) 100%);
 }
 body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta:hover {
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent-1) 100%);
 }
-body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta:not(.mod-loading) {
-  color: var(--text-on-accent);
+body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-cta.mod-loading {
+  color: transparent !important;
 }
 body:is(:not(.css-settings-manager), .modal-control-gradient) button.mod-warning {
   transition: box-shadow var(--animation);
@@ -7287,7 +7288,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.2");
+  content: var(--setting-modal-header-title, "Maple 1.5.3");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
