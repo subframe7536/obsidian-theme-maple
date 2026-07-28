@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.3 For Obsidian */
+/* Maple Theme v1.5.4 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.3
+      default: Maple 1.5.4
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2110,13 +2110,15 @@ settings:
 
           > - MySnippets
 
-          > - Quite Outline
+          > - Quiet Outline
 
           > - Recent Files
 
           > - Settings Search
 
           > - Shiki Highlighter
+
+          > - AnyBlock
       description.zh: >-
           如果您发现某个插件显示不正常，请前往 [GitHub
           仓库](https://github.com/subframe7536/obsidian-theme-maple) 提交 issue。
@@ -2131,13 +2133,15 @@ settings:
 
           > - MySnippets
 
-          > - Quite Outline
+          > - Quiet Outline
 
           > - Recent Files
 
           > - Settings Search
 
           > - Shiki Highlighter
+
+          > - AnyBlock
       markdown: true
     - id: title-calendar
       title: Calendar
@@ -7026,6 +7030,12 @@ body:not(.is-mobile).modal-setting-header.modal-setting-header-search .settings-
 }
 
 /* #endregion quiet-outline */
+/* #region anyblock */
+.code-nowrap .el-pre .ab-note .markdown-rendered {
+  position: relative;
+}
+
+/* #endregion anyblock */
 /* #endregion [plugins] */
 /* #region [workspace] */
 /* #region document-search */
@@ -7288,7 +7298,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.3");
+  content: var(--setting-modal-header-title, "Maple 1.5.4");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
