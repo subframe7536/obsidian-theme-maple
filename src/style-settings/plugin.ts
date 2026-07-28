@@ -5,10 +5,11 @@ const pluginList = [
   'Calendar',
   'Obsidian Git',
   'MySnippets',
-  'Quite Outline',
+  'Quiet Outline',
   'Recent Files',
   'Settings Search',
   'Shiki Highlighter',
+  'AnyBlock',
 ].map((name) => `> - ${name}`)
 
 export default Settings.create('maple-plugin', 'Maple Plugin').children([
