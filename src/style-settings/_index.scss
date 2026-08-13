@@ -43,7 +43,7 @@ body.css-settings-manager:not(.color-use-default) {
     & > .setting-group > .setting-items > .setting-item.mod-toggle {
       & > .setting-item-control:has(> input[type='color']) {
         position: relative;
-        :is(div, input) {
+        :is(.extra-setting-button, input) {
           visibility: hidden;
           pointer-events: none;
         }
