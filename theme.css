@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.5 For Obsidian */
+/* Maple Theme v1.5.6 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.5
+      default: Maple 1.5.6
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2172,6 +2172,10 @@ settings:
             value: calendar-end-6-7
           - label: Column 7 and 1
             value: calendar-end-7-1
+          - label: Column 7 and 8 (show week number)
+            value: calendar-end-7-8
+          - label: Column 8 and 2 (show week number)
+            value: calendar-end-8-2
     - id: calendar-swap-year-month
       type: class-toggle
       title: Swap Year and Month Display
@@ -6900,6 +6904,14 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   background-color: hsla(var(--color-accent-hsl), 0.1);
 }
 
+.calendar-end-7-8 #calendar-container tbody tr td:is(:nth-child(7), :nth-child(8)) {
+  background-color: hsla(var(--color-accent-hsl), 0.1);
+}
+
+.calendar-end-8-2 #calendar-container tbody tr td:is(:nth-child(8), :nth-child(2)) {
+  background-color: hsla(var(--color-accent-hsl), 0.1);
+}
+
 .workspace-leaf-content[data-type=calendar] .view-content {
   padding-inline: var(--size-4-1);
   padding-block: 0;
@@ -7295,7 +7307,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.5");
+  content: var(--setting-modal-header-title, "Maple 1.5.6");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
