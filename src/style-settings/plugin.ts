@@ -35,6 +35,8 @@ export default Settings.create('maple-plugin', 'Maple Plugin').children([
           { label: 'Column 5 and 6', value: 'calendar-end-5-6' },
           { label: 'Column 6 and 7', value: 'calendar-end-6-7' },
           { label: 'Column 7 and 1', value: 'calendar-end-7-1' },
+          { label: 'Column 7 and 8 (show week number)', value: 'calendar-end-7-8' },
+          { label: 'Column 8 and 2 (show week number)', value: 'calendar-end-8-2' },
         ],
       },
     )

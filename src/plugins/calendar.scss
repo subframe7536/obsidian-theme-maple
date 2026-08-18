@@ -112,6 +112,24 @@ body.calendar-swap-year-month #calendar-container .nav {
     td:is(:nth-child(#{$start}), :nth-child(#{$end})) {
     background-color: hsla(var(--color-accent-hsl), 0.1);
   }
+
+  @if $i == 7 {
+    $week: $start + 1;
+    .calendar-end-#{$start}-#{$week}
+      #calendar-container
+      tbody
+      tr
+      td:is(:nth-child(#{$start}), :nth-child(#{$week})) {
+      background-color: hsla(var(--color-accent-hsl), 0.1);
+    }
+    .calendar-end-#{$week}-2
+      #calendar-container
+      tbody
+      tr
+      td:is(:nth-child(#{$week}), :nth-child(2)) {
+      background-color: hsla(var(--color-accent-hsl), 0.1);
+    }
+  }
 }
 
 @include use-panel('calendar') {
