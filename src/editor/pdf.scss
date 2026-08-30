@@ -72,4 +72,8 @@
   body.list-enable {
     --list-marker-color-alt-render: var(--list-marker-color-alt);
   }
+
+  body.quote-shadow .markdown-rendered blockquote {
+    box-shadow: none;
+  }
 }
