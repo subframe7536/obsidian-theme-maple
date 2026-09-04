@@ -43,7 +43,7 @@ body {
         box-shadow: var(--tab-active-shadow);
       }
       &-container {
-        translate: calc(-1 * var(--size-4-1));
+        padding-left: var(--size-4-1);
 
         &-inner {
           margin-top: var(--size-4-1);
