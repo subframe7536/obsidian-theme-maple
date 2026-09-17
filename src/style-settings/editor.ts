@@ -1,4 +1,4 @@
-import { descReference, descValidCSS, Settings } from './generator'
+import { descReference, descValidCSS, Settings } from './generator.ts'
 
 interface HeadingConfig {
   style?: 'normal' | 'underline' | 'full-line' | 'block'

@@ -1,4 +1,4 @@
-import { descValidCSS, Settings } from './generator'
+import { descValidCSS, Settings } from './generator.ts'
 
 export default Settings.create('maple-mobile', 'Maple Mobile').children([
   Settings.of().addClassToggle(

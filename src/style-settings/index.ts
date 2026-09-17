@@ -1,12 +1,12 @@
-import { version } from '../../package.json'
+import pkg from '../../package.json' with { type: 'json' }
 
-import basic from './basic'
-import editor from './editor'
-import mobile from './mobile'
-import plugin from './plugin'
-import workspace from './workspace'
+import basic from './basic.ts'
+import editor from './editor.ts'
+import mobile from './mobile.ts'
+import plugin from './plugin.ts'
+import workspace from './workspace.ts'
 
-const settings = `/* Maple Theme v${version} For Obsidian */
+const settings = `/* Maple Theme v${pkg.version} For Obsidian */
 ${basic}
 ${workspace}
 ${editor}
@@ -14,7 +14,7 @@ ${plugin}
 ${mobile}
 `
 
-if (!process.argv[1].endsWith('compile.ts')) {
+if (!process.argv[1]?.endsWith('compile.ts')) {
   console.log(settings)
 }
 export default settings

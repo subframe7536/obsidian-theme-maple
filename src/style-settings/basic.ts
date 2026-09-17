@@ -1,4 +1,4 @@
-import { descValidCSS, Settings } from './generator'
+import { descValidCSS, Settings } from './generator.ts'
 
 export default Settings.create('maple-basic', 'Maple Basic').children([
   Settings.of()

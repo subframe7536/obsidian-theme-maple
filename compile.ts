@@ -1,14 +1,15 @@
+import { execFile } from 'node:child_process'
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { homedir, platform } from 'node:os'
 import { basename, extname, resolve, join, parse } from 'node:path'
-import { styleText } from 'node:util'
+import { styleText, promisify } from 'node:util'
 
 import { watch } from 'chokidar'
 import { compile } from 'sass'
 
-import { version } from './package.json'
-import { FUNCTIONS } from './src/custom-functions'
-import settings from './src/style-settings/index'
+import pkg from './package.json' with { type: 'json' }
+import { FUNCTIONS } from './src/custom-functions.ts'
+import settings from './src/style-settings/index.ts'
 
 function setup(baseDir: string) {
   if (!existsSync(baseDir)) {
@@ -61,6 +62,7 @@ function compileCss(output: string, src: string, prepend?: string) {
       sourceMap: false,
       functions: FUNCTIONS,
       charset: false,
+      silenceDeprecations: ['if-function'],
     })
 
     css = css.replace(/\s+[\w-]+\b:\s*ignore;/g, '')
@@ -83,7 +85,7 @@ function build(src: string, out: string) {
     JSON.stringify(
       {
         ...JSON.parse(manifest),
-        version,
+        version: pkg.version,
       },
       null,
       2,
@@ -97,15 +99,18 @@ function test(src: string) {
   compileCss(`${p.dir}/${p.name}.css`, src)
 }
 
+const execFileAsync = promisify(execFile)
+
 async function dev(src: string, out: string) {
   try {
-    const latestSettings = await Bun.$`bun ${process.cwd()}/src/style-settings/index.ts`.text()
+    const scriptPath = join(process.cwd(), 'src/style-settings/index.ts')
+    const { stdout: latestSettings } = await execFileAsync('nub', [scriptPath])
+
     compileCss(out, src, latestSettings)
   } catch (err) {
     console.error(err)
   }
 }
-
 function move() {
   const vaultRoots = process.env.VAULT_DIRS?.split(',').filter(Boolean)
   if (!vaultRoots?.length) {

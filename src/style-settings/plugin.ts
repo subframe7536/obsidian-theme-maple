@@ -1,4 +1,4 @@
-import { descValidCSS, Settings } from './generator'
+import { descValidCSS, Settings } from './generator.ts'
 
 const pluginList = [
   'Better Command Palette',

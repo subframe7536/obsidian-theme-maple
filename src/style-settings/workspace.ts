@@ -1,6 +1,6 @@
-import { version } from '../../package.json'
+import pkg from '../../package.json' with { type: 'json' }
 
-import { descReference, Settings } from './generator'
+import { descReference, Settings } from './generator.ts'
 
 export default Settings.create('maple-workspace', 'Maple Workspace').children([
   Settings.of().addClassToggle(
@@ -162,7 +162,7 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addVarText(
       'setting-modal-header-title',
       { title: { en: 'Setting Panel Header Title', zh: '设置面板标题' } },
-      { default: `Maple ${version}`, quotes: true },
+      { default: `Maple ${pkg.version}`, quotes: true },
     )
     .addClassToggle(
       'modal-setting-header-title-center',

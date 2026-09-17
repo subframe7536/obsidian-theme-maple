@@ -6,14 +6,14 @@ import { icons as tabler } from '@iconify-json/tabler'
 import { SassString } from 'sass'
 import type { CustomFunction } from 'sass'
 
-import { version } from '../package.json'
+import pkg from '../package.json' with { type: 'json' }
 
 const resourceDir = 'resource'
 
 function getIconUrl(name: string, color?: string) {
   const parseSvgUrl = (svg: string, color?: string) => {
     if (color) {
-      svg = svg.replaceAll('currentColor', Bun.color(color, 'HEX') || '#0000')
+      svg = svg.replaceAll('currentColor', color || '#0000')
     }
     svg = svg
       .replace(/"/g, "'")
@@ -55,7 +55,7 @@ function getIconUrl(name: string, color?: string) {
 
 export const FUNCTIONS: Record<string, CustomFunction<'sync'>> = {
   'version()': () => {
-    return new SassString(`Maple ${version}`)
+    return new SassString(`Maple ${pkg.version}`)
   },
   'unescape($str)': ([str]) => {
     return new SassString(str!.assertString().text.replace(/\\/g, ''))
@@ -71,7 +71,7 @@ export const FUNCTIONS: Record<string, CustomFunction<'sync'>> = {
     if (style !== 'Regular' && style !== 'Italic') {
       throw new Error('style must be regular or italic')
     }
-    const source = readFileSync(`${resourceDir}/font/MapleMono-${style}.woff2`).toBase64()
+    const source = readFileSync(`${resourceDir}/font/MapleMono-${style}.woff2`).toString('base64')
     return new SassString(`url("data:font/woff2;base64,${source}")`, {
       quotes: false,
     })

@@ -5,22 +5,31 @@
   "author": "subframe7536",
   "type": "module",
   "scripts": {
-    "dev": "bun compile.ts src/dev.scss",
-    "build": "bun compile.ts --build",
-    "test": "bun compile.ts --test src/snippets/test.scss",
+    "dev": "nub compile.ts src/dev.scss",
+    "build": "nub compile.ts --build",
+    "test": "nub compile.ts --test src/snippets/test.scss",
     "qa": "oxlint --fix && oxfmt",
-    "release": "bumpp -x \"bun run build\" --all"
+    "release": "bumpp -x \"nub run build\" --all"
   },
   "devDependencies": {
-    "@iconify-json/bi": "^1.2.6",
-    "@iconify-json/lucide": "^1.2.65",
-    "@iconify-json/tabler": "^1.2.22",
-    "@subf/config": "^0.2.1",
-    "bumpp": "^10.2.3",
-    "bun-types": "^1.2.21",
-    "oxfmt": "^0.44.0",
-    "oxlint": "^1.59.0",
-    "sass": "^1.91.0",
-    "typescript": "^6.0.2"
+    "@iconify-json/bi": "^1.2.7",
+    "@iconify-json/lucide": "^1.2.129",
+    "@iconify-json/tabler": "^1.2.38",
+    "@subf/config": "^0.4.0",
+    "@types/node": "^24",
+    "bumpp": "^11.1.0",
+    "chokidar": "*",
+    "oxfmt": "^0.66.0",
+    "oxlint": "^1.81.0",
+    "sass": "^1.104.1",
+    "typescript": "^7.0.2",
+    "yaml": "*"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "nub",
+      "version": "^0.9.2",
+      "onFail": "ignore"
+    }
   }
 }
