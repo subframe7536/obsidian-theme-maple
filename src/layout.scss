@@ -198,6 +198,10 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) {
     background-color: var(--bg-surface);
     .vertical-tab-header {
       background-color: transparent;
+      margin-top: 0;
+    }
+    .setting-group-filters {
+      padding-top: var(--size-4-3);
     }
     .vertical-tab-content-container > .vertical-tab-content {
       background-color: transparent;
@@ -235,7 +239,6 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) {
       .setting-group-search {
         padding: 0 !important;
         & + .setting-items {
-          padding-top: var(--size-4-5);
           border-start-start-radius: var(--setting-items-radius);
           border-start-end-radius: var(--setting-items-radius);
         }
