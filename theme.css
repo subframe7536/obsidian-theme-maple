@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.10 For Obsidian */
+/* Maple Theme v1.5.11 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.10
+      default: Maple 1.5.11
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -3129,6 +3129,10 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-container
 }
 body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-container .mod-settings .modal-content .vertical-tab-header {
   background-color: transparent;
+  margin-top: 0;
+}
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-container .mod-settings .modal-content .setting-group-filters {
+  padding-top: var(--size-4-3);
 }
 body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-container .mod-settings .modal-content .vertical-tab-content-container > .vertical-tab-content {
   background-color: transparent;
@@ -3158,7 +3162,6 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only).modal-setting-he
   padding: 0 !important;
 }
 body.app-layout-card:not(.is-mobile):not(.color-highlight-only).modal-setting-header.modal-setting-header-search .setting-group-search + .setting-items {
-  padding-top: var(--size-4-5);
   border-start-start-radius: var(--setting-items-radius);
   border-start-end-radius: var(--setting-items-radius);
 }
@@ -7336,7 +7339,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.10");
+  content: var(--setting-modal-header-title, "Maple 1.5.11");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
