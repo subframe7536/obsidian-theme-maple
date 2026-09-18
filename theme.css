@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.9 For Obsidian */
+/* Maple Theme v1.5.10 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.9
+      default: Maple 1.5.10
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -1744,7 +1744,6 @@ settings:
       title.zh: 鼠标按下时放大图片
       description: Reference from https://github.com/aaaaalexis/obsidian-cupertino
       description.zh: 参考自 https://github.com/aaaaalexis/obsidian-cupertino
-      default: true
     - id: image-dark-hover
       type: class-toggle
       title: Decrease Brightness in Dark Mode
@@ -2276,26 +2275,6 @@ body {
   --font-ui-smaller: 13px;
   --font-ui-small: 14px;
   --font-ui-medium: 16px;
-  --input-radius: var(--size-2-3);
-  --input-shadow:
-    0 0.125px 0 0.5px var(--color-base-10), inset 0 -0.125px 1px 0px var(--color-base-30),
-    0 0.75px 2px 0.5px var(--color-base-50);
-  --input-shadow-hover:
-    0 0.125px 0 0.5px var(--color-base-20), inset 0 -0.125px 1px 0px var(--color-base-40),
-    0 0.75px 2px 0.5px var(--color-base-50);
-  --animation-dur: var(--setting-animation-time, 250ms);
-  --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
-  --animation: var(--animation-dur) var(--anim-motion-smooth);
-  --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
-  --animation-delay: calc(4 * var(--animation-dur));
-  --divider-color: var(--setting-divider-color, var(--color-base-30));
-  --divider-width-hover: var(--size-4-1);
-  --nav-item-background-active: var(--accent-active-bg);
-  --nav-item-background-selected: var(--background-modifier-hover);
-  --line-height-normal: var(--setting-line-height, 1.8);
-  --line-height-tight: var(--setting-item-line-height, 1.5);
-  --menu-padding: 4px;
-  --color-opacity: 1;
 }
 body:not(.color-highlight-only) {
   --background-modifier-border: hsla(
@@ -2320,6 +2299,28 @@ body:not(.color-highlight-only) {
   --tab-container-background: var(--frame-bg);
   --titlebar-background: var(--frame-bg);
   --titlebar-background-focused: var(--frame-bg);
+}
+body {
+  --input-radius: var(--size-2-3);
+  --input-shadow:
+    0 0.125px 0 0.5px var(--color-base-10), inset 0 -0.125px 1px 0px var(--color-base-30),
+    0 0.75px 2px 0.5px var(--color-base-50);
+  --input-shadow-hover:
+    0 0.125px 0 0.5px var(--color-base-20), inset 0 -0.125px 1px 0px var(--color-base-40),
+    0 0.75px 2px 0.5px var(--color-base-50);
+  --animation-dur: var(--setting-animation-time, 250ms);
+  --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
+  --animation: var(--animation-dur) var(--anim-motion-smooth);
+  --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
+  --animation-delay: calc(4 * var(--animation-dur));
+  --divider-color: var(--setting-divider-color, var(--color-base-30));
+  --divider-width-hover: var(--size-4-1);
+  --nav-item-background-active: var(--accent-active-bg);
+  --nav-item-background-selected: var(--background-modifier-hover);
+  --line-height-normal: var(--setting-line-height, 1.8);
+  --line-height-tight: var(--setting-item-line-height, 1.5);
+  --menu-padding: 4px;
+  --color-opacity: 1;
 }
 
 .theme-light {
@@ -2374,13 +2375,6 @@ body:not(.color-highlight-only) {
     calc(85% + var(--theme-accent-active-l) * 0.1)
   );
 }
-.theme-light.color-use-minimal {
-  --base-accent-h: var(--setting-color-active-custom-light-h, 210);
-  --theme-accent-active-s: var(--setting-color-active-custom-light-s, 6%);
-  --theme-accent-active-l: var(--setting-color-active-custom-light-l, 36%);
-  --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s, 8%);
-  --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l, 70%);
-}
 .theme-light.color-use-minimal:not(.color-highlight-only) {
   --background-primary-hsl: var(--base-accent-h), 6%, 97%;
   --background-primary-alt-hsl: var(--base-accent-h), 10%, 95.5%;
@@ -2390,6 +2384,13 @@ body:not(.color-highlight-only) {
     calc(var(--theme-accent-active-s) * 0.2),
     calc(85% + var(--theme-accent-active-l) * 0.1)
   );
+}
+.theme-light.color-use-minimal {
+  --base-accent-h: var(--setting-color-active-custom-light-h, 210);
+  --theme-accent-active-s: var(--setting-color-active-custom-light-s, 6%);
+  --theme-accent-active-l: var(--setting-color-active-custom-light-l, 36%);
+  --theme-accent-inactive-s: var(--setting-color-inactive-custom-light-s, 8%);
+  --theme-accent-inactive-l: var(--setting-color-inactive-custom-light-l, 70%);
 }
 .theme-light.color-use-custom {
   --base-accent-h: var(--setting-accent-h-light, 35);
@@ -2435,6 +2436,11 @@ body:not(.color-highlight-only) {
   --color-blue: rgba(var(--color-blue-rgb), var(--color-opacity));
   --color-purple-rgb: 186.2265, 179.265, 238.935;
   --color-purple: rgba(var(--color-purple-rgb), var(--color-opacity));
+}
+.theme-dark:not(.color-dark-dim-disable) {
+  --color-opacity: 0.85;
+}
+.theme-dark {
   --theme-accent-active-h: var(--theme-accent-h);
   --theme-accent-active-s: calc(20% + var(--accent-s) / 10);
   --theme-accent-active-l: calc(40% + var(--accent-l) / 10);
@@ -2458,9 +2464,6 @@ body:not(.color-highlight-only) {
   --text-normal: hsla(var(--base-accent-h), 50%, 94%, 75%);
   --text-on-accent: #eaeaea !important;
 }
-.theme-dark:not(.color-dark-dim-disable) {
-  --color-opacity: 0.85;
-}
 .theme-dark:not(.color-highlight-only) {
   --background-primary-hsl: var(--base-accent-h), 6%, 11%;
   --background-primary-alt-hsl: var(--base-accent-h), 10%, 13%;
@@ -2480,10 +2483,6 @@ body:not(.color-highlight-only) {
 .theme-dark.color-use-minimal {
   --text-on-accent: #1e1e1f !important;
   --base-accent-h: var(--setting-color-active-custom-dark-h, 210);
-  --theme-accent-active-s: var(--setting-color-active-custom-dark-s, 4%);
-  --theme-accent-active-l: var(--setting-color-active-custom-dark-l, 72%);
-  --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s, 12%);
-  --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l, 42%);
 }
 .theme-dark.color-use-minimal:not(.color-highlight-only) {
   --background-primary-hsl: var(--base-accent-h), 4%, 10%;
@@ -2495,12 +2494,11 @@ body:not(.color-highlight-only) {
     calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
   );
 }
-.theme-dark.color-use-custom {
-  --base-accent-h: var(--setting-accent-h-dark, 207);
-  --theme-accent-active-s: 24%;
-  --theme-accent-active-l: 52%;
-  --theme-accent-inactive-s: 12%;
-  --theme-accent-inactive-l: 32%;
+.theme-dark.color-use-minimal {
+  --theme-accent-active-s: var(--setting-color-active-custom-dark-s, 4%);
+  --theme-accent-active-l: var(--setting-color-active-custom-dark-l, 72%);
+  --theme-accent-inactive-s: var(--setting-color-inactive-custom-dark-s, 12%);
+  --theme-accent-inactive-l: var(--setting-color-inactive-custom-dark-l, 42%);
 }
 .theme-dark.color-use-custom:not(.color-highlight-only) {
   --bg-delta-dark: var(--setting-bg-delta-dark, 0%);
@@ -2511,6 +2509,13 @@ body:not(.color-highlight-only) {
   --background-secondary-hsl:
     calc(var(--base-accent-h) - 18), calc(6% + var(--bg-delta-dark) / 2),
     calc(12% + var(--bg-delta-dark));
+}
+.theme-dark.color-use-custom {
+  --base-accent-h: var(--setting-accent-h-dark, 207);
+  --theme-accent-active-s: 24%;
+  --theme-accent-active-l: 52%;
+  --theme-accent-inactive-s: 12%;
+  --theme-accent-inactive-l: 32%;
 }
 .theme-dark.color-use-custom.color-active-alt-dark {
   --theme-accent-h: calc(var(--base-accent-h) + 60);
@@ -2573,7 +2578,7 @@ body:not(.color-highlight-only) {
 /* #endregion */
 /* #region Default Color Input Indicator */
 html[lang=zh] {
-  --system-accent-override-text-cotent: "由 Style Settings 插件控制";
+  --system-accent-override-text-cotent: '由 Style Settings 插件控制';
 }
 
 .setting-item-info:has(+ .setting-item-control > .style-settings-import) .setting-item-name {
@@ -3252,15 +3257,15 @@ mjx-stretchy-h > mjx-ext > mjx-c::before {
 /* #endregion fix latex */
 /* #region monospace */
 body:is(:not(.css-settings-manager), .font-maple) {
-  --font-monospace-theme: "maplemono";
+  --font-monospace-theme: 'maplemono';
 }
 
 .font-maple-text {
-  --font-text-theme: "maplemono";
+  --font-text-theme: 'maplemono';
 }
 
 .font-maple-interface {
-  --font-interface-theme: "maplemono";
+  --font-interface-theme: 'maplemono';
 }
 
 code,
@@ -3743,439 +3748,439 @@ body .markdown-rendered pre .copy-code-button {
 
 /* https://prismjs.com/#supported-languages */
 body:is(:not(.css-settings-manager), .code-language) pre.language-markup {
-  --code-lang: "Markup";
+  --code-lang: 'Markup';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-html {
-  --code-lang: "HTML";
+  --code-lang: 'HTML';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-xml {
-  --code-lang: "XML";
+  --code-lang: 'XML';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-svg {
-  --code-lang: "SVG";
+  --code-lang: 'SVG';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-mathml {
-  --code-lang: "MathML";
+  --code-lang: 'MathML';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-ssml {
-  --code-lang: "SSML";
+  --code-lang: 'SSML';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-atom {
-  --code-lang: "Atom";
+  --code-lang: 'Atom';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-rss {
-  --code-lang: "RSS";
+  --code-lang: 'RSS';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-css {
-  --code-lang: "CSS";
+  --code-lang: 'CSS';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-javascript, .language-js) {
-  --code-lang: "JavaScript";
+  --code-lang: 'JavaScript';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-typescript, .language-ts) {
-  --code-lang: "Typescript";
+  --code-lang: 'Typescript';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-jsx {
-  --code-lang: "JSX";
+  --code-lang: 'JSX';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-typescript-jsx, .language-tsx) {
-  --code-lang: "TypeScript-JSX";
+  --code-lang: 'TypeScript-JSX';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-ada {
-  --code-lang: "Ada";
+  --code-lang: 'Ada';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-apex {
-  --code-lang: "Apex";
+  --code-lang: 'Apex';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-applescript {
-  --code-lang: "AppleScript";
+  --code-lang: 'AppleScript';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-aql {
-  --code-lang: "AQL";
+  --code-lang: 'AQL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-arduino, .language-ino) {
-  --code-lang: "Arduino";
+  --code-lang: 'Arduino';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-armasm, .language-arm-asm) {
-  --code-lang: "ArmAsm";
+  --code-lang: 'ArmAsm';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-asciidoc, .language-adoc) {
-  --code-lang: "AsciiDoc";
+  --code-lang: 'AsciiDoc';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-aspnet {
-  --code-lang: "AspNet";
+  --code-lang: 'AspNet';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-asm6502 {
-  --code-lang: "Asm6502";
+  --code-lang: 'Asm6502';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-autohotkey {
-  --code-lang: "AutoHotKey";
+  --code-lang: 'AutoHotKey';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-awk, .language-gawk) {
-  --code-lang: "AWK";
+  --code-lang: 'AWK';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-bash, .language-sh, .language-shell) {
-  --code-lang: "bash";
+  --code-lang: 'bash';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-basic {
-  --code-lang: "basic";
+  --code-lang: 'basic';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-batch {
-  --code-lang: "batch";
+  --code-lang: 'batch';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-bibtex {
-  --code-lang: "bibtex";
+  --code-lang: 'bibtex';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-bison {
-  --code-lang: "Bison";
+  --code-lang: 'Bison';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-c {
-  --code-lang: "C";
+  --code-lang: 'C';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-c\#, .language-csharp, .language-cs, .language-dotnet) {
-  --code-lang: "C#";
+  --code-lang: 'C#';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-c\+\+, .language-cpp) {
-  --code-lang: "C++";
+  --code-lang: 'C++';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-clojure {
-  --code-lang: "Clojure";
+  --code-lang: 'Clojure';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-cmake {
-  --code-lang: "CMake";
+  --code-lang: 'CMake';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-cobol {
-  --code-lang: "COBOL";
+  --code-lang: 'COBOL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-coffeescript, .language-coffee) {
-  --code-lang: "CoffeeScript";
+  --code-lang: 'CoffeeScript';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-csp {
-  --code-lang: "CSP";
+  --code-lang: 'CSP';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-crystal {
-  --code-lang: "Crystal";
+  --code-lang: 'Crystal';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-csv {
-  --code-lang: "CSV";
+  --code-lang: 'CSV';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-cue {
-  --code-lang: "CUE";
+  --code-lang: 'CUE';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-d {
-  --code-lang: "D";
+  --code-lang: 'D';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-dart {
-  --code-lang: "Dart";
+  --code-lang: 'Dart';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-diff {
-  --code-lang: "Diff";
+  --code-lang: 'Diff';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-django {
-  --code-lang: "Django";
+  --code-lang: 'Django';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-jinja2 {
-  --code-lang: "Jinja2";
+  --code-lang: 'Jinja2';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-docker {
-  --code-lang: "Docker";
+  --code-lang: 'Docker';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-dockerfile {
-  --code-lang: "Dockerfile";
+  --code-lang: 'Dockerfile';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-ebnf {
-  --code-lang: "EBNF";
+  --code-lang: 'EBNF';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-editorconfig {
-  --code-lang: "EditorConfig";
+  --code-lang: 'EditorConfig';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-ejs {
-  --code-lang: "EJS";
+  --code-lang: 'EJS';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-elixir {
-  --code-lang: "Elixir";
+  --code-lang: 'Elixir';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-elm {
-  --code-lang: "Elm";
+  --code-lang: 'Elm';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-erb {
-  --code-lang: "ERB";
+  --code-lang: 'ERB';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-excel-formula, .language-xlsx, .language-xls) {
-  --code-lang: "Excel-Formula";
+  --code-lang: 'Excel-Formula';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-f\#, .language-fsharp) {
-  --code-lang: "F#";
+  --code-lang: 'F#';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-flow {
-  --code-lang: "Flow";
+  --code-lang: 'Flow';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-fortran {
-  --code-lang: "Fortran";
+  --code-lang: 'Fortran';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-gdscript {
-  --code-lang: "GDScript";
+  --code-lang: 'GDScript';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-git {
-  --code-lang: "Git";
+  --code-lang: 'Git';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-glsl {
-  --code-lang: "GLSL";
+  --code-lang: 'GLSL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-go {
-  --code-lang: "Go";
+  --code-lang: 'Go';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-go-module, .language-go-mod) {
-  --code-lang: "Go-Module";
+  --code-lang: 'Go-Module';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-gradle {
-  --code-lang: "Gradle";
+  --code-lang: 'Gradle';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-graphql {
-  --code-lang: "GraphQL";
+  --code-lang: 'GraphQL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-groovy {
-  --code-lang: "Groovy";
+  --code-lang: 'Groovy';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-haml {
-  --code-lang: "HAML";
+  --code-lang: 'HAML';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-handlebars, .language-hbs, .language-mustache) {
-  --code-lang: "Handlebars";
+  --code-lang: 'Handlebars';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-haskell, .language-hs) {
-  --code-lang: "Haskell";
+  --code-lang: 'Haskell';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-hcl {
-  --code-lang: "HCL";
+  --code-lang: 'HCL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-hlsl {
-  --code-lang: "HLSL";
+  --code-lang: 'HLSL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-http {
-  --code-lang: "HTTP";
+  --code-lang: 'HTTP';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-icon {
-  --code-lang: "Icon";
+  --code-lang: 'Icon';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-icu-message-format {
-  --code-lang: "ICU-Message-Format";
+  --code-lang: 'ICU-Message-Format';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-gitignore {
-  --code-lang: "gitignore";
+  --code-lang: 'gitignore';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-ini {
-  --code-lang: "Ini";
+  --code-lang: 'Ini';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-java {
-  --code-lang: "Java";
+  --code-lang: 'Java';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-javadoc {
-  --code-lang: "JavaDoc";
+  --code-lang: 'JavaDoc';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-jq {
-  --code-lang: "JQ";
+  --code-lang: 'JQ';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-jsdoc {
-  --code-lang: "JSDoc";
+  --code-lang: 'JSDoc';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-json {
-  --code-lang: "JSON";
+  --code-lang: 'JSON';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-json5 {
-  --code-lang: "JSON5";
+  --code-lang: 'JSON5';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-jsonp {
-  --code-lang: "JSONP";
+  --code-lang: 'JSONP';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-julia {
-  --code-lang: "Julia";
+  --code-lang: 'Julia';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-kotlin, .language-kt, .language-kts) {
-  --code-lang: "Kotlin";
+  --code-lang: 'Kotlin';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-latex, .language-tex) {
-  --code-lang: "Latex";
+  --code-lang: 'Latex';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-less {
-  --code-lang: "Less";
+  --code-lang: 'Less';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-liquid {
-  --code-lang: "Liquid";
+  --code-lang: 'Liquid';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-lisp, .language-emacs, .language-elisp, .language-emacs-lisp) {
-  --code-lang: "Lisp";
+  --code-lang: 'Lisp';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-llvm {
-  --code-lang: "LLVM";
+  --code-lang: 'LLVM';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-log {
-  --code-lang: "Log";
+  --code-lang: 'Log';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-lua {
-  --code-lang: "Lua";
+  --code-lang: 'Lua';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-makefile {
-  --code-lang: "Makefile";
+  --code-lang: 'Makefile';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-markdown, .language-md) {
-  --code-lang: "Markdown";
+  --code-lang: 'Markdown';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-matlab {
-  --code-lang: "MATLAB";
+  --code-lang: 'MATLAB';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-mermaid {
-  --code-lang: "Mermaid";
+  --code-lang: 'Mermaid';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-mongodb {
-  --code-lang: "MongoDB";
+  --code-lang: 'MongoDB';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-monkey {
-  --code-lang: "Monkey";
+  --code-lang: 'Monkey';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-neon {
-  --code-lang: "Neon";
+  --code-lang: 'Neon';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-nginx {
-  --code-lang: "Nginx";
+  --code-lang: 'Nginx';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-nim {
-  --code-lang: "Nim";
+  --code-lang: 'Nim';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-nix {
-  --code-lang: "Nix";
+  --code-lang: 'Nix';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-nsis {
-  --code-lang: "NSIS";
+  --code-lang: 'NSIS';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-objectc, .language-objc) {
-  --code-lang: "ObjectC";
+  --code-lang: 'ObjectC';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-ocaml {
-  --code-lang: "OCaml";
+  --code-lang: 'OCaml';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-odin {
-  --code-lang: "odin";
+  --code-lang: 'odin';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-opencl {
-  --code-lang: "OpenCL";
+  --code-lang: 'OpenCL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-pascal {
-  --code-lang: "Pascal";
+  --code-lang: 'Pascal';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-perl {
-  --code-lang: "Perl";
+  --code-lang: 'Perl';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-php {
-  --code-lang: "PHP";
+  --code-lang: 'PHP';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-phpdoc {
-  --code-lang: "PHPDoc";
+  --code-lang: 'PHPDoc';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-powershell {
-  --code-lang: "PowerShell";
+  --code-lang: 'PowerShell';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-properties {
-  --code-lang: "Properties";
+  --code-lang: 'Properties';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-protobuf {
-  --code-lang: "ProtoBuf";
+  --code-lang: 'ProtoBuf';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-pug {
-  --code-lang: "Pug";
+  --code-lang: 'Pug';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-python, .language-py) {
-  --code-lang: "Python";
+  --code-lang: 'Python';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-qml {
-  --code-lang: "QML";
+  --code-lang: 'QML';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-r {
-  --code-lang: "R";
+  --code-lang: 'R';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-regex {
-  --code-lang: "Regex";
+  --code-lang: 'Regex';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-rescript, .language-res) {
-  --code-lang: "ReScript";
+  --code-lang: 'ReScript';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-rip {
-  --code-lang: "Rip";
+  --code-lang: 'Rip';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-ruby, .language-rb) {
-  --code-lang: "Ruby";
+  --code-lang: 'Ruby';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-rust, .language-rs) {
-  --code-lang: "Rust";
+  --code-lang: 'Rust';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-sass {
-  --code-lang: "Sass";
+  --code-lang: 'Sass';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-scss {
-  --code-lang: "Scss";
+  --code-lang: 'Scss';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-scala {
-  --code-lang: "Scala";
+  --code-lang: 'Scala';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-solidity {
-  --code-lang: "Solidity";
+  --code-lang: 'Solidity';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-sql {
-  --code-lang: "SQL";
+  --code-lang: 'SQL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-stylus {
-  --code-lang: "stylus";
+  --code-lang: 'stylus';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-swift {
-  --code-lang: "Swift";
+  --code-lang: 'Swift';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-tcl {
-  --code-lang: "TCL";
+  --code-lang: 'TCL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-toml {
-  --code-lang: "TOML";
+  --code-lang: 'TOML';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-uri, .language-url) {
-  --code-lang: "URI";
+  --code-lang: 'URI';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-unrealscript, .language-uscript, .language-uc) {
-  --code-lang: "UnrealScript";
+  --code-lang: 'UnrealScript';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-v {
-  --code-lang: "V";
+  --code-lang: 'V';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-vbnet {
-  --code-lang: "VBNet";
+  --code-lang: 'VBNet';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-velocity {
-  --code-lang: "Velocity";
+  --code-lang: 'Velocity';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-vhdl {
-  --code-lang: "VHDL";
+  --code-lang: 'VHDL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-vim {
-  --code-lang: "Vim";
+  --code-lang: 'Vim';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-visual-basic, .language-vb, .language-vba) {
-  --code-lang: "Visual-Basic";
+  --code-lang: 'Visual-Basic';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-wasm {
-  --code-lang: "WASM";
+  --code-lang: 'WASM';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-wgsl {
-  --code-lang: "WGSL";
+  --code-lang: 'WGSL';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-wiki {
-  --code-lang: "WIKI";
+  --code-lang: 'WIKI';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-wren {
-  --code-lang: "Wren";
+  --code-lang: 'Wren';
 }
 body:is(:not(.css-settings-manager), .code-language) pre:is(.language-yaml, .language-yml) {
-  --code-lang: "YAML";
+  --code-lang: 'YAML';
 }
 body:is(:not(.css-settings-manager), .code-language) pre.language-zig {
-  --code-lang: "Zig";
+  --code-lang: 'Zig';
 }
 body:is(:not(.css-settings-manager), .code-language) .markdown-rendered {
   --code-block-padding: calc(var(--line-height-tight) * var(--code-size))
@@ -4492,13 +4497,13 @@ body.embed-title-right-top .internal-embed.is-loaded:not([alt="#"]) :is(.markdow
 /* #endregion hr */
 /* #region link */
 .external-link {
-  background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23222222' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 7h10v10M7 17L17 7'/></svg>");
+  background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23222' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 7h10v10M7 17L17 7'/></svg>");
   background-size: var(--font-text-size);
   padding-inline-end: var(--size-4-4);
 }
 
 .theme-dark .external-link {
-  background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23DDDDDD' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 7h10v10M7 17L17 7'/></svg>");
+  background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23ddd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 7h10v10M7 17L17 7'/></svg>");
 }
 
 body {
@@ -4637,7 +4642,7 @@ body.link-hover-expand :is(.cm-hmd-internal-link, .cm-link) {
   display: inline-block;
   transform: translateY(var(--size-2-1));
   margin-inline: var(--size-2-1);
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8'/></g></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/><path d='M14 2v5a1 1 0 0 0 1 1h5M10 9H8m8 4H8m8 4H8'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
   color: inherit;
@@ -4689,7 +4694,6 @@ body:is(:not(.css-settings-manager), .list-enable) {
   --checkbox-marker-color: var(--text-on-accent);
   --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
   --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
-  --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 }
 body:is(:not(.css-settings-manager), .list-enable) .cm-formatting-list {
   padding-inline-start: var(--size-4-1);
@@ -4751,6 +4755,9 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-rendered ol li > ol
 }
 body:is(:not(.css-settings-manager), .list-enable) :is(.markdown-rendered, div) > ul {
   --list-indent: 0;
+}
+body:is(:not(.css-settings-manager), .list-enable) {
+  --list-bullet-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 }
 body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-2 .list-bullet {
   --list-marker-color: transparent;
@@ -5830,7 +5837,7 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
 }
 
 :is(.HyperMD-header-1, .markdown-rendered h1) {
-  --h-indicator-content: "H1";
+  --h-indicator-content: 'H1';
 }
 
 .link-heading :is(.HyperMD-header-1, .markdown-rendered h1) {
@@ -5842,7 +5849,7 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
 }
 
 :is(.HyperMD-header-2, .markdown-rendered h2) {
-  --h-indicator-content: "H2";
+  --h-indicator-content: 'H2';
 }
 
 .link-heading :is(.HyperMD-header-2, .markdown-rendered h2) {
@@ -5854,7 +5861,7 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
 }
 
 :is(.HyperMD-header-3, .markdown-rendered h3) {
-  --h-indicator-content: "H3";
+  --h-indicator-content: 'H3';
 }
 
 .link-heading :is(.HyperMD-header-3, .markdown-rendered h3) {
@@ -5866,7 +5873,7 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
 }
 
 :is(.HyperMD-header-4, .markdown-rendered h4) {
-  --h-indicator-content: "H4";
+  --h-indicator-content: 'H4';
 }
 
 .link-heading :is(.HyperMD-header-4, .markdown-rendered h4) {
@@ -5878,7 +5885,7 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
 }
 
 :is(.HyperMD-header-5, .markdown-rendered h5) {
-  --h-indicator-content: "H5";
+  --h-indicator-content: 'H5';
 }
 
 .link-heading :is(.HyperMD-header-5, .markdown-rendered h5) {
@@ -5890,7 +5897,7 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
 }
 
 :is(.HyperMD-header-6, .markdown-rendered h6) {
-  --h-indicator-content: "H6";
+  --h-indicator-content: 'H6';
 }
 
 .link-heading :is(.HyperMD-header-6, .markdown-rendered h6) {
@@ -6380,10 +6387,6 @@ img {
 .image-alt .image-embed[alt] {
   padding: var(--size-4-1) 0;
 }
-.image-alt .image-embed[alt]::after {
-  display: block;
-  text-align: center;
-}
 .image-alt .image-embed[alt]:not([alt$=".png"],
 [alt$=".jpg"],
 [alt$=".jpeg"],
@@ -6392,10 +6395,31 @@ img {
 [alt$=".gif"],
 [alt$=".tiff"],
 [alt$=".bmp"],
-[alt$=".tiff"])::after {
-  content: attr(alt);
+[alt$=".tiff"]) {
+  --content: attr(alt);
+}
+.image-alt .image-embed[alt]:not(:has(.image-wrapper))::after {
+  content: var(--content);
+  display: block;
+  text-align: center;
   font-size: var(--font-smaller);
   color: var(--text-faint);
+}
+.image-alt .image-embed[alt] .image-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.image-alt .image-embed[alt] .image-wrapper::before {
+  height: var(--size-4-5);
+  line-height: var(--size-4-5);
+  display: block;
+  text-align: center;
+  content: var(--content);
+  font-size: var(--font-smaller);
+  color: var(--text-faint);
+}
+.image-alt .image-embed[alt] .image-wrapper .image-resize-corner {
+  transform: translateY(calc(-1 * var(--size-4-5)));
 }
 .image-alt .view-content img:not(.emoji) {
   display: block;
@@ -6647,7 +6671,7 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
   display: none;
 }
 .metadata-container :is([data-property-key=published], [data-property-key*=date]) .lucide-text {
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M8 2v4m8-4v4'/><rect width='18' height='18' x='3' y='4' rx='2'/><path d='M3 10h18'/></g></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M8 2v3m8-3v3'/><rect width='18' height='18' x='3' y='3' rx='2'/><path d='M3 9h18'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
 }
@@ -6715,7 +6739,7 @@ input.metadata-property-key-input,
 /* #endregion excalidraw */
 /* #region better-command-palette */
 .better-command-palette {
-  --prompt-text: "Better Command Palette";
+  --prompt-text: 'Better Command Palette';
 }
 .better-command-palette .prompt-instruction {
   display: none;
@@ -6740,13 +6764,13 @@ input.metadata-property-key-input,
   font-family: -apple-system, BlinkMacSystemFont, var(--font-monospace);
 }
 .better-command-palette[palette-mode=commands] {
-  --action: var(--action-text-command, "Command");
+  --action: var(--action-text-command, 'Command');
 }
 .better-command-palette[palette-mode=commands] .prompt-instructions :first-child {
   display: inline-block;
 }
 .better-command-palette[palette-mode=files] {
-  --action: var(--action-text-file, "File");
+  --action: var(--action-text-file, 'File');
 }
 .better-command-palette[palette-mode=files] .prompt-instructions :first-child,
 .better-command-palette[palette-mode=files] .prompt-instructions :nth-child(2),
@@ -6754,7 +6778,7 @@ input.metadata-property-key-input,
   display: inline-block;
 }
 .better-command-palette[palette-mode=tags] {
-  --action: var(--action-text-tag, "Tag");
+  --action: var(--action-text-tag, 'Tag');
 }
 .better-command-palette[palette-mode=tags] .prompt-instructions :first-child {
   display: inline-block;
@@ -6786,9 +6810,9 @@ input.metadata-property-key-input,
 }
 
 html[lang=zh] {
-  --action-text-command: "命令";
-  --action-text-file: "文件";
-  --action-text-tag: "标签";
+  --action-text-command: '命令';
+  --action-text-file: '文件';
+  --action-text-tag: '标签';
 }
 
 .is-mobile .better-command-palette-title::before {
@@ -6977,7 +7001,7 @@ body.calendar-swap-year-month #calendar-container .nav .title .month {
   display: none;
 }
 .MySnippets-statusbar-menu .ms-add {
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M9 15h6m-3 3v-6'/></g></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/><path d='M14 2v5a1 1 0 0 0 1 1h5M9 15h6m-3 3v-6'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
 }
@@ -7227,13 +7251,15 @@ body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:is(:ho
 }
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container {
   --toggle-target-width: var(--toggle-width);
+}
+body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container.mod-small {
+  --toggle-target-width: var(--toggle-s-width);
+}
+body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
   height: var(--size-4-4);
   transition: var(--animation);
   border: var(--toggle-border-width) solid var(--text-faint);
-}
-body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container.mod-small {
-  --toggle-target-width: var(--toggle-s-width);
 }
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container:focus-within {
   outline: none;
@@ -7310,7 +7336,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.9");
+  content: var(--setting-modal-header-title, "Maple 1.5.10");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) / 2);
@@ -7428,12 +7454,12 @@ button[disabled=true] {
 }
 
 .theme-light {
-  --select-bg-img: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23222222' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9l6 6l6-6'/></svg>");
+  --select-bg-img: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23222' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9l6 6l6-6'/></svg>");
 }
 
 .theme-dark {
   /* current color seems to be invalid for SVG in background-image */
-  --select-bg-img: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23DDDDDD' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9l6 6l6-6'/></svg>");
+  --select-bg-img: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='%23ddd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9l6 6l6-6'/></svg>");
 }
 
 :is(select, .dropdown) {
@@ -7667,7 +7693,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .workspace-tab-header-inner
   display: none;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .workspace-tab-header-inner-icon .lucide-file-text {
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z'/></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 5v16m8.001-2A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2a5 5 0 0 1 4-2z'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
 }
@@ -7900,14 +7926,16 @@ body.message-modify .notice.is-loading::before {
 
 .labeled-nav {
   --labeled-nav-top-margin: var(--header-height);
-  /* refactor this using a new variable for border above labeled nav
-  in different conditions e.g. OSes and colorful frame */
 }
 .labeled-nav.is-translucent .mod-left-split .mod-top .workspace-tab-header-container .workspace-tab-header-container-inner {
   background-color: transparent;
 }
 .labeled-nav.is-hidden-frameless:not(.is-fullscreen) .mod-left-split .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
   padding-left: 0;
+}
+.labeled-nav {
+  /* refactor this using a new variable for border above labeled nav
+  in different conditions e.g. OSes and colorful frame */
 }
 .labeled-nav.mod-macos .mod-left-split .mod-top .workspace-tab-header-container:before, .labeled-nav.mod-macos.is-hidden-frameless:not(.is-fullscreen) .mod-left-split .mod-top .workspace-tab-header-container:before {
   -webkit-app-region: drag;
@@ -8240,7 +8268,7 @@ body.theme-dark.explorer-icon .is-active .nav-file-tag {
 }
 
 body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-file {
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8'/></g></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/><path d='M14 2v5a1 1 0 0 0 1 1h5M10 9H8m8 4H8m8 4H8'/></g></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
 }
@@ -8248,7 +8276,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-
   display: none;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .menu.mod-tab-list .lucide-file-text {
-  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z'/></svg>") no-repeat;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 5v16m8.001-2A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2a5 5 0 0 1 4-2z'/></svg>") no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
 }
@@ -8310,9 +8338,6 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-folder .collapse-icon.
   background-color: currentColor;
   color: var(--folder-color);
 }
-body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title {
-  padding-inline-end: 0;
-}
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title::before {
   content: "";
   position: absolute;
@@ -8320,7 +8345,7 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title::before {
   flex-shrink: 0;
   translate: calc(var(--size-2-1) - var(--size-4-5)) -50%;
   top: 50%;
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8'/></g></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/><path d='M14 2v5a1 1 0 0 0 1 1h5M10 9H8m8 4H8m8 4H8'/></g></svg>");
   -webkit-mask: var(--file-icon) no-repeat;
   -webkit-mask-size: 100% 100%;
   background-color: currentColor;
@@ -8329,52 +8354,55 @@ body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title::before {
   height: var(--size-4-4);
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=pdf])::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 7v14m-9-3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4a4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3a3 3 0 0 0-3-3z'/></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 5v16m8.001-2A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2a5 5 0 0 1 4-2z'/></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zm6-5h.01'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=png], [data-path$=".svg"], [data-path$=".jpeg"], [data-path$=".jpg"], [data-path$=".bmp"], [data-path$=".gif"], [data-path$=".webp"], [data-path$=".tiff"])::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><rect width='18' height='18' x='3' y='3' rx='2' ry='2'/><circle cx='9' cy='9' r='2'/><path d='m21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zm6-5h.01'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=mp3], [data-path$=".flac"], [data-path$=".wav"], [data-path$=".ape"], [data-path$=".alac"], [data-path$=".aac"], [data-path$=".m4a"])::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M9 18V5l12-2v13M9 9l12-2'/><circle cx='6' cy='18' r='3'/><circle cx='18' cy='16' r='3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zm6-5h.01'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=mkv], [data-path$=".mp4"], [data-path$=".flv"], [data-path$=".webm"], [data-path$=".avi"], [data-path$=".mov"])::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><rect width='18' height='18' x='3' y='3' rx='2'/><path d='M7 3v18M3 7.5h4M3 12h18M3 16.5h4M17 3v18m0-13.5h4m-4 9h4'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zm6-5h.01'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=canvas])::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 22a1 1 0 0 1 0-20a10 9 0 0 1 10 9a5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z'/><circle cx='13.5' cy='6.5' r='.5' fill='currentColor'/><circle cx='17.5' cy='10.5' r='.5' fill='currentColor'/><circle cx='6.5' cy='12.5' r='.5' fill='currentColor'/><circle cx='8.5' cy='7.5' r='.5' fill='currentColor'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zm6-5h.01'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=base])::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><ellipse cx='12' cy='5' rx='9' ry='3'/><path d='M3 5v14a9 3 0 0 0 18 0V5'/><path d='M3 12a9 3 0 0 0 18 0'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zm6-5h.01'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$="excalidraw.md"], [data-path$=".excalidraw"])::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497zM15 5l4 4'/></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zm6-5h.01'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title:is([data-path$=".smm.md"])::before {
   --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1026 1024'><path fill='currentColor' d='M981.333 473.173h-417.28a42.667 42.667 0 0 0 0 85.334h417.28a42.667 42.667 0 0 0 0-85.334m0 365.014h-417.28a42.667 42.667 0 0 0 0 85.333h417.28a42.667 42.667 0 0 0 0-85.333m-417.28-644.694h417.28a42.667 42.667 0 0 0 0-85.333h-417.28a42.667 42.667 0 0 0 0 85.333M398.293 515.84a42.667 42.667 0 0 0-42.666-42.667h-89.174a527 527 0 0 0 27.52-117.12c13.654-88.96 26.24-149.333 75.094-164.906a42.667 42.667 0 1 0-27.094-80.854c-101.76 33.92-118.826 144.214-132.48 232.747-15.146 99.2-25.813 130.133-62.506 130.133H42.667a42.667 42.667 0 0 0 0 85.334h104.32c36.693 0 47.36 30.933 62.506 130.133 13.654 88.533 30.72 198.613 132.48 232.747a42.7 42.7 0 0 0 13.654 2.133 42.667 42.667 0 0 0 13.44-83.2c-48.854-16.213-61.44-75.733-75.094-164.693a527 527 0 0 0-27.52-117.12h89.174a42.667 42.667 0 0 0 42.666-42.667'/></svg> ");
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title.is-unsupported::before {
-  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M12 17h.01M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
+  --file-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zm6-5h.01'/><path d='M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3'/></g></svg>");
+}
+body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title {
+  padding-inline-end: 0;
 }
 body:is(:not(.css-settings-manager), .explorer-icon) .nav-file-title .nav-file-tag {
   margin-right: var(--size-2-3);
@@ -8467,8 +8495,8 @@ body.explorer-folder-bold .nav-folder-title {
   --scrollbar-thumb-bg: var(--interactive-hover);
   --scrollbar-active-thumb-bg: var(--interactive-accent);
   --toggle-s-width: 42px;
-  --font-interface-theme: var(--setting-mobile-font-interface, "");
-  --font-text-theme: var(--setting-mobile-font-text, "");
+  --font-interface-theme: var(--setting-mobile-font-interface, '');
+  --font-text-theme: var(--setting-mobile-font-text, '');
   --font-monospace-theme: var(--setting-mobile-font-monospace, maplemono);
 }
 .is-mobile .modal-close-button::before {
