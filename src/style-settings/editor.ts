@@ -716,14 +716,10 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
       },
       { enable: true },
     )
-    .addClassToggle(
-      'image-zoom',
-      {
-        title: { en: 'Click to Zoom Image', zh: '鼠标按下时放大图片' },
-        desc: descReference('https://github.com/aaaaalexis/obsidian-cupertino'),
-      },
-      { enable: true },
-    )
+    .addClassToggle('image-zoom', {
+      title: { en: 'Click to Zoom Image', zh: '鼠标按下时放大图片' },
+      desc: descReference('https://github.com/aaaaalexis/obsidian-cupertino'),
+    })
     .addClassToggle(
       'image-dark-hover',
       {
