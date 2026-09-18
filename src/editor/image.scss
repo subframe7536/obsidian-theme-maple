@@ -23,26 +23,43 @@ img {
   // centers image and image caption
   .image-embed[alt] {
     padding: var(--size-4-1) 0;
-
-    &::after {
-      display: block;
-      text-align: center;
+    &:not(
+      [alt$='.png'],
+      [alt$='.jpg'],
+      [alt$='.jpeg'],
+      [alt$='.svg'],
+      [alt$='.webp'],
+      [alt$='.gif'],
+      [alt$='.tiff'],
+      [alt$='.bmp'],
+      [alt$='.tiff']
+    ) {
+      --content: attr(alt);
     }
 
-    &:not(
-        [alt$='.png'],
-        [alt$='.jpg'],
-        [alt$='.jpeg'],
-        [alt$='.svg'],
-        [alt$='.webp'],
-        [alt$='.gif'],
-        [alt$='.tiff'],
-        [alt$='.bmp'],
-        [alt$='.tiff']
-      )::after {
-      content: attr(alt);
+    &:not(:has(.image-wrapper))::after {
+      content: var(--content);
+      display: block;
+      text-align: center;
       font-size: var(--font-smaller);
       color: var(--text-faint);
+    }
+
+    .image-wrapper {
+      display: flex;
+      flex-direction: column-reverse;
+      &::before {
+        height: var(--size-4-5);
+        line-height: var(--size-4-5);
+        display: block;
+        text-align: center;
+        content: var(--content);
+        font-size: var(--font-smaller);
+        color: var(--text-faint);
+      }
+      .image-resize-corner {
+        transform: translateY(calc(-1 * var(--size-4-5)));
+      }
     }
   }
 
