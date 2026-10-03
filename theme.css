@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.11 For Obsidian */
+/* Maple Theme v1.5.12 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.11
+      default: Maple 1.5.12
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -7339,10 +7339,10 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.11");
+  content: var(--setting-modal-header-title, "Maple 1.5.12");
   position: absolute;
   left: var(--size-4-4);
-  top: calc(var(--modal-header-height) / 2);
+  top: calc(var(--modal-header-height) * 2 / 3);
   translate: 0 -50%;
   font-size: 18px;
   font-weight: 550;
@@ -7479,50 +7479,23 @@ button[disabled=true] {
   --flair-color: var(--text-accent);
 }
 
-body:not(.is-phone) .modal-container .is-loading {
-  position: initial;
-}
-body:not(.is-phone) .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-sidebar .setting-item:first-child {
-  max-width: var(--modal-community-sidebar-width);
-  margin-bottom: var(--size-4-2);
-}
-body:not(.is-phone) .modal-container :is(.mod-community-plugin, .mod-community-theme) .modal-header {
-  display: inline-block;
-  position: absolute;
-  top: var(--size-4-3);
-  inset-inline-start: var(--size-4-4);
-}
-body:not(.is-phone) .modal-container .community-item {
-  --interactive-accent: var(--accent-active-bg);
-  transition: border-color var(--animation);
-}
-body:not(.is-phone) .modal-container .modal-sidebar:not(:has(+ .community-modal-details)) .community-modal-controls {
+body:not(.is-phone) .mod-community-modal .community-modal-controls {
   display: flex;
-  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-items: center;
   align-items: center;
-  justify-content: flex-start;
-  height: calc(var(--font-ui-small) + var(--size-4-3) * 2);
-  padding-inline-end: var(--size-4-9);
+  gap: var(--size-4-1);
 }
-body:not(.is-phone) .modal-container .community-modal-search-summary {
-  display: none;
+body:not(.is-phone) .mod-community-modal .community-modal-search {
+  max-width: var(--modal-community-sidebar-width);
+  margin: 0;
 }
-body:not(.is-phone) .modal-container .community-modal-controls button.clickable-icon {
-  padding: var(--size-2-1) var(--size-2-2);
-  position: absolute;
-  margin-inline-end: var(--size-4-1);
+body:not(.is-phone) .mod-community-modal .setting-item.mod-toggle {
+  align-items: center;
 }
-body:not(.is-phone) .modal-container .community-modal-controls .search-input-container .search-input-clear-button {
-  right: calc(var(--size-4-6) + var(--size-2-1));
-}
-body:not(.is-phone) .modal-container .community-modal-controls .search-input-container input {
-  padding-inline-end: var(--size-4-8);
-  transition: var(--animation);
-  transition-property: border-color, background-color, box-shadow;
-}
-body:not(.is-phone) .modal-container .mod-settings .modal-content .setting-item-heading .setting-item-name {
-  font-weight: 550;
-  font-size: var(--font-ui-medium);
+body:not(.is-phone) .mod-community-modal .community-modal-search-summary {
+  padding-block: 0;
+  width: 100%;
 }
 
 body.enable-group-title .modal-container .mod-settings .modal-content .vertical-tab-header-group {
