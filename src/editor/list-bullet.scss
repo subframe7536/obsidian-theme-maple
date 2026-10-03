@@ -45,19 +45,19 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
       )
       ~ .HyperMD-list-line:has(
         ~ .HyperMD-list-line-#{$next-level}#{$action}#{if(
-            $levels-down-for-next != (),
-            ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$levels-down-for-next})#{$action}',
-            ''
-          )}
+          $levels-down-for-next != (),
+          ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$levels-down-for-next})#{$action}',
+          ''
+        )}
       ),
     .HyperMD-list-line-#{$next-level}:not(
         :has(~ .HyperMD-list-line-#{$next-level} ~ .HyperMD-list-line#{$action})
       ):is(
         #{$action}#{if(
-            $levels-for-target != (),
-            ', :has(~ :is(#{$levels-for-target})#{$action})',
-            ''
-          )}
+          $levels-for-target != (),
+          ', :has(~ :is(#{$levels-for-target})#{$action})',
+          ''
+        )}
       )
       > .cm-hmd-list-indent {
       &::after {
@@ -107,10 +107,10 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
       )#{$exclude-selector}
       ~ .HyperMD-list-line:has(
         ~ .HyperMD-list-line-#{$next-level}#{$action}#{if(
-            $levels-down-for-next != (),
-            ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$levels-down-for-next})#{$action}',
-            ''
-          )}
+          $levels-down-for-next != (),
+          ', ~ .HyperMD-list-line-#{$next-level} ~ :is(#{$levels-down-for-next})#{$action}',
+          ''
+        )}
       ) {
       &::after {
         content: '';
@@ -133,10 +133,10 @@ $exclude-selector: ':not(.HyperMD-task-line):not(:has(.cm-formatting-list-ol))';
         :has(~ .HyperMD-list-line-#{$current-level} ~ .HyperMD-list-line#{$action})
       )#{$exclude-selector}:is(
         #{$action}#{if(
-            $levels-for-target != (),
-            ', :has(~ :is(#{$levels-for-target})#{$action})',
-            ''
-          )}
+          $levels-for-target != (),
+          ', :has(~ :is(#{$levels-for-target})#{$action})',
+          ''
+        )}
       ) {
       & > .cm-hmd-list-indent::after {
         content: '';

@@ -5,31 +5,23 @@
   "author": "subframe7536",
   "type": "module",
   "scripts": {
-    "dev": "nub compile.ts src/dev.scss",
-    "build": "nub compile.ts --build",
-    "test": "nub compile.ts --test src/snippets/test.scss",
+    "dev": "node compile.ts src/dev.scss",
+    "build": "node compile.ts --build",
+    "test": "node compile.ts --test src/snippets/test.scss",
     "qa": "oxlint --fix && oxfmt",
-    "release": "bumpp -x \"nub run build\" --all"
+    "release": "bumpp -x \"pnpm run build\" --all"
   },
   "devDependencies": {
     "@iconify-json/bi": "^1.2.7",
     "@iconify-json/lucide": "^1.2.129",
     "@iconify-json/tabler": "^1.2.38",
-    "@subf/config": "^0.4.0",
+    "@subf/config": "^0.5.0",
     "@types/node": "^24",
     "bumpp": "^11.1.0",
-    "chokidar": "*",
-    "oxfmt": "^0.66.0",
-    "oxlint": "^1.81.0",
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0",
     "sass": "^1.104.1",
-    "typescript": "^7.0.2",
-    "yaml": "*"
+    "typescript": "^7.0.2"
   },
-  "devEngines": {
-    "packageManager": {
-      "name": "nub",
-      "version": "^0.9.2",
-      "onFail": "ignore"
-    }
-  }
+  "packageManager": "pnpm@12.6.0"
 }

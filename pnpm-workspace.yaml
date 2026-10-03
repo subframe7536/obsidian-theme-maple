@@ -1,0 +1,10 @@
+publicHoistPattern:
+  - '*oxlint*'
+  - chokidar
+  - yaml
+
+minimumReleaseAgeExclude:
+  - '@subf/*'
+
+allowBuilds:
+  '@parcel/watcher': true

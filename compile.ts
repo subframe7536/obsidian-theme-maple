@@ -104,7 +104,7 @@ const execFileAsync = promisify(execFile)
 async function dev(src: string, out: string) {
   try {
     const scriptPath = join(process.cwd(), 'src/style-settings/index.ts')
-    const { stdout: latestSettings } = await execFileAsync('nub', [scriptPath])
+    const { stdout: latestSettings } = await execFileAsync('node', [scriptPath])
 
     compileCss(out, src, latestSettings)
   } catch (err) {

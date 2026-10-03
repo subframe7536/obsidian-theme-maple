@@ -1,16 +1,12 @@
 @use '../utils.scss' as *;
 
 .external-link {
-  background-image:
-    linear-gradient(transparent, transparent),
-    #{icon('arrow-up-right', '#222')};
+  background-image: linear-gradient(transparent, transparent), #{icon('arrow-up-right', '#222')};
   background-size: var(--font-text-size);
   padding-inline-end: var(--size-4-4);
 }
 .theme-dark .external-link {
-  background-image:
-    linear-gradient(transparent, transparent),
-    #{icon('arrow-up-right', '#ddd')};
+  background-image: linear-gradient(transparent, transparent), #{icon('arrow-up-right', '#ddd')};
 }
 body {
   --link-color-rgb: var(--setting-link-internal-color, var(--color-cyan-rgb));
