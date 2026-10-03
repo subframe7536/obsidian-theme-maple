@@ -231,7 +231,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) {
         content: var(--setting-modal-header-title, version());
         position: absolute;
         left: var(--size-4-4);
-        top: calc(var(--modal-header-height) / 2);
+        top: calc(var(--modal-header-height) * 2 / 3);
         translate: 0 -50%;
         font-size: 18px;
         font-weight: 550;
@@ -396,68 +396,24 @@ button[disabled='true'] {
 }
 
 // community resource panel optimization
-body:not(.is-phone) .modal-container {
-  .is-loading {
-    position: initial;
-  }
-
-  :is(.mod-community-plugin, .mod-community-theme) {
-    .modal-sidebar .setting-item:first-child {
-      max-width: var(--modal-community-sidebar-width);
-      margin-bottom: var(--size-4-2);
-    }
-    .modal-header {
-      display: inline-block;
-      position: absolute;
-      top: var(--size-4-3);
-      inset-inline-start: var(--size-4-4);
-    }
-  }
-
-  .community-item {
-    --interactive-accent: var(--accent-active-bg);
-    transition: border-color var(--animation);
-  }
-
-  .modal-sidebar:not(:has(+ .community-modal-details)) {
-    .community-modal-controls {
-      display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
-      justify-content: flex-start;
-      height: calc(var(--font-ui-small) + var(--size-4-3) * 2);
-      padding-inline-end: var(--size-4-9);
-    }
-  }
-
-  .community-modal-search-summary {
-    display: none;
-  }
-
+body:not(.is-phone) .mod-community-modal {
   .community-modal-controls {
-    button.clickable-icon {
-      padding: var(--size-2-1) var(--size-2-2);
-      position: absolute;
-      margin-inline-end: var(--size-4-1);
-    }
-
-    .search-input-container {
-      .search-input-clear-button {
-        right: calc(var(--size-4-6) + var(--size-2-1));
-      }
-      input {
-        padding-inline-end: var(--size-4-8);
-        transition: var(--animation);
-        transition-property: border-color, background-color, box-shadow;
-      }
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: center;
+    gap: var(--size-4-1);
   }
-
-  .mod-settings .modal-content {
-    .setting-item-heading .setting-item-name {
-      font-weight: 550;
-      font-size: var(--font-ui-medium);
-    }
+  .community-modal-search {
+    max-width: var(--modal-community-sidebar-width);
+    margin: 0;
+  }
+  .setting-item.mod-toggle {
+    align-items: center;
+  }
+  .community-modal-search-summary {
+    padding-block: 0;
+    width: 100%;
   }
 }
 
