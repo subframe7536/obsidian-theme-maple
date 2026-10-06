@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.12 For Obsidian */
+/* Maple Theme v1.5.13 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -452,7 +452,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.12
+      default: Maple 1.5.13
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -866,24 +866,6 @@ settings:
       opacity: true
       default-light: "#"
       default-dark: "#"
-    - id: setting-text-highlight-radius
-      type: variable-number-slider
-      title: Highlight Background Radius
-      title.zh: 高亮背景圆角大小
-      description: Value in pixels (px)
-      description.zh: 单位：像素（px）
-      default: 4
-      min: 0
-      max: 8
-      step: 1
-      format: px
-    - id: text-highlight-all-round
-      type: class-toggle
-      title: Maintain Radius When Wrapping
-      title.zh: 换行时保持圆角
-      description: Except during editing
-      description.zh: 编辑时除外
-      default: true
     - id: title-bold
       title: Bold
       title.zh: 粗体
@@ -3435,6 +3417,7 @@ video:active {
   border-color: var(--background-modifier-border-focus);
 }
 
+/* #endregion media */
 /* #region highlight */
 mark {
   color: var(--text-normal);
@@ -3448,37 +3431,10 @@ mark {
   --text-faint: #aaa;
 }
 
-body {
-  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(var(--color-yellow-rgb), 0.3));
-}
-
-.text-highlight-all-round :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
-  -webkit-box-decoration-break: clone;
-}
-
 .markdown-source-view span.cm-highlight,
 .markdown-rendered mark {
-  border-radius: var(--setting-text-highlight-radius, 4);
   color: var(--setting-text-highlight-color);
-  background: var(--text-highlight-bg);
-}
-
-.markdown-source-view :is(:not(.cm-highlight) + .cm-formatting-highlight, .cm-formatting-highlight:first-child) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-right: 0;
-  padding-right: 0;
-}
-.markdown-source-view .cm-formatting-highlight + .cm-highlight {
-  border-radius: 0;
-  padding-inline: 0;
-  margin: 0;
-}
-.markdown-source-view .cm-highlight + .cm-formatting-highlight {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin-left: 0;
-  padding-left: 0;
+  background: var(--setting-text-highlight-bg, var(--highlight-background));
 }
 
 /* #endregion highlight */
@@ -6424,7 +6380,7 @@ img {
 .image-alt .image-embed[alt] .image-wrapper .image-resize-corner {
   transform: translateY(calc(-1 * var(--size-4-5)));
 }
-.image-alt .view-content img:not(.emoji) {
+.image-alt .view-content img:not(.emoji):not(.highlight-swatch) {
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -7339,7 +7295,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.12");
+  content: var(--setting-modal-header-title, "Maple 1.5.13");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) * 2 / 3);
