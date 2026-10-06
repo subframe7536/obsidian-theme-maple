@@ -323,28 +323,6 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
             title: { en: 'Highlight Text Color', zh: '文本高亮文字色' },
           },
           'hex',
-        )
-        .addVarNumSlider(
-          'setting-text-highlight-radius',
-          {
-            title: {
-              en: 'Highlight Background Radius',
-              zh: '高亮背景圆角大小',
-            },
-            desc: { en: 'Value in pixels (px)', zh: '单位：像素（px）' },
-          },
-          { default: 4, min: 0, max: 8, step: 1, format: 'px' },
-        )
-        .addClassToggle(
-          'text-highlight-all-round',
-          {
-            title: {
-              en: 'Maintain Radius When Wrapping',
-              zh: '换行时保持圆角',
-            },
-            desc: { en: 'Except during editing', zh: '编辑时除外' },
-          },
-          { enable: true },
         ),
       Settings.ofLevel(2, { title: { en: 'Bold', zh: '粗体' } })
         .addVarThemedColor(

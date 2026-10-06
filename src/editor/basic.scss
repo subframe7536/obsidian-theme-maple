@@ -253,7 +253,7 @@ video {
   }
 }
 
-// #endregion media
+/* #endregion media */
 
 /* #region highlight */
 
@@ -269,42 +269,10 @@ mark {
   --text-faint: #aaa;
 }
 
-body {
-  --text-highlight-bg: var(--setting-text-highlight-bg, rgba(var(--color-yellow-rgb), 0.3));
-}
-
-.text-highlight-all-round :is(.markdown-source-view .cm-highlight, .markdown-rendered mark) {
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: ignore;
-}
-
 .markdown-source-view span.cm-highlight,
 .markdown-rendered mark {
-  border-radius: var(--setting-text-highlight-radius, 4);
   color: var(--setting-text-highlight-color);
-  background: var(--text-highlight-bg);
-}
-
-.markdown-source-view {
-  :is(:not(.cm-highlight) + .cm-formatting-highlight, .cm-formatting-highlight:first-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-right: 0;
-    padding-right: 0;
-  }
-
-  .cm-formatting-highlight + .cm-highlight {
-    border-radius: 0;
-    padding-inline: 0;
-    margin: 0;
-  }
-
-  .cm-highlight + .cm-formatting-highlight {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    margin-left: 0;
-    padding-left: 0;
-  }
+  background: var(--setting-text-highlight-bg, var(--highlight-background));
 }
 
 /* #endregion highlight */

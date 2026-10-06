@@ -64,7 +64,7 @@ img {
   }
 
   // .emoji class are Twitter Images for Emojis from Emoji Toolbar
-  .view-content img:not(.emoji) {
+  .view-content img:not(.emoji):not(.highlight-swatch) {
     display: block;
     margin-right: auto;
     margin-left: auto;
