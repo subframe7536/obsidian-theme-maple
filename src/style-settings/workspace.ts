@@ -34,6 +34,9 @@ export default Settings.create('maple-workspace', 'Maple Workspace').children([
     .addClassToggle('explorer-folder-bold', {
       title: { en: 'Bold Folder Titles', zh: '加粗文件夹标题' },
     })
+    .addClassToggle('explorer-center-action-button', {
+      title: { en: 'Centered Action Buttons', zh: '操作按钮居中' },
+    })
     .addVarThemedColor(
       'setting-color-dirs',
       { title: { en: 'Directory Color', zh: '文件夹颜色' } },

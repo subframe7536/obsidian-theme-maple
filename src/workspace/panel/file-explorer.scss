@@ -186,3 +186,11 @@ body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content)
 body.explorer-folder-bold .nav-folder-title {
   font-weight: 600;
 }
+
+body.explorer-center-action-button {
+  @include use-panel('file-explorer') {
+    .nav-buttons-container {
+      justify-content: center;
+    }
+  }
+}
