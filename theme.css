@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.13 For Obsidian */
+/* Maple Theme v1.5.14 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -339,6 +339,10 @@ settings:
       type: class-toggle
       title: Bold Folder Titles
       title.zh: 加粗文件夹标题
+    - id: explorer-center-action-button
+      type: class-toggle
+      title: Centered Action Buttons
+      title.zh: 操作按钮居中
     - id: setting-color-dirs
       type: variable-themed-color
       title: Directory Color
@@ -452,7 +456,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.13
+      default: Maple 1.5.14
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -851,6 +855,10 @@ settings:
       type: heading
       level: 2
       collapsed: true
+    - id: text-highlight-enable
+      type: class-toggle
+      title: Enable Custom Highlight Color
+      title.zh: 启用自定义高亮颜色
     - id: setting-text-highlight-bg
       type: variable-text
       title: Highlight Text Background Color
@@ -2739,6 +2747,7 @@ body:not(.outline-enable) .setting-item:is([data-id=setting-outline-width],
 [data-id=setting-outline-dot-color]),
 body.color-use-default .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]),
 body.color-use-minimal .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]),
+body:not(.text-highlight-enable) .setting-item:is([data-id=setting-text-highlight-bg], [data-id=setting-text-highlight-color]),
 body:not(.color-active-custom-light) .setting-item:is([data-id=setting-color-active-custom-light],
 [data-id=setting-color-inactive-custom-light]),
 body:not(.color-modify-bg-light) .setting-item:is([data-id=setting-bg-primary-light-hsl],
@@ -2819,6 +2828,7 @@ body:not(.outline-enable) .setting-item:is([data-id=setting-outline-width],
 [data-id=setting-outline-dot-color]) + .style-settings-container,
 body.color-use-default .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]) + .style-settings-container,
 body.color-use-minimal .setting-item:is([data-id=title-light-mode], [data-id=title-dark-mode]) + .style-settings-container,
+body:not(.text-highlight-enable) .setting-item:is([data-id=setting-text-highlight-bg], [data-id=setting-text-highlight-color]) + .style-settings-container,
 body:not(.color-active-custom-light) .setting-item:is([data-id=setting-color-active-custom-light],
 [data-id=setting-color-inactive-custom-light]) + .style-settings-container,
 body:not(.color-modify-bg-light) .setting-item:is([data-id=setting-bg-primary-light-hsl],
@@ -3431,10 +3441,9 @@ mark {
   --text-faint: #aaa;
 }
 
-.markdown-source-view span.cm-highlight,
-.markdown-rendered mark {
-  color: var(--setting-text-highlight-color);
-  background: var(--setting-text-highlight-bg, var(--highlight-background));
+.text-highlight-enable :is(.markdown-source-view span.cm-highlight, .markdown-rendered mark) {
+  color: var(--setting-text-highlight-color, inherit);
+  background: var(--setting-text-highlight-bg, rgba(255, 208, 0, 0.4));
 }
 
 /* #endregion highlight */
@@ -7295,7 +7304,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.13");
+  content: var(--setting-modal-header-title, "Maple 1.5.14");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) * 2 / 3);
@@ -8363,6 +8372,10 @@ body.explorer-title-wrap :is(.nav-file-title-content, .nav-folder-title-content)
 
 body.explorer-folder-bold .nav-folder-title {
   font-weight: 600;
+}
+
+body.explorer-center-action-button .workspace-leaf-content[data-type=file-explorer] .nav-buttons-container {
+  justify-content: center;
 }
 
 /* #endregion file-explorer */
