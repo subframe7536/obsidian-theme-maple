@@ -306,6 +306,9 @@ export default Settings.create('maple-editor', 'Maple Editor').children([
     )
     .children([
       Settings.ofLevel(2, { title: { en: 'Highlight', zh: '高亮' } })
+        .addClassToggle('text-highlight-enable', {
+          title: { en: 'Enable Custom Highlight Color', zh: '启用自定义高亮颜色' },
+        })
         .addVarText(
           'setting-text-highlight-bg',
           {

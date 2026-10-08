@@ -272,6 +272,8 @@ body:not(.outline-enable)
   ),
 body.color-use-default .setting-item:is([data-id='title-light-mode'], [data-id='title-dark-mode']),
 body.color-use-minimal .setting-item:is([data-id='title-light-mode'], [data-id='title-dark-mode']),
+body:not(.text-highlight-enable)
+  .setting-item:is([data-id='setting-text-highlight-bg'], [data-id='setting-text-highlight-color']),
 body:not(.color-active-custom-light)
   .setting-item:is(
     [data-id='setting-color-active-custom-light'],

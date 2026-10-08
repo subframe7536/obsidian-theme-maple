@@ -269,10 +269,9 @@ mark {
   --text-faint: #aaa;
 }
 
-.markdown-source-view span.cm-highlight,
-.markdown-rendered mark {
-  color: var(--setting-text-highlight-color);
-  background: var(--setting-text-highlight-bg, var(--highlight-background));
+.text-highlight-enable :is(.markdown-source-view span.cm-highlight, .markdown-rendered mark) {
+  color: var(--setting-text-highlight-color, inherit);
+  background: var(--setting-text-highlight-bg, rgba(255, 208, 0, 0.4));
 }
 
 /* #endregion highlight */
