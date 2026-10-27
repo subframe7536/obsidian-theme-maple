@@ -232,7 +232,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) {
         position: absolute;
         left: var(--size-4-4);
         top: calc(var(--modal-header-height) * 2 / 3);
-        translate: 0 -50%;
+        translate: 0 -75%;
         font-size: 18px;
         font-weight: 550;
         color: var(--setting-color-logo, var(--text-accent));
@@ -244,7 +244,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) {
     .mod-settings {
       &::before {
         left: 50%;
-        translate: -50% -50%;
+        translate: -50% -75%;
       }
 
       @container (max-width:750px) {
@@ -262,7 +262,6 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) {
       background-color: hsl(var(--background-secondary-hsl));
       border-top: 1px solid var(--divider-color);
       margin-top: var(--modal-header-height);
-      padding-top: 0;
     }
 
     .vertical-tab-content-container {
@@ -293,6 +292,13 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) {
         font-size: 20px;
       }
       .modal-content {
+        .vertical-tab-header .setting-search-container {
+          position: absolute;
+          padding: 0;
+          top: var(--size-4-3);
+          left: var(--size-4-3);
+        }
+
         :is(
             .plugin-list-plugins,
             .vertical-tab-content:is(

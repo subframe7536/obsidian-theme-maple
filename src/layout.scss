@@ -224,24 +224,25 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) {
     }
   }
 
-  &.modal-setting-header {
-    &.modal-setting-header-search {
-      .installed-plugins-container {
-        .setting-group-search {
-          padding: 0;
-        }
-        .setting-items {
-          padding-top: var(--size-4-6);
-          border-start-start-radius: var(--setting-items-radius);
-          border-start-end-radius: var(--setting-items-radius);
-        }
-      }
+  &.modal-setting-header.modal-setting-header-search {
+    .vertical-tab-header {
+      padding-top: var(--modal-header-height);
+    }
+    .installed-plugins-container {
       .setting-group-search {
-        padding: 0 !important;
-        & + .setting-items {
-          border-start-start-radius: var(--setting-items-radius);
-          border-start-end-radius: var(--setting-items-radius);
-        }
+        padding: 0;
+      }
+      .setting-items {
+        padding-top: var(--size-4-6);
+        border-start-start-radius: var(--setting-items-radius);
+        border-start-end-radius: var(--setting-items-radius);
+      }
+    }
+    .setting-group-search {
+      padding: 0 !important;
+      & + .setting-items {
+        border-start-start-radius: var(--setting-items-radius);
+        border-start-end-radius: var(--setting-items-radius);
       }
     }
   }
