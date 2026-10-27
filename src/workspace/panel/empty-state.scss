@@ -16,28 +16,6 @@
     margin-inline-start: 50%;
     translate: -50% -25%;
   }
-  & > ::before {
-    content: '';
-    display: inline-block;
-    margin-inline-end: var(--size-4-3);
-    translate: 0 var(--size-4-1);
-    @include use-icon(--empty-icon, var(--text-accent), var(--size-4-5));
-  }
-  :nth-child(1)::before {
-    --empty-icon: #{icon('square-pen')};
-  }
-  :nth-child(2)::before {
-    --empty-icon: #{icon('forward')};
-  }
-  :nth-child(3)::before {
-    --empty-icon: #{icon('search')};
-  }
-  :nth-child(4)::before {
-    --empty-icon: #{icon('globe')};
-  }
-  .mod-close::before {
-    --empty-icon: #{icon('x')};
-  }
 
   .empty-state-action {
     width: 100%;
