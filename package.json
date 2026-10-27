@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "node compile.ts src/dev.scss",
-    "build": "node compile.ts --build",
+    "build": "node --env-file=.env.local compile.ts --build",
     "test": "node compile.ts --test src/snippets/test.scss",
     "qa": "oxlint --fix && oxfmt",
     "release": "bumpp -x \"pnpm run build\" --all"
