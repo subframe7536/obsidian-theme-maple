@@ -6,7 +6,7 @@ permissions:
 on:
   push:
     tags:
-      - 'v*'
+      - '*.*.*'
 
 jobs:
   release:
@@ -20,6 +20,19 @@ jobs:
         with:
           node-version: lts/*
 
+      - name: Verify tag matches manifest version
+        run: |
+          version=$(node -p "require('./manifest.json').version")
+          if [ "$GITHUB_REF_NAME" != "$version" ]; then
+            echo "Tag '$GITHUB_REF_NAME' does not match manifest.json version '$version'"
+            exit 1
+          fi
+
       - run: npx changelogithub
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Upload theme assets
+        run: gh release upload "$GITHUB_REF_NAME" theme.css manifest.json --clobber
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
