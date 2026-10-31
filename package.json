@@ -1,12 +1,13 @@
 {
   "name": "maple",
-  "version": "1.5.15",
+  "version": "1.5.16",
   "license": "MIT",
   "author": "subframe7536",
   "type": "module",
   "scripts": {
     "dev": "node compile.ts src/dev.scss",
-    "build": "node --env-file=.env.local compile.ts --build",
+    "build": "node compile.ts --build",
+    "build:local": "node --env-file=.env.local compile.ts --build",
     "test": "node compile.ts --test src/snippets/test.scss",
     "qa": "oxlint --fix && oxfmt",
     "release": "bumpp -x \"pnpm run build\" --all --tag %s"
