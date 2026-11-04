@@ -15,6 +15,14 @@
     --metadata-background: var(--background-primary-alt);
     --metadata-border-width: 1px;
     --metadata-border-radius: var(--radius-m);
+
+    .metadata-content {
+      transform: none;
+      width: 100%;
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+    }
   }
 
   .prop-hide-preview & {
