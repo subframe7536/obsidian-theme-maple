@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.16 For Obsidian */
+/* Maple Theme v1.5.17 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -456,7 +456,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.16
+      default: Maple 1.5.17
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -6576,6 +6576,11 @@ body.canvas-center .canvas-node-content.markdown-embed > .markdown-embed-content
   --metadata-border-width: 1px;
   --metadata-border-radius: var(--radius-m);
 }
+.prop-outline .metadata-container .metadata-content {
+  transform: none;
+  width: 100%;
+  padding: 0;
+}
 .prop-hide-preview .metadata-container {
   --metadata-display-reading: none;
 }
@@ -7307,7 +7312,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.16");
+  content: var(--setting-modal-header-title, "Maple 1.5.17");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) * 2 / 3);
