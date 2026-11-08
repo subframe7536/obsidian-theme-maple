@@ -21,10 +21,6 @@ $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
     font-family: var(--font-monospace);
   }
 
-  .HyperMD-list-line-nobullet > .cm-hmd-list-indent {
-    margin-inline-end: var(--size-4-1);
-  }
-
   :is(.markdown-source-view, .markdown-preview-view) .task-list-item-checkbox {
     border-width: var(--size-2-1);
   }

@@ -3290,7 +3290,7 @@ body.font-override-editor-font-size .workspace-leaf-content[data-type=markdown] 
 }
 
 body .markdown-source-view .cm-scroller .cm-line:not(.HyperMD-codeblock) {
-  padding-inline: var(--size-4-1);
+  border-inline: var(--size-4-1) solid transparent;
 }
 
 /* #endregion text */
@@ -4672,9 +4672,6 @@ body:is(:not(.css-settings-manager), .list-enable) .cm-formatting-list {
 body:is(:not(.css-settings-manager), .list-enable) .cm-formatting-list,
 body:is(:not(.css-settings-manager), .list-enable) li::marker {
   font-family: var(--font-monospace);
-}
-body:is(:not(.css-settings-manager), .list-enable) .HyperMD-list-line-nobullet > .cm-hmd-list-indent {
-  margin-inline-end: var(--size-4-1);
 }
 body:is(:not(.css-settings-manager), .list-enable) :is(.markdown-source-view, .markdown-preview-view) .task-list-item-checkbox {
   border-width: var(--size-2-1);
