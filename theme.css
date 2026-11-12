@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.18 For Obsidian */
+/* Maple Theme v1.5.19 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -456,7 +456,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.18
+      default: Maple 1.5.19
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -3166,8 +3166,8 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-sidebar {
 body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-setting-nav-bar {
   border-color: transparent;
 }
-body.app-layout-card:not(.is-mobile):not(.color-highlight-only).tab-float .mod-root .workspace-tab-header-container {
-  padding-left: var(--size-2-3);
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only).tab-float .mod-root .workspace-tab-header-container-inner {
+  margin-inline-start: calc(var(--size-4-1) * -1);
 }
 
 /* #endregion layout */
@@ -7309,7 +7309,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.18");
+  content: var(--setting-modal-header-title, "Maple 1.5.19");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) * 2 / 3);
