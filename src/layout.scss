@@ -255,7 +255,7 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) {
     border-color: transparent;
   }
 
-  &.tab-float .mod-root .workspace-tab-header-container {
-    padding-left: var(--size-2-3);
+  &.tab-float .mod-root .workspace-tab-header-container-inner {
+    margin-inline-start: calc(var(--size-4-1) * -1);
   }
 }
