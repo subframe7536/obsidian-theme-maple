@@ -6,6 +6,10 @@ body {
   --menu-border-color: var(--background-modifier-border);
 }
 
+.vertical-tab-nav-item:hover {
+  background-color: var(--nav-item-background-hover);
+}
+
 body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
   background-color: var(--nav-item-background-active) !important;
   & > div {
