@@ -7,6 +7,7 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) {
   --divider-color: transparent;
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);
+  --tab-background-active: var(--bg-editor);
   --tab-active-shadow: none !important;
   --app-layout-spacing: var(--setting-app-layout-spacing, var(--size-2-3));
 
@@ -253,6 +254,10 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) {
 
   .modal-setting-nav-bar {
     border-color: transparent;
+  }
+
+  .mod-root .workspace-tab-header-container-inner {
+    margin-inline-start: calc(var(--size-4-1) * 1);
   }
 
   &.tab-float .mod-root .workspace-tab-header-container-inner {
