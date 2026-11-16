@@ -1,4 +1,4 @@
-/* Maple Theme v1.5.19 For Obsidian */
+/* Maple Theme v1.5.20 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -456,7 +456,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.5.19
+      default: Maple 1.5.20
       quotes: true
     - id: modal-setting-header-title-center
       type: class-toggle
@@ -2973,6 +2973,7 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) {
   --divider-color: transparent;
   --pdf-background: transparent;
   --tab-divider-color: var(--color-base-35);
+  --tab-background-active: var(--bg-editor);
   --tab-active-shadow: none !important;
   --app-layout-spacing: var(--setting-app-layout-spacing, var(--size-2-3));
 }
@@ -3165,6 +3166,9 @@ body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-sidebar {
 }
 body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .modal-setting-nav-bar {
   border-color: transparent;
+}
+body.app-layout-card:not(.is-mobile):not(.color-highlight-only) .mod-root .workspace-tab-header-container-inner {
+  margin-inline-start: calc(var(--size-4-1) * 1);
 }
 body.app-layout-card:not(.is-mobile):not(.color-highlight-only).tab-float .mod-root .workspace-tab-header-container-inner {
   margin-inline-start: calc(var(--size-4-1) * -1);
@@ -7136,6 +7140,10 @@ body {
   --menu-border-color: var(--background-modifier-border);
 }
 
+.vertical-tab-nav-item:hover {
+  background-color: var(--nav-item-background-hover);
+}
+
 body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-active {
   background-color: var(--nav-item-background-active) !important;
 }
@@ -7309,7 +7317,7 @@ body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container
   container-type: inline-size;
 }
 body.modal-setting-header:not(.is-mobile):not(.is-popout-modal) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.5.19");
+  content: var(--setting-modal-header-title, "Maple 1.5.20");
   position: absolute;
   left: var(--size-4-4);
   top: calc(var(--modal-header-height) * 2 / 3);
